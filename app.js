@@ -7,7 +7,15 @@ function generateDayOptions() {
     const daySelect = document.getElementById('daySelect');
     daySelect.innerHTML = ""; 
     
-    for(let i = 1; i <= 50; i++) {
+    // Her seviye için belirttiğiniz dosya limitleri
+    let maxFiles = 50; // Varsayılan
+    if (level === 'a1') maxFiles = 30;
+    else if (level === 'a2') maxFiles = 10;
+    else if (level === 'b1') maxFiles = 50;
+    else if (level === 'b2') maxFiles = 10;
+    else if (level === 'c1') maxFiles = 10;
+    
+    for(let i = 1; i <= maxFiles; i++) {
         const num = i.toString().padStart(2, '0');
         const fileName = `${level}${num}`;
         const opt = document.createElement('option');
@@ -24,23 +32,31 @@ async function loadData() {
     const sceneBanner = document.getElementById('sceneBanner');
     
     content.innerHTML = "<p>Veriler yükleniyor...</p>";
+    sceneBanner.innerHTML = `<div class="banner-title">Yükleniyor...</div>`;
 
     try {
         const filePath = `data/${fileName}.json`;
         const res = await fetch(filePath);
-        if (!res.ok) throw new Error(`Dosya bulunamadı: ${filePath}`);
+        
+        if (!res.ok) {
+            throw new Error(`Dosya bulunamadı (${filePath})`);
+        }
         
         const data = await res.json();
         
         sceneBanner.innerHTML = `
             <div class="banner-level">Seviye: ${data.level || '-'}</div>
             <div class="banner-title">Sahne ${data.scene_id || '-'}: ${data.scene_title || ''}</div>
-            <div class="banner-count">Toplam Kelime: ${data.total_words_in_scene || data.words.length}</div>
+            <div class="banner-count">Toplam Kelime: ${data.total_words_in_scene || (data.words ? data.words.length : 0)}</div>
         `;
+        
+        if (!data.words || data.words.length === 0) {
+            content.innerHTML = "<p style='color: #e67e22; font-weight: bold;'>Bu dosya mevcut ancak içerisinde henüz kelime eklenmemiş.</p>";
+            return;
+        }
         
         content.innerHTML = data.words.map(w => `
             <div class="card">
-                <!-- Kelime Satırı (İngilizce ve Türkçe seslendirmeli) -->
                 <div class="word-row">
                     <div class="word-box">
                         <span class="en-word">${w.word}</span>
@@ -54,7 +70,6 @@ async function loadData() {
                     <button class="sound-btn" onclick="speakText('${w.turkish}', 'tr-TR')" title="Türkçe Seslendir">🔊</button>
                 </div>
 
-                <!-- Örnek Cümleler (İngilizce ve Türkçe seslendirmeli) -->
                 <div class="example">
                     <div class="example-line">
                         <p><strong>EN:</strong> <span class="en-sentence">${w.example_en}</span></p>
@@ -69,17 +84,19 @@ async function loadData() {
                 <div class="related"><strong>İlişkili Fiiller:</strong> ${w.related_verbs ? w.related_verbs.join(', ') : ''}</div>
             </div>
         `).join('');
+
     } catch (e) {
-        sceneBanner.innerHTML = `<h3>Hata Oluştu</h3>`;
-        content.innerHTML = 
-        `<p style='color: #e74c3c; font-weight: bold;'>Dosya yüklenemedi.`;<br><small>${e.message}</small></p>`;
-    }
-    }
-        `<p style='color: #e74c3c; font-weight: bold;'>Lütfen 'data/${fileName}.json' dosyasının sunucuda küçük harfle var olduğundan emin olun.`;
+        sceneBanner.innerHTML = `<div class="banner-title" style="color: #ffcccc;">Dosya Bulunamadı</div>`;
+        content.innerHTML = `
+            <div style="background: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #e74c3c; grid-column: 1 / -1;">
+                <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Seçilen JSON dosyası sunucuda (GitHub'da) mevcut değil veya yüklenmemiş.</p>
+                <p style='color: #555; margin: 0; font-size: 0.9em;'>Aranan dosya yolu: <code>data/${fileName}.json</code></p>
+                <p style='color: #777; margin: 5px 0 0 0; font-size: 0.85em;'>Lütfen dosya adının küçük harfle yazıldığından ve <code>data</code> klasörünün içinde olduğundan emin olun.</p>
+            </div>
+        `;
     }
 }
 
-// Genel Seslendirme Fonksiyonu (Dil koduna göre EN veya TR okur)
 function speakText(text, lang = 'en-US') {
     if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
