@@ -25,6 +25,21 @@ function generateDayOptions() {
     loadData();
 }
 
+// Hikaye içinde geçen kelimeleri otomatik kırmızı yapmak için fonksiyon
+function highlightStoryWords(text, wordsArray) {
+    if (!text || !wordsArray) return text;
+    let highlightedText = text;
+    
+    const sortedWords = [...wordsArray].sort((a, b) => b.word.length - a.word.length);
+
+    sortedWords.forEach(w => {
+        const regex = new RegExp(`\\b(${w.word})\\b`, 'gi');
+        highlightedText = highlightedText.replace(regex, `<span class="highlight-word">$1</span>`);
+    });
+
+    return highlightedText;
+}
+
 async function loadData() {
     const fileName = document.getElementById('daySelect').value;
     const content = document.getElementById('content');
@@ -43,16 +58,23 @@ async function loadData() {
         
         const data = await res.json();
         
-        // Banner ve Hikaye Alanı
+        const processedStoryEn = highlightStoryWords(data.story_en, data.words);
+        
         sceneBanner.innerHTML = `
             <div class="banner-level">Seviye: ${data.level || '-'}</div>
             <div class="banner-title">Sahne ${data.scene_id || '-'}: ${data.scene_title || ''}</div>
             <div class="banner-count">Toplam Kelime: ${data.total_words_in_scene || (data.words ? data.words.length : 0)}</div>
             
             ${data.story_en ? `
-                <div class="story-box">
-                    <p><strong>Hikaye (EN):</strong> ${data.story_en}</p>
-                    <p><strong>Hikaye (TR):</strong> ${data.story_tr}</p>
+                <div class="story-container">
+                    <div class="story-box-en">
+                        <span class="story-title">English Story</span>
+                        <p>${processedStoryEn}</p>
+                    </div>
+                    <div class="story-box-tr">
+                        <span class="story-title">Türkçe Hikaye</span>
+                        <p>${data.story_tr || ''}</p>
+                    </div>
                 </div>
             ` : ''}
         `;
@@ -62,7 +84,6 @@ async function loadData() {
             return;
         }
         
-        // Eski tam tasarım yapısına uygun kelime kartları
         content.innerHTML = data.words.map(w => `
             <div class="card">
                 <div class="word-row">
@@ -81,7 +102,7 @@ async function loadData() {
                 <div class="example">
                     <div class="example-line">
                         <p><strong>EN:</strong> <span class="en-sentence">${w.example_en}</span></p>
-                        <button class="sound-btn" onclick="speakText('${w.example_en}', 'en-US')" title="İngilizce Cümleyi Seslendir">🔊</button>
+                        <button class="sound-btn" onclick="speakText('${w.example_en}', 'en-US')" title="İngilizce Cümley kenarını Seslendir">🔊</button>
                     </div>
                     <div class="example-line">
                         <p><strong>TR:</strong> <span class="tr-sentence">${w.example_tr}</span></p>
