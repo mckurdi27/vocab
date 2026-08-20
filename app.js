@@ -45,6 +45,10 @@ async function loadData() {
     const content = document.getElementById('content');
     const sceneBanner = document.getElementById('sceneBanner');
     
+    // Varsa eski hikaye kapsayıcısını temizle
+    const oldStoryContainer = document.querySelector('.story-container');
+    if (oldStoryContainer) oldStoryContainer.remove();
+
     content.innerHTML = "<p>Veriler yükleniyor...</p>";
     sceneBanner.innerHTML = `<div class="banner-title">Yükleniyor...</div>`;
 
@@ -58,26 +62,32 @@ async function loadData() {
         
         const data = await res.json();
         
-        const processedStoryEn = highlightStoryWords(data.story_en, data.words);
-        
+        // Mavi banner sadece başlık ve sayaç bilgilerini tutuyor
         sceneBanner.innerHTML = `
             <div class="banner-level">Seviye: ${data.level || '-'}</div>
             <div class="banner-title">Sahne ${data.scene_id || '-'}: ${data.scene_title || ''}</div>
             <div class="banner-count">Toplam Kelime: ${data.total_words_in_scene || (data.words ? data.words.length : 0)}</div>
-            
-            ${data.story_en ? `
-                <div class="story-container">
-                    <div class="story-box-en">
-                        <span class="story-title">English Story</span>
-                        <p>${processedStoryEn}</p>
-                    </div>
-                    <div class="story-box-tr">
-                        <span class="story-title">Türkçe Hikaye</span>
-                        <p>${data.story_tr || ''}</p>
-                    </div>
-                </div>
-            ` : ''}
         `;
+        
+        // Hikaye kutuları mavi banner'ın HEMEN ALTINDA yan yana iki kutu olarak ekleniyor
+        if (data.story_en) {
+            const processedStoryEn = highlightStoryWords(data.story_en, data.words);
+            
+            const storyHTML = document.createElement('div');
+            storyHTML.className = 'story-container';
+            storyHTML.innerHTML = `
+                <div class="story-box-en">
+                    <span class="story-title">English Story</span>
+                    <p>${processedStoryEn}</p>
+                </div>
+                <div class="story-box-tr">
+                    <span class="story-title">Türkçe Hikaye</span>
+                    <p>${data.story_tr || ''}</p>
+                </div>
+            `;
+            // Sahne banner'ından hemen sonra yerleştir
+            sceneBanner.insertAdjacentElement('afterend', storyHTML);
+        }
         
         if (!data.words || data.words.length === 0) {
             content.innerHTML = "<p style='color: #e67e22; font-weight: bold;'>Bu dosya mevcut ancak içerisinde henüz kelime eklenmemiş.</p>";
@@ -102,7 +112,7 @@ async function loadData() {
                 <div class="example">
                     <div class="example-line">
                         <p><strong>EN:</strong> <span class="en-sentence">${w.example_en}</span></p>
-                        <button class="sound-btn" onclick="speakText('${w.example_en}', 'en-US')" title="İngilizce Cümley kenarını Seslendir">🔊</button>
+                        <button class="sound-btn" onclick="speakText('${w.example_en}', 'en-US')" title="İngilizce Cümleyi Seslendir">🔊</button>
                     </div>
                     <div class="example-line">
                         <p><strong>TR:</strong> <span class="tr-sentence">${w.example_tr}</span></p>
