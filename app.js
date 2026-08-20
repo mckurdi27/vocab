@@ -7,8 +7,7 @@ function generateDayOptions() {
     const daySelect = document.getElementById('daySelect');
     daySelect.innerHTML = ""; 
     
-    // Her seviye için belirttiğiniz dosya limitleri
-    let maxFiles = 50; // Varsayılan
+    let maxFiles = 50; 
     if (level === 'a1') maxFiles = 31;
     else if (level === 'a2') maxFiles = 11;
     else if (level === 'b1') maxFiles = 51;
@@ -44,10 +43,18 @@ async function loadData() {
         
         const data = await res.json();
         
+        // Sahne bilgileri ve Hikaye Alanı
         sceneBanner.innerHTML = `
             <div class="banner-level">Seviye: ${data.level || '-'}</div>
             <div class="banner-title">Sahne ${data.scene_id || '-'}: ${data.scene_title || ''}</div>
             <div class="banner-count">Toplam Kelime: ${data.total_words_in_scene || (data.words ? data.words.length : 0)}</div>
+            
+            ${data.story_en ? `
+                <div class="story-box" style="margin-top: 15px; background: rgba(255,255,255,0.1); padding: 12px; border-radius: 8px; font-size: 0.95em; line-height: 1.5;">
+                    <p style="margin: 0 0 8px 0;"><strong>Hikaye (EN):</strong> ${data.story_en}</p>
+                    <p style="margin: 0;"><strong>Hikaye (TR):</strong> ${data.story_tr}</p>
+                </div>
+            ` : ''}
         `;
         
         if (!data.words || data.words.length === 0) {
