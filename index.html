@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İngilizce - Türkçe Sözlük ve Kelime Bankası</title>
+    <title>Kelime ve Soru Bankası</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +11,10 @@
     <div class="container">
         <!-- Üst Bilgi ve Seçim Paneli -->
         <header class="header">
-            <h2>Kelime Çalışma Paneli</h2>
+            <div class="title-area">
+                <h2>Kelime Çalışma Paneli</h2>
+                <div id="sceneHeaderInfo" class="scene-header-info">Dosya bekleniyor...</div>
+            </div>
             <div class="selectors">
                 <select id="levelSelect" onchange="generateDayOptions()">
                     <option value="a1">a1 Seviyesi</option>
@@ -20,9 +23,7 @@
                     <option value="b2">b2 Seviyesi</option>
                     <option value="c1">c1 Seviyesi</option>
                 </select>
-                <select id="daySelect" onchange="loadData()">
-                    <!-- Günler otomatik yüklenecek -->
-                </select>
+                <select id="daySelect" onchange="loadData()"></select>
             </div>
         </header>
 
@@ -32,7 +33,6 @@
         </main>
     </div>
 
-    <!-- Mantık ve Seslendirme Dosyası -->
     <script src="app.js"></script>
 </body>
 </html>
