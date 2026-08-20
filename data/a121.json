@@ -1,0 +1,408 @@
+{
+  "level": "A1",
+  "scene_id": 21,
+  "scene_title": "Work and Professions",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "work",
+      "type": "verb",
+      "turkish": "Çalışmak",
+      "example_en": "I work as an English teacher.",
+      "example_tr": "İngilizce öğretmeni olarak çalışıyorum.",
+      "related_verbs": ["labor", "operate", "function", "serve", "toil"]
+    },
+    {
+      "word": "job",
+      "type": "verb",
+      "turkish": "İş yapmak / Çalışmak (fiil kökenli kullanımı)",
+      "example_en": "He jobs around the office.",
+      "example_tr": "Ofis çevresinde geçici işler yapıyor.",
+      "related_verbs": ["employ", "task", "work", "moonlight", "undertake"]
+    },
+    {
+      "word": "employ",
+      "type": "verb",
+      "turkish": "İstihdam etmek, iş vermek",
+      "example_en": "The company employs fifty people.",
+      "example_tr": "Şirket elli kişi istihdam ediyor.",
+      "related_verbs": ["hire", "engage", "recruit", "use", "appoint"]
+    },
+    {
+      "word": "hire",
+      "type": "verb",
+      "turkish": "İşe almak",
+      "example_en": "They want to hire a new manager.",
+      "example_tr": "Yeni bir müdür işe almak istiyorlar.",
+      "related_verbs": ["employ", "recruit", "engage", "appoint", "select"]
+    },
+    {
+      "word": "earn",
+      "type": "verb",
+      "turkish": "Para kazanmak",
+      "example_en": "She earns a good salary.",
+      "example_tr": "İyi bir maaş kazanıyor.",
+      "related_verbs": ["gain", "make", "win", "acquire", "collect"]
+    },
+    {
+      "word": "pay",
+      "type": "verb",
+      "turkish": "Maaş ödemek, ödeme yapmak",
+      "example_en": "The boss pays workers every Friday.",
+      "example_tr": "Patron her Cuma işçilere ödeme yapar.",
+      "related_verbs": ["compensate", "remunerate", "settle", "reward", "cover"]
+    },
+    {
+      "word": "manage",
+      "type": "verb",
+      "turkish": "Yönetmek, idare etmek",
+      "example_en": "He manages a large team.",
+      "example_tr": "Büyük bir ekibi yönetiyor.",
+      "related_verbs": ["direct", "lead", "control", "administer", "run"]
+    },
+    {
+      "word": "run",
+      "type": "verb",
+      "turkish": "İşletmek, yönetmek",
+      "example_en": "She runs her own business.",
+      "example_tr": "Kendi işini işletiyor.",
+      "related_verbs": ["operate", "manage", "direct", "control", "execute"]
+    },
+    {
+      "word": "lead",
+      "type": "verb",
+      "turkish": "Liderlik etmek, yönetmek",
+      "example_en": "Team leaders lead projects.",
+      "example_tr": "Takım liderleri projeleri yönerir/liderlik eder.",
+      "related_verbs": ["guide", "direct", "head", "conduct", "manage"]
+    },
+    {
+      "word": "assist",
+      "type": "verb",
+      "turkish": "Asistanlık yapmak, yardım etmek",
+      "example_en": "An assistant assists the director.",
+      "example_tr": "Bir asistan yönetmene yardım eder.",
+      "related_verbs": ["help", "aid", "support", "serve", "facilitate"]
+    },
+    {
+      "word": "help",
+      "type": "verb",
+      "turkish": "Yardım etmek",
+      "example_en": "We help colleagues with tasks.",
+      "example_tr": "İş arkadaşlarına görevlerinde yardım ederiz.",
+      "related_verbs": ["assist", "aid", "support", "serve", "benefit"]
+    },
+    {
+      "word": "organize",
+      "type": "verb",
+      "turkish": "Düzenlemek, organize etmek",
+      "example_en": "Secretaries organize meetings.",
+      "example_tr": "Sekreterler toplantıları düzenler.",
+      "related_verbs": ["arrange", "plan", "tidy", "fix", "prepare"]
+    },
+    {
+      "word": "plan",
+      "type": "verb",
+      "turkish": "Planlamak",
+      "example_en": "Engineers plan new structures.",
+      "example_tr": "Mühendisler yeni yapılar planlar.",
+      "related_verbs": ["schedule", "prepare", "organize", "arrange", "intend"]
+    },
+    {
+      "word": "design",
+      "type": "verb",
+      "turkish": "Tasarım yapmak, tasarlamak",
+      "example_en": "Web designers design websites.",
+      "example_tr": "Web tasarımcıları internet siteleri tasarlar.",
+      "related_verbs": ["create", "plan", "draft", "invent", "devise"]
+    },
+    {
+      "word": "build",
+      "type": "verb",
+      "turkish": "İnşa etmek, yapmak",
+      "example_en": "Builders build houses and roads.",
+      "example_tr": "İşçiler evler ve yollar inşa eder.",
+      "related_verbs": ["construct", "create", "make", "assemble", "erect"]
+    },
+    {
+      "word": "make",
+      "type": "verb",
+      "turkish": "Üretmek, yapmak",
+      "example_en": "Factory workers make products.",
+      "example_tr": "Fabrika işçileri ürün üretir.",
+      "related_verbs": ["create", "produce", "build", "form", "craft"]
+    },
+    {
+      "word": "produce",
+      "type": "verb",
+      "turkish": "Üretmek",
+      "example_en": "The company produces electronic goods.",
+      "example_tr": "Şirket elektronik eşya üretir.",
+      "related_verbs": ["manufacture", "create", "make", "yield", "generate"]
+    },
+    {
+      "word": "sell",
+      "type": "verb",
+      "turkish": "Satmak",
+      "example_en": "Salesmen sell products to customers.",
+      "example_tr": "Satış elemanları müşterilere ürün satar.",
+      "related_verbs": ["offer", "market", "trade", "deal", "supply"]
+    },
+    {
+      "word": "serve",
+      "type": "verb",
+      "turkish": "Hizmet etmek, sunmak",
+      "example_en": "Waiters serve food in restaurants.",
+      "example_tr": "Garsonlar restoranlarda yemek sunar.",
+      "related_verbs": ["help", "assist", "attend", "deliver", "supply"]
+    },
+    {
+      "word": "treat",
+      "type": "verb",
+      "turkish": "Tedavi etmek (doktor)",
+      "example_en": "Doctors treat sick patients.",
+      "example_tr": "Doktorlar hasta hastaları tedavi eder.",
+      "related_verbs": ["cure", "heal", "attend", "handle", "manage"]
+    },
+    {
+      "word": "teach",
+      "type": "verb",
+      "turkish": "Öğretmek",
+      "example_en": "Teachers teach students at school.",
+      "example_tr": "Öğretmenler okulda öğrencilere öğretir.",
+      "related_verbs": ["educate", "instruct", "train", "coach", "tutoring"]
+    },
+    {
+      "word": "study",
+      "type": "verb",
+      "turkish": "Araştırmak, incelemek, okumak",
+      "example_en": "Scientists study nature and space.",
+      "example_tr": "Bilim insanları doğayı ve uzayı inceler.",
+      "related_verbs": ["learn", "read", "examine", "practice", "analyze"]
+    },
+    {
+      "word": "write",
+      "type": "verb",
+      "turkish": "Yazmak (rapor/makale)",
+      "example_en": "Journalists write news articles.",
+      "example_tr": "Gazeteciler haber makaleleri yazar.",
+      "related_verbs": ["compose", "draft", "record", "type", "author"]
+    },
+    {
+      "word": "speak",
+      "type": "verb",
+      "turkish": "Konuşmak",
+      "example_en": "Receptionists speak to clients.",
+      "example_tr": "Resepsiyonistler müşterilerle konuşur.",
+      "related_verbs": ["talk", "converse", "communicate", "say", "express"]
+    },
+    {
+      "word": "communicate",
+      "type": "verb",
+      "turkish": "İletişim kurmak",
+      "example_en": "Businessmen communicate via email.",
+      "example_tr": "İş insanları e-posta yoluyla iletişim kurar.",
+      "related_verbs": ["connect", "interact", "correspond", "speak", "contact"]
+    },
+    {
+      "word": "contact",
+      "type": "verb",
+      "turkish": "İletişime geçmek, irtibat kurmak",
+      "example_en": "Call me or contact me by email.",
+      "example_tr": "Beni ara veya e-posta ile iletişime geç.",
+      "related_verbs": ["reach", "connect", "call", "message", "meet"]
+    },
+    {
+      "word": "meet",
+      "type": "verb",
+      "turkish": "Toplantı yapmak, buluşmak",
+      "example_en": "Managers meet in the morning.",
+      "example_tr": "Müdürler sabah toplantı yapar/buluşur.",
+      "related_verbs": ["gather", "assemble", "unite", "see", "join"]
+    },
+    {
+      "word": "discuss",
+      "type": "verb",
+      "turkish": "Tartışmak, görüşmek",
+      "example_en": "Colleagues discuss project details.",
+      "example_tr": "İş arkadaşları proje detaylarını görüşür.",
+      "related_verbs": ["talk", "debate", "consider", "review", "explore"]
+    },
+    {
+      "word": "decide",
+      "type": "verb",
+      "turkish": "Karar vermek",
+      "example_en": "The boss decides on the new plan.",
+      "example_tr": "Patron yeni plan üzerinde karar verir.",
+      "related_verbs": ["determine", "resolve", "choose", "conclude", "settle"]
+    },
+    {
+      "word": "solve",
+      "type": "verb",
+      "turkish": "Çözmek (problemi)",
+      "example_en": "IT experts solve computer problems.",
+      "example_tr": "Bilgisayar uzmanları bilgisayar sorunlarını çözer.",
+      "related_verbs": ["fix", "resolve", "address", "figure", "correct"]
+    },
+    {
+      "word": "fix",
+      "type": "verb",
+      "turkish": "Tamir etmek, düzeltmek",
+      "example_en": "Mechanics fix cars.",
+      "example_tr": "Tamirciler arabaları tamir eder.",
+      "related_verbs": ["repair", "mend", "solve", "correct", "adjust"]
+    },
+    {
+      "word": "repair",
+      "type": "verb",
+      "turkish": "Onarmak, tamir etmek",
+      "example_en": "Technicians repair machines.",
+      "example_tr": "Teknisyenler makineleri onarır.",
+      "related_verbs": ["fix", "mend", "restore", "patch", "service"]
+    },
+    {
+      "word": "clean",
+      "type": "verb",
+      "turkish": "Temizlemek",
+      "example_en": "Cleaners clean offices every evening.",
+      "example_tr": "Temizlikçiler her akşam ofisleri temizler.",
+      "related_verbs": ["wash", "scrub", "tidy", "wipe", "clear"]
+    },
+    {
+      "word": "drive",
+      "type": "verb",
+      "turkish": "Kullanmak (taksi/kamyon)",
+      "example_en": "Taxi drivers drive passengers around.",
+      "example_tr": "Taksi şoförleri yolcuları etrafa taşır/araba sürer.",
+      "related_verbs": ["steer", "operate", "pilot", "ride", "travel"]
+    },
+    {
+      "word": "deliver",
+      "type": "verb",
+      "turkish": "Teslim etmek, dağıtmak",
+      "example_en": "Delivery workers deliver packages.",
+      "example_tr": "Kuryeler paketleri teslim eder.",
+      "related_verbs": ["bring", "send", "ship", "hand", "carry"]
+    },
+    {
+      "word": "protect",
+      "type": "verb",
+      "turkish": "Korumak",
+      "example_en": "Police officers protect people.",
+      "example_tr": "Polis memurları insanları korur.",
+      "related_verbs": ["guard", "defend", "shield", "save", "secure"]
+    },
+    {
+      "word": "travel",
+      "type": "verb",
+      "turkish": "Seyahat etmek (iş için)",
+      "example_en": "Businessmen travel for meetings.",
+      "example_tr": "İş insanları toplantılar için seyahat eder.",
+      "related_verbs": ["journey", "trip", "tour", "visit", "explore"]
+    },
+    {
+      "word": "arrive",
+      "type": "verb",
+      "turkish": "Varmak (işe)",
+      "example_en": "Employees arrive at work at 9 AM.",
+      "example_tr": "Çalışanlar saat 9'da işe varır.",
+      "related_verbs": ["reach", "come", "get", "land", "enter"]
+    },
+    {
+      "word": "leave",
+      "type": "verb",
+      "turkish": "Ayrılmak (işten)",
+      "example_en": "Workers leave the factory at 5 PM.",
+      "example_tr": "İşçiler akşam 5'te fabrikadan ayrılır.",
+      "related_verbs": ["depart", "exit", "quit", "start", "go"]
+    },
+    {
+      "word": "retire",
+      "type": "verb",
+      "turkish": "Emekli olmak",
+      "example_en": "People retire at the age of 65.",
+      "example_tr": "İnsanlar 65 yaşında emekli olur.",
+      "related_verbs": ["stop", "withdraw", "leave", "quit", "depart"]
+    },
+    {
+      "word": "apply",
+      "type": "verb",
+      "turkish": "Başvurmak (işe)",
+      "example_en": "She applies for a new job.",
+      "example_tr": "Yeni bir işe başvuruyor.",
+      "related_verbs": ["request", "seek", "petition", "register", "submit"]
+    },
+    {
+      "word": "interview",
+      "type": "verb",
+      "turkish": "Mülakat yapmak",
+      "example_en": "Managers interview candidates.",
+      "example_tr": "Müdürler adaylarla mülakat yapar.",
+      "related_verbs": ["question", "meet", "talk", "evaluate", "assess"]
+    },
+    {
+      "word": "train",
+      "type": "verb",
+      "turkish": "Eğitmek, antrenman yapmak",
+      "example_en": "Companies train new workers.",
+      "example_tr": "Şirketler yeni işçileri eğitir.",
+      "related_verbs": ["teach", "educate", "practice", "instruct", "coach"]
+    },
+    {
+      "word": "learn",
+      "type": "verb",
+      "turkish": "Öğrenmek",
+      "example_en": "New staff learn office rules.",
+      "example_tr": "Yeni personel ofis kurallarını öğrenir.",
+      "related_verbs": ["study", "master", "discover", "acquire", "absorb"]
+    },
+    {
+      "word": "practice",
+      "type": "verb",
+      "turkish": "Pratik yapmak, mesleği icra etmek",
+      "example_en": "Doctors practice medicine.",
+      "example_tr": "Doktorlar tıp mesleğini icra eder.",
+      "related_verbs": ["exercise", "rehearse", "perform", "work", "apply"]
+    },
+    {
+      "word": "resign",
+      "type": "verb",
+      "turkish": "İstifa etmek",
+      "example_en": "He decides to resign from his job.",
+      "example_tr": "İşinden istifa etmeye karar veriyor.",
+      "related_verbs": ["quit", "leave", "step", "depart", "withdraw"]
+    },
+    {
+      "word": "quit",
+      "type": "verb",
+      "turkish": "Bırakmak (işi bırakmak)",
+      "example_en": "She quits her bad job.",
+      "example_tr": "Kötü işini bırakıyor.",
+      "related_verbs": ["leave", "resign", "stop", "drop", "cease"]
+    },
+    {
+      "word": "succeed",
+      "type": "verb",
+      "turkish": "Başarılı olmak",
+      "example_en": "Hardworking people succeed in life.",
+      "example_tr": "Çalışkan insanlar hayatta başarılı olur.",
+      "related_verbs": ["prosper", "achieve", "thrive", "prevail", "win"]
+    },
+    {
+      "word": "fail",
+      "type": "verb",
+      "turkish": "Başarısız olmak",
+      "example_en": "Try again if you fail.",
+      "example_tr": "Başarısız olursan tekrar dene.",
+      "related_verbs": ["lose", "drop", "miss", "collapse", "slip"]
+    },
+    {
+      "word": "retire",
+      "type": "verb",
+      "turkish": "İşten çekilmek / Emekli olmak",
+      "example_en": "My father plans to retire next year.",
+      "example_tr": "Babam gelecek yıl emekli olmayı planlıyor.",
+      "related_verbs": ["stop", "withdraw", "leave", "quit", "depart"]
+    }
+  ]
+}

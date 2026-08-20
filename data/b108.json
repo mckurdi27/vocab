@@ -1,0 +1,408 @@
+{
+  "level": "B1",
+  "scene_id": 8,
+  "scene_title": "Food and Restaurants",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "cook",
+      "type": "verb",
+      "turkish": "Yemek pişirmek",
+      "example_en": "Professional chefs cook delicious meals using fresh local ingredients.",
+      "example_tr": "Profesyonel şefler taze yerel malzemeler kullanarak lezzetli yemekler pişiriyor.",
+      "related_verbs": ["prepare", "bake", "fry", "boil", "roast"]
+    },
+    {
+      "word": "bake",
+      "type": "verb",
+      "turkish": "Fırında pişirmek",
+      "example_en": "The local bakery likes to bake fresh bread and pastries every morning.",
+      "example_tr": "Yerel fırın her sabah taze ekmek ve hamur işleri pişirmeyi sever.",
+      "related_verbs": ["roast", "cook", "brown", "heat", "toast"]
+    },
+    {
+      "word": "fry",
+      "type": "verb",
+      "turkish": "Kızartmak",
+      "example_en": "Restaurants usually fry potatoes in hot oil to make crispy french fries.",
+      "example_tr": "Restoranlar çıtır patates kızartması yapmak için genellikle patatesleri kızgın yağda kızartır.",
+      "related_verbs": ["sauté", "crisp", "sear", "brown", "cook"]
+    },
+    {
+      "word": "boil",
+      "type": "verb",
+      "turkish": "Haşlamak, kaynatmak",
+      "example_en": "You need to boil water before adding pasta or vegetables.",
+      "example_tr": "Makarna veya sebze eklemeden önce suyu kaynatmanız gerekir.",
+      "related_verbs": ["heat", "simmer", "bubble", "cook", "warm"]
+    },
+    {
+      "word": "grill",
+      "type": "verb",
+      "turkish": "Izgarada pişirmek",
+      "example_en": "He loves to grill chicken and steaks outdoors during summer weekends.",
+      "example_tr": "Yaz hafta sonlarında dışarıda tavuk ve biftek ızgara yapmayı çok sever.",
+      "related_verbs": ["roast", "barbecue", "char", "cook", "sear"]
+    },
+    {
+      "word": "roast",
+      "type": "verb",
+      "turkish": "Fırında kızartmak (et/sebze)",
+      "example_en": "Families often roast a large turkey for special holiday dinners.",
+      "example_tr": "Aileler genellikle özel tatil akşam yemekleri için büyük bir hindi kızartır.",
+      "related_verbs": ["bake", "cook", "brown", "toast", "grill"]
+    },
+    {
+      "word": "chop",
+      "type": "verb",
+      "turkish": "Doğramak, kıymak",
+      "example_en": "The cook uses a sharp knife to chop onions and fresh herbs.",
+      "example_tr": "Aşçı soğanları ve taze otları doğramak için keskin bir bıçak kullanır.",
+      "related_verbs": ["cut", "slice", "dice", "mince", "trim"]
+    },
+    {
+      "word": "slice",
+      "type": "verb",
+      "turkish": "Dilimlemek",
+      "example_en": "Please slice the bread into thin pieces for breakfast sandwiches.",
+      "example_tr": "Lütfen kahvaltı sandviçleri için ekmeği ince parçalar halinde dilimleyin.",
+      "related_verbs": ["cut", "chop", "divide", "split", "segment"]
+    },
+    {
+      "word": "peel",
+      "type": "verb",
+      "turkish": "Soymak (meyve/sebze)",
+      "example_en": "She needs to peel the apples before making an apple pie.",
+      "example_tr": "Elmalı turta yapmadan önce elmaları soyması gerekiyor.",
+      "related_verbs": ["skin", "pare", "strip", "shell", "remove"]
+    },
+    {
+      "word": "stir",
+      "type": "verb",
+      "turkish": "Karıştırmak",
+      "example_en": "Stir the soup gently with a wooden spoon so it does not burn.",
+      "example_tr": "Yanmaması için çorbayı tahta bir kaşıkla nazikçe karıştırın.",
+      "related_verbs": ["mix", "blend", "whisk", "turn", "agitate"]
+    },
+    {
+      "word": "mix",
+      "type": "verb",
+      "turkish": "Karıştırmak, harmanlamak",
+      "example_en": "Mix flour, eggs, and milk together in a large bowls.",
+      "example_tr": "Unu, yumurtaları ve sütü büyük bir kapta birbirine karıştırın.",
+      "related_verbs": ["blend", "combine", "stir", "incorporate", "mingle"]
+    },
+    {
+      "word": "taste",
+      "type": "verb",
+      "turkish": "Tatmak, tadına bakmak",
+      "example_en": "The chef wants to taste the sauce to check if it needs more salt.",
+      "example_tr": "Şef, daha fazla tuz gerekip gerekmediğini kontrol etmek için sosun tadına bakmak istiyor.",
+      "related_verbs": ["sample", "try", "experience", "test", "savory"]
+    },
+    {
+      "word": "order",
+      "type": "verb",
+      "turkish": "Sipariş vermek",
+      "example_en": "Customers look at the menu before they order dinner at the restaurant.",
+      "example_tr": "Müşteriler restoranda akşam yemeklerini sipariş etmeden önce menüye bakar.",
+      "related_verbs": ["request", "demand", "purchase", "book", "command"]
+    },
+    {
+      "word": "serve",
+      "type": "verb",
+      "turkish": "Servis etmek, sunmak",
+      "example_en": "Waiters serve hot coffee and fresh pastries to hungry guests.",
+      "example_tr": "Garsonlar aç misafirlere sıcak kahve ve taze hamur işleri servis ediyor.",
+      "related_verbs": ["present", "offer", "deliver", "provide", "hand"]
+    },
+    {
+      "word": "recommend",
+      "type": "verb",
+      "turkish": "Tavsiye etmek, önermek",
+      "example_en": "The waiter can recommend the most popular dish of the house.",
+      "example_tr": "Garson evin en popüler yemeğini tavsiye edebilir.",
+      "related_verbs": ["suggest", "advise", "endorse", "propose", "praise"]
+    },
+    {
+      "word": "enjoy",
+      "type": "verb",
+      "turkish": "Keyfini çıkarmak, beğenerek yemek",
+      "example_en": "Family members sit together to enjoy a warm homemade dinner.",
+      "example_tr": "Aile üyeleri sıcak bir ev yapımı akşam yemeğinin tadını çıkarmak için bir arada oturuyor.",
+      "related_verbs": ["like", "love", "relish", "appreciate", "savor"]
+    },
+    {
+      "word": "eat",
+      "type": "verb",
+      "turkish": "Yemek yemek",
+      "example_en": "People try to eat healthy salads and fresh vegetables every day.",
+      "example_tr": "İnsanlar her gün sağlıklı salatalar ve taze sebzeler yemeye çalışıyor.",
+      "related_verbs": ["consume", "dine", "feed", "snack", "devour"]
+    },
+    {
+      "word": "drink",
+      "type": "verb",
+      "turkish": "İçmek",
+      "example_en": "It is important to drink plenty of water during hot summer days.",
+      "example_tr": "Sıcak yaz günlerinde bol bol su içmek önemlidir.",
+      "related_verbs": ["sip", "gulp", "consume", "swallow", "refresh"]
+    },
+    {
+      "word": "dine",
+      "type": "verb",
+      "turkish": "Akşam yemeği yemek (lüks/restoranda)",
+      "example_en": "Couples love to dine at romantic Italian restaurants on weekends.",
+      "example_tr": "Çiftler hafta sonları romantik İtalyan restoranlarında akşam yemeği yemeyi sever.",
+      "related_verbs": ["eat", "supper", "feast", "banquet", "relish"]
+    },
+    {
+      "word": "pay",
+      "type": "verb",
+      "turkish": "Ödemek",
+      "example_en": "You can pay the bill by credit card or with cash at the counter.",
+      "example_tr": "Hesabı banka kartıyla veya kasada nakit olarak ödeyebilirsiniz.",
+      "related_verbs": ["settle", "clear", "compensate", "spend", "remit"]
+    },
+    {
+      "word": "tip",
+      "type": "verb",
+      "turkish": "Bahşiş vermek",
+      "example_en": "Satisfied customers usually tip the waiter for excellent service.",
+      "example_tr": "Memnun müşteriler genellikle mükemmel hizmet için garsona bahşiş verir.",
+      "related_verbs": ["reward", "bonus", "give", "gift", "compensate"]
+    },
+    {
+      "word": "share",
+      "type": "verb",
+      "turkish": "Paylaşmak",
+      "example_en": "Friends often order different appetizers to share across the table.",
+      "example_tr": "Arkadaşlar genellikle masada paylaşmak için farklı başlangıçlar sipariş ederler.",
+      "related_verbs": ["divide", "distribute", "split", "exchange", "pass"]
+    },
+    {
+      "word": "prefer",
+      "type": "verb",
+      "turkish": "Tercih etmek",
+      "example_en": "Some people prefer vegetarian food over meat dishes.",
+      "example_tr": "Bazı insanlar et yemekleri yerine vejetaryen yiyecekleri tercih eder.",
+      "related_verbs": ["choose", "favor", "select", "opt", "like"]
+    },
+    {
+      "word": "add",
+      "type": "verb",
+      "turkish": "Eklemek",
+      "example_en": "Add a little bit of olive oil and salt to improve the salad flavor.",
+      "example_tr": "Salatanın lezzetini artırmak için biraz zeytinyağı ve tuz ekleyin.",
+      "related_verbs": ["include", "put", "append", "incorporate", "join"]
+    },
+    {
+      "word": "prepare",
+      "type": "verb",
+      "turkish": "Hazırlamak",
+      "example_en": "The kitchen staff prepare fresh meals quickly during lunch hours.",
+      "example_tr": "Mutfak personeli öğle yemeği saatlerinde taze yemekleri hızlıca hazırlar.",
+      "related_verbs": ["make", "ready", "arrange", "cook", "set"]
+    },
+    {
+      "word": "smell",
+      "type": "verb",
+      "turkish": "Kokmak, kokusunu almak",
+      "example_en": "Freshly baked bread and coffee smell wonderful in the morning.",
+      "example_tr": "Taze pişmiş ekmek ve kahve sabahları harika kokuyor.",
+      "related_verbs": ["scent", "sniff", "detect", "aroma", "fragrance"]
+    },
+    {
+      "word": "swallow",
+      "type": "verb",
+      "turkish": "Yutmak",
+      "example_en": "Chew your food completely before you swallow it.",
+      "example_tr": "Yutmadan önce yemeğinizi iyice çiğneyin.",
+      "related_verbs": ["gulp", "consume", "ingest", "drink", "eat"]
+    },
+    {
+      "word": "chew",
+      "type": "verb",
+      "turkish": "Çiğnemek",
+      "example_en": "It is healthy to chew your food slowly and carefully.",
+      "example_tr": "Yemeğinizi yavaş ve dikkatli bir şekilde çiğnemek sağlıklıdır.",
+      "related_verbs": ["masticate", "crunch", "bite", "gnaw", "process"]
+    },
+    {
+      "word": "digest",
+      "type": "verb",
+      "turkish": "Sindirmek",
+      "example_en": "Light meals are easier for the human stomach to digest at night.",
+      "example_tr": "Hafif yemeklerin insan mideniz tarafından geceleri sindirilmesi daha kolaydır.",
+      "related_verbs": ["process", "absorb", "break down", "assimilate", "handle"]
+    },
+    {
+      "word": "reserve",
+      "type": "verb",
+      "turkish": "Yer ayırtmak, rezerve etmek",
+      "example_en": "We need to reserve a table for four people for Saturday evening.",
+      "example_tr": "Cumartesi akşamı için dört kişilik bir masa ayırtmamız gerekiyor.",
+      "related_verbs": ["book", "hold", "secure", "schedule", "arrange"]
+    },
+    {
+      "word": "cancel",
+      "type": "verb",
+      "turkish": "İptal etmek (rezervasyonu)",
+      "example_en": "If you cannot attend, please call the restaurant to cancel your reservation.",
+      "example_tr": "Katılamayacaksanız, lütfen rezervasyonunuzu iptal etmek için restoranı arayın.",
+      "related_verbs": ["stop", "revoke", "drop", "annul", "terminate"]
+    },
+    {
+      "word": "taste",
+      "type": "verb",
+      "turkish": "Tadında olmak, tat vermek",
+      "example_en": "The homemade tomato soup tastes delicious and fresh.",
+      "example_tr": "Ev yapımı domates çorbası lezzetli ve taze tat veriyor.",
+      "related_verbs": ["flavor", "savor", "feel", "try", "sample"]
+    },
+    {
+      "word": "pour",
+      "type": "verb",
+      "turkish": "Dökmek, servis etmek (sıvı)",
+      "example_en": "The waiter will pour fresh water into every glass on the table.",
+      "example_tr": "Garson masadaki her bardağa taze su dökecek (koyacak).",
+      "related_verbs": ["spill", "fill", "stream", "flow", "tip"]
+    },
+    {
+      "word": "sip",
+      "type": "verb",
+      "turkish": "Yudumlamak",
+      "example_en": "She likes to sit on the balcony and sip hot herbal tea.",
+      "example_tr": "Balkonda oturup sıcak bitki çayını yudumlamayı sever.",
+      "related_verbs": ["drink", "taste", "sample", "swig", "gulp"]
+    },
+    {
+      "word": "consume",
+      "type": "verb",
+      "turkish": "Tüketmek",
+      "example_en": "Modern societies consume large amounts of sugar and processed foods.",
+      "example_tr": "Modern toplumlar büyük miktarlarda şeker ve işlenmiş gıda tüketiyor.",
+      "related_verbs": ["eat", "drink", "use", "spend", "absorb"]
+    },
+    {
+      "word": "diet",
+      "type": "verb",
+      "turkish": "Diyet yapmak",
+      "example_en": "Many people try to diet before summer vacation to lose extra weight.",
+      "example_tr": "Birçok insan fazla kilo vermek için yaz tatilinden önce diyet yapmaya çalışır.",
+      "related_verbs": ["fast", "restrict", "eat healthily", "reduce", "balance"]
+    },
+    {
+      "word": "starve",
+      "type": "verb",
+      "turkish": "Açlıktan ölmek / çok acıkmak",
+      "example_en": "We worked in the garden all morning and now we starve.",
+      "example_tr": "Tüm sabah bahçede çalıştık ve şimdi açlıktan ölüyoruz (çok acıktık).",
+      "related_verbs": ["hunger", "fast", "deprive", "famish", "perish"]
+    },
+    {
+      "word": "satisfy",
+      "type": "verb",
+      "turkish": "Doyurmak, tatmin etmek",
+      "example_en": "A hearty bowl of soup can satisfy your hunger on cold days.",
+      "example_tr": "Doyurucu bir kase çorba soğuk günlerde açlığınızı giderebilir.",
+      "related_verbs": ["fulfil", "please", "meet", "content", "gratify"]
+    },
+    {
+      "word": "complain",
+      "type": "verb",
+      "turkish": "Şikayet etmek",
+      "example_en": "Customers may complain if their food arrives cold at the table.",
+      "example_tr": "Müşteriler yemekleri masaya soğuk gelirse şikayet edebilir.",
+      "related_verbs": ["protest", "object", "criticize", "grumble", "whine"]
+    },
+    {
+      "word": "apologize",
+      "type": "verb",
+      "turkish": "Özür dilemek",
+      "example_en": "The manager will apologize for the delayed service and offer free dessert.",
+      "example_tr": "Yönetici geciken hizmet için özür dileyecek ve ücretsiz tatlı ikram edecek.",
+      "related_verbs": ["regret", "excuse", "confess", "pardon", "atone"]
+    },
+    {
+      "word": "clean",
+      "type": "verb",
+      "turkish": "Temizlemek",
+      "example_en": "Waiters clean the tables quickly after guests leave the restaurant.",
+      "example_tr": "Garsonlar misafirler restorandan ayrıldıktan sonra masaları hızlıca temizler.",
+      "related_verbs": ["wipe", "wash", "clear", "tidy", "sanitize"]
+    },
+    {
+      "word": "wash",
+      "type": "verb",
+      "turkish": "Yıkamak (sebze/bulaşık)",
+      "example_en": "Always wash vegetables thoroughly before cooking them.",
+      "example_tr": "Sebzeleri pişirmeden önce her zaman iyice yıkayın.",
+      "related_verbs": ["clean", "rinse", "scrub", "launder", "bathe"]
+    },
+    {
+      "word": "store",
+      "type": "verb",
+      "turkish": "Saklamak, muhafaza etmek (gıda)",
+      "example_en": "You should store fresh meat and milk in the refrigerator.",
+      "example_tr": "Taze et ve sütü buzdolabında saklamalısınız.",
+      "related_verbs": ["keep", "preserve", "save", "retained", "hold"]
+    },
+    {
+      "word": "freeze",
+      "type": "verb",
+      "turkish": "Dondurmak",
+      "example_en": "Families often freeze seasonal fruits to use them during winter.",
+      "example_tr": "Aileler kışın kullanmak için genellikle mevsim meyvelerini dondurur.",
+      "related_verbs": ["chill", "refrigerate", "solidify", "cool", "frost"]
+    },
+    {
+      "word": "thaw",
+      "type": "verb",
+      "turkish": "Çözülmesini beklemek, buzunu çözmek",
+      "example_en": "Remember to thaw frozen meat before putting it in the oven.",
+      "example_tr": "Donmuş etinizi fırına vermeden önce buzunu çözmeyi unutmayın.",
+      "related_verbs": ["melt", "soften", "warm", "defrost", "dissolve"]
+    },
+    {
+      "word": "pack",
+      "type": "verb",
+      "turkish": "Paketlemek (gıda/öğle yemeği)",
+      "example_en": "She likes to pack a homemade lunchbox for work every day.",
+      "example_tr": "Her gün iş için ev yapımı bir beslenme çantası hazırlamayı (paketlemeyi) sever.",
+      "related_verbs": ["wrap", "bundle", "load", "prepare", "fill"]
+    },
+    {
+      "word": "deliver",
+      "type": "verb",
+      "turkish": "Teslim etmek, eve sipariş getirmek",
+      "example_en": "Restaurants use courier services to deliver hot food to customers' homes.",
+      "example_tr": "Restoranlar müşterilerin evlerine sıcak yemek teslim etmek için kurye hizmetleri kullanır.",
+      "related_verbs": ["bring", "send", "transport", "carry", "hand over"]
+    },
+    {
+      "word": "cater",
+      "type": "verb",
+      "turkish": "Yemek hizmeti sağlamak",
+      "example_en": "Local culinary companies cater food for weddings and large business events.",
+      "example_tr": "Yerel yemek şirketleri düğünler ve büyük iş etkinlikleri için yemek hizmeti sağlar.",
+      "related_verbs": ["serve", "supply", "provide", "feed", "provision"]
+    },
+    {
+      "word": "snack",
+      "type": "verb",
+      "turkish": "Atıştırmak",
+      "example_en": "It is best not to snack on junk food between regular meals.",
+      "example_tr": "Düzenli öğünler arasında atıştırmalık (cips vb.) atıştırmamak en iyisidir.",
+      "related_verbs": ["nibble", "graze", "eat", "taste", "munch"]
+    },
+    {
+      "word": "savor",
+      "type": "verb",
+      "turkish": "Tadını çıkara çıkara yemek",
+      "example_en": "Take your time and savor every single bite of the delicious dessert.",
+      "example_tr": "Acele etmeyin ve lezzetli tatlının her bir lokmasının tadını çıkarın.",
+      "related_verbs": ["enjoy", "relish", "taste", "appreciate", "delight"]
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "level": "B1",
+  "scene_id": 44,
+  "scene_title": "Environment and Nature",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "protect",
+      "type": "verb",
+      "turkish": "Korumak",
+      "example_en": "Environmental organizations protect endangered wildlife species in natural forest habitats.",
+      "example_tr": "Çevre örgütleri doğal orman yaşam alanlarındaki nesli tükenmekte olan yaban hayatı türlerini korur.",
+      "related_verbs": ["safeguard", "shield", "defend", "preserve", "guard"]
+    },
+    {
+      "word": "pollute",
+      "type": "verb",
+      "turkish": "Kirletmek",
+      "example_en": "Industrial factories pollute clean river waters with toxic chemical waste products.",
+      "example_tr": "Endüstriyel fabrikalar temiz nehir sularını zehirli kimyasal atık ürünleriyle kirletir.",
+      "related_verbs": ["contaminate", "taint", "dirty", "spoils", "poison"]
+    },
+    {
+      "word": "recycle",
+      "type": "verb",
+      "turkish": "Geri dönüştürmek",
+      "example_en": "Eco-friendly citizens recycle plastic bottles and glass containers using community bins.",
+      "example_tr": "Çevre dostu vatandaşlar topluluk kutularını kullanarak plastik şişeleri ve cam kapları geri dönüştürür.",
+      "related_verbs": ["reuse", "reprocess", "recover", "reclaim", "convert"]
+    },
+    {
+      "word": "conserve",
+      "type": "verb",
+      "turkish": "Korumak, tasarruf etmek",
+      "example_en": "Communities conserve precious fresh water resources during severe summer drought seasons.",
+      "example_tr": "Topluluklar şiddetli yaz kuraklığı mevsimlerinde değerli tatlı su kaynaklarını korur.",
+      "related_verbs": ["save", "preserve", "maintain", "protect", "store"]
+    },
+    {
+      "word": "destroy",
+      "type": "verb",
+      "turkish": "Yok etmek, tahrip etmek",
+      "example_en": "Wildfires destroy vast areas of green woodland trees and animal habitats.",
+      "example_tr": "Orman yangınları yeşil orman ağaçlarının ve hayvan yaşam alanlarının geniş alanlarını yok eder.",
+      "related_verbs": ["ruin", "demolish", "wreck", "devastate", "annihilate"]
+    },
+    {
+      "word": "plant",
+      "type": "verb",
+      "turkish": "Ekmek, dikmek",
+      "example_en": "School volunteers plant young tree saplings across barren community park hillsides.",
+      "example_tr": "Okul gönüllüleri çorak topluluk parkı yamaçları boyunca genç ağaç fidanları diker.",
+      "related_verbs": ["grow", "sow", "set", "cultivate", "bury"]
+    },
+    {
+      "word": "reduce",
+      "type": "verb",
+      "turkish": "Azaltmak",
+      "example_en": "Modern cities reduce carbon emissions by expanding public electric bus transport networks.",
+      "example_tr": "Modern şehirler halk elektrikli otobüs ulaşım ağlarını genişleterek karbon emisyonlarını azaltır.",
+      "related_verbs": ["decrease", "lower", "cut", "diminish", "minimize"]
+    },
+    {
+      "word": "reuse",
+      "type": "verb",
+      "turkish": "Yeniden kullanmak",
+      "example_en": "Sustainable households reuse glass jars for storing kitchen spices and homemade foods.",
+      "example_tr": "Sürdürülebilir haneler mutfak baharatlarını ve ev yapımı yiyecekleri saklamak için cam kavanozları yeniden kullanır.",
+      "related_verbs": ["recycle", "utilize", "employ", "reapply", "repurpose"]
+    },
+    {
+      "word": "waste",
+      "type": "verb",
+      "turkish": "İsraf etmek",
+      "example_en": "People should not waste electrical energy by leaving room lights switched on unnecessarily.",
+      "example_tr": "İnsanlar oda ışıklarını gereksiz yere açık bırakarak elektrik enerjisini israf etmemelidir.",
+      "related_verbs": ["squander", "misspend", "drain", "lose", "dissipate"]
+    },
+    {
+      "word": "harm",
+      "type": "verb",
+      "turkish": "Zarar vermek",
+      "example_en": "Single-use plastic bags harm marine animals living in deep ocean waters.",
+      "example_tr": "Tek kullanımlık plastik poşetler derin okyanus sularında yaşayan deniz hayvanlarına zarar verir.",
+      "related_verbs": ["hurt", "damage", "injure", "destroy", "endanger"]
+    },
+    {
+      "word": "survive",
+      "type": "verb",
+      "turkish": "Hayatta kalmak",
+      "example_en": "Polar bears struggle to survive as Arctic sea ice melts due to global warming.",
+      "example_tr": "Kutup ayırtları, küresel ısınma nedeniyle kutup deniz buzu eridikçe hayatta kalmakta zorlanır.",
+      "related_verbs": ["endure", "persist", "live", "last", "weather"]
+    },
+    {
+      "word": "threaten",
+      "type": "verb",
+      "turkish": "Tehdit etmek",
+      "example_en": "Climate change and deforestation threaten many rare animal species with extinction.",
+      "example_tr": "İklim değişikliği ve ormansızlaşma birçok nadir hayvan türünü yok olma tehlikesiyle tehdit eder.",
+      "related_verbs": ["endanger", "imperil", "menace", "risk", "jeopardize"]
+    },
+    {
+      "word": "endanger",
+      "type": "verb",
+      "turkish": "Tehlikeye atmak",
+      "example_en": "Toxic industrial waste spills endanger aquatic life in local freshwater lakes.",
+      "example_tr": "Zehirli endüstriyel atık döküntüleri yerel tatlı su göllerindeki su yaşamını tehlikeye atar.",
+      "related_verbs": ["threaten", "imperil", "risk", "jeopardize", "harm"]
+    },
+    {
+      "word": "preserve",
+      "type": "verb",
+      "turkish": "Muhafaza etmek, korumak",
+      "example_en": "National park rangers preserve natural wilderness areas for future generations.",
+      "example_tr": "Milli park korucuları gelecek nesiller için doğal vahşi doğa alanlarını muhafaza eder.",
+      "related_verbs": ["protect", "save", "maintain", "keep", "conserve"]
+    },
+    {
+      "word": "clean",
+      "type": "verb",
+      "turkish": "Temizlemek",
+      "example_en": "Community volunteers clean plastic litter from sandy public beach shores.",
+      "example_tr": "Topluluk gönüllüleri kumlu halk plajı kıyılarından plastik çöpleri temizler.",
+      "related_verbs": ["wash", "clear", "purify", "sanitize", "sweep"]
+    },
+    {
+      "word": "restore",
+      "type": "verb",
+      "turkish": "Eski haline getirmek, restore etmek",
+      "example_en": "Conservationists restore damaged wetland ecosystems to support local bird populations.",
+      "example_tr": "Doğayı korumacılar, yerel kuş popülasyonlarını desteklemek için hasarlı sulak alan ekosistemlerini eski haline getirir.",
+      "related_verbs": ["repair", "rebuild", "renew", "revive", "rehab"]
+    },
+    {
+      "word": "grow",
+      "type": "verb",
+      "turkish": "Yetişmek, büyümek",
+      "example_en": "Wild flowers grow abundantly across green mountain meadows during spring seasons.",
+      "example_tr": "Yabani çiçekler ilkbahar mevsimlerinde yeşil dağ çayırları boyunca bolca yetişir.",
+      "related_verbs": ["develop", "thrive", "flourish", "sprout", "cultivate"]
+    },
+    {
+      "word": "bloom",
+      "type": "verb",
+      "turkish": "Çiçek açmak",
+      "example_en": "Cherry blossom trees bloom brightly across Japanese parks in early April.",
+      "example_tr": "Kiraz çiçeği ağaçları nisan başlarında Japon parkları boyunca parlak bir şekilde çiçek açar.",
+      "related_verbs": ["flower", "blossom", "thrive", "flourish", "open"]
+    },
+    {
+      "word": "wither",
+      "type": "verb",
+      "turkish": "Solmak, kurumak",
+      "example_en": "Garden plants wither quickly during prolonged summer heatwaves without watering.",
+      "example_tr": "Bahçe bitkileri, sulama yapılmadan uzun süren yaz sıcak hava dalgaları sırasında hızlıca solar.",
+      "related_verbs": ["fade", "dry", "shrivel", "droop", "decay"]
+    },
+    {
+      "word": "melt",
+      "type": "verb",
+      "turkish": "Erimek",
+      "example_en": "Mountain glaciers melt rapidly as global atmospheric temperatures continue rising.",
+      "example_tr": "Küresel atmosferik sıcaklıklar yükselmeye devam ettikçe dağ buzulları hızla erir.",
+      "related_verbs": ["thaw", "dissolve", "soften", "run", "liquefy"]
+    },
+    {
+      "word": "freeze",
+      "type": "verb",
+      "turkish": "Donmak",
+      "example_en": "Small lake surfaces freeze completely solid during cold winter freezing nights.",
+      "example_tr": "Küçük göl yüzeyleri soğuk kış don geceleri sırasında tamamen katı halde donar.",
+      "related_verbs": ["solidify", "chill", "frost", "ice", "benumb"]
+    },
+    {
+      "word": "shine",
+      "type": "verb",
+      "turkish": "Parlamak",
+      "example_en": "Bright summer sun rays shine warmly over golden wheat field crops.",
+      "example_tr": "Parlak yaz güneş ışınları altın sarısı buğday tarlası ekinleri üzerine sıcak bir şekilde parlar.",
+      "related_verbs": ["gleam", "glow", "sparkle", "beam", "glitter"]
+    },
+    {
+      "word": "flow",
+      "type": "verb",
+      "turkish": "Akmak",
+      "example_en": "Clear mountain stream waters flow steadily down rocky valley paths.",
+      "example_tr": "Berrak dağ dere suları kayalık vadi patikaları boyunca düzenli bir şekilde akar.",
+      "related_verbs": ["run", "stream", "glide", "pour", "slide"]
+    },
+    {
+      "word": "rise",
+      "type": "verb",
+      "turkish": "Yükselmek",
+      "example_en": "Ocean sea levels rise steadily due to polar ice cap melting.",
+      "example_tr": "Okyanus deniz seviyeleri, kutup buz örtüsü erimesi nedeniyle istikrarlı bir şekilde yükselir.",
+      "related_verbs": ["ascend", "increase", "climb", "elevate", "surge"]
+    },
+    {
+      "word": "fall",
+      "type": "verb",
+      "turkish": "Düşmek",
+      "example_en": "Heavy autumn rain drops fall steadily on dry forest ground surfaces.",
+      "example_tr": "Şiddetli sonbahar yağmur damlaları kuru orman zemin yüzeylerine sürekli olarak düşer.",
+      "related_verbs": ["drop", "descend", "plunge", "slip", "sink"]
+    },
+    {
+      "word": "blow",
+      "type": "verb",
+      "turkish": "Esмек (rüzgar)",
+      "example_en": "Strong ocean winds blow across coastal sandy beach dunes.",
+      "example_tr": "Güçlü okyanus rüzgarları sahil kumlu plaj kumulları boyunca eser.",
+      "related_verbs": ["gust", "puff", "sweep", "drift", "ventilate"]
+    },
+    {
+      "word": "burn",
+      "type": "verb",
+      "turkish": "Yanmak, yakmak",
+      "example_en": "Accidental campfires can burn vast sections of dry forest timber trees.",
+      "example_tr": "Kazara yakılan kamp ateşleri kuru orman kereste ağaçlarının geniş bölümlerini yakabilir.",
+      "related_verbs": ["blaze", "char", "scorch", "fire", "combust"]
+    },
+    {
+      "word": "disappear",
+      "type": "verb",
+      "turkish": "Gözden kaybolmak, yok olmak",
+      "example_en": "Many unique animal species disappear permanently from natural habitats.",
+      "example_tr": "Birçok benzersiz hayvan türü doğal yaşam alanlarından kalıcı olarak yok olur.",
+      "related_verbs": ["vanish", "fade", "perish", "expire", "dissolve"]
+    },
+    {
+      "word": "adapt",
+      "type": "verb",
+      "turkish": "Uyum sağlamak",
+      "example_en": "Animals must adapt to changing climate conditions to survive in nature.",
+      "example_tr": "Hayvanlar doğada hayatta kalabilmek için değişen iklim koşullarına uyum sağlamalıdır.",
+      "related_verbs": ["adjust", "accommodate", "conform", "fit", "modify"]
+    },
+    {
+      "word": "migrate",
+      "type": "verb",
+      "turkish": "Göç etmek",
+      "example_en": "Birds migrate south toward warmer regions during cold winter months.",
+      "example_tr": "Kuşlar soğuk kış aylarında daha sıcak bölgelere doğru güneye göç eder.",
+      "related_verbs": ["travel", "move", "relocate", "roam", "journey"]
+    },
+    {
+      "word": "hibernate",
+      "type": "verb",
+      "turkish": "Kış uykusuna yatmak",
+      "example_en": "Bears hibernate inside warm underground caves throughout cold winter seasons.",
+      "example_tr": "Ayılar soğuk kış mevsimleri boyunca sıcak yeraltı mağaralarında kış uykusuna yatar.",
+      "related_verbs": ["sleep", "rest", "dobe", "slumber", "hide"]
+    },
+    {
+      "word": "hunt",
+      "type": "verb",
+      "turkish": "Avlamak",
+      "example_en": "Wild predators hunt smaller forest animals for daily food survival.",
+      "example_tr": "Vahşi yırtıcılar günlük gıda hayatta kalması için daha küçük orman hayvanlarını avlar.",
+      "related_verbs": ["pursue", "track", "stalk", "catch", "seek"]
+    },
+    {
+      "word": "feed",
+      "type": "verb",
+      "turkish": "Beslemek, beslenmek",
+      "example_en": "Mother birds feed small newborn chicks with insects gathered from trees.",
+      "example_tr": "Anne kuşlar ağaçlardan toplanan böceklerle küçük yeni doğan yavruları besler.",
+      "related_verbs": ["nourish", "nurture", "sustains", "eat", "provide"]
+    },
+    {
+      "word": "breed",
+      "type": "verb",
+      "turkish": "Üremek, yetiştirmek",
+      "example_en": "Sea turtles return to sandy tropical beaches to breed during summer nights.",
+      "example_tr": "Deniz kaplumbağaları yaz geceleri üremek için kumlu tropik plajlara geri döner.",
+      "related_verbs": ["reproduce", "spawn", "propagate", "raise", "nurture"]
+    },
+    {
+      "word": "inhabit",
+      "type": "verb",
+      "turkish": "Yaşamak, mesken tutmak",
+      "example_en": "Rare monkey species inhabit dense tropical rainforest tree canopy layers.",
+      "example_tr": "Nadir maymun türleri yoğun tropik yağmur ormanı ağaç gölgelik katmanlarında yaşar.",
+      "related_verbs": ["populate", "occupy", "live", "dwell", "reside"]
+    },
+    {
+      "word": "explore",
+      "type": "verb",
+      "turkish": "Keşfetmek",
+      "example_en": "Biologists explore remote jungle regions to discover new plant varieties.",
+      "example_tr": "Biyologlar yeni bitki çeşitlerini keşfetmek için uzak orman bölgelerini keşfeder.",
+      "related_verbs": ["discover", "examine", "investigate", "survey", "search"]
+    },
+    {
+      "word": "discover",
+      "type": "verb",
+      "turkish": "Keşfetmek",
+      "example_en": "Researchers discover unknown insect species hiding under forest moss layers.",
+      "example_tr": "Araştırmacılar orman yosunu katmanlarının altında saklanan bilinmeyen böcek türlerini keşfeder.",
+      "related_verbs": ["find", "uncover", "detect", "reveal", "locate"]
+    },
+    {
+      "word": "observe",
+      "type": "verb",
+      "turkish": "Gözlemlemek",
+      "example_en": "Wildlife scientists observe animal migration patterns using digital camera traps.",
+      "example_tr": "Yaban hayatı bilim insanları dijital kamera tuzakları kullanarak hayvan göç kalıplarını gözlemler.",
+      "related_verbs": ["watch", "monitor", "study", "inspect", "view"]
+    },
+    {
+      "word": "study",
+      "type": "verb",
+      "turkish": "İncelemek, üzerinde çalışmak",
+      "example_en": "Environmental students study global warming effects on polar ice caps.",
+      "example_tr": "Çevre öğrencileri küresel ısınmanın kutup buz örtüleri üzerindeki etkilerini inceler.",
+      "related_verbs": ["examine", "analyze", "research", "investigate", "learn"]
+    },
+    {
+      "word": "generate",
+      "type": "verb",
+      "turkish": "Üretmek (enerji vb.)",
+      "example_en": "Wind turbines generate clean electrical energy from natural atmospheric breezes.",
+      "example_tr": "Rüzgar türbinleri doğal atmosferik rüzgarlardan temiz elektrik enerjisi üretir.",
+      "related_verbs": ["produce", "create", "make", "yield", "supply"]
+    },
+    {
+      "word": "consume",
+      "type": "verb",
+      "turkish": "Tüketmek",
+      "example_en": "Modern societies consume massive amounts of fossil fuels for electricity.",
+      "example_tr": "Modern toplumlar elektrik için devasa miktarlarda fosil yakıt tüketir.",
+      "related_verbs": ["use", "spend", "utilize", "deplete", "exhaust"]
+    },
+    {
+      "word": "deplete",
+      "type": "verb",
+      "turkish": "Tüketmek, bitirmek",
+      "example_en": "Excessive human industrial activities deplete natural earth resource reserves rapidly.",
+      "example_tr": "Aşırı insan endüstriyel faaliyetleri doğal dünya kaynak rezervlerini hızlı bir şekilde tüketir.",
+      "related_verbs": ["exhaust", "drain", "use up", "reduce", "spend"]
+    },
+    {
+      "word": "preserve",
+      "type": "verb",
+      "turkish": "Koruyup saklamak",
+      "example_en": "Cold storage facilities preserve agricultural food crops for winter distribution.",
+      "example_tr": "Soğuk hava depoları kış dağıtımı için tarımsal gıda ekinlerini koruyup saklar.",
+      "related_verbs": ["save", "conserve", "keep", "maintain", "store"]
+    },
+    {
+      "word": "support",
+      "type": "verb",
+      "turkish": "Desteklemek",
+      "example_en": "Green policies support renewable solar and wind energy project developments.",
+      "example_tr": "Yeşil politikalar yenilenebilir güneş ve rüzgar enerjisi proje geliştirmelerini destekler.",
+      "related_verbs": ["back", "aid", "assist", "promote", "champion"]
+    },
+    {
+      "word": "sustain",
+      "type": "verb",
+      "turkish": "Sürdürmek, devam ettirmek",
+      "example_en": "Earth ecosystems sustain diverse plant and animal life forms naturally.",
+      "example_tr": "Dünya ekosistemleri çeşitli bitki ve hayvan yaşam biçimlerini doğal olarak sürdürür.",
+      "related_verbs": ["maintain", "support", "uphold", "continue", "nourish"]
+    },
+    {
+      "word": "transform",
+      "type": "verb",
+      "turkish": "Dönüştürmek",
+      "example_en": "Solar panels transform natural sunlight rays into usable electrical power.",
+      "example_tr": "Güneş panelleri doğal güneş ışığı ışınlarını kullanılabilir elektrik gücüne dönüştürür.",
+      "related_verbs": ["convert", "change", "alter", "turn", "modify"]
+    },
+    {
+      "word": "absorb",
+      "type": "verb",
+      "turkish": "Emek, içine çekmek",
+      "example_en": "Green forest trees absorb harmful carbon dioxide gases from the atmosphere.",
+      "example_tr": "Yeşil orman ağaçları atmosferden zararlı karbondioksit gazlarını emer.",
+      "related_verbs": ["take in", "soak up", "consume", "accept", "receive"]
+    },
+    {
+      "word": "release",
+      "type": "verb",
+      "turkish": "Salmak, serbest bırakmak",
+      "example_en": "Vehicles release toxic exhaust fumes into the urban air environment.",
+      "example_tr": "Araçlar kentsel hava ortamına zehirli egzoz dumanları salar.",
+      "related_verbs": ["emit", "discharge", "free", "liberate", "ปล่อย"]
+    },
+    {
+      "word": "emit",
+      "type": "verb",
+      "turkish": "Yaymak, salmak (gaz, ısı)",
+      "example_en": "Coal power plants emit massive quantities of greenhouse gases daily.",
+      "example_tr": "Kömür santralleri günlük olarak devasa miktarlarda sera gazı yayar.",
+      "related_verbs": ["release", "discharge", "radiate", "send out", "give off"]
+    },
+    {
+      "word": "surround",
+      "type": "verb",
+      "turkish": "Çevresini sarmak",
+      "example_en": "Dense green pine trees surround the peaceful mountain lake shores.",
+      "example_tr": "Yoğun yeşil çam ağaçları huzurlu dağ gölü kıyılarını çevreler.",
+      "related_verbs": ["encircle", "enclose", "border", "ring", "environ"]
+    }
+  ]
+}

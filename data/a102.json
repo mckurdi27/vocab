@@ -1,0 +1,408 @@
+{
+  "level": "A1",
+  "scene_id": 2,
+  "scene_title": "Family and Relatives",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "love",
+      "type": "verb",
+      "turkish": "Sevmek",
+      "example_en": "I love my family very much.",
+      "example_tr": "Ailemi çok seviyorum.",
+      "related_verbs": ["like", "care", "adore", "cherish", "hug"]
+    },
+    {
+      "word": "help",
+      "type": "verb",
+      "turkish": "Yardım etmek",
+      "example_en": "He helps his mother at home.",
+      "example_tr": "Evde annesine yardım eder.",
+      "related_verbs": ["assist", "support", "aid", "serve", "protect"]
+    },
+    {
+      "word": "visit",
+      "type": "verb",
+      "turkish": "Ziyaret etmek",
+      "example_en": "We visit our grandparents on weekends.",
+      "example_tr": "Hafta sonları büyükanne ve büyükbabamızı ziyaret ederiz.",
+      "related_verbs": ["see", "call", "meet", "travel", "join"]
+    },
+    {
+      "word": "grow",
+      "type": "verb",
+      "turkish": "Büyümek",
+      "example_en": "Children grow up so fast.",
+      "example_tr": "Çocuklar çok hızlı büyüyor.",
+      "related_verbs": ["develop", "rise", "increase", "plant", "change"]
+    },
+    {
+      "word": "share",
+      "type": "verb",
+      "turkish": "Paylaşmak",
+      "example_en": "They share a room together.",
+      "example_tr": "Birlikte bir oda paylaşıyorlar.",
+      "related_verbs": ["give", "divide", "distribute", "exchange", "part"]
+    },
+    {
+      "word": "talk",
+      "type": "verb",
+      "turkish": "Konuşmak, sohbet etmek",
+      "example_en": "We talk about our day at dinner.",
+      "example_tr": "Akşam yemekte günümüz hakkında konuşuruz.",
+      "related_verbs": ["speak", "chat", "discuss", "say", "tell"]
+    },
+    {
+      "word": "listen",
+      "type": "verb",
+      "turkish": "Dinlemek",
+      "example_en": "Parents listen to their children.",
+      "example_tr": "Ebeveynler çocuklarını dinler.",
+      "related_verbs": ["hear", "attend", "mind", "concentrate", "obey"]
+    },
+    {
+      "word": "care",
+      "type": "verb",
+      "turkish": "Önemsemek, ilgilenmek",
+      "example_en": "Mothers care for their babies.",
+      "example_tr": "Anneler bebekleriyle ilgilenir.",
+      "related_verbs": ["worry", "mind", "protect", "love", "look"]
+    },
+    {
+      "word": "play",
+      "type": "verb",
+      "turkish": "Oynamak",
+      "example_en": "Sisters play games together.",
+      "example_tr": "Kız kardeşler birlikte oyun oynar.",
+      "related_verbs": ["sport", "act", "enjoy", "fun", "game"]
+    },
+    {
+      "word": "smile",
+      "type": "verb",
+      "turkish": "Gülümsemek",
+      "example_en": "My grandfather smiles warmly.",
+      "example_tr": "Büyükbabam sıcak bir şekilde gülümser.",
+      "related_verbs": ["laugh", "happy", "greet", "pleased", "look"]
+    },
+    {
+      "word": "laugh",
+      "type": "verb",
+      "turkish": "Gülmek",
+      "example_en": "We laugh at funny family stories.",
+      "example_tr": "Komik aile hikayelerine güleriz.",
+      "related_verbs": ["smile", "enjoy", "fun", "pleased", "cheer"]
+    },
+    {
+      "word": "hug",
+      "type": "verb",
+      "turkish": "Sarılmak",
+      "example_en": "I hug my dad when he comes home.",
+      "example_tr": "Babam eve geldiğinde ona sarılırım.",
+      "related_verbs": ["hold", "embrace", "squeeze", "greet", "love"]
+    },
+    {
+      "word": "kiss",
+      "type": "verb",
+      "turkish": "Öpmek",
+      "example_en": "She kisses her baby goodnight.",
+      "example_tr": "Bebeğini geceler olsun diye öper.",
+      "related_verbs": ["touch", "greet", "love", "hug", "care"]
+    },
+    {
+      "word": "live",
+      "type": "verb",
+      "turkish": "Birlikte yaşamak",
+      "example_en": "We live in a big house.",
+      "example_tr": "Büyük bir evde yaşıyoruz.",
+      "related_verbs": ["reside", "stay", "inhabit", "dwell", "house"]
+    },
+    {
+      "word": "meet",
+      "type": "verb",
+      "turkish": "Buluşmak, bir araya gelmek",
+      "example_en": "Relatives meet on holidays.",
+      "example_tr": "Akrabalar bayramlarda bir araya gelir.",
+      "related_verbs": ["gather", "assemble", "join", "see", "unite"]
+    },
+    {
+      "word": "cook",
+      "type": "verb",
+      "turkish": "Yemek pişirmek",
+      "example_en": "Grandma cooks delicious meals.",
+      "example_tr": "Büyükanne lezzetli yemekler pişirir.",
+      "related_verbs": ["prepare", "bake", "fry", "boil", "make"]
+    },
+    {
+      "word": "clean",
+      "type": "verb",
+      "turkish": "Temizlemek",
+      "example_en": "We clean the house together.",
+      "example_tr": "Evi birlikte temizleriz.",
+      "related_verbs": ["wash", "tidy", "sweep", "dust", "scrub"]
+    },
+    {
+      "word": "wash",
+      "type": "verb",
+      "turkish": "Yıkamak",
+      "example_en": "Dad washes the dishes.",
+      "example_tr": "Baba bulaşıkları yıkar.",
+      "related_verbs": ["clean", "scrub", "dry", "rinse", "wipe"]
+    },
+    {
+      "word": "eat",
+      "type": "verb",
+      "turkish": "Yemek yemek",
+      "example_en": "The family eats dinner at six.",
+      "example_tr": "Aile saat altıda akşam yemeği yer.",
+      "related_verbs": ["dine", "consume", "taste", "feed", "swallow"]
+    },
+    {
+      "word": "drink",
+      "type": "verb",
+      "turkish": "İçmek",
+      "example_en": "Uncle drinks tea after dinner.",
+      "example_tr": "Amca akşam yemekten sonra çay içer.",
+      "related_verbs": ["sip", "gulp", "taste", "refresh", "order"]
+    },
+    {
+      "word": "give",
+      "type": "verb",
+      "turkish": "Vermek",
+      "example_en": "Parents give gifts to children.",
+      "example_tr": "Ebeveynler çocuklara hediyeler verir.",
+      "related_verbs": ["hand", "offer", "provide", "grant", "donate"]
+    },
+    {
+      "word": "take",
+      "type": "verb",
+      "turkish": "Almak, götürmek",
+      "example_en": "Mom takes us to school.",
+      "example_tr": "Anne bizi okula götürür.",
+      "related_verbs": ["carry", "bring", "grab", "accept", "receive"]
+    },
+    {
+      "word": "bring",
+      "type": "verb",
+      "turkish": "Getirmek",
+      "example_en": "Brother brings home good news.",
+      "example_tr": "Erkek kardeş eve iyi haberler getirir.",
+      "related_verbs": ["fetch", "carry", "deliver", "convey", "bear"]
+    },
+    {
+      "word": "call",
+      "type": "verb",
+      "turkish": "Aramak, telefon etmek",
+      "example_en": "I call my aunt every Sunday.",
+      "example_tr": "Her pazar teyzemi ararım.",
+      "related_verbs": ["phone", "ring", "contact", "shout", "name"]
+    },
+    {
+      "word": "answer",
+      "type": "verb",
+      "turkish": "Cevap vermek",
+      "example_en": "Sister answers the phone.",
+      "example_tr": "Kız kardeş telefona cevap verir.",
+      "related_verbs": ["reply", "respond", "react", "speak", "say"]
+    },
+    {
+      "word": "ask",
+      "type": "verb",
+      "turkish": "Sormak",
+      "example_en": "Children ask many questions.",
+      "example_tr": "Çocuklar pek çok soru sorar.",
+      "related_verbs": ["question", "inquire", "request", "beg", "query"]
+    },
+    {
+      "word": "tell",
+      "type": "verb",
+      "turkish": "Anlatmak, söylemek",
+      "example_en": "Grandpa tells old stories.",
+      "example_tr": "Büyükbaba eski hikayeler anlatır.",
+      "related_verbs": ["say", "speak", "inform", "explain", "recount"]
+    },
+    {
+      "word": "know",
+      "type": "verb",
+      "turkish": "Bilmek, tanımak",
+      "example_en": "I know all my relatives.",
+      "example_tr": "Bütün akrabalarımı tanıyorum/biliyorum.",
+      "related_verbs": ["understand", "recognize", "realize", "learn", "perceive"]
+    },
+    {
+      "word": "understand",
+      "type": "verb",
+      "turkish": "Anlamak",
+      "example_en": "My parents understand me.",
+      "example_tr": "Ebeveynlerim beni anlıyor.",
+      "related_verbs": ["comprehend", "know", "realize", "grasp", "see"]
+    },
+    {
+      "word": "remember",
+      "type": "verb",
+      "turkish": "Hatırlamak",
+      "example_en": "We remember family birthdays.",
+      "example_tr": "Aile doğum günlerini hatırlarız.",
+      "related_verbs": ["recall", "recollect", "think", "mind", "retain"]
+    },
+    {
+      "word": "forget",
+      "type": "verb",
+      "turkish": "Unutmak",
+      "example_en": "Don't forget your cousin's name.",
+      "example_tr": "Kuzeninin adını unutma.",
+      "related_verbs": ["miss", "lose", "leave", "fail", "drop"]
+    },
+    {
+      "word": "agree",
+      "type": "verb",
+      "turkish": "Anlaşmak, aynı fikirde olmak",
+      "example_en": "Family members agree on plans.",
+      "example_tr": "Aile üyeleri planlar konusunda anlaşır.",
+      "related_verbs": ["accept", "consent", "match", "approve", "conform"]
+    },
+    {
+      "word": "disagree",
+      "type": "verb",
+      "turkish": "Fikir ayrılığına düşmek",
+      "example_en": "Sometimes brothers disagree.",
+      "example_tr": "Bazen erkek kardeşler anlaşmazlık yaşar.",
+      "related_verbs": ["differ", "argue", "oppose", "object", "fight"]
+    },
+    {
+      "word": "argue",
+      "type": "verb",
+      "turkish": "Tartışmak",
+      "example_en": "Children shouldn't argue.",
+      "example_tr": "Çocuklar tartışmamalıdır.",
+      "related_verbs": ["fight", "quarrel", "dispute", "debate", "bickering"]
+    },
+    {
+      "word": "apologize",
+      "type": "verb",
+      "turkish": "Özür dilemek",
+      "example_en": "He apologizes for being late.",
+      "example_tr": "Geç kaldığı için özür diler.",
+      "related_verbs": ["regret", "excuse", "sorry", "pardon", "forgive"]
+    },
+    {
+      "word": "forgive",
+      "type": "verb",
+      "turkish": "Affetmek",
+      "example_en": "Mothers always forgive us.",
+      "example_tr": "Anneler bizi her zaman affeder.",
+      "related_verbs": ["excuse", "pardon", "acquit", "forget", "accept"]
+    },
+    {
+      "word": "protect",
+      "type": "verb",
+      "turkish": "Korumak",
+      "example_en": "Parents protect their children.",
+      "example_tr": "Ebeveynler çocuklarını korur.",
+      "related_verbs": ["guard", "defend", "save", "shield", "keep"]
+    },
+    {
+      "word": "support",
+      "type": "verb",
+      "turkish": "Desteklemek",
+      "example_en": "We support each other.",
+      "example_tr": "Birbirimizi destekleriz.",
+      "related_verbs": ["help", "assist", "back", "encourage", "hold"]
+    },
+    {
+      "word": "encourage",
+      "type": "verb",
+      "turkish": "Cesaretlendirmek",
+      "example_en": "Dad encourages me to study.",
+      "example_tr": "Babam ders çalışmam için beni cesaretlendirir.",
+      "related_verbs": ["support", "inspire", "boost", "cheer", "urge"]
+    },
+    {
+      "word": "worry",
+      "type": "verb",
+      "turkish": "Endişelenmek",
+      "example_en": "Mothers worry about us.",
+      "example_tr": "Anneler bizim için endişelenir.",
+      "related_verbs": ["fear", "care", "trouble", "mind", "stress"]
+    },
+    {
+      "word": "hope",
+      "type": "verb",
+      "turkish": "Umut etmek",
+      "example_en": "We hope for a good future.",
+      "example_tr": "İyi bir gelecek umut ediyoruz.",
+      "related_verbs": ["wish", "expect", "want", "dream", "trust"]
+    },
+    {
+      "word": "celebrate",
+      "type": "verb",
+      "turkish": "Kutlamak",
+      "example_en": "We celebrate birthdays together.",
+      "example_tr": "Doğum günlerini birlikte kutlarız.",
+      "related_verbs": ["party", "observe", "honor", "enjoy", "cheer"]
+    },
+    {
+      "word": "gather",
+      "type": "verb",
+      "turkish": "Toplanmak",
+      "example_en": "The family gathers for dinner.",
+      "example_tr": "Aile akşam yemeği için toplanır.",
+      "related_verbs": ["meet", "assemble", "collect", "group", "unite"]
+    },
+    {
+      "word": "spend",
+      "type": "verb",
+      "turkish": "Vakit geçirmek",
+      "example_en": "I spend time with my sister.",
+      "example_tr": "Kız kardeşimle vakit geçiririm.",
+      "related_verbs": ["pass", "use", "pay", "waste", "live"]
+    },
+    {
+      "word": "travel",
+      "type": "verb",
+      "turkish": "Seyahat etmek",
+      "example_en": "We travel with our parents.",
+      "example_tr": "Ebeveynlerimizle seyahat ederiz.",
+      "related_verbs": ["tour", "journey", "trip", "visit", "explore"]
+    },
+    {
+      "word": "stay",
+      "type": "verb",
+      "turkish": "Kalmak",
+      "example_en": "Relatives stay at our house.",
+      "example_tr": "Akrabalar bizim evde kalır.",
+      "related_verbs": ["remain", "wait", "dwell", "reside", "live"]
+    },
+    {
+      "word": "leave",
+      "type": "verb",
+      "turkish": "Ayrılmak",
+      "example_en": "Guests leave after dinner.",
+      "example_tr": "Misafirler akşam yemeğinden sonra ayrılır.",
+      "related_verbs": ["depart", "exit", "quit", "abandon", "go"]
+    },
+    {
+      "word": "send",
+      "type": "verb",
+      "turkish": "Göndermek",
+      "example_en": "We send letters to grandma.",
+      "example_tr": "Büyükanneye mektup göndeririz.",
+      "related_verbs": ["mail", "message", "forward", "give", "transfer"]
+    },
+    {
+      "word": "receive",
+      "type": "verb",
+      "turkish": "Almak, teslim almak",
+      "example_en": "I receive a gift from my uncle.",
+      "example_tr": "Amcamdan bir hediye alıyorum.",
+      "related_verbs": ["get", "accept", "gain", "take", "obtain"]
+    },
+    {
+      "word": "respect",
+      "type": "verb",
+      "turkish": "Saygı duymak",
+      "example_en": "We respect elderly people.",
+      "example_tr": "Yaşlı insanlara saygı duyarız.",
+      "related_verbs": ["honor", "value", "admire", "regard", "appreciate"]
+    }
+  ]
+}

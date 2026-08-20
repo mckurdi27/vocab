@@ -1,0 +1,409 @@
+{
+  "level": "B2",
+  "scene_id": 5,
+  "scene_title": "Global Economics and Finance",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "invest",
+      "type": "verb",
+      "turkish": "Yatırım yapmak",
+      "example_en": "Global corporations invest heavily in emerging technological infrastructure across developing nations.",
+      "example_tr": "Küresel şirketler, gelişen ülkeler genelindeki gelişmekte olan teknolojik altyapıya büyük yatırım yapıyor.",
+      "related_verbs": ["fund", "finance", "commit", "back", "sink"]
+    },
+    {
+      "word": "trade",
+      "type": "verb",
+      "turkish": "Ticaret yapmak, alım satım yapmak",
+      "example_en": "International markets trade billions of dollars in assets daily through electronic networks.",
+      "example_tr": "Uluslararası piyasalar, elektronik ağlar aracılığıyla günlük olarak milyarlarca dolarlık varlık ticareti yapar.",
+      "related_verbs": ["exchange", "barter", "deal", "traffic", "swapped"]
+    },
+    {
+      "word": "profit",
+      "type": "verb",
+      "turkish": "Kâr etmek, kazanç sağlamak",
+      "example_en": "Smart investors profit significantly by diversifying their portfolios across multiple industries.",
+      "example_tr": "Akıllı yatırımcılar, portföylerini birden fazla sektöre çeşitlendirerek önemli ölçüde kâr eder.",
+      "related_verbs": ["gain", "benefit", "earn", "yield", "net"]
+    },
+    {
+      "word": "lose",
+      "type": "verb",
+      "turkish": "Kaybetmek",
+      "example_en": "Unstable stock markets cause numerous day traders to lose vast sums of capital rapidly.",
+      "example_tr": "İstikrarsız borsa piyasaları, çok sayıda günlük yatırımcının hızla devasa miktarda sermaye kaybetmesine neden olur.",
+      "related_verbs": ["forfeit", "drop", "misplace", "shed", "drop"]
+    },
+    {
+      "word": "borrow",
+      "type": "verb",
+      "turkish": "Borç almak",
+      "example_en": "Businesses often borrow funds from commercial banks to finance large expansion projects.",
+      "example_tr": "İşletmeler, büyük genişleme projelerini finanse etmek için genellikle ticari bankalardan fon borç alırlar.",
+      "related_verbs": ["take loan", "obtain", "secure", "lease", "adopt"]
+    },
+    {
+      "word": "lend",
+      "type": "verb",
+      "turkish": "Borç vermek",
+      "example_en": "Central financial institutions lend money to national banks during severe liquidity crises.",
+      "example_tr": "Merkezi finans kurumları, şiddetli likidite krizleri sırasında ulusal bankalara borç para verir.",
+      "related_verbs": ["loan", "advance", "provide", "extend", "contribute"]
+    },
+    {
+      "word": "owe",
+      "type": "verb",
+      "turkish": "Borçlu olmak",
+      "example_en": "Developing nations continue to owe substantial sums to international monetary organizations.",
+      "example_tr": "Gelişmekte olan uluslar, uluslararası parasal kuruluşlara büyük miktarlarda borçlu olmaya devam ediyor.",
+      "related_verbs": ["be indebted", "be obliged", "be bound", "fall behind", "debit"]
+    },
+    {
+      "word": "tax",
+      "type": "verb",
+      "turkish": "Vergilendirmek",
+      "example_en": "Governments tax corporate profits to fund public services and national infrastructure programs.",
+      "example_tr": "Hükümetler, kamu hizmetlerini ve ulusal altyapı programlarını finanse etmek için şirket karlarını vergilendirir.",
+      "related_verbs": ["levy", "assess", "charge", "impose", "tariff"]
+    },
+    {
+      "word": "budget",
+      "type": "verb",
+      "turkish": "Bütçe ayırmak, bütçelemek",
+      "example_en": "Corporate directors budget carefully for unexpected operational expenditures each fiscal year.",
+      "example_tr": "Kurumsal yöneticiler, her mali yılda beklenmeyen operasyonel harcamalar için dikkatlice bütçe ayırır.",
+      "related_verbs": ["allocate", "plan", "calculate", "apportion", "schedule"]
+    },
+    {
+      "word": "spend",
+      "type": "verb",
+      "turkish": "Harcamak",
+      "example_en": "Modern consumers spend a considerable portion of their monthly income on digital subscriptions.",
+      "example_tr": "Modern tüketiciler, aylık gelirlerinin hatırı sayılır bir kısmını dijital aboneliklere harcıyor.",
+      "related_verbs": ["pay", "expend", "lay out", "disburse", "consume"]
+    },
+    {
+      "word": "save",
+      "type": "verb",
+      "turkish": "Biriktirmek, tasarruf etmek",
+      "example_en": "Prudent financial advisors urge young professionals to save early for retirement funds.",
+      "example_tr": "İhtiyatlı finansal danışmanlar, genç profesyonelleri emeklilik fonları için erken tasarruf etmeye çağırıyor.",
+      "related_verbs": ["accumulate", "reserve", "preserve", "hoard", "store"]
+    },
+    {
+      "word": "afford",
+      "type": "verb",
+      "turkish": "Gücü yetmek, maliyetini karşılayabilmek",
+      "example_en": "Rising inflation makes it difficult for average families to afford residential housing.",
+      "example_tr": "Yükselen enflasyon, ortalama ailelerin konut konut maliyetini karşılamasını zorlaştırıyor.",
+      "related_verbs": ["manage", "bear", "support", "qualify", "spare"]
+    },
+    {
+      "word": "cost",
+      "type": "verb",
+      "turkish": "Mal olmak, maliyeti olmak",
+      "example_en": "Advanced cyber security solutions cost enterprises millions in annual software maintenance fees.",
+      "example_tr": "Gelişmiş siber güvenlik çözümleri, işletmelere yıllık yazılım bakım ücretlerinde milyonlarca dolara mal oluyor.",
+      "related_verbs": ["value", "price", "run", "amount", "charge"]
+    },
+    {
+      "word": "value",
+      "type": "verb",
+      "turkish": "Değer biçmek, değer vermek",
+      "example_en": "Independent auditors value corporate assets accurately before public stock offerings.",
+      "example_tr": "Bağımsız denetçiler, halka arz öncesinde şirket varlıklarına doğru bir şekilde değer biçer.",
+      "related_verbs": ["appraise", "rate", "assess", "price", "estimate"]
+    },
+    {
+      "word": "depreciate",
+      "type": "verb",
+      "turkish": "Değer kaybetmek",
+      "example_en": "Commercial vehicles tend to depreciate rapidly during their first three years of operation.",
+      "example_tr": "Ticari araçlar, operasyonlarının ilk üç yılında hızla değer kaybetme eğilimindedir.",
+      "related_verbs": ["devalue", "decline", "drop", "cheapen", "lose value"]
+    },
+    {
+      "word": "appreciate",
+      "type": "verb",
+      "turkish": "Değer kazanmak / takdir etmek",
+      "example_en": "Real estate properties in metropolitan sectors usually appreciate steadily over long periods.",
+      "example_tr": "Metropolitan sektörlerdeki gayrimenkul mülkleri genellikle uzun süreler boyunca istikrarlı bir şekilde değer kazanır.",
+      "related_verbs": ["increase", "gain", "rise", "grow", "value"]
+    },
+    {
+      "word": "monopolize",
+      "type": "verb",
+      "turkish": "Tekeline almak",
+      "example_en": "Large tech giants attempt to monopolize digital advertisement markets through strategic buyouts.",
+      "example_tr": "Büyük teknoloji devleri, stratejik satın almalar yoluyla dijital reklam pazarlarını tekeline almaya çalışıyor.",
+      "related_verbs": ["dominate", "corner", "control", "hog", "secure"]
+    },
+    {
+      "word": "diversify",
+      "type": "verb",
+      "turkish": "Çeşitlendirmek",
+      "example_en": "Smart institutional funds diversify holdings across international markets to hedge financial risks.",
+      "example_tr": "Akıllı kurumsal fonlar, finansal risklere karşı korunmak için uluslararası piyasalardaki varlıklarını çeşitlendirir.",
+      "related_verbs": ["expand", "vary", "broaden", "branch out", "multiplicate"]
+    },
+    {
+      "word": "accumulate",
+      "type": "verb",
+      "turkish": "Biriktirmek, toplamak",
+      "example_en": "Successful entrepreneurs accumulate wealth through careful capital management and investments.",
+      "example_tr": "Başarılı girişimciler, dikkatli sermaye yönetimi ve yatırımlar yoluyla servet biriktirir.",
+      "related_verbs": ["gather", "collect", "amass", "build up", "store"]
+    },
+    {
+      "word": "bankrupt",
+      "type": "verb",
+      "turkish": "İflas ettirmek",
+      "example_en": "Prolonged economic recessions can easily bankrupt poorly managed retail businesses.",
+      "example_tr": "Uzun süreli ekonomik durgunluklar, kötü yönetilen perakende işletmelerini kolayca iflas ettirebilir.",
+      "related_verbs": ["ruin", "break", "pauperize", "wipe out", "collapse"]
+    },
+    {
+      "word": "subsidize",
+      "type": "verb",
+      "turkish": "Finanse etmek, sübvanse etmek",
+      "example_en": "Governments subsidize agricultural production to stabilize national food prices and supplies.",
+      "example_tr": "Hükümetler, ulusal gıda fiyatlarını ve arzını istikrara kavuşturmak için tarımsal üretimi sübvanse eder.",
+      "related_verbs": ["fund", "support", "finance", "assist", "back"]
+    },
+    {
+      "word": "auction",
+      "type": "verb",
+      "turkish": "Açık artırmayla satmak",
+      "example_en": "Federal authorities auction seized commercial assets to recover unpaid corporate taxes.",
+      "example_tr": "Federal yetkililer, ödenmemiş şirket vergilerini tahsil etmek için el konulan ticari varlıkları açık artırmayla satar.",
+      "related_verbs": ["sell", "bid", "liquidate", "dispose", "market"]
+    },
+    {
+      "word": "underwrite",
+      "type": "verb",
+      "turkish": "Finansal güvence vermek, sigortalamak / üstlenmek",
+      "example_en": "Major investment banks agreed to underwrite the upcoming multi-million dollar corporate stock launch.",
+      "example_tr": "Büyük yatırım bankaları, yaklaşan milyonlarca dolarlık kurumsal hisse senedi lansmanına finansal güvence vermeyi kabul etti.",
+      "related_verbs": ["guarantee", "support", "back", "insure", "sponsor"]
+    },
+    {
+      "word": "reimburse",
+      "type": "verb",
+      "turkish": "Masrafını ödemek, geri ödemek",
+      "example_en": "Companies reimburse employees for travel expenses incurred during official business trips.",
+      "example_tr": "Şirketler, resmi iş seyahatleri sırasında yapılan seyahat masraflarını çalışanlara geri öder.",
+      "related_verbs": ["refund", "repay", "compensate", "remunerate", "pay back"]
+    },
+    {
+      "word": "merge",
+      "type": "verb",
+      "turkish": "Birleşmek",
+      "example_en": "Two prominent pharmaceutical giants announced plans to merge into a single global enterprise.",
+      "example_tr": "İki önde gelen ilaç devi, tek bir küresel işletmede birleşme planlarını açıkladı.",
+      "related_verbs": ["combine", "unite", "amalgamate", "integrate", "join"]
+    },
+    {
+      "word": "acquire",
+      "type": "verb",
+      "turkish": "Satın almak, bünyesine katmak",
+      "example_en": "The multinational corporation moved quickly to acquire the rising software startup.",
+      "example_tr": "Çok uluslu şirket, yükselen yazılım girişimini bünyesine katmak için hızlı hareket etti.",
+      "related_verbs": ["buy", "purchase", "obtain", "gain", "procure"]
+    },
+    {
+      "word": "recession",
+      "type": "verb (noun-derived verb use / context)",
+      "turkish": "Durgunluğa girmek",
+      "example_en": "Economists monitor global indicators closely to predict when regional economies might enter recession.",
+      "example_tr": "Ekonomistler, bölgesel ekonomilerin ne zaman durgunluğa girebileceğini tahmin etmek için küresel göstergeleri yakından izler.",
+      "related_verbs": ["decline", "slow down", "contract", "slump", "downturn"]
+    },
+    {
+      "word": "inflate",
+      "type": "verb",
+      "turkish": "Şişirmek, artırmak (fiyat/para arzı)",
+      "example_en": "Excessive money printing tends to inflate commodity prices across international markets.",
+      "example_tr": "Aşırı para basımı, uluslararası piyasalardaki emtia fiyatlarını artırma eğilimindedir.",
+      "related_verbs": ["expand", "swell", "bloat", "magnify", "escalate"]
+    },
+    {
+      "word": "deflate",
+      "type": "verb",
+      "turkish": "Düşürmek, azaltmak (fiyat/değer)",
+      "example_en": "Tight monetary policies help deflate speculative asset bubbles in real estate sectors.",
+      "example_tr": "Sıkı para politikaları, gayrimenkul sektörlerindeki spekülatif varlık balonlarını düşürmeye yardımcı olur.",
+      "related_verbs": ["reduce", "shrink", "flatten", "lessen", "lower"]
+    },
+    {
+      "word": "speculate",
+      "type": "verb",
+      "turkish": "Spekülasyon yapmak, borsa oynamak",
+      "example_en": "Day traders speculate wildly on volatile currency exchanges hoping for quick financial gains.",
+      "example_tr": "Günlük yatırımcılar, hızlı finansal kazançlar umarak dalgalı döviz kurlarında çılgınca spekülasyon yapar.",
+      "related_verbs": ["gamble", "risk", "venture", "theorize", "guess"]
+    },
+    {
+      "word": "audit",
+      "type": "verb",
+      "turkish": "Denetlemek (mali)",
+      "example_en": "Certified accountants audit corporate financial statements annually to ensure legal compliance.",
+      "example_tr": "Sertifikalı muhasebeciler, yasal uyumluluğu sağlamak için her yıl kurumsal finansal tabloları denetler.",
+      "related_verbs": ["inspect", "examine", "review", "check", "scrutinize"]
+    },
+    {
+      "word": "liquidate",
+      "type": "verb",
+      "turkish": "Tasfiye etmek, nakite çevirmek",
+      "example_en": "Faced with mounting debts, the firm had to liquidate its stock portfolio immediately.",
+      "example_tr": "Artan borçlarla karşı karşıya kalan firma, hisse senedi portföyünü derhal nakite çevirmek zorunda kaldı.",
+      "related_verbs": ["sell off", "dissolve", "clear", "pay off", "close down"]
+    },
+    {
+      "word": "broker",
+      "type": "verb",
+      "turkish": "Aracılık etmek (anlaşma vb.)",
+      "example_en": "Experienced diplomats broker trade agreements between competing economic superpowers.",
+      "example_tr": "Deneyimli diplomatlar, rakip ekonomik süper güçler arasındaki ticaret anlaşmalarına aracılık eder.",
+      "related_verbs": ["mediate", "negotiate", "arrange", "facilitate", "arbitrate"]
+    },
+    {
+      "word": "curtail",
+      "type": "verb",
+      "turkish": "Kısıtlamak, kısmak",
+      "example_en": "Central banks raised interest rates to curtail excessive consumer spending and inflation.",
+      "example_tr": "Merkez bankaları, aşırı tüketici harcamalarını ve enflasyonu kısıtlamak için faiz oranlarını artırdı.",
+      "related_verbs": ["reduce", "restrict", "limit", "cut back", "diminish"]
+    },
+    {
+      "word": "escalate",
+      "type": "verb",
+      "turkish": "Tırmanmak, artmak",
+      "example_en": "Trade tensions between rival nations escalate rapidly when tariffs are imposed.",
+      "example_tr": "Gümrük tarifeleri uygulandığında rakip uluslar arasındaki ticaret gerilimleri hızla tırmanır.",
+      "related_verbs": ["increase", "intensify", "mount", "grow", "accelerate"]
+    },
+    {
+      "word": "curb",
+      "type": "verb",
+      "turkish": "Zapt etmek, dizginlemek, sınırlamak",
+      "example_en": "Financial regulators introduced new compliance rules to curb fraudulent banking transactions.",
+      "example_tr": "Finansal düzenleyiciler, dolandırıcılık içeren bankacılık işlemlerini dizginlemek için yeni uyumluluk kuralları getirdi.",
+      "related_verbs": ["restrain", "check", "control", "limit", "restrict"]
+    },
+    {
+      "word": "bolster",
+      "type": "verb",
+      "turkish": "Desteklemek, güçlendirmek",
+      "example_en": "Emergency stimulus packages help bolster struggling local businesses during economic downturns.",
+      "example_tr": "Acil durum teşvik paketleri, ekonomik durgunluklar sırasında zor durumdaki yerel işletmeleri desteklemeye yardımcı olur.",
+      "related_verbs": ["strengthen", "support", "boost", "reinforce", "prop up"]
+    },
+    {
+      "word": "curtail",
+      "type": "verb",
+      "turkish": "Kısıtlamak (tekrar pekiştirme)",
+      "example_en": "Corporations must curtail unnecessary travel expenditures during lean financial quarters.",
+      "example_tr": "Şirketler, zayıf mali çeyreklerde gereksiz seyahat harcamalarını kısıtlamalıdır.",
+      "related_verbs": ["reduce", "restrict", "limit", "cut back", "diminish"]
+    },
+    {
+      "word": "fluctuate",
+      "type": "verb",
+      "turkish": "Dalgalanmak",
+      "example_en": "Currency exchange rates fluctuate constantly based on global geopolitical developments.",
+      "example_tr": "Döviz kurları, küresel jeopolitik gelişmelere dayanarak sürekli dalgalanır.",
+      "related_verbs": ["vary", "oscillate", "shift", "swing", "waver"]
+    },
+    {
+      "word": "generate",
+      "type": "verb",
+      "turkish": "Gelir/kâr üretmek",
+      "example_en": "New retail strategies generate substantial revenue during holiday shopping seasons.",
+      "example_tr": "Yeni perakende stratejileri, tatil alışveriş sezonlarında hatırı sayılır gelir üretir.",
+      "related_verbs": ["produce", "create", "yield", "make", "form"]
+    },
+    {
+      "word": "stabilize",
+      "type": "verb",
+      "turkish": "İstikrara kavuşturmak",
+      "example_en": "International monetary interventions successfully stabilize volatile currency markets.",
+      "example_tr": "Uluslararası parasal müdahaleler, dalgalı döviz piyasalarını başarılı bir şekilde istikrara kavuşturuyor.",
+      "related_verbs": ["balance", "steady", "secure", "firm", "settle"]
+    },
+    {
+      "word": "depress",
+      "type": "verb",
+      "turkish": "Düşürmek, baskılamak (fiyat/talep)",
+      "example_en": "Oversupply conditions continue to depress global petroleum market prices.",
+      "example_tr": "Aşırı arz koşulları, küresel petrol piyasası fiyatlarını düşürmeye devam ediyor.",
+      "related_verbs": ["lower", "reduce", "suppress", "dampen", "weaken"]
+    },
+    {
+      "word": "stimulate",
+      "type": "verb",
+      "turkish": "Canlandırmak, teşvik etmek (ekonomiyi)",
+      "example_en": "Tax cuts aim to stimulate consumer spending and accelerate economic growth.",
+      "example_tr": "Vergi indirimleri, tüketici harcamalarını canlandırmayı ve ekonomik büyümeyi hızlandırmayı amaçlar.",
+      "related_verbs": ["encourage", "boost", "inspire", "prompt", "energize"]
+    },
+    {
+      "word": "withhold",
+      "type": "verb",
+      "turkish": "Alıkoymak, vermekten kaçınmak (vergi/ödeme)",
+      "example_en": "Employers withhold income taxes automatically from monthly employee payrolls.",
+      "example_tr": "İşverenler, aylık çalışan bordrolarından gelir vergilerini otomatik olarak alıkor.",
+      "related_verbs": ["retain", "hold back", "keep", "stiff", "reserve"]
+    },
+    {
+      "word": "disburse",
+      "type": "verb",
+      "turkish": "Ödemek, para dağıtmak (fon vb.)",
+      "example_en": "The government will disburse research grants to approved scientific institutions next month.",
+      "example_tr": "Hükümet, önümüzdeki ay onaylanmış bilimsel kurumlara araştırma hibeleri ödeyecektir.",
+      "related_verbs": ["pay out", "distribute", "spend", "allocate", "issue"]
+    },
+    {
+      "word": "appraise",
+      "type": "verb",
+      "turkish": "Değer biçmek, ekspertiz yapısını incelemek",
+      "example_en": "Licensed experts appraise commercial real estate before bank mortgage approvals.",
+      "example_tr": "Lisanslı uzmanlar, banka ipotek onaylarından önce ticari gayrimenkullere değer biçer.",
+      "related_verbs": ["evaluate", "assess", "estimate", "value", "rate"]
+    },
+    {
+      "word": "default",
+      "type": "verb",
+      "turkish": "Borcunu ödemeyip temerrüde düşmek",
+      "example_en": "High interest rates increased the risk that heavily indebted nations might default.",
+      "example_tr": "Yüksek faiz oranları, ağır borç altındaki ulusların temerrüde düşme riskini artırdı.",
+      "related_verbs": ["fail", "miss", "renege", "lapse", "breach"]
+    },
+    {
+      "word": "transact",
+      "type": "verb",
+      "turkish": "Ticari işlem yapmak",
+      "example_en": "Modern businesses transact securely online using encrypted blockchain payment networks.",
+      "example_tr": "Modern işletmeler şifrelenmiş blok zinciri ödeme ağlarını kullanarak çevrim içi olarak güvenli bir şekilde ticari işlem yapar.",
+      "related_verbs": ["deal", "negotiate", "conduct", "trade", "perform"]
+    },
+    {
+      "word": "monetize",
+      "type": "verb",
+      "turkish": "Paraya dönüştürmek, gelir elde eder hale getirmek",
+      "example_en": "Content creators look for innovative ways to monetize digital media platforms effectively.",
+      "example_tr": "İçerik üreticileri, dijital medya platformlarından etkili bir şekilde gelir elde etmenin yenilikçi yollarını arıyor.",
+      "related_verbs": ["commercialize", "profit", "market", "exploit", "capitalize"]
+    },
+    {
+      "word": "outsource",
+      "type": "verb",
+      "turkish": "İşi dışarıya vermek",
+      "example_en": "Firms outsource accounting operations to specialized financial service agencies.",
+      "example_tr": "Firmalar muhasebe operasyonlarını uzmanlaşmış finansal hizmet ajanslarına dış kaynak olarak verir.",
+      "related_verbs": ["subcontract", "contract out", "delegate", "transfer", "farm out"]
+    }
+  ]
+}
+

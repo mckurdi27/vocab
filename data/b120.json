@@ -1,0 +1,408 @@
+{
+  "level": "B1",
+  "scene_id": 20,
+  "scene_title": "Shopping and Commerce",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "buy",
+      "type": "verb",
+      "turkish": "Satın almak",
+      "example_en": "Customers prefer to buy fresh organic groceries from local farmers' markets.",
+      "example_tr": "Müşteriler taze organik gıdaları yerel çiftçi pazarlarından satın almayı tercih eder.",
+      "related_verbs": ["purchase", "acquire", "get", "procure", "shop"]
+    },
+    {
+      "word": "sell",
+      "type": "verb",
+      "turkish": "Satmak",
+      "example_en": "Retail shops sell various electronic appliances and household items.",
+      "example_tr": "Perakende mağazaları çeşitli elektronik cihazlar ve ev eşyaları satar.",
+      "related_verbs": ["market", "vend", "trade", "offer", "supply"]
+    },
+    {
+      "word": "shop",
+      "type": "verb",
+      "turkish": "Alışveriş yapmak",
+      "example_en": "Many shoppers love to shop online using secure smartphone applications.",
+      "example_tr": "Birçok alışveriş yapan kişi güvenli akıllı telefon uygulamalarını kullanarak çevrimiçi alışveriş yapmayı sever.",
+      "related_verbs": ["browse", "purchase", "market", "buy", "scan"]
+    },
+    {
+      "word": "pay",
+      "type": "verb",
+      "turkish": "Ödemek",
+      "example_en": "Modern consumers can pay for merchandise using contactless credit cards.",
+      "example_tr": "Modern tüketiciler temassız kredi kartlarını kullanarak ticari malların ödemesini yapabilir.",
+      "related_verbs": ["settle", "compensate", "spend", "clear", "repay"]
+    },
+    {
+      "word": "cost",
+      "type": "verb",
+      "turkish": "Mal olmak, fiyatı olmak",
+      "example_en": "High-end designer leather jackets usually cost a significant amount of money.",
+      "example_tr": "Üst segment tasarımcı deri ceketler genellikle hatırı sayılır miktarda paraya mal olur.",
+      "related_verbs": ["price", "charge", "require", "value", "take"]
+    },
+    {
+      "word": "spend",
+      "type": "verb",
+      "turkish": "Harcamak (para)",
+      "example_en": "People tend to spend more money during holiday seasonal discount sales.",
+      "example_tr": "İnsanlar tatil sezonu indirim satışları sırasında daha fazla para harcama eğilimindedir.",
+      "related_verbs": ["invest", "consume", "use", "waste", "fork out"]
+    },
+    {
+      "word": "save",
+      "type": "verb",
+      "turkish": "Para biriktirmek",
+      "example_en": "Smart buyers try to save money by comparing prices across different stores.",
+      "example_tr": "Akıllı alıcılar farklı mağazalardaki fiyatları karşılaştırarak para biriktirmeye çalışır.",
+      "related_verbs": ["accumulate", "collect", "reserve", "store", "keep"]
+    },
+    {
+      "word": "afford",
+      "type": "verb",
+      "turkish": "Maddi gücü yetmek",
+      "example_en": "Many families cannot afford to buy expensive luxury residential properties.",
+      "example_tr": "Birçok ailenin pahalı lüks konut mülkleri satın almaya maddi gücü yetmez.",
+      "related_verbs": ["manage", "bear", "spare", "support", "allow"]
+    },
+    {
+      "word": "borrow",
+      "type": "verb",
+      "turkish": "Ödünç almak",
+      "example_en": "Customers sometimes borrow money from banks to finance major purchases.",
+      "example_tr": "Müşteriler bazen büyük satın alımları finanse etmek için bankalardan ödünç para alır.",
+      "related_verbs": ["take", "lease", "rent", "obtain", "secure"]
+    },
+    {
+      "word": "lend",
+      "type": "verb",
+      "turkish": "Ödünç vermek",
+      "example_en": "Some department stores lend loyalty cards to regular shopping members.",
+      "example_tr": "Bazı büyük mağazalar düzenli alışveriş üyelerine sadakat kartları ödünç verir.",
+      "related_verbs": ["loan", "advance", "provide", "extend", "grant"]
+    },
+    {
+      "word": "exchange",
+      "type": "verb",
+      "turkish": "Değiştirmek (ürünü)",
+      "example_en": "Customers can return to the counter to exchange wrong clothing sizes.",
+      "example_tr": "Müşteriler yanlış kıyafet bedenlerini değiştirmek için gişeye geri dönebilir.",
+      "related_verbs": ["swap", "trade", "replace", "switch", "substitute"]
+    },
+    {
+      "word": "return",
+      "type": "verb",
+      "turkish": "İade etmek",
+      "example_en": "Online shoppers have the legal right to return damaged goods within two weeks.",
+      "example_tr": "Çevrimiçi alışveriş yapanların, iki hafta içinde hasarlı malları iade etme yasal hakkı vardır.",
+      "related_verbs": ["give back", "refund", "restore", "repay", "send back"]
+    },
+    {
+      "word": "refund",
+      "type": "verb",
+      "turkish": "Para iadesi yapmak",
+      "example_en": "Store cashiers process a full refund if the electronic device malfunctions.",
+      "example_tr": "Elektronik cihaz arızalanırsa mağaza kasiyerleri tam para iadesi gerçekleştirir.",
+      "related_verbs": ["repay", "reimburse", "compensate", "return", "restore"]
+    },
+    {
+      "word": "choose",
+      "type": "verb",
+      "turkish": "Seçmek",
+      "example_en": "Shoppers take their time to choose the best quality fresh fruits.",
+      "example_tr": "Alışveriş yapanlar en kaliteli taze meyveleri seçmek için zaman ayırır.",
+      "related_verbs": ["select", "pick", "prefer", "opt", "decide"]
+    },
+    {
+      "word": "select",
+      "type": "verb",
+      "turkish": "Seçmek",
+      "example_en": "Clients can select preferred furniture styles from online digital catalogs.",
+      "example_tr": "Müşteriler çevrimiçi dijital kataloglardan tercih ettikleri mobilya stillerini seçebilir.",
+      "related_verbs": ["choose", "pick", "opt", "filter", "sort"]
+    },
+    {
+      "word": "compare",
+      "type": "verb",
+      "turkish": "Karşılaştırmak",
+      "example_en": "Websites help users compare prices of smartphones across various online sellers.",
+      "example_tr": "Web siteleri, kullanıcıların çeşitli çevrimiçi satıcılar arasındaki akıllı telefon fiyatlarını karşılaştırmasına yardımcı olur.",
+      "related_verbs": ["contrast", "evaluate", "match", "weigh", "examine"]
+    },
+    {
+      "word": "order",
+      "type": "verb",
+      "turkish": "Sipariş vermek",
+      "example_en": "Food delivery apps let hungry users order meals directly from restaurants.",
+      "example_tr": "Yemek teslimat uygulamaları, aç kullanıcıların doğrudan restoranlardan yemek siparişi vermesine olanak tanır.",
+      "related_verbs": ["request", "command", "book", "arrange", "purchase"]
+    },
+    {
+      "word": "deliver",
+      "type": "verb",
+      "turkish": "Teslim etmek",
+      "example_en": "Courier services deliver heavy packages directly to customer doorsteps.",
+      "example_tr": "Kurye servisleri ağır paketleri doğrudan müşteri kapılarına teslim eder.",
+      "related_verbs": ["bring", "transport", "hand", "send", "distribute"]
+    },
+    {
+      "word": "wrap",
+      "type": "verb",
+      "turkish": "Paketlemek, sarmak",
+      "example_en": "Gift shop assistants neatly wrap birthday presents in colorful decorative paper.",
+      "example_tr": "Hediye dükkanı asistanları doğum günü hediyelerini renkli dekoratif kağıda düzgün bir şekilde sarar.",
+      "related_verbs": ["package", "bundle", "cover", "fold", "seal"]
+    },
+    {
+      "word": "bargain",
+      "type": "verb",
+      "turkish": "Pazarlık yapmak",
+      "example_en": "Visitors often bargain over prices at traditional open-air street markets.",
+      "example_tr": "Ziyaretçiler genellikle geleneksel açık hava sokak pazarlarında fiyatlar üzerinden pazarlık yapar.",
+      "related_verbs": ["negotiate", "haggle", "deal", "discuss", "trade"]
+    },
+    {
+      "word": "discount",
+      "type": "verb",
+      "turkish": "İndirim yapmak",
+      "example_en": "Clothing stores discount winter coats at the end of every cold season.",
+      "example_tr": "Giyim mağazaları her soğuk sezonun sonunda kışlık kabanlarda indirim yapar.",
+      "related_verbs": ["reduce", "lower", "cut", "deduct", "slash"]
+    },
+    {
+      "word": "waste",
+      "type": "verb",
+      "turkish": "İsraf etmek (para vb.)",
+      "example_en": "Buying unnecessary impulse items can waste a lot of hard-earned money.",
+      "example_tr": "Gereksiz dürtüsel ürünler satın almak, kazanılması zor birçok parayı israf edebilir.",
+      "related_verbs": ["squander", "misuse", "drain", "lose", "spoil"]
+    },
+    {
+      "word": "browse",
+      "type": "verb",
+      "turkish": "Göz gezdirmek, incelemek",
+      "example_en": "Weekend shoppers love to browse clothing racks in large shopping malls.",
+      "example_tr": "Hafta sonu alışveriş yapanlar büyük alışveriş merkezlerindeki kıyafet raflarına göz gezdirmeyi sever.",
+      "related_verbs": ["scan", "explore", "look", "survey", "inspect"]
+    },
+    {
+      "word": "examine",
+      "type": "verb",
+      "turkish": "İncelemek, tetkik etmek",
+      "example_en": "Buyers closely examine product labels to check ingredients and expiration dates.",
+      "example_tr": "Alıcılar içerikleri ve son kullanma tarihlerini kontrol etmek için ürün etiketlerini yakından inceler.",
+      "related_verbs": ["inspect", "check", "study", "analyze", "evaluate"]
+    },
+    {
+      "word": "check",
+      "type": "verb",
+      "turkish": "Kontrol etmek",
+      "example_en": "Cashiers check item barcodes quickly using laser scanning machines.",
+      "example_tr": "Kasiyerler lazer tarama makinelerini kullanarak ürün barkodlarını hızlı bir şekilde kontrol eder.",
+      "related_verbs": ["verify", "inspect", "test", "examine", "confirm"]
+    },
+    {
+      "word": "charge",
+      "type": "verb",
+      "turkish": "Ücret talep etmek, fiyat biçmek",
+      "example_en": "Restaurants charge extra money for home delivery food services.",
+      "example_tr": "Restoranlar evlere yemek teslimat hizmetleri için ekstra para talep eder (ücret yansıtır).",
+      "related_verbs": ["bill", "price", "fine", "demand", "cost"]
+    },
+    {
+      "word": "cost",
+      "type": "verb",
+      "turkish": "Fiyatlandırmak, mal olmak",
+      "example_en": "Imported tropical fruits cost more during winter months.",
+      "example_tr": "İthal tropikal meyveler kış aylarında daha pahalıya mal olur.",
+      "related_verbs": ["price", "require", "charge", "value", "take"]
+    },
+    {
+      "word": "earn",
+      "type": "verb",
+      "turkish": "Kazanmak (para)",
+      "example_en": "Hardworking employees earn monthly salaries to support their household shopping.",
+      "example_tr": "Çalışkan çalışanlar ev alışverişlerini desteklemek için aylık maaş kazanır.",
+      "related_verbs": ["gain", "make", "win", "achieve", "collect"]
+    },
+    {
+      "word": "own",
+      "type": "verb",
+      "turkish": "Sahip olmak",
+      "example_en": "Local merchants own and manage small independent grocery shops.",
+      "example_tr": "Yerel tüccarlar küçük bağımsız bakkal dükkanlarına sahip olur ve bunları yönetir.",
+      "related_verbs": ["possess", "have", "hold", "keep", "control"]
+    },
+    {
+      "word": "recommend",
+      "type": "verb",
+      "turkish": "Tavsiye etmek",
+      "example_en": "Sales assistants gladly recommend popular skincare products to beauty shoppers.",
+      "example_tr": "Satış asistanları güzellik alışverişi yapanlara popüler cilt bakım ürünlerini memnuniyetle tavsiye eder.",
+      "related_verbs": ["suggest", "advise", "endorse", "propose", "advocate"]
+    },
+    {
+      "word": "waste",
+      "type": "verb",
+      "turkish": "Boşuna harcamak",
+      "example_en": "Do not waste your limited budget on poorly manufactured electronic items.",
+      "example_tr": "Sınırlı bütçenizi kalitesiz üretilmiş elektronik ürünlere boşuna harcamayın.",
+      "related_verbs": ["squander", "misuse", "drain", "spoil", "lose"]
+    },
+    {
+      "word": "collect",
+      "type": "verb",
+      "turkish": "Toplamak, biriktirmek (puan vb.)",
+      "example_en": "Supermarket customers collect bonus points to get free grocery items.",
+      "example_tr": "Süpermarket müşterileri ücretsiz gıda ürünleri almak için bonus puanlar toplar.",
+      "related_verbs": ["gather", "accumulate", "amass", "store", "compile"]
+    },
+    {
+      "word": "waste",
+      "type": "verb",
+      "turkish": "Ziyan etmek",
+      "example_en": "Leaving perishable groceries outside the refrigerator can waste food items quickly.",
+      "example_tr": "Bozulabilir gıdaları buzdolabının dışında bırakmak gıda maddelerini hızla ziyan edebilir.",
+      "related_verbs": ["spoil", "ruin", "squander", "drain", "destroy"]
+    },
+    {
+      "word": "consume",
+      "type": "verb",
+      "turkish": "Tüketmek",
+      "example_en": "Modern urban populations consume massive quantities of packaged foods.",
+      "example_tr": "Modern kentsel nüfuslar devasa miktarlarda paketlenmiş gıda tüketir.",
+      "related_verbs": ["use", "spend", "utilize", "eat", "absorb"]
+    },
+    {
+      "word": "demand",
+      "type": "verb",
+      "turkish": "Talep etmek",
+      "example_en": "Unhappy customers demand immediate manager intervention for poor service.",
+      "example_tr": "Mutsuz müşteriler kötü hizmet için acil müdür müdahalesi talep eder.",
+      "related_verbs": ["request", "require", "ask", "claim", "order"]
+    },
+    {
+      "word": "supply",
+      "type": "verb",
+      "turkish": "Tedarik etmek, sağlamak",
+      "example_en": "Wholesale distributors supply local supermarkets with fresh bakery products.",
+      "example_tr": "Toptan distribütörler yerel süpermarketlere taze fırın ürünleri tedarik eder.",
+      "related_verbs": ["provide", "deliver", "furnish", "equip", "yield"]
+    },
+    {
+      "word": "provide",
+      "type": "verb",
+      "turkish": "Sağlamak",
+      "example_en": "Retail companies provide customer service hotlines for product inquiries.",
+      "example_tr": "Perakende şirketleri ürün sorguları için müşteri hizmetleri hatları sağlar.",
+      "related_verbs": ["supply", "give", "offer", "furnish", "yield"]
+    },
+    {
+      "word": "guarantee",
+      "type": "verb",
+      "turkish": "Garanti etmek",
+      "example_en": "Manufacturers guarantee hardware quality for at least two purchase years.",
+      "example_tr": "Üreticiler en az iki satın alma yılı boyunca donanım kalitesini garanti eder.",
+      "related_verbs": ["warrant", "ensure", "promise", "secure", "assure"]
+    },
+    {
+      "word": "market",
+      "type": "verb",
+      "turkish": "Pazarlamak",
+      "example_en": "Companies use social media advertising campaigns to market new merchandise.",
+      "example_tr": "Şirketler yeni ticari malları pazarlamak için sosyal medya reklam kampanyaları kullanır.",
+      "related_verbs": ["advertise", "promote", "sell", "push", "commercialize"]
+    },
+    {
+      "word": "promote",
+      "type": "verb",
+      "turkish": "Tanıtımını yapmak, desteklemek",
+      "example_en": "Supermarkets promote organic vegetables using special entrance display boards.",
+      "example_tr": "Süpermarketler özel giriş teşhir panolarını kullanarak organik sebzelerin tanıtımını yapar.",
+      "related_verbs": ["advertise", "market", "push", "boost", "endorse"]
+    },
+    {
+      "word": "advertise",
+      "type": "verb",
+      "turkish": "Reklamını yapmak",
+      "example_en": "Brands advertise popular consumer goods on television and internet platforms.",
+      "example_tr": "Markalar televizyon ve internet platformlarında popüler tüketim mallarının reklamını yapar.",
+      "related_verbs": ["promote", "market", "broadcast", "publicize", "announce"]
+    },
+    {
+      "word": "package",
+      "type": "verb",
+      "turkish": "Paketlemek",
+      "example_en": "Factory workers cleanly package snack foods into airtight plastic bags.",
+      "example_tr": "Fabrika işçileri atıştırmalık gıdaları hava almayan plastik poşetlere temiz bir şekilde paketler.",
+      "related_verbs": ["wrap", "bundle", "box", "seal", "pack"]
+    },
+    {
+      "word": "inspect",
+      "type": "verb",
+      "turkish": "Denetlemek, kontrol etmek",
+      "example_en": "Quality control experts inspect manufactured goods before warehouse shipment.",
+      "example_tr": "Kalite kontrol uzmanları depo sevkiyatından önce üretilen malları denetler.",
+      "related_verbs": ["examine", "check", "review", "audit", "survey"]
+    },
+    {
+      "word": "store",
+      "type": "verb",
+      "turkish": "Depolamak",
+      "example_en": "Retailers store surplus winter inventory in large industrial warehouses.",
+      "example_tr": "Perakendeciler fazla kış envanterini büyük endüstriyel depolarda depolar.",
+      "related_verbs": ["keep", "save", "stock", "retain", "hold"]
+    },
+    {
+      "word": "display",
+      "type": "verb",
+      "turkish": "Sergilemek",
+      "example_en": "Fashion shops display new seasonal clothing lines in bright window fronts.",
+      "example_tr": "Moda mağazaları yeni sezon kıyafet serilerini parlak vitrinlerde sergiler.",
+      "related_verbs": ["show", "exhibit", "present", "reveal", "demonstrate"]
+    },
+    {
+      "word": "negotiate",
+      "type": "verb",
+      "turkish": "Görüşmek, müzakere etmek",
+      "example_en": "Wholesale buyers negotiate bulk purchase contracts with major factory suppliers.",
+      "example_tr": "Toptan alıcılar, büyük fabrika tedarikçileriyle toplu satın alma sözleşmeleri müzakere eder.",
+      "related_verbs": ["bargain", "discuss", "confer", "deal", "talk"]
+    },
+    {
+      "word": "purchase",
+      "type": "verb",
+      "turkish": "Satın almak",
+      "example_en": "Shoppers can securely purchase airline tickets using digital payment portals.",
+      "example_tr": "Alışveriş yapanlar dijital ödeme portallarını kullanarak uçak biletlerini güvenli bir şekilde satın alabilir.",
+      "related_verbs": ["buy", "acquire", "get", "procure", "secure"]
+    },
+    {
+      "word": "accumulate",
+      "type": "verb",
+      "turkish": "Biriktirmek, toplamak",
+      "example_en": "Frequent store visitors accumulate discount vouchers over several months.",
+      "example_tr": "Sık mağaza ziyaretçileri birkaç ay boyunca indirim kuponları biriktirir.",
+      "related_verbs": ["collect", "gather", "save", "amass", "store"]
+    },
+    {
+      "word": "consume",
+      "type": "verb",
+      "turkish": "Tüketmek (enerji/kaynak)",
+      "example_en": "Large commercial shopping malls consume immense amounts of electrical energy.",
+      "example_tr": "Büyük ticari alışveriş merkezleri devasa miktarda elektrik enerjisi tüketir.",
+      "related_verbs": ["use", "spend", "utilize", "absorb", "drain"]
+    },
+    {
+      "word": "sell",
+      "type": "verb",
+      "turkish": "Pazara sürmek, satmak",
+      "example_en": "Local artisans sell handmade crafts at weekend tourist markets.",
+      "example_tr": "Yerli zanaatkarlar hafta sonu turist pazarlarında el yapımı el sanatları satar.",
+      "related_verbs": ["market", "vend", "trade", "offer", "supply"]
+    }
+  ]
+}

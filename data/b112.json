@@ -1,0 +1,408 @@
+{
+  "level": "B1",
+  "scene_id": 12,
+  "scene_title": "Work and Professions",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "work",
+      "type": "verb",
+      "turkish": "Çalışmak",
+      "example_en": "Most adults work full-time hours in offices, factories, or remote settings.",
+      "example_tr": "Yetişkinlerin çoğu ofislerde, fabrikalarda veya uzaktan çalışma ortamlarında tam zamanlı çalışır.",
+      "related_verbs": ["labor", "toil", "operate", "function", "serve"]
+    },
+    {
+      "word": "employ",
+      "type": "verb",
+      "turkish": "İstihdam etmek, iş vermek",
+      "example_en": "Large technology companies employ thousands of software engineers worldwide.",
+      "example_tr": "Büyük teknoloji şirketleri dünya çapında binlerce yazılım mühendisi istihdam ediyor.",
+      "related_verbs": ["hire", "engage", "appoint", "retain", "utilize"]
+    },
+    {
+      "word": "hire",
+      "type": "verb",
+      "turkish": "İşe almak",
+      "example_en": "The manager wants to hire a new assistant for the marketing department.",
+      "example_tr": "Müdür, pazarlama departmanı için yeni bir asistan işe almak istiyor.",
+      "related_verbs": ["employ", "appoint", "recruit", "engage", "enroll"]
+    },
+    {
+      "word": "fire",
+      "type": "verb",
+      "turkish": "İşten çıkarmak",
+      "example_en": "Companies can fire employees who consistently fail to meet performance standards.",
+      "example_tr": "Şirketler, performans standartlarını sürekli olarak karşılamayan çalışanları işten çıkarabilir.",
+      "related_verbs": ["dismiss", "terminate", "discharge", "sack", "let go"]
+    },
+    {
+      "word": "resign",
+      "type": "verb",
+      "turkish": "İstifa etmek",
+      "example_en": "She decided to resign from her position to pursue a new career path.",
+      "example_tr": "Yeni bir kariyer yolu izlemek için görevinden istifa etmeye karar verdi.",
+      "related_verbs": ["quit", "leave", "step down", "depart", "surrender"]
+    },
+    {
+      "word": "retire",
+      "type": "verb",
+      "turkish": "Emekli olmak",
+      "example_en": "Many people look forward to the day they can retire and travel the world.",
+      "example_tr": "Birçok insan emekli olup dünyayı gezecekleri günü dört gözle bekler.",
+      "related_verbs": ["withdraw", "leave", "depart", "step down", "conclude"]
+    },
+    {
+      "word": "earn",
+      "type": "verb",
+      "turkish": "Para kazanmak, maaş almak",
+      "example_en": "Hardworking professionals earn a good salary through dedication and experience.",
+      "example_tr": "Çalışkan profesyoneller, bağlılık ve tecrübe sayesinde iyi bir maaş kazanır.",
+      "related_verbs": ["gain", "make", "acquire", "obtain", "procure"]
+    },
+    {
+      "word": "apply",
+      "type": "verb",
+      "turkish": "Başvurmak",
+      "example_en": "Recent graduates apply for dozens of entry-level jobs online.",
+      "example_tr": "Yeni mezunlar internet üzerinden düzinelerce giriş seviyesi işe başvuruyor.",
+      "related_verbs": ["request", "petition", "solicit", "submit", "register"]
+    },
+    {
+      "word": "interview",
+      "type": "verb",
+      "turkish": "Mülakat yapmak, iş görüşmesine çağırmak",
+      "example_en": "Human resources managers interview candidates before making a final hiring decision.",
+      "example_tr": "İnsan kaynakları yöneticileri, nihai işe alım kararını vermeden önce adaylarla mülakat yapar.",
+      "related_verbs": ["question", "evaluate", "assess", "meet", "examine"]
+    },
+    {
+      "word": "manage",
+      "type": "verb",
+      "turkish": "Yönetmek, idare etmek",
+      "example_en": "Project managers coordinate team tasks to ensure projects finish on time.",
+      "example_tr": "Proje yöneticileri, projelerin zamanında bitmesini sağlamak için ekip görevlerini koordine eder.",
+      "related_verbs": ["direct", "administer", "supervise", "control", "run"]
+    },
+    {
+      "word": "supervise",
+      "type": "verb",
+      "turkish": "Denetlemek, gözetim altında tutmak",
+      "example_en": "Factory supervisors monitor production lines to maintain safety regulations.",
+      "example_tr": "Fabrika denetçileri güvenlik düzenlemelerini korumak için üretim hatlarını izler.",
+      "related_verbs": ["oversee", "monitor", "watch", "inspect", "guide"]
+    },
+    {
+      "word": "organize",
+      "type": "verb",
+      "turkish": "Düzenlemek, organize etmek",
+      "example_en": "Office assistants organize corporate meetings and prepare presentation slides.",
+      "example_tr": "Ofis asistanları şirket toplantılarını düzenler ve sunum slaytları hazırlar.",
+      "related_verbs": ["arrange", "coordinate", "plan", "structure", "systematize"]
+    },
+    {
+      "word": "plan",
+      "type": "verb",
+      "turkish": "Planlamak",
+      "example_en": "Business owners plan marketing strategies for the upcoming financial year.",
+      "example_tr": "İşletme sahipleri önümüzdeki mali yıl için pazarlama stratejileri planlar.",
+      "related_verbs": ["design", "prepare", "arrange", "schedule", "strategize"]
+    },
+    {
+      "word": "produce",
+      "type": "verb",
+      "turkish": "Üretmek, ortaya koymak",
+      "example_en": "Content creators produce engaging videos and articles for digital audiences.",
+      "example_tr": "İçerik üreticileri dijital kitleler için ilgi çekici videolar ve makaleler üretir.",
+      "related_verbs": ["create", "generate", "make", "manufacture", "output"]
+    },
+    {
+      "word": "market",
+      "type": "verb",
+      "turkish": "Pazarlamak",
+      "example_en": "Companies use social media advertising to market new products effectively.",
+      "example_tr": "Şirketler yeni ürünleri etkili bir şekilde pazarlamak için sosyal medya reklamcılığını kullanır.",
+      "related_verbs": ["promote", "advertise", "sell", "commercialize", "push"]
+    },
+    {
+      "word": "sell",
+      "type": "verb",
+      "turkish": "Satmak",
+      "example_en": "Sales representatives sell software solutions to corporate clients.",
+      "example_tr": "Satış temsilcileri kurumsal müşterilere yazılım çözümleri satar.",
+      "related_verbs": ["market", "trade", "distribute", "vend", "peddle"]
+    },
+    {
+      "word": "negotiate",
+      "type": "verb",
+      "turkish": "Müzakere etmek, pazarlık yapmak",
+      "example_en": "Business partners negotiate contract terms before signing formal agreements.",
+      "example_tr": "İş ortakları resmi anlaşmaları imzalamadan önce sözleşme şartlarını müzakere eder.",
+      "related_verbs": ["bargain", "discuss", "consult", "mediate", "deal"]
+    },
+    {
+      "word": "communicate",
+      "type": "verb",
+      "turkish": "İletişim kurmak",
+      "example_en": "Team members must communicate clearly via email and messaging apps.",
+      "example_tr": "Ekip üyeleri e-posta ve mesajlaşma uygulamaları aracılığıyla net bir şekilde iletişim kurmalıdır.",
+      "related_verbs": ["correspond", "talk", "interact", "confer", "connect"]
+    },
+    {
+      "word": "collaborate",
+      "type": "verb",
+      "turkish": "İşbirliği yapmak",
+      "example_en": "Departments collaborate across different offices to achieve shared company goals.",
+      "example_tr": "Departmanlar, paylaşılan şirket hedeflerine ulaşmak için farklı ofisler arasında işbirliği yapar.",
+      "related_verbs": ["cooperate", "partner", "team up", "work together", "join"]
+    },
+    {
+      "word": "compete",
+      "type": "verb",
+      "turkish": "Rekabet etmek",
+      "example_en": "Small businesses compete with large multinational corporations for market share.",
+      "example_tr": "Küçük işletmeler pazar payı için büyük çok uluslu şirketlerle rekabet eder.",
+      "related_verbs": ["contest", "rival", "fight", "struggle", "challenge"]
+    },
+    {
+      "word": "achieve",
+      "type": "verb",
+      "turkish": "Başarmak, elde etmek",
+      "example_en": "Employees work hard to achieve their quarterly performance targets.",
+      "example_tr": "Çalışanlar çeyreklik performans hedeflerine ulaşmak için çok çalışır.",
+      "related_verbs": ["accomplish", "reach", "attain", "fulfill", "realize"]
+    },
+    {
+      "word": "succeed",
+      "type": "verb",
+      "turkish": "Başarılı olmak",
+      "example_en": "With proper training and focus, anyone can succeed in their chosen profession.",
+      "example_tr": "Uygun eğitim ve odaklanma ile herkes seçtiği meslekte başarılı olabilir.",
+      "related_verbs": ["prosper", "thrive", "prevail", "achieve", "flourish"]
+    },
+    {
+      "word": "fail",
+      "type": "verb",
+      "turkish": "Başarısız olmak",
+      "example_en": "Projects can fail if teams do not follow a structured timeline.",
+      "example_tr": "Ekipler yapılandırılmış bir takvimi takip etmezse projeler başarısız olabilir.",
+      "related_verbs": ["collapse", "miscarry", "flounder", "flop", "falter"]
+    },
+    {
+      "word": "attend",
+      "type": "verb",
+      "turkish": "Katılmak (toplantıya vb.)",
+      "example_en": "All staff members must attend the mandatory Monday morning briefing.",
+      "example_tr": "Tüm personel zorunlu Pazartesi sabahı brifingine katılmalıdır.",
+      "related_verbs": ["participate", "join", "frequent", "present", "visit"]
+    },
+    {
+      "word": "participate",
+      "type": "verb",
+      "turkish": "Katılmak, iştirak etmek",
+      "example_en": "Engineers actively participate in brainstorming sessions for new product designs.",
+      "example_tr": "Mühendisler yeni ürün tasarımları için beyin fırtınası oturumlarına aktif olarak katılır.",
+      "related_verbs": ["attend", "engage", "join", "share", "contribute"]
+    },
+    {
+      "word": "contribute",
+      "type": "verb",
+      "turkish": "Katkıda bulunmak",
+      "example_en": "Every worker can contribute valuable ideas during team meetings.",
+      "example_tr": "Her çalışan ekip toplantılarında değerli fikirlerle katkıda bulunabilir.",
+      "related_verbs": ["add", "provide", "donate", "furnish", "help"]
+    },
+    {
+      "word": "report",
+      "type": "verb",
+      "turkish": "Rapor etmek, bildirmek",
+      "example_en": "Managers report financial results to company directors every three months.",
+      "example_tr": "Yöneticiler her üç ayda bir şirket direktörlerine finansal sonuçları rapor eder.",
+      "related_verbs": ["inform", "notify", "announce", "state", "account"]
+    },
+    {
+      "word": "promote",
+      "type": "verb",
+      "turkish": "Terfi ettirmek / desteklemek",
+      "example_en": "The board decided to promote her to senior marketing director.",
+      "example_tr": "Yönetim kurulu onu kıdemli pazarlama direktörlüğüne terfi ettirmeye karar verdi.",
+      "related_verbs": ["advance", "elevate", "upgrade", "boost", "support"]
+    },
+    {
+      "word": "train",
+      "type": "verb",
+      "turkish": "Eğitmek, staj yapmak",
+      "example_en": "Companies train new workers on safety procedures before they enter the factory.",
+      "example_tr": "Şirketler fabrikaya girmeden önce yeni işçileri güvenlik prosedürleri konusunda eğitir.",
+      "related_verbs": ["educate", "teach", "coach", "instruct", "prepare"]
+    },
+    {
+      "word": "learn",
+      "type": "verb",
+      "turkish": "Öğrenmek",
+      "example_en": "Professionals must continuously learn new skills to stay competitive in the market.",
+      "example_tr": "Profesyoneller piyasada rekabetçi kalabilmek için sürekli yeni beceriler öğrenmelidir.",
+      "related_verbs": ["acquire", "master", "absorb", "study", "discover"]
+    },
+    {
+      "word": "practice",
+      "type": "verb",
+      "turkish": "Uygulamak, alıştırma yapmak",
+      "example_en": "Lawyers practice law and represent clients in legal courtrooms.",
+      "example_tr": "Avukatlar hukuk uygular ve yasal mahkemelerde müvekkilleri temsil eder.",
+      "related_verbs": ["exercise", "perform", "apply", "execute", "rehearse"]
+    },
+    {
+      "word": "lead",
+      "type": "verb",
+      "turkish": "Liderlik etmek, yönetmek",
+      "example_en": "Experienced directors lead large teams of creative professionals.",
+      "example_tr": "Deneyimli direktörler büyük yaratıcı profesyonel ekiplerine liderlik eder.",
+      "related_verbs": ["guide", "direct", "head", "command", "conduct"]
+    },
+    {
+      "word": "follow",
+      "type": "verb",
+      "turkish": "Takip etmek",
+      "example_en": "Employees must follow company policies and ethical guidelines.",
+      "example_tr": "Çalışanlar şirket politikalarını ve etik yönergeleri takip etmelidir.",
+      "related_verbs": ["obey", "pursue", "observe", "track", "shadow"]
+    },
+    {
+      "word": "solve",
+      "type": "verb",
+      "turkish": "Çözmek",
+      "example_en": "IT specialists solve technical computer problems for office staff.",
+      "example_tr": "BT uzmanları ofis personeli için teknik bilgisayar sorunlarını çözer.",
+      "related_verbs": ["resolve", "fix", "settle", "crack", "figure out"]
+    },
+    {
+      "word": "design",
+      "type": "verb",
+      "turkish": "Tasarlamak",
+      "example_en": "Architects design modern office buildings and sustainable residential houses.",
+      "example_tr": "Mimarlar modern ofis binaları ve sürdürülebilir konut evleri tasarlar.",
+      "related_verbs": ["create", "plan", "fashion", "build", "draft"]
+    },
+    {
+      "word": "build",
+      "type": "verb",
+      "turkish": "İnşa etmek, kurmak",
+      "example_en": "Construction workers build roads, bridges, and commercial towers.",
+      "example_tr": "İnşaat işçileri yollar, köprüler ve ticari kuleler inşa eder.",
+      "related_verbs": ["construct", "create", "assemble", "erect", "form"]
+    },
+    {
+      "word": "calculate",
+      "type": "verb",
+      "turkish": "Hesaplamak",
+      "example_en": "Accountants calculate company taxes and review monthly financial statements.",
+      "example_tr": "Muhasebeciler şirket vergilerini hesaplar ve aylık mali tabloları inceler.",
+      "related_verbs": ["compute", "figure", "estimate", "measure", "evaluate"]
+    },
+    {
+      "word": "measure",
+      "type": "verb",
+      "turkish": "Ölçmek",
+      "example_en": "Quality control inspectors measure product dimensions with high precision instruments.",
+      "example_tr": "Kalite kontrol müfettişleri ürün boyutlarını yüksek hassasiyetli aletlerle ölçer.",
+      "related_verbs": ["evaluate", "gauge", "assess", "quantify", "calculate"]
+    },
+    {
+      "word": "evaluate",
+      "type": "verb",
+      "turkish": "Değerlendirmek",
+      "example_en": "Managers evaluate employee performance at the end of every fiscal year.",
+      "example_tr": "Yöneticiler her mali yılın sonunda çalışan performansını değerlendirir.",
+      "related_verbs": ["assess", "judge", "appraise", "review", "examine"]
+    },
+    {
+      "word": "inspect",
+      "type": "verb",
+      "turkish": "İncelemek, denetlemek",
+      "example_en": "Safety officers inspect machinery regularly to prevent workplace accidents.",
+      "example_tr": "İş güvenliği görevlileri iş kazalarını önlemek için makineleri düzenli olarak denetler.",
+      "related_verbs": ["examine", "check", "audit", "scan", "survey"]
+    },
+    {
+      "word": "fix",
+      "type": "verb",
+      "turkish": "Tamir etmek, düzeltmek",
+      "example_en": "Maintenance technicians fix broken office equipment quickly and efficiently.",
+      "example_tr": "Bakım teknisyenleri bozuk ofis ekipmanlarını hızlı ve verimli bir şekilde tamir eder.",
+      "related_verbs": ["repair", "mend", "solve", "correct", "adjust"]
+    },
+    {
+      "word": "repair",
+      "type": "verb",
+      "turkish": "Onarmak, tamir etmek",
+      "example_en": "Mechanics repair vehicle engines in specialized automotive service workshops.",
+      "example_tr": "Mekanikler, uzmanlaşmış otomotiv servis atölyelerinde araç motorlarını onarır.",
+      "related_verbs": ["fix", "mend", "restore", "patch", "service"]
+    },
+    {
+      "word": "protect",
+      "type": "verb",
+      "turkish": "Korumak",
+      "example_en": "Security guards protect commercial property and corporate facilities.",
+      "example_tr": "Güvenlik görevlileri ticari mülkleri ve kurumsal tesisleri korur.",
+      "related_verbs": ["guard", "defend", "shield", "secure", "preserve"]
+    },
+    {
+      "word": "serve",
+      "type": "verb",
+      "turkish": "Hizmet etmek, sunmak",
+      "example_en": "Customer service representatives serve clients by answering inquiries professionally.",
+      "example_tr": "Müşteri hizmetleri temsilcileri, soruları profesyonelce yanıtlayarak müşterilere hizmet eder.",
+      "related_verbs": ["assist", "help", "support", "provide", "attend"]
+    },
+    {
+      "word": "assist",
+      "type": "verb",
+      "turkish": "Yardım etmek",
+      "example_en": "Administrative assistants help manage office schedules and phone calls.",
+      "example_tr": "İdari asistanlar ofis programlarını ve telefon görüşmelerini yönetmeye yardımcı olur.",
+      "related_verbs": ["help", "aid", "support", "serve", "facilitate"]
+    },
+    {
+      "word": "support",
+      "type": "verb",
+      "turkish": "Desteklemek",
+      "example_en": "Technical support teams help users troubleshoot software and hardware glitches.",
+      "example_tr": "Teknik destek ekipleri, kullanıcıların yazılım ve donanım sorunlarını gidermesine yardımcı olur.",
+      "related_verbs": ["help", "back", "aid", "uphold", "sponsor"]
+    },
+    {
+      "word": "delay",
+      "type": "verb",
+      "turkish": "Geciktirmek, ertelemek",
+      "example_en": "Unforeseen technical glitches might delay the product launch date.",
+      "example_tr": "Öngörülemeyen teknik aksaklıklar ürün lansman tarihini geciktirebilir.",
+      "related_verbs": ["postpone", "defer", "slow", "hold up", "procrastinate"]
+    },
+    {
+      "word": "schedule",
+      "type": "verb",
+      "turkish": "Zamanlamak, programlamak",
+      "example_en": "HR coordinators schedule interviews with shortlisted job candidates.",
+      "example_tr": "İK koordinatörleri kısa listeye alınan iş adaylarıyla mülakatlar planlar.",
+      "related_verbs": ["plan", "arrange", "book", "set", "timetable"]
+    },
+    {
+      "word": "complete",
+      "type": "verb",
+      "turkish": "Tamamlamak",
+      "example_en": "Contractors must complete all building tasks before the deadline.",
+      "example_tr": "Müteahhitler son teslim tarihinden önce tüm bina görevlerini tamamlamalıdır.",
+      "related_verbs": ["finish", "conclude", "accomplish", "fulfill", "finalize"]
+    },
+    {
+      "word": "retire",
+      "type": "verb",
+      "turkish": "Emekliye ayrılmak",
+      "example_en": "After forty years of dedicated service, he chose to retire.",
+      "example_tr": "Kırk yıllık özverili hizmetin ardından emekliye ayrılmayı seçti.",
+      "related_verbs": ["step down", "withdraw", "depart", "conclude", "leave"]
+    }
+  ]
+}

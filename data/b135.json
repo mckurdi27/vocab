@@ -1,0 +1,409 @@
+
+{
+  "level": "B1",
+  "scene_id": 35,
+  "scene_title": "Science and Technology",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "invent",
+      "type": "verb",
+      "turkish": "İcat etmek, bulmak",
+      "example_en": "Brilliant engineers invent advanced microchips to enhance computing processing speeds.",
+      "example_tr": "Parlak mühendisler bilgisayar işlem hızlarını artırmak için gelişmiş mikroçipler icat eder.",
+      "related_verbs": ["create", "design", "originate", "develop", "discover"]
+    },
+    {
+      "word": "discover",
+      "type": "verb",
+      "turkish": "Keşfetmek",
+      "example_en": "Space astronomers discover distant galaxies using powerful orbital telescopes.",
+      "example_tr": "Uzay astronomları güçlü yörünge teleskoplarını kullanarak uzak galaksileri keşfeder.",
+      "related_verbs": ["find", "uncover", "detect", "reveal", "explore"]
+    },
+    {
+      "word": "research",
+      "type": "verb",
+      "turkish": "Araştırmak",
+      "example_en": "Data scientists research artificial intelligence algorithms for medical diagnostics.",
+      "example_tr": "Veri bilimcileri tıbbi teşhisler için yapay zeka algoritmalarını araştırır.",
+      "related_verbs": ["investigate", "study", "explore", "analyze", "examine"]
+    },
+    {
+      "word": "experiment",
+      "type": "verb",
+      "turkish": "Deney yapmak",
+      "example_en": "Chemistry researchers experiment with new chemical compounds inside sterile laboratories.",
+      "example_tr": "Kimya araştırmacıları steril laboratuvarlarda yeni kimyasal bileşiklerle deney yapar.",
+      "related_verbs": ["test", "trial", "probe", "examine", "sample"]
+    },
+    {
+      "word": "develop",
+      "type": "verb",
+      "turkish": "Geliştirmek",
+      "example_en": "Software developers build and develop secure smartphone mobile applications.",
+      "example_tr": "Yazılım geliştiriciler güvenli akıllı telefon mobil uygulamaları kurar ve geliştirir.",
+      "related_verbs": ["improve", "advance", "grow", "progress", "enhance"]
+    },
+    {
+      "word": "upgrade",
+      "type": "verb",
+      "turkish": "Yükseltmek, güncellemek",
+      "example_en": "Users upgrade computer operating systems regularly for better system security.",
+      "example_tr": "Kullanıcılar daha iyi sistem güvenliği için bilgisayar işletim sistemlerini düzenli olarak günceller.",
+      "related_verbs": ["update", "improve", "enhance", "modernize", "boost"]
+    },
+    {
+      "word": "install",
+      "type": "verb",
+      "turkish": "Kurmak (program vb.)",
+      "example_en": "Technicians install new software packages across corporate network computers.",
+      "example_tr": "Teknisyenler şirket ağı bilgisayarlarına yeni yazılım paketleri kurar.",
+      "related_verbs": ["setup", "put in", "mount", "establish", "fix"]
+    },
+    {
+      "word": "download",
+      "type": "verb",
+      "turkish": "İndirmek",
+      "example_en": "Students download digital textbook files from university cloud servers.",
+      "example_tr": "Öğrenciler üniversite bulut sunucularından dijital ders kitabı dosyalarını indirir.",
+      "related_verbs": ["fetch", "retrieve", "save", "transfer", "get"]
+    },
+    {
+      "word": "upload",
+      "type": "verb",
+      "turkish": "Yüklemek",
+      "example_en": "Photographers upload high-resolution image files to online cloud storage accounts.",
+      "example_tr": "Fotoğrafçılar yüksek çözünürlüklü görüntü dosyalarını çevrimiçi bulut depolama hesaplarına yükler.",
+      "related_verbs": ["transfer", "send", "post", "transmit", "share"]
+    },
+    {
+      "word": "browse",
+      "type": "verb",
+      "turkish": "Göz atmak, internette gezinmek",
+      "example_en": "People browse internet web pages searching for technical product reviews.",
+      "example_tr": "İnsanlar teknik ürün incelemeleri arayarak internet web sayfalarında gezinir.",
+      "related_verbs": ["surf", "scan", "search", "explore", "navigate"]
+    },
+    {
+      "word": "program",
+      "type": "verb",
+      "turkish": "Programlamak",
+      "example_en": "Coders program automated robots to perform complex industrial manufacturing tasks.",
+      "example_tr": "Kod yazarlar karmaşık endüstriyel üretim görevlerini yerine getirmeleri için otomatik robotları programlar.",
+      "related_verbs": ["code", "script", "design", "develop", "set"]
+    },
+    {
+      "word": "analyze",
+      "type": "verb",
+      "turkish": "Analiz etmek, incelemek",
+      "example_en": "Supercomputers analyze massive amounts of statistical scientific data instantly.",
+      "example_tr": "Süper bilgisayarlar devasa miktardaki istatistiksel bilimsel veriyi anında analiz eder.",
+      "related_verbs": ["examine", "evaluate", "study", "assess", "inspect"]
+    },
+    {
+      "word": "connect",
+      "type": "verb",
+      "turkish": "Bağlanmak, bağlamak",
+      "example_en": "Wireless routers connect household laptops to high-speed internet networks.",
+      "example_tr": "Kablosuz yönlendiriciler ev dizüstü bilgisayarlarını yüksek hızlı internet ağlarına bağlar.",
+      "related_verbs": ["link", "join", "attach", "bind", "couple"]
+    },
+    {
+      "word": "disconnect",
+      "type": "verb",
+      "turkish": "Bağlantıyı kesmek",
+      "example_en": "Users disconnect external hard drives safely before turning off PCs.",
+      "example_tr": "Kullanıcılar bilgisayarları kapatmadan önce harici sabit sürücülerin bağlantısını güvenli bir şekilde keser.",
+      "related_verbs": ["detach", "unplug", "separate", "cut", "sever"]
+    },
+    {
+      "word": "print",
+      "type": "verb",
+      "turkish": "Yazdırmak",
+      "example_en": "Office workers print physical paper copies of digital contract documents.",
+      "example_tr": "Ofis çalışanları dijital sözleşme belgelerinin fiziksel kağıt kopyalarını yazdırır.",
+      "related_verbs": ["output", "publish", "copy", "reproduce", "stamp"]
+    },
+    {
+      "word": "scan",
+      "type": "verb",
+      "turkish": "Tarama yapmak, taratmak",
+      "example_en": "Digital office scanners scan paper documents into portable PDF files.",
+      "example_tr": "Dijital ofis tarayıcıları kağıt belgeleri taşınabilir PDF dosyalarına tarar.",
+      "related_verbs": ["read", "examine", "inspect", "browse", "scrutinize"]
+    },
+    {
+      "word": "store",
+      "type": "verb",
+      "turkish": "Depolamak, saklamak",
+      "example_en": "Modern solid-state drives store terabytes of personal multimedia data.",
+      "example_tr": "Modern katı hal sürücüleri terabaytlarca kişisel multimedya verisini depolar.",
+      "related_verbs": ["save", "keep", "retain", "hold", "archive"]
+    },
+    {
+      "word": "delete",
+      "type": "verb",
+      "turkish": "Silmek",
+      "example_en": "Computer users delete unwanted temporary files to free up disk space.",
+      "example_tr": "Bilgisayar kullanıcıları disk alanı açmak için istenmeyen geçici dosyaları siler.",
+      "related_verbs": ["remove", "erase", "clear", "discard", "eliminate"]
+    },
+    {
+      "word": "restart",
+      "type": "verb",
+      "turkish": "Yeniden başlatmak",
+      "example_en": "Technicians restart frozen computer systems to restore normal performance.",
+      "example_tr": "Teknisyenler normal performansı geri yüklemek için donmuş bilgisayar sistemlerini yeniden başlatır.",
+      "related_verbs": ["reboot", "reset", "refresh", "reload", "start"]
+    },
+    {
+      "word": "charge",
+      "type": "verb",
+      "turkish": "Şarj etmek",
+      "example_en": "People plug mobile phones into electrical wall sockets to charge batteries.",
+      "example_tr": "İnsanlar pilleri şarj etmek için cep telefonlarını elektrik duvar prizlerine takar.",
+      "related_verbs": ["power", "energize", "fuel", "fill", "supply"]
+    },
+    {
+      "word": "operate",
+      "type": "verb",
+      "turkish": "Çalıştırmak, işletmek",
+      "example_en": "Operators operate complex machinery using computerized digital control panels.",
+      "example_tr": "Operatörler bilgisayarlaştırılmış dijital kontrol panellerini kullanarak karmaşık makineleri çalıştırır.",
+      "related_verbs": ["run", "manage", "control", "handle", "function"]
+    },
+    {
+      "word": "function",
+      "type": "verb",
+      "turkish": "İşlev görmek, çalışmak",
+      "example_en": "Smart home devices function seamlessly with voice command automation.",
+      "example_tr": "Akıllı ev cihazları sesli komut otomasyonu ile sorunsuz bir şekilde işlev görür.",
+      "related_verbs": ["work", "operate", "perform", "run", "act"]
+    },
+    {
+      "word": "calculate",
+      "type": "verb",
+      "turkish": "Hesaplamak",
+      "example_en": "Digital calculators calculate complex mathematical equations within milliseconds.",
+      "example_tr": "Dijital hesap makineleri milisaniyeler içinde karmaşık matematiksel denklemleri hesaplar.",
+      "related_verbs": ["compute", "figure", "estimate", "measure", "evaluate"]
+    },
+    {
+      "word": "simulate",
+      "type": "verb",
+      "turkish": "Simüle etmek, benzetimini yapmak",
+      "example_en": "Flight simulators simulate severe weather conditions for airline pilot training.",
+      "example_tr": "Uçuş simülatörleri havayolu pilot eğitimi için şiddetli hava koşullarını simüle eder.",
+      "related_verbs": ["model", "mimic", "replicate", "imitate", "reproduce"]
+    },
+    {
+      "word": "automate",
+      "type": "verb",
+      "turkish": "Otomatikleştirmek",
+      "example_en": "Factories automate assembly lines to increase manufacturing production efficiency.",
+      "example_tr": "Fabrikalar üretim verimliliğini artırmak için montaj hatlarını otomatikleştirir.",
+      "related_verbs": ["mechanize", "computerize", "streamline", "systematize", "robotize"]
+    },
+    {
+      "word": "innovate",
+      "type": "verb",
+      "turkish": "Yenilik yapmak",
+      "example_en": "Technology companies innovate continuously to stay competitive in global markets.",
+      "example_tr": "Teknoloji şirketleri küresel pazarlarda rekabetçi kalabilmek için sürekli yenilik yapar.",
+      "related_verbs": ["modernize", "reform", "improve", "pioneering", "create"]
+    },
+    {
+      "word": "launch",
+      "type": "verb",
+      "turkish": "Piyasaya sürmek, fırlatmak",
+      "example_en": "Aerospace agencies launch rockets into deep space exploration orbits.",
+      "example_tr": "Uzay ajansları derin uzay keşif yörüngelerine roketler fırlatır.",
+      "related_verbs": ["release", "send", "start", "introduce", "initiate"]
+    },
+    {
+      "word": "program",
+      "type": "verb",
+      "turkish": "Yazılım yazmak / programlamak",
+      "example_en": "Software engineers program complex algorithms for cybersecurity defense systems.",
+      "example_tr": "Yazılım mühendisleri siber güvenlik savunma sistemleri için karmaşık algoritmalar programlar.",
+      "related_verbs": ["code", "design", "develop", "engineer", "build"]
+    },
+    {
+      "word": "hack",
+      "type": "verb",
+      "turkish": "Sisteme sızmak, hacklemek",
+      "example_en": "Cyber criminals attempt to hack into secure government computer databases.",
+      "example_tr": "Siber suçlular güvenli devlet bilgisayar veritabanlarına sızmaya çalışır.",
+      "related_verbs": ["breach", "penetrate", "crack", "compromise", "break"]
+    },
+    {
+      "word": "protect",
+      "type": "verb",
+      "turkish": "Korumak (şifre vb. ile)",
+      "example_en": "Antivirus programs protect personal computers from malicious malware attacks.",
+      "example_tr": "Antivirüs programları kişisel bilgisayarları kötü amaçlı zararlı yazılım saldırılarından korur.",
+      "related_verbs": ["defend", "guard", "secure", "shield", "safeguard"]
+    },
+    {
+      "word": "encrypt",
+      "type": "verb",
+      "turkish": "Şifrelemek",
+      "example_en": "Secure messaging applications encrypt private user communications end-to-end.",
+      "example_tr": "Güvenli mesajlaşma uygulamaları özel kullanıcı iletişimlerini uçtan uca şifreler.",
+      "related_verbs": ["encode", "lock", "cipher", "scramble", "protect"]
+    },
+    {
+      "word": "backup",
+      "type": "verb",
+      "turkish": "Yedeklemek",
+      "example_en": "Businesses backup critical financial database files onto secure cloud servers daily.",
+      "example_tr": "İşletmeler kritik finansal veritabanı dosyalarını her gün güvenli bulut sunucularına yedekler.",
+      "related_verbs": ["save", "copy", "store", "archive", "preserve"]
+    },
+    {
+      "word": "monitor",
+      "type": "verb",
+      "turkish": "İzlemek, gözlemlemek",
+      "example_en": "Network administrators monitor server traffic performance levels around the clock.",
+      "example_tr": "Ağ yöneticileri günün 24 saati sunucu trafik performans seviyelerini izler.",
+      "related_verbs": ["observe", "track", "watch", "supervise", "inspect"]
+    },
+    {
+      "word": "detect",
+      "type": "verb",
+      "turkish": "Tespit etmek",
+      "example_en": "Advanced sensors detect microscopic chemical changes in laboratory water samples.",
+      "example_tr": "Gelişmiş sensörler laboratuvar su örneklerindeki mikroskobik kimyasal değişiklikleri tespit eder.",
+      "related_verbs": ["discover", "spot", "identify", "find", "notice"]
+    },
+    {
+      "word": "test",
+      "type": "verb",
+      "turkish": "Test etmek",
+      "example_en": "Engineers test experimental aircraft designs inside aerodynamic wind tunnels.",
+      "example_tr": "Mühendisler aerodinamik rüzgar tünellerinde deneysel uçak tasarımlarını test eder.",
+      "related_verbs": ["examine", "check", "trial", "evaluate", "assess"]
+    },
+    {
+      "word": "prove",
+      "type": "verb",
+      "turkish": "Kanıtlamak, ispat etmek",
+      "example_en": "Scientific experiments help researchers prove complex physical physics theories.",
+      "example_tr": "Bilimsel deneyler araştırmacıların karmaşık fizik teorilerini kanıtlamasına yardımcı olur.",
+      "related_verbs": ["demonstrate", "verify", "confirm", "validate", "show"]
+    },
+    {
+      "word": "publish",
+      "type": "verb",
+      "turkish": "Yayınlamak",
+      "example_en": "Biologists publish groundbreaking research findings in international scientific journals.",
+      "example_tr": "Biyologlar çığır açan araştırma bulgularını uluslararası bilimsel dergilerde yayınlar.",
+      "related_verbs": ["release", "print", "issue", "distribute", "announce"]
+    },
+    {
+      "word": "patent",
+      "type": "verb",
+      "turkish": "Patentini almak",
+      "example_en": "Inventors patent unique electronic gadget designs to protect intellectual property rights.",
+      "example_tr": "İş geliştiriciler fikri mülkiyet haklarını korumak için benzersiz elektronik cihaz tasarımlarının patentini alır.",
+      "related_verbs": ["register", "secure", "copyright", "certify", "claim"]
+    },
+    {
+      "word": "manufacture",
+      "type": "verb",
+      "turkish": "Üretmek",
+      "example_en": "High-tech factories manufacture advanced semiconductor chips using robotic arms.",
+      "example_tr": "Yüksek teknoloji fabrikaları robot kolları kullanarak gelişmiş yarı iletken çipler üretir.",
+      "related_verbs": ["produce", "make", "build", "create", "construct"]
+    },
+    {
+      "word": "assemble",
+      "type": "verb",
+      "turkish": "Monte etmek, birleştirmek",
+      "example_en": "Robotic factory workers assemble intricate electronic smartphone hardware components.",
+      "example_tr": "Robotik fabrika çalışanları karmaşık elektronik akıllı telefon donanım bileşenlerini monte eder.",
+      "related_verbs": ["build", "construct", "gather", "put together", "collect"]
+    },
+    {
+      "word": "power",
+      "type": "verb",
+      "turkish": "Güç sağlamak, çalıştırmak",
+      "example_en": "Solar panels power remote meteorological weather monitoring stations efficiently.",
+      "example_tr": "Güneş panelleri uzak meteorolojik hava durumu izleme istasyonlarına verimli bir şekilde güç sağlar.",
+      "related_verbs": ["energize", "drive", "supply", "propel", "operate"]
+    },
+    {
+      "word": "transmit",
+      "type": "verb",
+      "turkish": "İletmek, aktarmak",
+      "example_en": "Communication satellites transmit global television signals across continents.",
+      "example_tr": "İletişim uyduları kıtalar arası küresel televizyon sinyallerini iletir.",
+      "related_verbs": ["send", "transfer", "broadcast", "convey", "relay"]
+    },
+    {
+      "word": "receive",
+      "type": "verb",
+      "turkish": "Almak",
+      "example_en": "Digital antenna receivers receive radio frequency waves from broadcast towers.",
+      "example_tr": "Dijital anten alıcıları yayın kulelerinden gelen radyo frekansı dalgalarını alır.",
+      "related_verbs": ["get", "accept", "obtain", "acquire", "take"]
+    },
+    {
+      "word": "stream",
+      "type": "verb",
+      "turkish": "Akış sağlamak, canlı yayın yapmak",
+      "example_en": "High-speed broadband networks stream high-definition movies without interruptions.",
+      "example_tr": "Yüksek hızlı geniş bant ağları kesintisiz olarak yüksek çözünürlüklü filmler akış sağlar.",
+      "related_verbs": ["broadcast", "flow", "cast", "run", "transmit"]
+    },
+    {
+      "word": "network",
+      "type": "verb",
+      "turkish": "Ağ kurmak, birbirine bağlamak",
+      "example_en": "IT specialists network corporate office computers to share resources securely.",
+      "example_tr": "BT uzmanları kaynakları güvenli bir şekilde paylaşmak için kurumsal ofis bilgisayarlarını ağa bağlar.",
+      "related_verbs": ["connect", "link", "interconnect", "integrate", "join"]
+    },
+    {
+      "word": "glitch",
+      "type": "verb",
+      "turkish": "Teknik arıza yapmak / Hata vermek",
+      "example_en": "Software bugs can glitch mobile apps during heavy server traffic hours.",
+      "example_tr": "Yazılım hataları, yoğun sunucu trafiği saatlerinde mobil uygulamalarda arızaya neden olabilir.",
+      "related_verbs": ["malfunction", "fail", "error", "bug", "fault"]
+    },
+    {
+      "word": "crash",
+      "type": "verb",
+      "turkish": "Çökme yaşamak (sistem)",
+      "example_en": "Overloaded computer operating systems crash unexpectedly during intensive rendering tasks.",
+      "example_tr": "Aşırı yüklenmiş bilgisayar işletim sistemleri yoğun oluşturma görevleri sırasında beklenmedik şekilde çöker.",
+      "related_verbs": ["fail", "collapse", "halt", "freeze", "stop"]
+    },
+    {
+      "word": "restore",
+      "type": "verb",
+      "turkish": "Geri yüklemek, eski haline getirmek",
+      "example_en": "System administrators restore lost data files from secure backup archives.",
+      "example_tr": "Sistem yöneticileri güvenli yedekleme arşivlerinden kayıp veri dosyalarını geri yükler.",
+      "related_verbs": ["recover", "reinstate", "repair", "renew", "fix"]
+    },
+    {
+      "word": "explore",
+      "type": "verb",
+      "turkish": "Keşfetmek, incelemek",
+      "example_en": "Autonomous rover robots explore rocky Martian surface terrain autonomously.",
+      "example_tr": "Otonom gezgin robotlar otonom olarak kayalık Mars yüzeyi arazisini inceler.",
+      "related_verbs": ["investigate", "examine", "search", "survey", "discover"]
+    },
+    {
+      "word": "solve",
+      "type": "verb",
+      "turkish": "Çözmek (problem vb.)",
+      "example_en": "Quantum computers solve complex mathematical algorithms much faster than traditional processors.",
+      "example_tr": "Kuantum bilgisayarlar karmaşık matematiksel algoritmaları geleneksel işlemcilerden çok daha hızlı çözer.",
+      "related_verbs": ["resolve", "figure out", "crack", "answer", "fix"]
+    }
+  ]
+}

@@ -1,0 +1,409 @@
+{
+  "level": "A1",
+  "scene_id": 3,
+  "scene_title": "Home and Housework",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "clean",
+      "type": "verb",
+      "turkish": "Temizlemek",
+      "example_en": "I clean my room every Saturday.",
+      "example_tr": "Her cumartesi odamı temizlerim.",
+      "related_verbs": ["wash", "tidy", "sweep", "dust", "scrub"]
+    },
+    {
+      "word": "wash",
+      "type": "verb",
+      "turkish": "Yıkamak",
+      "example_en": "She washes the laundry today.",
+      "example_tr": "Bugün çamaşırları yıkıyor.",
+      "related_verbs": ["clean", "scrub", "dry", "rinse", "wipe"]
+    },
+    {
+      "word": "sweep",
+      "type": "verb",
+      "turkish": "Süpürmek",
+      "example_en": "He sweeps the kitchen floor.",
+      "example_tr": "Mutfak zeminini süpürüyor.",
+      "related_verbs": ["clean", "vacuum", "brush", "wipe", "clear"]
+    },
+    {
+      "word": "vacuum",
+      "type": "verb",
+      "turkish": "Elektrik süpürgesiyle süpürmek",
+      "example_en": "We vacuum the carpets weekly.",
+      "example_tr": "Halıları haftalık olarak elektrik süpürgesiyle süpürürüz.",
+      "related_verbs": ["sweep", "clean", "dust", "tidy", "suction"]
+    },
+    {
+      "word": "dust",
+      "type": "verb",
+      "turkish": "Tozunu almak",
+      "example_en": "Mom dusts the living room furniture.",
+      "example_tr": "Anne oturma odası mobilyalarının tozunu alır.",
+      "related_verbs": ["clean", "wipe", "polish", "sweep", "shake"]
+    },
+    {
+      "word": "tidy",
+      "type": "verb",
+      "turkish": "Düzenlemek, toplamak",
+      "example_en": "Please tidy your desk.",
+      "example_tr": "Lütfen çalışma masanı düzenle.",
+      "related_verbs": ["clean", "organize", "arrange", "straighten", "sort"]
+    },
+    {
+      "word": "cook",
+      "type": "verb",
+      "turkish": "Yemek pişirmek",
+      "example_en": "Dad cooks dinner in the evening.",
+      "example_tr": "Baba akşamları yemek pişirir.",
+      "related_verbs": ["prepare", "bake", "fry", "boil", "make"]
+    },
+    {
+      "word": "bake",
+      "type": "verb",
+      "turkish": "Fırında pişirmek, ekmek/pasta yapmak",
+      "example_en": "Grandma bakes a fresh cake.",
+      "example_tr": "Büyükanne taze bir kek pişiriyor.",
+      "related_verbs": ["cook", "roast", "heat", "prepare", "brown"]
+    },
+    {
+      "word": "prepare",
+      "type": "verb",
+      "turkish": "Hazırlamak",
+      "example_en": "We prepare breakfast together.",
+      "example_tr": "Kahvaltıyı birlikte hazırlarız.",
+      "related_verbs": ["make", "ready", "cook", "plan", "set"]
+    },
+    {
+      "word": "serve",
+      "type": "verb",
+      "turkish": "Servis etmek, sunmak",
+      "example_en": "She serves tea to guests.",
+      "example_tr": "Misafirlere çay ikram eder/servis eder.",
+      "related_verbs": ["offer", "give", "present", "hand", "provide"]
+    },
+    {
+      "word": "set",
+      "type": "verb",
+      "turkish": "Kurmak (sofra vb.)",
+      "example_en": "Can you set the table?",
+      "example_tr": "Sofrayı kurabilir misin?",
+      "related_verbs": ["place", "put", "prepare", "arrange", "fix"]
+    },
+    {
+      "word": "clear",
+      "type": "verb",
+      "turkish": "Ortadan kaldırmak, toplamak",
+      "example_en": "I clear the table after dinner.",
+      "example_tr": "Akşam yemekten sonra sofrayı toplarım.",
+      "related_verbs": ["remove", "clean", "empty", "tidy", "fix"]
+    },
+    {
+      "word": "iron",
+      "type": "verb",
+      "turkish": "Ütü yapmak",
+      "example_en": "He irons his shirts for work.",
+      "example_tr": "İş için gömleklerini ütüler.",
+      "related_verbs": ["press", "smooth", "flatten", "fold", "care"]
+    },
+    {
+      "word": "fold",
+      "type": "verb",
+      "turkish": "Katlamak",
+      "example_en": "She folds the clean clothes.",
+      "example_tr": "Temiz kıyafetleri katlar.",
+      "related_verbs": ["bend", "wrap", "roll", "turn", "store"]
+    },
+    {
+      "word": "hang",
+      "type": "verb",
+      "turkish": "Asmak",
+      "example_en": "Hang the wet clothes outside.",
+      "example_tr": "Islak kıyafetleri dışarıya as.",
+      "related_verbs": ["suspend", "attach", "fix", "put", "place"]
+    },
+    {
+      "word": "dry",
+      "type": "verb",
+      "turkish": "Kurutmak",
+      "example_en": "The sun dries the towels.",
+      "example_tr": "Güneş havluları kurutur.",
+      "related_verbs": ["wipe", "drain", "evaporate", "warm", "air"]
+    },
+    {
+      "word": "paint",
+      "type": "verb",
+      "turkish": "Boyamak",
+      "example_en": "We paint the bedroom walls blue.",
+      "example_tr": "Yatak odasının duvarlarını maviye boyuyoruz.",
+      "related_verbs": ["color", "decorate", "cover", "draw", "renovate"]
+    },
+    {
+      "word": "repair",
+      "type": "verb",
+      "turkish": "Tamir etmek",
+      "example_en": "Dad repairs the broken chair.",
+      "example_tr": "Baba kırık sandalyeyi tamir eder.",
+      "related_verbs": ["fix", "mend", "restore", "patch", "adjust"]
+    },
+    {
+      "word": "fix",
+      "type": "verb",
+      "turkish": "Düzeltmek, onarmak",
+      "example_en": "He fixes the leaking tap.",
+      "example_tr": "Sızdıran musluğu tamir ediyor.",
+      "related_verbs": ["repair", "mend", "adjust", "solve", "set"]
+    },
+    {
+      "word": "open",
+      "type": "verb",
+      "turkish": "Açmak",
+      "example_en": "Open the windows for fresh air.",
+      "example_tr": "Temiz hava için pencereleri aç.",
+      "related_verbs": ["unlock", "reveal", "spread", "start", "air"]
+    },
+    {
+      "word": "close",
+      "type": "verb",
+      "turkish": "Kapatmak",
+      "example_en": "Close the door when you leave.",
+      "example_tr": "Çıkarken kapıyı kapat.",
+      "related_verbs": ["shut", "lock", "seal", "end", "stop"]
+    },
+    {
+      "word": "lock",
+      "type": "verb",
+      "turkish": "Kilitlemek",
+      "example_en": "Always lock the front door at night.",
+      "example_tr": "Geceleyin ön kapıyı her zaman kilitle.",
+      "related_verbs": ["secure", "fasten", "close", "shut", "bolt"]
+    },
+    {
+      "word": "unlock",
+      "type": "verb",
+      "turkish": "Kilidini açmak",
+      "example_en": "She unlocks the door with a key.",
+      "example_tr": "Kapının kilidini anahtarla açar.",
+      "related_verbs": ["open", "free", "release", "unfasten", "clear"]
+    },
+    {
+      "word": "turn",
+      "type": "verb",
+      "turkish": "Çevirmek, açıp kapatmak",
+      "example_en": "Turn on the living room lights.",
+      "example_tr": "Oturma odasının lambalarını aç.",
+      "related_verbs": ["rotate", "switch", "spin", "change", "twist"]
+    },
+    {
+      "word": "light",
+      "type": "verb",
+      "turkish": "Işıklandırmak, yakmak",
+      "example_en": "We light candles for dinner.",
+      "example_tr": "Akşam yemeği için mum yakarız.",
+      "related_verbs": ["ignite", "burn", "illuminate", "shine", "brighten"]
+    },
+    {
+      "word": "heat",
+      "type": "verb",
+      "turkish": "Isıtmak",
+      "example_en": "The system heats the whole house.",
+      "example_tr": "Sistem bütün evi ısıtıyor.",
+      "related_verbs": ["warm", "cook", "hot", "boil", "chill"]
+    },
+    {
+      "word": "cool",
+      "type": "verb",
+      "turkish": "Soğutmak",
+      "example_en": "The AC cools the room quickly.",
+      "example_tr": "Klima odaları hızlıca soğutuyor.",
+      "related_verbs": ["chill", "freeze", "refresh", "calm", "reduce"]
+    },
+    {
+      "word": "live",
+      "type": "verb",
+      "turkish": "Yaşamak, ikamet etmek",
+      "example_en": "We live in a cozy apartment.",
+      "example_tr": "Şirin bir apartman dairesinde yaşıyoruz.",
+      "related_verbs": ["reside", "stay", "inhabit", "dwell", "house"]
+    },
+    {
+      "word": "move",
+      "type": "verb",
+      "turkish": "Taşınmak, hareket etmek",
+      "example_en": "They move to a new house next month.",
+      "example_tr": "Gelecek ay yeni bir eve taşınıyorlar.",
+      "related_verbs": ["transfer", "relocate", "shift", "change", "travel"]
+    },
+    {
+      "word": "rent",
+      "type": "verb",
+      "turkish": "Kiralamak",
+      "example_en": "Young people rent small flats.",
+      "example_tr": "Gençler küçük daireler kiralar.",
+      "related_verbs": ["lease", "hire", "borrow", "pay", "occupy"]
+    },
+    {
+      "word": "buy",
+      "type": "verb",
+      "turkish": "Satın almak",
+      "example_en": "They want to buy a big house.",
+      "example_tr": "Büyük bir ev satın almak istiyorlar.",
+      "related_verbs": ["purchase", "acquire", "get", "pay", "invest"]
+    },
+    {
+      "word": "sell",
+      "type": "verb",
+      "turkish": "Satmak",
+      "example_en": "He sells his old furniture.",
+      "example_tr": "Eski mobilyalarını satıyor.",
+      "related_verbs": ["trade", "market", "offer", "exchange", "supply"]
+    },
+    {
+      "word": "build",
+      "type": "verb",
+      "turkish": "İnşa etmek, kurmak",
+      "example_en": "Workers build new houses nearby.",
+      "example_tr": "İşçiler yakında yeni evler inşa ediyor.",
+      "related_verbs": ["construct", "create", "make", "form", "setup"]
+    },
+    {
+      "word": "decorate",
+      "type": "verb",
+      "turkish": "Dekore etmek, süslemek",
+      "example_en": "We decorate the house for parties.",
+      "example_tr": "Partiler için evi süslüyoruz.",
+      "related_verbs": ["ornament", "paint", "design", "style", "furnish"]
+    },
+    {
+      "word": "furnish",
+      "type": "verb",
+      "turkish": "Mobilya döşemek",
+      "example_en": "They furnish the rooms nicely.",
+      "example_tr": "Odaları güzelce döşiyorlar.",
+      "related_verbs": ["equip", "fit", "decorate", "supply", "arrange"]
+    },
+    {
+      "word": "store",
+      "type": "verb",
+      "turkish": "Depolamak, saklamak",
+      "example_en": "We store extra boxes in the attic.",
+      "example_tr": "Fazla kutuları çatı katında saklıyoruz.",
+      "related_verbs": ["keep", "save", "hold", "stock", "preserve"]
+    },
+    {
+      "word": "waste",
+      "type": "verb",
+      "turkish": "Boşa harcamak, israf etmek",
+      "example_en": "Don't waste water while cleaning.",
+      "example_tr": "Temizlik yaparken suyu boşa harcama.",
+      "related_verbs": ["lose", "misuse", "spend", "drain", "ruin"]
+    },
+    {
+      "word": "save",
+      "type": "verb",
+      "turkish": "Tasarruf etmek, kurtarmak",
+      "example_en": "We save electricity by turning off lights.",
+      "example_tr": "Işıkları kapatarak elektrik tasarrufu yapıyoruz.",
+      "related_verbs": ["store", "keep", "protect", "rescue", "reserve"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Dinlenmek, rahatlamak",
+      "example_en": "I relax in the living room.",
+      "example_tr": "Oturma odasında dinleniyorum.",
+      "related_verbs": ["rest", "calm", "unwind", "ease", "sit"]
+    },
+    {
+      "value": "rest",
+      "word": "rest",
+      "type": "verb",
+      "turkish": "Dinlenmek",
+      "example_en": "She rests on the sofa after work.",
+      "example_tr": "İşten sonra kanepede dinlenir.",
+      "related_verbs": ["relax", "sleep", "pause", "sit", "lie"]
+    },
+    {
+      "word": "sit",
+      "type": "verb",
+      "turkish": "Oturmak",
+      "example_en": "We sit around the dining table.",
+      "example_tr": "Yemek masasının etrafında oturuyoruz.",
+      "related_verbs": ["rest", "stay", "settle", "pose", "locate"]
+    },
+    {
+      "word": "stand",
+      "type": "verb",
+      "turkish": "Ayakta durmak",
+      "example_en": "He stands at the kitchen counter.",
+      "example_tr": "Mutfak tezgahının başında ayakta duruyor.",
+      "related_verbs": ["rise", "wait", "bear", "stay", "upright"]
+    },
+    {
+      "word": "lie",
+      "type": "verb",
+      "turkish": "Uzanmak, yalan söylemek",
+      "example_en": "I lie on the bed when tired.",
+      "example_tr": "Yorgun olduğumda yatağa uzanırım.",
+      "related_verbs": ["rest", "sleep", "recline", "sit", "stretch"]
+    },
+    {
+      "word": "sleep",
+      "type": "verb",
+      "turkish": "Uyumak",
+      "example_en": "Children sleep in their bedrooms.",
+      "example_tr": "Çocuklar yatak odalarında uyur.",
+      "related_verbs": ["rest", "doze", "dream", "nap", "slumber"]
+    },
+    {
+      "word": "wake",
+      "type": "verb",
+      "turkish": "Uyanmak",
+      "example_en": "I wake up early in my room.",
+      "example_tr": "Odamda erken uyanırım.",
+      "related_verbs": ["rise", "get", "arouse", "stir", "open"]
+    },
+    {
+      "word": "enter",
+      "type": "verb",
+      "turkish": "Girmek",
+      "example_en": "Please enter and take off your shoes.",
+      "example_tr": "Lütfen içeri gir ve ayakkabılarını çıkar.",
+      "related_verbs": ["come", "go", "step", "access", "penetrate"]
+    },
+    {
+      "word": "exit",
+      "type": "verb",
+      "turkish": "Çıkış yapmak",
+      "example_en": "She exits the house quickly.",
+      "example_tr": "Evden hızlıca çıkış yapar.",
+      "related_verbs": ["leave", "depart", "go", "out", "escape"]
+    },
+    {
+      "word": "step",
+      "type": "verb",
+      "turkish": "Adım atmak",
+      "example_en": "Step carefully on the wet floor.",
+      "example_tr": "Islak zemin üzerinde dikkatli adım at.",
+      "related_verbs": ["walk", "march", "move", "tread", "stomp"]
+    },
+    {
+      "word": "knock",
+      "type": "verb",
+      "turkish": "Kapı çalmak",
+      "example_en": "Someone knocks on the front door.",
+      "example_tr": "Biri ön kapıyı çalıyor.",
+      "related_verbs": ["hit", "tap", "bang", "strike", "ring"]
+    },
+    {
+      "word": "ring",
+      "type": "verb",
+      "turkish": "Z çalmak (zil vb.)",
+      "example_en": "The doorbell rings loudly.",
+      "example_tr": "Kapı zili yüksek sesle çalıyor.",
+      "related_verbs": ["call", "sound", "peal", "buzz", "echo"]
+    }
+  ]
+}

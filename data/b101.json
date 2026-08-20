@@ -1,0 +1,409 @@
+
+{
+  "level": "B1",
+  "scene_id": 1,
+  "scene_title": "Environment and Nature",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "protect",
+      "type": "verb",
+      "turkish": "Korumak, muhafaza etmek",
+      "example_en": "Governments must protect natural habitats from destruction.",
+      "example_tr": "Hükümetler doğal yaşam alanlarını yıkımdan korumalıdır.",
+      "related_verbs": ["guard", "defend", "shield", "secure", "preserve"]
+    },
+    {
+      "word": "preserve",
+      "type": "verb",
+      "turkish": "Muhafaza etmek, korumak (aslına uygun şekilde)",
+      "example_en": "Environmentalists work hard to preserve endangered species.",
+      "example_tr": "Çevreciler nesli tükenmekte olan türleri korumak için çok çalışıyor.",
+      "related_verbs": ["protect", "maintain", "save", "retain", "conserve"]
+    },
+    {
+      "word": "conserve",
+      "type": "verb",
+      "turkish": "Tasarruf etmek, korumak (kaynakları)",
+      "example_en": "Citizens should conserve water during dry summer months.",
+      "example_tr": "Vatandaşlar kurak yaz aylarında su tasarrufu yapmalıdır.",
+      "related_verbs": ["save", "preserve", "protect", "store", "economize"]
+    },
+    {
+      "word": "pollute",
+      "type": "verb",
+      "turkish": "Kirletmek",
+      "example_en": "Factories pollute rivers with industrial waste products.",
+      "example_tr": "Fabrikalar endüstriyel atık ürünleriyle nehirleri kirletiyor.",
+      "related_verbs": ["contaminate", "dirty", "stain", "spoils", "taint"]
+    },
+    {
+      "word": "contaminate",
+      "type": "verb",
+      "turkish": "Bulaştırmak, zehirlemek, kirletmek",
+      "example_en": "Chemical leaks contaminate local groundwater supplies.",
+      "example_tr": "Kimyasal sızıntılar yerel yeraltı suyu kaynaklarını kirletiyor.",
+      "related_verbs": ["pollute", "infect", "taint", "poison", "spoil"]
+    },
+    {
+      "word": "recycle",
+      "type": "verb",
+      "turkish": "Geri dönüştürmek",
+      "example_en": "Residents separate plastic and glass to recycle them.",
+      "example_tr": "Sakinler plastik ve camı geri dönüştürmek için ayırıyor.",
+      "related_verbs": ["reprocess", "reuse", "recover", "reclaim", "renew"]
+    },
+    {
+      "word": "reuse",
+      "type": "verb",
+      "turkish": "Yeniden kullanmak",
+      "example_en": "People try to reuse shopping bags instead of buying new ones.",
+      "example_tr": "İnsanlar yenilerini satın almak yerine alışveriş torbalarını yeniden kullanmaya çalışıyor.",
+      "related_verbs": ["recycle", "utilize", "employ", "reapply", "repeat"]
+    },
+    {
+      "word": "reduce",
+      "type": "verb",
+      "turkish": "Azaltmak, düşürmek",
+      "example_en": "Cities aim to reduce carbon emissions significantly by 2030.",
+      "example_tr": "Şehirler 2030 yılına kadar karbon emisyonlarını önemli ölçüde azaltmayı hedefliyor.",
+      "related_verbs": ["decrease", "lower", "minimize", "cut", "diminish"]
+    },
+    {
+      "word": "destroy",
+      "type": "verb",
+      "turkish": "Yok etmek, tahrip etmek",
+      "example_en": "Illegal logging operations destroy large areas of rainforest.",
+      "example_tr": "Yasadışı ağaç kesim faaliyetleri yağmur ormanlarının geniş alanlarını yok ediyor.",
+      "related_verbs": ["ruin", "demolish", "wreck", "devastate", "annihilate"]
+    },
+    {
+      "word": "damage",
+      "type": "verb",
+      "turkish": "Zarar vermek, hasar vermek",
+      "example_en": "Severe storms damage coastal ecosystems and properties.",
+      "example_tr": "Şiddetli fırtınalar kıyı ekosistemlerine ve mülklere zarar veriyor.",
+      "related_verbs": ["harm", "hurt", "injure", "impair", "mar"]
+    },
+    {
+      "word": "harm",
+      "type": "verb",
+      "turkish": "Zarar vermek, ziyan etmek",
+      "example_en": "Single-use plastics harm marine animals like turtles and fish.",
+      "example_tr": "Tek kullanımlık plastikler kaplumbağalar ve balıklar gibi deniz hayvanlarına zarar veriyor.",
+      "related_verbs": ["damage", "hurt", "injure", "detract", "compromise"]
+    },
+    {
+      "word": "threaten",
+      "type": "verb",
+      "turkish": "Tehdit etmek",
+      "example_en": "Global warming threatens wildlife populations across the globe.",
+      "example_tr": "Küresel ısınma dünya genelindeki yaban hayatı popülasyonlarını tehdit ediyor.",
+      "related_verbs": ["endanger", "menace", "risk", "warn", "intimidate"]
+    },
+    {
+      "word": "endanger",
+      "type": "verb",
+      "turkish": "Tehlikeye atmak",
+      "example_en": "Toxic spills endanger aquatic life in the river basin.",
+      "example_tr": "Zehirli sızıntılar nehir havzasındaki su yaşamını tehlikeye atıyor.",
+      "related_verbs": ["threaten", "jeopardize", "risk", "compromise", "hazard"]
+    },
+    {
+      "word": "survive",
+      "type": "verb",
+      "turkish": "Hayatta kalmak",
+      "example_en": "Many polar animals struggle to survive as ice melts.",
+      "example_tr": "Buzlar eridikçe birçok kutup hayvanı hayatta kalmakta zorlanıyor.",
+      "related_verbs": ["endure", "persist", "live", "last", "weather"]
+    },
+    {
+      "word": "adapt",
+      "type": "verb",
+      "turkish": "Uyum sağlamak",
+      "example_en": "Species must adapt to changing climatic conditions quickly.",
+      "example_tr": "Türler değişen iklim koşullarına hızlı bir şekilde uyum sağlamalıdır.",
+      "related_verbs": ["adjust", "accommodate", "conform", "modify", "fit"]
+    },
+    {
+      "word": "affect",
+      "type": "verb",
+      "turkish": "Etkilemek",
+      "example_en": "Air pollution affects human respiratory health severely.",
+      "example_tr": "Hava kirliliği insan solunum sağlığını şiddetli bir şekilde etkiliyor.",
+      "related_verbs": ["influence", "impact", "alter", "modify", "touch"]
+    },
+    {
+      "word": "impact",
+      "type": "verb",
+      "turkish": "Derinden etkilemek, sarsmak",
+      "example_en": "Deforestation impacts the entire global weather system.",
+      "example_tr": "Ormansızlaşma tüm küresel hava sistemini derinden etkiliyor.",
+      "related_verbs": ["affect", "influence", "hit", "strike", "shape"]
+    },
+    {
+      "word": "generate",
+      "type": "verb",
+      "turkish": "Üretmek, oluşturmak (enerji)",
+      "example_en": "Wind turbines generate clean electricity for thousands of homes.",
+      "example_tr": "Rüzgar türbinleri binlerce ev için temiz elektrik üretiyor.",
+      "related_verbs": ["produce", "create", "make", "yield", "form"]
+    },
+    {
+      "word": "consume",
+      "type": "verb",
+      "turkish": "Tüketmek",
+      "example_en": "Modern societies consume fossil fuels at alarming rates.",
+      "example_tr": "Modern toplumlar fosil yakıtları endişe verici oranlarda tüketiyor.",
+      "related_verbs": ["use", "utilize", "expend", "drain", "eat"]
+    },
+    {
+      "word": "deplete",
+      "type": "verb",
+      "turkish": "Tüketmek, bitirmek (kaynakları)",
+      "example_en": "Overfishing depletes fish stocks in the oceans.",
+      "example_tr": "Aşırı avlanma okyanuslardaki balık stoklarını tüketiyor.",
+      "related_verbs": ["exhaust", "drain", "empty", "reduce", "spend"]
+    },
+    {
+      "word": "waste",
+      "type": "verb",
+      "turkish": "İsraf etmek, boşa harcamak",
+      "example_en": "We should not waste natural resources like energy and water.",
+      "example_tr": "Enerji ve su gibi doğal kaynakları israf etmemeliyiz.",
+      "related_verbs": ["squander", "misspend", "lose", "drain", "consume"]
+    },
+    {
+      "word": "emit",
+      "type": "verb",
+      "turkish": "Salmak, yaymak (gaz/duman)",
+      "example_en": "Vehicles emit greenhouse gases into the atmosphere.",
+      "example_tr": "Araçlar atmosfere sera gazları salıyor.",
+      "related_verbs": ["release", "discharge", "radiate", "exhale", "send"]
+    },
+    {
+      "word": "release",
+      "type": "verb",
+      "turkish": "Salıvermek, serbest bırakmak, salmak",
+      "example_en": "Chemical plants release toxic substances into the air.",
+      "example_tr": "Kimya tesisleri havaya toksik maddeler salıyor.",
+      "related_verbs": ["emit", "discharge", "free", "liberate", "unleash"]
+    },
+    {
+      "word": "absorb",
+      "type": "verb",
+      "turkish": "Emek, içine çekmek (karbonu/suyu)",
+      "example_en": "Forests absorb large amounts of carbon dioxide from the air.",
+      "example_tr": "Ormanlar havadan büyük miktarda karbondioksit emiyor.",
+      "related_verbs": ["soak", "take", "ingest", "assimilate", "accept"]
+    },
+    {
+      "word": "melt",
+      "type": "verb",
+      "turkish": "Erimek",
+      "example_en": "Glaciers melt rapidly due to rising global temperatures.",
+      "example_tr": "Yükselen küresel sıcaklıklar nedeniyle buzullar hızla eriyor.",
+      "related_verbs": ["dissolve", "thaw", "liquefy", "soften", "run"]
+    },
+    {
+      "word": "rise",
+      "type": "verb",
+      "turkish": "Yükselmek, artmak",
+      "example_en": "Sea levels rise steadily as polar ice caps disappear.",
+      "example_tr": "Kutup buzulları yok oldukça deniz seviyeleri istikrarlı bir şekilde yükseliyor.",
+      "related_verbs": ["increase", "ascend", "climb", "grow", "mount"]
+    },
+    {
+      "word": "warm",
+      "type": "verb",
+      "turkish": "Isınmak, ısıtmak",
+      "example_en": "Greenhouse gases trap heat, causing the planet to warm.",
+      "example_tr": "Sera gazları ısıyı hapsettiği için gezegenin ısınmasına neden oluyor.",
+      "related_verbs": ["heat", "thermalize", "warm up", "toast", "glow"]
+    },
+    {
+      "word": "investigate",
+      "type": "verb",
+      "turkish": "Araştırmak, incelemek",
+      "example_en": "Scientists investigate the causes of unusual weather patterns.",
+      "example_tr": "Bilim insanları olağandışı hava örüntülerinin nedenlerini araştırıyor.",
+      "related_verbs": ["research", "examine", "explore", "study", "probe"]
+    },
+    {
+      "word": "discover",
+      "type": "verb",
+      "turkish": "Keşfetmek",
+      "example_en": "Researchers discover new eco-friendly materials every year.",
+      "example_tr": "Araştırmacılar her yıl yeni çevre dostu malzemeler keşfediyor.",
+      "related_verbs": ["find", "uncover", "detect", "locate", "reveal"]
+    },
+    {
+      "word": "invent",
+      "type": "verb",
+      "turkish": "İcat etmek",
+      "example_en": "Engineers invent solar-powered devices for remote areas.",
+      "example_tr": "Mühendisler uzak bölgeler için güneş enerjisiyle çalışan cihazlar icat ediyor.",
+      "related_verbs": ["create", "design", "develop", "originate", "form"]
+    },
+    {
+      "word": "transform",
+      "type": "verb",
+      "turkish": "Dönüştürmek, değiştirmek",
+      "example_en": "Cities transform waste into usable renewable energy.",
+      "example_tr": "Şehirler atıkları kullanılabilir yenilenebilir enerjiye dönüştürüyor.",
+      "related_verbs": ["change", "convert", "alter", "modify", "turn"]
+    },
+    {
+      "word": "restore",
+      "type": "verb",
+      "turkish": "Eski haline getirmek, restore etmek",
+      "example_en": "Volunteers plant trees to restore damaged forest areas.",
+      "example_tr": "Gönüllüler zarar görmüş orman alanlarını eski haline getirmek için ağaç dikiyor.",
+      "related_verbs": ["repair", "fix", "renew", "rebuild", "reclaim"]
+    },
+    {
+      "word": "clean",
+      "type": "verb",
+      "turkish": "Temizlemek",
+      "example_en": "Communities gather to clean local beaches on weekends.",
+      "example_tr": "Topluluklar hafta sonları yerel plajları temizlemek için bir araya geliyor.",
+      "related_verbs": ["purify", "sanitize", "clear", "wash", "sweep"]
+    },
+    {
+      "word": "purify",
+      "type": "verb",
+      "turkish": "Arıtmak, saflaştırmak",
+      "example_en": "Modern plants purify wastewater before returning it to nature.",
+      "example_tr": "Modern tesisler atık suyu doğaya geri göndermeden önce arıtıyor.",
+      "related_verbs": ["clean", "filter", "clarify", "refine", "sanitize"]
+    },
+    {
+      "word": "filter",
+      "type": "verb",
+      "turkish": "Süzmek, filtrelemek",
+      "example_en": "Special systems filter smoke from factory chimneys.",
+      "example_tr": "Özel sistemler fabrika bacalarından çıkan dumanı süzüyor.",
+      "related_verbs": ["strain", "screen", "purify", "clean", "sift"]
+    },
+    {
+      "word": "sustains",
+      "type": "verb",
+      "turkish": "Sürdürmek, beslemek, ayakta tutmak",
+      "example_en": "Biodiversity sustains healthy ecosystems across the planet.",
+      "example_tr": "Biyoçeşitlilik gezegen genelinde sağlıklı ekosistemleri ayakta tutuyor.",
+      "related_verbs": ["maintain", "support", "uphold", "nourish", "keep"]
+    },
+    {
+      "word": "cultivate",
+      "type": "verb",
+      "turkish": "Yetiştirmek, toprağı işlemek",
+      "example_en": "Farmers cultivate organic crops without using chemical pesticides.",
+      "example_tr": "Çiftçiler kimyasal tarım ilacı kullanmadan organik ürünler yetiştiriyor.",
+      "related_verbs": ["grow", "farm", "plant", "produce", "nurture"]
+    },
+    {
+      "word": "nurture",
+      "type": "verb",
+      "turkish": "Besleyip büyütmek, özen göstermek",
+      "example_en": "Conservationists nurture young saplings until they grow strong.",
+      "example_tr": "Doğayı koruyanlar genç fidanları güçlenene kadar özenle büyütüyor.",
+      "related_verbs": ["raise", "foster", "cherish", "cultivate", "support"]
+    },
+    {
+      "word": "thrive",
+      "type": "verb",
+      "turkish": "Gelişmek, serpilmek, büyümek",
+      "example_en": "Plants thrive in rich, chemical-free soils.",
+      "example_tr": "Bitkiler zengin ve kimyasalsız topraklarda serpilip gelişiyor.",
+      "related_verbs": ["flourish", "prosper", "bloom", "grow", "succeed"]
+    },
+    {
+      "word": "degrade",
+      "type": "verb",
+      "turkish": "Bozulmak, niteliğini yitirmek (çevre)",
+      "example_en": "Non-biodegradable plastics take centuries to degrade.",
+      "example_tr": "Biyolojik olarak parçalanamayan plastiklerin bozulması yüzyıllar sürüyor.",
+      "related_verbs": ["deteriorate", "decay", "decompose", "worsen", "break down"]
+    },
+    {
+      "word": "decompose",
+      "type": "verb",
+      "turkish": "Çürümek, ayrışmak",
+      "example_en": "Organic waste items decompose naturally in compost bins.",
+      "example_tr": "Organik atık maddeler kompost kutularında doğal olarak ayrışıyor.",
+      "related_verbs": ["decay", "rot", "disintegrate", "break down", "degrade"]
+    },
+    {
+      "word": "advocate",
+      "type": "verb",
+      "turkish": "Savunmak (fikri/politikayı)",
+      "example_en": "Activists advocate stricter laws against environmental crimes.",
+      "example_tr": "Aktivistler çevre suçlarına karşı daha katı yasaları savunuyor.",
+      "related_verbs": ["support", "promote", "champion", "recommend", "back"]
+    },
+    {
+      "word": "encourage",
+      "type": "verb",
+      "turkish": "Teşvik etmek",
+      "example_en": "Schools encourage students to use public transport.",
+      "example_tr": "Okullar öğrencileri toplu taşıma kullanmaya teşvik ediyor.",
+      "related_verbs": ["promote", "inspire", "urge", "motivate", "stimulate"]
+    },
+    {
+      "word": "prohibit",
+      "type": "verb",
+      "turkish": "Yasaklamak",
+      "example_en": "Many countries prohibit the sale of single-use plastic items.",
+      "example_tr": "Birçok ülke tek kullanımlık plastik eşyaların satışını yasaklıyor.",
+      "related_verbs": ["ban", "forbid", "restrict", "outlaw", "prevent"]
+    },
+    {
+      "word": "regulate",
+      "type": "verb",
+      "turkish": "Düzenlemek, denetim altına almak",
+      "example_en": "Governments regulate industrial emissions to protect air quality.",
+      "example_tr": "Hükümetler hava kalitesini korumak için sanayi emisyonlarını düzenliyor.",
+      "related_verbs": ["control", "manage", "govern", "standardize", "direct"]
+    },
+    {
+      "word": "implement",
+      "type": "verb",
+      "turkish": "Uygulamaya koymak, hayata geçirmek",
+      "example_en": "Cities implement green policies to combat climate change.",
+      "example_tr": "Şehirler iklim değişikliğiyle mücadele etmek için yeşil politikaları hayata geçiriyor.",
+      "related_verbs": ["execute", "apply", "enforce", "perform", "carry out"]
+    },
+    {
+      "word": "evaluate",
+      "type": "verb",
+      "turkish": "Değerlendirmek",
+      "example_en": "Experts evaluate the environmental impact of new construction projects.",
+      "example_tr": "Uzmanlar yeni inşaat projelerinin çevresel etki değerlendirmesini yapıyor.",
+      "related_verbs": ["assess", "appraise", "judge", "review", "estimate"]
+    },
+    {
+      "word": "collaborate",
+      "type": "verb",
+      "turkish": "Ortak çalışmak, işbirliği yapmak",
+      "example_en": "Nations collaborate across borders to solve ecological crises.",
+      "example_tr": "Uluslar ekolojik krizleri çözmek için sınırlar ötesinde işbirliği yapıyor.",
+      "related_verbs": ["cooperate", "partner", "join", "unite", "contribute"]
+    },
+    {
+      "word": "participate",
+      "type": "verb",
+      "turkish": "Katılmak",
+      "example_en": "Citizens participate in local tree-planting campaigns.",
+      "example_tr": "Vatandaşlar yerel ağaç dikme kampanyalarına katılıyor.",
+      "related_verbs": ["join", "attend", "engage", "take part", "share"]
+    },
+    {
+      "word": "inspire",
+      "type": "verb",
+      "turkish": "İlham vermek",
+      "example_en": "Young climate activists inspire millions of people worldwide.",
+      "example_tr": "Genç iklim aktivistleri dünya çapında milyonlarca insana ilham veriyor.",
+      "related_verbs": ["motivate", "encourage", "stimulate", "influence", "excite"]
+    }
+  ]
+}

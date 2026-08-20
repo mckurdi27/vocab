@@ -1,0 +1,409 @@
+{
+  "level": "B1",
+  "scene_id": 5,
+  "scene_title": "Technology and Digital Life",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "invent",
+      "type": "verb",
+      "turkish": "İcat etmek",
+      "example_en": "Engineers invent new digital devices to simplify daily tasks.",
+      "example_tr": "Mühendisler günlük işleri basitleştirmek için yeni dijital cihazlar icat ediyor.",
+      "related_verbs": ["create", "design", "develop", "originate", "form"]
+    },
+    {
+      "word": "discover",
+      "type": "verb",
+      "turkish": "Keşfetmek",
+      "example_en": "Tech researchers discover faster ways to process digital data.",
+      "example_tr": "Teknoloji araştırmacıları dijital verileri işlemek için daha hızlı yollar keşfediyor.",
+      "related_verbs": ["find", "uncover", "detect", "locate", "reveal"]
+    },
+    {
+      "word": "develop",
+      "type": "verb",
+      "turkish": "Geliştirmek",
+      "example_en": "Software developers build and develop mobile applications for smartphones.",
+      "example_tr": "Yazılımcılar akıllı telefonlar için mobil uygulamalar inşa ediyor ve geliştiriyor.",
+      "related_verbs": ["grow", "build", "expand", "advance", "foster"]
+    },
+    {
+      "word": "design",
+      "type": "verb",
+      "turkish": "Tasarlamak",
+      "example_en": "Web designers create user-friendly interfaces for websites.",
+      "example_tr": "Web tasarımcıları web siteleri için kullanıcı dostu arayüzler tasarlıyor.",
+      "related_verbs": ["create", "plan", "build", "shape", "draft"]
+    },
+    {
+      "word": "program",
+      "type": "verb",
+      "turkish": "Programlamak, kod yazmak",
+      "example_en": "Computer scientists program algorithms to automate complex systems.",
+      "example_tr": "Bilgisayar bilimcileri karmaşık sistemleri otomatikleştirmek için algoritmalar programlıyor.",
+      "related_verbs": ["code", "script", "develop", "compute", "configure"]
+    },
+    {
+      "word": "code",
+      "type": "verb",
+      "turkish": "Kodlamak",
+      "example_en": "Young students learn how to code simple computer games at school.",
+      "example_tr": "Genç öğrenciler okulda basit bilgisayar oyunları kodlamayı öğreniyor.",
+      "related_verbs": ["program", "write", "develop", "script", "encrypt"]
+    },
+    {
+      "word": "operate",
+      "type": "verb",
+      "turkish": "Çalıştırmak, işletmek",
+      "example_en": "Advanced robots operate automated machinery in modern factories.",
+      "example_tr": "Gelişmiş robotlar modern fabrikalarda otomatik makineleri çalıştırıyor.",
+      "related_verbs": ["run", "work", "manage", "control", "handle"]
+    },
+    {
+      "word": "function",
+      "type": "verb",
+      "turkish": "İşlev görmek, çalışmak",
+      "example_en": "Smartphones cannot function properly without a stable internet connection.",
+      "example_tr": "Akıllı telefonlar kararlı bir internet bağlantısı olmadan düzgün çalışamaz.",
+      "related_verbs": ["operate", "work", "run", "perform", "act"]
+    },
+    {
+      "word": "connect",
+      "type": "verb",
+      "turkish": "Bağlanmek, bağlantı kurmak",
+      "example_en": "Wi-Fi routers help computers connect to global networks wirelessly.",
+      "example_tr": "Wi-Fi yönlendiricileri bilgisayarların küresel ağlara kablosuz olarak bağlanmasına yardımcı olur.",
+      "related_verbs": ["link", "join", "attach", "bind", "unite"]
+    },
+    {
+      "word": "disconnect",
+      "type": "verb",
+      "turkish": "Bağlantıyı kesmek",
+      "example_en": "Users should disconnect external hard drives safely before removal.",
+      "example_tr": "Kullanıcılar harici sabit sürücüleri çıkarmadan önce bağlantılarını güvenli bir şekilde kesmelidir.",
+      "related_verbs": ["detach", "unplug", "sever", "separate", "isolate"]
+    },
+    {
+      "word": "browse",
+      "type": "verb",
+      "turkish": "Göz atmak, internette gezinmek",
+      "example_en": "People browse the internet to find information and entertainment.",
+      "example_tr": "İnsanlar bilgi ve eğlence bulmak için internette geziniyor.",
+      "related_verbs": ["surf", "explore", "scan", "look", "read"]
+    },
+    {
+      "word": "surf",
+      "type": "verb",
+      "turkish": "Sörf yapmak (internette)",
+      "example_en": "Teenagers love to surf social media platforms during their free time.",
+      "example_tr": "Gençler boş zamanlarında sosyal medya platformlarında sörf yapmayı (gezinmeyi) sever.",
+      "related_verbs": ["browse", "navigate", "explore", "scan", "ride"]
+    },
+    {
+      "word": "download",
+      "type": "verb",
+      "turkish": "İndirmek",
+      "example_en": "Students download educational software onto their tablets.",
+      "example_tr": "Öğrenciler tabletlerine eğitici yazılımlar indiriyor.",
+      "related_verbs": ["save", "obtain", "retrieve", "transfer", "acquire"]
+    },
+    {
+      "word": "upload",
+      "type": "verb",
+      "turkish": "Yüklemek",
+      "example_en": "Photographers upload high-resolution images to cloud storage.",
+      "example_tr": "Fotoğrafçılar yüksek çözünürlüklü görüntüleri bulut depolamaya yükliyor.",
+      "related_verbs": ["transfer", "send", "post", "share", "transmit"]
+    },
+    {
+      "word": "install",
+      "type": "verb",
+      "turkish": "Kurmak (program/cihaz)",
+      "example_en": "Technicians install new security updates on office computers.",
+      "example_tr": "Teknisyenler ofis bilgisayarlarına yeni güvenlik güncellemeleri kuruyor.",
+      "related_verbs": ["setup", "put", "place", "mount", "establish"]
+    },
+    {
+      "word": "uninstall",
+      "type": "verb",
+      "turkish": "Kaldırmak (programı)",
+      "example_en": "Users uninstall unused apps to free up storage space.",
+      "example_tr": "Kullanıcılar depolama alanında yer açmak için kullanılmayan uygulamaları kaldırıyor.",
+      "related_verbs": ["remove", "delete", "clear", "erase", "strip"]
+    },
+    {
+      "word": "update",
+      "type": "verb",
+      "turkish": "Güncellemek",
+      "example_en": "Smartphones prompt users to update their operating systems regularly.",
+      "example_tr": "Akıllı telefonlar kullanıcılara işletim sistemlerini düzenli olarak güncelleme hatırlatması yapar.",
+      "related_verbs": ["upgrade", "refresh", "renew", "modernize", "revise"]
+    },
+    {
+      "word": "upgrade",
+      "type": "verb",
+      "turkish": "Yükseltmek (donanım/yazılım)",
+      "example_en": "Gamers upgrade their graphics cards to run heavy video games.",
+      "example_tr": "Oyuncular ağır video oyunlarını çalıştırmak için ekran kartlarını yükseltiyor.",
+      "related_verbs": ["update", "improve", "enhance", "boost", "elevate"]
+    },
+    {
+      "word": "backup",
+      "type": "verb",
+      "turkish": "Yedeklemek",
+      "example_en": "It is essential to backup important files to an external drive.",
+      "example_tr": "Önemli dosyaları harici bir sürücüye yedeklemek esastır.",
+      "related_verbs": ["save", "copy", "secure", "store", "protect"]
+    },
+    {
+      "word": "delete",
+      "type": "verb",
+      "turkish": "Silmek",
+      "example_en": "He clears his email inbox and deletes old spam messages.",
+      "example_tr": "E-posta gelen kutusunu temizliyor ve eski istenmeyen mesajları siliyor.",
+      "related_verbs": ["remove", "erase", "clear", "discard", "destroy"]
+    },
+    {
+      "word": "restore",
+      "type": "verb",
+      "turkish": "Geri yüklemek, eski haline getirmek",
+      "example_en": "Users can restore lost files from the computer recycling bin.",
+      "example_tr": "Kullanıcılar kaybolan dosyaları bilgisayar geri dönüşüm kutusundan geri yükleyebilir.",
+      "related_verbs": ["recover", "retrieve", "renew", "rebuild", "repair"]
+    },
+    {
+      "word": "search",
+      "type": "verb",
+      "turkish": "Aramak",
+      "example_en": "Researchers search online databases for scientific articles.",
+      "example_tr": "Araştırmacılar bilimsel makaleler için çevrimiçi veritabanlarında arama yapıyor.",
+      "related_verbs": ["look", "seek", "hunt", "explore", "investigate"]
+    },
+    {
+      "word": "stream",
+      "type": "verb",
+      "turkish": "Akış izlemek, canlı yayın yapmak/izlemek",
+      "example_en": "Millions of people stream movies and music via internet platforms.",
+      "example_tr": "Milyonlarca insan internet platformları üzerinden film ve müzik akışı izliyor.",
+      "related_verbs": ["broadcast", "cast", "transmit", "watch", "feed"]
+    },
+    {
+      "word": "share",
+      "type": "verb",
+      "turkish": "Paylaşmak",
+      "example_en": "Friends share digital photos and videos on social networks.",
+      "example_tr": "Arkadaşlar sosyal ağlarda dijital fotoğraf ve videolar paylaşıyor.",
+      "related_verbs": ["distribute", "exchange", "post", "send", "pass"]
+    },
+    {
+      "word": "post",
+      "type": "verb",
+      "turkish": "Gönderi paylaşmak, yayınlamak",
+      "example_en": "Influencers post daily updates about their travels online.",
+      "example_tr": "Fenomenler seyahatleri hakkında çevrimiçi günlük güncellemeler yayınlıyor.",
+      "related_verbs": ["publish", "share", "send", "release", "announce"]
+    },
+    {
+      "word": "comment",
+      "type": "verb",
+      "turkish": "Yorum yapmak",
+      "example_en": "Followers like and comment on interesting news articles.",
+      "example_tr": "Takipçiler ilginç haber makalelerini beğeniyor ve yorum yapıyor.",
+      "related_verbs": ["remark", "respond", "reply", "discuss", "note"]
+    },
+    {
+      "word": "message",
+      "type": "verb",
+      "turkish": "Mesaj göndermek",
+      "example_en": "Colleagues message each other using instant communication tools.",
+      "example_tr": "Meslektaşlar anlık iletişim araçlarını kullanarak birbirine mesaj gönderiyor.",
+      "related_verbs": ["text", "write", "communicate", "contact", "chat"]
+    },
+    {
+      "word": "chat",
+      "type": "verb",
+      "turkish": "Sohbet etmek",
+      "example_en": "Family members chat online across different countries.",
+      "example_tr": "Aile üyeleri farklı ülkeler arasında çevrimiçi sohbet ediyor.",
+      "related_verbs": ["talk", "converse", "speak", "communicate", "discuss"]
+    },
+    {
+      "word": "hack",
+      "type": "verb",
+      "turkish": "Sisteme sızmak, hacklemek",
+      "example_en": "Cybercriminals try to hack secure corporate computer systems.",
+      "example_tr": "Siber suçlular güvenli kurumsal bilgisayar sistemlerini hacklemeye çalışıyor.",
+      "related_verbs": ["breach", "penetrate", "crack", "invade", "compromise"]
+    },
+    {
+      "word": "protect",
+      "type": "verb",
+      "turkish": "Korumak (veriyi/güvenliği)",
+      "example_en": "Antivirus software helps protect personal data from malware.",
+      "example_tr": "Antivirüs yazılımı kişisel verileri zararlı yazılımlardan korumaya yardımcı olur.",
+      "related_verbs": ["guard", "defend", "secure", "shield", "preserve"]
+    },
+    {
+      "word": "encrypt",
+      "type": "verb",
+      "turkish": "Şifrelemek",
+      "example_en": "Secure messaging apps encrypt text messages for user privacy.",
+      "example_tr": "Güvenli mesajlaşma uygulamaları kullanıcı gizliliği için metin mesajlarını şifreliyor.",
+      "related_verbs": ["encode", "lock", "protect", "scramble", "secure"]
+    },
+    {
+      "word": "scan",
+      "type": "verb",
+      "turkish": "Tarama yapmak",
+      "example_en": "Security programs scan downloaded files for hidden viruses.",
+      "example_tr": "Güvenlik programları indirilen dosyaları gizli virüslere karşı tarıyor.",
+      "related_verbs": ["examine", "check", "inspect", "explore", "review"]
+    },
+    {
+      "word": "detect",
+      "type": "verb",
+      "turkish": "Tespit etmek, algılamak",
+      "example_en": "Sensors detect abnormal temperature changes in server rooms.",
+      "example_tr": "Sensörler sunucu odalarındaki anormal sıcaklık değişimlerini tespit ediyor.",
+      "related_verbs": ["spot", "find", "discover", "identify", "notice"]
+    },
+    {
+      "word": "click",
+      "type": "verb",
+      "turkish": "Tıklamak",
+      "example_en": "Users click links to open web pages in browsers.",
+      "example_tr": "Kullanıcılar tarayıcılarda web sayfalarını açmak için bağlantılara tıklıyor.",
+      "related_verbs": ["press", "tap", "select", "hit", "trigger"]
+    },
+    {
+      "word": "scroll",
+      "type": "verb",
+      "turkish": "Aşağı/yukarı kaydırmak",
+      "example_en": "Readers scroll down the webpage to read full articles.",
+      "example_tr": "Okuyucular tam makaleleri okumak için web sayfasını aşağı kaydırıyor.",
+      "related_verbs": ["browse", "move", "flip", "slide", "navigate"]
+    },
+    {
+      "word": "print",
+      "type": "verb",
+      "turkish": "Yazdırmak, çıktı almak",
+      "example_en": "Office workers print digital documents before client meetings.",
+      "example_tr": "Ofis çalışanları müşteri toplantılarından önce dijital belgelerin çıktısını alıyor.",
+      "related_verbs": ["output", "publish", "reproduce", "copy", "stamp"]
+    },
+    {
+      "word": "scan",
+      "type": "verb",
+      "turkish": "Tarayıcıdan geçirmek (belge)",
+      "example_en": "She uses a desktop scanner to scan paper contracts.",
+      "example_tr": "Kağıt sözleşmeleri taramak için masaüstü tarayıcı kullanıyor.",
+      "related_verbs": ["digitize", "read", "copy", "inspect", "record"]
+    },
+    {
+      "word": "automate",
+      "type": "verb",
+      "turkish": "Otikleştirmek, otomatize etmek",
+      "example_en": "Factories automate manufacturing lines to increase productivity.",
+      "example_tr": "Fabrikalar verimliliği artırmak için üretim hatlarını otomatize ediyor.",
+      "related_verbs": ["mechanize", "computerize", "systematize", "streamline"]
+    },
+    {
+      "word": "analyze",
+      "type": "verb",
+      "turkish": "Analiz etmek",
+      "example_en": "Artificial intelligence algorithms analyze user behavior patterns.",
+      "example_tr": "Yapay zeka algoritmaları kullanıcı davranış kalıplarını analiz ediyor.",
+      "related_verbs": ["examine", "evaluate", "inspect", "study", "assess"]
+    },
+    {
+      "word": "generate",
+      "type": "verb",
+      "turkish": "Üretmek, oluşturmak (yapay zeka içeriği)",
+      "example_en": "Generative tools can generate creative text and realistic images.",
+      "example_tr": "Üretken araçlar yaratıcı metinler ve gerçekçi görseller üretebilir.",
+      "related_verbs": ["produce", "create", "make", "yield", "form"]
+    },
+    {
+      "word": "store",
+      "type": "verb",
+      "turkish": "Depolamak, saklamak",
+      "example_en": "Cloud servers store massive amounts of digital information safely.",
+      "example_tr": "Bulut sunucular devasa miktarda dijital bilgiyi güvenli bir şekilde depoluyor.",
+      "related_verbs": ["save", "keep", "retain", "hold", "preserve"]
+    },
+    {
+      "word": "sync",
+      "type": "verb",
+      "turkish": "Senkronize etmek",
+      "example_en": "Accounts sync data across phones, tablets, and computers automatically.",
+      "example_tr": "Hesaplar verileri telefonlar, tabletler ve bilgisayarlar arasında otomatik olarak senkronize ediyor.",
+      "related_verbs": ["harmonize", "match", "align", "coordinate", "link"]
+    },
+    {
+      "word": "plug",
+      "type": "verb",
+      "turkish": "Fişe takmak",
+      "example_en": "He needs to plug his laptop charger into a wall socket.",
+      "example_tr": "Dizüstü bilgisayarının şarj cihazını bir duvar prizine takması gerekiyor.",
+      "related_verbs": ["connect", "insert", "attach", "hook", "join"]
+    },
+    {
+      "word": "unplug",
+      "type": "verb",
+      "turkish": "Fişten çekmek",
+      "example_en": "Always unplug electrical devices during severe thunderstorms.",
+      "example_tr": "Şiddetli fırtınalar sırasında elektrikli cihazların fişini her zaman çekin.",
+      "related_verbs": ["disconnect", "detach", "remove", "pull", "sever"]
+    },
+    {
+      "word": "reboot",
+      "type": "verb",
+      "turkish": "Yeniden başlatmak",
+      "example_en": "Technical support asks users to reboot their routers to fix errors.",
+      "example_tr": "Teknik destek, hataları düzeltmek için kullanıcıların yönlendiricilerini yeniden başlatmasını ister.",
+      "related_verbs": ["restart", "reset", "reload", "refresh", "reboot"]
+    },
+    {
+      "word": "freeze",
+      "type": "verb",
+      "turkish": "Donmak, kilitlenmek (ekran/sistem)",
+      "example_en": "Old computers often freeze when running heavy applications.",
+      "example_tr": "Eski bilgisayarlar ağır uygulamaları çalıştırırken genellikle donar.",
+      "related_verbs": ["jam", "lock", "hang", "stop", "stuck"]
+    },
+    {
+      "word": "crash",
+      "type": "verb",
+      "turkish": "Çökme yaşamak (program/sistem)",
+      "example_en": "The video game software can crash if memory runs low.",
+      "example_tr": "Bellek azalırsa video oyunu yazılımı çökebilir.",
+      "related_verbs": ["fail", "collapse", "break", "halt", "stop"]
+    },
+    {
+      "B1_extra": true,
+      "word": "navigate",
+      "type": "verb",
+      "turkish": "Yön bulmak, menülerde gezinmek",
+      "example_en": "GPS systems help drivers navigate complex city streets easily.",
+      "example_tr": "GPS sistemleri sürücülerin karmaşık şehir sokaklarında kolayca yön bulmasına yardımcı olur.",
+      "related_verbs": ["guide", "pilot", "steering", "explore", "traverse"]
+    },
+    {
+      "word": "customize",
+      "type": "verb",
+      "turkish": "Kişiselleştirmek, özelleştirmek",
+      "example_en": "Users can customize software settings to match their preferences.",
+      "example_tr": "Kullanıcılar yazılım ayarlarını tercihlerine uyacak şekilde kişiselleştirebilir.",
+      "related_verbs": ["personalize", "tailor", "adapt", "modify", "adjust"]
+    },
+    {
+      "word": "interact",
+      "type": "verb",
+      "turkish": "Etkileşim kurmak",
+      "example_en": "People interact with digital assistants using voice commands.",
+      "example_tr": "İnsanlar sesli komutları kullanarak dijital asistanlarla etkileşim kuruyor.",
+      "related_verbs": ["communicate", "engage", "connect", "respond", "relate"]
+    }
+  ]
+}
