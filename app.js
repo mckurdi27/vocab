@@ -1,16 +1,17 @@
-// Sayfa ilk açıldığında a1 seçeneklerini oluştur
+// Sayfa yüklendiğinde ilk seviye listesini oluştur
 document.addEventListener("DOMContentLoaded", () => {
     generateDayOptions();
 });
 
+// A1-C1 arası seviyeler ve 01-50 arası küçük harfli dosya adlarını (örn: a101.json) yöneten fonksiyon
 function generateDayOptions() {
-    const level = document.getElementById('levelSelect').value; // küçük harf (a1 vb.)
+    const level = document.getElementById('levelSelect').value;
     const daySelect = document.getElementById('daySelect');
     daySelect.innerHTML = ""; 
     
     for(let i = 1; i <= 50; i++) {
         const num = i.toString().padStart(2, '0'); // 1 -> 01, 2 -> 02 ...
-        const fileName = `${level}${num}`; // Örn: a101, a102
+        const fileName = `${level}${num}`; // Örn: a101, b250
         const opt = document.createElement('option');
         opt.value = fileName;
         opt.innerHTML = `${level.toUpperCase()} - ${i}. Dosya (${fileName})`;
@@ -19,6 +20,7 @@ function generateDayOptions() {
     loadData();
 }
 
+// JSON verilerini `data/` klasöründen çeken fonksiyon
 async function loadData() {
     const fileName = document.getElementById('daySelect').value;
     const content = document.getElementById('content');
@@ -26,19 +28,17 @@ async function loadData() {
     content.innerHTML = "<p>Yükleniyor...</p>";
 
     try {
-        // Küçük harfli dosya adlarıyla veri çekme (örn: data/a101.json)
         const res = await fetch(`data/${fileName}.json`);
         if (!res.ok) throw new Error('Dosya bulunamadı');
         
         const data = await res.json();
         
-        content.innerHTML = data.words.map((w, index) => `
+        content.innerHTML = data.words.map(w => `
             <div class="card">
                 <div class="word">
                     <span>${w.word}</span>
                     <div>
                         <span class="type">${w.type}</span>
-                        <!-- İleride seslendirme eklemek için buton altyapısı -->
                         <button class="sound-btn" onclick="speakText('${w.word}')" title="Kelimeyi Seslendir">🔊</button>
                     </div>
                 </div>
@@ -55,11 +55,11 @@ async function loadData() {
     }
 }
 
-// İleride detaylı seslendirebilmeniz için tarayıcının yerleşik ses motorunu kullanan temel fonksiyon
+// Seslendirme Altyapısı
 function speakText(text) {
     if ('speechSynthesis' in window) {
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'en-US'; // İngilizce seslendirme (İstersen değiştirebilirsin)
+        utterance.lang = 'en-US';
         window.speechSynthesis.speak(utterance);
     } else {
         alert("Tarayıcınız seslendirme özelliğini desteklemiyor.");
