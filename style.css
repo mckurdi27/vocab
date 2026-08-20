@@ -109,8 +109,15 @@ body {
 }
 
 /* Hikaye İçindeki Hedef Kelimeleri Kırmızı Vurgulama */
-.highlight-word {
+/* İngilizce Vurgu (Kırmızı) */
+.highlight-word-en {
     color: #d9534f;
+    font-weight: bold;
+}
+
+/* Türkçe Vurgu (Mavi) */
+.highlight-word-tr {
+    color: #0066cc;
     font-weight: bold;
 }
 
