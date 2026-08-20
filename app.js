@@ -40,19 +40,30 @@ function highlightStoryWordsEn(text, wordsArray) {
     return highlightedText;
 }
 
-// Türkçe hikaye için karşılık gelen kelimeyi mavi vurgulayan fonksiyon
+// Türkçe hikaye için ek almış kelimeleri bile yakalayıp mavi yapan fonksiyon
 function highlightStoryWordsTr(text, wordsArray) {
     if (!text || !wordsArray) return text;
     let highlightedText = text;
     
+    // Uzun kelimelerin önce eşleşmesi için sıralama
     const sortedWords = [...wordsArray].sort((a, b) => b.turkish.length - a.turkish.length);
 
     sortedWords.forEach(w => {
         if (w.turkish) {
-            // Türkçe anlamlarda virgül olabileceği için ilk kelimeyi veya tam eşleşmeyi baz alabiliriz
-            const primaryTr = w.turkish.split(',')[0].trim();
-            const regex = new RegExp(`\\b(${primaryTr})\\b`, 'gi');
-            highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
+            // Türkçe anlamdaki ilk kelimeyi al (Örn: "Tanışmak, buluşmak" -> "Tanışmak")
+            let primaryTr = w.turkish.split(',')[0].trim();
+            
+            // Eğer fiil -mak/-mek ile bitiyorsa, kök kısmını da yakalayabilmek için esnek bir kalıp oluşturalım
+            let rootTr = primaryTr.replace(/(mek|mak)$/i, '');
+            
+            if (rootTr.length > 2) {
+                // Kökü içeren kelimeleri yakala (Örn: başla...)
+                const regex = new RegExp(`\\b(${rootTr}[a-üçğışö]*)\\b`, 'gi');
+                highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
+            } else {
+                const regex = new RegExp(`\\b(${primaryTr})\\b`, 'gi');
+                highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
+            }
         }
     });
 
