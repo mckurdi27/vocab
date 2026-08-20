@@ -11,12 +11,14 @@ body {
     margin: auto;
 }
 
+/* Üst Seçim Paneli - Kelime Kutularının Rengiyle Uyumlu (Beyaz) */
 .header {
     background: #fff;
     padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-left: 5px solid #3498db;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,11 +26,18 @@ body {
     gap: 15px;
 }
 
+.header h2 {
+    margin: 0;
+    font-size: 1.4em;
+    color: #2c3e50;
+}
+
+/* Mavi Başlık Alanı (Sadece Başlık ve Sayaç İçin) */
 .scene-banner {
     background: linear-gradient(135deg, #2c3e50, #3498db);
     color: #fff;
     padding: 20px 25px;
-    border-radius: 12px;
+    border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
@@ -52,12 +61,12 @@ body {
     opacity: 0.9;
 }
 
-/* Hikaye Alanı - Yan Yana İki Kutu (Beyaz Arka Plan, Sol Kenar Çizgili) */
+/* Hikaye Alanı - Mavi Alandan Bağımsız, Yan Yana İki Kutu */
 .story-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    margin-top: 20px;
+    margin-bottom: 25px;
 }
 
 @media (max-width: 768px) {
@@ -77,11 +86,11 @@ body {
 }
 
 .story-box-en {
-    border-left: 5px solid #3498db; /* İngilizce kutu sol mavi çizgi */
+    border-left: 5px solid #3498db; /* Sol mavi çizgi */
 }
 
 .story-box-tr {
-    border-left: 5px solid #d9534f; /* Türkçe kutu sol kırmızı çizgi */
+    border-left: 5px solid #d9534f; /* Sol kırmızı çizgi */
 }
 
 .story-title {
