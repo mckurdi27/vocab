@@ -3,6 +3,15 @@
   "scene_id": 1,
   "scene_title": "Daily Routine and Greetings",
   "total_words_in_scene": 50,
+
+  {
+  "level": "A1",
+  "scene_id": 1,
+  "scene_title": "Daily Routine and Greetings",
+  "story_en": "John wakes up early in the morning. To start his day, he opens the window and watches outside. When it is time for breakfast, he has breakfast in the kitchen and wants to buy milk because he likes milk. He gets ready quickly and leaves home to go to the office. While walking to the bus stop, he meets his friend Tom. After speaking and greeting Tom briefly, they get on the bus and arrive at the office on time. At the office, he sits at his desk and starts to use his computer. First, he reads his emails, then writes important notes. Around noon, his manager brings him a file and wants him to finish this project. John says, 'I know what to do, I will try my best' and starts working. At five o'clock in the evening, he stops work, leaves the office, and returns home. In the evening, he eats a delicious dinner with his family at home. Before resting at night, he reads a book and goes to bed at eleven o'clock to sleep.",
+  "story_tr": "John sabah erkenden uyanır. Gününe başlamak için pencereyi açar ve dışarıyı izler. Kahvaltı zamanı geldiğinde mutfakta kahvaltı yapar ve sütü sevdiği için süt satın almak ister. Hızlıca hazırlanır ve ofise gitmek için evden ayrılır. Otobüs durağına yürürken arkadaşı Tom ile buluşur. Tom ile kısa bir süre konuşup selamlaştıktan sonra otobüse binerler ve ofise zamanında varırlar. Ofiste masasına oturur ve bilgisayarını kullanmaya başlar. Önce maillerini okur, ardından önemli notlar yazar. Öğleye doğru yöneticisi ona bir dosya getirir ve bu projeyi bitirmesini ister. John, 'Ne yapacağımı biliyorum, elimden gelenin en iyisini deneyeceğim' der ve çalışmaya başlar. Akşam saat beşte işi durdurur, ofisten ayrılır ve eve döner. Akşam evde ailesiyle birlikte lezzetli bir akşam yemeği yer. Gece dinlenmeden önce biraz kitap okur ve uyumak için saat on birde yatağına gider."
+}
+
   "words": [
     {
       "word": "meet",
