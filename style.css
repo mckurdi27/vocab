@@ -52,19 +52,57 @@ body {
     opacity: 0.9;
 }
 
-/* Hikaye Alanı Stili */
-.story-box {
-    margin-top: 15px;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 0.95em;
-    line-height: 1.6;
-    border-left: 4px solid #fff;
+/* Hikaye Alanı - Yan Yana İki Kutu (Beyaz Arka Plan, Sol Kenar Çizgili) */
+.story-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.story-box p {
-    margin: 6px 0;
+@media (max-width: 768px) {
+    .story-container {
+        grid-template-columns: 1fr; /* Mobilde alt alta geçer */
+    }
+}
+
+.story-box-en, .story-box-tr {
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 0.95em;
+    line-height: 1.6;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.story-box-en {
+    border-left: 5px solid #3498db; /* İngilizce kutu sol mavi çizgi */
+}
+
+.story-box-tr {
+    border-left: 5px solid #d9534f; /* Türkçe kutu sol kırmızı çizgi */
+}
+
+.story-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 1.1em;
+}
+
+.story-box-en .story-title {
+    color: #0066cc;
+}
+
+.story-box-tr .story-title {
+    color: #d9534f;
+}
+
+/* Hikaye İçindeki Hedef Kelimeleri Kırmızı Vurgulama */
+.highlight-word {
+    color: #d9534f;
+    font-weight: bold;
 }
 
 .selectors {
@@ -108,7 +146,6 @@ select {
     gap: 8px;
 }
 
-/* İngilizce kelime Mavi */
 .en-word {
     font-size: 1.3em;
     font-weight: bold;
@@ -148,7 +185,6 @@ select {
     padding-bottom: 8px;
 }
 
-/* Türkçe anlam Kırmızı */
 .tr {
     color: #d9534f;
     font-weight: 600;
@@ -168,12 +204,10 @@ select {
     margin: 4px 0;
 }
 
-/* İngilizce cümle Mavi */
 .en-sentence {
     color: #0066cc;
 }
 
-/* Türkçe cümle Kırmızı */
 .tr-sentence {
     color: #d9534f;
 }
