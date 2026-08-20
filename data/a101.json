@@ -3,8 +3,25 @@
   "scene_id": 1,
   "scene_title": "Daily Routine and Greetings",
   "total_words_in_scene": 50,
-  "story_en": "John wakes up early in the morning. To start his day, he opens the window and watches outside. When it is time for breakfast, he has breakfast in the kitchen and wants to buy milk because he likes milk. He gets ready quickly and leaves home to go to the office. While walking to the bus stop, he meets his friend Tom. After speaking and greeting Tom briefly, they get on the bus and arrive at the office on time. At the office, he sits at his desk and starts to use his computer. First, he reads his emails, then writes important notes. Around noon, his manager brings him a file and wants him to finish this project. John says, 'I know what to do, I will try my best' and starts working. At five o'clock in the evening, he stops work, leaves the office, and returns home. In the evening, he eats a delicious dinner with his family at home. Before resting at night, he reads a book and goes to bed at eleven o'clock to sleep.",
-  "story_tr": "John sabah erkenden uyanır. Gününe başlamak için pencereyi açar ve dışarıyı izler. Kahvaltı zamanı geldiğinde mutfakta kahvaltı yapar ve sütü sevdiği için süt satın almak ister. Hızlıca hazırlanır ve ofise gitmek için evden ayrılır. Otobüs durağına yürürken arkadaşı Tom ile buluşur. Tom ile kısa bir süre konuşup selamlaştıktan sonra otobüse binerler ve ofise zamanında varırlar. Ofiste masasına oturur ve bilgisayarını kullanmaya başlar. Önce maillerini okur, ardından önemli notlar yazar. Öğleye doğru yöneticisi ona bir dosya getirir ve bu projeyi bitirmesini ister. John, 'Ne yapacağımı biliyorum, elimden gelenin en iyisini deneyeceğim' der ve çalışmaya başlar. Akşam saat beşte işi durdurur, ofisten ayrılır ve eve döner. Akşam evde ailesiyle birlikte lezzetli bir akşam yemeği yer. Gece dinlenmeden önce biraz kitap okur ve uyumak için saat on birde yatağına gider.",
+  "story_en": "Every morning, John can wake up early, open his window, and watch outside. 
+  He likes to start his day well, so he wants to buy fresh milk. He needs to pay for it, 
+  walk to the bus stop, and run when he is late. He will try to catch the bus, travel to the office,
+  and arrive on time. At work, he will use his computer, read emails, write notes, and study the new project. 
+  His manager will bring a file, give him instructions, and take his report. 
+  John knows what to do and will finish the task. 
+  During the day, he might speak with Tom, listen to music, think about new ideas, and find good solutions. 
+  He will call his friend, ask a question, and answer quickly. Sometimes he likes to play outside, visit family, and stay late. 
+  When he is hungry, he will eat delicious food and live a happy life. After a busy day, he will leave the office, return home, 
+  travel back, stop working, close his door, and sleep well at night. ",
+  "story_tr": "Her sabah John erkenden uyanabilir, penceresini açabilir ve dışarıyı izleyebilir. 
+  Gününü iyi başlatmayı sever, bu yüzden taze süt satın almak ister. Bunun için ödeme yapması, otobüs durağına yürümesi 
+  ve geç kaldığında koşması gerekir. Otobüsü yakalamaya çalışacak, ofise seyahat edecek ve zamanında varacak. 
+  İş yerinde bilgisayarını kullanacak, e-postaları okuyacak, notlar yazacak ve yeni projeyi çalışacak. 
+  Yöneticisi bir dosya getirecek, ona talimatlar verecek ve raporunu alacak. John ne yapacağını bilir ve görevi bitirecek. 
+  Gün boyunca Tom ile konuşabilir, müzik dinleyebilir, yeni fikirler düşünebilir ve iyi çözümler bulabilir. 
+  Arkadaşını arayacak, bir soru soracak ve hızlıca cevap verecek. Bazen dışarıda oynamayı, ailesini ziyaret etmeyi ve geç kalmayı sever. 
+  Acıktığında lezzetli yemekler yiyecek ve mutlu bir yaşam sürecek. Yoğun bir günden sonra ofisten ayrılacak, eve dönecek, 
+  geri seyahat edecek, çalışmayı durduracak, kapısını kapatacak ve geceleri iyi uyuyacak.",
   "words": [
     {
       "word": "meet",
