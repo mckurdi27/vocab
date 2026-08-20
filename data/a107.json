@@ -1,408 +1,408 @@
 {
-  "level": "A1",
+  "level": "C1",
   "scene_id": 7,
-  "scene_title": "Travel and Directions",
+  "scene_title": "Global Health, Medicine and Psychology",
   "total_words_in_scene": 50,
   "words": [
     {
-      "word": "travel",
+      "word": "diagnose",
       "type": "verb",
-      "turkish": "Seyahat etmek",
-      "example_en": "I travel to other countries by plane.",
-      "example_tr": "Uçakla diğer ülkelere seyahat ediyorum.",
-      "related_verbs": ["tour", "journey", "trip", "visit", "explore"]
+      "turkish": "Teşhis etmek, tanı koymak",
+      "example_en": "Advanced screening tools help physicians diagnose complex medical conditions in their earliest stages.",
+      "example_tr": "Gelişmiş tarama araçları, doktorların karmaşık tıbbi durumları en erken aşamalarında teşhis etmesine yardımcı olur.",
+      "related_verbs": ["identify", "detect", "determine", "recognize", "spot"]
     },
     {
-      "word": "visit",
-      "type": "verb",
-      "turkish": "Ziyaret etmek",
-      "example_en": "We want to visit historic places.",
-      "example_tr": "Tarihi yerleri ziyaret etmek istiyoruz.",
-      "related_verbs": ["see", "tour", "explore", "meet", "attend"]
+      "word": "diagnoses",
+      "type": "verb (third person singular / diagnose)",
+      "turkish": "Teşhis eder, tanı koyar",
+      "example_en": "The experienced neurologist diagnoses chronic neurological disorders using specialized brain imaging scans.",
+      "example_tr": "Deneyimli nörolog, özel beyin görüntüleme taramalarını kullanarak kronik nörolojik bozukluklara teşhis koyar.",
+      "related_verbs": ["identifies", "detects", "determines"]
     },
     {
-      "word": "explore",
-      "type": "verb",
-      "turkish": "Keşfetmek",
-      "example_en": "Tourists explore the old city.",
-      "example_tr": "Turistler eski şehri keşfediyor.",
-      "related_verbs": ["discover", "investigate", "examine", "search", "scan"]
+      "word": "diagnosed",
+      "type": "verb (past participle / diagnose)",
+      "turkish": "Teşhis edilmiş",
+      "example_en": "Patients diagnosed with early-stage hypertension can often manage symptoms through lifestyle modifications.",
+      "example_tr": "Erken evre hipertansiyon teşhisi konan hastalar genellikle yaşam tarzı değişiklikleriyle semptomları yönetebilir.",
+      "related_verbs": ["identified", "detected", "recognized"]
     },
     {
-      "word": "arrive",
-      "type": "verb",
-      "turkish": "Varmak",
-      "example_en": "The train arrives at the station on time.",
-      "example_tr": "Tren istasyona zamanında varır.",
-      "related_verbs": ["reach", "come", "get", "approach", "enter"]
+      "word": "diagnosing",
+      "type": "verb (gerund / diagnose)",
+      "turkish": "Teşhis etme, tanı koyma",
+      "example_en": "Medical researchers focus heavily on improving accuracy when diagnosing rare genetic syndromes.",
+      "example_tr": "Tıbbi araştırmacılar, nadir genetik sendromlara tanı koyarken doğruluğu artırmaya yoğun bir şekilde odaklanıyor.",
+      "related_verbs": ["identifying", "detecting", "determining"]
     },
     {
-      "word": "depart",
+      "word": "treat",
       "type": "verb",
-      "turkish": "Hareket etmek, kalkmak",
-      "example_en": "Flights depart from terminal two.",
-      "example_tr": "Uçuşlar ikinci terminalden hareket ediyor.",
-      "related_verbs": ["leave", "start", "exit", "go", "withdraw"]
+      "turkish": "Tedavi etmek",
+      "example_en": "Dedicated healthcare professionals work around the clock to treat patients in emergency departments.",
+      "example_tr": "Özverili sağlık profesyonelleri acil servislerdeki hastaları tedavi etmek için günün yirmi dört saati çalışır.",
+      "related_verbs": ["cure", "heal", "remedy", "attend", "care for"]
     },
     {
-      "word": "leave",
-      "type": "verb",
-      "turkish": "Ayrılmak, terk etmek",
-      "example_en": "We leave the hotel in the morning.",
-      "example_tr": "Sabah otelden ayrılıyoruz.",
-      "related_verbs": ["depart", "exit", "quit", "abandon", "go"]
+      "word": "treats",
+      "type": "verb (third person singular / treat)",
+      "turkish": "Tedavi eder",
+      "example_en": "The specialized clinic treats autoimmune diseases using cutting-edge biological therapies.",
+      "example_tr": "Özelleşmiş klinik, son teknoloji ürünü biyolojik tedavileri kullanarak otoimmün hastalıkları tedavi eder.",
+      "related_verbs": ["cures", "heals", "remedies"]
     },
     {
-      "word": "book",
-      "type": "verb",
-      "turkish": "Yer ayırtmak, rezervasyon yapmak",
-      "example_en": "I need to book a hotel room.",
-      "example_tr": "Bir otel odası ayırtmam gerekiyor.",
-      "related_verbs": ["reserve", "order", "schedule", "secure", "register"]
+      "word": "treated",
+      "type": "verb (past participle / treat)",
+      "turkish": "Tedavi edilmiş",
+      "example_en": "Most infectious diseases can be successfully treated with appropriate pharmaceutical interventions.",
+      "example_tr": "Çoğu bulaşıcı hastalık uygun farmasötik müdahalelerle başarılı bir şekilde tedavi edilebilir.",
+      "related_verbs": ["cured", "healed", "remedied"]
     },
     {
-      "word": "reserve",
-      "type": "verb",
-      "turkish": "Rezervasyon yapmak",
-      "example_en": "She reserves a ticket online.",
-      "example_tr": "İnternetten bir bilet rezervasyonu yapıyor.",
-      "related_verbs": ["book", "keep", "save", "hold", "store"]
+      "word": "treating",
+      "type": "verb (gerund / treat)",
+      "turkish": "Tedavi etme",
+      "example_en": "Hospitals invest in advanced medical technology to improve success rates when treating severe trauma.",
+      "example_tr": "Hastaneler, ağır travmaları tedavi ederken başarı oranlarını artırmak için gelişmiş tıbbi teknolojiye yatırım yapıyor.",
+      "related_verbs": ["curing", "healing", "remedying"]
     },
     {
-      "word": "cancel",
+      "word": "administer",
       "type": "verb",
-      "turkish": "İptal etmek",
-      "example_en": "They cancel the flight due to bad weather.",
-      "example_tr": "Kötü hava koşulları nedeniyle uçuşu iptal ediyorlar.",
-      "related_verbs": ["stop", "end", "delete", "revoke", "call"]
+      "turkish": "Uygulamak, vermek (ilaç/aşı)",
+      "example_en": "Registered nurses are authorized to administer prescribed medications and vaccines to hospital patients.",
+      "example_tr": "Kayıtlı hemşirelerin hastane hastalarına reçete edilen ilaçları ve aşıları uygulama yetkisi vardır.",
+      "related_verbs": ["dispense", "deliver", "apply", "give", "execute"]
     },
     {
-      "word": "pack",
-      "type": "verb",
-      "turkish": "Bavul hazırlamak",
-      "example_en": "I pack my suitcase before the trip.",
-      "example_tr": "Yolculuktan önce bavulumu hazırlıyorum.",
-      "related_verbs": ["wrap", "fill", "load", "store", "prepare"]
+      "word": "administers",
+      "type": "verb (third person singular / administer)",
+      "turkish": "Uygular, verir",
+      "example_en": "The medical specialist administers targeted chemotherapy sessions to cancer patients.",
+      "example_tr": "Tıbbi uzman, kanser hastalarına hedefe yönelik kemoterapi seansları uygular.",
+      "related_verbs": ["dispenses", "delivers", "applies"]
     },
     {
-      "word": "unack",
-      "type": "verb",
-      "turkish": "Bavul açmak",
-      "example_en": "We unpack our bags at the hotel.",
-      "example_tr": "Otelde bavullarımızı açıyoruz.",
-      "related_verbs": ["empty", "open", "remove", "take", "clear"]
+      "word": "administered",
+      "type": "verb (past participle / administer)",
+      "turkish": "Uygulanmış, verilmiş",
+      "example_en": "Pain relief medication was administered immediately following the orthopedic surgical procedure.",
+      "example_tr": "Ortopedik cerrahi operasyonun hemen ardından ağrı kesici ilaç uygulandı.",
+      "related_verbs": ["dispensed", "delivered", "applied"]
     },
     {
-      "word": "fly",
-      "type": "verb",
-      "turkish": "Uçmak",
-      "example_en": "Birds and airplanes fly in the sky.",
-      "example_tr": "Kuşlar ve uçaklar gökyüzünde uçar.",
-      "related_verbs": ["soar", "glide", "travel", "pilot", "cross"]
+      "word": "administering",
+      "type": "verb (gerund / administer)",
+      "turkish": "Uygulama, verme",
+      "example_en": "Strict protocols are mandatory when safely administering potent intravenous anesthetics.",
+      "example_tr": "Güçlü intravenöz anestezikleri güvenli bir şekilde uygularken katı protokoller zorunludur.",
+      "related_verbs": ["dispensing", "delivering", "applying"]
     },
     {
-      "word": "ride",
+      "word": "vaccinate",
       "type": "verb",
-      "turkish": "Binmek (bisiklet, at vb.)",
-      "example_en": "People ride bicycles in the park.",
-      "example_tr": "İnsanlar parkta bisiklete biniyor.",
-      "related_verbs": ["drive", "handle", "travel", "sit", "mount"]
+      "turkish": "Aşılamak",
+      "example_en": "Public health campaigns aim to vaccinate entire populations against seasonal influenza outbreaks.",
+      "example_tr": "Halk sağlığı kampanyaları, tüm nüfusu mevsimsel grip salgınlarına karşı aşılamayı amaçlar.",
+      "related_verbs": ["immunize", "inoculate", "protect", "shield"]
     },
     {
-      "word": "drive",
-      "type": "verb",
-      "turkish": "Araba sürmek",
-      "example_en": "He drives a car to the airport.",
-      "example_tr": "Havaalanına araba ile gidiyor.",
-      "related_verbs": ["ride", "steer", "operate", "travel", "control"]
+      "word": "vaccinates",
+      "type": "verb (third person singular / vaccinate)",
+      "turkish": "Aşılar",
+      "example_en": "The pediatric clinic routinely vaccinates young children against preventable infectious diseases.",
+      "example_tr": "Pediatri kliniği, küçük çocukları önlenebilir bulaşıcı hastalıklara karşı rutin olarak aşılar.",
+      "related_verbs": ["immunizes", "inoculates"]
     },
     {
-      "word": "walk",
-      "type": "verb",
-      "turkish": "Yürümek",
-      "example_en": "We walk along the city streets.",
-      "example_tr": "Şehir sokakları boyunca yürüyoruz.",
-      "related_verbs": ["stroll", "hike", "step", "march", "roam"]
+      "word": "vaccinated",
+      "type": "verb (past participle / vaccinate)",
+      "turkish": "Aşılanmış",
+      "example_en": "Millions of citizens were successfully vaccinated during the nationwide public health mobilization.",
+      "example_tr": "Ülke çapındaki halk sağlığı seferberliği sırasında milyonlarca vatandaş başarıyla aşılandı.",
+      "related_verbs": ["immunized", "inoculated"]
     },
     {
-      "word": "cross",
-      "type": "verb",
-      "turkish": "Karşıdan karşıya geçmek",
-      "example_en": "Cross the street at the zebra crossing.",
-      "example_tr": "Caddeyi yaya geçidinden geç.",
-      "related_verbs": ["pass", "traverse", "intersec", "meet", "cover"]
+      "word": "vaccinating",
+      "type": "verb (gerund / vaccinate)",
+      "turkish": "Aşıklama",
+      "example_en": "Governments prioritize vaccinating vulnerable elderly groups ahead of winter season peaks.",
+      "example_tr": "Hükümetler, kış sezonu zirvelerinden önce savunmasız yaşlı grupları aşılamaya öncelik verir.",
+      "related_verbs": ["immunizing", "inoculating"]
     },
     {
-      "word": "turn",
+      "word": "rehabilitate",
       "type": "verb",
-      "turkish": "Dönmek",
-      "example_en": "Turn left at the traffic lights.",
-      "example_tr": "Trafik ışıklarından sola dön.",
-      "related_verbs": ["rotate", "spin", "change", "bend", "curve"]
+      "turkish": "Rehabilitasyon uygulamak, iyileştirmek",
+      "example_en": "Physical therapists help patients rehabilitate injured joints and muscle tissues after surgery.",
+      "example_tr": "Fizyoterapistler, ameliyattan sonra hastaların yaralı eklemlerini ve kas dokularını iyileştirmesine yardımcı olur.",
+      "related_verbs": ["restore", "recover", "heal", "recondition", "rebuild"]
     },
     {
-      "word": "stop",
-      "type": "verb",
-      "turkish": "Durmak",
-      "example_en": "The bus stops at the corner.",
-      "example_tr": "Otobüs köşede duruyor.",
-      "related_verbs": ["halt", "pause", "cease", "end", "quit"]
+      "word": "rehabilitates",
+      "type": "verb (third person singular / rehabilitate)",
+      "turkish": "İyileştirir, rehabilite eder",
+      "example_en": "The specialized center rehabilitates individuals struggling with chronic substance abuse addictions.",
+      "example_tr": "Özelleşmiş merkez, kronik madde bağımlılığı bağımlılığıyla mücadele eden bireyleri rehabilite eder.",
+      "related_verbs": ["restores", "recovers", "heals"]
     },
     {
-      "word": "wait",
-      "type": "verb",
-      "turkish": "Beklemek",
-      "example_en": "Wait for me at the bus stop.",
-      "example_tr": "Otobüs durağında beni bekle.",
-      "related_verbs": ["stay", "pause", "expect", "attend", "hold"]
+      "word": "rehabilitated",
+      "type": "verb (past participle / rehabilitate)",
+      "turkish": "Rehabilite edilmiş, iyileştirilmiş",
+      "example_en": "Athletes who have been fully rehabilitated can return to competitive professional sports.",
+      "example_tr": "Tamamen rehabilite edilmiş sporcular rekabetçi profesyonel sporlara geri dönebilir.",
+      "related_verbs": ["restored", "recovered", "healed"]
     },
     {
-      "word": "miss",
-      "type": "verb",
-      "turkish": "Kaçırmak (tren, otobüs vb.)",
-      "example_en": "I miss the morning train.",
-      "example_tr": "Sabah trenini kaçırıyorum.",
-      "related_verbs": ["lose", "fail", "want", "escape", "avoid"]
+      "word": "rehabilitating",
+      "type": "verb (gerund / rehabilitate)",
+      "turkish": "Rehabilite etme, iyileştirme",
+      "example_en": "Medical teams dedicate long hours to rehabilitating stroke survivors back to independence.",
+      "example_tr": "Tıbbi ekipler, inmeyi atlatan hastaları yeniden bağımsızlıklarına kavuşturmak için uzun saatler harcar.",
+      "related_verbs": ["restoring", "recovering", "healing"]
     },
     {
-      "word": "catch",
+      "word": "alleviate",
       "type": "verb",
-      "turkish": "Yakalamak, yetişmek",
-      "example_en": "Run fast to catch the bus.",
-      "example_tr": "Otobüse yetişmek için hızlı koş.",
-      "related_verbs": ["grab", "take", "capture", "get", "trap"]
+      "turkish": "Hafifletmek, dindirmek (ağrı/semptom)",
+      "example_en": "Palliative care specialists focus heavily on palliative treatments to alleviate severe patient suffering.",
+      "example_tr": "Palyatif bakım uzmanları, şiddetli hasta acısını hafifletmek için palyatif tedavilere yoğun bir şekilde odaklanır.",
+      "related_verbs": ["relieve", "ease", "reduce", "mitigate", "lessen"]
     },
     {
-      "word": "rent",
-      "type": "verb",
-      "turkish": "Kiralamak",
-      "example_en": "We rent a car for our holiday.",
-      "example_tr": "Tatilimiz için bir araba kiralıyoruz.",
-      "related_verbs": ["hire", "lease", "borrow", "employ", "pay"]
+      "word": "alleviates",
+      "type": "verb (third person singular / alleviate)",
+      "turkish": "Hafifletir, dindirir",
+      "example_en": "The new analgesic medication effectively alleviates chronic joint inflammation and pain.",
+      "example_tr": "Yeni analjezik ilaç, kronik eklem iltihabını ve ağrıyı etkili bir şekilde hafifletir.",
+      "related_verbs": ["relieves", "eases", "reduces"]
     },
     {
-      "word": "stay",
-      "type": "verb",
-      "turkish": "Kalmak, konaklamak",
-      "example_en": "They stay at a nice resort.",
-      "example_tr": "Güzel bir tatil köyünde kalıyorlar.",
-      "related_verbs": ["remain", "live", "wait", "dwell", "stop"]
+      "word": "alleviated",
+      "type": "verb (past participle / alleviate)",
+      "turkish": "Hafiflemiş, dindirilmiş",
+      "example_en": "Patient anxiety was significantly alleviated through preoperative psychological counseling sessions.",
+      "example_tr": "Ameliyat öncesi psikolojik danışmanlık seansları sayesinde hasta kaygısı önemli ölçüde hafifletildi.",
+      "related_verbs": ["relieved", "eased", "reduced"]
     },
     {
-      "word": "cost",
-      "type": "verb",
-      "turkish": "Fiyatı olmak, mal olmak",
-      "example_en": "How much does a plane ticket cost?",
-      "example_tr": "Uçak bileti ne kadar tutuyor?",
-      "related_verbs": ["price", "value", "charge", "take", "equal"]
+      "word": "alleviating",
+      "type": "verb (gerund / alleviate)",
+      "turkish": "Hafifletme, dindirme",
+      "example_en": "Doctors work constantly on alleviating discomfort during aggressive cancer therapy cycles.",
+      "example_tr": "Doktorlar, agresif kanser tedavisi döngüleri sırasında rahatsızlığı hafifletmek için sürekli çalışır.",
+      "related_verbs": ["relieving", "easing", "reducing"]
     },
     {
-      "word": "pay",
+      "word": "prescribe",
       "type": "verb",
-      "turkish": "Ödemek",
-      "example_en": "I pay for the taxi ride.",
-      "example_tr": "Taksi ücretini ödüyorum.",
-      "related_verbs": ["settle", "spend", "give", "compensate", "repay"]
+      "turkish": "Reçete yazmak",
+      "example_en": "Licensed physicians carefully evaluate symptoms before they choose to prescribe specific pharmaceutical drugs.",
+      "example_tr": "Lisanslı doktorlar, belirli farmasötik ilaçları reçete etmeyi seçmeden önce semptomları dikkatlice değerlendirir.",
+      "related_verbs": ["order", "assign", "direct", "recommend", "authorizes"]
     },
     {
-      "word": "ask",
-      "type": "verb",
-      "turkish": "Sormak",
-      "example_en": "Ask for directions to the museum.",
-      "example_tr": "Müzeye giden yönleri sor.",
-      "related_verbs": ["question", "inquire", "request", "beg", "query"]
+      "word": "prescribes",
+      "type": "verb (third person singular / prescribe)",
+      "turkish": "Reçete yazar",
+      "example_en": "The psychiatrist prescribes modern antidepressant medications to patients managing clinical depression.",
+      "example_tr": "Psikiyatrist, klinik depresyonu yöneten hastalara modern antidepresan ilaçlar reçete eder.",
+      "related_verbs": ["orders", "assigns", "recommends"]
     },
     {
-      "word": "show",
-      "type": "verb",
-      "turkish": "Göstermek",
-      "example_en": "Can you show me the way on the map?",
-      "example_tr": "Bana harita üzerinden yolu gösterebilir misiniz?",
-      "related_verbs": ["display", "exhibit", "demonstrate", "reveal", "point"]
+      "word": "prescribed",
+      "type": "verb (past participle / prescribe)",
+      "turkish": "Reçete edilmiş",
+      "example_en": "Antibiotics must be taken exactly as prescribed by your primary care physician.",
+      "example_tr": "Antibiyotikler, birinci basamak doktorunuzun reçete ettiği şekilde tam olarak alınmalıdır.",
+      "related_verbs": ["ordered", "assigned", "directed"]
     },
     {
-      "word": "find",
-      "type": "verb",
-      "turkish": "Bulmak",
-      "example_en": "I can find the hotel easily.",
-      "example_tr": "Oteli kolayca bulabiliyorum.",
-      "related_verbs": ["discover", "locate", "detect", "spot", "uncover"]
+      "word": "prescribing",
+      "type": "verb (gerund / prescribe)",
+      "turkish": "Reçete yazma",
+      "example_en": "Medical boards issue strict guidelines regarding prescribing habit-forming opioid painkillers.",
+      "example_tr": "Tıbbi kurullar, alışkanlık yapan opioid ağrı kesicilerin reçete edilmesiyle ilgili katı yönergeler yayınlar.",
+      "related_verbs": ["ordering", "assigning", "recommending"]
     },
     {
-      "word": "lose",
+      "word": "consult",
       "type": "verb",
-      "turkish": "Kaybetmek",
-      "example_en": "Don't lose your passport.",
-      "example_tr": "Pasaportunu kaybetme.",
-      "related_verbs": ["mislay", "drop", "waste", "fail", "miss"]
+      "turkish": "Danışmak",
+      "example_en": "Patients should consult specialized medical experts if symptoms persist beyond a few days.",
+      "example_tr": "Semptomlar birkaç günden uzun sürerse hastalar uzman tıbbi uzmanlara danışmalıdır.",
+      "related_verbs": ["confer", "seek advice", "discuss", "talk to", "refer to"]
     },
     {
-      "word": "follow",
-      "type": "verb",
-      "turkish": "Takip etmek",
-      "example_en": "Follow the signs to baggage claim.",
-      "example_tr": "Bagaj alım alanına giden tabelaları takip et.",
-      "related_verbs": ["pursue", "track", "obey", "go", "watch"]
+      "word": "consults",
+      "type": "verb (third person singular / consult)",
+      "turkish": "Danışır",
+      "example_en": "The general practitioner consults clinical reference manuals to confirm rare pathology cases.",
+      "example_tr": "Pratisyen hekim, nadir patoloji vakalarını doğrulamak için klinik başvuru kılavuzlarına danışır.",
+      "related_verbs": ["confers", "discusses", "reviews"]
     },
     {
-      "word": "enter",
-      "type": "verb",
-      "turkish": "Girmek",
-      "example_en": "Enter the metro station through gate one.",
-      "example_tr": "Birinci kapıdan metro istasyonuna gir.",
-      "related_verbs": ["come", "go", "step", "access", "penetrate"]
+      "word": "consulted",
+      "type": "verb (past participle / consult)",
+      "turkish": "Danışılmış",
+      "example_en": "Multiple surgical specialists were consulted before finalizing the complex treatment plan.",
+      "example_tr": "Karmaşık tedavi planı kesinleştirilmeden önce birden fazla cerrahi uzmanına danışıldı.",
+      "related_verbs": ["conferred with", "advised", "contacted"]
     },
     {
-      "word": "exit",
-      "type": "verb",
-      "turkish": "Çıkmak",
-      "example_en": "Exit the train at the next stop.",
-      "example_tr": "Bir sonraki durakta treni terk et/çık.",
-      "related_verbs": ["leave", "depart", "go", "out", "escape"]
+      "word": "consulting",
+      "type": "verb (gerund / consult)",
+      "turkish": "Danışma",
+      "example_en": "Psychologists spend hours consulting academic psychological journals to design therapy frameworks.",
+      "example_tr": "Psikologlar terapi çerçeveleri tasarlamak için akademik psikolojik dergilere danışarak saatler harcar.",
+      "related_verbs": ["conferring", "advising", "reviewing"]
     },
     {
-      "word": "board",
+      "word": "evaluate",
       "type": "verb",
-      "turkish": "Uçağa/gemiye binmek",
-      "example_en": "Passengers board the plane now.",
-      "example_tr": "Yolcular şu anda uçağa biniyor.",
-      "related_verbs": ["get", "enter", "mount", "embark", "catch"]
+      "turkish": "Değerlendirmek (sağlık/durum)",
+      "example_en": "Mental health professionals evaluate cognitive behavioral patterns during initial patient intake sessions.",
+      "example_tr": "Ruh sağlığı profesyonelleri ilk hasta kabul seansları sırasında bilişsel davranış kalıplarını değerlendirir.",
+      "related_verbs": ["assess", "appraise", "analyze", "examine", "review"]
     },
     {
-      "word": "land",
-      "type": "verb",
-      "turkish": "İniş yapmak",
-      "example_en": "The plane lands safely.",
-      "example_tr": "Uçak güvenli bir şekilde iniş yapıyor.",
-      "related_verbs": ["touch", "arrive", "fall", "come", "reach"]
+      "word": "evaluates",
+      "type": "verb (third person singular / evaluate)",
+      "turkish": "Değerlendirir",
+      "example_en": "The psychologist evaluates emotional stability using standardized personality test questionnaires.",
+      "example_tr": "Psikolog, standartlaştırılmış kişilik testi anketlerini kullanarak duygusal istikrarı değerlendirir.",
+      "related_verbs": ["assesses", "appraises", "analyzes"]
     },
     {
-      "word": "takeoff",
-      "type": "verb",
-      "turkish": "Kalkış yapmak",
-      "example_en": "The airplane takes off in ten minutes.",
-      "example_tr": "Uçak on dakika içinde kalkış yapıyor.",
-      "related_verbs": ["leave", "start", "depart", "fly", "rise"]
+      "word": "evaluated",
+      "type": "verb (past participle / evaluate)",
+      "turkish": "Değerlendirilmiş",
+      "example_en": "Every clinical trial participant is thoroughly evaluated for adverse reactions over time.",
+      "example_tr": "Her klinik çalışma katılımcısı, zaman içinde olumsuz reaksiyonlar açısından kapsamlı bir şekilde değerlendirilir.",
+      "related_verbs": ["assessed", "appraised", "analyzed"]
     },
     {
-      "word": "check",
-      "type": "verb",
-      "turkish": "Kontrol etmek",
-      "example_en": "Check your passport before boarding.",
-      "example_tr": "Uçağa binmeden önce pasaportunu kontrol et.",
-      "related_verbs": ["inspect", "examine", "verify", "test", "look"]
+      "word": "evaluating",
+      "type": "verb (gerund / evaluate)",
+      "turkish": "Değerlendirme",
+      "example_en": "Researchers specialize in evaluating the long-term efficacy of psychotherapy interventions.",
+      "example_tr": "Araştırmacılar, psikoterapi müdahalelerinin uzun vadeli etkinliğini değerlendirme konusunda uzmanlaşmıştır.",
+      "related_verbs": ["assessing", "appraising", "analyzing"]
     },
     {
-      "word": "scan",
+      "word": "counsel",
       "type": "verb",
-      "turkish": "Taratmak (bilet vb.)",
-      "example_en": "Scan your ticket at the gate.",
-      "example_tr": "Biletini kapıda tarat.",
-      "related_verbs": ["read", "examine", "look", "review", "search"]
+      "turkish": "Danışmanlık yapmak, rehberlik etmek",
+      "example_en": "Therapists counsel individuals dealing with severe grief, trauma, and life transitions.",
+      "example_tr": "Terapistler, şiddetli yas, travma ve yaşam geçişleriyle başa çıkan bireylere danışmanlık yapar.",
+      "related_verbs": ["guide", "advise", "mentor", "support", "direct"]
     },
     {
-      "word": "carry",
-      "type": "verb",
-      "turkish": "Taşımak",
-      "example_en": "He carries a heavy backpack.",
-      "example_tr": "Ağır bir sırt çantası taşıyor.",
-      "related_verbs": ["bring", "take", "hold", "bear", "transport"]
+      "word": "counsels",
+      "type": "verb (third person singular / counsel)",
+      "turkish": "Danışmanlık yapar, rehberlik eder",
+      "example_en": "The school counselor counsels teenagers experiencing academic stress and social anxiety.",
+      "example_tr": "Okul danışmanı, akademik stres ve sosyal kaygı yaşayan gençlere danışmanlık yapar.",
+      "related_verbs": ["guides", "advises", "mentors"]
     },
     {
-      "word": "lift",
-      "type": "verb",
-      "turkish": "Kaldırmak",
-      "example_en": "Lift your luggage onto the scale.",
-      "example_tr": "Bavulunu tartının üzerine kaldır.",
-      "related_verbs": ["raise", "elevate", "pick", "boost", "up"]
+      "word": "counselled",
+      "type": "verb (past participle / counsel)",
+      "turkish": "Danışmanlık yapılmış",
+      "example_en": "Families affected by chronic illnesses were professionally counselled to cope with stress.",
+      "example_tr": "Kronik hastalıklardan etkilenen ailelere stresle başa çıkmaları için profesyonel danışmanlık yapıldı.",
+      "related_verbs": ["guided", "advised", "mentored"]
     },
     {
-      "word": "guide",
-      "type": "verb",
-      "turkish": "Rehberlik etmek",
-      "example_en": "The tour guide guides us around Rome.",
-      "example_tr": "Tur rehberi bize Roma'da rehberlik ediyor.",
-      "related_verbs": ["lead", "direct", "show", "conduct", "help"]
+      "word": "counselling",
+      "type": "verb (gerund / counsel)",
+      "turkish": "Danışmanlık yapma, rehberlik",
+      "example_en": "Mental health clinics excel at providing supportive counselling for depression and anxiety.",
+      "example_tr": "Ruh sağlığı klinikleri, depresyon ve kaygı için destekleyici danışmanlık sağlamakta mükemmeldir.",
+      "related_verbs": ["guiding", "advising", "mentoring"]
     },
     {
-      "word": "point",
+      "word": "cope",
       "type": "verb",
-      "turkish": "İşaret etmek, parmakla göstermek",
-      "example_en": "She points to the museum building.",
-      "example_tr": "Müze binasını işaret ediyor.",
-      "related_verbs": ["direct", "show", "indicate", "aim", "focus"]
+      "turkish": "Başa çıkmak",
+      "example_en": "People use various psychological coping mechanisms to cope with everyday occupational stress.",
+      "example_tr": "İnsanlar günlük mesleki stresle başa çıkmak için çeşitli psikolojik başa çıkma mekanizmaları kullanır.",
+      "related_verbs": ["manage", "deal", "handle", "survive", "withstand"]
     },
     {
-      "word": "reach",
-      "type": "verb",
-      "turkish": "Ulaşmak, varmak",
-      "example_en": "We reach the peak of the mountain.",
-      "example_tr": "Dağın zirvesine ulaşıyoruz.",
-      "related_verbs": ["arrive", "attain", "achieve", "touch", "get"]
+      "word": "copes",
+      "type": "verb (third person singular / cope)",
+      "turkish": "Başa çıkar",
+      "example_en": "The resilient patient copes remarkably well with sudden life-altering medical diagnoses.",
+      "example_tr": "Dayanıklı hasta, ani yaşam değiştiren tıbbi teşhislerle dikkat çekici bir şekilde başa çıkıyor.",
+      "related_verbs": ["manages", "deals", "handles"]
     },
     {
-      "word": "pass",
-      "type": "verb",
-      "turkish": "Geçmek",
-      "example_en": "Pass the post office on your right.",
-      "example_tr": "Postaneyi sağından geç.",
-      "related_verbs": ["go", "surpass", "cross", "hand", "spend"]
+      "word": "coped",
+      "type": "verb (past participle / cope)",
+      "turkish": "Başa çıkılmış",
+      "example_en": "Many individuals successfully coped with isolation during pandemic lockdowns through virtual connections.",
+      "example_tr": "Birçok birey, sanal bağlantılar aracılığıyla pandemik karantinalar sırasında izolasyonla başarılı bir şekilde başa çıktı.",
+      "related_verbs": ["managed", "deled", "handled"]
     },
     {
-      "word": "locating",
-      "type": "verb",
-      "turkish": "Yerini belirlemek",
-      "example_en": "I am locating the restaurant on the map.",
-      "example_tr": "Restoranın yerini haritada belirliyorum.",
-      "related_verbs": ["find", "spot", "detect", "place", "site"]
+      "word": "coping",
+      "type": "verb (gerund / cope)",
+      "turkish": "Başa çıkma",
+      "example_en": "Developing healthy coping strategies is essential for maintaining long-term psychological wellbeing.",
+      "example_tr": "Sağlıklı başa çıkma stratejileri geliştirmek, uzun vadeli psikolojik iyilik halini korumak için esastır.",
+      "related_verbs": ["managing", "dealing", "handling"]
     },
     {
-      "word": "hurry",
+      "word": "recover",
       "type": "verb",
-      "turkish": "Acele etmek",
-      "example_en": "Hurry up, or we will miss the train.",
-      "example_tr": "Acele et, yoksa treni kaçıracağız.",
-      "related_verbs": ["rush", "speed", "accelerate", "run", "dash"]
+      "turkish": "İyileşmek, sağlığına kavuşmak",
+      "example_en": "Patients need adequate rest and nutrition to recover fully after major surgical operations.",
+      "example_tr": "Hastaların büyük cerrahi operasyonlardan sonra tamamen iyileşmesi için yeterli dinlenme ve beslenmeye ihtiyacı vardır.",
+      "related_verbs": ["heal", "bounce back", "improve", "mended", "recovers"]
     },
     {
-      "word": "relax",
-      "type": "verb",
-      "turkish": "Rahatlamak, dinlenmek",
-      "example_en": "Travelers relax on the beach.",
-      "example_tr": "Gezginler sahilde dinleniyor.",
-      "related_verbs": ["rest", "calm", "unwind", "ease", "loosen"]
+      "word": "recovers",
+      "type": "verb (third person singular / recover)",
+      "turkish": "İyileşir, sağlığına kavuşur",
+      "example_en": "With proper physical therapy, the athlete recovers strength in his injured knee rapidly.",
+      "example_tr": "Uygun fizik tedavi ile sporcu yaralı dizindeki gücünü hızla geri kazanır.",
+      "related_verbs": ["heals", "improves", "bounces back"]
     },
     {
-      "word": "enjoy",
-      "type": "verb",
-      "turkish": "Keyif almak, tadını çıkarmak",
-      "example_en": "We enjoy our vacation.",
-      "example_tr": "Tatilimizin tadını çıkarıyoruz.",
-      "related_verbs": ["like", "love", "relish", "appreciate", "delight"]
+      "word": "recovered",
+      "type": "verb (past participle / recover)",
+      "turkish": "İyileşmiş",
+      "example_en": "Hundreds of patients infected with the virus have fully recovered and returned home.",
+      "example_tr": "Virüse yakalanan yüzlerce hasta tamamen iyileşti ve evlerine döndü.",
+      "related_verbs": ["healed", "cured", "restored"]
     },
     {
-      "word": "photograph",
-      "type": "verb",
-      "turkish": "Fotoğrafını çekmek",
-      "example_en": "Tourists photograph beautiful views.",
-      "example_tr": "Turistler güzel manzaraların fotoğrafını çekiyor.",
-      "related_verbs": ["shoot", "capture", "snap", "picture", "record"]
+      "word": "recovering",
+      "type": "verb (gerund / recover)",
+      "turkish": "İyileşme, sağlığına kavuşma",
+      "example_en": "Hospitals provide specialized units dedicated entirely to recovering surgical patients safely.",
+      "example_tr": "Hastaneler cerrahi hastalarının güvenle iyileşmesine tamamen adanmış özel birimler sağlar.",
+      "related_verbs": ["healing", "improving", "restoring"]
     },
     {
-      "word": "spend",
+      "word": "heal",
       "type": "verb",
-      "turkish": "Zaman geçirmek / harcamak",
-      "example_en": "I spend two days in Paris.",
-      "example_tr": "Paris'te iki gün geçiriyorum.",
-      "related_verbs": ["pay", "waste", "use", "pass", "invest"]
+      "turkish": "İyileşmek, yara kapanmak",
+      "example_en": "Clean wounds and balanced nutrition allow the human body to heal naturally over time.",
+      "example_tr": "Temiz yaralar ve dengeli beslenme, insan vücudunun zamanla doğal olarak iyileşmesine olanak tanır.",
+      "related_verbs": ["cure", "repair", "mend", "recover", "restore"]
     },
     {
-      "word": "return",
-      "type": "verb",
-      "turkish": "Geri dönmek",
-      "example_en": "We return home on Sunday.",
-      "example_tr": "Pazar günü eve geri dönüyoruz.",
-      "related_verbs": ["come", "go", "revert", "reply", "restore"]
+      "word": "heals",
+      "type": "verb (third person singular / heal)",
+      "turkish": "İyileştirir, iyileşir",
+      "example_en": "Time combined with proper medical care heals both physical injuries and emotional trauma.",
+      "example_tr": "Uygun tıbbi bakım ile birleşen zaman hem fiziksel yaraları hem de duygusal travmayı iyileştirir.",
+      "related_verbs": ["cures", "repairs", "mends"]
     }
   ]
 }
