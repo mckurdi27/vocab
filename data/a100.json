@@ -1,0 +1,32 @@
+{
+  "level": "A1",
+  "scene_id": 1,
+  "scene_title": "Daily Routine and Greetings",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "start",
+      "type": "verb",
+      "turkish": "Başlamak",
+      "example_en": "Classes start at nine o'clock.",
+      "example_tr": "Dersler saat dokuzda başlar.",
+      "related_verbs": ["begin", "open", "initiate", "launch", "set"]
+    },
+    {
+      "word": "help",
+      "type": "verb",
+      "turkish": "Yardım etmek",
+      "example_en": "Can you help me with this?",
+      "example_tr": "Bunda bana yardım edebilir misin?",
+      "related_verbs": ["assist", "aid", "support", "serve", "benefit"]
+    },
+    {
+      "word": "stop",
+      "type": "verb",
+      "turkish": "Durmak",
+      "example_en": "Stop at the red light.",
+      "example_tr": "Kırmızı ışıkta dur.",
+      "related_verbs": ["halt", "pause", "cease", "discontinue", "block"]
+    }
+  ]
+}
