@@ -9,11 +9,11 @@ function generateDayOptions() {
     
     // Her seviye için belirttiğiniz dosya limitleri
     let maxFiles = 50; // Varsayılan
-    if (level === 'a1') maxFiles = 30;
-    else if (level === 'a2') maxFiles = 10;
-    else if (level === 'b1') maxFiles = 50;
-    else if (level === 'b2') maxFiles = 10;
-    else if (level === 'c1') maxFiles = 10;
+    if (level === 'a1') maxFiles = 31;
+    else if (level === 'a2') maxFiles = 11;
+    else if (level === 'b1') maxFiles = 51;
+    else if (level === 'b2') maxFiles = 11;
+    else if (level === 'c1') maxFiles = 11;
     
     for(let i = 1; i <= maxFiles; i++) {
         const num = i.toString().padStart(2, '0');
