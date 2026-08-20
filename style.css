@@ -24,6 +24,13 @@ body {
     gap: 15px;
 }
 
+.scene-header-info {
+    font-size: 0.95em;
+    color: #2c3e50;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
 .selectors {
     display: flex;
     gap: 10px;
@@ -53,30 +60,35 @@ select {
 }
 
 .word {
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: bold;
-    color: #333;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* İngilizce kelime Mavi */
+.en-word {
+    color: #0066cc; 
 }
 
 .type {
-    font-size: 0.7em;
+    font-size: 0.6em;
     background: #eec21338;
     color: #d35400;
-    padding: 2px 8px;
+    padding: 2px 6px;
     border-radius: 4px;
     text-transform: uppercase;
+    margin-left: auto;
 }
 
 .sound-btn {
     background: none;
-    border: none;
+    border: 1px solid #ddd;
     cursor: pointer;
     font-size: 0.8em;
-    padding: 2px 6px;
-    margin-left: 5px;
+    padding: 3px 6px;
     border-radius: 4px;
     transition: background 0.2s;
 }
@@ -85,8 +97,9 @@ select {
     background: #e4e6eb;
 }
 
+/* Türkçe anlamlar Kırmızı */
 .tr {
-    color: #27ae60;
+    color: #d9534f;
     margin: 10px 0;
     font-weight: 600;
     font-size: 1.1em;
@@ -103,6 +116,22 @@ select {
 
 .example p {
     margin: 4px 0;
+}
+
+/* İngilizce cümle Mavi */
+.en-sentence {
+    color: #0066cc;
+}
+
+/* Türkçe cümle Kırmızı */
+.tr-sentence {
+    color: #d9534f;
+}
+
+.example-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .related {
