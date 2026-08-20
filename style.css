@@ -1,0 +1,23 @@
+.word {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sound-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8em;
+    padding: 2px 6px;
+    margin-left: 5px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.sound-btn:hover {
+    background: #e4e6eb;
+}
