@@ -72,9 +72,9 @@ async function loadData() {
     } catch (e) {
         sceneBanner.innerHTML = `<h3>Hata Oluştu</h3>`;
         content.innerHTML = 
-        `<p style='color: #e74c3c; font-weight: bold;'>Dosya yüklenemedi.<br><small>${e.message}</small></p>`;
+        `<p style='color: #e74c3c; font-weight: bold;'>Dosya yüklenemedi.`;
     }
-        `<p style='color: #e74c3c; font-weight: bold;'>Lütfen 'data/${fileName}.json' dosyasının sunucuda küçük harfle var olduğundan emin olun.<br><small>${e.message}</small></p>`;
+        `<p style='color: #e74c3c; font-weight: bold;'>Lütfen 'data/${fileName}.json' dosyasının sunucuda küçük harfle var olduğundan emin olun.`;
     }
 }
 
