@@ -1,3 +1,57 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.header {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.selectors {
+    display: flex;
+    gap: 10px;
+}
+
+select {
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    background: #fff;
+    cursor: pointer;
+}
+
+.word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #4a90e2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
 .word {
     font-size: 1.4em;
     font-weight: bold;
@@ -5,6 +59,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.type {
+    font-size: 0.7em;
+    background: #eec21338;
+    color: #d35400;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
 }
 
 .sound-btn {
@@ -20,4 +83,30 @@
 
 .sound-btn:hover {
     background: #e4e6eb;
+}
+
+.tr {
+    color: #27ae60;
+    margin: 10px 0;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.example {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    border-left: 3px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.example p {
+    margin: 4px 0;
+}
+
+.related {
+    margin-top: 10px;
+    font-size: 0.85em;
+    color: #555;
 }
