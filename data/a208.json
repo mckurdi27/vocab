@@ -159,7 +159,7 @@
     {
       "word": "unplug",
       "type": "verb",
-      "turkish":ąp fişten çekmek",
+      "turkish": "fişten çekmek",
       "example_en": "Unplug household electronics during thunderstorms.",
       "example_tr": "Fırtınalar sırasında ev elektronik aletlerini fişten çekin.",
       "related_verbs": ["disconnect", "remove", "detach", "pull", "extract"]
