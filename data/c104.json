@@ -1,0 +1,408 @@
+{
+  "level": "C1",
+  "scene_id": 4,
+  "scene_title": "Business, Corporate Finance and Economics",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "diversify",
+      "type": "verb",
+      "turkish": "Çeşitlendirmek (yatırım/portföy)",
+      "example_en": "Prudent investors choose to diversify their financial portfolios across emerging international markets.",
+      "example_tr": "İhtiyatlı yatırımcılar, finansal portföylerini gelişmekte olan uluslararası piyasalarda çeşitlendirmeyi seçer.",
+      "related_verbs": ["expand", "vary", "broaden", "spread", "differentiate"]
+    },
+    {
+      "word": "liquidate",
+      "type": "verb",
+      "turkish": "Tasfiye etmek, nakde çevirmek",
+      "example_en": "The failing retail enterprise had to liquidate its remaining inventory to pay off urgent debts.",
+      "example_tr": "Batmakta olan perakende şirketi, acil borçlarını ödemek için kalan envanterini tasfiye etmek zorunda kaldı.",
+      "related_verbs": ["sell off", "realize", "dissolve", "close down", "disburse"]
+    },
+    {
+      "word": "consolidate",
+      "type": "verb",
+      "turkish": "Güçlendirmek, birleştirmek (borç/şirket)",
+      "example_en": "Corporate accountants recommended a plan to consolidate multiple high-interest loans into a single payment.",
+      "example_tr": "Şirket muhasebecileri, birden fazla yüksek faizli krediyi tek bir ödemede birleştirmek için bir plan önerdi.",
+      "related_verbs": ["merge", "unite", "combine", "strengthen", "centralize"]
+    },
+    {
+      "word": "depreciate",
+      "type": "verb",
+      "turkish": "Değer kaybetmek",
+      "example_en": "Heavy machinery and commercial vehicles tend to depreciate rapidly within their first few years of use.",
+      "example_tr": "Ağır makineler ve ticari araçlar, ilk birkaç yıllık kullanımlarında hızla değer kaybetme eğilimindedir.",
+      "related_verbs": ["decline", "lose value", "drop", "cheapen", "devalue"]
+    },
+    {
+      "word": "appreciate",
+      "type": "verb",
+      "turkish": "Değer kazanmak",
+      "example_en": "Real estate properties in prime metropolitan areas typically appreciate significantly over long periods.",
+      "example_tr": "Önde gelen metropolitan alanlardaki gayrimenkul mülkleri tipik olarak uzun süreler boyunca önemli ölçüde değer kazanır.",
+      "related_verbs": ["gain value", "rise", "increase", "grow", "enhance"]
+    },
+    {
+      "word": "allocate",
+      "type": "verb",
+      "turkish": "Tahsis etmek, paylaştırmak",
+      "example_en": "The board of directors voted to allocate additional capital toward research and development divisions.",
+      "example_tr": "Yönetim kurulu, araştırma ve geliştirme departmanlarına ek sermaye tahsis etmek yönünde oy kullandı.",
+      "related_verbs": ["assign", "distribute", "apportion", "earmark", "allot"]
+    },
+    {
+      "word": "subsidize",
+      "type": "verb",
+      "turkish": "Sübvanse etmek, maddi destek sağlamak",
+      "example_en": "Governments frequently subsidize renewable energy projects to accelerate the transition away from fossil fuels.",
+      "example_tr": "Hükümetler, fosil yakıtlardan uzaklaşma geçişini hızlandırmak için yenilenebilir enerji projelerini sıklıkla sübvanse eder.",
+      "related_verbs": ["fund", "finance", "support", "back", "sponsor"]
+    },
+    {
+      "word": "monopolize",
+      "type": "verb",
+      "turkish": "Tekereline almak",
+      "example_en": "Antitrust regulators investigated the tech giant for attempting to monopolize the digital advertising market.",
+      "example_tr": "Antitröst düzenleyicileri, teknoloji devini dijital reklamcılık pazarını tekeline almaya çalışmaktan soruşturdu.",
+      "related_verbs": ["dominate", "corner", "control", "hog", "appropriate"]
+    },
+    {
+      "word": "embezze",
+      "type": "verb",
+      "turkish": "Zimmetine geçirmek",
+      "example_en": "The former chief financial officer was convicted of trying to embezzle millions from corporate accounts.",
+      "example_tr": "Eski mali işler müdürü, şirket hesaplarından milyonları zimmetine geçirmeye çalışmaktan suçlu bulundu.",
+      "related_verbs": ["steal", "misappropriate", "defraud", "loot", "pilfer"]
+    },
+    {
+      "word": "audited",
+      "type": "verb (noun form, context verb use / audit)",
+      "turkish": "Denetlemek (mali)",
+      "example_en": "Independent certified public accountants audit corporate financial statements annually to ensure accuracy.",
+      "example_tr": "Bağımsız onaylı kamu muhasebecileri, doğruluğu sağlamak için kurumsal mali tabloları her yıl denetler.",
+      "related_verbs": ["inspect", "examine", "verify", "review", "check"]
+    },
+    {
+      "word": "reimburse",
+      "type": "verb",
+      "turkish": "Masrafı karşılamak, geri ödemek",
+      "example_en": "Corporate travel policies ensure that employees are fully reimbursed for authorized business expenses.",
+      "example_tr": "Şirket seyahat politikaları, çalışanların onaylanmış iş masraflarının tamamen geri ödenmesini sağlar.",
+      "related_verbs": ["repay", "refund", "compensate", "remunerate", "pay back"]
+    },
+    {
+      "word": "undercut",
+      "type": "verb",
+      "turkish": "Fiyatı kırmak, ucuza satmak",
+      "example_en": "New market entrants often undercut established competitors by offering heavily discounted service packages.",
+      "example_tr": "Yeni pazar katılımcıları, ağır indirimli hizmet paketleri sunarak genellikle köklü rakiplerin fiyatını kırar.",
+      "related_verbs": ["undersell", "subvert", "undermine", "weaken", "diminish"]
+    },
+    {
+      "word": "conglomerate",
+      "type": "verb (noun form, context verb use / conglomerate businesses)",
+      "turkish": "Şirketleri holding bünyesinde birleştirmek",
+      "example_en": "Multinational corporations frequently conglomerate smaller subsidiary firms under a single parent holding.",
+      "example_tr": "Çok uluslu şirketler, daha küçük bağlı ortaklık firmalarını genellikle tek bir ana holding altında birleştirir.",
+      "related_verbs": ["merge", "amalgamate", "group", "cluster"]
+    },
+    {
+      "word": "recession",
+      "type": "verb (noun form, context verb use / enter recession)",
+      "turkish": "Ekonomik durgunluğa girmek",
+      "example_en": "Unpredictable geopolitical shocks can cause national economies to enter a severe recession.",
+      "example_tr": "Öngörülemeyen jeopolitik şoklar, ulusal ekonomilerin şiddetli bir ekonomik durgunluğa girmesine neden olabilir.",
+      "related_verbs": ["contract", "shrink", "decline", "slow down"]
+    },
+    {
+      "word": "inflation",
+      "type": "verb (noun form, context verb use / drive inflation)",
+      "turkish": "Enflasyonu körüklemek, artırmak",
+      "example_en": "Uncontrolled public spending and supply chain disruptions can drive inflation to historic highs.",
+      "example_tr": "Kontrolsüz kamu harcamaları ve tedarik zinciri kesintileri enflasyonu tarihi seviyelere taşıyabilir (körükleyebilir).",
+      "related_verbs": ["escalate", "boost", "increase", "raise", "swell"]
+    },
+    {
+      "word": "deflate",
+      "type": "verb",
+      "turkish": "Fiyatları/değeri düşürmek, söndürmek",
+      "example_en": "Central bank interest rate hikes aimed to cool down overheated property markets and deflate asset bubbles.",
+      "example_tr": "Merkez bankası faiz artışları, aşırı ısınmış emlak piyasalarını soğutmayı ve varlık balonlarını söndürmeyi amaçladı.",
+      "related_verbs": ["reduce", "lower", "shrink", "diminish", "collapse"]
+    },
+    {
+      "word": "fluctuate",
+      "type": "verb",
+      "turkish": "Dalgalanmak",
+      "example_en": "Foreign exchange currency rates fluctuate continuously based on global macroeconomic indicators.",
+      "example_tr": "Döviz kurları, küresel makroekonomik göstergelere dayanarak sürekli olarak dalgalanır.",
+      "related_verbs": ["vary", "oscillate", "swing", "shift", "change"]
+    },
+    {
+      "word": "leverage",
+      "type": "verb",
+      "turkish": "Kaldıraç kullanmak, avantaj sağlamak",
+      "example_en": "Smart businesses leverage emerging digital marketing channels to expand their customer base efficiently.",
+      "example_tr": "Akıllı işletmeler, müşteri tabanlarını verimli bir şekilde genişletmek için ortaya çıkan dijital pazarlama kanallarını kaldıraç olarak kullanır.",
+      "related_verbs": ["utilize", "exploitations", "employ", "maximize", "capitalize"]
+    },
+    {
+      "word": "hedge",
+      "type": "verb",
+      "turkish": "Riskten korunmak, hedge etmek",
+      "example_en": "Commodity traders use futures contracts to hedge against sudden price volatility in global markets.",
+      "example_tr": "Emtia tüccarları, küresel piyasalardaki ani fiyat oynaklığına karşı riskten korunmak (hedge etmek) için vadeli işlem sözleşmeleri kullanır.",
+      "related_verbs": ["protect", "guard", "safeguard", "shield", "secure"]
+    },
+    {
+      "word": "speculate",
+      "type": "verb",
+      "turkish": "Spekülasyon yapmak",
+      "example_en": "Investors frequently speculate on cryptocurrency price movements during periods of extreme market volatility.",
+      "example_tr": "Yatırımcılar, aşırı piyasa oynaklığı dönemlerinde kripto para birimi fiyat hareketleri üzerine sıklıkla spekülasyon yapar.",
+      "related_verbs": ["gamble", "bet", "hazard", "conjecture", "theorize"]
+    },
+    {
+      "word": "broker",
+      "type": "verb",
+      "turkish": "Aracılık etmek (anlaşma vb.)",
+      "example_en": "Experienced investment bankers helped broker the multi-billion-dollar corporate merger agreement.",
+      "example_tr": "Deneyimli yatırım bankacıları, milyarlarca dolarlık kurumsal birleşme anlaşmasına aracılık etti.",
+      "related_verbs": ["negotiate", "mediate", "arrange", "facilitate", "conclude"]
+    },
+    {
+      "word": "underwrite",
+      "type": "verb",
+      "turkish": "Finansal güvence vermek, sigortalamak",
+      "example_en": "Major financial institutions agreed to underwrite the initial public offering for the tech startup.",
+      "example_tr": "Büyük finans kurumları, teknoloji girişimi için halka arzı finanse etmeyi (garanti altına almayı) kabul etti.",
+      "related_verbs": ["guarantee", "support", "finance", "back", "sponsor"]
+    },
+    {
+      "word": "default",
+      "type": "verb",
+      "turkish": "Borcunu ödeyememek, temerrüde düşmek",
+      "example_en": "Developing nations risk severe economic penalties if they default on sovereign international debts.",
+      "example_tr": "Gelişmekte olan uluslar, egemen uluslararası borçlarında temerrüde düşerlerse (borçlarını ödeyemezlerse) ağır ekonomik cezalarla karşı karşıya kalır.",
+      "related_verbs": ["fail", "miss payment", "renege", "break"]
+    },
+    {
+      "word": "solvency",
+      "type": "verb (noun form, context verb use / maintain solvency)",
+      "turkish": "Mali yeterliliği korumak",
+      "example_en": "Strict cash flow management is essential for a growing startup to maintain financial solvency.",
+      "example_tr": "Katı nakit akışı yönetimi, büyüyen bir girişimin mali yeterliliğini koruması için esastır.",
+      "related_verbs": ["sustain", "keep afloat", "survive", "stabilize"]
+    },
+    {
+      "word": "bankrupt",
+      "type": "verb",
+      "turkish": "İflas ettirmek",
+      "example_en": "Unforeseen supply chain disruptions can quickly bankrupt vulnerable small-scale manufacturing companies.",
+      "example_tr": "Öngörülemeyen tedarik zinciri kesintileri, savunmasız küçük ölçekli imalat şirketlerini hızla iflas ettirebilir.",
+      "related_verbs": ["ruin", "break", "collapse", "devastate", "impoverish"]
+    },
+    {
+      "word": "restructure",
+      "type": "verb",
+      "turkish": "Yeniden yapılandırmak",
+      "example_en": "The struggling retail chain decided to restructure its corporate debt obligations to avoid liquidation.",
+      "example_tr": "Zor durumdaki perakende zinciri, tasfiyeden kaçınmak için kurumsal borç yükümlülüklerini yeniden yapılandırmaya karar verdi.",
+      "related_verbs": ["reorganize", "reform", "overhaul", "rearrange", "reshaping"]
+    },
+    {
+      "word": "benchmark",
+      "type": "verb",
+      "turkish": "Kıyaslamak, kıstas almak",
+      "example_en": "Financial analysts benchmark corporate performance metrics against leading industry competitors.",
+      "example_tr": "Finansal analistler, kurumsal performans metriklerini önde gelen sektör rakipleriyle kıyaslar (kıstas alır).",
+      "related_verbs": ["compare", "evaluate", "measure", "assess", "gauge"]
+    },
+    {
+      "word": "outsource",
+      "type": "verb",
+      "turkish": "Dış kaynak kullanmak",
+      "example_en": "Tech firms often outsource customer support operations to specialized international call centers.",
+      "example_tr": "Teknoloji firmaları genellikle müşteri destek operasyonlarını uzmanlaşmış uluslararası çağrı merkezlerine dış kaynak olarak devreder.",
+      "related_verbs": ["subcontract", "delegate", "contract out", "farm out"]
+    },
+    {
+      "word": "streamline",
+      "type": "verb",
+      "turkish": "Sadeleştirmek, verimli hale getirmek",
+      "example_en": "Management introduced new automated software tools to streamline administrative workflow processes.",
+      "example_tr": "Yönetim, idari iş akışı süreçlerini verimli hale getirmek için yeni otomatik yazılım araçları tanıttı.",
+      "related_verbs": ["simplify", "optimize", "efficiency", "rationalize", "improve"]
+    },
+    {
+      "word": "monetize",
+      "type": "verb",
+      "turkish": "Gelir elde eder hale getirmek, paraya çevirmek",
+      "example_en": "Social media platforms constantly develop innovative features to monetize user attention effectively.",
+      "example_tr": "Sosyal medya platformları, kullanıcı dikkatini etkili bir şekilde paraya çevirmek için sürekli olarak yenilikçi özellikler geliştirir.",
+      "related_verbs": ["commercialize", "profit", "capitalize", "cashing", "exploit"]
+    },
+    {
+      "word": "generate",
+      "type": "verb",
+      "turkish": "Üretmek, gelir sağlamak",
+      "example_en": "New digital advertising campaigns successfully generate substantial revenue for online publishers.",
+      "example_tr": "Yeni dijital reklam kampanyaları, çevrimiçi yayıncılar için başarılı bir şekilde önemli gelir sağlar.",
+      "related_verbs": ["produce", "yield", "create", "bring in", "earn"]
+    },
+    {
+      "word": "yield",
+      "type": "verb",
+      "turkish": "Getiri sağlamak, vermek",
+      "example_en": "Long-term government bonds yield stable interest returns for conservative institutional investors.",
+      "example_tr": "Uzun vadeli devlet tahvilleri, muhafazakar kurumsal yatırımcılar için istikrarlı faiz getirisi sağlar.",
+      "related_verbs": ["produce", "generate", "return", "provide", "earn"]
+    },
+    {
+      "word": "accrue",
+      "type": "verb",
+      "turkish": "Tahakkuk etmek, birikmek (faiz/kazanç)",
+      "example_en": "Interest payments continue to accrue monthly on unpaid corporate credit card balances.",
+      "example_tr": "Ödenmemiş kurumsal kredi kartı bakiyeleri üzerinden faiz ödemeleri her ay birikmeye devam eder.",
+      "related_verbs": ["accumulate", "build up", "gather", "collect", "grow"]
+    },
+    {
+      "word": "amortize",
+      "type": "verb",
+      "turkish": "İtfa etmek, borcu taksitlerle eritmek",
+      "example_en": "Businesses amortize large capital equipment purchases over several accounting fiscal years.",
+      "example_tr": "İşletmeler, büyük sermayeli ekipman alımlarını birkaç muhasebe mali yılına yayarak itfa eder.",
+      "related_verbs": ["write off", "pay off", "gradual decrease", "spread"]
+    },
+    {
+      "word": "curtail",
+      "type": "verb",
+      "turkish": "Kısıtlamak, azaltmak",
+      "example_en": "Economic downturns force corporations to curtail discretionary spending and travel budgets.",
+      "example_tr": "Ekonomik gerilemeler, şirketleri isteğe bağlı harcamaları ve seyahat bütçelerini kısıtlamaya zorlar.",
+      "related_verbs": ["reduce", "limit", "restrict", "cut back", "downsize"]
+    },
+    {
+      "word": "downsize",
+      "type": "verb",
+      "turkish": "Küçülmek, personel azaltmak",
+      "example_en": "Facing declining sales, the manufacturing firm had to downsize its workforce significantly.",
+      "example_tr": "Düşen satışlarla karşı karşıya kalan imalat firması, iş gücünü önemli ölçüde küçültmek zorunda kaldı.",
+      "related_verbs": ["reduce", "cut staff", "retrench", "streamline", "trim"]
+    },
+    {
+      "word": "acquire",
+      "type": "verb",
+      "turkish": "Satın almak, bünyesine katmak",
+      "example_en": "The telecommunications giant offered billions to acquire the smaller disruptive tech startup.",
+      "example_tr": "Telekomünikasyon devi, daha küçük yıkıcı teknoloji girişimini satın almak için milyarlar teklif etti.",
+      "related_verbs": ["buy", "purchase", "obtain", "take over", "gain"]
+    },
+    {
+      "word": "merge",
+      "type": "verb",
+      "turkish": "Birleşmek",
+      "example_en": "Two major pharmaceutical companies announced plans to merge to reduce operational research costs.",
+      "example_tr": "İki büyük ilaç şirketi, operasyonel araştırma maliyetlerini düşürmek için birleşme planlarını açıkladı.",
+      "related_verbs": ["combine", "amalgamate", "unite", "integrate", "fuse"]
+    },
+    {
+      "word": "divest",
+      "type": "verb",
+      "turkish": "Elden çıkarmak, yatırımını çekmek",
+      "example_en": "Environmental activists urged pension funds to divest completely from fossil fuel industries.",
+      "example_tr": "Çevre aktivistleri emeklilik fonlarını fosil yakıt endüstrilerinden tamamen yatırımlarını çekmeye çağırdı.",
+      "related_verbs": ["sell off", "strip", "rid", "disinvest", "unload"]
+    },
+    {
+      "word": "flourish",
+      "type": "verb",
+      "turkish": "Gelişmek, büyümek, serpilmek",
+      "example_en": "Innovative small businesses tend to flourish in environments with supportive regulatory frameworks.",
+      "example_tr": "Yenilikçi küçük işletmeler, destekleyici düzenleyici çerçevelere sahip ortamlarda gelişme eğilimindedir.",
+      "related_verbs": ["thrive", "prosper", "bloom", "grow", "succeed"]
+    },
+    {
+      "word": "prosper",
+      "type": "verb",
+      "turkish": "Refaha kavuşmak, başarılı olmak",
+      "example_en": "Free-market economies allow competitive enterprises to innovate and prosper globally.",
+      "example_tr": "Serbest piyasa ekonomileri, rekabetçi işletmelerin yenilik yapmasına ve küresel çapta refaha kavuşmasına olanak tanır.",
+      "related_verbs": ["thrive", "flourish", "succeed", "progress", "advance"]
+    },
+    {
+      "word": "stagnate",
+      "type": "verb",
+      "turkish": "Durgunlaşmak, durmak",
+      "example_en": "Wages tended to stagnate while corporate profits reached unprecedented historical highs.",
+      "example_tr": "Kurumsal karlar benzeri görülmemiş tarihi seviyelere ulaşırken ücretler durgunlaşma eğilimindeydi.",
+      "related_verbs": ["stall", "stand still", "plateau", "slow down", "flatline"]
+    },
+    {
+      "word": "depress",
+      "type": "verb",
+      "turkish": "Bastırmak, düşürmek (piyasa/fiyat)",
+      "example_en": "Excessive market supply can severely depress agricultural commodity prices worldwide.",
+      "example_tr": "Aşırı piyasa arzı, dünya çapında tarımsal emtia fiyatlarını ciddi şekilde düşürebilir (baskılayabilir).",
+      "related_verbs": ["lower", "reduce", "suppress", "dampen", "weaken"]
+    },
+    {
+      "word": "stimulate",
+      "type": "verb",
+      "turkish": "Canlandırmak, teşvik etmek (ekonomi)",
+      "example_en": "Central banks lower interest rates to stimulate borrowing and consumer spending during economic slowdowns.",
+      "example_tr": "Merkez bankaları, ekonomik yavaşlamalar sırasında borçlanmayı ve tüketici harcamalarını canlandırmak için faiz oranlarını düşürür.",
+      "related_verbs": ["boost", "encourage", "spur", "prompt", "revive"]
+    },
+    {
+      "word": "revitalize",
+      "type": "verb",
+      "turkish": "Yeniden canlandırmak",
+      "example_en": "Urban planners launched a major initiative to revitalize the declining downtown commercial district.",
+      "example_tr": "Kentsel planlamacılar, gerileyen şehir merkezi ticari bölgesini yeniden canlandırmak için büyük bir girişim başlattı.",
+      "related_verbs": ["renew", "revive", "resuscitate", "rejuvenate", "restore"]
+    },
+    {
+      "word": "commercialize",
+      "type": "verb",
+      "turkish": "Ticari hale getirmek (tekrar pekiştirme)",
+      "example_en": "Startup founders work diligently to commercialize their proprietary intellectual property assets.",
+      "example_tr": "Girişim kurucuları, tescilli fikri mülkiyet varlıklarını ticari hale getirmek için özenle çalışır.",
+      "related_verbs": ["market", "monetize", "launch", "exploit"]
+    },
+    {
+      "word": "evaluate",
+      "type": "verb",
+      "turkish": "Değerlendirmek",
+      "example_en": "Venture capitalists carefully evaluate potential risks before funding new enterprise proposals.",
+      "example_tr": "Girişim sermayedarları, yeni işletme tekliflerini finanse etmeden önce olası riskleri dikkatlice değerlendirir.",
+      "related_verbs": ["assess", "appraise", "analyze", "judge", "estimate"]
+    },
+    {
+      "word": "appraise",
+      "type": "verb",
+      "turkish": "Değer biçmek, kıymet takdir etmek",
+      "example_en": "Certified property inspectors appraise commercial real estate assets prior to mortgage approval.",
+      "example_tr": "Sertifikalı mülk denetçileri, ipotek onayından önce ticari gayrimenkul varlıklarına değer biçer.",
+      "related_verbs": ["evaluate", "assess", "estimate", "value", "rate"]
+    },
+    {
+      "word": "estimate",
+      "type": "verb",
+      "turkish": "Tahmin etmek, kestirmek",
+      "example_en": "Financial experts estimate annual corporate revenue growth based on historical market trends.",
+      "example_tr": "Finans uzmanları, tarihi piyasa trendlerine dayanarak yıllık kurumsal gelir büyümesini tahmin eder.",
+      "related_verbs": ["calculate", "approximate", "gauge", "project", "predict"]
+    },
+    {
+      "word": "forecast",
+      "type": "verb",
+      "turkish": "Öngörmek, tahmin etmek",
+      "example_en": "Macroeconomic analysts forecast steady consumer price index increases for the upcoming fiscal year.",
+      "example_tr": "Makroekonomik analistler, önümüzdeki mali yıl için istikrarlı tüketici fiyat endeksi artışlarını öngörüyor.",
+      "related_verbs": ["predict", "project", "anticipate", "foresee", "estimate"]
+    }
+  ]
+}

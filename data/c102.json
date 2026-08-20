@@ -1,0 +1,408 @@
+{
+  "level": "C1",
+  "scene_id": 2,
+  "scene_title": "Science, Technology and Innovation",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "automate",
+      "type": "verb",
+      "turkish": "Otomasyona bağlamak, otomatik hale getirmek",
+      "example_en": "Modern factories automate repetitive assembly tasks using advanced robotics and artificial intelligence.",
+      "example_tr": "Modern fabrikalar, gelişmiş robotik ve yapay zeka kullanarak tekrarlayan montaj görevlerini otomatik hale getirir.",
+      "related_verbs": ["mechanize", "computerize", "robotize", "streamline"]
+    },
+    {
+      "word": "innovate",
+      "type": "verb",
+      "turkish": "Yenilik yapmak, buluş yapmak",
+      "example_en": "Tech conglomerates must innovate constantly to survive in the hyper-competitive global digital market.",
+      "example_tr": "Teknoloji holdingleri, aşırı rekabetçi küresel dijital pazarda hayatta kalabilmek için sürekli yenilik yapmak zorundadır.",
+      "related_verbs": ["pioneer", "invent", "modernize", "revolutionize", "create"]
+    },
+    {
+      "word": "revolutionize",
+      "type": "verb",
+      "turkish": "Devrim yaratmak, kökten değiştirmek",
+      "example_en": "Quantum computing promises to revolutionize cybersecurity and data encryption protocols worldwide.",
+      "example_tr": "Kuantum bilişim, dünya çapında siber güvenlik ve veri şifreleme protokollerinde devrim yaratmayı vaat ediyor.",
+      "related_verbs": ["transform", "overhaul", "reshape", "metamorphose", "upend"]
+    },
+    {
+      "word": "implement",
+      "type": "verb",
+      "turkish": "Uygulamaya koymak, hayata geçirmek",
+      "example_en": "IT departments plan to implement a comprehensive cloud-based security framework next quarter.",
+      "example_tr": "Bilgi işlem departmanları, önümüzüdeki çeyrekte kapsamlı bir bulut tabanlı güvenlik çerçevesini uygulamaya koymayı planlıyor.",
+      "related_verbs": ["execute", "apply", "enact", "deploy", "realize"]
+    },
+    {
+      "word": "deploy",
+      "type": "verb",
+      "turkish": "Konuşlandırmak, (yazılım/sistem) devreye almak",
+      "example_en": "Engineers successfully deploy software patches across distributed server networks overnight.",
+      "example_tr": "Mühendisler, yazılım yamalarını gece boyunca dağıtılmış sunucu ağlarında başarıyla devreye alıyor.",
+      "related_verbs": ["install", "implement", "station", "position", "release"]
+    },
+    {
+      "word": "synthesize",
+      "type": "verb",
+      "turkish": "Sentezlemek, laboratuvarda üretmek",
+      "example_en": "Organic chemists synthesize complex medicinal compounds from basic molecular structures.",
+      "example_tr": "Organik kimyacılar, temel moleküler yapılardan karmaşık tıbbi bileşikleri sentezler.",
+      "related_verbs": ["formulate", "compound", "blend", "create", "manufacture"]
+    },
+    {
+      "word": "simulate",
+      "type": "verb",
+      "turkish": "Simüle etmek, taklit etmek",
+      "example_en": "Aerospace engineers use powerful supercomputers to simulate extreme atmospheric reentry conditions.",
+      "example_tr": "Havacılık mühendisleri, aşırı atmosferik yeniden giriş koşullarını simüle etmek için güçlü süper bilgisayarlar kullanır.",
+      "related_verbs": ["model", "mimic", "replicate", "emulate", "fake"]
+    },
+    {
+      "word": "formulate",
+      "type": "verb",
+      "turkish": "Formüle etmek, formata sokmak, tasarlamak",
+      "example_en": "Data scientists formulate complex mathematical algorithms to optimize search engine query speeds.",
+      "example_tr": "Veri bilimcileri, arama motoru sorgu hızlarını optimize etmek için karmaşık matematiksel algoritmalar formüle eder.",
+      "related_verbs": ["devise", "design", "draft", "construct", "frame"]
+    },
+    {
+      "word": "conceptualize",
+      "type": "verb",
+      "turkish": "Kavramsallaştırmak, zihinde tasarlamak",
+      "example_en": "Product designers conceptualize intuitive user interfaces before writing a single line of code.",
+      "example_tr": "Ürün tasarımcıları, tek bir satır kod yazmadan önce sezgisel kullanıcı arayüzlerini kavramsallaştırır.",
+      "related_verbs": ["envision", "imagine", "idealize", "visualize", "brainstorm"]
+    },
+    {
+      "word": "prototype",
+      "type": "verb",
+      "turkish": "Prototipini üretmek",
+      "example_en": "Hardware engineers rapidly prototype wearable health monitors using 3D printing technology.",
+      "example_tr": "Donanım mühendisleri 3D baskı teknolojisini kullanarak giyilebilir sağlık monitörlerinin prototipini hızla üretir.",
+      "related_verbs": ["model", "test", "pilot", "sample", "draft"]
+    },
+    {
+      "word": "commercialize",
+      "type": "verb",
+      "turkish": "Ticari hale getirmek, pazara sunmak",
+      "example_en": "University laboratories collaborate with venture capitalists to commercialize breakthrough scientific discoveries.",
+      "example_tr": "Üniversite laboratuvarları, çığır açan bilimsel keşifleri ticari hale getirmek için girişim sermayedarlarıyla iş birliği yapar.",
+      "related_verbs": ["market", "monetize", "exploitations", "launch", "capitalize"]
+    },
+    {
+      "word": "disseminate",
+      "type": "verb",
+      "turkish": "Yaymak, dağıtmak (bilgi/teknoloji)",
+      "example_en": "Open-source platforms help researchers disseminate academic findings across international scientific communities.",
+      "example_tr": "Açık kaynaklı platformlar, araştırmacıların akademik bulguları uluslararası bilimsel topluluklar arasında yaymasına yardımcı olur.",
+      "related_verbs": ["distribute", "spread", "circulate", "broadcast", "disperse"]
+    },
+    {
+      "word": "encrypt",
+      "type": "verb",
+      "turkish": "Şifrelemek",
+      "example_en": "Modern messaging applications automatically encrypt user communications end-to-end for maximum privacy.",
+      "example_tr": "Modern mesajlaşma uygulamaları, maksimum gizlilik için kullanıcı iletişimini uçtan uca otomatik olarak şifreler.",
+      "related_verbs": ["code", "cipher", "lock", "protect", "secure"]
+    },
+    {
+      "word": "decrypt",
+      "type": "verb",
+      "turkish": "Şifresini çözmek",
+      "example_en": "Cybersecurity analysts use advanced computational tools to decrypt intercepted malicious data packets.",
+      "example_tr": "Siber güvenlik analistleri, ele geçirilen kötü amaçlı veri paketlerinin şifresini çözmek için gelişmiş hesaplama araçları kullanır.",
+      "related_verbs": ["decode", "unscramble", "unlock", "reveal", "solve"]
+    },
+    {
+      "word": "upgrade",
+      "type": "verb",
+      "turkish": "Yükseltmek, üst versiyona geçirmek",
+      "example_en": "System administrators must upgrade legacy database hardware to prevent catastrophic memory failures.",
+      "example_tr": "Sistem yöneticileri, felaket niteliğindeki bellek arızalarını önlemek için eski veritabanı donanımını yükseltmelidir.",
+      "related_verbs": ["modernize", "improve", "enhance", "update", "elevate"]
+    },
+    {
+      "word": "debug",
+      "type": "verb",
+      "turkish": "Hataları ayıklamak (yazılım)",
+      "example_en": "Software engineers spend countless hours trying to debug complex operating system source code.",
+      "example_tr": "Yazılım mühendisleri, karmaşık işletim sistemi kaynak kodundaki hataları ayıklamaya çalışarak sayısız saat harcar.",
+      "related_verbs": ["troubleshoot", "fix", "correct", "repair", "rectify"]
+    },
+    {
+      "word": "compile",
+      "type": "verb",
+      "turkish": "Derlemek (kod veya veri)",
+      "example_en": "The integrated development environment allows programmers to compile code and test functionality instantly.",
+      "example_tr": "Entegre geliştirme ortamı, programcıların kodu derlemesine ve işlevselliği anında test etmesine olanak tanır.",
+      "related_verbs": ["assemble", "gather", "collect", "organize", "collate"]
+    },
+    {
+      "word": "configure",
+      "type": "verb",
+      "turkish": "Yapılandırmak, ayarlamak",
+      "example_en": "Network administrators configure routers and firewalls to secure enterprise cloud infrastructure.",
+      "example_tr": "Ağ yöneticileri, kurumsal bulut altyapısını güvenceye almak için yönlendiricileri ve güvenlik duvarlarını yapılandırır.",
+      "related_verbs": ["set up", "arrange", "organize", "adapt", "tailor"]
+    },
+    {
+      "word": "integrate",
+      "type": "verb",
+      "turkish": "Entegre etmek, bütünleştirmek",
+      "example_en": "Developers strive to integrate machine learning algorithms seamlessly into mobile application architectures.",
+      "example_tr": "Geliştiriciler, makine öğrenimi algoritmalarını mobil uygulama mimarilerine sorunsuz bir şekilde entegre etmeye çalışır.",
+      "related_verbs": ["incorporate", "blend", "merge", "unite", "fuse"]
+    },
+    {
+      "word": "optimize",
+      "type": "verb",
+      "turkish": "En iyilemek, optimize etmek",
+      "example_en": "Performance engineers optimize database query execution paths to minimize application latency.",
+      "example_tr": "Performans mühendisleri, uygulama gecikmesini en aza indirmek için veritabanı sorgu yürütme yollarını optimize eder.",
+      "related_verbs": ["improve", "maximize", "streamline", "enhance", "perfect"]
+    },
+    {
+      "word": "synchronize",
+      "type": "verb",
+      "turkish": "Senkronize etmek, eşzamanlı hale getirmek",
+      "example_en": "Cloud storage services synchronize files across multiple user devices automatically in real time.",
+      "example_tr": "Bulut depolama servisleri, dosyaları birden fazla kullanıcı cihazında gerçek zamanlı olarak otomatik olarak senkronize eder.",
+      "related_verbs": ["coordinate", "align", "match", "harmonize", "link"]
+    },
+    {
+      "word": "interconnect",
+      "type": "verb",
+      "turkish": "Birbirine bağlamak",
+      "example_en": "The Internet of Things relies on sensors that interconnect everyday physical objects digitally.",
+      "example_tr": "Nesnelerin İnterneti, günlük fiziksel nesneleri dijital olarak birbirine bağlayan sensörlere güvenir.",
+      "related_verbs": ["link", "connect", "network", "interlace", "bind"]
+    },
+    {
+      "word": "virtualize",
+      "type": "verb",
+      "turkish": "Sanallaştırmak",
+      "example_en": "Enterprise data centers virtualize physical servers to maximize hardware resource utilization.",
+      "example_tr": "Kurumsal veri merkezleri, donanım kaynak kullanımını maksimize etmek için fiziksel sunucuları sanallaştırır.",
+      "related_verbs": ["simulate", "digitize", "abstract", "emulate"]
+    },
+    {
+      "word": "hacker",
+      "type": "verb (noun form, context verb use / hack)",
+      "turkish": "Sisteme sızmak, hacklemek",
+      "example_en": "Security researchers study how malicious actors hack into vulnerable corporate database networks.",
+      "example_tr": "Güvenlik araştırmacıları, kötü niyetli aktörlerin savunmasız kurumsal veritabanı ağlarına nasıl sızdığını inceler.",
+      "related_verbs": ["penetrate", "breach", "compromise", "invade", "break into"]
+    },
+    {
+      "word": "breach",
+      "type": "verb",
+      "turkish": "Aşmak, ihlal etmek, (güvenliği) delmek",
+      "example_en": "Sophisticated malware can breach corporate firewalls if regular system security updates are neglected.",
+      "example_tr": "Gelişmiş kötü amaçlı yazılımlar, düzenli sistem güvenlik güncellemeleri ihmal edilirse kurumsal güvenlik duvarlarını delebilir.",
+      "related_verbs": ["penetrate", "violate", "rupture", "break", "fracture"]
+    },
+    {
+      "word": "phishing",
+      "type": "verb (noun form, context verb use / phish)",
+      "turkish": "Oltalama (dolandırıcılık) yapmak",
+      "example_en": "Cybercriminals often phish for corporate credentials using deceptive automated email campaigns.",
+      "example_tr": "Siber suçlular genellikle aldatıcı otomatik e-posta kampanyaları kullanarak kurumsal kimlik bilgileri avlar (oltalama yapar).",
+      "related_verbs": ["scam", "trick", "fraud", "trap", "dupe"]
+    },
+    {
+      "word": "authenticate",
+      "type": "verb",
+      "turkish": "Kimliğini doğrulamak",
+      "example_en": "Multi-factor authentication protocols verify and authenticate user identities before granting network access.",
+      "example_tr": "Çok faktörlü kimlik doğrulama protokolleri, ağ erişimi vermeden önce kullanıcı kimliklerini doğrular.",
+      "related_verbs": ["verify", "validate", "confirm", "certify", "prove"]
+    },
+    {
+      "word": "monitor",
+      "type": "verb",
+      "turkish": "İzlemek, gözlemlemek",
+      "example_en": "Automated monitoring software tools monitor server health and network traffic constantly.",
+      "example_tr": "Otomatik izleme yazılım araçları, sunucu sağlığını ve ağ trafiğini sürekli olarak izler.",
+      "related_verbs": ["observe", "track", "supervise", "watch", "scan"]
+    },
+    {
+      "word": "diagnose",
+      "type": "verb",
+      "turkish": "Teşhis etmek, tanısını koymak",
+      "example_en": "Artificial intelligence diagnostics tools help medical professionals diagnose rare genetic disorders accurately.",
+      "example_tr": "Yapay zeka teşhis araçları, tıp profesyonellerinin nadir genetik bozuklukları doğru bir şekilde teşhis etmesine yardımcı olur.",
+      "related_verbs": ["identify", "detect", "analyze", "evaluate", "determine"]
+    },
+    {
+      "word": "patents",
+      "type": "verb (noun form, context verb use / patent)",
+      "turkish": "Patentini almak",
+      "example_en": "Biotech firms rush to patent newly discovered gene-editing techniques before rival corporations do.",
+      "example_tr": "Biyoteknoloji firmaları, rakip şirketler yapmadan önce yeni keşfedilen gen düzenleme tekniklerinin patentini almak için yarışır.",
+      "related_verbs": ["copyright", "register", "secure rights", "protect", "trademark"]
+    },
+    {
+      "word": "fabricate",
+      "type": "verb",
+      "turkish": "İmal etmek, üretmek (maddi parça)",
+      "example_en": "Advanced cleanrooms fabricate microscopic semiconductor wafers used in modern microprocessors.",
+      "example_tr": "Gelişmiş temiz odalar, modern mikroişlemcilerde kullanılan mikroskobik yarı iletken gofretleri imal eder.",
+      "related_verbs": ["manufacture", "produce", "build", "construct", "assemble"]
+    },
+    {
+      "word": "quantify",
+      "type": "verb",
+      "turkish": "Miktarını belirlemek, sayısallaştırmak",
+      "example_en": "Data analysts struggle to quantify the precise economic impact of emerging artificial intelligence technologies.",
+      "example_tr": "Veri analistleri, ortaya çıkan yapay zeka teknolojilerinin kesin ekonomik etkisini sayısallaştırmakta zorlanıyor.",
+      "related_verbs": ["measure", "calculate", "assess", "evaluate", "compute"]
+    },
+    {
+      "word": "verify",
+      "type": "verb",
+      "turkish": "Doğrulamak",
+      "example_en": "Independent testing laboratories must verify experimental results before academic journals publish them.",
+      "example_tr": "Bağımsız test laboratuvarları, akademik dergiler yayınlamadan önce deneysel sonuçları doğrulamalıdır.",
+      "related_verbs": ["confirm", "validate", "authenticate", "check", "substantiate"]
+    },
+    {
+      "word": "disprove",
+      "type": "verb",
+      "turkish": "Yanlışlığını kanıtlamak, çürütmek",
+      "example_en": "Rigorous empirical experiments eventually helped to disprove the outdated nineteenth-century hypothesis.",
+      "example_tr": "Titiz ampirik deneyler nihayetinde on dokuzuncu yüzyıldan kalma eski hipotezin yanlışlığını kanıtlamaya yardımcı oldu.",
+      "related_verbs": ["refute", "debunk", "invalidate", "discredit", "contradict"]
+    },
+    {
+      "word": "hypothesize",
+      "type": "verb",
+      "turkish": "Varsayımda bulunmak, hipotez kurmak",
+      "example_en": "Astrophysicists hypothesize that dark matter accounts for the vast majority of universal mass.",
+      "example_tr": "Astrofizikçiler, karanlık maddenin evrensel kütlenin çok büyük bir kısmını oluşturduğu varsayımında bulunur.",
+      "related_verbs": ["theorize", "speculate", "suppose", "postulate", "presume"]
+    },
+    {
+      "word": "extrapolate",
+      "type": "verb",
+      "turkish": "Verilerden yola çıkarak öngörüde bulunmak",
+      "example_en": "Scientists extrapolate future climate trends using historical ice core sample measurements.",
+      "example_tr": "Bilim insanları, tarihi buz çekirdeği örnek ölçümlerini kullanarak gelecekteki iklim eğilimlerini öngörür.",
+      "related_verbs": ["infer", "project", "deduce", "estimate", "calculate"]
+    },
+    {
+      "word": "calculate",
+      "type": "verb",
+      "turkish": "Hesaplamak",
+      "example_en": "Supercomputers calculate complex orbital trajectories for interplanetary spacecraft navigation.",
+      "example_tr": "Süper bilgisayarlar, gezegenler arası uzay aracı seyrüseferi için karmaşık yörünge yollarını hesaplar.",
+      "related_verbs": ["compute", "figure", "determine", "measure", "evaluate"]
+    },
+    {
+      "word": "compute",
+      "type": "verb",
+      "turkish": "Bilgisayarla hesaplamak, hesap yapmak",
+      "example_en": "Quantum processors compute massive datasets millions of times faster than traditional binary computers.",
+      "example_tr": "Kuantum işlemciler, devasa veri setlerini geleneksel ikili bilgisayarlardan milyonlarca kat daha hızlı hesaplar.",
+      "related_verbs": ["calculate", "process", "figure", "reckon", "estimate"]
+    },
+    {
+      "word": "process",
+      "type": "verb",
+      "turkish": "İşlemek (veri)",
+      "example_en": "Central processing units process millions of transactional instructions per second.",
+      "example_tr": "Merkezi işlem birimleri saniyede milyonlarca işlem talimatını işler.",
+      "related_verbs": ["handle", "treat", "manage", "manipulate", "analyze"]
+    },
+    {
+      "word": "store",
+      "type": "verb",
+      "turkish": "Depolamak, saklamak",
+      "example_en": "Solid-state drives store enormous amounts of digital information securely and efficiently.",
+      "example_tr": "Katı hal sürücüleri, devasa miktarda dijital bilgiyi güvenli ve verimli bir şekilde depolar.",
+      "related_verbs": ["save", "retain", "preserve", "archive", "accumulate"]
+    },
+    {
+      "word": "retrieve",
+      "type": "verb",
+      "turkish": "Geri getirmek, veriye ulaşmak",
+      "example_en": "Cloud databases allow enterprise users to retrieve archived files instantly from anywhere globally.",
+      "example_tr": "Bulut veritabanları, kurumsal kullanıcıların arşivlenmiş dosyalara küresel olarak her yerden anında ulaşmasını sağlar.",
+      "related_verbs": ["recover", "fetch", "obtain", "recall", "gather"]
+    },
+    {
+      "word": "back up",
+      "type": "verb",
+      "turkish": "Yedeklemek",
+      "example_en": "System administrators back up critical corporate databases nightly to prevent permanent data loss.",
+      "example_tr": "Sistem yöneticileri kalıcı veri kaybını önlemek için kritik kurumsal veritabanlarını her gece yedekler.",
+      "related_verbs": ["save", "copy", "secure", "duplicate", "preserve"]
+    },
+    {
+      "word": "restore",
+      "type": "verb",
+      "turkish": "Geri yüklemek, eski haline getirmek",
+      "example_en": "IT technicians restore lost server data from secure offsite backups following hardware crashes.",
+      "example_tr": "Bilgi işlem teknisyenleri, donanım çökmelerini takiben kayıp sunucu verilerini güvenli saha dışı yedeklerden geri yükler.",
+      "related_verbs": ["recover", "reinstate", "rebuild", "repair", "renew"]
+    },
+    {
+      "word": "browse",
+      "type": "verb",
+      "turkish": "Gezinmek, internette dolaşmak",
+      "example_en": "Users browse extensive digital academic libraries to find relevant peer-reviewed research papers.",
+      "example_tr": "Kullanıcılar, ilgili hakemli araştırma makalelerini bulmak için kapsamlı dijital akademik kütüphanelerde gezinir.",
+      "related_verbs": ["surf", "explore", "scan", "look through", "peruse"]
+    },
+    {
+      "word": "surf",
+      "type": "verb",
+      "turkish": "(İnternette) sörf yapmak, gezinmek",
+      "example_en": "Millennials learned to surf the early world wide web using dial-up telephone connections.",
+      "example_tr": "Y kuşağı, çevirmeli telefon bağlantılarını kullanarak erken dönem dünya çapında ağda sörf yapmayı öğrendi.",
+      "related_verbs": ["browse", "navigate", "explore", "cruise"]
+    },
+    {
+      "word": "download",
+      "type": "verb",
+      "turkish": "İndirmek",
+      "example_en": "High-speed broadband connections enable users to download massive multimedia software packages rapidly.",
+      "example_tr": "Yüksek hızlı geniş bant bağlantıları, kullanıcıların devasa multimedya yazılım paketlerini hızla indirmesini sağlar.",
+      "related_verbs": ["transfer", "pull down", "save", "obtain"]
+    },
+    {
+      "word": "upload",
+      "type": "verb",
+      "turkish": "Yüklemek",
+      "example_en": "Content creators upload high-definition video files to cloud storage servers for global distribution.",
+      "example_tr": "İçerik üreticileri, küresel dağıtım için yüksek tanımlı video dosyalarını bulut depolama sunucularına yükler.",
+      "related_verbs": ["transfer", "send", "publish", "post"]
+    },
+    {
+      "word": "stream",
+      "type": "verb",
+      "turkish": "Akışını sağlamak, canlı yayınlamak",
+      "example_en": "Modern streaming platforms stream high-resolution video content to millions of concurrent subscribers.",
+      "example_tr": "Modern yayın platformları, milyonlarca eşzamanlı aboneye yüksek çözünürlüklü video içeriği akışı sağlar.",
+      "related_verbs": ["broadcast", "transmit", "feed", "cast", "flow"]
+    },
+    {
+      "word": "transmit",
+      "type": "verb",
+      "turkish": "İletmek, aktarmak (sinyal/veri)",
+      "example_en": "Fiber-optic cables transmit digital information across oceanic floors at the speed of light.",
+      "example_tr": "Fiber optik kablolar, dijital bilgiyi okyanus tabanları boyunca ışık hızında iletir.",
+      "related_verbs": ["send", "convey", "transfer", "broadcast", "relay"]
+    },
+    {
+      "word": "interact",
+      "type": "verb",
+      "turkish": "Etkileşimde bulunmak",
+      "example_en": "Advanced augmented reality headsets let users interact naturally with immersive 3D holographic environments.",
+      "example_tr": "Gelişmiş artırılmış gerçeklik kulaklıkları, kullanıcıların sürükleyici 3D holografik ortamlarla doğal bir şekilde etkileşimde bulunmasını sağlar.",
+      "related_verbs": ["engage", "interface", "communicate", "connect"]
+    }
+  ]
+}

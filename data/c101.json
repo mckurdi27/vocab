@@ -1,0 +1,409 @@
+
+{
+  "level": "C1",
+  "scene_id": 1,
+  "scene_title": "Abstract Concepts, Philosophy and Intellectual Discourse",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "postulate",
+      "type": "verb",
+      "turkish": "Varsaymak, farz etmek (teori kurmak)",
+      "example_en": "Theoretical physicists postulate the existence of parallel universes to explain quantum anomalies.",
+      "example_tr": "Teorik fizikçiler, kuantum anormalliklerini açıklamak için paralel evrenlerin varlığını varsayarlar.",
+      "related_verbs": ["hypothesize", "theorize", "posit", "assume", "propose"]
+    },
+    {
+      "word": "elucidate",
+      "type": "verb",
+      "turkish": "Açıklığa kavuşturmak, izah etmek",
+      "example_en": "The professor used several historical analogies to elucidate the complex philosophical concept.",
+      "example_tr": "Profesör, karmaşık felsefi kavramı açıklığa kavuşturmak için birkaç tarihi analoji kullandı.",
+      "related_verbs": ["clarify", "explain", "illuminate", "explicate", "clear up"]
+    },
+    {
+      "word": "extrapolate",
+      "type": "verb",
+      "turkish": "Dış değer biçmek, (verilerden) sonuç çıkarmak",
+      "example_en": "Researchers often extrapolate future demographic trends based on current statistical data.",
+      "example_tr": "Araştırmacılar genellikle mevcut istatistiksel verilere dayanarak gelecekteki demografik eğilimlerin sonucunu çıkarırlar.",
+      "related_verbs": ["deduce", "infer", "project", "conclude", "anticipate"]
+    },
+    {
+      "word": "scrutinize",
+      "type": "verb",
+      "turkish": "Dikkatle incelemek, irdelemek",
+      "example_en": "Financial auditors must scrutinize every corporate transaction to prevent potential fraud.",
+      "example_tr": "Mali denetçiler, olası dolandırıcılıkları önlemek için her kurumsal işlemi dikkatle incelemelidir.",
+      "related_verbs": ["examine", "inspect", "analyze", "investigate", "study"]
+    },
+    {
+      "word": "delineate",
+      "type": "verb",
+      "turkish": "Ayrıntılarıyla tasvir etmek, sınırlarını çizmek",
+      "example_en": "The constitution explicitly aims to delineate the powers granted to each branch of government.",
+      "example_tr": "Anayasa, hükümetin her bir organına verilen yetkilerin sınırlarını açıkça çizmeyi amaçlar.",
+      "related_verbs": ["outline", "define", "describe", "trace", "depict"]
+    },
+    {
+      "word": "ascertain",
+      "type": "verb",
+      "turkish": "Gerçeği ortaya çıkarmak, saptamak",
+      "example_en": "Detectives interviewed multiple witnesses to ascertain the exact sequence of events.",
+      "example_tr": "Dedektifler, olayların kesin sırasını saptamak için birden fazla tanıkla görüştü.",
+      "related_verbs": ["determine", "discover", "verify", "confirm", "find out"]
+    },
+    {
+      "word": "corroborate",
+      "type": "verb",
+      "turkish": "Doğrulamak, teyit etmek (kanıtla)",
+      "example_en": "Recent archaeological findings corroborate the ancient texts describing a great flood.",
+      "example_tr": "Son arkeolojik bulgular, büyük bir seli anlatan antik metinleri doğrulamaktadır.",
+      "related_verbs": ["confirm", "verify", "substantiate", "validate", "support"]
+    },
+    {
+      "word": "refute",
+      "type": "verb",
+      "turkish": "Çürütmek, yalanlamak",
+      "example_en": "The scientist published a rigorous paper to refute the widely accepted yet flawed theory.",
+      "example_tr": "Bilim insanı, yaygın olarak kabul gören ancak kusurlu olan teoriyi çürütmek için titiz bir makale yayımladı.",
+      "related_verbs": ["disprove", "debunk", "contradict", "deny", "rebut"]
+    },
+    {
+      "word": "synthesize",
+      "type": "verb",
+      "turkish": "Sentezlemek, birleştirmek",
+      "example_en": "Students must synthesize information from multiple academic sources to write a comprehensive thesis.",
+      "example_tr": "Öğrenciler, kapsamlı bir tez yazmak için birden fazla akademik kaynaktan gelen bilgileri sentezlemelidir.",
+      "related_verbs": ["combine", "integrate", "blend", "amalgamate", "incorporate"]
+    },
+    {
+      "word": "contextualize",
+      "type": "verb",
+      "turkish": "Bağlama oturtmak",
+      "example_en": "To understand the novel fully, one must contextualize it within the political climate of the 1920s.",
+      "example_tr": "Romanı tam olarak anlamak için, onu 1920'lerin siyasi iklimi bağlamına oturtmak gerekir.",
+      "related_verbs": ["frame", "situate", "place", "relate", "background"]
+    },
+    {
+      "word": "juxtapose",
+      "type": "verb",
+      "turkish": "Yan yana koymak (karşılaştırmak için)",
+      "example_en": "The exhibition aims to juxtapose classical Renaissance paintings with modern abstract art.",
+      "example_tr": "Sergi, klasik Rönesans tablolarını modern soyut sanatla yan yana koyarak karşılaştırmayı amaçlıyor.",
+      "related_verbs": ["compare", "contrast", "place side by side", "collocate"]
+    },
+    {
+      "word": "obfuscate",
+      "type": "verb",
+      "turkish": "Kasten kafa karıştırmak, anlaşılmaz hale getirmek",
+      "example_en": "Politicians sometimes use overly technical jargon to obfuscate their true intentions.",
+      "example_tr": "Politikacılar bazen gerçek niyetlerini anlaşılmaz hale getirmek için aşırı teknik jargon kullanırlar.",
+      "related_verbs": ["confuse", "complicate", "blur", "obscure", "muddy"]
+    },
+    {
+      "word": "oscillate",
+      "type": "verb",
+      "turkish": "Sallanmak, iki durum/fikir arasında gidip gelmek",
+      "example_en": "Public opinion tends to oscillate between progressive and conservative ideologies over the decades.",
+      "example_tr": "Kamuoyu on yıllar boyunca ilerici ve muhafazakar ideolojiler arasında gidip gelme eğilimindedir.",
+      "related_verbs": ["fluctuate", "swing", "waver", "alternate", "vacillate"]
+    },
+    {
+      "word": "permeate",
+      "type": "verb",
+      "turkish": "İçine işlemek, nüfuz etmek",
+      "example_en": "A sense of profound melancholy seemed to permeate the author's later literary works.",
+      "example_tr": "Derin bir melankoli hissi, yazarın sonraki edebi eserlerine nüfuz etmiş gibi görünüyordu.",
+      "related_verbs": ["pervade", "infiltrate", "penetrate", "infuse", "imbue"]
+    },
+    {
+      "word": "pervade",
+      "type": "verb",
+      "turkish": "Her tarafına yayılmak, kaplamak",
+      "example_en": "An atmosphere of tension and distrust began to pervade the corporate boardroom.",
+      "example_tr": "Kurumsal yönetim kurulu odasına bir gerilim ve güvensizlik atmosferi yayılmaya başladı.",
+      "related_verbs": ["permeate", "fill", "spread through", "saturate", "infuse"]
+    },
+    {
+      "word": "epitomize",
+      "type": "verb",
+      "turkish": "Temsil etmek, tipik bir örneği olmak",
+      "example_en": "This groundbreaking architectural design is said to epitomize the spirit of modern urbanism.",
+      "example_tr": "Bu çığır açıcı mimari tasarımın, modern şehircilik ruhunun tipik bir örneği olduğu söyleniyor.",
+      "related_verbs": ["exemplify", "symbolize", "embody", "illustrate", "personify"]
+    },
+    {
+      "word": "transcend",
+      "type": "verb",
+      "turkish": "Ötesine geçmek, aşmak",
+      "example_en": "Great works of art often transcend cultural and linguistic boundaries to touch universal human emotions.",
+      "example_tr": "Büyük sanat eserleri genellikle kültürel ve dilbilimsel sınırları aşarak evrensel insan duygularına dokunur.",
+      "related_verbs": ["surpass", "exceed", "outdo", "eclipse", "overstep"]
+    },
+    {
+      "word": "vindicate",
+      "type": "verb",
+      "turkish": "Haklı çıkarmak, temize çıkarmak",
+      "example_en": "Newly discovered DNA evidence helped to vindicate the man who was wrongfully imprisoned.",
+      "example_tr": "Yeni keşfedilen DNA kanıtı, haksız yere hapsedilen adamı temize çıkarmaya yardımcı oldu.",
+      "related_verbs": ["justify", "clear", "exonerate", "absolve", "acquit"]
+    },
+    {
+      "word": "amalgamate",
+      "type": "verb",
+      "turkish": "Karıştırmak, birleştirmek (kurum vb.)",
+      "example_en": "The two competing telecommunications companies decided to amalgamate to dominate the global market.",
+      "example_tr": "Rekabet eden iki telekomünikasyon şirketi, küresel pazara hakim olmak için birleşmeye karar verdi.",
+      "related_verbs": ["merge", "combine", "unite", "fuse", "blend"]
+    },
+    {
+      "word": "ameliorate",
+      "type": "verb",
+      "turkish": "İyileştirmek, daha iyi hale getirmek",
+      "example_en": "International aid agencies launched initiatives to ameliorate the living conditions in refugee camps.",
+      "example_tr": "Uluslararası yardım kuruluşları, mülteci kamplarındaki yaşam koşullarını iyileştirmek için girişimler başlattı.",
+      "related_verbs": ["improve", "better", "enhance", "upgrade", "mitigate"]
+    },
+    {
+      "word": "coalesce",
+      "type": "verb",
+      "turkish": "Birleşmek, bütünleşmek",
+      "example_en": "Various isolated rebel factions began to coalesce into a powerful and unified revolutionary movement.",
+      "example_tr": "Çeşitli izole isyancı gruplar, güçlü ve birleşik bir devrimci harekette bütünleşmeye başladı.",
+      "related_verbs": ["unite", "combine", "merge", "join", "integrate"]
+    },
+    {
+      "word": "confound",
+      "type": "verb",
+      "turkish": "Şaşırtmak, kafa karıştırmak (beklentileri boşa çıkarmak)",
+      "example_en": "The economy's rapid recovery continues to confound prominent financial experts and forecasters.",
+      "example_tr": "Ekonominin hızlı toparlanması, önde gelen finans uzmanlarını ve tahmincileri şaşırtmaya devam ediyor.",
+      "related_verbs": ["baffle", "bewilder", "perplex", "puzzle", "astound"]
+    },
+    {
+      "word": "construe",
+      "type": "verb",
+      "turkish": "Yorumlamak, anlam çıkarmak",
+      "example_en": "Her silence during the intense interrogation was construed as a tacit admission of guilt.",
+      "example_tr": "Yoğun sorgulama sırasındaki sessizliği, zımni bir suç kabulü olarak yorumlandı.",
+      "related_verbs": ["interpret", "understand", "take", "read", "analyze"]
+    },
+    {
+      "word": "deduce",
+      "type": "verb",
+      "turkish": "Tümdengelimle sonuç çıkarmak",
+      "example_en": "By analyzing the complex chemical residue, forensic scientists could deduce the origin of the explosion.",
+      "example_tr": "Adli bilimciler, karmaşık kimyasal kalıntıyı analiz ederek patlamanın kaynağını sonuç olarak çıkarabildiler.",
+      "related_verbs": ["infer", "conclude", "derive", "gather", "reason"]
+    },
+    {
+      "word": "discern",
+      "type": "verb",
+      "turkish": "Fark etmek, ayırt etmek",
+      "example_en": "It was difficult to discern any meaningful pattern in the seemingly chaotic data set.",
+      "example_tr": "Görünüşte kaotik olan veri setinde anlamlı herhangi bir kalıbı ayırt etmek zordu.",
+      "related_verbs": ["perceive", "detect", "recognize", "distinguish", "make out"]
+    },
+    {
+      "word": "disparage",
+      "type": "verb",
+      "turkish": "Küçümsemek, kötülemek",
+      "example_en": "Critics should offer constructive feedback rather than continually disparage the young artist's innovative work.",
+      "example_tr": "Eleştirmenler, genç sanatçının yenilikçi çalışmasını sürekli kötülemek yerine yapıcı geri bildirim sunmalıdır.",
+      "related_verbs": ["belittle", "denigrate", "depreciate", "derogate", "undervalue"]
+    },
+    {
+      "word": "diverge",
+      "type": "verb",
+      "turkish": "Farklı yönlere sapmak, ayrılmak (fikir/yol)",
+      "example_en": "Their theoretical approaches diverge significantly when discussing the root causes of economic inflation.",
+      "example_tr": "Ekonomik enflasyonun temel nedenlerini tartışırken teorik yaklaşımları önemli ölçüde ayrılır.",
+      "related_verbs": ["separate", "part", "deviate", "differ", "branch off"]
+    },
+    {
+      "word": "emancipate",
+      "type": "verb",
+      "turkish": "Özgürlüğüne kavuşturmak, azat etmek",
+      "example_en": "The newly ratified legislation aimed to emancipate marginalized communities from systemic socioeconomic oppression.",
+      "example_tr": "Yeni onaylanan mevzuat, dışlanmış toplulukları sistemik sosyoekonomik baskıdan özgürlüğüne kavuşturmayı amaçlıyordu.",
+      "related_verbs": ["liberate", "free", "release", "unchain", "deliver"]
+    },
+    {
+      "word": "embellish",
+      "type": "verb",
+      "turkish": "Süslemek, abartarak anlatmak",
+      "example_en": "Witnesses tend to unintentionally embellish their stories when recounting traumatic historical events.",
+      "example_tr": "Tanıklar, travmatik tarihi olayları anlatırken hikayelerini istemeden de olsa abartarak anlatma eğilimindedir.",
+      "related_verbs": ["decorate", "adorn", "exaggerate", "elaborate", "enhance"]
+    },
+    {
+      "word": "emulate",
+      "type": "verb",
+      "turkish": "Öykünmek, taklit ederek rekabet etmek",
+      "example_en": "Developing nations often seek to emulate the rapid industrial growth models of successful neighboring countries.",
+      "example_tr": "Gelişmekte olan uluslar, başarılı komşu ülkelerin hızlı endüstriyel büyüme modellerine genellikle öykünmek isterler.",
+      "related_verbs": ["imitate", "copy", "mirror", "follow", "match"]
+    },
+    {
+      "word": "enervate",
+      "type": "verb",
+      "turkish": "Gücünü tüketmek, zayıflatmak",
+      "example_en": "The prolonged legal battle served only to enervate the once-vibrant and optimistic civil rights organization.",
+      "example_tr": "Uzun süren yasal savaş, bir zamanlar canlı ve iyimser olan sivil haklar örgütünün yalnızca gücünü tüketmeye yaradı.",
+      "related_verbs": ["weaken", "exhaust", "drain", "debilitate", "fatigue"]
+    },
+    {
+      "word": "engender",
+      "type": "verb",
+      "turkish": "Meydana getirmek, neden olmak (duygu/durum)",
+      "example_en": "Harsh economic inequalities invariably engender deep resentment and political instability within a society.",
+      "example_tr": "Sert ekonomik eşitsizlikler bir toplum içinde her zaman derin bir kızgınlık ve siyasi istikrarsızlık meydana getirir.",
+      "related_verbs": ["cause", "produce", "generate", "provoke", "incite"]
+    },
+    {
+      "word": "entail",
+      "type": "verb",
+      "turkish": "Gerektirmek, zorunlu kılmak",
+      "example_en": "Accepting this executive position will entail significant personal sacrifices and extensive international travel.",
+      "example_tr": "Bu yönetici pozisyonunu kabul etmek, önemli kişisel fedakarlıklar ve kapsamlı uluslararası seyahatler gerektirecektir.",
+      "related_verbs": ["involve", "require", "necessitate", "demand", "encompass"]
+    },
+    {
+      "word": "equivocate",
+      "type": "verb",
+      "turkish": "Kaçamaklı konuşmak, kelime oyunu yapmak",
+      "example_en": "When asked directly about the controversial policy, the spokesperson continued to equivocate.",
+      "example_tr": "Tartışmalı politika hakkında doğrudan sorulduğunda, sözcü kaçamaklı konuşmaya devam etti.",
+      "related_verbs": ["evade", "hedge", "prevaricate", "dodge", "stall"]
+    },
+    {
+      "word": "exacerbate",
+      "type": "verb",
+      "turkish": "Kötüleştirmek, şiddetlendirmek",
+      "example_en": "Implementing strict austerity measures now will only exacerbate the severe economic recession.",
+      "example_tr": "Şimdi katı kemer sıkma önlemleri uygulamak, şiddetli ekonomik durgunluğu yalnızca daha da kötüleştirecektir.",
+      "related_verbs": ["worsen", "aggravate", "intensify", "compound", "magnify"]
+    },
+    {
+      "word": "exonerate",
+      "type": "verb",
+      "turkish": "Suçsuzluğunu kanıtlamak, temize çıkarmak",
+      "example_en": "The official internal inquiry completely managed to exonerate the director of all corruption allegations.",
+      "example_tr": "Resmi iç soruşturma, direktörü tüm yolsuzluk iddialarından tamamen temize çıkarmayı başardı.",
+      "related_verbs": ["clear", "absolve", "acquit", "vindicate", "discharge"]
+    },
+    {
+      "word": "expedite",
+      "type": "verb",
+      "turkish": "Hızlandırmak, işlemlerini çabuklaştırmak",
+      "example_en": "The government promised to expedite the visa application process for highly skilled foreign medical workers.",
+      "example_tr": "Hükümet, yüksek vasıflı yabancı sağlık çalışanları için vize başvuru sürecini hızlandırma sözü verdi.",
+      "related_verbs": ["accelerate", "hasten", "speed up", "rush", "precipitate"]
+    },
+    {
+      "word": "feign",
+      "type": "verb",
+      "turkish": "Numara yapmak, gibi görünmek",
+      "example_en": "During negotiations, skilled diplomats may feign indifference to secure a more advantageous geopolitical position.",
+      "example_tr": "Müzakereler sırasında yetenekli diplomatlar, daha avantajlı bir jeopolitik pozisyon elde etmek için ilgisizmiş gibi numara yapabilirler.",
+      "related_verbs": ["pretend", "fake", "simulate", "sham", "affect"]
+    },
+    {
+      "word": "fluctuate",
+      "type": "verb",
+      "turkish": "Dalgalanmak (fiyat/durum)",
+      "example_en": "Global commodity prices fluctuate wildly in response to unpredictable geopolitical conflicts and natural disasters.",
+      "example_tr": "Küresel emtia fiyatları, öngörülemeyen jeopolitik çatışmalara ve doğal afetlere yanıt olarak çılgınca dalgalanır.",
+      "related_verbs": ["vary", "change", "oscillate", "swing", "shift"]
+    },
+    {
+      "word": "galvanize",
+      "type": "verb",
+      "turkish": "Gaza getirmek, harekete geçirmek",
+      "example_en": "The tragic incident served to galvanize the local community into demanding immediate legislative reforms.",
+      "example_tr": "Trajik olay, yerel topluluğu acil yasal reformlar talep etmesi için harekete geçirmeye yaradı.",
+      "related_verbs": ["motivate", "stimulate", "spur", "inspire", "arouse"]
+    },
+    {
+      "word": "glean",
+      "type": "verb",
+      "turkish": "Zorlukla bilgi/parça toplamak",
+      "example_en": "Historians must patiently glean relevant facts from thousands of disorganized medieval manuscripts.",
+      "example_tr": "Tarihçiler, binlerce düzensiz ortaçağ el yazmasından ilgili gerçekleri sabırla toplamalıdır.",
+      "related_verbs": ["gather", "collect", "extract", "obtain", "reap"]
+    },
+    {
+      "word": "illuminate",
+      "type": "verb",
+      "turkish": "Aydınlatmak (gerçeği/konuyu)",
+      "example_en": "This comprehensive academic study helps to illuminate the obscure origins of early human linguistic development.",
+      "example_tr": "Bu kapsamlı akademik çalışma, erken insan dilsel gelişiminin belirsiz kökenlerini aydınlatmaya yardımcı olur.",
+      "related_verbs": ["clarify", "light up", "elucidate", "explain", "reveal"]
+    },
+    {
+      "word": "impair",
+      "type": "verb",
+      "turkish": "Bozmak, zayıflatmak (fonksiyon/yetenek)",
+      "example_en": "Chronic sleep deprivation can significantly impair a person's cognitive functions and executive decision-making abilities.",
+      "example_tr": "Kronik uyku yoksunluğu, bir kişinin bilişsel işlevlerini ve yönetici karar verme yeteneklerini önemli ölçüde bozabilir.",
+      "related_verbs": ["damage", "harm", "hinder", "weaken", "diminish"]
+    },
+    {
+      "word": "impede",
+      "type": "verb",
+      "turkish": "Engellemek, sekte vurmak",
+      "example_en": "Excessive bureaucratic regulations often impede the implementation of vital infrastructural development projects.",
+      "example_tr": "Aşırı bürokratik düzenlemeler, genellikle hayati altyapı geliştirme projelerinin uygulanmasına sekte vurur.",
+      "related_verbs": ["hinder", "obstruct", "hamper", "delay", "block"]
+    },
+    {
+      "word": "infer",
+      "type": "verb",
+      "turkish": "Çıkarım yapmak",
+      "example_en": "From the CEO's cryptic remarks, investors could infer that a major corporate restructuring was imminent.",
+      "example_tr": "CEO'nun gizemli sözlerinden yatırımcılar, büyük bir kurumsal yeniden yapılanmanın yakın olduğu çıkarımını yapabilirdi.",
+      "related_verbs": ["deduce", "conclude", "surmise", "gather", "understand"]
+    },
+    {
+      "word": "instigate",
+      "type": "verb",
+      "turkish": "Kışkırtmak, önayak olmak",
+      "example_en": "Undercover agents were accused of attempting to instigate violent riots during the otherwise peaceful political demonstrations.",
+      "example_tr": "Gizli ajanlar, aksi takdirde barışçıl olan siyasi gösteriler sırasında şiddetli isyanları kışkırtmaya çalışmakla suçlandı.",
+      "related_verbs": ["provoke", "incite", "trigger", "foment", "initiate"]
+    },
+    {
+      "word": "marginalize",
+      "type": "verb",
+      "turkish": "Ötekileştirmek, toplum dışına itmek",
+      "example_en": "Institutional discrimination continues to marginalize vulnerable minority groups in many industrialized urban societies.",
+      "example_tr": "Kurumsal ayrımcılık, birçok sanayileşmiş kentsel toplumda savunmasız azınlık gruplarını ötekileştirmeye devam ediyor.",
+      "related_verbs": ["alienate", "isolate", "exclude", "sideline", "disenfranchise"]
+    },
+    {
+      "word": "orchestrate",
+      "type": "verb",
+      "turkish": "Planlayıp yönetmek (gizlice/ustaca)",
+      "example_en": "The brilliant campaign manager managed to orchestrate a stunning political victory against overwhelming odds.",
+      "example_tr": "Parlak kampanya yöneticisi, ezici zorluklara karşı çarpıcı bir siyasi zaferi ustaca planlayıp yönetmeyi başardı.",
+      "related_verbs": ["coordinate", "arrange", "organize", "mastermind", "manage"]
+    },
+    {
+      "word": "perpetuate",
+      "type": "verb",
+      "turkish": "Sürdürmek, idame ettirmek (genelde olumsuz şeyleri)",
+      "example_en": "Biased media coverage can unfortunately perpetuate harmful cultural stereotypes across different generations.",
+      "example_tr": "Taraflı medya yayını ne yazık ki farklı nesiller boyunca zararlı kültürel stereotiplerin sürmesine neden olabilir.",
+      "related_verbs": ["maintain", "sustain", "keep alive", "preserve", "continue"]
+    },
+    {
+      "word": "polarize",
+      "type": "verb",
+      "turkish": "Kutuplaştırmak",
+      "example_en": "Highly controversial legislative proposals tend to polarize national electorates along strict partisan lines.",
+      "example_tr": "Son derece tartışmalı yasa tasarıları, ulusal seçmenleri katı partizan çizgilere göre kutuplaştırma eğilimindedir.",
+      "related_verbs": ["divide", "separate", "split", "alienate", "part"]
+    }
+  ]
+}

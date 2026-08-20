@@ -1,0 +1,408 @@
+{
+  "level": "C1",
+  "scene_id": 6,
+  "scene_title": "Environment, Climate Change and Sustainability",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "sustain",
+      "type": "verb",
+      "turkish": "Sürdürmek, devam ettirmek",
+      "example_en": "Ecosystems require a delicate balance of biodiversity to sustain life over long periods.",
+      "example_tr": "Ekosistemler, yaşamı uzun süreler boyunca sürdürebilmek için hassas bir biyolojik çeşitlilik dengesine ihtiyaç duyar.",
+      "related_verbs": ["maintain", "support", "preserve", "continue", "uphold"]
+    },
+    {
+      "word": "deplete",
+      "type": "verb",
+      "turkish": "Tüketmek, bitirmek (kaynak)",
+      "example_en": "Overfishing and industrial pollution rapidly deplete marine resources in coastal waters.",
+      "example_tr": "Aşırı avlanma ve endüstriyel kirlilik, kıyı sularındaki deniz kaynaklarını hızla tüketiyor.",
+      "related_verbs": ["exhaust", "drain", "consume", "use up", "reduce"]
+    },
+    {
+      "word": "conserve",
+      "type": "verb",
+      "turkish": "Korumak, tasarruf etmek",
+      "example_en": "Local communities implement strict water-saving measures to conserve vital natural reservoirs.",
+      "example_tr": "Yerel topluluklar, hayati doğal rezervleri korumak için katı su tasarrufu önlemleri uyguluyor.",
+      "related_verbs": ["protect", "preserve", "save", "guard", "keep"]
+    },
+    {
+      "word": "preserve",
+      "type": "verb",
+      "turkish": "Muhafaza etmek, korumak",
+      "example_en": "Environmental organizations work diligently to preserve endangered wildlife habitats from deforestation.",
+      "example_tr": "Çevre örgütleri, nesli tükenmekte olan yaban hayatı yaşam alanlarını ormansızlaşmadan korumak için gayretle çalışıyor.",
+      "related_verbs": ["protect", "conserve", "maintain", "safeguard", "save"]
+    },
+    {
+      "word": "restore",
+      "type": "verb",
+      "turkish": "Eski haline getirmek, restore etmek",
+      "example_en": "Ecologists launched a massive project to restore degraded wetlands and native plant species.",
+      "example_tr": "Ekolojistler, bozulmuş sulak alanları ve yerel bitki türlerini eski haline getirmek için büyük bir proje başlattı.",
+      "related_verbs": ["rehabilitate", "renew", "repair", "recover", "revive"]
+    },
+    {
+      "word": "rehabilitate",
+      "type": "verb",
+      "turkish": "İyileştirmek, yeniden kazandırmak",
+      "example_en": "Conservationists try to rehabilitate injured animals before releasing them back into the wild.",
+      "example_tr": "Doğayı koruma yanlıları, yaralanan hayvanları doğaya salmadan önce iyileştirmeye çalışıyor.",
+      "related_verbs": ["restore", "heal", "recover", "reclaim", "repair"]
+    },
+    {
+      "word": "contaminate",
+      "type": "verb",
+      "turkish": "Kirletmek, zehirlemek (su/toprak)",
+      "example_en": "Industrial chemical waste can severely contaminate underground aquifers and drinking water supplies.",
+      "example_tr": "Endüstriyel kimyasal atıklar, yeraltı akiferlerini ve içme suyu kaynaklarını şiddetli bir şekilde kirletebilir.",
+      "related_verbs": ["pollute", "taint", "poison", "infect", "spoil"]
+    },
+    {
+      "word": "pollute",
+      "type": "verb",
+      "turkish": "Kirletmek",
+      "example_en": "Unchecked carbon emissions continuously pollute the atmospheric air layer above major cities.",
+      "example_tr": "Kontrolsüz karbon emisyonları, büyük şehirlerin üzerindeki atmosferik hava tabakasını sürekli olarak kirletiyor.",
+      "related_verbs": ["contaminate", "dirty", "taint", "fouls", "spoil"]
+    },
+    {
+      "word": "mitigate",
+      "type": "verb",
+      "turkish": "Hafifletmek, etkisini azaltmak",
+      "example_en": "Green building designs help mitigate the urban heat island effect during summer months.",
+      "example_tr": "Yeşil bina tasarımları, yaz aylarda kentsel ısı adası etkisini hafifletmeye yardımcı olur.",
+      "related_verbs": ["alleviate", "reduce", "lessen", "ease", "diminish"]
+    },
+    {
+      "word": "degrade",
+      "type": "verb",
+      "turkish": "Bozulmak, niteliğini yitirmek",
+      "example_en": "Intensive agricultural practices cause topsoil to degrade rapidly over successive decades.",
+      "example_tr": "Yoğun tarım uygulamaları, üst toprağın ardışık onlarca yıl boyunca hızla bozulmasına neden olur.",
+      "related_verbs": ["deteriorate", "worsen", "decay", "decline", "break down"]
+    },
+    {
+      "word": "deteriorate",
+      "type": "verb",
+      "turkish": "Kötüleşmek, bozulmak",
+      "example_en": "Global warming causes Arctic ice sheets to deteriorate at an unprecedented acceleration rate.",
+      "example_tr": "Küresel ısınma, Arktik buz tabakalarının benzeri görülmemiş bir hızlanma oranında kötüleşmesine (erimesine) neden oluyor.",
+      "related_verbs": ["worsen", "decline", "decay", "degenerate", "slip"]
+    },
+    {
+      "word": "exhaust",
+      "type": "verb",
+      "turkish": "Tüketmek, bitirmek",
+      "example_en": "Humanity risks exhausting non-renewable fossil fuel reserves if alternative energies are ignored.",
+      "example_tr": "Alternatif enerjiler göz ardı edilirse insanlık, yenilenemeyen fosil yakıt rezervlerini tüketme riskiyle karşı karşıya kalır.",
+      "related_verbs": ["deplete", "drain", "consume", "use up", "spend"]
+    },
+    {
+      "word": "emit",
+      "type": "verb",
+      "turkish": "Yaymak, salmak (gaz/ısı)",
+      "example_en": "Modern vehicles must comply with strict regulations regarding how much carbon dioxide they emit.",
+      "example_tr": "Modern araçlar, ne kadar karbondioksit saldıkları konusunda katı düzenlemelere uymak zorundadır.",
+      "related_verbs": ["release", "discharge", "radiate", "exhale", "pour out"]
+    },
+    {
+      "word": "absorb",
+      "type": "verb",
+      "turkish": "Emek, içine çekmek",
+      "example_en": "Vast rainforests act as natural carbon sinks, absorbing billions of tons of greenhouse gases.",
+      "example_tr": "Uçsuz bucaksız yağmur ormanları, milyarlarca ton sera gazını emerek doğal karbon yutakları görevi görür.",
+      "related_verbs": ["soak up", "take in", "consume", "incorporate", "suck up"]
+    },
+    {
+      "word": "absorbs",
+      "type": "verb (third person singular / absorb)",
+      "turkish": "Emer",
+      "example_en": "Healthy ocean water absorbs excess atmospheric heat, regulating global climate stability.",
+      "example_tr": "Sağlıklı okyanus suyu fazla atmosferik ısıyı emer ve küresel iklim istikrarını düzenler.",
+      "related_verbs": ["soaks up", "takes in", "retains"]
+    },
+    {
+      "word": "absorbing",
+      "type": "verb (gerund / absorb)",
+      "turkish": "Emerek, içine çekerek",
+      "example_en": "Wetlands play a crucial role by absorbing floodwaters and filtering chemical pollutants naturally.",
+      "example_tr": "Sulak alanlar, taşkın sularını emerek ve kimyasal kirleticileri doğal olarak filtreleyerek çok önemli bir rol oynar.",
+      "related_verbs": ["soaking up", "taking in", "capturing"]
+    },
+    {
+      "word": "absorbed",
+      "type": "verb (past participle / absorb)",
+      "turkish": "Emilmiş",
+      "example_en": "Most carbon dioxide released by human activity is absorbed by terrestrial forests and oceans.",
+      "example_tr": "İnsan faaliyeti tarafından salınan karbondioksitin çoğu kara ormanları ve okyanuslar tarafından emilir.",
+      "related_verbs": ["soaked up", "taken in", "ingested"]
+    },
+    {
+      "word": "disperse",
+      "type": "verb",
+      "turkish": "Dağıtmak, yaymak",
+      "example_en": "Strong seasonal winds help disperse air pollutants away from densely populated metropolitan valleys.",
+      "example_tr": "Güçlü mevsimsel rüzgarlar, hava kirleticilerini yoğun nüfuslu metropol vadilerinden uzağa dağıtmaya yardımcı olur.",
+      "related_verbs": ["scatter", "spread", "dissipate", "distribute", "broadcast"]
+    },
+    {
+      "word": "disposes",
+      "type": "verb (third person singular / dispose)",
+      "turkish": "Elden çıkarır, imha eder",
+      "example_en": "The facility safely disposes of hazardous chemical waste according to international environmental laws.",
+      "example_tr": "Tesis, uluslararası çevre yasalarına uygun olarak tehlikeli kimyasal atıkları güvenli bir şekilde imha eder.",
+      "related_verbs": ["gets rid of", "discards", "dumps", "clears"]
+    },
+    {
+      "word": "disposed",
+      "type": "verb (past participle / dispose)",
+      "turkish": "Elden çıkarılmış, imha edilmiş",
+      "example_en": "Tonic electronics must be properly disposed of to prevent toxic heavy metals from entering soils.",
+      "example_tr": "Zehirli ağır metallerin toprağa karışmasını önlemek için eski elektroniklerin uygun şekilde elden çıkarılması gerekir.",
+      "related_verbs": ["discarded", "dumped", "thrown away", "cleared"]
+    },
+    {
+      "word": "disposing",
+      "type": "verb (gerund / dispose)",
+      "turkish": "Elden çıkarma, imha etme",
+      "example_en": "Municipalities face growing challenges when disposing of non-biodegradable plastic packaging materials.",
+      "example_tr": "Belediyeler, biyolojik olarak parçalanamayan plastik ambalaj malzemelerini elden çıkarırken artan zorluklarla karşı karşıya kalıyor.",
+      "related_verbs": ["discarding", "dumping", "getting rid of"]
+    },
+    {
+      "word": "recycles",
+      "type": "verb (third person singular / recycle)",
+      "turkish": "Geri dönüştürür",
+      "example_en": "The eco-friendly factory recycles all metal scraps and packaging materials into new production items.",
+      "example_tr": "Çevre dostu fabrika, tüm metal hurdaları ve ambalaj malzemelerini yeni üretim ürünlerine geri dönüştürür.",
+      "related_verbs": ["reprocesses", "recovers", "reuses", "reclaims"]
+    },
+    {
+      "word": "recycled",
+      "type": "verb (past participle / recycle)",
+      "turkish": "Geri dönüştürülmüş",
+      "example_en": "Sustainable clothing brands use 100 percent recycled polyester fibers for their activewear collections.",
+      "example_tr": "Sürdürülebilir giyim markaları, spor giyim koleksiyonları için yüzde 100 geri dönüştürülmüş polyester elyaflar kullanır.",
+      "related_verbs": ["reprocessed", "reused", "reclaimed"]
+    },
+    {
+      "word": "recycling",
+      "type": "verb (gerund / recycle)",
+      "turkish": "Geri dönüştürme",
+      "example_en": "Public education campaigns encourage households to improve daily sorting and recycling habits.",
+      "example_tr": "Halk eğitimi kampanyaları, haneleri günlük ayırma ve geri dönüştürme alışkanlıklarını geliştirmeye teşvik ediyor.",
+      "related_verbs": ["reprocessing", "reusing", "reclaiming"]
+    },
+    {
+      "word": "cultivate",
+      "type": "verb",
+      "turkish": "Yetiştirmek, toprağı işlemek",
+      "example_en": "Organic farmers cultivate resilient crop varieties without relying on synthetic chemical fertilizers.",
+      "example_tr": "Organik çiftçiler, sentetik kimyasal gübrelere güvenmeden dayanıklı ürün çeşitleri yetiştirir.",
+      "related_verbs": ["grow", "farm", "produce", "tends", "plant"]
+    },
+    {
+      "word": "cultivates",
+      "type": "verb (third person singular / cultivate)",
+      "turkish": "Yetiştirir",
+      "example_en": "The agricultural cooperative cultivates diverse ecological vegetables using sustainable greenhouse methods.",
+      "example_tr": "Tarımsal kooperatif, sürdürülebilir sera yöntemlerini kullanarak çeşitli ekolojik sebzeler yetiştirir.",
+      "related_verbs": ["grows", "farms", "produces"]
+    },
+    {
+      "word": "cultivated",
+      "type": "verb (past participle / cultivate)",
+      "turkish": "Yetiştirilmiş, işlenmiş",
+      "example_en": "Thousands of hectares of previously barren land were successfully cultivated into green orchards.",
+      "example_tr": "Binlerce hektar önceden verimsiz arazi, yeşil meyve bahçelerine dönüştürülerek başarılı bir şekilde ekildi.",
+      "related_verbs": ["grown", "farmed", "tilled"]
+    },
+    {
+      "word": "cultivating",
+      "type": "verb (gerund / cultivate)",
+      "turkish": "Yetiştirme, toprak işleme",
+      "example_en": "Experts stress the importance of cultivating drought-resistant crops in arid climate regions.",
+      "example_tr": "Uzmanlar, kurak iklim bölgelerinde kuraklığa dayanıklı ürünler yetiştirmenin önemini vurguluyor.",
+      "related_verbs": ["growing", "farming", "tilling"]
+    },
+    {
+      "word": "harvest",
+      "type": "verb",
+      "turkish": "Hasat etmek, toplamak",
+      "example_en": "Modern solar farms harvest clean electricity directly from abundant sunlight hours.",
+      "example_tr": "Modern güneş çiftlikleri, bol güneş ışığı saatlerinden doğrudan temiz elektrik hasat eder.",
+      "related_verbs": ["gather", "reap", "collect", "pick", "yield"]
+    },
+    {
+      "word": "harvests",
+      "type": "verb (third person singular / harvest)",
+      "turkish": "Hasat eder",
+      "example_en": "The wind turbine facility harvests kinetic energy from coastal gales reliably.",
+      "example_tr": "Rüzgar türbini tesisi, kıyı fırtınalarından güvenilir bir şekilde kinetik enerji hasat eder.",
+      "related_verbs": ["gathers", "reaps", "collects"]
+    },
+    {
+      "word": "harvested",
+      "type": "verb (past participle / harvest)",
+      "turkish": "Hasat edilmiş",
+      "example_en": "Rainwater harvested from rooftop systems is filtered and used for landscape irrigation.",
+      "example_tr": "Çatı sistemlerinden hasat edilen yağmur suyu filtrelenir ve peyzaj sulaması için kullanılır.",
+      "related_verbs": ["gathered", "reaped", "collected"]
+    },
+    {
+      "word": "harvesting",
+      "type": "verb (gerund / harvest)",
+      "turkish": "Hasat etme, toplama",
+      "example_en": "Innovations in harvesting renewable tidal energy show great promise for coastal nations.",
+      "example_tr": "Yenilenebilir gelgit enerjisini hasat etmedeki yenilikler, kıyı ülkeleri için büyük umut vaat ediyor.",
+      "related_verbs": ["gathering", "reaping", "collecting"]
+    },
+    {
+      "word": "reforestation",
+      "type": "verb (noun form, context verb use / reforest)",
+      "turkish": "Ağaçlandırmak",
+      "example_en": "Governments fund large-scale reforestation programs to rebuild lost woodland ecosystems.",
+      "example_tr": "Hükümetler, kaybolan orman ekosistemlerini yeniden kurmak için büyük ölçekli ağaçlandırma programlarını finanse ediyor.",
+      "related_verbs": ["replant", "restore", "greening", "repopulate"]
+    },
+    {
+      "word": "reforests",
+      "type": "verb (third person singular / reforest)",
+      "turkish": "Yeniden ağaçlandırır",
+      "example_en": "The environmental NGO reforests cleared hillsides using indigenous tree species every spring.",
+      "example_tr": "Çevre sivil toplum kuruluşu, her ilkbaharda yerli ağaç türlerini kullanarak temizlenmiş yamaçları yeniden ağaçlandırır.",
+      "related_verbs": ["replants", "restores"]
+    },
+    {
+      "word": "reforested",
+      "type": "verb (past participle / reforest)",
+      "turkish": "Yeniden ağaçlandırılmış",
+      "example_en": "Areas that were once logged have been fully reforested with native flora.",
+      "example_tr": "Bir zamanlar ağaç kesilen alanlar, yerli bitki örtüsüyle tamamen yeniden ağaçlandırıldı.",
+      "related_verbs": ["replanted", "restored"]
+    },
+    {
+      "word": "reforesting",
+      "type": "verb (gerund / reforest)",
+      "turkish": "Yeniden ağaçlandırma",
+      "example_en": "Communities take pride in reforesting barren mountain slopes to prevent devastating soil erosion.",
+      "example_tr": "Topluluklar, yıkıcı toprak erozyonunu önlemek için verimsiz dağ yamaçlarını yeniden ağaçlandırmaktan gurur duyuyor.",
+      "related_verbs": ["replanting", "restoring"]
+    },
+    {
+      "word": "advocate",
+      "type": "verb",
+      "turkish": "Savunmak, desteklemek",
+      "example_en": "Climate scientists actively advocate for immediate policy shifts toward zero-emission targets.",
+      "example_tr": "İklim bilimcileri, sıfır emisyon hedeflerine yönelik acil politika değişimlerini aktif olarak savunuyor.",
+      "related_verbs": ["support", "champion", "promote", "recommend", "back"]
+    },
+    {
+      "word": "advocates",
+      "type": "verb (third person singular / advocate)",
+      "turkish": "Savunur, destekler",
+      "example_en": "The green party advocates comprehensive tax incentives for electric vehicle owners.",
+      "example_tr": "Yeşil parti, elektrikli araç sahipleri için kapsamlı vergi teşviklerini savunuyor.",
+      "related_verbs": ["supports", "champions", "promotes"]
+    },
+    {
+      "word": "advocated",
+      "type": "verb (past participle / advocate)",
+      "turkish": "Savunulmuş",
+      "example_en": "Stricter industrial emission limits have long been advocated by global conservation groups.",
+      "example_tr": "Daha katı endüstriyel emisyon sınırları, uzun süredir küresel doğayı koruma grupları tarafından savunuluyor.",
+      "related_verbs": ["supported", "championed", "promoted"]
+    },
+    {
+      "word": "advocating",
+      "type": "verb (gerund / advocate)",
+      "turkish": "Savunma, destekleme",
+      "example_en": "Youth activists are leading international campaigns advocating for climate justice.",
+      "example_tr": "Genç aktivistler, iklim adaleti için kampanya yürüten uluslararası hareketlere liderlik ediyor.",
+      "related_verbs": ["supporting", "championing", "promoting"]
+    },
+    {
+      "word": "regulate",
+      "type": "verb",
+      "turkish": "Düzenlemek, denetlemek",
+      "example_en": "Agencies regulate factory pollutant releases to safeguard public health and ecosystems.",
+      "example_tr": "Ajanslar, halk sağlığını ve ekosistemleri korumak için fabrika kirletici salınımlarını düzenler.",
+      "related_verbs": ["control", "govern", "supervise", "monitor", "manage"]
+    },
+    {
+      "word": "regulates",
+      "type": "verb (third person singular / regulate)",
+      "turkish": "Düzenler, denetler",
+      "example_en": "National legislation regulates commercial fishing quotas to prevent marine species extinction.",
+      "example_tr": "Ulusal mevzuat, deniz türlerinin tükenmesini önlemek için ticari balıkçılık kotalarını düzenler.",
+      "related_verbs": ["controls", "governs", "supervises"]
+    },
+    {
+      "word": "regulated",
+      "type": "verb (past participle / regulate)",
+      "turkish": "Düzenlenmiş, denetlenmiş",
+      "example_en": "Waste disposal processes are tightly regulated across all industrialized nations.",
+      "example_tr": "Atık bertaraf süreçleri tüm sanayileşmiş ülkelerde sıkı bir şekilde denetlenir.",
+      "related_verbs": ["controlled", "governed", "supervised"]
+    },
+    {
+      "word": "regulating",
+      "type": "verb (gerund / regulate)",
+      "turkish": "Düzenleme, denetleme",
+      "example_en": "Governments carry the responsibility of regulating resource extraction in sensitive biomes.",
+      "example_tr": "Hükümetler, hassas biyomlardaki kaynak çıkarımını düzenleme sorumluluğunu taşır.",
+      "related_verbs": ["controlling", "governing", "supervising"]
+    },
+    {
+      "word": "evaluate",
+      "type": "verb",
+      "turkish": "Değerlendirmek",
+      "example_en": "Researchers evaluate environmental impact reports before approving major construction projects.",
+      "example_tr": "Araştırmacılar, büyük inşaat projelerini onaylamadan önce çevresel etki raporlarını değerlendirir.",
+      "related_verbs": ["assess", "appraise", "analyze", "review", "examine"]
+    },
+    {
+      "word": "evaluates",
+      "type": "verb (third person singular / evaluate)",
+      "turkish": "Değerlendirir",
+      "example_en": "The committee evaluates energy efficiency metrics for municipal public buildings annually.",
+      "example_tr": "Komite, belediye kamu binaları için enerji verimliliği metriklerini her yıl değerlendirir.",
+      "related_verbs": ["assesses", "appraises", "analyzes"]
+    },
+    {
+      "word": "evaluated",
+      "type": "verb (past participle / evaluate)",
+      "turkish": "Değerlendirilmiş",
+      "example_en": "The long-term risks of pesticide use were thoroughly evaluated by independent toxicologists.",
+      "example_tr": "Pestisit kullanımının uzun vadeli riskleri bağımsız toksikologlar tarafından kapsamlı bir şekilde değerlendirildi.",
+      "related_verbs": ["assessed", "appraised", "analyzed"]
+    },
+    {
+      "word": "evaluating",
+      "type": "verb (gerund / evaluate)",
+      "turkish": "Değerlendirme",
+      "example_en": "Scientists spend considerable time evaluating climate models to improve future weather forecasts.",
+      "example_tr": "Bilim insanları, gelecekteki hava tahminlerini iyileştirmek için iklim modellerini değerlendirmeye hatırı sayılır zaman harcıyor.",
+      "related_verbs": ["assessing", "appraising", "analyzing"]
+    },
+    {
+      "word": "flourish",
+      "type": "verb",
+      "turkish": "Gelişmek, serpilmek",
+      "example_en": "Marine life begins to flourish once commercial fishing restrictions are properly enforced.",
+      "example_tr": "Ticari balıkçılık kısıtlamaları uygun şekilde uygulandığında deniz yaşamı gelişmeye başlar.",
+      "related_verbs": ["thrive", "prosper", "bloom", "grow", "succeed"]
+    },
+    {
+      "word": "flourishes",
+      "type": "verb (third person singular / flourish)",
+      "turkish": "Gelişir, serpilir",
+      "example_en": "Biodiversity flourishes in protected national parks where human disturbance is minimized.",
+      "example_tr": "Biyolojik çeşitlilik, insan müdahalesinin en aza indirildiği korunan milli parklarda serpilip gelişir.",
+      "related_verbs": ["thrives", "prospers", "blooms"]
+    }
+  ]
+}
