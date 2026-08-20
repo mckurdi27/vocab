@@ -25,8 +25,8 @@ function generateDayOptions() {
     loadData();
 }
 
-// Hikaye içinde geçen kelimeleri otomatik kırmızı yapmak için fonksiyon
-function highlightStoryWords(text, wordsArray) {
+// İngilizce hikaye için kelimeyi kırmızı vurgulayan fonksiyon
+function highlightStoryWordsEn(text, wordsArray) {
     if (!text || !wordsArray) return text;
     let highlightedText = text;
     
@@ -34,7 +34,26 @@ function highlightStoryWords(text, wordsArray) {
 
     sortedWords.forEach(w => {
         const regex = new RegExp(`\\b(${w.word})\\b`, 'gi');
-        highlightedText = highlightedText.replace(regex, `<span class="highlight-word">$1</span>`);
+        highlightedText = highlightedText.replace(regex, `<span class="highlight-word-en">$1</span>`);
+    });
+
+    return highlightedText;
+}
+
+// Türkçe hikaye için karşılık gelen kelimeyi mavi vurgulayan fonksiyon
+function highlightStoryWordsTr(text, wordsArray) {
+    if (!text || !wordsArray) return text;
+    let highlightedText = text;
+    
+    const sortedWords = [...wordsArray].sort((a, b) => b.turkish.length - a.turkish.length);
+
+    sortedWords.forEach(w => {
+        if (w.turkish) {
+            // Türkçe anlamlarda virgül olabileceği için ilk kelimeyi veya tam eşleşmeyi baz alabiliriz
+            const primaryTr = w.turkish.split(',')[0].trim();
+            const regex = new RegExp(`\\b(${primaryTr})\\b`, 'gi');
+            highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
+        }
     });
 
     return highlightedText;
@@ -45,7 +64,6 @@ async function loadData() {
     const content = document.getElementById('content');
     const sceneBanner = document.getElementById('sceneBanner');
     
-    // Varsa eski hikaye kapsayıcısını temizle
     const oldStoryContainer = document.querySelector('.story-container');
     if (oldStoryContainer) oldStoryContainer.remove();
 
@@ -62,16 +80,15 @@ async function loadData() {
         
         const data = await res.json();
         
-        // Mavi banner sadece başlık ve sayaç bilgilerini tutuyor
         sceneBanner.innerHTML = `
             <div class="banner-level">Seviye: ${data.level || '-'}</div>
             <div class="banner-title">Sahne ${data.scene_id || '-'}: ${data.scene_title || ''}</div>
             <div class="banner-count">Toplam Kelime: ${data.total_words_in_scene || (data.words ? data.words.length : 0)}</div>
         `;
         
-        // Hikaye kutuları mavi banner'ın HEMEN ALTINDA yan yana iki kutu olarak ekleniyor
         if (data.story_en) {
-            const processedStoryEn = highlightStoryWords(data.story_en, data.words);
+            const processedStoryEn = highlightStoryWordsEn(data.story_en, data.words);
+            const processedStoryTr = highlightStoryWordsTr(data.story_tr, data.words);
             
             const storyHTML = document.createElement('div');
             storyHTML.className = 'story-container';
@@ -82,10 +99,9 @@ async function loadData() {
                 </div>
                 <div class="story-box-tr">
                     <span class="story-title">Türkçe Hikaye</span>
-                    <p>${data.story_tr || ''}</p>
+                    <p>${processedStoryTr}</p>
                 </div>
             `;
-            // Sahne banner'ından hemen sonra yerleştir
             sceneBanner.insertAdjacentElement('afterend', storyHTML);
         }
         
