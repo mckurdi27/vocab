@@ -15,7 +15,7 @@ body {
     background: #fff;
     padding: 20px;
     border-radius: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: flex;
     justify-content: space-between;
@@ -24,11 +24,32 @@ body {
     gap: 15px;
 }
 
-.scene-header-info {
+.scene-banner {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: #fff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.banner-level {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.banner-title {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.banner-count {
     font-size: 0.95em;
-    color: #2c3e50;
-    margin-top: 5px;
-    font-weight: 600;
+    opacity: 0.9;
 }
 
 .selectors {
@@ -55,32 +76,38 @@ select {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
-    border-left: 5px solid #4a90e2;
+    border-left: 5px solid #3498db;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.word {
-    font-size: 1.3em;
-    font-weight: bold;
+.word-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.word-box {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex-wrap: wrap;
 }
 
 /* İngilizce kelime Mavi */
 .en-word {
+    font-size: 1.3em;
+    font-weight: bold;
     color: #0066cc; 
 }
 
 .type {
     font-size: 0.6em;
-    background: #eec21338;
-    color: #d35400;
-    padding: 2px 6px;
+    background: #fff3cd;
+    color: #856404;
+    padding: 3px 8px;
     border-radius: 4px;
     text-transform: uppercase;
-    margin-left: auto;
+    font-weight: bold;
 }
 
 .sound-btn {
@@ -97,10 +124,18 @@ select {
     background: #e4e6eb;
 }
 
-/* Türkçe anlamlar Kırmızı */
+.tr-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+/* Türkçe anlam Kırmızı */
 .tr {
     color: #d9534f;
-    margin: 10px 0;
     font-weight: 600;
     font-size: 1.1em;
 }
@@ -132,6 +167,7 @@ select {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 4px;
 }
 
 .related {
