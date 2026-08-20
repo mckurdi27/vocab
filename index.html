@@ -9,12 +9,9 @@
 <body>
 
     <div class="container">
-        <!-- Üst Bilgi ve Seçim Paneli -->
+        <!-- Üst Seçim ve Kontrol Paneli -->
         <header class="header">
-            <div class="title-area">
-                <h2>Kelime Çalışma Paneli</h2>
-                <div id="sceneHeaderInfo" class="scene-header-info">Dosya bekleniyor...</div>
-            </div>
+            <h2>Kelime Çalışma Paneli</h2>
             <div class="selectors">
                 <select id="levelSelect" onchange="generateDayOptions()">
                     <option value="a1">a1 Seviyesi</option>
@@ -26,6 +23,11 @@
                 <select id="daySelect" onchange="loadData()"></select>
             </div>
         </header>
+
+        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı (Kelimelerin Üstünde) -->
+        <div id="sceneBanner" class="scene-banner">
+            <h3>Yükleniyor...</h3>
+        </div>
 
         <!-- İçerik Alanı -->
         <main id="content" class="word-grid">
