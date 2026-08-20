@@ -1,0 +1,408 @@
+{
+  "level": "B1",
+  "scene_id": 3,
+  "scene_title": "Education and Learning",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "study",
+      "type": "verb",
+      "turkish": "Ders çalışmak, öğrenim görmek",
+      "example_en": "University students study engineering and computer science.",
+      "example_tr": "Üniversite öğrencileri mühendislik ve bilgisayar bilimi okuyor.",
+      "related_verbs": ["learn", "examine", "review", "explore", "read"]
+    },
+    {
+      "word": "educate",
+      "type": "verb",
+      "turkish": "Eğitmek, öğretim vermek",
+      "example_en": "Schools aim to educate young people for future careers.",
+      "example_tr": "Okullar, gençleri gelecekteki kariyerleri için eğitmeyi amaçlar.",
+      "related_verbs": ["teach", "instruct", "train", "school", "tutoring"]
+    },
+    {
+      "word": "instruct",
+      "type": "verb",
+      "turkish": "Talimat vermek, eğitmek",
+      "example_en": "Professors instruct students on how to conduct academic research.",
+      "example_tr": "Profesörler öğrencilere akademik araştırma yapma konusunda talimat verir.",
+      "related_verbs": ["teach", "train", "guide", "direct", "educate"]
+    },
+    {
+      "word": "learn",
+      "type": "verb",
+      "turkish": "Öğrenmek",
+      "example_en": "Adults learn new languages using interactive online platforms.",
+      "example_tr": "Yetişkinler interaktif çevrimiçi platformları kullanarak yeni diller öğreniyor.",
+      "related_verbs": ["master", "acquire", "absorb", "grasp", "discover"]
+    },
+    {
+      "word": "memorize",
+      "type": "verb",
+      "turkish": "Ezberlemek",
+      "example_en": "Language learners try to memorize vocabulary lists every week.",
+      "example_tr": "Dil öğrenenler her hafta kelime listelerini ezberlemeye çalışır.",
+      "related_verbs": ["remember", "retain", "recollect", "store", "learn"]
+    },
+    {
+      "word": "practice",
+      "type": "verb",
+      "turkish": "Pratik yapmak, alıştırma yapmak",
+      "example_en": "Students practice speaking German with native speakers.",
+      "example_tr": "Öğrenciler ana dili konuşanlarla Almanca konuşma pratiği yapıyor.",
+      "related_verbs": ["exercise", "rehearse", "train", "drill", "apply"]
+    },
+    {
+      "word": "understand",
+      "type": "verb",
+      "turkish": "Anlamak",
+      "example_en": "It takes time to understand complex grammar rules.",
+      "example_tr": "Karmaşık dilbilgisi kurallarını anlamak zaman alır.",
+      "related_verbs": ["comprehend", "grasp", "realize", "perceive", "follow"]
+    },
+    {
+      "word": "comprehend",
+      "type": "verb",
+      "turkish": "Kavramak, iyice anlamak",
+      "example_en": "Readers need context to comprehend advanced literary texts.",
+      "example_tr": "Okuyucuların gelişmiş edebi metinleri kavraması için bağlama ihtiyacı vardır.",
+      "related_verbs": ["understand", "grasp", "apprehend", "figure", "realize"]
+    },
+    {
+      "word": "improve",
+      "type": "verb",
+      "turkish": "Geliştirmek, ilerletmek",
+      "example_en": "Reading books helps students improve their writing skills.",
+      "example_tr": "Kitap okumak öğrencilerin yazma becerilerini geliştirmesine yardımcı olur.",
+      "related_verbs": ["enhance", "upgrade", "better", "progress", "develop"]
+    },
+    {
+      "word": "progress",
+      "type": "verb",
+      "turkish": "İlerlemek, kaydetmek",
+      "example_en": "Language students progress from beginner to intermediate levels.",
+      "example_tr": "Dil öğrencileri başlangıç seviyesinden orta seviyeye ilerler.",
+      "related_verbs": ["advance", "proceed", "develop", "grow", "improve"]
+    },
+    {
+      "word": "achieve",
+      "type": "verb",
+      "turkish": "Başarmak, elde etmek",
+      "example_en": "Candidates strive to achieve high scores in language exams.",
+      "example_tr": "Adaylar dil sınavlarında yüksek puanlar elde etmeye çalışır.",
+      "related_verbs": ["attain", "reach", "accomplish", "fulfill", "secure"]
+    },
+    {
+      "word": "succeed",
+      "type": "verb",
+      "turkish": "Başarılı olmak",
+      "example_en": "Hardworking students succeed in passing their final exams.",
+      "example_tr": "Çalışkan öğrenciler final sınavlarını geçmede başarılı olur.",
+      "related_verbs": ["triumph", "prosper", "flourish", "accomplish", "pass"]
+    },
+    {
+      "word": "fail",
+      "type": "verb",
+      "turkish": "Başarısız olmak, kalmak (sınavdan)",
+      "example_en": "If you do not prepare well, you might fail the test.",
+      "example_tr": "İyi hazırlanmazsanız testten kalabilirsiniz.",
+      "related_verbs": ["flop", "miscarry", "collapse", "flunk", "slip"]
+    },
+    {
+      "word": "graduates",
+      "type": "verb",
+      "turkish": "Mezun olmak",
+      "example_en": "Thousands of university students graduate every summer.",
+      "example_tr": "Her yaz binlerce üniversite öğrencisi mezun oluyor.",
+      "related_verbs": ["qualify", "finish", "complete", "pass", "move on"]
+    },
+    {
+      "word": "enroll",
+      "type": "verb",
+      "turkish": "Kayıt olmak",
+      "example_en": "Many adults enroll in vocational training courses.",
+      "example_tr": "Birçok yetişkin mesleki eğitim kurslarına kayıt oluyor.",
+      "related_verbs": ["register", "join", "sign up", "enter", "matriculate"]
+    },
+    {
+      "word": "register",
+      "type": "verb",
+      "turkish": "Kaydolmak",
+      "example_en": "Students must register for classes before the semester begins.",
+      "example_tr": "Öğrenciler dönem başlamadan önce derslere kaydolmalıdır.",
+      "related_verbs": ["enroll", "sign up", "book", "list", "record"]
+    },
+    {
+      "word": "attend",
+      "type": "verb",
+      "turkish": "Katılmak (ders/okul)",
+      "example_en": "Children are required to attend school on weekdays.",
+      "example_tr": "Çocukların hafta içi okula katılması zorunludur.",
+      "related_verbs": ["participate", "visit", "frequent", "presence", "join"]
+    },
+    {
+      "word": "participate",
+      "type": "verb",
+      "turkish": "Katılmak (etkinliğe/tartışmaya)",
+      "example_en": "Active learners participate in classroom discussions.",
+      "example_tr": "Aktif öğrenenler sınıf tartışmalarına katılır.",
+      "related_verbs": ["join", "engage", "attend", "share", "contribute"]
+    },
+    {
+      "word": "discuss",
+      "type": "verb",
+      "turkish": "Tartışmak, müzakere etmek",
+      "example_en": "Classmates discuss historical events in small groups.",
+      "example_tr": "Sınıf arkadaşları küçük gruplar halinde tarihi olayları tartışıyor.",
+      "related_verbs": ["debate", "talk", "review", "consider", "explore"]
+    },
+    {
+      "word": "explain",
+      "type": "verb",
+      "turkish": "Açıklamak",
+      "example_en": "Teachers explain difficult concepts using visual examples.",
+      "example_tr": "Öğretmenler görsel örnekler kullanarak zor kavramları açıklar.",
+      "related_verbs": ["clarify", "describe", "illustrate", "define", "interpret"]
+    },
+    {
+      "word": "present",
+      "type": "verb",
+      "turkish": "Sunmak, sunum yapmak",
+      "example_en": "Students present their research projects to the class.",
+      "example_tr": "Öğrenciler araştırma projelerini sınıfa sunuyor.",
+      "related_verbs": ["show", "demonstrate", "introduce", "deliver", "exhibit"]
+    },
+    {
+      "word": "research",
+      "type": "verb",
+      "turkish": "Araştırma yapmak",
+      "example_en": "Researchers investigate scientific topics in laboratories.",
+      "example_tr": "Araştırmacılar laboratuvarlarda bilimsel konuları inceliyor (araştırıyor).",
+      "related_verbs": ["investigate", "explore", "study", "examine", "probe"]
+    },
+    {
+      "word": "analyze",
+      "type": "verb",
+      "turkish": "Analiz etmek, incelemek",
+      "example_en": "Students analyze data collected from science experiments.",
+      "example_tr": "Öğrenciler bilim deneylerinden toplanan verileri analiz eder.",
+      "related_verbs": ["examine", "evaluate", "inspect", "study", "assess"]
+    },
+    {
+      "word": "evaluate",
+      "type": "verb",
+      "turkish": "Değerlendirmek",
+      "example_en": "Teachers evaluate student essays based on clear criteria.",
+      "example_tr": "Öğretmenler öğrenci kompozisyonlarını net kriterlere göre değerlendirir.",
+      "related_verbs": ["assess", "judge", "appraise", "review", "estimate"]
+    },
+    {
+      "word": "test",
+      "type": "verb",
+      "turkish": "Test etmek, sınava tabi tutmak",
+      "example_en": "Instructors test student knowledge with weekly quizzes.",
+      "example_tr": "Eğitmenler haftalık kısa sınavlarla öğrenci bilgisini test eder.",
+      "related_verbs": ["examine", "check", "assess", "evaluate", "trial"]
+    },
+    {
+      "word": "examine",
+      "type": "verb",
+      "turkish": "İncelemek, sınava almak",
+      "example_en": "Examiners examine candidates during oral language tests.",
+      "example_tr": "Sınav görevlileri sözlü dil sınavları sırasında adayları sınava alır.",
+      "related_verbs": ["inspect", "test", "check", "explore", "study"]
+    },
+    {
+      "word": "prepare",
+      "type": "verb",
+      "turkish": "Hazırlanmak, hazırlamak",
+      "example_en": "Teens prepare for university entrance examinations for months.",
+      "example_tr": "Gençler aylarca üniversite giriş sınavlarına hazırlanır.",
+      "related_verbs": ["ready", "plan", "arrange", "set", "train"]
+    },
+    {
+      "word": "revise",
+      "type": "verb",
+      "turkish": "Gözden geçirmek, tekrar etmek",
+      "example_en": "Learners revise their notes the night before an exam.",
+      "example_tr": "Öğrenciler sınavdan önceki gece notlarını gözden geçirir (tekrar eder).",
+      "related_verbs": ["review", "edit", "correct", "update", "reexamine"]
+    },
+    {
+      "word": "review",
+      "type": "verb",
+      "turkish": "Gözden geçirmek, incelemek",
+      "example_en": "Teachers review past lessons to ensure student understanding.",
+      "example_tr": "Öğretmenler öğrenci anlamasını sağlamak için geçmiş dersleri gözden geçirir.",
+      "related_verbs": ["examine", "inspect", "check", "revisit", "assess"]
+    },
+    {
+      "word": "solve",
+      "type": "verb",
+      "turkish": "Çözmek (problem/soru)",
+      "example_en": "Math students solve complex equations on the blackboard.",
+      "example_tr": "Matematik öğrencileri tahtada karmaşık denklemler çözer.",
+      "related_verbs": ["resolve", "figure", "answer", "crack", "clear"]
+    },
+    {
+      "word": "calculate",
+      "type": "verb",
+      "turkish": "Hesaplamak",
+      "example_en": "Physics students calculate speed and distance values.",
+      "example_tr": "Fizik öğrencileri hız ve mesafe değerlerini hesaplar.",
+      "related_verbs": ["compute", "estimate", "figure", "count", "measure"]
+    },
+    {
+      "word": "read",
+      "type": "verb",
+      "turkish": "Okumak",
+      "example_en": "Avid learners read informative books to gain broad knowledge.",
+      "example_tr": "Hevesli öğrenenler geniş bilgi edinmek için bilgilendirici kitaplar okur.",
+      "related_verbs": ["scan", "peruse", "browse", "study", "look"]
+    },
+    {
+      "word": "write",
+      "type": "verb",
+      "turkish": "Yazmak",
+      "example_en": "University applicants write personal motivation letters.",
+      "example_tr": "Üniversite adayları kişisel motivasyon mektupları yazar.",
+      "related_verbs": ["compose", "author", "draft", "pen", "record"]
+    },
+    {
+      "word": "spell",
+      "type": "verb",
+      "turkish": "Hecelemek, harf harf yazmak",
+      "example_en": "Children learn how to spell difficult words correctly.",
+      "example_tr": "Çocuklar zor kelimeleri doğru şekilde hecelemeyi öğrenir.",
+      "related_verbs": ["write", "sound", "form", "recite", "express"]
+    },
+    {
+      "word": "pronounce",
+      "type": "verb",
+      "turkish": "Telaffuz etmek, söylemek",
+      "example_en": "Students practice to pronounce foreign words accurately.",
+      "example_tr": "Öğrenciler yabancı kelimeleri doğru telaffuz etmek için pratik yapar.",
+      "related_verbs": ["articulate", "speak", "voice", "utter", "say"]
+    },
+    {
+      "word": "translate",
+      "type": "verb",
+      "turkish": "Çevirmek (bir dilden diğerine)",
+      "example_en": "Bilingual speakers translate texts between English and Turkish.",
+      "example_tr": "İki dilli konuşmacılar İngilizce ve Türkçe arasında metin çevirisi yapar.",
+      "related_verbs": ["convert", "interpret", "transcribe", "change", "render"]
+    },
+    {
+      "word": "interpret",
+      "type": "verb",
+      "turkish": "Yorumlamak, tercüme etmek",
+      "example_en": "Students interpret data graphs and statistical charts.",
+      "example_tr": "Öğrenciler veri grafiklerini ve istatistiksel tabloları yorumlar.",
+      "related_verbs": ["translate", "explain", "decode", "read", "construe"]
+    },
+    {
+      "word": "concentrate",
+      "type": "verb",
+      "turkish": "Konsantre olmak, odaklanmak",
+      "example_en": "Quiet study rooms help students concentrate on reading.",
+      "example_tr": "Sessiz çalışma odaları öğrencilerin okumaya odaklanmasına yardımcı olur.",
+      "related_verbs": ["focus", "attention", "center", "direct", "apply"]
+    },
+    {
+      "word": "focus",
+      "type": "verb",
+      "turkish": "Odaklanmak",
+      "example_en": "Learners focus on listening exercises during language labs.",
+      "example_tr": "Öğrenenler dil laboratuvarları sırasında dinleme egzersizlerine odaklanır.",
+      "related_verbs": ["concentrate", "center", "target", "hone", "zero"]
+    },
+    {
+      "word": "pay attention",
+      "type": "verb",
+      "turkish": "Dikkat etmek",
+      "example_en": "Good listeners pay attention to instructions given by teachers.",
+      "example_tr": "İyi dinleyiciler öğretmenlerin verdiği talimatlara dikkat eder.",
+      "related_verbs": ["heed", "listen", "notice", "observe", "attend"]
+    },
+    {
+      "word": "absent",
+      "type": "verb",
+      "turkish": "Derse gelmemek, okula gitmemek (fiilimsel kullanım)",
+      "example_en": "Students who absent themselves from school miss key lectures.",
+      "example_tr": "Okuldan uzak kalan (devamsızlık yapan) öğrenciler önemli dersleri kaçırır.",
+      "related_verbs": ["miss", "skip", "avoid", "stay away", "default"]
+    },
+    {
+      "word": "skip",
+      "type": "verb",
+      "turkish": "Atlamak, derse girmemek",
+      "example_en": "Students should not skip classes if they want to pass.",
+      "example_tr": "Öğrenciler geçmek istiyorlarsa dersleri atlamamalıdır.",
+      "related_verbs": ["miss", "jump", "avoid", "omit", "bypass"]
+    },
+    {
+      "word": "participate",
+      "type": "verb",
+      "turkish": "Yer almak, iştirak etmek",
+      "example_en": "Schools encourage all children to participate in sports.",
+      "example_tr": "Okullar tüm çocukları spor faaliyetlerinde yer almaya teşvik eder.",
+      "related_verbs": ["join", "attend", "engage", "share", "contribute"]
+    },
+    {
+      "word": "collaborate",
+      "type": "verb",
+      "turkish": "Birlikte çalışmak, ortak proje yapmak",
+      "example_en": "Classmates collaborate on group science presentations.",
+      "example_tr": "Sınıf arkadaşları grup fen sunumları üzerinde birlikte çalışır.",
+      "related_verbs": ["cooperate", "partner", "unite", "join", "team up"]
+    },
+    {
+      "word": "share",
+      "type": "verb",
+      "turkish": "Paylaşmak (fikir/bilgi)",
+      "example_en": "Peers share ideas during brainstorming study sessions.",
+      "example_tr": "Akranlar beyin fırtınası çalışma seansları sırasında fikirlerini paylaşır.",
+      "related_verbs": ["distribute", "exchange", "divide", "partake", "pass"]
+    },
+    {
+      "word": "exchange",
+      "type": "verb",
+      "turkish": "Değiş tokuş etmek, fikir alışverişinde bulunmak",
+      "example_en": "International students exchange cultural experiences.",
+      "example_tr": "Uluslararası öğrenciler kültürel deneyimleri değiş tokuş eder.",
+      "related_verbs": ["swap", "trade", "switch", "replace", "transfer"]
+    },
+    {
+      "word": "develop",
+      "type": "verb",
+      "turkish": "Geliştirmek, ortaya koymak",
+      "example_en": "Education helps young people develop critical thinking skills.",
+      "example_tr": "Eğitim, gençlerin eleştirel düşünme becerilerini geliştirmesine yardımcı olur.",
+      "related_verbs": ["grow", "build", "expand", "advance", "foster"]
+    },
+    {
+      "word": "foster",
+      "type": "verb",
+      "turkish": "Teşvik etmek, geliştirmek (yetenek/ilgiyi)",
+      "example_en": "Creative schools foster a love of learning in children.",
+      "example_tr": "Yaratıcı okullar çocuklarda öğrenme sevgisini teşvik eder.",
+      "related_verbs": ["encourage", "promote", "nurture", "support", "cultivate"]
+    },
+    {
+      "word": "succeed",
+      "type": "verb",
+      "turkish": "Başarıya ulaşmak",
+      "example_en": "Motivated individuals succeed by staying persistent.",
+      "example_tr": "Motive olmuş bireyler ısrarcı kalarak başarıya ulaşır.",
+      "related_verbs": ["achieve", "prosper", "triumph", "flourish", "accomplish"]
+    },
+    {
+      "word": "graduate",
+      "type": "verb",
+      "turkish": "Mezuniyet aşamasını tamamlamak",
+      "example_en": "She works hard to graduate with top honors.",
+      "example_tr": "En yüksek derecelerle mezun olmak için çok çalışıyor.",
+      "related_verbs": ["qualify", "finish", "complete", "pass", "conclude"]
+    }
+  ]
+}

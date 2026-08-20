@@ -1,0 +1,409 @@
+
+{
+  "level": "B1",
+  "scene_id": 36,
+  "scene_title": "Travel and Tourism",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "travel",
+      "type": "verb",
+      "turkish": "Seyahat etmek",
+      "example_en": "Millions of tourists travel abroad to explore historic European capital cities.",
+      "example_tr": "Milyonlarca turist tarihi Avrupa başkentlerini keşfetmek için yurt dışına seyahat eder.",
+      "related_verbs": ["journey", "tour", "trip", "voyage", "roam"]
+    },
+    {
+      "word": "book",
+      "type": "verb",
+      "turkish": "Yer ayırtmak, rezervasyon yapmak",
+      "example_en": "Vacationers book comfortable hotel rooms and airline tickets months in advance.",
+      "example_tr": "Tatilciler aylar öncesinden konforlu otel odaları ve uçak biletleri ayırtır.",
+      "related_verbs": ["reserve", "schedule", "secure", "order", "arrange"]
+    },
+    {
+      "word": "explore",
+      "type": "verb",
+      "turkish": "Keşfetmek, gezip görmek",
+      "example_en": "Backpackers explore hidden alleyways and ancient ruins during summer holidays.",
+      "example_tr": "Sırt çantalı gezginler yaz tatillerinde gizli sokak aralarını ve antik kalıntıları keşfeder.",
+      "related_verbs": ["discover", "investigate", "examine", "survey", "inspect"]
+    },
+    {
+      "word": "visit",
+      "type": "verb",
+      "turkish": "Ziyaret etmek",
+      "example_en": "Sightseers visit famous museums and art galleries in downtown Paris.",
+      "example_tr": "Gezginler Paris merkezindeki ünlü müzeleri ve sanat galerilerini ziyaret eder.",
+      "related_verbs": ["call on", "tour", "attend", "frequent", "stop by"]
+    },
+    {
+      "word": "pack",
+      "type": "verb",
+      "turkish": "Bavul hazırlamak, eşya toplamak",
+      "example_en": "Travelers pack warm winter clothing and hiking boots before mountain trips.",
+      "example_tr": "Gezginler dağ gezilerinden önce kalın kış kıyafetleri ve yürüyüş botları bavula koyar.",
+      "related_verbs": ["load", "fill", "prepare", "bundle", "wrap"]
+    },
+    {
+      "word": "unpack",
+      "type": "verb",
+      "turkish": "Bavul açmak, eşyaları yerleştirmek",
+      "example_en": "Guests unpack their suitcases immediately after arriving at beach resort rooms.",
+      "example_tr": "Misafirler plaj tatil köyü odalarına vardıktan hemen sonra bavullarını açar.",
+      "related_verbs": ["empty", "unload", "disclose", "remove", "open"]
+    },
+    {
+      "word": "arrive",
+      "type": "verb",
+      "turkish": "Varmak, ulaşmak",
+      "example_en": "International flights arrive at busy airport terminals on schedule.",
+      "example_tr": "Uluslararası uçuşlar yoğun havaalanı terminallerine zamanında varır.",
+      "related_verbs": ["reach", "get to", "land", "appear", "come"]
+    },
+    {
+      "word": "depart",
+      "type": "verb",
+      "turkish": "Hareket etmek, kalkmak",
+      "example_en": "Express trains depart from central railway stations every single hour.",
+      "example_tr": "Ekspres trenler her saat başı merkezi tren istasyonlarından hareket eder.",
+      "related_verbs": ["leave", "start", "exit", "set out", "go"]
+    },
+    {
+      "word": "fly",
+      "type": "verb",
+      "turkish": "Uçmak",
+      "example_en": "Business executives fly across continents to attend international corporate conferences.",
+      "example_tr": "İş yöneticileri uluslararası şirket konferanslarına katılmak için kıtalar arası uçakla seyahat eder.",
+      "related_verbs": ["soar", "pilot", "glide", "cruise", "travel"]
+    },
+    {
+      "word": "cruise",
+      "type": "verb",
+      "turkish": "Gemi turu yapmak",
+      "example_en": "Retired couples cruise along the Mediterranean coast on luxury ocean liners.",
+      "example_tr": "Emekli çiftler lüks yolcu gemileriyle Akdeniz kıyısı boyunca seyahat eder.",
+      "related_verbs": ["sail", "navigate", "drift", "journey", "travel"]
+    },
+    {
+      "word": "stay",
+      "type": "verb",
+      "turkish": "Kalmak, konaklamak",
+      "example_en": "Tourists stay at boutique hotels located near historic city center squares.",
+      "example_tr": "Turistler tarihi şehir merkezi meydanlarının yakınında bulunan butik otellerde konaklar.",
+      "related_verbs": ["reside", "lodge", "dwell", "remain", "visit"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Dinlenmek, rahatlamak",
+      "example_en": "Holidaymakers relax on sandy tropical beaches under warm sunshine.",
+      "example_tr": "Tatilciler sıcak güneş altında kumlu tropikal plajlarda dinlenir.",
+      "related_verbs": ["rest", "unwind", "chill", "repose", "loiter"]
+    },
+    {
+      "word": "sightsee",
+      "type": "verb",
+      "turkish": "Turistik yerleri gezip görmek",
+      "example_en": "Tour groups sightsee around ancient architectural monuments all morning.",
+      "example_tr": "Tur grupları tüm sabah boyunca antik mimari anıtların etrafını gezer.",
+      "related_verbs": ["tour", "explore", "wander", "look around", "visit"]
+    },
+    {
+      "word": "wander",
+      "type": "verb",
+      "turkish": "Aylak aylak dolaşmak, gezmek",
+      "example_en": "Visitors wander through cobblestone streets of medieval European towns.",
+      "example_tr": "Ziyaretçiler orta çağ Avrupa kasabalarının arnavut kaldırımlı sokaklarında dolaşır.",
+      "related_verbs": ["stroll", "roam", "walk", "drif", "ramble"]
+    },
+    {
+      "word": "stroll",
+      "type": "verb",
+      "turkish": "Gezinmek, yürüyüş yapmak",
+      "example_en": "Couples stroll along scenic coastal promenades during warm summer evenings.",
+      "example_tr": "Çiftler sıcak yaz akşamlarında manzaralı sahil yürüyüş yollarında gezinir.",
+      "related_verbs": ["walk", "wander", "saunter", "amble", "trek"]
+    },
+    {
+      "word": "hike",
+      "type": "verb",
+      "turkish": "Doğa yürüyüşü yapmak",
+      "example_en": "Adventure seekers hike steep mountain trails to reach panoramic viewpoints.",
+      "example_tr": "Macera arayanlar panoramik manzaralara ulaşmak için dik dağ patikalarında yürüyüş yapar.",
+      "related_verbs": ["trek", "walk", "climb", "backpack", "ramble"]
+    },
+    {
+      "word": "camp",
+      "type": "verb",
+      "turkish": "Kamp yapmak",
+      "example_en": "Nature lovers camp beneath starry night skies in national parks.",
+      "example_tr": "Doğa severler milli parklarda yıldızlı gece gökyüzü altında kamp yapar.",
+      "related_verbs": ["pitch tent", "bivouac", "glamp", "lodge", "reside"]
+    },
+    {
+      "word": "sunbathe",
+      "type": "verb",
+      "turkish": "Güneşlenmek",
+      "example_en": "Sunseekers sunbathe beside outdoor swimming pools during tropical afternoons.",
+      "example_tr": "Güneş arayanlar tropikal öğleden sonraları açık havuzların yanında güneşlenir.",
+      "related_verbs": ["tan", "relax", "bask", "lie", "rest"]
+    },
+    {
+      "word": "swim",
+      "type": "verb",
+      "turkish": "Yüzmek",
+      "example_en": "Children swim happily in crystal clear turquoise ocean water lagoons.",
+      "example_tr": "Çocuklar berrak turkuaz okyanus suyu lagünlerinde mutlulukla yüzer.",
+      "related_verbs": ["dive", "float", "splash", "paddle", "bathe"]
+    },
+    {
+      "word": "snorkels",
+      "type": "verb",
+      "turkish": "Şnorkelle dalış yapmak",
+      "example_en": "Divers snorkel over coral reefs to observe colorful tropical fish species.",
+      "example_tr": "Dalgıçlar renkli tropikal balık türlerini gözlemlemek için mercan resifleri üzerinde şnorkelle dalar.",
+      "related_verbs": ["dive", "swim", "explore", "immerse", "float"]
+    },
+    {
+      "word": "photograph",
+      "type": "verb",
+      "turkish": "Fotoğraflamak",
+      "example_en": "Tourists photograph magnificent wildlife animals during African safari tours.",
+      "example_tr": "Turistler Afrika safari turları sırasında muhteşem yaban hayatı hayvanlarını fotoğraflar.",
+      "related_verbs": ["capture", "shoot", "snap", "picture", "record"]
+    },
+    {
+      "word": "souvenir",
+      "type": "verb",
+      "turkish": "Hediyelik eşya almak / Hatıra toplamak",
+      "example_en": "Visitors souvenir local handmade crafts from traditional market stalls.",
+      "example_tr": "Ziyaretçiler geleneksel pazar tezgahlarından yerel el yapımı el sanatları hatırası alır.",
+      "related_verbs": ["collect", "buy", "purchase", "gather", "keep"]
+    },
+    {
+      "word": "bargain",
+      "type": "verb",
+      "turkish": "Pazarlık yapmak",
+      "example_en": "Shoppers bargain with local merchants for cheaper prices at open bazaars.",
+      "example_tr": "Alışveriş yapanlar açık pazarlarda daha ucuz fiyatlar için yerel esnafla pazarlık yapar.",
+      "related_verbs": ["negotiate", "haggle", "deal", "trade", "discuss"]
+    },
+    {
+      "word": "rent",
+      "type": "verb",
+      "turkish": "Kiralamak",
+      "example_en": "Vacationers rent compact cars to drive around island coastal roads.",
+      "example_tr": "Tatilciler ada sahil yollarında araba sürmek için küçük arabalar kiralar.",
+      "related_verbs": ["hire", "lease", "borrow", "charter", "book"]
+    },
+    {
+      "word": "guide",
+      "type": "verb",
+      "turkish": "Rehberlik etmek",
+      "example_en": "Expert local guides guide tour groups through historic castle ruins.",
+      "example_tr": "Uzman yerel rehberler tur gruplarına tarihi kale kalıntıları arasında rehberlik eder.",
+      "related_verbs": ["lead", "direct", "conduct", "escort", "show"]
+    },
+    {
+      "word": "navigate",
+      "type": "verb",
+      "turkish": "Yön bulmak, navigasyon kullanmak",
+      "example_en": "Drivers navigate unfamiliar foreign city streets using digital GPS mapping apps.",
+      "example_tr": "Sürücüler dijital GPS harita uygulamalarını kullanarak yabancı şehir sokaklarında yön bulur.",
+      "related_verbs": ["pilot", "steer", "orient", "route", "direct"]
+    },
+    {
+      "word": "delay",
+      "type": "verb",
+      "turkish": "Gecikmek / Rötar yapmak",
+      "example_en": "Heavy fog conditions delay international flight departures at foggy airports.",
+      "example_tr": "Yoğun sis koşulları sisli havalimanlarındaki uluslararası uçuş kalkışlarını geciktirir.",
+      "related_verbs": ["postpone", "defer", "hold", "suspend", "lag"]
+    },
+    {
+      "word": "cancel",
+      "type": "verb",
+      "turkish": "İptal etmek",
+      "example_en": "Airlines cancel scheduled flights when severe tropical hurricanes approach.",
+      "example_tr": "Havayolları şiddetli tropikal kasırgalar yaklaştığında tarifeli uçuşları iptal eder.",
+      "related_verbs": ["call off", "terminate", "abort", "revoke", "scrap"]
+    },
+    {
+      "word": "board",
+      "type": "verb",
+      "turkish": "Uçağa/gemiye binmek",
+      "example_en": "Passengers board commercial aircraft thirty minutes before departure time.",
+      "example_tr": "Yolcular kalkış saatinden otuz dakika önce ticari uçağa biner.",
+      "related_verbs": ["embark", "enter", "get on", "mount", "catch"]
+    },
+    {
+      "word": "land",
+      "type": "verb",
+      "turkish": "İniş yapmak",
+      "example_en": "Commercial airplanes land smoothly on lighted runway asphalt strips.",
+      "example_tr": "Ticari uçaklar aydınlatılmış pist asfalt şeritlerine sorunsuz bir şekilde iniş yapar.",
+      "related_verbs": ["touch down", "arrive", "descend", "come down", "settle"]
+    },
+    {
+      "word": "check-in",
+      "type": "verb",
+      "turkish": "Giriş yapmak / Kayıt yaptırmak",
+      "example_en": "Hotel guests check-in at front desk reception counters upon arrival.",
+      "example_tr": "Otel misafirleri varışta ön büro resepsiyon bankolarında giriş yapar.",
+      "related_verbs": ["register", "arrive", "log in", "enroll", "check"]
+    },
+    {
+      "word": "check-out",
+      "type": "verb",
+      "turkish": "Çıkış yapmak",
+      "example_en": "Visitors check-out of their rooms before twelve o'clock noon.",
+      "example_tr": "Ziyaretçiler öğlen saat on ikiden önce odalarından çıkış yapar.",
+      "related_verbs": ["leave", "depart", "settle", "vacate", "exit"]
+    },
+    {
+      "word": "lose",
+      "type": "verb",
+      "turkish": "Kaybetmek",
+      "example_en": "Careless tourists sometimes lose luggage bags during international transit connections.",
+      "example_tr": "Dikkatsiz turistler bazen uluslararası transfer bağlantıları sırasında bavullarını kaybeder.",
+      "related_verbs": ["misplace", "forfeit", "drop", "miss", "fail"]
+    },
+    {
+      "word": "find",
+      "type": "verb",
+      "turkish": "Bulmak",
+      "example_en": "Travelers find great hotel deals using online accommodation comparison websites.",
+      "example_tr": "Gezginler çevrimiçi konaklama karşılaştırma web sitelerini kullanarak harika otel fırsatları bulur.",
+      "related_verbs": ["locate", "discover", "spot", "recover", "encounter"]
+    },
+    {
+      "word": "enjoy",
+      "type": "verb",
+      "turkish": "Keyif almak, tadını çıkarmak",
+      "example_en": "Families enjoy delicious local cuisine at traditional outdoor restaurants.",
+      "example_tr": "Aileler geleneksel açık hava restoranlarında lezzetli yerel mutfağın tadını çıkarır.",
+      "related_verbs": ["like", "love", "relish", "appreciate", "delight"]
+    },
+    {
+      "word": "experience",
+      "type": "verb",
+      "turkish": "Deneyimlemek",
+      "example_en": "Backpackers experience diverse cultural traditions throughout foreign journeys.",
+      "example_tr": "Sırt çantalı gezginler yabancı yolculuklar boyunca farklı kültürel gelenekleri deneyimler.",
+      "related_verbs": ["encounter", "feel", "undergo", "live", "witness"]
+    },
+    {
+      "word": "sample",
+      "type": "verb",
+      "turkish": "Tadına bakmak, denemek",
+      "example_en": "Food tourists sample authentic street foods during evening city food tours.",
+      "example_tr": "Yemek turistleri akşam şehir yemek turları sırasında otantik sokak yemeklerinin tadına bakar.",
+      "related_verbs": ["taste", "try", "test", "evaluate", "consume"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Dinlenmek",
+      "example_en": "Spa guests relax inside peaceful sauna rooms after long journey days.",
+      "example_tr": "Spa misafirleri uzun yolculuk günlerinden sonra huzurlu sauna odalarında dinlenir.",
+      "related_verbs": ["unwind", "rest", "calm", "repose", "loiter"]
+    },
+    {
+      "word": "return",
+      "type": "verb",
+      "turkish": "Geri dönmek",
+      "example_en": "Vacationers return home with wonderful memories and heavy photo albums.",
+      "example_tr": "Tatilciler harika anılar ve ağır fotoğraf albümleriyle eve geri döner.",
+      "related_verbs": ["come back", "go back", "revert", "retire", "withdraw"]
+    },
+    {
+      "word": "pack",
+      "type": "verb",
+      "turkish": "Toplanmak / Bavula koymak",
+      "example_en": "Tourists pack all belongings before leaving hotel rooms for airport transfers.",
+      "example_tr": "Turistler havaalanı transferleri için otel odalarından ayrılmadan önce tüm eşyalarını toplar.",
+      "related_verbs": ["gather", "collect", "store", "load", "prepare"]
+    },
+    {
+      "word": "tour",
+      "type": "verb",
+      "turkish": "Tur yapmak, gezmek",
+      "example_en": "International travelers tour ancient historical landmarks with audio guide devices.",
+      "example_tr": "Uluslararası gezginler sesli rehber cihazlarıyla antik tarihi simge yapıları turlar.",
+      "related_verbs": ["travel", "visit", "explore", "journey", "inspect"]
+    },
+    {
+      "word": "escape",
+      "type": "verb",
+      "turkish": "Kaçmak / Uzaklaşmak (tatil için)",
+      "example_en": "City workers escape busy office routines by taking weekend countryside trips.",
+      "example_tr": "Şehir çalışanları hafta sonu kırsal bölge gezileri yaparak yoğun ofis rutinlerinden uzaklaşır.",
+      "related_verbs": ["get away", "flee", "evade", "retreat", "leave"]
+    },
+    {
+      "word": "discover",
+      "type": "verb",
+      "turkish": "Keşfetmek",
+      "example_en": "Hikers discover secluded waterfalls hidden deep inside green mountain forests.",
+      "example_tr": "Doğa yürüyüşçüleri yeşil dağ ormanlarının derinliklerinde saklı gözden uzak şelaleleri keşfeder.",
+      "related_verbs": ["find", "uncover", "reveal", "detect", "explore"]
+    },
+    {
+      "word": "admire",
+      "type": "verb",
+      "turkish": "Hayranlıkla izlemek",
+      "example_en": "Sightseers admire breathtaking architectural masterpieces built centuries ago.",
+      "example_tr": "Gezginler yüzyıllar önce inşa edilmiş nefes kesici mimari şaheserlere hayranlıkla bakar.",
+      "related_verbs": ["appreciate", "wonder", "adore", "respect", "regard"]
+    },
+    {
+      "word": "interact",
+      "type": "verb",
+      "turkish": "İletişim kurmak, etkileşime girmek",
+      "example_en": "Travelers interact with friendly local villagers during rural community visits.",
+      "example_tr": "Gezginler kırsal toplum ziyaretleri sırasında samimi yerel köylülerle etkileşime girer.",
+      "related_verbs": ["communicate", "socialize", "engage", "connect", "meet"]
+    },
+    {
+      "word": "cruise",
+      "type": "verb",
+      "turkish": "Seyretmek (tekne/gemi ile)",
+      "example_en": "Tourists cruise down calm river waters on wooden sightseeing boats.",
+      "example_tr": "Turistler ahşap gezi tekneleriyle sakin nehir sularında seyreder.",
+      "related_verbs": ["sail", "navigate", "drift", "float", "travel"]
+    },
+    {
+      "word": "venture",
+      "type": "verb",
+      "turkish": "Girişmek, göze alarak gitmek",
+      "example_en": "Brave explorers venture into uncharted jungle territories during expeditions.",
+      "example_tr": "Cesur kaşifler keşif gezileri sırasında haritalandırılmamış orman bölgelerine girer.",
+      "related_verbs": ["dare", "risk", "proceed", "journey", "explore"]
+    },
+    {
+      "word": "commute",
+      "type": "verb",
+      "turkish": "Yolculuk yapmak (günlük/şehir içi)",
+      "example_en": "Suburban tourists commute downtown daily using public subway transportation systems.",
+      "example_tr": "Banliyö turistleri halka açık metro ulaşım sistemlerini kullanarak günlük olarak merkeze yolculuk yapar.",
+      "related_verbs": ["travel", "journey", "transit", "ride", "transfer"]
+    },
+    {
+      "word": "wander",
+      "type": "verb",
+      "turkish": "Gezinmek",
+      "example_en": "Visitors wander through colorful local street markets smelling exotic spices.",
+      "example_tr": "Ziyaretçiler egzotik baharatları koklayarak rengarenk yerel sokak pazarlarında gezinir.",
+      "related_verbs": ["stroll", "roam", "walk", "drift", "amble"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Rahatlamak",
+      "example_en": "Guests relax on comfortable balcony lounge chairs watching sunset ocean views.",
+      "example_tr": "Misafirler gün batımı okyanus manzaralarını izleyerek konforlu balkon dinlenme koltuklarında rahatlar.",
+      "related_verbs": ["unwind", "rest", "chill", "repose", "breathe"]
+    }
+  ]
+}

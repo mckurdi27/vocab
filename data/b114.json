@@ -1,0 +1,408 @@
+{
+  "level": "B1",
+  "scene_id": 14,
+  "scene_title": "Housing and Accommodation",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "live",
+      "type": "verb",
+      "turkish": "Yaşamak, ikamet etmek",
+      "example_en": "Many young professionals live in cozy apartments near the city center.",
+      "example_tr": "Birçok genç profesyonel şehir merkezine yakın rahat dairelerde yaşıyor.",
+      "related_verbs": ["reside", "dwell", "inhabit", "stay", "occupy"]
+    },
+    {
+      "word": "rent",
+      "type": "verb",
+      "turkish": "Kiralamak",
+      "example_en": "Students often rent small furnished rooms while studying at university.",
+      "example_tr": "Öğrenciler genellikle üniversitede okurken küçük eşyalı odalar kiralarlar.",
+      "related_verbs": ["lease", "hire", "borrow", "charter", "sublet"]
+    },
+    {
+      "word": "buy",
+      "type": "verb",
+      "turkish": "Satın almak (ev)",
+      "example_en": "Couples usually save money for years before they can buy their first house.",
+      "example_tr": "Çiftler genellikle ilk evlerini satın alabilmeden önce yıllarca para biriktirirler.",
+      "related_verbs": ["purchase", "acquire", "invest", "secure", "procure"]
+    },
+    {
+      "word": "sell",
+      "type": "verb",
+      "turkish": "Satmak (ev/mülk)",
+      "example_en": "The owners decided to sell their suburban villa and move downtown.",
+      "example_tr": "Sahipleri banliyödeki villalarını satıp şehir merkezine taşınmaya karar verdi.",
+      "related_verbs": ["market", "auction", "dispose", "transfer", "exchange"]
+    },
+    {
+      "word": "move",
+      "type": "verb",
+      "turkish": "Taşınmak",
+      "example_en": "They plan to move into a larger apartment at the end of this month.",
+      "example_tr": "Bu ayın sonunda daha büyük bir daireye taşınmayı planlıyorlar.",
+      "related_verbs": ["relocate", "transfer", "shift", "transition", "migrate"]
+    },
+    {
+      "word": "build",
+      "type": "verb",
+      "turkish": "İnşa etmek, yapmak",
+      "example_en": "Construction companies build modern residential blocks across the district.",
+      "example_tr": "İnşaat şirketleri ilçe genelinde modern konut blokları inşa ediyor.",
+      "related_verbs": ["construct", "erect", "create", "establish", "develop"]
+    },
+    {
+      "word": "renovate",
+      "type": "verb",
+      "turkish": "Yenilemek, tadilat yapmak",
+      "example_en": "They want to renovate the old kitchen cabinets and repaint the walls.",
+      "example_tr": "Eski mutfak dolaplarını yenilemek ve duvarları yeniden boyamak istiyorlar.",
+      "related_verbs": ["remodel", "restore", "repair", "refurbish", "update"]
+    },
+    {
+      "word": "decorate",
+      "type": "verb",
+      "turkish": "Dekore etmek, süslemek",
+      "example_en": "She loves to decorate her living room with colorful paintings and plants.",
+      "example_tr": "Oturma odasını renkli tablolar ve bitkilerle dekore etmeyi çok sever.",
+      "related_verbs": ["furnish", "paint", "style", "adorn", "embellish"]
+    },
+    {
+      "word": "furnish",
+      "type": "verb",
+      "turkish": "Mobilya döşemek, eşyalandırmak",
+      "example_en": "The rental apartment comes fully furnished with modern home appliances.",
+      "example_tr": "Kiralık daire, modern ev aletleriyle tamamen döşenmiş (eşyalı) olarak geliyor.",
+      "related_verbs": ["equip", "fit", "supply", "provide", "arrange"]
+    },
+    {
+      "word": "clean",
+      "type": "verb",
+      "turkish": "Temizlemek",
+      "example_en": "Homeowners usually clean their houses thoroughly during spring cleaning.",
+      "example_tr": "Ev sahipleri genellikle bahar temizliği sırasında evlerini etraflıca temizler.",
+      "related_verbs": ["wash", "scrub", "tidy", "sweep", "vacuum"]
+    },
+    {
+      "word": "tidy",
+      "type": "verb",
+      "turkish": "Düzenlemek, toplamak",
+      "example_en": "Children should tidy their bedrooms before going out to play.",
+      "example_tr": "Çocuklar dışarı oynamaya çıkmadan önce yatak odalarını toplamalıdır.",
+      "related_verbs": ["organize", "clean", "arrange", "straighten", "sort"]
+    },
+    {
+      "word": "repair",
+      "type": "verb",
+      "turkish": "Tamir etmek, onarmak",
+      "example_en": "Landlords are legally required to repair leaking pipes and broken heaters.",
+      "example_tr": "Ev sahiplerinin sızdıran boruları ve bozuk ısıtıcıları yasal olarak onarması gerekmektedir.",
+      "related_verbs": ["fix", "mend", "restore", "patch", "service"]
+    },
+    {
+      "word": "maintain",
+      "type": "verb",
+      "turkish": "Bakım yapmak, korumak",
+      "example_en": "Homeowners must maintain their roofs and gardens to preserve property value.",
+      "example_tr": "Ev sahipleri mülk değerini korumak için çatılarının ve bahçelerinin bakımını yapmalıdır.",
+      "related_verbs": ["preserve", "keep", "sustain", "care", "upkeep"]
+    },
+    {
+      "word": "own",
+      "type": "verb",
+      "turkish": "Sahip olmak",
+      "example_en": "Older generations prefer to own their homes rather than pay monthly rent.",
+      "example_tr": "Eski nesiller aylık kira ödemektense evlerine sahip olmayı tercih eder.",
+      "related_verbs": ["possess", "have", "hold", "retain", "control"]
+    },
+    {
+      "word": "share",
+      "type": "verb",
+      "turkish": "Paylaşmak (ev arkadaşlığı vb.)",
+      "example_en": "University students often share a flat to split utility bills and rent.",
+      "example_tr": "Üniversite öğrencileri faturaları ve kirayı bölüşmek için genellikle bir daireyi paylaşır.",
+      "related_verbs": ["divide", "split", "distribute", "apportion", "participate"]
+    },
+    {
+      "word": "lock",
+      "type": "verb",
+      "turkish": "Kilitlemek",
+      "example_en": "Always remember to lock the front door before leaving the house.",
+      "example_tr": "Evden çıkmadan önce ön kapıyı kilitlemeyi her zaman unutmayın.",
+      "related_verbs": ["secure", "bolt", "fasten", "close", "bar"]
+    },
+    {
+      "word": "unlock",
+      "type": "verb",
+      "turkish": "Kilidini açmak",
+      "example_en": "She used her house keys to unlock the front door after work.",
+      "example_tr": "İşten sonra ön kapının kilidini açmak için ev anahtarlarını kullandı.",
+      "related_verbs": ["open", "unbolt", "unfasten", "release", "free"]
+    },
+    {
+      "word": "heat",
+      "type": "verb",
+      "turkish": "Isıtmak",
+      "example_en": "Modern central heating systems efficiently heat every room in the house.",
+      "example_tr": "Modern merkezi ısıtma sistemleri evdeki her odasını verimli bir şekilde ısıtır.",
+      "related_verbs": ["warm", "thermal", "heat up", "boil", "fire"]
+    },
+    {
+      "word": "cool",
+      "type": "verb",
+      "turkish": "Soğutmak",
+      "example_en": "Air conditioners help cool indoor spaces during hot summer afternoons.",
+      "example_tr": "Klimalar sıcak yaz öğleden sonralarında iç mekanları soğutmaya yardımcı olur.",
+      "related_verbs": ["chill", "refrigerate", "vent", "refresh", "freeze"]
+    },
+    {
+      "word": "light",
+      "type": "verb",
+      "turkish": "Aydınlatmak",
+      "example_en": "Large windows light the living room with natural sunshine all day long.",
+      "example_tr": "Büyük pencereler oturma odasını bütün gün doğal güneş ışığıyla aydınlatır.",
+      "related_verbs": ["illuminate", "brighten", "shine", "glow", "spark"]
+    },
+    {
+      "word": "paint",
+      "type": "verb",
+      "turkish": "Boyamak",
+      "example_en": "They decided to paint the bedroom walls a calm shade of light blue.",
+      "example_tr": "Yatak odası duvarlarını sakin bir açık mavi tonuna boyamaya karar verdiler.",
+      "related_verbs": ["color", "coat", "brush", "decorate", "spray"]
+    },
+    {
+      "word": "wash",
+      "type": "verb",
+      "turkish": "Yıkamak (ev işi bağlamında)",
+      "example_en": "Washing machine models help people wash clothes quickly and cleanly.",
+      "example_tr": "Çamaşır makinesi modelleri insanların kıyafetleri hızlı ve temiz bir şekilde yıkamasına yardımcı olur.",
+      "related_verbs": ["clean", "launder", "scrub", "rinse", "sanitize"]
+    },
+    {
+      "word": "cook",
+      "type": "verb",
+      "turkish": "Yemek pişirmek",
+      "example_en": "A spacious kitchen makes it enjoyable to cook family dinners every evening.",
+      "example_tr": "Geniş bir mutfak, her akşam aile yemekleri pişirmeyi keyifli hale getirir.",
+      "related_verbs": ["prepare", "bake", "fry", "boil", "roast"]
+    },
+    {
+      "word": "bake",
+      "type": "verb",
+      "turkish": "Fırında pişirmek",
+      "example_en": "She loves to bake fresh bread and cakes in her kitchen oven.",
+      "example_tr": "Mutfak fırınında taze ekmek ve kekler pişirmeyi çok sever.",
+      "related_verbs": ["roast", "cook", "brown", "heat", "toast"]
+    },
+    {
+      "word": "store",
+      "type": "verb",
+      "turkish": "Saklamak, depolamak",
+      "example_en": "Basements are great places to store seasonal items like winter coats and bikes.",
+      "example_tr": "Bodrum katları kışlık kabanlar ve bisikletler gibi sezonluk eşyaları saklamak için harika yerlerdir.",
+      "related_verbs": ["keep", "save", "stock", "stash", "reserve"]
+    },
+    {
+      "word": "park",
+      "type": "verb",
+      "turkish": "Park etmek (araç)",
+      "example_en": "Residents can park their cars safely in the underground building garage.",
+      "example_tr": "Sakinler arabalarını binanın yeraltı garajına güvenli bir şekilde park edebilir.",
+      "related_verbs": ["leave", "station", "stop", "place", "garaging"]
+    },
+    {
+      "word": "inspect",
+      "type": "verb",
+      "turkish": "İncelemek, kontrol etmek (ev)",
+      "example_en": "Potential buyers inspect the roof and plumbing before purchasing a property.",
+      "example_tr": "Potansiyel alıcılar bir mülk satın almadan önce çatıyı ve tesisatı inceler.",
+      "related_verbs": ["examine", "check", "survey", "view", "audit"]
+    },
+    {
+      "word": "sign",
+      "type": "verb",
+      "turkish": "İzlemek / İmzalamak (kira sözleşmesi)",
+      "example_en": "Both tenants and landlords sign the rental agreement contract.",
+      "example_tr": "Hem kiracılar hem de ev sahipleri kira sözleşmesini imzalar.",
+      "related_verbs": ["approve", "execute", "endorse", "conclude", "ratify"]
+    },
+    {
+      "word": "move in",
+      "type": "verb",
+      "turkish": "Eve taşınmak",
+      "example_en": "They will move in as soon as the painters finish the interior work.",
+      "example_tr": "Boyacılar iç işleri bitir bitmez taşınacaklar.",
+      "related_verbs": ["settle", "arrive", "occupy", "enter", "relocate"]
+    },
+    {
+      "word": "move out",
+      "type": "verb",
+      "turkish": "Evden taşınmak, çıkmak",
+      "example_en": "University students usually move out of dorms after graduation.",
+      "example_tr": "Üniversite öğrencileri genellikle mezuniyetten sonra yurtlardan taşınır.",
+      "related_verbs": ["vacate", "depart", "leave", "exit", "relocate"]
+    },
+    {
+      "word": "pay",
+      "type": "verb",
+      "turkish": "Ödemek (kira/fatura)",
+      "example_en": "Tenants must pay their monthly rent on the first day of every month.",
+      "example_tr": "Kiracılar aylık kiralarını her ayın ilk gününde ödemelidir.",
+      "related_verbs": ["settle", "remit", "clear", "disburse", "compensate"]
+    },
+    {
+      "word": "borrow",
+      "type": "verb",
+      "turkish": "Ödünç almak (bankadan konut kredisi vb.)",
+      "example_en": "Many families borrow money from banks to finance their home purchases.",
+      "example_tr": "Birçok aile ev alımlarını finanse etmek için bankalardan para ödünç alır (kredi çeker).",
+      "related_verbs": ["take", "loan", "mortgage", "secure", "owe"]
+    },
+    {
+      "word": "lend",
+      "type": "verb",
+      "turkish": "Ödünç vermek",
+      "example_en": "Banks lend large amounts of money for long-term housing mortgages.",
+      "example_tr": "Bankalar uzun vadeli konut ipotekleri için büyük miktarda para ödünç verir.",
+      "related_verbs": ["loan", "advance", "provide", "extend", "finance"]
+    },
+    {
+      "word": "waste",
+      "type": "verb",
+      "turkish": "Boşa harcamak (enerji/su)",
+      "example_en": "Leaving lights on in empty rooms can waste electricity and increase bills.",
+      "example_tr": "Boş odalarda ışıkları açık bırakmak elektriği boşa harcayabilir ve faturaları artırabilir.",
+      "related_verbs": ["squander", "misuse", "drain", "consume", "spoil"]
+    },
+    {
+      "word": "save",
+      "type": "verb",
+      "turkish": "Tasarruf etmek (enerji)",
+      "example_en": "Turning off appliances when not in use helps households save energy.",
+      "example_tr": "Kullanılmadığında cihazları kapatmak, hanelerin enerji tasarrufu yapmasına yardımcı olur.",
+      "related_verbs": ["conserve", "store", "preserve", "economize", "keep"]
+    },
+    {
+      "word": "climb",
+      "type": "verb",
+      "turkish": "Tırmanmak, merdiven çıkmak",
+      "example_en": "People living in high-rise apartments often climb stairs if elevators break.",
+      "example_tr": "Yüksek katlı dairelerde yaşayan insanlar asansörler bozulduğunda genellikle merdiven çıkar.",
+      "related_verbs": ["ascend", "mount", "scale", "rise", "step"]
+    },
+    {
+      "word": "sweep",
+      "type": "verb",
+      "turkish": "Süpürmek",
+      "example_en": "She likes to sweep the kitchen floor every evening after dinner.",
+      "example_tr": "Her akşam yemekten sonra mutfak zeminini süpürmeyi sever.",
+      "related_verbs": ["clean", "brush", "vacuum", "wipe", "clear"]
+    },
+    {
+      "word": "vacuum",
+      "type": "verb",
+      "turkish": "Elektrik süpürgesiyle süpürmek",
+      "example_en": "Vacuuming carpets regularly removes dust and keeps rooms fresh.",
+      "example_tr": "Halıları düzenli olarak elektrik süpürgesiyle süpürmek tozu giderir ve odaları taze tutar.",
+      "related_verbs": ["clean", "sweep", "dust", "aspirate", "scrub"]
+    },
+    {
+      "word": "dust",
+      "type": "verb",
+      "turkish": "Tozunu almak",
+      "example_en": "It is necessary to dust wooden furniture and shelves weekly.",
+      "example_tr": "Ahşap mobilyaların ve rafların tozunu haftalık olarak almak gereklidir.",
+      "related_verbs": ["clean", "wipe", "brush", "polish", "tidy"]
+    },
+    {
+      "word": "polish",
+      "type": "verb",
+      "turkish": "Cilalamak, parlatmak",
+      "example_en": "He uses special wax to polish the wooden dining room table.",
+      "example_tr": "Ahşap yemek masasını parlatmak için özel balmumu kullanıyor.",
+      "related_verbs": ["shine", "buff", "clean", "smooth", "gloss"]
+    },
+    {
+      "word": "exchange",
+      "type": "verb",
+      "turkish": "Değiş Tokoş Etmek / Takas Etmek",
+      "example_en": "Neighbors sometimes exchange house keys to water plants during vacations.",
+      "example_tr": "Komşular bazen tatillerde bitkileri sulamak için ev anahtarlarını takas eder.",
+      "related_verbs": ["swap", "trade", "switch", "replace", "transfer"]
+    },
+    {
+      "word": "complain",
+      "type": "verb",
+      "turkish": "Şikayet etmek",
+      "example_en": "Residents might complain about loud noise coming from neighboring apartments.",
+      "example_tr": "Sakinler komşu dairelerden gelen yüksek sesten şikayet edebilir.",
+      "related_verbs": ["protest", "object", "grumble", "criticize", "report"]
+    },
+    {
+      "word": "disturb",
+      "type": "verb",
+      "turkish": "Rahatsız etmek",
+      "example_en": "Please keep your music quiet so you do not disturb your neighbors.",
+      "example_tr": "Komşularınızı rahatsız etmemek için lütfen müziğinizi sessiz tutun.",
+      "related_verbs": ["bother", "annoy", "interrupt", "upset", "disrupt"]
+    },
+    {
+      "word": "welcome",
+      "type": "verb",
+      "turkish": "Karşılamak, hoş geldin demek",
+      "example_en": "Friendly neighbors welcome new families moving into the apartment building.",
+      "example_tr": "Dost canlısı komşular apartmana taşınan yeni aileleri karşılar.",
+      "related_verbs": ["greet", "receive", "host", "accept", "salute"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Dinlenmek, rahatlamak (evde)",
+      "example_en": "Coming home after a long workday allows people to relax on the sofa.",
+      "example_tr": "Uzun bir iş gününden sonra eve gelmek, insanların kanepede dinlenmesini sağlar.",
+      "related_verbs": ["unwind", "rest", "repose", "chill", "lounge"]
+    },
+    {
+      "word": "enjoy",
+      "type": "verb",
+      "turkish": "Keyfini çıkarmak",
+      "example_en": "Homeowners enjoy spending quiet weekends in their private gardens.",
+      "example_tr": "Ev sahipleri özel bahçelerinde sessiz hafta sonları geçirmekten keyif alır.",
+      "related_verbs": ["relish", "appreciate", "like", "love", "savor"]
+    },
+    {
+      "word": "build",
+      "type": "verb",
+      "turkish": "Kurmak, yapmak",
+      "example_en": "Some homeowners like to build small wooden sheds in their backyards.",
+      "example_tr": "Bazı ev sahipleri arka bahçelerine küçük ahşap kulübeler kurmayı sever.",
+      "related_verbs": ["construct", "assemble", "create", "make", "erect"]
+    },
+    {
+      "word": "pack",
+      "type": "verb",
+      "turkish": "Koliye koymak, toplamak (taşınırken)",
+      "example_en": "Families spend days to pack their belongings into cardboard boxes before moving.",
+      "example_tr": "Aileler taşınmadan önce eşyalarını karton kutulara toplamak için günlerini harcar.",
+      "related_verbs": ["box", "wrap", "load", "gather", "store"]
+    },
+    {
+      "word": "unpack",
+      "type": "verb",
+      "turkish": "Kutuları açmak, yerleştirmek",
+      "example_en": "After moving into the new house, they started to unpack their boxes.",
+      "example_tr": "Yeni eve taşındıktan sonra kutularını açmaya (yerleştirmeye) başladılar.",
+      "related_verbs": ["empty", "unload", "open", "clear", "arrange"]
+    },
+    {
+      "word": "occupy",
+      "type": "verb",
+      "turkish": "İşgal etmek, ikamet etmek",
+      "example_en": "The tenants will occupy the newly built studio apartment starting next week.",
+      "example_tr": "Kiracılar gelecek haftadan itibaren yeni inşa edilen stüdyo dairede ikamet edecek.",
+      "related_verbs": ["inhabit", "reside", "fill", "hold", "use"]
+    }
+  ]
+}

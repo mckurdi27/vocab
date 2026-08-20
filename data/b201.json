@@ -1,0 +1,385 @@
+
+{
+  "level": "B2",
+  "scene_id": 1,
+  "scene_title": "Advanced Communication and Debate",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "argue",
+      "type": "verb",
+      "turkish": "Savunmak, argüman öne sürmek / tartışmak",
+      "example_en": "Skilled diplomats argue forcefully for international policy reforms during global summits.",
+      "example_tr": "Yetenekli diplomatlar, küresel zirveler sırasında uluslararası politika reformlarını güçlü bir şekilde savunur.",
+      "related_verbs": ["debate", "contend", "dispute", "maintain", "assert"]
+    },
+    {
+      "word": "persuade",
+      "type": "verb",
+      "turkish": "İkna etmek",
+      "example_en": "Effective leaders persuade skeptical board members to adopt innovative corporate strategies.",
+      "example_tr": "Etkili liderler, şüpheci yönetim kurulu üyelerini yenilikçi kurumsal stratejileri benimsemeye ikna eder.",
+      "related_verbs": ["convince", "influence", "sway", "prompt", "coax"]
+    },
+    {
+      "word": "convince",
+      "type": "verb",
+      "turkish": "İkna etmek, inandırmak",
+      "example_en": "Marketing experts convince target consumers of the superior quality of their products.",
+      "example_tr": "Pazarlama uzmanları, hedef tüketicileri ürünlerinin üstün kalitesine inandırır.",
+      "related_verbs": ["persuade", "assure", "satisfy", "prove", "win over"]
+    },
+    {
+      "word": "dispute",
+      "type": "verb",
+      "turkish": "İtiraz etmek, tartışmak",
+      "example_en": "Legal experts dispute the validity of the controversial corporate contract clauses.",
+      "example_tr": "Hukuk uzmanları, tartışmalı kurumsal sözleşme maddelerinin geçerliliğine itiraz eder.",
+      "related_verbs": ["contest", "challenge", "debate", "question", "oppose"]
+    },
+    {
+      "word": "assert",
+      "type": "verb",
+      "turkish": "İddia etmek, ileri sürmek",
+      "example_en": "Researchers assert that continuous language practice accelerates neural fluency gains.",
+      "example_tr": "Araştırmacılar, sürekli dil pratiklerinin nöral akıcılık kazanımlarını hızlandırdığını iddia eder.",
+      "related_verbs": ["claim", "declare", "state", "maintain", "affirm"]
+    },
+    {
+      "word": "imply",
+      "type": "verb",
+      "turkish": "İma etmek, demek istemek",
+      "example_en": "The keynote speaker's subtle remarks imply upcoming structural changes within the firm.",
+      "example_tr": "Açılış konuşmacısının incelikli sözleri, şirket içindeki yaklaşan yapısal değişiklikleri ima ediyor.",
+      "related_verbs": ["suggest", "hint", "indicate", "convey", "signify"]
+    },
+    {
+      "word": "infer",
+      "type": "verb",
+      "turkish": "Sonuç çıkarmak, anlam çıkarmak",
+      "example_en": "Psychologists infer emotional states from subtle changes in human vocal tones.",
+      "example_tr": "Psikologlar, insan ses tonlarındaki ince değişimlerden duygusal durumlar hakkında sonuç çıkarır.",
+      "related_verbs": ["deduce", "conclude", "gather", "extrapolate", "derive"]
+    },
+    {
+      "word": "clarify",
+      "type": "verb",
+      "turkish": "Açıklığa kavuşturmak",
+      "example_en": "The project manager held a briefing to clarify the ambiguous deadline requirements.",
+      "example_tr": "Proje yöneticisi, belirsiz son tarih gerekliliklerini açıklığa kavuşturmak için bir brifing düzenledi.",
+      "related_verbs": ["explain", "elucidate", "resolve", "simplify", "interpret"]
+    },
+    {
+      "word": "elaborate",
+      "type": "verb",
+      "turkish": "Açıklamak, detaylandırmak",
+      "example_en": "The professor asked the student to elaborate on their complex research methodology.",
+      "example_tr": "Profesör, öğrenciden karmaşık araştırma metodolojisini detaylandırmasını istedi.",
+      "related_verbs": ["expand", "detail", "expound", "develop", "enlarge"]
+    },
+    {
+      "word": "contradict",
+      "type": "verb",
+      "turkish": "Çelişmek, yalanlamak",
+      "example_en": "New witness testimonies directly contradict the initial statements given to police.",
+      "example_tr": "Yeni tanık ifadeleri, polise verilen ilk ifadelerle doğrudan çelişiyor.",
+      "related_verbs": ["disprove", "confound", "negate", "oppose", "conflict"]
+    },
+    {
+      "word": "justify",
+      "type": "verb",
+      "turkish": "Haklı çıkarmak, gerekçelendirmek",
+      "example_en": "Financial analysts must justify the soaring operational budget to company shareholders.",
+      "example_tr": "Finansal analistler, hızla yükselen operasyonel bütçeyi şirket paydaşlarına haklı çıkarmak zorundadır.",
+      "related_verbs": ["defend", "validate", "explain", "rationalize", "excuse"]
+    },
+    {
+      "word": "criticize",
+      "type": "verb",
+      "turkish": "Eleştirmek",
+      "example_en": "Media critics harshly criticize the studio's recent cinematic production choices.",
+      "example_tr": "Medya eleştirmenleri, stüdyonun son sinematografik yapım seçimlerini sert bir şekilde eleştiriyor.",
+      "related_verbs": ["condemn", "evaluate", "review", "pan", "denounce"]
+    },
+    {
+      "word": "evaluate",
+      "type": "verb",
+      "turkish": "Değerlendirmek",
+      "example_en": "Independent auditors evaluate company financial records at the end of every fiscal quarter.",
+      "example_tr": "Bağımsız denetçiler, her mali çeyreğin sonunda şirketin mali kayıtlarını değerlendirir.",
+      "related_verbs": ["assess", "appraise", "analyze", "examine", "judge"]
+    },
+    {
+      "word": "negotiate",
+      "type": "verb",
+      "turkish": "Müzakere etmek",
+      "example_en": "Union leaders negotiate fair wages and working conditions with corporate executives.",
+      "example_tr": "Sendika liderleri, kurumsal yöneticilerle adil ücretler ve çalışma koşulları üzerine müzakere eder.",
+      "related_verbs": ["bargain", "mediate", "consult", "deal", "resolve"]
+    },
+    {
+      "word": "compromise",
+      "type": "verb",
+      "turkish": "Uzlaşmak, taviz vermek",
+      "example_en": "Both political parties compromised on key policy details to pass the legislation.",
+      "example_tr": "Her iki siyasi parti de yasayı geçirmek için kilit politika detaylarında uzlaştı.",
+      "related_verbs": ["concede", "settle", "meet halfway", "adjust", "yield"]
+    },
+    {
+      "word": "advocate",
+      "type": "verb",
+      "turkish": "Savunmak, desteklemek (fikir vb.)",
+      "example_en": "Environmental activists advocate sustainable energy solutions for future generations.",
+      "example_tr": "Çevre aktivistleri, gelecek nesiller için sürdürülebilir enerji çözümlerini savunuyor.",
+      "related_verbs": ["support", "champion", "promote", "endorse", "back"]
+    },
+    {
+      "word": "challenge",
+      "type": "verb",
+      "turkish": "Meydan okumak, itiraz etmek",
+      "example_en": "Young scientists challenge established academic dogmas with innovative experimental data.",
+      "example_tr": "Genç bilim insanları, yenilikçi deneysel verilerle yerleşik akademik dogmalara meydan okuyor.",
+      "related_verbs": ["defy", "question", "dispute", "test", "provoke"]
+    },
+    {
+      "word": "propose",
+      "type": "verb",
+      "turkish": "Önermek, teklif etmek",
+      "example_en": "The urban planner proposed building pedestrian-friendly zones in downtown districts.",
+      "example_tr": "Şehir plancısı, şehir merkezindeki bölgelerde yaya dostu alanlar inşa edilmesini önerdi.",
+      "related_verbs": ["suggest", "recommend", "submit", "offer", "advance"]
+    },
+    {
+      "word": "object",
+      "type": "verb",
+      "turkish": "İtiraz etmek, karşı çıkmak",
+      "example_en": "Several community members strongly object to the construction of the new highway.",
+      "example_tr": "Birçok topluluk üyesi, yeni otoyolun inşaatına şiddetle karşı çıkıyor.",
+      "related_verbs": ["protest", "oppose", "complain", "dissent", "rebel"]
+    },
+    {
+      "word": "concede",
+      "type": "verb",
+      "turkish": "Kabul etmek, yenilgiyi/hatayı kabullenmek",
+      "example_en": "The politician had to concede that public support for the reform was declining.",
+      "example_tr": "Politikacı, reform için halk desteğinin azaldığını kabul etmek zorunda kaldı.",
+      "related_verbs": ["admit", "acknowledge", "yield", "surrender", "grant"]
+    },
+    {
+      "word": "emphasize",
+      "type": "verb",
+      "turkish": "Vurgulamak",
+      "example_en": "The instructor emphasized the importance of regular listening practice for language learners.",
+      "example_tr": "Eğitmen, dil öğrenenler için düzenli dinleme pratiğinin önemini vurguladı.",
+      "related_verbs": ["stress", "highlight", "accentuate", "underscore", "focus"]
+    },
+    {
+      "word": "summarize",
+      "type": "verb",
+      "turkish": "Özetlemek",
+      "example_en": "The student summarized the main arguments of the research paper in three minutes.",
+      "example_tr": "Öğrenci, araştırma makalesinin ana argümanlarını üç dakikada özetledi.",
+      "related_verbs": ["recap", "outline", "condense", "review", "synopsize"]
+    },
+    {
+      "word": "distinguish",
+      "type": "verb",
+      "turkish": "Ayırt etmek",
+      "example_en": "It is sometimes difficult to distinguish genuine news from fabricated internet articles.",
+      "example_tr": "Gerçek haberleri uydurma internet makalelerinden ayırt etmek bazen zordur.",
+      "related_verbs": ["differentiate", "discern", "separate", "recognize", "tell apart"]
+    },
+    {
+      "word": "acknowledge",
+      "type": "verb",
+      "turkish": "Kabul etmek, tanımak",
+      "example_en": "The company publicly acknowledged its past logistical errors and promised improvements.",
+      "example_tr": "Şirket, geçmişteki lojistik hatalarını kamuoyuna açıkladı ve iyileştirmeler sözü verdi.",
+      "related_verbs": ["recognize", "admit", "accept", "appreciate", "confess"]
+    },
+    {
+      "word": "formulate",
+      "type": "verb",
+      "turkish": "Formüle etmek, biçimlendirmek",
+      "example_en": "Think tanks formulate comprehensive economic policies for government administration.",
+      "example_tr": "Düşünce kuruluşları, hükümet yönetimi için kapsamlı ekonomik politikalar formüle eder.",
+      "related_verbs": ["devise", "draft", "frame", "create", "design"]
+    },
+    {
+      "word": "articulate",
+      "type": "verb",
+      "turkish": "Açıkça ifade etmek, dile getirmek",
+      "example_en": "She managed to articulate her complex vision clearly during the conference presentation.",
+      "example_tr": "Konferans sunumu sırasında karmaşık vizyonunu açıkça dile getirmeyi başardı.",
+      "related_verbs": ["express", "voice", "communicate", "pronounce", "state"]
+    },
+    {
+      "word": "interpret",
+      "type": "verb",
+      "turkish": "Yorumlamak",
+      "example_en": "Different literary critics interpret the novel's final metaphor in various ways.",
+      "example_tr": "Farklı edebi eleştirmenler, romanın son metaforunu çeşitli şekillerde yorumlar.",
+      "related_verbs": ["translate", "construe", "decode", "explain", "read"]
+    },
+    {
+      "word": "imitate",
+      "type": "verb",
+      "turkish": "Taklit etmek",
+      "example_en": "Advanced learners imitate native speaker intonation patterns to improve their accent.",
+      "example_tr": "İleri düzey öğrenciler, aksanlarını geliştirmek için anadil konuşmacılarının tonlama kalıplarını taklit eder.",
+      "related_verbs": ["mimic", "copy", "simulate", "mirror", "emulate"]
+    },
+    {
+      "word": "speculate",
+      "type": "verb",
+      "turkish": "Tahminde bulunmak, spekülasyon yapmak",
+      "example_en": "Economists speculate about potential market shifts following new global trade agreements.",
+      "example_tr": "Ekonomistler, yeni küresel ticaret anlaşmalarının ardından olası piyasa değişimleri hakkında spekülasyon yapıyor.",
+      "related_verbs": ["guess", "surmise", "hypothesize", "conjecture", "ponder"]
+    },
+    {
+      "word": "postulate",
+      "type": "verb",
+      "turkish": "Varsaymak, ilke olarak ileri sürmek",
+      "example_en": "Physicists postulate the existence of unseen forces shaping universal expansion.",
+      "example_tr": "Fizikçiler, evrensel genişlemeyi şekillendiren görünmeyen kuvvetlerin varlığını varsayar.",
+      "related_verbs": ["hypothesize", "assume", "presuppose", "propose", "suggest"]
+    },
+    {
+      "word": "refute",
+      "type": "verb",
+      "turkish": "Çürütmek, yalanlamak",
+      "example_en": "The research team provided solid empirical evidence to refute the false claims.",
+      "example_tr": "Araştırma ekibi, yanlış iddiaları çürütmek için sağlam deneysel kanıtlar sundu.",
+      "related_verbs": ["rebut", "disprove", "invalidate", "counter", "discredit"]
+    },
+    {
+      "word": "substantiate",
+      "type": "verb",
+      "turkish": "Kanıtlamak, doğrulamak",
+      "example_en": "Witness statements helped substantiate the detective's theory regarding the incident.",
+      "example_tr": "Tanık ifadeleri, dedektifin olayla ilgili teorisini doğrulamaya yardımcı oldu.",
+      "related_verbs": ["verify", "validate", "prove", "support", "confirm"]
+    },
+    {
+      "word": "retract",
+      "type": "verb",
+      "turkish": "Geri almak, sözünü yemek",
+      "example_en": "The newspaper was forced to retract its unverified article about the celebrity.",
+      "example_tr": "Gazete, ünlü hakkındaki doğrulanmamış makalesini geri almak zorunda kaldı.",
+      "related_verbs": ["withdraw", "recant", "take back", "revoke", "pull back"]
+    },
+    {
+      "word": "quibble",
+      "type": "verb",
+      "turkish": "Kılı kırk yarmak, uyduruk bahanelerle tartışmak",
+      "example_en": "The partners continued to quibble over minor details of the draft agreement.",
+      "example_tr": "Ortaklar, taslak anlaşmanın önemsiz detayları üzerinde kılı kırk yarmaya devam etti.",
+      "related_verbs": ["bicker", "nitpick", "carp", "object", "haggle"]
+    },
+    {
+      "word": "allude",
+      "type": "verb",
+      "turkish": "Üstü kapalı değinmek, atıfta bulunmak",
+      "example_en": "The author chose to allude to historical events rather than describing them directly.",
+      "example_tr": "Yazar, tarihi olayları doğrudan anlatmak yerine onlara üstü kapalı değinmeyi seçti.",
+      "related_verbs": ["refer", "suggest", "imply", "hint", "touch upon"]
+    },
+    {
+      "word": "insinuuate",
+      "type": "verb",
+      "turkish": "İma etmek, sezdirmek (genelde olumsuz)",
+      "example_en": "He did not outright accuse anyone, but his words seemed to insinuate dishonesty.",
+      "example_tr": "Kimseyi doğrudan suçlamadı, ancak sözleri sahtekarlık sezdiriyor gibiydi.",
+      "related_verbs": ["suggest", "imply", "hint", "intimate", "wrest"]
+    },
+    {
+      "word": "equivocate",
+      "type": "verb",
+      "turkish": "Kelime oyunu yapmak, kıvırmak, kaçamak konuşmak",
+      "example_en": "Politicians often equivocate when pressed by reporters on sensitive political issues.",
+      "example_tr": "Politikacılar, muhabirler hassas siyasi konular hakkında sıkıştırdığında genellikle kaçamak konuşur.",
+      "related_verbs": ["hedge", "evade", "dodge", "prevaricate", "shuffle"]
+    },
+    {
+      "word": "pontificate",
+      "type": "verb",
+      "turkish": "Bilmiş bilmiş konuşmak, taslamak",
+      "example_en": "The expert began to pontificate on economic theory without listening to others.",
+      "example_tr": "Uzman, diğerlerini dinlemeden ekonomik teori hakkında bilmiş bilmiş konuşmaya başladı.",
+      "related_verbs": ["preach", "lecture", "bluster", "dogmatize", "hold forth"]
+    },
+    {
+      "word": "reprimand",
+      "type": "verb",
+      "turkish": "Azarlamak, kınamak",
+      "example_en": "The director decided to reprimand the employee for missing the urgent deadline.",
+      "example_tr": "Yönetör, acil son tarihi kaçırdığı için çalışanı azarlamaya karar verdi.",
+      "related_verbs": ["rebuke", "scold", "admonish", "chastise", "reprove"]
+    },
+    {
+      "word": "admonish",
+      "type": "verb",
+      "turkish": "Uyarmak, ikaz etmek",
+      "example_en": "The teacher gently admonished the students for talking during the quiet study hour.",
+      "example_tr": "Öğretmen, sessiz ders çalışma saatinde konuştukları için öğrencileri nazikçe uyardı.",
+      "related_verbs": ["warn", "reprimand", "caution", "scold", "chide"]
+    },
+    {
+      "word": "endorse",
+      "type": "verb",
+      "turkish": "Onaylamak, desteğini açıklamak",
+      "example_en": "Several prominent athletes decided to endorse the new eco-friendly sportswear brand.",
+      "example_tr": "Birkaç önde gelen sporcu, yeni çevre dostu spor giyim markasını desteklemeye karar verdi.",
+      "related_verbs": ["support", "approve", "back", "champion", "sanction"]
+    },
+    {
+      "word": "ratify",
+      "type": "verb",
+      "turkish": "Onaylamak, resmileştirmek (anlaşma vb.)",
+      "example_en": "Parliament members gathered to ratify the international environmental protection pact.",
+      "example_tr": "Parlamento üyeleri, uluslararası çevre koruma paktını onaylamak için bir araya geldi.",
+      "related_verbs": ["approve", "validate", "sanction", "confirm", "adopt"]
+    },
+    {
+      "word": "veto",
+      "type": "verb",
+      "turkish": "Veto etmek, reddetmek",
+      "example_en": "The president exercised executive power to veto the controversial budget bill.",
+      "example_tr": "Başkan, tartışmalı bütçe yasa tasarısını veto etmek için yürütme yetkisini kullandı.",
+      "related_verbs": ["reject", "block", "prohibit", "disallow", "turn down"]
+    },
+    {
+      "word": "stipulate",
+      "type": "verb",
+      "turkish": "Şart koşmak, hükme bağlamak",
+      "example_en": "The contract terms stipulate that all payments must be completed within thirty days.",
+      "example_tr": "Sözleşme şartları, tüm ödemelerin otuz gün içinde tamamlanmasını şart koşuyor.",
+      "related_verbs": ["specify", "require", "demand", "state", "provision"]
+    },
+    {
+      "word": "proliferate",
+      "type": "verb",
+      "turkish": "Hızla çoğalmak, yayılmak",
+      "example_en": "Online communication tools proliferate rapidly across modern corporate environments.",
+      "example_tr": "Çevrimiçi iletişim araçları, modern kurumsal ortamlarda hızla çoğalıyor.",
+      "related_verbs": ["multiply", "expand", "spread", "mushroom", "burgeon"]
+    },
+    {
+      "word": "mitigate",
+      "type": "verb",
+      "turkish": "Hafifletmek, azaltmak (etkiyi)",
+      "example_en": "New safety protocols aim to mitigate potential risks during factory operations.",
+      "example_tr": "Yeni güvenlik protokolleri, fabrika operasyonları sırasındaki potansiyel riskleri hafifletmeyi amaçlıyor.",
+      "related_verbs": ["alleviate", "reduce", "ease", "lessen", "diminish"]
+    },
+    {
+      "word": "exacerbate",
+      "type": "verb",
+      "turkish": "Kötüleştirmek, şiddetlendirmek",
+      "example_en": "Failing to communicate clear instructions will only exacerbate the team's confusion.",
+      "example_tr": "Net talimatlar iletmemek ekibin kafasının karışıklığını yalnızca daha da kötüleştirecektir.",
+      "related_verbs": ["worsen", "aggravate", "intensify", "compound", "heighten"]
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "level": "A1",
+  "scene_id": 19,
+  "scene_title": "Health and Body",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "hurt",
+      "type": "verb",
+      "turkish": "Acıtmak, ağrımak",
+      "example_en": "My head hurts today.",
+      "example_tr": "Bugün başım ağrıyor.",
+      "related_verbs": ["ache", "pain", "injure", "harm", "smart"]
+    },
+    {
+      "word": "ache",
+      "type": "verb",
+      "turkish": "Sızlamak, ağrımak",
+      "example_en": "My back aches after lifting heavy boxes.",
+      "example_tr": "Ağır kutular kaldırdıktan sonra sırtım sızlıyor.",
+      "related_verbs": ["hurt", "throb", "smart", "pain", "stow"]
+    },
+    {
+      "word": "feel",
+      "type": "verb",
+      "turkish": "Hissetmek",
+      "example_en": "I feel sick this morning.",
+      "example_tr": "Bu sabah hasta hissediyorum.",
+      "related_verbs": ["sense", "experience", "touch", "perceive", "detect"]
+    },
+    {
+      "word": "sick",
+      "type": "verb",
+      "turkish": "Kusmak / Hasta olmak (fiilleşen kullanımı)",
+      "example_en": "He feels sick and wants to lie down.",
+      "example_tr": "Hasta hissediyor ve uzanmak istiyor.",
+      "related_verbs": ["vomit", "ill", "nauseate", "suffer", "ail"]
+    },
+    {
+      "word": "ill",
+      "type": "verb",
+      "turkish": "Hastalanmak",
+      "example_en": "Many people fall ill in winter.",
+      "example_tr": "Kışın birçok insan hastalanır.",
+      "related_verbs": ["sicken", "ail", "suffer", "drop", "contract"]
+    },
+    {
+      "word": "cough",
+      "type": "verb",
+      "turkish": "Öksürmek",
+      "example_en": "She coughs because of a cold.",
+      "example_tr": "Soğuk algınlığı yüzünden öksürüyor.",
+      "related_verbs": ["throat", "clear", "wheeze", "sneeze", "spit"]
+    },
+    {
+      "word": "sneeze",
+      "type": "verb",
+      "turkish": "Hapşırmak",
+      "example_en": "Dust makes me sneeze.",
+      "example_tr": "Toz hapşırmama neden oluyor.",
+      "related_verbs": ["cough", "sniff", "blow", "bless", "react"]
+    },
+    {
+      "word": "breathe",
+      "type": "verb",
+      "turkish": "Nefes almak",
+      "example_en": "Breathe in deeply and breathe out.",
+      "example_tr": "Derince nefes al ve nefes ver.",
+      "related_verbs": ["inhale", "exhale", "respire", "pant", "sigh"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Dinlenmek, rahatlamak",
+      "example_en": "Rest and relax to get better.",
+      "example_tr": "İyileşmek için dinlen ve rahatla.",
+      "related_verbs": ["rest", "unwind", "calm", "ease", "loosen"]
+    },
+    {
+      "word": "rest",
+      "type": "verb",
+      "turkish": "Dinlenmek",
+      "example_en": "The doctor says I should rest for two days.",
+      "example_tr": "Doktor iki gün dinlenmem gerektiğini söylüyor.",
+      "related_verbs": ["relax", "pause", "sleep", "sit", "lie"]
+    },
+    {
+      "word": "sleep",
+      "type": "verb",
+      "turkish": "Uyumak",
+      "example_en": "Sleeping helps the body heal.",
+      "example_tr": "Uyumak vücudun iyileşmesine yardımcı olur.",
+      "related_verbs": ["rest", "doze", "nap", "slumber", "snooze"]
+    },
+    {
+      "word": "heal",
+      "type": "verb",
+      "turkish": "İyileşmek, iyileştirmek",
+      "example_en": "The cut on my finger will heal soon.",
+      "example_tr": "Parmağımdaki kesik yakında iyileşecek.",
+      "related_verbs": ["cure", "recover", "mend", "repair", "fix"]
+    },
+    {
+      "word": "cure",
+      "type": "verb",
+      "turkish": "Tedavi etmek, iyileştirmek",
+      "example_en": "Medicine can cure this illness.",
+      "example_tr": "İlaç bu hastalığı tedavi edebilir.",
+      "related_verbs": ["heal", "treat", "remedy", "restore", "fix"]
+    },
+    {
+      "word": "treat",
+      "type": "verb",
+      "turkish": "Tedavi etmek",
+      "example_en": "Doctors treat patients at the hospital.",
+      "example_tr": "Doktorlar hastanede hastaları tedavi eder.",
+      "related_verbs": ["cure", "heal", "attend", "handle", "manage"]
+    },
+    {
+      "word": "visit",
+      "type": "verb",
+      "turkish": "Ziyaret etmek (doktoru)",
+      "example_en": "You must visit a dentist for toothache.",
+      "example_tr": "Diş ağrısı için bir diş hekimini ziyaret etmelisin.",
+      "related_verbs": ["see", "consult", "meet", "go", "check"]
+    },
+    {
+      "word": "see",
+      "type": "verb",
+      "turkish": "Görmek / Doktora görünmek",
+      "example_en": "I need to see a doctor today.",
+      "example_tr": "Bugün bir doktora görünmem gerekiyor.",
+      "related_verbs": ["consult", "visit", "look", "observe", "meet"]
+    },
+    {
+      "word": "consult",
+      "type": "verb",
+      "turkish": "Danışmak (uzmana)",
+      "example_en": "Consult your physician before starting a diet.",
+      "example_tr": "Diyete başlamadan önce doktorunuza danışın.",
+      "related_verbs": ["ask", "advisors", "confer", "discuss", "refer"]
+    },
+    {
+      "word": "examine",
+      "type": "verb",
+      "turkish": "Muayene etmek, incelemek",
+      "example_en": "The doctor examines my throat.",
+      "example_tr": "Doktor boğazımı muayene ediyor.",
+      "related_verbs": ["check", "inspect", "explore", "test", "analyze"]
+    },
+    {
+      "word": "check",
+      "type": "verb",
+      "turkish": "Kontrol etmek (nabzı/ateşi)",
+      "example_en": "The nurse checks my temperature.",
+      "example_tr": "Hemşire ateşimi kontrol ediyor.",
+      "related_verbs": ["verify", "inspect", "examine", "test", "monitor"]
+    },
+    {
+      "word": "measure",
+      "type": "verb",
+      "turkish": "Ölçmek (tansiyonu/ateşi)",
+      "example_en": "They measure my blood pressure.",
+      "example_tr": "Tansiyonumu ölçüyorlar.",
+      "related_verbs": ["gauge", "count", "calculate", "assess", "evaluate"]
+    },
+    {
+      "word": "take",
+      "type": "verb",
+      "turkish": "Almak (ilaç)",
+      "example_en": "Take this medicine three times a day.",
+      "example_tr": "Bu ilacı günde üç kez al.",
+      "related_verbs": ["consume", "swallow", "get", "accept", "receive"]
+    },
+    {
+      "word": "swallow",
+      "type": "verb",
+      "turkish": "Yutmak (hapı)",
+      "example_en": "It is hard to swallow pills.",
+      "example_tr": "Hapları yutmak zor.",
+      "related_verbs": ["consume", "gulp", "drink", "down", "ingest"]
+    },
+    {
+      "word": "drink",
+      "type": "verb",
+      "turkish": "İçmek (su/bitki çayı)",
+      "example_en": "Drink plenty of water when you have a cold.",
+      "example_tr": "Soğuk algınlığın olduğunda bol bol su iç.",
+      "related_verbs": ["sip", "swallow", "consume", "hydrate", "rehydrate"]
+    },
+    {
+      "word": "eat",
+      "type": "verb",
+      "turkish": "Yemek (sağlıklı besin)",
+      "example_en": "Eat fresh fruit to get vitamins.",
+      "example_tr": "Vitamin almak için taze meyve ye.",
+      "related_verbs": ["consume", "dine", "feed", "have", "chew"]
+    },
+    {
+      "word": "exercise",
+      "type": "verb",
+      "turkish": "Egzersiz yapmak (sağlık için)",
+      "example_en": "Exercise keeps your heart healthy.",
+      "example_tr": "Egzersiz kalbini sağlıklı tutar.",
+      "related_verbs": ["train", "workout", "practice", "drill", "fit"]
+    },
+    {
+      "word": "move",
+      "type": "verb",
+      "turkish": "Hareket ettirmek / Hareket etmek",
+      "example_en": "Move your arms and legs.",
+      "example_tr": "Kollarını ve bacaklarını hareket ettir.",
+      "related_verbs": ["shift", "stir", "transfer", "relocate", "budge"]
+    },
+    {
+      "word": "bend",
+      "type": "verb",
+      "turkish": "Eğilmek, bükmek",
+      "example_en": "Bend your knees slowly.",
+      "example_tr": "Dizlerini yavaşça bük.",
+      "related_verbs": ["curve", "flex", "twist", "lean", "stoop"]
+    },
+    {
+      "word": "stretch",
+      "type": "verb",
+      "turkish": "Gerdirmek, esneme yapmak",
+      "example_en": "Stretch your body in the morning.",
+      "example_tr": "Sabahları vücudunu gerdin/esnet.",
+      "related_verbs": ["extend", "pull", "lengthen", "expand", "reach"]
+    },
+    {
+      "word": "stand",
+      "type": "verb",
+      "turkish": "Ayakta durmak",
+      "example_en": "Stand up straight.",
+      "example_tr": "Dosdoğru ayakta dur.",
+      "related_verbs": ["rise", "stay", "position", "rest", "support"]
+    },
+    {
+      "word": "sit",
+      "type": "verb",
+      "turkish": "Oturmak",
+      "example_en": "Sit down on the chair.",
+      "example_tr": "Sandalye üzerine otur.",
+      "related_verbs": ["rest", "stay", "recline", "settle", "pose"]
+    },
+    {
+      "word": "walk",
+      "type": "verb",
+      "turkish": "Yürümek",
+      "example_en": "Walking is good for health.",
+      "example_tr": "Yürümek sağlık için iyidir.",
+      "related_verbs": ["step", "hike", "stroll", "march", "roam"]
+    },
+    {
+      "word": "run",
+      "type": "verb",
+      "turkish": "Koşmak",
+      "example_en": "Running strengthens your muscles.",
+      "example_tr": "Koşmak kaslarını güçlendirir.",
+      "related_verbs": ["jog", "dash", "sprint", "race", "speed"]
+    },
+    {
+      "word": "sweat",
+      "type": "verb",
+      "turkish": "Terlemek",
+      "example_en": "You sweat during sports.",
+      "example_tr": "Spor yaparken terlersin.",
+      "related_verbs": ["perspire", "glow", "drip", "labor", "exude"]
+    },
+    {
+      "word": "bleed",
+      "type": "verb",
+      "turkish": "Kanamak",
+      "example_en": "My nose starts to bleed.",
+      "example_tr": "Burnum kanamaya başlıyor (burnum kanıyor).",
+      "related_verbs": ["flow", "leak", "seep", "drain", "hurt"]
+    },
+    {
+      "word": "injure",
+      "type": "verb",
+      "turkish": "Yaralamak, sakatlamak",
+      "example_en": "He injures his leg playing football.",
+      "example_tr": "Futbol oynarken bacağını sakatlıyor.",
+      "related_verbs": ["hurt", "harm", "damage", "wound", "bruise"]
+    },
+    {
+      "word": "break",
+      "type": "verb",
+      "turkish": "Kırmak (kemik vb.)",
+      "example_en": "She falls down and breaks her arm.",
+      "example_tr": "Düşüyor ve kolunu kırıyor.",
+      "related_verbs": ["fracture", "crack", "smash", "snap", "shatter"]
+    },
+    {
+      "word": "sprain",
+      "type": "verb",
+      "turkish": "İncinmek, burkulmak",
+      "example_en": "I sprain my ankle while running.",
+      "example_tr": "Koşarken ayak bileğimi burkuyorum.",
+      "related_verbs": ["twist", "strain", "hurt", "damage", "pull"]
+    },
+    {
+      "word": "burn",
+      "type": "verb",
+      "turkish": "Yakmak, yanmak",
+      "example_en": "Be careful not to burn your hand.",
+      "example_tr": "Elini yakmamaya dikkat et.",
+      "related_verbs": ["scald", "singe", "char", "flare", "roast"]
+    },
+    {
+      "word": "protect",
+      "type": "verb",
+      "turkish": "Korumak",
+      "example_en": "Wear warm clothes to protect yourself from cold.",
+      "example_tr": "Soğuktan kendini korumak için kalın giysiler giy.",
+      "related_verbs": ["guard", "defend", "shield", "save", "secure"]
+    },
+    {
+      "word": "prevent",
+      "type": "verb",
+      "turkish": "Önlemek (hastalığı)",
+      "example_en": "Wash your hands to prevent illnesses.",
+      "example_tr": "Hastalıkları önlemek için ellerini yıka.",
+      "related_verbs": ["stop", "avoid", "block", "deter", "preempt"]
+    },
+    {
+      "word": "avoid",
+      "type": "verb",
+      "turkish": "Kaçınmak",
+      "example_en": "Avoid eating too much sugar.",
+      "example_tr": "Çok fazla şeker yemekten kaçın.",
+      "related_verbs": ["shun", "escape", "evade", "prevent", "skip"]
+    },
+    {
+      "word": "lose",
+      "type": "verb",
+      "turkish": "Kaybetmek (kilo vermek anlamında da kullanılır)",
+      "example_en": "She wants to lose weight.",
+      "example_tr": "Kilo vermek istiyor.",
+      "related_verbs": ["drop", "shed", "misplace", "forfeit", "fail"]
+    },
+    {
+      "word": "gain",
+      "type": "verb",
+      "turkish": "Kazanmak / Almak (kilo almak)",
+      "example_en": "It is easy to gain weight in winter.",
+      "example_tr": "Kışın kilo almak kolaydır.",
+      "related_verbs": ["acquire", "obtain", "earn", "add", "increase"]
+    },
+    {
+      "word": "breathe",
+      "type": "verb",
+      "turkish": "Solumak",
+      "example_en": "Fresh air helps us breathe easily.",
+      "example_tr": "Temiz hava rahat nefes almamıza yardımcı olur.",
+      "related_verbs": ["inhale", "exhale", "respire", "pant", "sigh"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Gevşemek (kaslar)",
+      "example_en": "Hot water helps your muscles relax.",
+      "example_tr": "Sıcak su kaslarının gevşemesine yardımcı olur.",
+      "related_verbs": ["rest", "unwind", "calm", "ease", "loosen"]
+    },
+    {
+      "word": "recover",
+      "type": "verb",
+      "turkish": "İyileşmek, sağlığına kavuşmak",
+      "example_en": "He recovers quickly from the flu.",
+      "example_tr": "Gripten çabucak iyileşiyor.",
+      "related_verbs": ["heal", "cure", "improve", "rally", "bounce"]
+    },
+    {
+      "word": "improve",
+      "type": "verb",
+      "turkish": "İyileşmek, gelişmek (sağlık durumu)",
+      "example_en": "My health improves every day.",
+      "example_tr": "Sağlığım her geçen gün iyileşiyor.",
+      "related_verbs": ["better", "enhance", "progress", "develop", "recover"]
+    },
+    {
+      "word": "worsen",
+      "type": "verb",
+      "turkish": "Kötüleşmek",
+      "example_en": "If symptoms worsen, call a doctor.",
+      "example_tr": "Belirtiler kötüleşirse bir doktoru ara.",
+      "related_verbs": ["deteriorate", "decline", "aggravate", "fade", "slip"]
+    },
+    {
+      "word": "suffer",
+      "type": "verb",
+      "turkish": "Acı çekmek, muzdarip olmak",
+      "example_en": "Many people suffer from allergies in spring.",
+      "example_tr": "Birçok insan ilkbaharda alerjilerden muzdariptir.",
+      "related_verbs": ["endure", "experience", "bear", "pain", "undergo"]
+    },
+    {
+      "word": "check-up",
+      "type": "verb",
+      "turkish": "Genel sağlık kontrolünden geçmek",
+      "example_en": "I go to the clinic for an annual check-up.",
+      "example_tr": "Yıllık sağlık kontrolü için kliniğe giderim.",
+      "related_verbs": ["examine", "inspect", "test", "visit", "monitor"]
+    }
+  ]
+}

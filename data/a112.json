@@ -1,0 +1,408 @@
+{
+  "level": "A1",
+  "scene_id": 12,
+  "scene_title": "School and Education",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "study",
+      "type": "verb",
+      "turkish": "Ders çalışmak, öğrenim görmek",
+      "example_en": "Students study hard for exams.",
+      "example_tr": "Öğrenciler sınavlar için sıkı çalışır.",
+      "related_verbs": ["learn", "read", "review", "examine", "prepare"]
+    },
+    {
+      "word": "learn",
+      "type": "verb",
+      "turkish": "Öğrenmek",
+      "example_en": "Children learn new words at school.",
+      "example_tr": "Çocuklar okulda yeni kelimeler öğrenir.",
+      "related_verbs": ["study", "master", "discover", "acquire", "absorb"]
+    },
+    {
+      "word": "teach",
+      "type": "verb",
+      "turkish": "Öğretmek",
+      "example_en": "The teacher teaches English grammar.",
+      "example_tr": "Öğretmen İngilizce dilbilgisi öğretir.",
+      "related_verbs": ["educate", "instruct", "train", "tutored", "guide"]
+    },
+    {
+      "word": "read",
+      "type": "verb",
+      "turkish": "Okumak",
+      "example_en": "We read books in the library.",
+      "example_tr": "Kütüphanede kitaplar okuyoruz.",
+      "related_verbs": ["scan", "review", "study", "look", "peruse"]
+    },
+    {
+      "word": "write",
+      "type": "verb",
+      "turkish": "Yazmak",
+      "example_en": "Write down the answers in your notebooks.",
+      "example_tr": "Cevapları defterlerinize yazın.",
+      "related_verbs": ["jot", "record", "draft", "compose", "type"]
+    },
+    {
+      "word": "listen",
+      "type": "verb",
+      "turkish": "Dinlemek",
+      "example_en": "Listen to the teacher carefully.",
+      "example_tr": "Öğretmeni dikkatlice dinle.",
+      "related_verbs": ["hear", "attend", "concentrate", "mind", "heed"]
+    },
+    {
+      "word": "speak",
+      "type": "verb",
+      "turkish": "Konuşmak",
+      "example_en": "We speak English during the lesson.",
+      "example_tr": "Ders sırasında İngilizce konuşuyoruz.",
+      "related_verbs": ["talk", "chat", "converse", "say", "express"]
+    },
+    {
+      "word": "answer",
+      "type": "verb",
+      "turkish": "Cevap vermek",
+      "example_en": "He answers the question correctly.",
+      "example_tr": "Soruyu doğru bir şekilde cevaplıyor.",
+      "related_verbs": ["reply", "respond", "react", "solve", "return"]
+    },
+    {
+      "word": "ask",
+      "type": "verb",
+      "turkish": "Sormak",
+      "example_en": "Students ask questions when they do not understand.",
+      "example_tr": "Öğrenciler anlamadıklarında soru sorarlar.",
+      "related_verbs": ["question", "inquire", "request", "query", "beg"]
+    },
+    {
+      "word": "understand",
+      "type": "verb",
+      "turkish": "Anlamak",
+      "example_en": "I understand the math problem now.",
+      "example_tr": "Matematik problemini şimdi anlıyorum.",
+      "related_verbs": ["comprehend", "grasp", "realize", "know", "see"]
+    },
+    {
+      "word": "explain",
+      "type": "verb",
+      "turkish": "Açıklamak",
+      "example_en": "The teacher explains the new rule.",
+      "example_tr": "Öğretmen yeni kuralı açıklıyor.",
+      "related_verbs": ["clarify", "describe", "illustrate", "define", "detail"]
+    },
+    {
+      "word": "practice",
+      "type": "verb",
+      "turkish": "Pratik yapmak, alıştırma yapmak",
+      "example_en": "We practice speaking every day.",
+      "example_tr": "Her gün konuşma pratiği yapıyoruz.",
+      "related_verbs": ["rehearse", "train", "exercise", "study", "drill"]
+    },
+    {
+      "word": "repeat",
+      "type": "verb",
+      "turkish": "Tekrar etmek",
+      "example_en": "Please repeat the sentence.",
+      "example_tr": "Lütfen cümleyi tekrar edin.",
+      "related_verbs": ["reiterate", "redo", "duplicate", "copy", "echo"]
+    },
+    {
+      "word": "spell",
+      "type": "verb",
+      "turkish": "Hecelemek",
+      "example_en": "How do you spell this word?",
+      "example_tr": "Bu kelimeyi nasıl hecelersin?",
+      "related_verbs": ["write", "mean", "sign", "read", "recite"]
+    },
+    {
+      "word": "test",
+      "type": "verb",
+      "turkish": "Test etmek, sınava tabi tutmak",
+      "example_en": "Teachers test our knowledge weekly.",
+      "example_tr": "Öğretmenler haftalık olarak bilgemizi test eder.",
+      "related_verbs": ["examine", "check", "evaluate", "assess", "try"]
+    },
+    {
+      "word": "pass",
+      "type": "verb",
+      "turkish": "Geçmek (sınavı vb.)",
+      "example_en": "She passes the exam with high grades.",
+      "example_tr": "Sınavı yüksek notlarla geçiyor.",
+      "related_verbs": ["succeed", "clear", "surpass", "cross", "hand"]
+    },
+    {
+      "word": "fail",
+      "type": "verb",
+      "turkish": "Başarısız olmak, kalmak",
+      "example_en": "Don't study late, or you might fail.",
+      "example_tr": "Geç saate kadar çalışıp kalma/başarısız olma.",
+      "related_verbs": ["lose", "flop", "miss", "collapse", "drop"]
+    },
+    {
+      "word": "graduate",
+      "type": "verb",
+      "turkish": "Mezun olmak",
+      "example_en": "Students graduate from university in June.",
+      "example_tr": "Öğrenciler Haziran ayında üniversiteden mezun oluyor.",
+      "related_verbs": ["finish", "complete", "qualify", "leave", "pass"]
+    },
+    {
+      "word": "attend",
+      "type": "verb",
+      "turkish": "Katılmak (derse vb.)",
+      "example_en": "All students attend the morning assembly.",
+      "example_tr": "Tüm öğrenciler sabah toplantısına katılıyor.",
+      "related_verbs": ["go", "join", "presence", "frequent", "participate"]
+    },
+    {
+      "word": "arrive",
+      "type": "verb",
+      "turkish": "Varmak (okula)",
+      "example_en": "The school bus arrives at eight o'clock.",
+      "example_tr": "Okul otobüsü saat sekizde varıyor.",
+      "related_verbs": ["reach", "come", "get", "approach", "enter"]
+    },
+    {
+      "word": "leave",
+      "type": "verb",
+      "turkish": "Ayrılmak (okuldan)",
+      "example_en": "We leave school in the afternoon.",
+      "example_tr": "Öğleden sonra okuldan ayrılıyoruz.",
+      "related_verbs": ["depart", "exit", "quit", "abandon", "go"]
+    },
+    {
+      "word": "sit",
+      "type": "verb",
+      "turkish": "Oturmak (sırada)",
+      "example_en": "Sit at your desks quietly.",
+      "example_tr": "Sıralarınızda sessizce oturun.",
+      "related_verbs": ["rest", "settle", "pose", "remain", "occupy"]
+    },
+    {
+      "word": "stand",
+      "type": "verb",
+      "turkish": "Ayakta durmak",
+      "example_en": "Stand up when the teacher enters.",
+      "example_tr": "Öğretmen girdiğinde ayağa kalkın.",
+      "related_verbs": ["rise", "bear", "tolerate", "endure", "stay"]
+    },
+    {
+      "word": "open",
+      "type": "verb",
+      "turkish": "Açmak (kitabı)",
+      "example_en": "Open your books to page ten.",
+      "example_tr": "Kitaplarınızı onuncu sayfaya açın.",
+      "related_verbs": ["unlock", "start", "unfold", "begin", "spread"]
+    },
+    {
+      "word": "close",
+      "type": "verb",
+      "turkish": "Kapatmak (defteri)",
+      "example_en": "Close your notebooks after the test.",
+      "example_tr": "Testten sonra defterlerinizi kapatın.",
+      "related_verbs": ["shut", "end", "finish", "halt", "conclude"]
+    },
+    {
+      "word": "draw",
+      "type": "verb",
+      "turkish": "Çizmek (resim dersinde)",
+      "example_en": "We draw maps in geography class.",
+      "example_tr": "Coğrafya dersinde haritalar çiziyoruz.",
+      "related_verbs": ["sketch", "paint", "design", "illustrate", "depict"]
+    },
+    {
+      "word": "color",
+      "type": "verb",
+      "turkish": "Boyamak",
+      "example_en": "Children color shapes with crayons.",
+      "example_tr": "Çocuklar pastel boyalarla şekilleri boyuyor.",
+      "related_verbs": ["paint", "dye", "tint", "shade", "decorate"]
+    },
+    {
+      "word": "cut",
+      "type": "verb",
+      "turkish": "Kesmek (kağıt vb.)",
+      "example_en": "Cut out the paper shapes with scissors.",
+      "example_tr": "Makasla kağıt şekilleri kesin.",
+      "related_verbs": ["slice", "chop", "trim", "clip", "shear"]
+    },
+    {
+      "word": "glue",
+      "type": "verb",
+      "turkish": "Yapıştırmak",
+      "example_en": "Glue the pictures onto the poster.",
+      "example_tr": "Resimleri postere yapıştırın.",
+      "related_verbs": ["paste", "stick", "attach", "fix", "join"]
+    },
+    {
+      "word": "erase",
+      "type": "verb",
+      "turkish": "Silmek",
+      "example_en": "Erase your mistakes with a rubber.",
+      "example_tr": "Hatalarını silgiyle sil.",
+      "related_verbs": ["delete", "remove", "clear", "wipe", "cancel"]
+    },
+    {
+      "word": "copy",
+      "type": "verb",
+      "turkish": "Kopyalamak, tahtadan geçirmek",
+      "example_en": "Copy the notes from the board.",
+      "example_tr": "Notları tahtadan deftere geçirin/kopyalayın.",
+      "related_verbs": ["duplicate", "imitate", "trace", "repeat", "mimic"]
+    },
+    {
+      "word": "check",
+      "type": "verb",
+      "turkish": "Kontrol etmek (ödevleri)",
+      "example_en": "The teacher checks our homework.",
+      "example_tr": "Öğretmen ödevlerimizi kontrol ediyor.",
+      "related_verbs": ["inspect", "examine", "verify", "test", "look"]
+    },
+    {
+      "word": "correct",
+      "type": "verb",
+      "turkish": "Düzeltmek",
+      "example_en": "Correct your spelling errors.",
+      "example_tr": "İmlâ hatalarını düzelt.",
+      "related_verbs": ["fix", "amend", "repair", "adjust", "improve"]
+    },
+    {
+      "word": "calculate",
+      "type": "verb",
+      "turkish": "Hesaplamak",
+      "example_en": "Students calculate numbers in math class.",
+      "example_tr": "Öğrenciler matematik dersinde sayıları hesaplıyor.",
+      "related_verbs": ["compute", "figure", "count", "estimate", "measure"]
+    },
+    {
+      "word": "count",
+      "type": "verb",
+      "turkish": "Saymak",
+      "example_en": "Count from one to twenty.",
+      "example_tr": "Birden yirmiye kadar say.",
+      "related_verbs": ["calculate", "number", "compute", "enumerate", "total"]
+    },
+    {
+      "word": "research",
+      "type": "verb",
+      "turkish": "Araştırma yapmak",
+      "example_en": "We research science topics on the computer.",
+      "example_tr": "Bilgisayarda fen bilgisi konularını araştırıyoruz.",
+      "related_verbs": ["investigate", "explore", "study", "search", "examine"]
+    },
+    {
+      "word": "find",
+      "type": "verb",
+      "turkish": "Bulmak (bilgiyi)",
+      "example_en": "Find the definition in the dictionary.",
+      "example_tr": "Sözlükte tanımı bul.",
+      "related_verbs": ["discover", "locate", "spot", "detect", "recover"]
+    },
+    {
+      "word": "project",
+      "type": "verb",
+      "turkish": "Proje hazırlamak / sunmak",
+      "example_en": "Students project their ideas on slides.",
+      "example_tr": "Öğrenciler fikirlerini slaytlarda sunuyor.",
+      "related_verbs": ["plan", "design", "display", "show", "present"]
+    },
+    {
+      "word": "present",
+      "type": "verb",
+      "turkish": "Sunum yapmak",
+      "example_en": "She presents her history project to the class.",
+      "example_tr": "Tarih projesini sınıfa sunuyor.",
+      "related_verbs": ["show", "give", "offer", "introduce", "deliver"]
+    },
+    {
+      "word": "discuss",
+      "type": "verb",
+      "turkish": "Tartışmak, müzakere etmek",
+      "example_en": "We discuss stories in literature class.",
+      "example_tr": "Edebiyat dersinde hikayeleri tartışıyoruz.",
+      "related_verbs": ["debate", "talk", "argue", "consult", "conversing"]
+    },
+    {
+      "word": "share",
+      "type": "verb",
+      "turkish": "Paylaşmak",
+      "example_en": "Share your books with your partner.",
+      "example_tr": "Kitaplarını partnerinle paylaş.",
+      "related_verbs": ["divide", "distribute", "split", "contribute", "part"]
+    },
+    {
+      "word": "help",
+      "type": "verb",
+      "turkish": "Yardım etmek",
+      "example_en": "Classmates help each other with homework.",
+      "example_tr": "Sınıf arkadaşları ev ödevinde birbirine yardım eder.",
+      "related_verbs": ["assist", "aid", "support", "serve", "benefit"]
+    },
+    {
+      "word": "clean",
+      "type": "verb",
+      "turkish": "Temizlemek (tahtayı vb.)",
+      "example_en": "Clean the whiteboard after class.",
+      "example_tr": "Dersten sonra yazı tahtasını temizle.",
+      "related_verbs": ["wash", "scrub", "wipe", "clear", "sweep"]
+    },
+    {
+      "word": "organize",
+      "type": "verb",
+      "turkish": "Düzenlemek, organize etmek",
+      "example_en": "Organize your school bag every evening.",
+      "example_tr": "Her akşam okul çantanı düzenle.",
+      "related_verbs": ["arrange", "order", "plan", "structure", "sort"]
+    },
+    {
+      "word": "pack",
+      "type": "verb",
+      "turkish": "Çantaya koymak, hazırlamak",
+      "example_en": "I pack my books into my backpack.",
+      "example_tr": "Kitaplarımı sırt çantama yerleştiriyorum.",
+      "related_verbs": ["wrap", "fill", "load", "store", "prepare"]
+    },
+    {
+      "word": "forget",
+      "type": "verb",
+      "turkish": "Unutmak",
+      "example_en": "Don't forget your homework at home.",
+      "example_tr": "Evde ödevini unutma.",
+      "related_verbs": ["lose", "miss", "omit", "leave", "overlook"]
+    },
+    {
+      "word": "remember",
+      "type": "verb",
+      "turkish": "Hatırlamak",
+      "example_en": "Remember to bring your colored pencils.",
+      "example_tr": "Renkli kalemlerini getirmeyi hatırla.",
+      "related_verbs": ["recall", "recollect", "mind", "retain", "memorize"]
+    },
+    {
+      "word": "know",
+      "type": "verb",
+      "turkish": "Bilmek",
+      "example_en": "She knows the answers to all questions.",
+      "example_tr": "Bütün soruların cevaplarını biliyor.",
+      "related_verbs": ["understand", "recognize", "realize", "comprehend", "perceive"]
+    },
+    {
+      "word": "think",
+      "type": "verb",
+      "turkish": "Düşünmek",
+      "example_en": "Think carefully before answering.",
+      "example_tr": "Cevap vermeden önce dikkatlice düşün.",
+      "related_verbs": ["ponder", "consider", "believe", "suppose", "reflect"]
+    },
+    {
+      "word": "enjoy",
+      "type": "verb",
+      "turkish": "Keyif almak",
+      "example_en": "Students enjoy learning new things.",
+      "example_tr": "Öğrenciler yeni şeyler öğrenmekten keyif alır.",
+      "related_verbs": ["like", "love", "relish", "appreciate", "delight"]
+    }
+  ]
+}

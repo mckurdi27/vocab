@@ -1,0 +1,408 @@
+{
+  "level": "A1",
+  "scene_id": 23,
+  "scene_title": "Shopping and Money",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "shop",
+      "type": "verb",
+      "turkish": "Alışveriş yapmak",
+      "example_en": "I shop for groceries at the local market.",
+      "example_tr": "Yerel pazardan bakkaliye alışverişi yaparım.",
+      "related_verbs": ["buy", "purchase", "browse", "market", "acquire"]
+    },
+    {
+      "word": "buy",
+      "type": "verb",
+      "turkish": "Satın almak",
+      "example_en": "She buys a new dress for the party.",
+      "example_tr": "Parti için yeni bir elbise satın alıyor.",
+      "related_verbs": ["purchase", "get", "acquire", "obtain", "pay"]
+    },
+    {
+      "word": "purchase",
+      "type": "verb",
+      "turkish": "Satın almak (resmi/ticari)",
+      "example_en": "Customers purchase tickets online.",
+      "example_tr": "Müşteriler biletleri internetten satın alır.",
+      "related_verbs": ["buy", "acquire", "obtain", "secure", "order"]
+    },
+    {
+      "word": "pay",
+      "type": "verb",
+      "turkish": "Ödemek",
+      "example_en": "How much do I pay for these shoes?",
+      "example_tr": "Bu ayakkabılar için ne kadar ödüyorum?",
+      "related_verbs": ["spend", "settle", "cover", "clear", "remit"]
+    },
+    {
+      "word": "spend",
+      "type": "verb",
+      "turkish": "Para harcamak",
+      "example_en": "He spends too much money on clothes.",
+      "example_tr": "Kıyafetlere çok fazla para harcıyor.",
+      "related_verbs": ["pay", "invest", "waste", "use", "consume"]
+    },
+    {
+      "word": "cost",
+      "type": "verb",
+      "turkish": "Fiyatı olmak, mal olmak",
+      "example_en": "This jacket costs fifty euros.",
+      "example_tr": "Bu ceket elli euro tutuyor/maliyeti var.",
+      "related_verbs": ["price", "value", "require", "charge", "amount"]
+    },
+    {
+      "word": "price",
+      "type": "verb",
+      "turkish": "Fiyat biçmek, etiketlemek",
+      "example_en": "Shop assistants price the new items.",
+      "example_tr": "Mağaza görevlileri yeni ürünlere fiyat biçiyor.",
+      "related_verbs": ["evaluate", "assess", "rate", "cost", "value"]
+    },
+    {
+      "word": "save",
+      "type": "verb",
+      "turkish": "Para biriktirmek, tasarruf etmek",
+      "example_en": "We save money for our summer holiday.",
+      "example_tr": "Yaz tatilimiz için para biriktiriyoruz.",
+      "related_verbs": ["เก็บ", "store", "keep", "reserve", "collect"]
+    },
+    {
+      "word": "earn",
+      "type": "verb",
+      "turkish": "Para kazanmak",
+      "example_en": "She earns money by working part-time.",
+      "example_tr": "Yarı zamanlı çalışarak para kazanıyor.",
+      "related_verbs": ["gain", "make", "win", "acquire", "collect"]
+    },
+    {
+      "word": "charge",
+      "type": "verb",
+      "turkish": "Ücret talep etmek, ücret almak",
+      "example_en": "The store charges extra for delivery.",
+      "example_tr": "Mağaza teslimat için ekstra ücret alıyor.",
+      "related_verbs": ["ask", "demand", "bill", "cost", "price"]
+    },
+    {
+      "word": "sell",
+      "type": "verb",
+      "turkish": "Satmak",
+      "example_en": "They sell fresh fruit and vegetables.",
+      "example_tr": "Taze meyve ve sebze satıyorlar.",
+      "related_verbs": ["offer", "market", "trade", "deal", "supply"]
+    },
+    {
+      "word": "offer",
+      "type": "verb",
+      "turkish": "Teklif etmek, sunmak",
+      "example_en": "Supermarkets offer discounts on weekends.",
+      "example_tr": "Süpermarketler hafta sonları indirim sunar.",
+      "related_verbs": ["present", "provide", "extend", "propose", "give"]
+    },
+    {
+      "word": "discount",
+      "type": "verb",
+      "turkish": "İndirim yapmak",
+      "example_en": "Can you discount this price?",
+      "example_tr": "Bu fiyatta indirim yapabilir misiniz?",
+      "related_verbs": ["reduce", "lower", "decrease", "cut", "deduct"]
+    },
+    {
+      "word": "reduce",
+      "type": "verb",
+      "turkish": "Azaltmak, fiyatı düşürmek",
+      "example_en": "Stores reduce prices during sales.",
+      "example_tr": "Mağazalar indirim dönemlerinde fiyatları düşürür.",
+      "related_verbs": ["lower", "decrease", "cut", "drop", "discount"]
+    },
+    {
+      "word": "browse",
+      "type": "verb",
+      "turkish": "Göz gezdirmek, incelemek",
+      "example_en": "I just browse around the shop.",
+      "example_tr": "Sadece dükkanda etrafa göz gezdiriyorum.",
+      "related_verbs": ["look", "scan", "examine", "survey", "search"]
+    },
+    {
+      "word": "look",
+      "type": "verb",
+      "turkish": "Bakmak",
+      "example_en": "Look at the price tag.",
+      "example_tr": "Fiyat etiketine bak.",
+      "related_verbs": ["see", "watch", "observe", "gaze", "stare"]
+    },
+    {
+      "word": "choose",
+      "type": "verb",
+      "turkish": "Seçmek",
+      "example_en": "Choose the color you like best.",
+      "example_tr": "En çok beğendiğin rengi seç.",
+      "related_verbs": ["select", "pick", "prefer", "opt", "decide"]
+    },
+    {
+      "word": "select",
+      "type": "verb",
+      "turkish": "Seçmek, ayırmak",
+      "example_en": "She selects the best apples.",
+      "example_tr": "En iyi elmaları seçiyor.",
+      "related_verbs": ["choose", "pick", "opt", "prefer", "collect"]
+    },
+    {
+      "word": "pick",
+      "type": "verb",
+      "turkish": "Seçmek, almak",
+      "example_en": "Pick a size that fits you.",
+      "example_tr": "Sana uyan bir beden seç.",
+      "related_verbs": ["choose", "select", "take", "gather", "lift"]
+    },
+    {
+      "word": "try",
+      "type": "verb",
+      "turkish": "Denemek (kıyafet denemek)",
+      "example_en": "I want to try this shirt on.",
+      "example_tr": "Bu gömleği denemek istiyorum.",
+      "related_verbs": ["test", "attempt", "sample", "prove", "wear"]
+    },
+    {
+      "word": "fit",
+      "type": "verb",
+      "turkish": "Uymak, üzerime olmak (beden)",
+      "example_en": "Does this coat fit me?",
+      "example_tr": "Bu kaban üzerime oluyor mu/uyuyor mu?",
+      "related_verbs": ["suit", "match", "adapt", "adjust", "conform"]
+    },
+    {
+      "word": "suit",
+      "type": "verb",
+      "turkish": "Yakışmak",
+      "example_en": "Blue suits you very well.",
+      "example_tr": "Mavi sana çok yakışıyor.",
+      "related_verbs": ["fit", "match", "become", "please", "agree"]
+    },
+    {
+      "word": "match",
+      "type": "verb",
+      "turkish": "Uyum sağlamak, uymak (renk vb.)",
+      "example_en": "The shoes match the bag.",
+      "example_tr": "Ayakkabılar çantayla uyumlu/uyuyor.",
+      "related_verbs": ["fit", "coordinate", "harmonize", "equal", "pair"]
+    },
+    {
+      "word": "change",
+      "type": "verb",
+      "turkish": "Değiştirmek (ürünü veya para üstü almak)",
+      "example_en": "I need to change this shirt for a larger size.",
+      "example_tr": "Bu gömleği daha büyük bir bedenle değiştirmem gerekiyor.",
+      "related_verbs": ["alter", "exchange", "modify", "replace", "switch"]
+    },
+    {
+      "word": "exchange",
+      "type": "verb",
+      "turkish": "Değiştokuş yapmak, iade edip değiştirmek",
+      "example_en": "Can I exchange this item for another one?",
+      "example_tr": "Bu ürünü başkasıyla değiştirebilir miyim?",
+      "related_verbs": ["change", "swap", "replace", "trade", "substitute"]
+    },
+    {
+      "word": "return",
+      "type": "verb",
+      "turkish": "İade etmek",
+      "example_en": "She returns the broken toaster to the shop.",
+      "example_tr": "Bozuk tost makinesini dükkana iade ediyor.",
+      "related_verbs": ["give", "restore", "repay", "refund", "send"]
+    },
+    {
+      "word": "refund",
+      "type": "verb",
+      "turkish": "Para iadesi yapmak",
+      "example_en": "The cashier refunds my money.",
+      "example_tr": "Kasiyer paramı iade ediyor.",
+      "related_verbs": ["repay", "reimburse", "return", "compensate", "restore"]
+    },
+    {
+      "word": "order",
+      "type": "verb",
+      "turkish": "Sipariş vermek",
+      "example_en": "I order shoes from an app.",
+      "example_tr": "Bir uygulamadan ayakkabı sipariş ediyorum.",
+      "related_verbs": ["command", "request", "book", "arrange", "ask"]
+    },
+    {
+      "word": "deliver",
+      "type": "verb",
+      "turkish": "Teslim etmek",
+      "example_en": "They deliver the package to my home.",
+      "example_tr": "Paketi evime teslim ediyorlar.",
+      "related_verbs": ["bring", "send", "ship", "hand", "carry"]
+    },
+    {
+      "word": "wrap",
+      "type": "verb",
+      "turkish": "Paketlemek, sarmak",
+      "example_en": "Can you wrap this as a gift?",
+      "example_tr": "Bunu hediye paketi yapabilir misiniz (sarabilir misiniz)?",
+      "related_verbs": ["pack", "cover", "fold", "bind", "enclose"]
+    },
+    {
+      "word": "carry",
+      "type": "verb",
+      "turkish": "Taşımak (poşetleri)",
+      "example_en": "He carries heavy shopping bags.",
+      "example_tr": "Ağır alışveriş poşetlerini taşıyor.",
+      "related_verbs": ["transport", "bear", "hold", "move", "lift"]
+    },
+    {
+      "word": "hold",
+      "type": "verb",
+      "turkish": "Tutmak",
+      "example_en": "Hold the receipt, please.",
+      "example_tr": "Lütfen fişi tut/sakla.",
+      "related_verbs": ["keep", "grasp", "grip", "contain", "possess"]
+    },
+    {
+      "word": "keep",
+      "type": "verb",
+      "turkish": "Saklamak (fişi vb.)",
+      "example_en": "Keep your receipt for returns.",
+      "example_tr": "İadeler için fişini sakla.",
+      "related_verbs": ["retain", "hold", "save", "maintain", "preserve"]
+    },
+    {
+      "word": "show",
+      "type": "verb",
+      "turkish": "Göstermek (kredi kartını/kimliği)",
+      "example_en": "Show your credit card at the counter.",
+      "example_tr": "Gişede kredi kartını göster.",
+      "related_verbs": ["display", "exhibit", "demonstrate", "reveal", "point"]
+    },
+    {
+      "word": "sign",
+      "type": "verb",
+      "turkish": "İmzalamak (fişi/faturayı)",
+      "example_en": "Please sign the credit card slip.",
+      "example_tr": "Lütfen kredi kartı fişini imzalayın.",
+      "related_verbs": ["autograph", "mark", "endorse", "write", "approve"]
+    },
+    {
+      "word": "spend",
+      "type": "verb",
+      "turkish": "Para harcamak",
+      "example_en": "People spend money during the holidays.",
+      "example_tr": "İnsanlar tatillerde para harcar.",
+      "related_verbs": ["pay", "invest", "waste", "use", "consume"]
+    },
+    {
+      "word": "waste",
+      "type": "verb",
+      "turkish": "Boşa harcamak",
+      "example_en": "Don't waste your money on useless things.",
+      "example_tr": "Paranı gereksiz şeylere boşa harcama.",
+      "related_verbs": ["squander", "lose", "misuse", "drain", "spoil"]
+    },
+    {
+      "word": "borrow",
+      "type": "verb",
+      "turkish": "Ödünç almak",
+      "example_en": "Can I borrow some money from you?",
+      "example_tr": "Senden biraz para ödünç alabilir miyim?",
+      "related_verbs": ["take", "rent", "lease", "adopt", "receive"]
+    },
+    {
+      "word": "lend",
+      "type": "verb",
+      "turkish": "Ödünç vermek",
+      "example_en": "Banks lend money to people.",
+      "example_tr": "Bankalar insanlara para ödünç verir.",
+      "related_verbs": ["loan", "give", "advance", "provide", "supply"]
+    },
+    {
+      "word": "owe",
+      "type": "verb",
+      "turkish": "Borçlu olmak",
+      "example_en": "I owe you ten dollars.",
+      "example_tr": "Sana on dolar borçluyum.",
+      "related_verbs": ["be", "have", "need", "bound", "obligate"]
+    },
+    {
+      "word": "cost",
+      "type": "verb",
+      "turkish": "Mal olmak, tutmak",
+      "example_en": "Everything costs more nowadays.",
+      "example_tr": "Şimdilerde her şey daha pahalıya mal oluyor.",
+      "related_verbs": ["price", "value", "require", "charge", "amount"]
+    },
+    {
+      "word": "afford",
+      "type": "verb",
+      "turkish": "Gücü yetmek (parası yetmek)",
+      "example_en": "I cannot afford this expensive car.",
+      "example_tr": "Bu pahalı arabayı almaya gücüm yetmiyor.",
+      "related_verbs": ["manage", "spare", "support", "bear", "yield"]
+    },
+    {
+      "word": "compare",
+      "type": "verb",
+      "turkish": "Karşılaştırmak (fiyatları)",
+      "example_en": "Compare prices before buying.",
+      "example_tr": "Satın almadan önce fiyatları karşılaştır.",
+      "related_verbs": ["contrast", "evaluate", "check", "measure", "weigh"]
+    },
+    {
+      "word": "look for",
+      "type": "verb",
+      "turkish": "Aramak (bir ürünü)",
+      "example_en": "I am looking for a winter coat.",
+      "example_tr": "Bir kışlık kaban arıyorum.",
+      "related_verbs": ["seek", "search", "hunt", "find", "explore"]
+    },
+    {
+      "word": "find",
+      "type": "verb",
+      "turkish": "Bulmak",
+      "example_en": "Did you find what you need?",
+      "example_tr": "İhtiyacın olan şeyi buldun mu?",
+      "related_verbs": ["locate", "discover", "spot", "detect", "get"]
+    },
+    {
+      "word": "ask",
+      "type": "verb",
+      "turkish": "Sormak (fiyatı sormak)",
+      "example_en": "Ask the assistant for the price.",
+      "example_tr": "Satış elemanına fiyatı sor.",
+      "related_verbs": ["inquire", "question", "request", "query", "beg"]
+    },
+    {
+      "word": "check",
+      "type": "verb",
+      "turkish": "Kontrol etmek (fişi/fiyatı)",
+      "example_en": "Check your receipt before leaving the cash desk.",
+      "example_tr": "Kasadan ayrılmadan önce fişini kontrol et.",
+      "related_verbs": ["verify", "inspect", "examine", "test", "look"]
+    },
+    {
+      "word": "collect",
+      "type": "verb",
+      "turkish": "Toplamak (para/bağış)",
+      "example_en": "They collect money for charity.",
+      "example_tr": "Hayır kurumu için para topluyorlar.",
+      "related_verbs": ["gather", "accumulate", "compile", "store", "save"]
+    },
+    {
+      "word": "withdraw",
+      "type": "verb",
+      "turkish": "Para çekmek (bankamatikten)",
+      "example_en": "I withdraw cash from the ATM.",
+      "example_tr": "ATM'den nakit para çekiyorum.",
+      "related_verbs": ["take", "remove", "extract", "pull", "retrieve"]
+    },
+    {
+      "word": "deposit",
+      "type": "verb",
+      "turkish": "Para yatırmak (bankaya)",
+      "example_en": "She deposits money into her account.",
+      "example_tr": "Hesabına para yatırıyor.",
+      "related_verbs": ["store", "save", "place", "invest", "commit"]
+    }
+  ]
+}

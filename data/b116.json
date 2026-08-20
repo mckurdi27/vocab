@@ -1,0 +1,408 @@
+{
+  "level": "B1",
+  "scene_id": 16,
+  "scene_title": "Health and Well-being",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "heal",
+      "type": "verb",
+      "turkish": "İyileşmek, iyileştirmek",
+      "example_en": "Cuts and bruises usually take a few days to heal naturally.",
+      "example_tr": "Kesikler ve morlukların doğal olarak iyileşmesi genellikle birkaç gün sürer.",
+      "related_verbs": ["cure", "recover", "mend", "restore", "remedy"]
+    },
+    {
+      "word": "cure",
+      "type": "verb",
+      "turkish": "Tedavi etmek, iyileştirmek (hastalığı)",
+      "example_en": "Medical researchers work tirelessly to find effective cures for chronic diseases.",
+      "example_tr": "Tıbbi araştırmacılar kronik hastalıklar için etkili tedaviler bulmak yorulmadan çalışır.",
+      "related_verbs": ["heal", "treat", "remedy", "restore", "fix"]
+    },
+    {
+      "word": "treat",
+      "type": "verb",
+      "turkish": "Tedavi etmek, muayene etmek",
+      "example_en": "Doctors use specialized medications to treat bacterial infections safely.",
+      "example_tr": "Doktorlar bakteriyel enfeksiyonları güvenli bir şekilde tedavi etmek için özel ilaçlar kullanır.",
+      "related_verbs": ["cure", "handle", "manage", "attend", "care"]
+    },
+    {
+      "word": "recover",
+      "type": "verb",
+      "turkish": "İyileşmek, sağlığına kavuşmak",
+      "example_en": "Patients need plenty of rest to recover completely from severe flu.",
+      "example_tr": "Hastaların şiddetli gripten tamamen iyileşmek için bolca dinlenmeye ihtiyacı vardır.",
+      "related_verbs": ["heal", "improve", "bounce back", "rally", "restore"]
+    },
+    {
+      "word": "hurt",
+      "type": "verb",
+      "turkish": "Acıtmak, ağrımak",
+      "example_en": "Running on hard pavement can hurt your knees and ankle joints.",
+      "example_tr": "Sert kaldırımda koşmak dizlerinizi ve ayak bileği eklemlerinizi acıtabilir.",
+      "related_verbs": ["pain", "ache", "injure", "harm", "damage"]
+    },
+    {
+      "word": "ache",
+      "type": "verb",
+      "turkish": "Ağrımak",
+      "example_en": "Sitting in front of a computer screen all day makes my shoulders ache.",
+      "example_tr": "Bütün gün bilgisayar ekranının önünde oturmak omuzlarımın ağrımasına neden oluyor.",
+      "related_verbs": ["hurt", "throb", "smart", "sting", "pained"]
+    },
+    {
+      "word": "injure",
+      "type": "verb",
+      "turkish": "Yaralamak, sakatlamak",
+      "example_en": "Professional athletes can easily injure their muscles during intense training sessions.",
+      "example_tr": "Profesyonel sporcular yoğun antrenman seanslarında kaslarını kolayca yaralayabilir.",
+      "related_verbs": ["hurt", "harm", "damage", "wound", "bruise"]
+    },
+    {
+      "word": "bleed",
+      "type": "verb",
+      "turkish": "Kanamak",
+      "example_en": "Applying pressure to a deep cut helps stop it from bleeding quickly.",
+      "example_tr": "Derin bir kesik üzerine baskı uygulamak hızla kanamasını durdurmaya yardımcı olur.",
+      "related_verbs": ["flow", "seep", "leak", "ooze", "drain"]
+    },
+    {
+      "word": "cough",
+      "type": "verb",
+      "turkish": "Öksürmek",
+      "example_en": "People with throat infections often cough heavily during cold winter nights.",
+      "example_tr": "Boğaz enfeksiyonu olan insanlar soğuk kış gecelerinde genellikle şiddetli öksürür.",
+      "related_verbs": ["clear", "gag", "hack", "wheeze", "spit"]
+    },
+    {
+      "word": "sneeze",
+      "type": "verb",
+      "turkish": "Hapşırmak",
+      "example_en": "Spring pollen can cause sensitive individuals to sneeze repeatedly outdoors.",
+      "example_tr": "Bahar poleni hassas bireylerin dışarıda ard arda hapşırmasına neden olabilir.",
+      "related_verbs": ["snort", "wheeze", "gasp", "sniff", "cough"]
+    },
+    {
+      "word": "breathe",
+      "type": "verb",
+      "turkish": "Nefes almak",
+      "example_en": "Yoga exercises teach people how to breathe deeply and reduce daily stress.",
+      "example_tr": "Yoga egzersizleri insanlara derin nefes almayı ve günlük stresi azaltmayı öğretir.",
+      "related_verbs": ["respire", "inhale", "exhale", "pant", "sigh"]
+    },
+    {
+      "word": "exercise",
+      "type": "verb",
+      "turkish": "Egzersiz yapmak, spor yapmak",
+      "example_en": "Health experts recommend adults exercise for at least thirty minutes daily.",
+      "example_tr": "Sağlık uzmanları yetişkinlerin günde en az otuz dakika egzersiz yapmasını tavsiye ediyor.",
+      "related_verbs": ["workout", "train", "practice", "swimming", "jogging"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Rahatlamak, dinlenmek",
+      "example_en": "Taking a warm bath helps tense muscles relax after physical work.",
+      "example_tr": "Ilık bir banyo yapmak, fiziksel işten sonra gergin kasların rahatlamasına yardımcı olur.",
+      "related_verbs": ["unwind", "rest", "calm", "chill", "soothe"]
+    },
+    {
+      "word": "sleep",
+      "type": "verb",
+      "turkish": "Uyumak",
+      "example_en": "Growing teenagers need to sleep eight to nine hours every night.",
+      "example_tr": "Büyüyen gençlerin her gece sekiz ila dokuz saat uyuması gerekir.",
+      "related_verbs": ["rest", "slumber", "doze", "nap", "snooze"]
+    },
+    {
+      "word": "eat",
+      "type": "verb",
+      "turkish": "Yemek yemek",
+      "example_en": "Eating fresh vegetables and fruits is essential for maintaining good physical health.",
+      "example_tr": "Taze sebze ve meyve yemek, iyi bir fiziksel sağlığı korumak için esastır.",
+      "related_verbs": ["consume", "feed", "dine", "snack", "chew"]
+    },
+    {
+      "word": "drink",
+      "type": "verb",
+      "turkish": "İçmek (su vb.)",
+      "example_en": "Doctors suggest drinking plenty of water throughout the day to stay hydrated.",
+      "example_tr": "Doktorlar vücudun su dengesini korumak için gün boyunca bol su içmeyi öneriyor.",
+      "related_verbs": ["consume", "sip", "swig", "gulp", "hydrate"]
+    },
+    {
+      "word": "lose",
+      "type": "verb",
+      "turkish": "Kilo vermek (kilo kaybetmek)",
+      "example_en": "Following a balanced diet helps overweight individuals lose extra weight safely.",
+      "example_tr": "Dengeli bir diyet takip etmek, kilolu bireylerin fazla kilolarını güvenli bir şekilde vermesine yardımcı olur.",
+      "related_verbs": ["shed", "drop", "reduce", "diminish", "forfeit"]
+    },
+    {
+      "word": "gain",
+      "type": "verb",
+      "turkish": "Kilo almak (kilo kazanmak)",
+      "example_en": "Eating excessive junk food can cause people to gain unhealthy body weight.",
+      "example_tr": "Aşırı junky food (atıştırmalık/hazır gıda) yemek insanların sağlıksız vücut ağırlığı kazanmasına neden olabilir.",
+      "related_verbs": ["acquire", "put on", "accumulate", "increase", "add"]
+    },
+    {
+      "word": "examine",
+      "type": "verb",
+      "turkish": "Muayene etmek, incelemek",
+      "example_en": "General practitioners examine patients thoroughly to diagnose illnesses accurately.",
+      "example_tr": "Pratisyen hekimler hastalıkları doğru bir şekilde teşhis etmek için hastaları etraflıca muayene eder.",
+      "related_verbs": ["inspect", "check", "assess", "evaluate", "explore"]
+    },
+    {
+      "word": "diagnose",
+      "type": "verb",
+      "turkish": "Teşhis etmek, tanım koymak",
+      "example_en": "Specialist doctors use advanced laboratory tests to diagnose rare medical conditions.",
+      "example_tr": "Uzman doktorlar nadir tıbbi durumları teşhis etmek için gelişmiş laboratuvar testleri kullanır.",
+      "related_verbs": ["identify", "detect", "determine", "recognize", "analyze"]
+    },
+    {
+      "word": "prescribe",
+      "type": "verb",
+      "turkish": "Reçete yazmak",
+      "example_en": "Physicians prescribe specific antibiotics to fight stubborn throat bacteria.",
+      "example_tr": "Hekimler inatçı boğaz bakterileriyle savaşmak için belirli antibiyotikler reçete eder.",
+      "related_verbs": ["order", "recommend", "direct", "author", "assign"]
+    },
+    {
+      "word": "take",
+      "type": "verb",
+      "turkish": "İlaç almak / tüketmek",
+      "example_en": "Patients must take prescribed tablets exactly as directed by their doctor.",
+      "example_tr": "Hastalar reçete edilen tabletleri tam olarak doktorlarının yönlendirdiği şekilde almalıdır.",
+      "related_verbs": ["consume", "swallow", "ingest", "accept", "receive"]
+    },
+    {
+      "word": "swallow",
+      "type": "verb",
+      "turkish": "Yutmak",
+      "example_en": "Some children find it difficult to swallow large medicinal pills.",
+      "example_tr": "Bazı çocuklar büyük tıbbi hapları yutmayı zor bulur.",
+      "related_verbs": ["consume", "ingest", "gulp", "down", "drink"]
+    },
+    {
+      "word": "suffer",
+      "type": "verb",
+      "turkish": "Acı çekmek, muzdarip olmak",
+      "example_en": "Millions of people suffer from chronic migraine headaches around the world.",
+      "example_tr": "Dünya çapında milyonlarca insan kronik migren baş ağrılarından muzdariptir.",
+      "related_verbs": ["endure", "experience", "bear", "undergo", "agony"]
+    },
+    {
+      "word": "feel",
+      "type": "verb",
+      "turkish": "Hissetmek",
+      "example_en": "If you feel dizzy or feverish, you should lie down immediately.",
+      "example_tr": "Eğer başınız dönüyor veya ateşli hissediyorsanız, hemen uzanmalısınız.",
+      "related_verbs": ["experience", "sense", "perceive", "touch", "detect"]
+    },
+    {
+      "word": "faint",
+      "type": "verb",
+      "turkish": "Bayılmak",
+      "example_en": "Standing in hot weather for hours can cause people to faint.",
+      "example_tr": "Sıcak havada saatlerce ayakta durmak insanların bayılmasına neden olabilir.",
+      "related_verbs": ["collapse", "blackout", "swoon", "pass out", "droop"]
+    },
+    {
+      "word": "protect",
+      "type": "verb",
+      "turkish": "Korumak",
+      "example_en": "Vaccinations help protect communities against dangerous infectious diseases.",
+      "example_tr": "Aşılar toplulukları tehlikeli bulaşıcı hastalıklara karşı korumaya yardımcı olur.",
+      "related_verbs": ["guard", "defend", "shield", "preserve", "secure"]
+    },
+    {
+      "word": "prevent",
+      "type": "verb",
+      "turkish": "Önlemek, engellemek",
+      "example_en": "Washing hands regularly helps prevent the spread of common germs.",
+      "example_tr": "Elleri düzenli olarak yıkamak yaygın mikropların yayılmasını önlemeye yardımcı olur.",
+      "related_verbs": ["stop", "avoid", "deter", "preempt", "block"]
+    },
+    {
+      "word": "avoid",
+      "type": "verb",
+      "turkish": "Kaçınmak",
+      "example_en": "Doctors advise patients to avoid smoking and excessive alcohol consumption.",
+      "example_tr": "Doktorlar hastalara sigaradan ve aşırı alkol tüketiminden kaçınmalarını tavsiye eder.",
+      "related_verbs": ["shun", "evade", "escape", "prevent", "skip"]
+    },
+    {
+      "word": "smoke",
+      "type": "verb",
+      "turkish": "Sigara içmek",
+      "example_en": "Smoking inside public buildings and restaurants is strictly prohibited.",
+      "example_tr": "Halka açık binaların ve restoranların içinde sigara içmek kesinlikle yasaktır.",
+      "related_verbs": ["vape", "puff", "smolder", "burn", "inhale"]
+    },
+    {
+      "word": "quit",
+      "type": "verb",
+      "turkish": "Bırakmak (kötü alışkanlığı)",
+      "example_en": "Many smokers try to quit smoking to improve their long-term health.",
+      "example_tr": "Birçok sigara içicisi uzun vadeli sağlıklarını iyileştirmek için sigarayı bırakmaya çalışır.",
+      "related_verbs": ["stop", "cease", "abandon", "resign", "give up"]
+    },
+    {
+      "word": "improve",
+      "type": "verb",
+      "turkish": "İyileştirmek, geliştirmek",
+      "example_en": "Regular physical activity can significantly improve cardiovascular health.",
+      "example_tr": "Düzenli fiziksel aktivite kalp damar sağlığını önemli ölçüde iyileştirebilir.",
+      "related_verbs": ["enhance", "better", "upgrade", "boost", "refine"]
+    },
+    {
+      "word": "worsen",
+      "type": "verb",
+      "turkish": "Kötüleşmek, kötüleştirmek",
+      "example_en": "Ignoring early flu symptoms can cause the illness to worsen rapidly.",
+      "example_tr": "Erken grip belirtilerini görmezden gelmek hastalığın hızla kötüleşmesine neden olabilir.",
+      "related_verbs": ["deteriorate", "aggravate", "decline", "exacerbate", "impair"]
+    },
+    {
+      "word": "infect",
+      "type": "verb",
+      "turkish": "Enfekte etmek, bulaştırmak",
+      "example_en": "Viruses can easily infect respiratory tracts during seasonal epidemics.",
+      "example_tr": "Virüsler mevsimsel salgınlar sırasında solunum yollarını kolayca enfekte edebilir.",
+      "related_verbs": ["contaminate", "pollute", "taint", "transmit", "spoiling"]
+    },
+    {
+      "word": "spread",
+      "type": "verb",
+      "turkish": "Yayılmak, yaymak",
+      "example_en": "Colds and flus spread quickly when people gather in crowded rooms.",
+      "example_tr": "İnsanlar kalabalık odalarda toplandığında soğuk algınlığı ve grip hızla yayılır.",
+      "related_verbs": ["scatter", "disperse", "broadcast", "circulate", "extend"]
+    },
+    {
+      "word": "weaken",
+      "type": "verb",
+      "turkish": "Zayıflatmak",
+      "example_en": "Chronic lack of sleep can weaken the human immune system.",
+      "example_tr": "Kronik uyku eksikliği insan bağışıklık sistemini zayıflatabilir.",
+      "related_verbs": ["reduce", "undermine", "impair", "cripple", "fade"]
+    },
+    {
+      "word": "strengthen",
+      "type": "verb",
+      "turkish": "Güçlendirmek",
+      "example_en": "Eating vitamin-rich foods helps strengthen natural body defenses.",
+      "example_tr": "Vitamin açısından zengin gıdalar yemek, doğal vücut savunmasını güçlendirmeye yardımcı olur.",
+      "related_verbs": ["fortify", "reinforce", "boost", "strengthen", "toughen"]
+    },
+    {
+      "word": "operate",
+      "type": "verb",
+      "turkish": "Ameliyat etmek",
+      "example_en": "Surgeons had to operate on his knee immediately after the sports accident.",
+      "example_tr": "Cerrahlar spor kazasından hemen sonra dizini ameliyat etmek zorunda kaldı.",
+      "related_verbs": ["surgery", "work", "perform", "function", "act"]
+    },
+    {
+      "word": "bleed",
+      "type": "verb",
+      "turkish": "Kan akıtmak / kanamak",
+      "example_en": "Surgeons must tie blood vessels securely so they do not bleed during operations.",
+      "example_tr": "Cerrahlar operasyonlar sırasında kanamaması için kan damarlarını güvenli bir şekilde bağlamalıdır.",
+      "related_verbs": ["leak", "flow", "ooze", "drip", "hemorrhage"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Gevşemek",
+      "example_en": "Deep breathing exercises help patients relax before entering medical testing rooms.",
+      "example_tr": "Derin nefes egzersizleri hastaların tıbbi test odalarına girmeden önce gevşemesine yardımcı olur.",
+      "related_verbs": ["unwind", "calm", "rest", "soothe", "loose"]
+    },
+    {
+      "word": "worry",
+      "type": "verb",
+      "turkish": "Endişelenmek",
+      "example_en": "It is normal to worry before receiving important medical test results.",
+      "example_tr": "Önemli tıbbi test sonuçlarını almadan önce endişelenmek normaldir.",
+      "related_verbs": ["freak", "stress", "fret", "trouble", "anxious"]
+    },
+    {
+      "word": "calm",
+      "type": "verb",
+      "turkish": "Sakinleştirmek",
+      "example_en": "Nurses try to calm nervous children before giving them injections.",
+      "example_tr": "Hemşireler iğne yapmadan önce gergin çocukları sakinleştirmeye çalışır.",
+      "related_verbs": ["soothe", "pacify", "relax", "settle", "quiet"]
+    },
+    {
+      "word": "survive",
+      "type": "verb",
+      "turkish": "Hayatta kalmak",
+      "example_en": "Advanced medical technology helps critically ill patients survive severe conditions.",
+      "example_tr": "Gelişmiş tıp teknolojisi, kritik derecedeki hastaların şiddetli durumları atlatıp hayatta kalmasına yardımcı olur.",
+      "related_verbs": ["live", "endure", "outlast", "persist", "withstand"]
+    },
+    {
+      "word": "consult",
+      "type": "verb",
+      "turkish": "Danışmak",
+      "example_en": "Always consult a qualified doctor if persistent symptoms last over a week.",
+      "example_tr": "Geçmeyen belirtiler bir haftadan uzun sürerse her zaman nitelikli bir doktora danışın.",
+      "related_verbs": ["advising", "confer", "discuss", "refer", "inquire"]
+    },
+    {
+      "word": "rest",
+      "type": "verb",
+      "turkish": "Dinlenmek",
+      "example_en": "The best medicine for physical exhaustion is to rest at home.",
+      "example_tr": "Fiziksel tükenmişlik için en iyi ilaç evde dinlenmektir.",
+      "related_verbs": ["relax", "unwind", "pause", "repose", "sleep"]
+    },
+    {
+      "word": "sweat",
+      "type": "verb",
+      "turkish": "Terlemek",
+      "example_en": "High fever often causes patients to sweat heavily during the night.",
+      "example_tr": "Yüksek ateş genellikle hastaların gece boyunca yoğun bir şekilde terlemesine neden olur.",
+      "related_verbs": ["perspire", "glow", "drip", "exude", "leak"]
+    },
+    {
+      "word": "sustain",
+      "type": "verb",
+      "turkish": "Sürdürmek (sağlığı/yaşamı)",
+      "example_en": "Eating a balanced nutritious diet helps sustain good overall health.",
+      "example_tr": "Dengeli ve besleyici bir diyet yemek, genel sağlığı iyi sürdürmeye yardımcı olur.",
+      "related_verbs": ["maintain", "support", "preserve", "keep", "uphold"]
+    },
+    {
+      "word": "protect",
+      "type": "verb",
+      "turkish": "Korumak (sağlığı)",
+      "example_en": "Wearing warm winter coats helps protect against seasonal colds.",
+      "example_tr": "Sıcak kışlık kabanlar giymek mevsimsel soğuk algınlıklarına karşı korumaya yardımcı olur.",
+      "related_verbs": ["guard", "shield", "defend", "preserve", "secure"]
+    },
+    {
+      "word": "heal",
+      "type": "verb",
+      "turkish": "Şifa bulmak, iyileşmek",
+      "example_en": "With proper medical care, broken bones will heal completely over time.",
+      "example_tr": "Uygun tıbbi bakım ile kırık kemikler zamanla tamamen iyileşecektir.",
+      "related_verbs": ["cure", "mend", "restore", "recover", "fix"]
+    },
+    {
+      "word": "recover",
+      "type": "verb",
+      "turkish": "Sağlığına kavuşmak",
+      "example_en": "She took a week off work to fully recover from her surgery.",
+      "example_tr": "Ameliyatından tamamen sağlığına kavuşmak için işten bir hafta izin aldı.",
+      "related_verbs": ["heal", "improve", "rally", "bounce", "mend"]
+    }
+  ]
+}

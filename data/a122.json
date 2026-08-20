@@ -1,0 +1,408 @@
+{
+  "level": "A1",
+  "scene_id": 22,
+  "scene_title": "Hobbies and Free Time",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "hobby",
+      "type": "verb",
+      "turkish": "Hobi edinmek / Uğraşmak",
+      "example_en": "He hobbies in photography on weekends.",
+      "example_tr": "Hafta sonları fotoğrafçılıkla uğraşır.",
+      "related_verbs": ["pursue", "enjoy", "practice", "engage", "explore"]
+    },
+    {
+      "word": "enjoy",
+      "type": "verb",
+      "turkish": "Keyif almak, hoşlanmak",
+      "example_en": "I enjoy listening to music in my free time.",
+      "example_tr": "Boş zamanımda müzik dinlemekten keyif alırım.",
+      "related_verbs": ["like", "love", "relish", "appreciate", "delight"]
+    },
+    {
+      "word": "like",
+      "type": "verb",
+      "turkish": "Sevmek, hoşlanmak",
+      "example_en": "She likes painting pictures.",
+      "example_tr": "Resim yapmayı sever.",
+      "related_verbs": ["love", "enjoy", "prefer", "fancy", "appreciate"]
+    },
+    {
+      "word": "love",
+      "type": "verb",
+      "turkish": "Çok sevmek, bayılmak",
+      "example_en": "We love reading books.",
+      "example_tr": "Kitap okumaya bayılırız.",
+      "related_verbs": ["adore", "cherish", "enjoy", "like", "value"]
+    },
+    {
+      "word": "prefer",
+      "type": "verb",
+      "turkish": "Tercih etmek",
+      "example_en": "I prefer swimming to running.",
+      "example_tr": "Yüzmeyi koșmaya tercih ederim.",
+      "related_verbs": ["choose", "select", "favor", "opt", "like"]
+    },
+    {
+      "word": "play",
+      "type": "verb",
+      "turkish": "Oynamak / Enstrüman çalmak",
+      "example_en": "He plays the guitar every evening.",
+      "example_tr": "Her akşam gitar çalar.",
+      "related_verbs": ["perform", "act", "sport", "game", "execute"]
+    },
+    {
+      "word": "listen",
+      "type": "verb",
+      "turkish": "Dinlemek",
+      "example_en": "They listen to pop music.",
+      "example_tr": "Pop müzik dinlerler.",
+      "related_verbs": ["hear", "attend", "heed", "ear", "receive"]
+    },
+    {
+      "word": "read",
+      "type": "verb",
+      "turkish": "Okumak",
+      "example_en": "I read novels before sleeping.",
+      "example_tr": "Uyumadan önce roman okurum.",
+      "related_verbs": ["study", "browse", "scan", "peruse", "review"]
+    },
+    {
+      "word": "write",
+      "type": "verb",
+      "turkish": "Yazmak (şiir/günlük)",
+      "example_en": "She writes stories in her notebook.",
+      "example_tr": "Defterine hikayeler yazar.",
+      "related_verbs": ["compose", "draft", "record", "type", "author"]
+    },
+    {
+      "word": "draw",
+      "type": "verb",
+      "turkish": "Çizmek",
+      "example_en": "My brother draws cartoons very well.",
+      "example_tr": "Erkek kardeşim çok iyi çizgi film çizer.",
+      "related_verbs": ["sketch", "design", "illustrate", "paint", "depict"]
+    },
+    {
+      "word": "paint",
+      "type": "verb",
+      "turkish": "Boya yapmak, resim yapmak",
+      "example_en": "Artists paint landscapes with oil colors.",
+      "example_tr": "Sanatçılar yağlı boyayla manzaralar resmeder.",
+      "related_verbs": ["color", "draw", "decorate", "coat", "illustrate"]
+    },
+    {
+      "word": "sing",
+      "type": "verb",
+      "turkish": "Şarkı söylemek",
+      "example_en": "She sings songs in the choir.",
+      "example_tr": "Koroda şarkılar söyler.",
+      "related_verbs": ["chant", "hum", "carol", "perform", "vocalize"]
+    },
+    {
+      "word": "dance",
+      "type": "verb",
+      "turkish": "Dans etmek",
+      "example_en": "People dance at parties.",
+      "example_tr": "İnsanlar partilerde dans eder.",
+      "related_verbs": ["hop", "leap", "move", "boogie", "swing"]
+    },
+    {
+      "word": "cook",
+      "type": "verb",
+      "turkish": "Yemek pişirmek",
+      "example_en": "He cooks delicious meals for his friends.",
+      "example_tr": "Arkadaşları için lezzetli yemekler pişirir.",
+      "related_verbs": ["bake", "prepare", "fry", "boil", "grill"]
+    },
+    {
+      "word": "baking",
+      "type": "verb",
+      "turkish": "Hamur işi yapmak / Fırında pişirmek",
+      "example_en": "She bakes cakes on Sundays.",
+      "example_tr": "Pazar günleri kek pişirir.",
+      "related_verbs": ["cook", "roast", "heat", "warm", "prepare"]
+    },
+    {
+      "word": "gardening",
+      "type": "verb",
+      "turkish": "Bahçıvanlık yapmak",
+      "example_en": "My grandmother gardens in the backyard.",
+      "example_tr": "Büyükannem arka bahçede bahçıvanlık yapar.",
+      "related_verbs": ["plant", "cultivate", "tend", "weed", "grow"]
+    },
+    {
+      "word": "plant",
+      "type": "verb",
+      "turkish": "Bitki dikmek",
+      "example_en": "We plant flowers in spring.",
+      "example_tr": "İlkbaharda çiçek dikeriz.",
+      "related_verbs": ["grow", "sow", "bury", "cultivate", "root"]
+    },
+    {
+      "word": "grow",
+      "type": "verb",
+      "turkish": "Yetiştirmek, büyütmek",
+      "example_en": "He grows vegetables in his garden.",
+      "example_tr": "Bahçesinde sebze yetiştirir.",
+      "related_verbs": ["cultivate", "raise", "develop", "increase", "produce"]
+    },
+    {
+      "word": "travel",
+      "type": "verb",
+      "turkish": "Seyahat etmek (hobi olarak)",
+      "example_en": "They travel to new countries every year.",
+      "example_tr": "Her yıl yeni ülkelere seyahat ederler.",
+      "related_verbs": ["journey", "tour", "visit", "explore", "trip"]
+    },
+    {
+      "word": "explore",
+      "type": "verb",
+      "turkish": "Keşfetmek, gezmek",
+      "example_en": "We explore nature during weekends.",
+      "example_tr": "Hafta sonları doğayı keşfederiz.",
+      "related_verbs": ["discover", "examine", "investigate", "tour", "search"]
+    },
+    {
+      "word": "hike",
+      "type": "verb",
+      "turkish": "Doğa yürüyüşü yapmak",
+      "example_en": "Hikers hike up the mountain.",
+      "example_tr": "Doğa yürüyüşçüleri dağa yürüyüş yapar.",
+      "related_verbs": ["walk", "trek", "climb", "march", "stroll"]
+    },
+    {
+      "word": "camp",
+      "type": "verb",
+      "turkish": "Kamp yapmak",
+      "example_en": "We camp by the lake in summer.",
+      "example_tr": "Yazın göl kenarında kamp yaparız.",
+      "related_verbs": ["pitch", "tent", "reside", "stay", "dwell"]
+    },
+    {
+      "word": "fish",
+      "type": "verb",
+      "turkish": "Balık tutmak",
+      "example_en": "Men fish quietly by the river.",
+      "example_tr": "Adamlar nehir kenarında sessizce balık tutar.",
+      "related_verbs": ["angle", "catch", "seek", "hunt", "net"]
+    },
+    {
+      "word": "swimming",
+      "type": "verb",
+      "turkish": "Yüzmek",
+      "example_en": "Kids swim in the pool.",
+      "example_tr": "Çocuklar havuzda yüzer.",
+      "related_verbs": ["dive", "float", "paddle", "splash", "bask"]
+    },
+    {
+      "word": "run",
+      "type": "verb",
+      "turkish": "Koşmak (spor için)",
+      "example_en": "She runs in the park every morning.",
+      "example_tr": "Her sabah parkta koşar.",
+      "related_verbs": ["jog", "dash", "sprint", "race", "speed"]
+    },
+    {
+      "word": "cycle",
+      "type": "verb",
+      "turkish": "Bisiklete binmek",
+      "example_en": "We cycle along the beach.",
+      "example_tr": "Sahil boyunca bisiklet süreriz.",
+      "related_verbs": ["ride", "pedal", "travel", "roll", "move"]
+    },
+    {
+      "word": "skate",
+      "type": "verb",
+      "turkish": "Paten / kaykay yapmak",
+      "example_en": "Teenagers skate in the skatepark.",
+      "example_tr": "Gençler kaykay parkında kaykay yapar.",
+      "related_verbs": ["slide", "glide", "slip", "roll", "skid"]
+    },
+    {
+      "word": "ski",
+      "type": "verb",
+      "turkish": "Kayak yapmak",
+      "example_en": "People ski in winter.",
+      "example_tr": "İnsanlar kışın kayak yapar.",
+      "related_verbs": ["slide", "glide", "snowboard", "descend", "recreate"]
+    },
+    {
+      "word": "collect",
+      "type": "verb",
+      "turkish": "Koleksiyon yapmak, toplamak",
+      "example_en": "He collects old stamps.",
+      "example_tr": "Eski pullar koleksiyonu yapar (toplar).",
+      "related_verbs": ["gather", "accumulate", "compile", "store", "save"]
+    },
+    {
+      "word": "photograph",
+      "type": "verb",
+      "turkish": "Fotoğraf çekmek",
+      "example_en": "She photographs wild animals.",
+      "example_tr": "Yaban hayatı hayvanlarının fotoğrafını çeker.",
+      "related_verbs": ["shoot", "snap", "capture", "picture", "record"]
+    },
+    {
+      "word": "game",
+      "type": "verb",
+      "turkish": "Oyun oynamak (video/masa)",
+      "example_en": "Boys game on their computers.",
+      "example_tr": "Çocuklar bilgisayarlarında oyun oynar.",
+      "related_verbs": ["play", "compete", "gamble", "match", "contest"]
+    },
+    {
+      "word": "puzzle",
+      "type": "verb",
+      "turkish": "Bulmaca çözmek / Kafa yormak",
+      "example_en": "Grandpa puzzles over crossword grids.",
+      "example_tr": "Büyükbaba çengel bulmacalar üzerinde kafa yorar/çözer.",
+      "related_verbs": ["solve", "think", "wonder", "confuse", "figure"]
+    },
+    {
+      "word": "watch",
+      "type": "verb",
+      "turkish": "İzlemek (film/maç)",
+      "example_en": "We watch movies on Friday nights.",
+      "example_tr": "Cuma geceleri film izleriz.",
+      "related_verbs": ["look", "observe", "view", "see", "gaze"]
+    },
+    {
+      "word": "visit",
+      "type": "verb",
+      "turkish": "Ziyaret etmek (müze/sergi)",
+      "example_en": "Art lovers visit museums.",
+      "example_tr": "Sanatseverler müzeleri ziyaret eder.",
+      "related_verbs": ["see", "tour", "attend", "explore", "meet"]
+    },
+    {
+      "word": "meet",
+      "type": "verb",
+      "turkish": "Buluşmak (arkadaşlarla)",
+      "example_en": "I meet my friends at a café.",
+      "example_tr": "Arkadaşlarımla bir kafede buluşurum.",
+      "related_verbs": ["gather", "assemble", "unite", "see", "join"]
+    },
+    {
+      "word": "chat",
+      "type": "verb",
+      "turkish": "Sohbet etmek",
+      "example_en": "They chat for hours.",
+      "example_tr": "Saatlerce sohbet ederler.",
+      "related_verbs": ["talk", "converse", "speak", "gossip", "discuss"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Dinlenmek, rahatlamak",
+      "example_en": "I relax on the sofa with a book.",
+      "example_tr": "Bir kitapla kanepede dinlenirim.",
+      "related_verbs": ["rest", "unwind", "calm", "ease", "loosen"]
+    },
+    {
+      "word": "rest",
+      "type": "verb",
+      "turkish": "Dinlenmek",
+      "example_en": "Resting is important after sports.",
+      "example_tr": "Spordan sonra dinlenmek önemlidir.",
+      "related_verbs": ["relax", "pause", "sleep", "sit", "lie"]
+    },
+    {
+      "word": "sleep",
+      "type": "verb",
+      "turkish": "Uyumak",
+      "example_en": "She sleeps late on weekends.",
+      "example_tr": "Hafta sonları geç uyur.",
+      "related_verbs": ["rest", "doze", "nap", "slumber", "snooze"]
+    },
+    {
+      "word": "socialize",
+      "type": "verb",
+      "turkish": "Sosyalleşmek",
+      "example_en": "It is good to socialize with neighbors.",
+      "example_tr": "Komşularla sosyalleşmek iyidir.",
+      "related_verbs": ["mingle", "network", "interact", "associate", "gather"]
+    },
+    {
+      "word": "party",
+      "type": "verb",
+      "turkish": "Parti yapmak, eğlenmek",
+      "example_en": "Students party all night long.",
+      "example_tr": "Öğrenciler bütün gece parti yapar/eğlenir.",
+      "related_verbs": ["celebrate", "revel", "enjoy", "socialize", "carouse"]
+    },
+    {
+      "word": "celebrate",
+      "type": "verb",
+      "turkish": "Kutlamak",
+      "example_en": "We celebrate birthdays with a cake.",
+      "example_tr": "Doğum günlerini bir kekle kutlarız.",
+      "related_verbs": ["observe", "commemorate", "party", "rejoice", "honor"]
+    },
+    {
+      "word": "shop",
+      "type": "verb",
+      "turkish": "Alışveriş yapmak (hobi olarak)",
+      "example_en": "She shops for clothes on Saturdays.",
+      "example_tr": "Cumartesileri kıyafet alışverişi yapar.",
+      "related_verbs": ["buy", "purchase", "browse", "market", "acquire"]
+    },
+    {
+      "word": "volunteer",
+      "type": "verb",
+      "turkish": "Gönüllü olmak",
+      "example_en": "He volunteers at an animal shelter.",
+      "example_tr": "Bir hayvan barınağında gönüllü olarak çalışır.",
+      "related_verbs": ["offer", "help", "assist", "contribute", "serve"]
+    },
+    {
+      "word": "knit",
+      "type": "verb",
+      "turkish": "Örgü örmek",
+      "example_en": "Grandma knits wool sweaters.",
+      "example_tr": "Büyükanne yün kazaklar örer.",
+      "related_verbs": ["weave", "stitch", "sew", "craft", "make"]
+    },
+    {
+      "word": "sew",
+      "type": "verb",
+      "turkish": "Dikiş dikmek",
+      "example_en": "She sews her own dresses.",
+      "example_tr": "Kendi elbiselerini diker.",
+      "related_verbs": ["stitch", "knit", "mend", "patch", "tailor"]
+    },
+    {
+      "word": "bake",
+      "type": "verb",
+      "turkish": "Fırında pişirmek",
+      "example_en": "We bake bread at home.",
+      "example_tr": "Evde ekmek pişiririz.",
+      "related_verbs": ["cook", "roast", "heat", "brown", "prepare"]
+    },
+    {
+      "word": "surf",
+      "type": "verb",
+      "turkish": "Sörf yapmak / İnternette gezinmek",
+      "example_en": "He surfs on the internet in the evening.",
+      "example_tr": "Akşamları internette sörf yapar/gezinir.",
+      "related_verbs": ["browse", "navigate", "ride", "explore", "scan"]
+    },
+    {
+      "word": "meditate",
+      "type": "verb",
+      "turkish": "Meditasyon yapmak",
+      "example_en": "She meditates every morning for peace.",
+      "example_tr": "Huzur için her sabah meditasyon yapar.",
+      "related_verbs": ["reflect", "ponder", "contemplate", "relax", "focus"]
+    },
+    {
+      "word": "yoga",
+      "type": "verb",
+      "turkish": "Yoga yapmak",
+      "example_en": "They yoga to stay flexible.",
+      "example_tr": "Esnek kalmak için yoga yaparlar.",
+      "related_verbs": ["stretch", "exercise", "relax", "practice", "bend"]
+    }
+  ]
+}

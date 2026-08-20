@@ -1,0 +1,408 @@
+{
+  "level": "B1",
+  "scene_id": 48,
+  "scene_title": "Hobbies and Free Time",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "hobby",
+      "type": "verb",
+      "turkish": "Hobi edinmek, hobi olarak yapmak",
+      "example_en": "Creative individuals hobby with painting or crafting during their quiet weekend hours.",
+      "example_tr": "Yaratıcı bireyler sessiz hafta sonu saatlerinde resim yapmak veya el sanatlarıyla uğraşmak gibi hobiler edinir.",
+      "related_verbs": ["pursue", "enjoy", "practice", "engage", "explore"]
+    },
+    {
+      "word": "paint",
+      "type": "verb",
+      "turkish": "Boyamak, resim yapmak",
+      "example_en": "Art students paint colorful landscape portraits using professional oil colors.",
+      "example_tr": "Sanat öğrencileri profesyonel yağlı boya renklerini kullanarak renkli manzara portreleri çizer.",
+      "related_verbs": ["draw", "sketch", "color", "illustrate", "decorate"]
+    },
+    {
+      "word": "draw",
+      "type": "verb",
+      "turkish": "Çizmek",
+      "example_en": "Graphic designers draw digital illustrations using advanced computer drawing tablets.",
+      "example_tr": "Grafik tasarımcılar gelişmiş bilgisayar çizim tabletlerini kullanarak dijital illüzyonlar çizer.",
+      "related_verbs": ["sketch", "design", "illustrate", "trace", "outline"]
+    },
+    {
+      "word": "photograph",
+      "type": "verb",
+      "turkish": "Fotoğraf çekmek",
+      "example_en": "Nature enthusiasts photograph wildlife animals wandering through dense forest parks.",
+      "example_tr": "Doğa meraklıları yoğun orman parklarında dolaşan yaban hayatı hayvanlarının fotoğrafını çeker.",
+      "related_verbs": ["shoot", "snap", "capture", "film", "record"]
+    },
+    {
+      "word": "read",
+      "type": "verb",
+      "turkish": "Okumak",
+      "example_en": "Avid book lovers read fascinating historical novels during cozy winter evenings.",
+      "example_tr": "Hevesli kitap severler konforlu kış akşamlarında büyüleyici tarihi romanlar okur.",
+      "related_verbs": ["study", "browse", "peruse", "skim", "review"]
+    },
+    {
+      "word": "write",
+      "type": "verb",
+      "turkish": "Yazmak",
+      "example_en": "Aspiring authors write creative fictional stories in quiet local coffee shops.",
+      "example_tr": "Yazar olmak isteyenler sessiz yerel kahve dükkanlarında yaratıcı kurgusal hikayeler yazar.",
+      "related_verbs": ["compose", "author", "draft", "pen", "record"]
+    },
+    {
+      "word": "cook",
+      "type": "verb",
+      "turkish": "Yemek pişirmek",
+      "example_en": "Gourmet cooking fans cook exotic international dishes for visiting family members.",
+      "example_tr": "Gourme yemek hayranları ziyaret eden aile üyeleri için egzotik uluslararası yemekler pişirir.",
+      "related_verbs": ["prepare", "bake", "fry", "roast", "boil"]
+    },
+    {
+      "word": "bake",
+      "type": "verb",
+      "turkish": "Fırında pişirmek, hamur işi yapmak",
+      "example_en": "Pastry chefs bake sweet chocolate cakes and delicious crispy bread loaves.",
+      "example_tr": "Pastacılar tatlı çikolatalı kekler ve lezzetli çıtır ekmek somunları fırında pişirir.",
+      "related_verbs": ["roast", "cook", "brown", "heat", "toast"]
+    },
+    {
+      "word": "garden",
+      "type": "verb",
+      "turkish": "Bahçecilik yapmak",
+      "example_en": "Retired homeowners garden beautiful blooming flowers in sunny backyard patches.",
+      "example_tr": "Emekli ev sahipleri güneşli arka bahçe alanlarında güzel açan çiçekler yetiştirip bahçecilik yapar.",
+      "related_verbs": ["cultivate", "plant", "grow", "weed", "tend"]
+    },
+    {
+      "word": "knit",
+      "type": "verb",
+      "turkish": "Örgü örmek",
+      "example_en": "Traditional crafters knit warm woolen scarves and sweaters for winter seasons.",
+      "example_tr": "Geleneksel zanaatkarlar kış mevsimleri için sıcak yün atkılar ve kazaklar örer.",
+      "related_verbs": ["weave", "stitch", "sew", "crochet", "spin"]
+    },
+    {
+      "word": "sew",
+      "type": "verb",
+      "turkish": "Dikiş dikmek",
+      "example_en": "Fashion designers sew custom clothing items using advanced sewing machines.",
+      "example_tr": "Moda tasarımcıları gelişmiş dikiş makinelerini kullanarak özel giyim eşyaları diker.",
+      "related_verbs": ["stitch", "mend", "tailor", "repair", "bind"]
+    },
+    {
+      "word": "collect",
+      "type": "verb",
+      "turkish": "Koleksiyon yapmak, toplamak",
+      "example_en": "Enthusiastic hobbyists collect rare vintage stamps and antique silver coins.",
+      "example_tr": "Hevesli hobi sahipleri nadir antika pullar ve antik gümüş paralar toplar.",
+      "related_verbs": ["gather", "accumulate", "assemble", "compile", "store"]
+    },
+    {
+      "word": "play",
+      "type": "verb",
+      "turkish": "Oynamak, çalmak (müzik aleti)",
+      "example_en": "Musical performers play classical piano sonatas during evening concert events.",
+      "example_tr": "Müzik sanatçıları akşam konser etkinlikleri sırasında klasik piyano sonatları çalar.",
+      "related_verbs": ["perform", "act", "participate", "compete", "execute"]
+    },
+    {
+      "word": "listen",
+      "type": "verb",
+      "turkish": "Dinlemek",
+      "example_en": "Music fans listen to relaxing acoustic melodies using high-quality headphones.",
+      "example_tr": "Müzik hayranları yüksek kaliteli kulaklıklar kullanarak rahatlatıcı akustik melodiler dinler.",
+      "related_verbs": ["hear", "attend", "monitor", "hearken", "catch"]
+    },
+    {
+      "word": "dance",
+      "type": "verb",
+      "turkish": "Dans etmek",
+      "example_en": "Energetic couples dance lively salsa rhythms at weekend social club parties.",
+      "example_tr": "Enerjik çiftler hafta sonu sosyal kulüp partilerinde canlı salsa ritimleriyle dans eder.",
+      "related_verbs": ["hop", "skip", "sway", "move", "boogie"]
+    },
+    {
+      "word": "sing",
+      "type": "verb",
+      "turkish": "Şarkı söylemek",
+      "example_en": "Talented choir members sing harmonious vocal tracks during seasonal holiday celebrations.",
+      "example_tr": "Yetenekli koro üyeleri mevsimsel tatil kutlamaları sırasında uyumlu ses parçaları söyler.",
+      "related_verbs": ["chant", "hum", "carol", "perform", "vocalize"]
+    },
+    {
+      "word": "act",
+      "type": "verb",
+      "turkish": "Oynamak (tiyatro/film), rol yapmak",
+      "example_en": "Amateur theater actors act in dramatic stage plays every weekend evening.",
+      "example_tr": "Amatör tiyatro oyuncuları her hafta sonu akşamı dramatik sahne oyunlarında rol alır.",
+      "related_verbs": ["perform", "play", "portray", "simulate", "behave"]
+    },
+    {
+      "word": "fish",
+      "type": "verb",
+      "turkish": "Balık tutmak",
+      "example_en": "Patient anglers fish quietly beside peaceful mountain lake shorelines at dawn.",
+      "example_tr": "Sabırlı olta balıkçıları şafak vaktinde huzurlu dağ gölü kıyılarının yanında sessizce balık tutar.",
+      "related_verbs": ["angle", "catch", "hunt", "net", "seek"]
+    },
+    {
+      "word": "camp",
+      "type": "verb",
+      "turkish": "Kamp yapmak",
+      "example_en": "Outdoor adventure lovers camp underneath starry skies in national forest reserves.",
+      "example_tr": "Açık hava macera severler milli orman rezervlerinde yıldızlı gökyüzünün altında kamp yapar.",
+      "related_verbs": ["pitch", "tent", "lodge", "dwell", "bivouac"]
+    },
+    {
+      "word": "hike",
+      "type": "verb",
+      "turkish": "Doğa yürüyüşü yapmak",
+      "example_en": "Recreational walkers hike scenic rugged forest trails on sunny Saturday mornings.",
+      "example_tr": "Rekreasyonel yürüyüşçüler güneşli Cumartesi sabahlarında manzaralı ve engebeli orman patikalarında yürüyüş yapar.",
+      "related_verbs": ["trek", "walk", "climb", "march", "stroll"]
+    },
+    {
+      "word": "cycle",
+      "type": "verb",
+      "turkish": "Bisiklete binmek",
+      "example_en": "Fitness riders cycle along paved suburban bicycle lanes during afternoon hours.",
+      "example_tr": "Fitness bisikletçileri öğleden sonra saatlerinde asfaltlanmış banliyö bisiklet yolları boyunca bisiklete biner.",
+      "related_verbs": ["pedal", "ride", "bike", "wheel", "tour"]
+    },
+    {
+      "word": "skate",
+      "type": "verb",
+      "turkish": "Paten / kaykay yapmak",
+      "example_en": "Active teenagers skate across smooth concrete park ramps on sunny afternoons.",
+      "example_tr": "Aktif gençler güneşli öğleden sonralarında pürüzsüz beton park rampaları üzerinde kaykay yapar.",
+      "related_verbs": ["glide", "slide", "slip", "board", "roll"]
+    },
+    {
+      "word": "surf",
+      "type": "verb",
+      "turkish": "Sörf yapmak",
+      "example_en": "Ocean sport athletes surf large tropical sea waves during windy summer afternoons.",
+      "example_tr": "Okyanus sporcuları rüzgarlı yaz öğleden sonralarında büyük tropik deniz dalgalarında sörf yapar.",
+      "related_verbs": ["ride", "glide", "browse", "sail", "wave"]
+    },
+    {
+      "word": "swim",
+      "type": "verb",
+      "turkish": "Yüzmek",
+      "example_en": "Leisure swimmers swim laps in indoor heated community swimming pools.",
+      "example_tr": "Boş zaman yüzücüleri kapalı ısıtmalı toplum yüzme havuzlarında kulvarlarda yüzer.",
+      "related_verbs": ["bathe", "dive", "float", "paddle", "splash"]
+    },
+    {
+      "word": "jog",
+      "type": "verb",
+      "turkish": "Hafif tempolu koşu yapmak",
+      "example_en": "Health enthusiasts jog slowly along neighborhood park pathways every sunrise.",
+      "example_tr": "Sağlık meraklıları her gün doğarken mahalle parkı yollarında hafif tempolu koşu yapar.",
+      "related_verbs": ["run", "trot", "sprint", "exercise", "pace"]
+    },
+    {
+      "word": "exercise",
+      "type": "verb",
+      "turkish": "Egzersiz yapmak",
+      "example_en": "Gym members exercise daily to maintain robust physical health and fitness.",
+      "example_tr": "Spor salonu üyeleri güçlü fiziksel sağlığı ve zindeliği korumak için her gün egzersiz yapar.",
+      "related_verbs": ["workout", "train", "practice", "fit", "sweat"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Dinlenmek, rahatlamak",
+      "example_en": "Busy employees relax at home watching favorite television series on weekends.",
+      "example_tr": "Yoğun çalışanlar hafta sonları en sevdikleri televizyon dizilerini izleyerek evde dinlenir.",
+      "related_verbs": ["unwind", "rest", "chill", "repose", "calm"]
+    },
+    {
+      "word": "rest",
+      "type": "verb",
+      "turkish": "İstirahat etmek",
+      "example_en": "Weekend hobbyists rest comfortably on living room sofas after active gardening.",
+      "example_tr": "Hafta sonu hobi sahipleri aktif bahçe işlerinden sonra oturma odası kanepelerinde rahatça dinlenir.",
+      "related_verbs": ["relax", "pause", "sleep", "repose", "breathe"]
+    },
+    {
+      "word": "socialize",
+      "type": "verb",
+      "turkish": "Sosyalleşmek",
+      "example_en": "Friendly neighbors socialize together at community center weekend social gatherings.",
+      "example_tr": "Dost canlısı komşular toplum merkezi hafta sonu sosyal toplantılarında birlikte sosyalleşir.",
+      "related_verbs": ["mingle", "interact", "network", "gather", "converse"]
+    },
+    {
+      "word": "meet",
+      "type": "verb",
+      "turkish": "Buluşmak, tanışmak",
+      "example_en": "Book club members meet monthly to discuss recently read literary novels.",
+      "example_tr": "Kitap kulübü üyeleri son okunan edebi romanları tartışmak için aylık olarak buluşur.",
+      "related_verbs": ["gather", "encounter", "unite", "assemble", "join"]
+    },
+    {
+      "word": "chat",
+      "type": "verb",
+      "turkish": "Sohbet etmek",
+      "example_en": "Close friends chat happily over warm cups of coffee at cafes.",
+      "example_tr": "Yakın arkadaşlar kafelerde sıcak kahve fincanları üzerinde mutlu bir şekilde sohbet eder.",
+      "related_verbs": ["talk", "converse", "speak", "gossip", "discuss"]
+    },
+    {
+      "word": "travel",
+      "type": "verb",
+      "turkish": "Seyahat etmek",
+      "example_en": "Adventure seekers travel abroad to discover unique foreign cultural traditions.",
+      "example_tr": "Macera arayanlar benzersiz yabancı kültürel gelenekleri keşfetmek için yurt dışına seyahat eder.",
+      "related_verbs": ["journey", "trip", "tour", "voyage", "wander"]
+    },
+    {
+      "word": "explore",
+      "type": "verb",
+      "turkish": "Keşfetmek",
+      "example_en": "Curious hikers explore hidden mountain trails during weekend outdoor excursions.",
+      "example_tr": "Meraklı yürüyüşçüler hafta sonu açık hava gezileri sırasında gizli dağ patikalarını keşfeder.",
+      "related_verbs": ["discover", "investigate", "examine", "survey", "search"]
+    },
+    {
+      "word": "discover",
+      "type": "verb",
+      "turkish": "Keşfetmek, bulmak",
+      "example_en": "Art hobbyists discover inspiring modern galleries tucked inside city alleyways.",
+      "example_tr": "Sanat meraklıları şehir sokak aralarına saklanmış ilham verici modern galerileri keşfeder.",
+      "related_verbs": ["find", "uncover", "detect", "reveal", "locate"]
+    },
+    {
+      "word": "visit",
+      "type": "verb",
+      "turkish": "Ziyaret etmek",
+      "example_en": "Culture lovers visit historical museums and art exhibitions on weekends.",
+      "example_tr": "Kültürseverler hafta sonları tarihi müzeleri ve sanat sergilerini ziyaret eder.",
+      "related_verbs": ["explore", "tour", "attend", "inspect", "call on"]
+    },
+    {
+      "word": "enjoy",
+      "type": "verb",
+      "turkish": "Keyfini çıkarmak",
+      "example_en": "Outdoor fans enjoy peaceful moments sitting under shady park oak trees.",
+      "example_tr": "Açık hava hayranları gölgeli park meşe ağaçlarının altında oturarak huzurlu anların tadını çıkarır.",
+      "related_verbs": ["like", "love", "appreciate", "relish", "delight"]
+    },
+    {
+      "word": "prefer",
+      "type": "verb",
+      "turkish": "Tercih etmek",
+      "example_en": "Some people prefer indoor crafting hobbies over outdoor athletic activities.",
+      "example_tr": "Bazı insanlar açık hava atletik aktivitelerinden ziyade iç mekan el sanatları hobilerini tercih eder.",
+      "related_verbs": ["choose", "select", "favor", "opt", "like"]
+    },
+    {
+      "word": "choose",
+      "type": "verb",
+      "turkish": "Seçmek",
+      "example_en": "Creative students choose specific painting projects matching their artistic styles.",
+      "example_tr": "Yaratıcı öğrenciler sanatsal stillerine uygun belirli resim projelerini seçer.",
+      "related_verbs": ["select", "pick", "prefer", "opt", "decide"]
+    },
+    {
+      "word": "practice",
+      "type": "verb",
+      "turkish": "Pratik yapmak, alıştırma yapmak",
+      "example_en": "Guitar students practice daily chord transitions to improve musical skills.",
+      "example_tr": "Gitar öğrencileri müzikal becerilerini geliştirmek için günlük akor geçişleri pratiği yapar.",
+      "related_verbs": ["rehearse", "train", "exercise", "study", "drill"]
+    },
+    {
+      "word": "improve",
+      "type": "verb",
+      "turkish": "Geliştirmek",
+      "example_en": "Photography hobbyists improve their camera framing techniques through continuous practice.",
+      "example_tr": "Fotoğrafçılık hobisiyle uğraşanlar sürekli pratik yaparak kamera çerçeveleme tekniklerini geliştirir.",
+      "related_verbs": ["enhance", "better", "upgrade", "develop", "boost"]
+    },
+    {
+      "word": "learn",
+      "type": "verb",
+      "turkish": "Öğrenmek",
+      "example_en": "Curious learners learn new cooking recipes from online video tutorials.",
+      "example_tr": "Meraklı öğrenenler çevrimiçi video rehberlerinden yeni yemek tarifleri öğrenir.",
+      "related_verbs": ["master", "acquire", "study", "discover", "grasp"]
+    },
+    {
+      "word": "master",
+      "type": "verb",
+      "turkish": "Usta olmak, mükemmel öğrenmek",
+      "example_en": "Dedicated chess players master complex strategic gameplay tactics over years.",
+      "example_tr": "Kendini adamış satranç oyuncuları yıllar içinde karmaşık stratejik oyun taktiklerinde ustalaşır.",
+      "related_verbs": ["conquer", "learn", "excel", "overcome", "grasp"]
+    },
+    {
+      "word": "succeed",
+      "type": "verb",
+      "turkish": "Başarılı olmak",
+      "example_en": "Crafters succeed in making intricate handmade pottery items after patient practice.",
+      "example_tr": "Zanaatkarlar sabırlı bir pratiğin ardından karmaşık el yapımı çömlek ürünleri yapmada başarılı olur.",
+      "related_verbs": ["prosper", "triumph", "achieve", "prevail", "win"]
+    },
+    {
+      "word": "win",
+      "type": "verb",
+      "turkish": "Kazanmak",
+      "example_en": "Competitive board game players win trophies during annual club tournaments.",
+      "example_tr": "Rekabetçi masa oyunu oyuncuları yıllık kulüp turnuvaları sırasında kupalar kazanır.",
+      "related_verbs": ["gain", "secure", "achieve", "triumph", "earn"]
+    },
+    {
+      "word": "compete",
+      "type": "verb",
+      "turkish": "Yarışmak",
+      "example_en": "Amateur athletes compete in friendly weekend running and cycling races.",
+      "example_tr": "Amatör sporcular dostça hafta sonu koşu ve bisiklet yarışlarında yarışır.",
+      "related_verbs": ["contest", "rival", "fight", "struggle", "challenge"]
+    },
+    {
+      "word": "participate",
+      "type": "verb",
+      "turkish": "Katılmak",
+      "example_en": "Community members participate enthusiastically in local arts and crafts festivals.",
+      "example_tr": "Toplum üyeleri yerel sanat ve el sanatları festivallerine coşkuyla katılır.",
+      "related_verbs": ["join", "attend", "engage", "share", "take part"]
+    },
+    {
+      "word": "organize",
+      "type": "verb",
+      "turkish": "Düzenlemek",
+      "example_en": "Club coordinators organize weekend outdoor hiking trips for interested members.",
+      "example_tr": "Kulüp koordinatörleri ilgilenen üyeler için hafta sonu açık hava yürüyüş gezileri düzenler.",
+      "related_verbs": ["arrange", "coordinate", "plan", "structure", "manage"]
+    },
+    {
+      "word": "volunteer",
+      "type": "verb",
+      "turkish": "Gönüllü olmak",
+      "example_en": "Kind-hearted individuals volunteer at local community animal shelters on Saturdays.",
+      "example_tr": "İyi kalpli bireyler Cumartesi günleri yerel toplum hayvan barınaklarında gönüllü olur.",
+      "related_verbs": ["offer", "assist", "help", "contribute", "step forward"]
+    },
+    {
+      "word": "celebrate",
+      "type": "verb",
+      "turkish": "Kutlamak",
+      "example_en": "Hobby club members celebrate successful project completions with joyful dinner parties.",
+      "example_tr": "Hobi kulübü üyeleri başarılı proje tamamlama süreçlerini neşeli akşam yemeği partileriyle kutlar.",
+      "related_verbs": ["observe", "commemorate", "rejoice", "partake", "cheer"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Gevşemek",
+      "example_en": "Listening to soft instrumental music helps exhausted workers relax completely.",
+      "example_tr": "Yumuşak enstrümantal müzik dinlemek, yorgun çalışanların tamamen gevşemesine yardımcı olur.",
+      "related_verbs": ["unwind", "ease", "loosen", "calm", "rest"]
+    }
+  ]
+}

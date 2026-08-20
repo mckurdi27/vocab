@@ -1,0 +1,408 @@
+{
+  "level": "A1",
+  "scene_id": 1,
+  "scene_title": "Daily Routine and Greetings",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "meet",
+      "type": "verb",
+      "turkish": "Tanışmak, buluşmak",
+      "example_en": "Nice to meet you.",
+      "example_tr": "Tanıştığımıza memnun oldum.",
+      "related_verbs": ["introduce", "greet", "talk", "speak", "say", "know", "see"]
+    },
+    {
+      "word": "live",
+      "type": "verb",
+      "turkish": "Yaşamak, ikamet etmek",
+      "example_en": "I live in a small town.",
+      "example_tr": "Küçük bir kasabada yaşıyorum.",
+      "related_verbs": ["reside", "stay", "inhabit", "move", "grow"]
+    },
+    {
+      "word": "work",
+      "type": "verb",
+      "turkish": "Çalışmak",
+      "example_en": "She works in an office.",
+      "example_tr": "O, bir ofiste çalışıyor.",
+      "related_verbs": ["labor", "toil", "employ", "manage", "earn"]
+    },
+    {
+      "word": "study",
+      "type": "verb",
+      "turkish": "Ders çalışmak",
+      "example_en": "We study English every day.",
+      "example_tr": "Her gün İngilizce çalışıyoruz.",
+      "related_verbs": ["learn", "read", "practice", "write", "review"]
+    },
+    {
+      "word": "start",
+      "type": "verb",
+      "turkish": "Başlamak",
+      "example_en": "Classes start at nine o'clock.",
+      "example_tr": "Dersler saat dokuzda başlar.",
+      "related_verbs": ["begin", "open", "initiate", "launch", "set"]
+    },
+    {
+      "word": "wake",
+      "type": "verb",
+      "turkish": "Uyanmak",
+      "example_en": "I wake up early in the morning.",
+      "example_tr": "Sabahları erken uyanırım.",
+      "related_verbs": ["rise", "get", "arouse", "stir", "open"]
+    },
+    {
+      "word": "get",
+      "type": "verb",
+      "turkish": "Almak, elde etmek, varmak",
+      "example_en": "She gets ready for school.",
+      "example_tr": "Okul için hazırlanıyor.",
+      "related_verbs": ["obtain", "acquire", "receive", "fetch", "gain"]
+    },
+    {
+      "word": "have",
+      "type": "verb",
+      "turkish": "Sahip olmak, yemek",
+      "example_en": "We have breakfast together.",
+      "example_tr": "Birlikte kahvaltı yapıyoruz.",
+      "related_verbs": ["possess", "own", "hold", "contain", "experience"]
+    },
+    {
+      "word": "go",
+      "type": "verb",
+      "turkish": "Gitmek",
+      "example_en": "He goes to work by bus.",
+      "example_tr": "İşe otobüsle gider.",
+      "related_verbs": ["move", "travel", "proceed", "walk", "run"]
+    },
+    {
+      "word": "arrive",
+      "type": "verb",
+      "turkish": "Varmak, ulaşmak",
+      "example_en": "They arrive at the office on time.",
+      "example_tr": "Ofise zamanında varırlar.",
+      "related_verbs": ["reach", "come", "get", "approach", "enter"]
+    },
+    {
+      "word": "finish",
+      "type": "verb",
+      "turkish": "Bitirmek",
+      "example_en": "I finish my work at five.",
+      "example_tr": "İşimi saat beşte bitiririm.",
+      "related_verbs": ["complete", "end", "conclude", "terminate", "stop"]
+    },
+    {
+      "word": "return",
+      "type": "verb",
+      "turkish": "Dönmek",
+      "example_en": "She returns home in the evening.",
+      "example_tr": "Akşam eve döner.",
+      "related_verbs": ["come", "go", "revert", "reply", "give"]
+    },
+    {
+      "word": "eat",
+      "type": "verb",
+      "turkish": "Yemek yemek",
+      "example_en": "We eat dinner at seven.",
+      "example_tr": "Akşam yemeğini saat yedi yeriz.",
+      "related_verbs": ["dine", "consume", "swallow", "taste", "feed"]
+    },
+    {
+      "word": "watch",
+      "type": "verb",
+      "turkish": "İzlemek",
+      "example_en": "He watches television at night.",
+      "example_tr": "Gece televizyon izler.",
+      "related_verbs": ["see", "look", "observe", "view", "stare"]
+    },
+    {
+      "word": "sleep",
+      "type": "verb",
+      "turkish": "Uyumak",
+      "example_en": "Children sleep eight hours a night.",
+      "example_tr": "Çocuklar gecede sekiz saat uyur.",
+      "related_verbs": ["rest", "doze", "dream", "nap", "slumber"]
+    },
+    {
+      "word": "speak",
+      "type": "verb",
+      "turkish": "Konuşmak",
+      "example_en": "Can you speak slowly, please?",
+      "example_tr": "Yavaş konuşabilir misiniz lütfen?",
+      "related_verbs": ["talk", "say", "tell", "express", "communicate"]
+    },
+    {
+      "word": "listen",
+      "type": "verb",
+      "turkish": "Dinlemek",
+      "example_en": "I listen to the radio.",
+      "example_tr": "Radyo dinlerim.",
+      "related_verbs": ["hear", "attend", "pay", "concentrate", "mind"]
+    },
+    {
+      "word": "read",
+      "type": "verb",
+      "turkish": "Okumak",
+      "example_en": "She reads a newspaper every morning.",
+      "example_tr": "Her sabah gazete okur.",
+      "related_verbs": ["scan", "review", "study", "look", "peruse"]
+    },
+    {
+      "word": "write",
+      "type": "verb",
+      "turkish": "Yazmak",
+      "example_en": "Write your address here.",
+      "example_tr": "Adresinizi buraya yazın.",
+      "related_verbs": ["jot", "record", "type", "draft", "compose"]
+    },
+    {
+      "word": "open",
+      "type": "verb",
+      "turkish": "Açmak",
+      "example_en": "Open the door for me.",
+      "example_tr": "Benim için kapıyı aç.",
+      "related_verbs": ["unlock", "unfold", "reveal", "spread", "start"]
+    },
+    {
+      "word": "close",
+      "type": "verb",
+      "turkish": "Kapatmak",
+      "example_en": "Close the window, it is cold.",
+      "example_tr": "Pencereyi kapat, hava soğuk.",
+      "related_verbs": ["shut", "lock", "seal", "end", "finish"]
+    },
+    {
+      "word": "buy",
+      "type": "verb",
+      "turkish": "Satın almak",
+      "example_en": "I need to buy some milk.",
+      "example_tr": "Biraz süt satın almam gerekiyor.",
+      "related_verbs": ["purchase", "get", "acquire", "pay", "order"]
+    },
+    {
+      "word": "pay",
+      "type": "verb",
+      "turkish": "Ödemek",
+      "example_en": "How much do I pay?",
+      "example_tr": "Ne kadar ödeyeceğim?",
+      "related_verbs": ["settle", "spend", "compensate", "give", "repay"]
+    },
+    {
+      "word": "walk",
+      "type": "verb",
+      "turkish": "Yürümek",
+      "example_en": "We walk in the park.",
+      "example_tr": "Parkta yürürüz.",
+      "related_verbs": ["stroll", "hike", "step", "march", "roam"]
+    },
+    {
+      "word": "run",
+      "type": "verb",
+      "turkish": "Koşmak",
+      "example_en": "Dogs like to run fast.",
+      "example_tr": "Köpekler hızlı koşmayı sever.",
+      "related_verbs": ["jog", "sprint", "dash", "race", "operate"]
+    },
+    {
+      "word": "play",
+      "type": "verb",
+      "turkish": "Oynamak",
+      "example_en": "Boys play football outside.",
+      "example_tr": "Çocuklar dışarıda futbol oynuyor.",
+      "related_verbs": ["sport", "act", "perform", "gamble", "fun"]
+    },
+    {
+      "word": "help",
+      "type": "verb",
+      "turkish": "Yardım etmek",
+      "example_en": "Can you help me with this?",
+      "example_tr": "Bunda bana yardım edebilir misin?",
+      "related_verbs": ["assist", "aid", "support", "serve", "benefit"]
+    },
+    {
+      "word": "like",
+      "type": "verb",
+      "turkish": "Beğenmek, sevmek",
+      "example_en": "I like coffee with milk.",
+      "example_tr": "Sütlü kahveyi severim.",
+      "related_verbs": ["love", "enjoy", "prefer", "fancy", "appreciate"]
+    },
+    {
+      "word": "love",
+      "type": "verb",
+      "turkish": "Çok sevmek",
+      "example_en": "She loves her family.",
+      "example_tr": "Ailesini çok seviyor.",
+      "related_verbs": ["adore", "cherish", "care", "value", "treasure"]
+    },
+    {
+      "word": "want",
+      "type": "verb",
+      "turkish": "İstemek",
+      "example_en": "I want an apple.",
+      "example_tr": "Bir elma istiyorum.",
+      "related_verbs": ["desire", "wish", "need", "prefer", "request"]
+    },
+    {
+      "word": "need",
+      "type": "verb",
+      "turkish": "İhtiyacı olmak",
+      "example_en": "We need more time.",
+      "example_tr": "Daha fazla zamana ihtiyacımız var.",
+      "related_verbs": ["require", "must", "lack", "demand", "necessitate"]
+    },
+    {
+      "word": "know",
+      "type": "verb",
+      "turkish": "Bilmek, tanımak",
+      "example_en": "I know the answer.",
+      "example_tr": "Cevabı biliyorum.",
+      "related_verbs": ["understand", "recognize", "realize", "learn", "perceive"]
+    },
+    {
+      "word": "think",
+      "type": "verb",
+      "turkish": "Düşünmek",
+      "example_en": "What do you think about this?",
+      "example_tr": "Bu konuda ne düşünüyorsun?",
+      "related_verbs": ["believe", "consider", "suppose", "guess", "imagine"]
+    },
+    {
+      "word": "try",
+      "type": "verb",
+      "turkish": "Denemek, çabalamak",
+      "example_en": "Try your best.",
+      "example_tr": "Elimden gelenin en iyisini dene.",
+      "related_verbs": ["attempt", "test", "effort", "strive", "endeavor"]
+    },
+    {
+      "word": "use",
+      "type": "verb",
+      "turkish": "Kullanmak",
+      "example_en": "We use computers at work.",
+      "example_tr": "İşte bilgisayar kullanıyoruz.",
+      "related_verbs": ["utilize", "operate", "apply", "employ", "handle"]
+    },
+    {
+      "word": "find",
+      "type": "verb",
+      "turkish": "Bulmak",
+      "example_en": "I can find my keys easily.",
+      "example_tr": "Anahtarlarımı kolayca bulabilirim.",
+      "related_verbs": ["discover", "locate", "detect", "spot", "uncover"]
+    },
+    {
+      "word": "give",
+      "type": "verb",
+      "turkish": "Vermek",
+      "example_en": "Give me that book, please.",
+      "example_tr": "Lütfen bana o kitabı ver.",
+      "related_verbs": ["hand", "offer", "provide", "grant", "donate"]
+    },
+    {
+      "word": "take",
+      "type": "verb",
+      "turkish": "Almak, götürmek",
+      "example_en": "Take your umbrella with you.",
+      "example_tr": "Şemsiyeni yanına al.",
+      "related_verbs": ["grab", "carry", "accept", "receive", "capture"]
+    },
+    {
+      "word": "bring",
+      "type": "verb",
+      "turkish": "Getirmek",
+      "example_en": "Please bring some water.",
+      "example_tr": "Lütfen biraz su getir.",
+      "related_verbs": ["fetch", "carry", "deliver", "convey", "bear"]
+    },
+    {
+      "word": "show",
+      "type": "verb",
+      "turkish": "Göstermek",
+      "example_en": "Show me your new photo.",
+      "example_tr": "Bana yeni fotoğrafını göster.",
+      "related_verbs": ["display", "exhibit", "reveal", "demonstrate", "point"]
+    },
+    {
+      "word": "tell",
+      "type": "verb",
+      "turkish": "Anlatmak, söylemek",
+      "example_en": "Tell me a story.",
+      "example_tr": "Bana bir hikaye anlat.",
+      "related_verbs": ["say", "speak", "inform", "explain", "recount"]
+    },
+    {
+      "word": "ask",
+      "type": "verb",
+      "turkish": "Sormak, istemek",
+      "example_en": "Ask a question to the teacher.",
+      "example_tr": "Öğretmene bir soru sor.",
+      "related_verbs": ["question", "inquire", "request", "beg", "query"]
+    },
+    {
+      "word": "answer",
+      "type": "verb",
+      "turkish": "Cevaplamak",
+      "example_en": "Answer the phone, please.",
+      "example_tr": "Lütfen telefona cevap ver.",
+      "related_verbs": ["reply", "respond", "react", "solve", "fulfill"]
+    },
+    {
+      "word": "call",
+      "type": "verb",
+      "turkish": "Aramak, seslenmek",
+      "example_en": "I will call you tonight.",
+      "example_tr": "Seni akşam arayacağım.",
+      "related_verbs": ["phone", "ring", "contact", "shout", "name"]
+    },
+    {
+      "word": "meet",
+      "type": "verb",
+      "turkish": "Buluşmak",
+      "example_en": "Let's meet at the cafe.",
+      "example_tr": "kafede buluşalım.",
+      "related_verbs": ["gather", "assemble", "join", "encounter", "unite"]
+    },
+    {
+      "word": "travel",
+      "type": "verb",
+      "turkish": "Seyahat etmek",
+      "example_en": "They travel every summer.",
+      "example_tr": "Her yaz seyahat ederler.",
+      "related_verbs": ["tour", "journey", "trip", "visit", "explore"]
+    },
+    {
+      "word": "visit",
+      "type": "verb",
+      "turkish": "Ziyaret etmek",
+      "example_en": "We visit our grandparents.",
+      "example_tr": "Büyükannemizi ve büyükbabamızı ziyaret ederiz.",
+      "related_verbs": ["see", "call", "attend", "frequent", "inspect"]
+    },
+    {
+      "word": "stay",
+      "type": "verb",
+      "turkish": "Kalmak",
+      "example_en": "Stay here until I return.",
+      "example_tr": "Ben dönene kadar burada kal.",
+      "related_verbs": ["remain", "wait", "dwell", "reside", "keep"]
+    },
+    {
+      "word": "leave",
+      "type": "verb",
+      "turkish": "Ayrılmak",
+      "example_en": "The train leaves at eight.",
+      "example_tr": "Tren saat sekizde hareket ediyor.",
+      "related_verbs": ["depart", "exit", "quit", "abandon", "forget"]
+    },
+    {
+      "word": "stop",
+      "type": "verb",
+      "turkish": "Durmak",
+      "example_en": "Stop at the red light.",
+      "example_tr": "Kırmızı ışıkta dur.",
+      "related_verbs": ["halt", "pause", "cease", "discontinue", "block"]
+    }
+  ]
+}

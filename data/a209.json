@@ -1,0 +1,408 @@
+{
+  "level": "A2",
+  "scene_id": 9,
+  "scene_title": "Travel and Directions",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "travel",
+      "type": "verb",
+      "turkish": "Seyahat etmek",
+      "example_en": "Millions of people travel during summer holidays.",
+      "example_tr": "Milyonlarca insan yaz tatillerinde seyahat ediyor.",
+      "related_verbs": ["journey", "trip", "tour", "visit", "explore"]
+    },
+    {
+      "word": "visit",
+      "type": "verb",
+      "turkish": "Ziyaret etmek, gezmek",
+      "example_en": "Tourists visit historical museums in the city center.",
+      "example_tr": "Turistler şehir merkezindeki tarihi müzeleri ziyaret ediyor.",
+      "related_verbs": ["see", "tour", "explore", "attend", "meet"]
+    },
+    {
+      "word": "explore",
+      "type": "verb",
+      "turkish": "Keşfetmek",
+      "example_en": "Backpackers love to explore narrow streets in old towns.",
+      "example_tr": "Sırt çantalı gezginler eski kasabalardaki dar sokakları keşfetmeyi sever.",
+      "related_verbs": ["discover", "investigate", "inspect", "search", "examine"]
+    },
+    {
+      "word": "arrive",
+      "type": "verb",
+      "turkish": "Varmak, ulaşmak",
+      "example_en": "The train arrives at the station on time.",
+      "example_tr": "Tren istasyona zamanında varıyor.",
+      "related_verbs": ["reach", "get", "come", "land", "appear"]
+    },
+    {
+      "word": "depart",
+      "type": "verb",
+      "turkish": "Hareket etmek, kalkmak",
+      "example_en": "Flights depart from terminal two every hour.",
+      "example_tr": "Uçuşlar her saat ikinci terminalden hareket ediyor.",
+      "related_verbs": ["leave", "start", "exit", "go", "set"]
+    },
+    {
+      "word": "book",
+      "type": "verb",
+      "turkish": "Yer ayırtmak, rezervasyon yapmak",
+      "example_en": "She books a double room at the seaside hotel.",
+      "example_tr": "Sahil otelinde çift kişilik bir oda ayırtıyor.",
+      "related_verbs": ["reserve", "order", "secure", "schedule", "arrange"]
+    },
+    {
+      "word": "reserve",
+      "type": "verb",
+      "turkish": "Rezervasyon yapmak, ayırmak",
+      "example_en": "Passengers reserve seats in advance for long journeys.",
+      "example_tr": "Yolcular uzun yolculuklar için önceden koltuk ayırtır.",
+      "related_verbs": ["book", "keep", "save", "hold", "store"]
+    },
+    {
+      "word": "pack",
+      "type": "verb",
+      "turkish": "Valiz hazırlamak, bavul toplamak",
+      "example_en": "He packs his suitcase the night before the trip.",
+      "example_tr": "Yolculuktan önceki gece bavulunu topluyor.",
+      "related_verbs": ["wrap", "load", "fill", "prepare", "bundle"]
+    },
+    {
+      "word": "unpack",
+      "type": "verb",
+      "turkish": "Bavul açmak, eşyaları yerleştirmek",
+      "example_en": "Guests unpack their clothes after entering the hotel room.",
+      "example_tr": "Misafirler otel odasına girdikten sonra kıyafetlerini bavuldan çıkarıp yerleştiriyor.",
+      "related_verbs": ["empty", "unload", "open", "clear", "disclose"]
+    },
+    {
+      "word": "stay",
+      "type": "verb",
+      "turkish": "Kalmak, konaklamak",
+      "example_en": "We stay at a cozy guesthouse near the mountains.",
+      "example_tr": "Dağların yakınındaki rahat bir pansiyonda kalıyoruz.",
+      "related_verbs": ["remain", "reside", "dwell", "lodge", "wait"]
+    },
+    {
+      "word": "rent",
+      "type": "verb",
+      "turkish": "Kiralamak (araba/daire)",
+      "example_en": "Tourists rent cars to drive around the island.",
+      "example_tr": "Turistler adanın etrafında araba sürmek için araç kiralıyor.",
+      "related_verbs": ["lease", "hire", "borrow", "charter", "rent out"]
+    },
+    {
+      "word": "drive",
+      "type": "verb",
+      "turkish": "Araba sürmek",
+      "example_en": "He drives safely on the highway at night.",
+      "example_tr": "Gece otoyolda güvenli bir şekilde araç sürüyor.",
+      "related_verbs": ["operate", "steer", "pilot", "ride", "navigate"]
+    },
+    {
+      "word": "fly",
+      "type": "verb",
+      "turkish": "Uçmak",
+      "example_en": "Business people fly to international conferences frequently.",
+      "example_tr": "İş insanları sık sık uluslararası konferanslara uçuyor.",
+      "related_verbs": ["soar", "glide", "hover", "pilot", "cruise"]
+    },
+    {
+      "word": "ride",
+      "type": "verb",
+      "turkish": "Binmek (bisiklet/tren/otobüs)",
+      "example_en": "Citizens ride public buses to commute to work.",
+      "example_tr": "Vatandaşlar işe gidip gelmek için toplu taşıma otobüslerine biniyor.",
+      "related_verbs": ["travel", "handle", "control", "operate", "mount"]
+    },
+    {
+      "word": "walk",
+      "type": "verb",
+      "turkish": "Yürümek",
+      "example_en": "Visitors walk along the historic city walls.",
+      "example_tr": "Ziyaretçiler tarihi şehir surları boyunca yürüyor.",
+      "related_verbs": ["stroll", "march", "step", "hike", "pace"]
+    },
+    {
+      "word": "cross",
+      "type": "verb",
+      "turkish": "Karşıya geçmek",
+      "example_en": "Pedestrians cross the street at the green light.",
+      "example_tr": "Yayalar yeşil ışıkta caddenin karşı tarafına geçiyor.",
+      "related_verbs": ["traverse", "pass", "bridge", "intersect", "cut"]
+    },
+    {
+      "word": "turn",
+      "type": "verb",
+      "turkish": "Dönmek (sağa/sola)",
+      "example_en": "Turn left at the next traffic lights.",
+      "example_tr": "Sonraki trafik ışıklarından sola dönün.",
+      "related_verbs": ["rotate", "spin", "bend", "curve", "divert"]
+    },
+    {
+      "word": "follow",
+      "type": "verb",
+      "turkish": "Takip etmek (yolu/tabelayı)",
+      "example_en": "Follow the road signs to reach the airport.",
+      "example_tr": "Havalimanına ulaşmak için yol tabelalarını takip edin.",
+      "related_verbs": ["pursue", "track", "shadow", "obey", "trace"]
+    },
+    {
+      "word": "find",
+      "type": "verb",
+      "turkish": "Bulmak (yeri/adresi)",
+      "example_en": "Can you help me find the nearest metro station?",
+      "example_tr": "En yakın metro istasyonunu bulmama yardım edebilir misiniz?",
+      "related_verbs": ["discover", "locate", "spot", "detect", "encounter"]
+    },
+    {
+      "word": "lose",
+      "type": "verb",
+      "turkish": "Kaybetmek, kaybolmak",
+      "example_en": "Tourists sometimes lose their way in big cities.",
+      "example_tr": "Turistler bazen büyük şehirlerde yollarını kaybeder.",
+      "related_verbs": ["misplace", "forfeit", "drop", "miss", "fail"]
+    },
+    {
+      "word": "ask",
+      "type": "verb",
+      "turkish": "Sormak (yol tarifi istemek)",
+      "example_en": "He asks a police officer for directions.",
+      "example_tr": "Bir polis memuruna yol tarifi soruyor.",
+      "related_verbs": ["question", "inquire", "request", "demand", "query"]
+    },
+    {
+      "word": "explain",
+      "type": "verb",
+      "turkish": "Açıklamak, tarif etmek",
+      "example_en": "The local guide explains the history of the castle.",
+      "example_tr": "Yerel rehber kalenin tarihini açıklıyor.",
+      "related_verbs": ["describe", "clarify", "illustrate", "interpret", "define"]
+    },
+    {
+      "word": "check",
+      "type": "verb",
+      "turkish": "Kontrol etmek / Giriş yapmak (otel)",
+      "example_en": "Guests check in at the hotel reception desk.",
+      "example_tr": "Misafirler otel resepsiyon masasında giriş işlemlerini yapıyor.",
+      "related_verbs": ["inspect", "verify", "examine", "register", "monitor"]
+    },
+    {
+      "word": "leave",
+      "type": "verb",
+      "turkish": "Ayrılmak, çıkış yapmak (otelden)",
+      "example_en": "Travelers check out and leave the hotel by noon.",
+      "example_tr": "Gezginler öğleye doğru otelden çıkış yapıp ayrılıyor.",
+      "related_verbs": ["depart", "exit", "quit", "abandon", "vacate"]
+    },
+    {
+      "word": "pay",
+      "type": "verb",
+      "turkish": "Ödeme yapmak (bilet/konaklama)",
+      "example_en": "You pay for your train ticket online.",
+      "example_tr": "Tren biletinizin ödemesini internet üzerinden yapıyorsunuz.",
+      "related_verbs": ["settle", "remit", "disburse", "clear", "compensate"]
+    },
+    {
+      "word": "cost",
+      "type": "verb",
+      "turkish": "Fiyatı olmak, mal olmak",
+      "example_en": "How much does a return ticket to Paris cost?",
+      "example_tr": "Paris'e gidiş-dönüş biletinin fiyatı ne kadar?",
+      "related_verbs": ["price", "charge", "value", "demand", "require"]
+    },
+    {
+      "word": "save",
+      "type": "verb",
+      "turkish": "Para biriktirmek (seyahat için)",
+      "example_en": "She saves money all year to travel abroad.",
+      "example_tr": "Yurt dışına seyahat etmek için bütün yıl para biriktiriyor.",
+      "related_verbs": ["accumulate", "collect", "reserve", "store", "economize"]
+    },
+    {
+      "word": "plan",
+      "type": "verb",
+      "turkish": "Planlamak (seyahati)",
+      "example_en": "Families plan their summer vacation itinerary carefully.",
+      "example_tr": "Aileler yaz tatili güzergahını dikkatlice planlıyor.",
+      "related_verbs": ["design", "prepare", "arrange", "schedule", "map"]
+    },
+    {
+      "word": "miss",
+      "type": "verb",
+      "turkish": "Kaçırmak (treni/uçuşu)",
+      "example_en": "Run quickly so you do not miss the bus.",
+      "example_tr": "Otobüsü kaçırmamak için hızlıca koş.",
+      "related_verbs": ["fail", "lose", "skip", "escape", "avoid"]
+    },
+    {
+      "word": "catch",
+      "type": "verb",
+      "turkish": "Yetişmek, yakalamak (treni/otobüsü)",
+      "example_en": "We need to leave early to catch the morning flight.",
+      "example_tr": "Sabah uçuşuna yetişmek için erken ayrılmamız gerekiyor.",
+      "related_verbs": ["grab", "capture", "snatch", "trap", "seize"]
+    },
+    {
+      "word": "wait",
+      "type": "verb",
+      "turkish": "Beklemek",
+      "example_en": "Passengers wait for the platform announcement.",
+      "example_tr": "Yolcular peron anonsunu bekliyor.",
+      "related_verbs": ["stay", "pause", "remain", "halt", "darry"]
+    },
+    {
+      "word": "board",
+      "type": "verb",
+      "turkish": "Uçağa/trene binmek",
+      "example_en": "Passengers board the plane thirty minutes before departure.",
+      "example_tr": "Yolcular kalkıştan otuz dakika önce uçağa biniyor.",
+      "related_verbs": ["enter", "mount", "embark", "catch", "get"]
+    },
+    {
+      "word": "land",
+      "type": "verb",
+      "turkish": "İnmek (uçak için yere basmak)",
+      "example_en": "The airplane lands safely amidst stormy weather.",
+      "example_tr": "Uçak fırtınalı hava ortasında güvenli bir şekilde iniş yapıyor.",
+      "related_verbs": ["touchdown", "arrive", "descend", "fall", "settle"]
+    },
+    {
+      "word": "take off",
+      "type": "verb",
+      "turkish": "Kalkış yapmak (uçak)",
+      "example_en": "The jet takes off smoothly from the runway.",
+      "example_tr": "Yolcu uçağı pistten sorunsuz bir şekilde havalanıyor (kalkış yapıyor).",
+      "related_verbs": ["depart", "leave", "rise", "ascend", "launch"]
+    },
+    {
+      "word": "pack",
+      "type": "verb",
+      "turkish": "Toplamak, paketlemek",
+      "example_en": "Remember to pack your passport and ticket.",
+      "example_tr": "Pasaportunu ve biletini paketlemeyi (bavula koymayı) unutma.",
+      "related_verbs": ["wrap", "load", "fill", "prepare", "bundle"]
+    },
+    {
+      "word": "photograph",
+      "type": "verb",
+      "turkish": "Fotoğraflamak",
+      "example_en": "Tourists photograph famous architectural monuments.",
+      "example_tr": "Turistler ünlü mimari anıtların fotoğraflarını çekiyor.",
+      "related_verbs": ["snap", "shoot", "capture", "film", "record"]
+    },
+    {
+      "word": "enjoy",
+      "type": "verb",
+      "turkish": "Keyif almak, tadını çıkarmak",
+      "example_en": "Visitors enjoy wonderful sea views from the balcony.",
+      "example_tr": "Ziyaretçiler balkondan harika deniz manzarasının tadını çıkarıyor.",
+      "related_verbs": ["like", "love", "relish", "appreciate", "delight"]
+    },
+    {
+      "word": "relax",
+      "type": "verb",
+      "turkish": "Dinlenmek, tatil yapıp rahatlamak",
+      "example_en": "Holidaymakers relax on sandy beaches all day long.",
+      "example_tr": "Tatilciler bütün gün kumsallarda dinlenip rahatlıyor.",
+      "related_verbs": ["rest", "unwind", "calm", "ease", "loosen"]
+    },
+    {
+      "word": "spend",
+      "type": "verb",
+      "turkish": "Vakit/para harcamak",
+      "example_en": "They spend two weeks touring European capitals.",
+      "example_tr": "Avrupa başkentlerini gezinerek iki hafta geçiriyorlar.",
+      "related_verbs": ["pass", "utilize", "invest", "occupy", "waste"]
+    },
+    {
+      "word": "return",
+      "type": "verb",
+      "turkish": "Geri dönmek",
+      "example_en": "Workers return home after the holiday ends.",
+      "example_tr": "Tatil sona erdikten sonra işçiler eve geri dönüyor.",
+      "related_verbs": ["revert", "restore", "come back", "go back", "replied"]
+    },
+    {
+      "word": "meet",
+      "type": "verb",
+      "turkish": "Karşılamak, buluşmak (istasyonda)",
+      "example_en": "Friends meet arriving travelers at the airport arrival gate.",
+      "example_tr": "Arkadaşlar havalimanı varış kapısında gelen yolcuları karşılıyor.",
+      "related_verbs": ["gather", "assemble", "unite", "encounter", "join"]
+    },
+    {
+      "word": "recommend",
+      "type": "verb",
+      "turkish": "Tavsiye etmek (gezilecek yeri)",
+      "example_en": "The hotel receptionist recommends local seafood restaurants.",
+      "example_tr": "Otel resepsiyonisti yerel deniz ürünleri restoranlarını tavsiye ediyor.",
+      "related_verbs": ["suggest", "advise", "endorse", "propose", "advocate"]
+    },
+    {
+      "word": "suggest",
+      "type": "verb",
+      "turkish": "Önermek",
+      "example_en": "He suggests taking a guided city tour.",
+      "example_tr": "Rehber eşliğinde şehir turu yapmayı öneriyor.",
+      "related_verbs": ["recommend", "propose", "advise", "offer", "hint"]
+    },
+    {
+      "word": "change",
+      "type": "verb",
+      "turkish": "Aktarma yapmak, değiştirmek (tren/otobüs)",
+      "example_en": "You need to change trains at the central station.",
+      "example_tr": "Merkezi istasyonda tren aktarması yapmanız (değiştirmeniz) gerekiyor.",
+      "related_verbs": ["switch", "alter", "modify", "convert", "transform"]
+    },
+    {
+      "word": "delay",
+      "type": "verb",
+      "turkish": "Geciktirmek, ertelemek",
+      "example_en": "Heavy fog delays morning flights.",
+      "example_tr": "Yoğun sis sabah uçuşlarını geciktiriyor.",
+      "related_verbs": ["postpone", "defer", "slow", "prolong", "stall"]
+    },
+    {
+      "word": "cancel",
+      "type": "verb",
+      "turkish": "İptal etmek",
+      "example_en": "Airlines cancel flights during severe storms.",
+      "example_tr": "Havayolları şiddetli fırtınalar sırasında uçuşları iptal ediyor.",
+      "related_verbs": ["call off", "terminate", "abort", "revoke", "delete"]
+    },
+    {
+      "word": "succeed",
+      "type": "verb",
+      "turkish": "Başarmak (seyahat planını sorunsuz tamamlamayı)",
+      "example_en": "She succeeds in visiting all planned destinations.",
+      "example_tr": "Planlanan tüm destinasyonları ziyaret etmeyi başarıyor.",
+      "related_verbs": ["achieve", "prosper", "triumph", "flourish", "accomplish"]
+    },
+    {
+      "word": "value",
+      "type": "verb",
+      "turkish": "Değer vermek, önemsemek",
+      "example_en": "Experienced travelers value cultural diversity.",
+      "example_tr": "Deneyimli gezginler kültürel çeşitliliğe değer verir.",
+      "related_verbs": ["appreciate", "prize", "cherish", "esteem", "respect"]
+    },
+    {
+      "word": "gather",
+      "type": "verb",
+      "turkish": "Toplanmak (tur grubu)",
+      "example_en": "The tour group gathers outside the museum entrance.",
+      "example_tr": "Tur grubu müze girişinin dışında toplanıyor.",
+      "related_verbs": ["collect", "assemble", "meet", "unite", "cluster"]
+    },
+    {
+      "word": "experience",
+      "type": "verb",
+      "turkish": "Deneyimlemek, yaşamak",
+      "example_en": "Travelers experience different traditions around the world.",
+      "example_tr": "Gezginler dünya genelinde farklı gelenekleri deneyimliyor.",
+      "related_verbs": ["feel", "encounter", "undergo", "live", "taste"]
+    }
+  ]
+}

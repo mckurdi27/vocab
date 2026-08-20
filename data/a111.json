@@ -1,0 +1,408 @@
+{
+  "level": "A1",
+  "scene_id": 11,
+  "scene_title": "Weather and Nature",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "shine",
+      "type": "verb",
+      "turkish": "Parlamak, güneş açmak",
+      "example_en": "The sun shines brightly in summer.",
+      "example_tr": "Yazın güneş parlak bir şekilde parlıyor.",
+      "related_verbs": ["glow", "beam", "sparkle", "radiate", "flash"]
+    },
+    {
+      "word": "rain",
+      "type": "verb",
+      "turkish": "Yağmur yağmak",
+      "example_en": "It rains heavily today.",
+      "example_tr": "Bugün şiddetli yağmur yağıyor.",
+      "related_verbs": ["pour", "drizzle", "fall", "storm", "wet"]
+    },
+    {
+      "word": "snow",
+      "type": "verb",
+      "turkish": "Kar yağmak",
+      "example_en": "It snows in the mountains in winter.",
+      "example_tr": "Kışın dağlara kar yağıyor.",
+      "related_verbs": ["fall", "drift", "freeze", "blanket", "cover"]
+    },
+    {
+      "word": "blow",
+      "type": "verb",
+      "turkish": "Esmek (rüzgar)",
+      "example_en": "The wind blows through the trees.",
+      "example_tr": "Rüzgar ağaçların arasından esiyor.",
+      "related_verbs": ["gust", "puff", "sweep", "drift", "move"]
+    },
+    {
+      "word": "freeze",
+      "type": "verb",
+      "turkish": "Donmak, dondurmak",
+      "example_en": "Water freezes at zero degrees.",
+      "example_tr": "Su sıfır derecede donar.",
+      "related_verbs": ["chill", "frost", "solidify", "stiffen", "ice"]
+    },
+    {
+      "word": "melt",
+      "type": "verb",
+      "turkish": "Erimek",
+      "example_en": "The snow melts in spring.",
+      "example_tr": "Baharın kar eriyor.",
+      "related_verbs": ["dissolve", "thaw", "soften", "run", "fluid"]
+    },
+    {
+      "word": "warm",
+      "type": "verb",
+      "turkish": "Isınmak, ısıtmak",
+      "example_en": "The afternoon sun warms the air.",
+      "example_tr": "Öğleden sonraki güneş havayı ısıtıyor.",
+      "related_verbs": ["heat", "rise", "glow", "soften", "thaw"]
+    },
+    {
+      "word": "cool",
+      "type": "verb",
+      "turkish": "Serinlemek, serinletmek",
+      "example_en": "Evening breeze cools down the city.",
+      "example_tr": "Akşam esintisi şehri serinletiyor.",
+      "related_verbs": ["chill", "refresh", "drop", "calm", "reduce"]
+    },
+    {
+      "word": "cloud",
+      "type": "verb",
+      "turkish": "Bulutlanmak",
+      "example_en": "The sky clouds over quickly.",
+      "example_tr": "Gökyüzü hızla bulutlanıyor.",
+      "related_verbs": ["darken", "cover", "overcast", "shadow", "blur"]
+    },
+    {
+      "word": "storm",
+      "type": "verb",
+      "turkish": "Fırtına kopmak",
+      "example_en": "A sudden storm starts in the afternoon.",
+      "example_tr": "Öğleden sonra ani bir fırtına kopuyor.",
+      "related_verbs": ["rage", "bluster", "attack", "rush", "charge"]
+    },
+    {
+      "word": "thunder",
+      "type": "verb",
+      "turkish": "Gök gürlemek",
+      "example_en": "Dark clouds thunder in the distance.",
+      "example_tr": "Karanlık bulutlar uzakta gürlüyor.",
+      "related_verbs": ["rumble", "roar", "boom", "sound", "shake"]
+    },
+    {
+      "word": "flash",
+      "type": "verb",
+      "turkish": "Şimşek çakmak / parlamak",
+      "example_en": "Lightning flashes across the sky.",
+      "example_tr": "Gökyüzünde şimşek çakıyor.",
+      "related_verbs": ["shine", "glare", "spark", "beam", "glow"]
+    },
+    {
+      "word": "rise",
+      "type": "verb",
+      "turkish": "Yükselmek (güneş vb.)",
+      "example_en": "The sun rises in the east.",
+      "example_tr": "Güneş doğudan yükselir.",
+      "related_verbs": ["ascend", "climb", "lift", "up", "increase"]
+    },
+    {
+      "word": "set",
+      "type": "verb",
+      "turkish": "Batmak (güneş)",
+      "example_en": "The sun sets behind the hills.",
+      "example_tr": "Güneş tepelerin arkasından batıyor.",
+      "related_verbs": ["sink", "go", "drop", "decline", "lower"]
+    },
+    {
+      "word": "grow",
+      "type": "verb",
+      "turkish": "Büyümek, yeşermek (bitki vb.)",
+      "example_en": "Flowers grow in the garden.",
+      "example_tr": "Bahçede çiçekler büyüyor/yetişiyor.",
+      "related_verbs": ["develop", "rise", "increase", "plant", "sprout"]
+    },
+    {
+      "word": "plant",
+      "type": "verb",
+      "turkish": "Bitki dikmek, ekmek",
+      "example_en": "We plant trees in spring.",
+      "example_tr": "Baharın ağaç dikiyoruz.",
+      "related_verbs": ["grow", "sow", "embed", "root", "place"]
+    },
+    {
+      "word": "bloom",
+      "type": "verb",
+      "turkish": "Çiçek açmak",
+      "example_en": "Roses bloom in warm weather.",
+      "example_tr": "Güller sıcak havada çiçek açar.",
+      "related_verbs": ["flower", "open", "develop", "thrive", "flourish"]
+    },
+    {
+      "word": "fade",
+      "type": "verb",
+      "turkish": "Solmak",
+      "example_en": "Leaves fade and fall in autumn.",
+      "example_tr": "Sonbaharda yapraklar solar ve düşer.",
+      "related_verbs": ["dim", "disappear", "wither", "weak", "fall"]
+    },
+    {
+      "word": "fall",
+      "type": "verb",
+      "turkish": "Düşmek",
+      "example_en": "Raindrops fall from the sky.",
+      "example_tr": "Yağmur damlaları gökten düşüyor.",
+      "related_verbs": ["drop", "descend", "sink", "slip", "tumble"]
+    },
+    {
+      "word": "flow",
+      "type": "verb",
+      "turkish": "Akmak (nehir vb.)",
+      "example_en": "Rivers flow into the sea.",
+      "example_tr": "Nehirler denize akar.",
+      "related_verbs": ["run", "stream", "pour", "glide", "slide"]
+    },
+    {
+      "word": "shine",
+      "type": "verb",
+      "turkish": "Işıldamak",
+      "example_en": "Stars shine at night.",
+      "example_tr": "Yıldızlar geceleyin ışııldar.",
+      "related_verbs": ["glow", "sparkle", "twinkle", "beam", "flash"]
+    },
+    {
+      "word": "enjoy",
+      "type": "verb",
+      "turkish": "Keyfini çıkarmak (doğanın)",
+      "example_en": "We enjoy the fresh air outside.",
+      "example_tr": "Dışarıdaki taze havanın tadını çıkarıyoruz.",
+      "related_verbs": ["like", "love", "relish", "appreciate", "delight"]
+    },
+    {
+      "word": "explore",
+      "type": "verb",
+      "turkish": "Keşfetmek (doğayı)",
+      "example_en": "Animals explore the forest.",
+      "example_tr": "Hayvanlar ormanı keşfediyor.",
+      "related_verbs": ["discover", "investigate", "examine", "search", "scan"]
+    },
+    {
+      "word": "protect",
+      "type": "verb",
+      "turkish": "Korumak (doğayı)",
+      "example_en": "We must protect nature and wildlife.",
+      "example_tr": "Doğayı ve yabani hayatı korumalıyız.",
+      "related_verbs": ["guard", "defend", "save", "shield", "keep"]
+    },
+    {
+      "word": "pollute",
+      "type": "verb",
+      "turkish": "Kirletmek",
+      "example_en": "Factories pollute clean air and water.",
+      "example_tr": "Fabrikalar temiz havayı ve suyu kirletiyor.",
+      "related_verbs": ["dirty", "taint", "spoiled", "damage", "harm"]
+    },
+    {
+      "word": "save",
+      "type": "verb",
+      "turkish": "Korumak, kurtarmak",
+      "example_en": "Actions help save the planet.",
+      "example_tr": "Eylemler gezegeni kurtarmaya yardımcı olur.",
+      "related_verbs": ["protect", "rescue", "keep", "store", "reserve"]
+    },
+    {
+      "word": "recycle",
+      "type": "verb",
+      "turkish": "Geri dönüştürmek",
+      "example_en": "People recycle plastic and paper.",
+      "example_tr": "İnsanlar plastik ve kağıdı geri dönüştürüyor.",
+      "related_verbs": ["reuse", "reprocess", "recover", "restore", "convert"]
+    },
+    {
+      "word": "reduce",
+      "type": "verb",
+      "turkish": "Azaltmak",
+      "example_en": "We should reduce waste.",
+      "example_tr": "Atıkları azaltmalıyız.",
+      "related_verbs": ["lower", "decrease", "cut", "lessen", "diminish"]
+    },
+    {
+      "word": "survive",
+      "type": "verb",
+      "turkish": "Hayatta kalmak",
+      "example_en": "Plants need water to survive.",
+      "example_tr": "Bitkilerin hayatta kalmak için suya ihtiyacı vardır.",
+      "related_verbs": ["live", "endure", "last", "persist", "remain"]
+    },
+    {
+      "word": "adapt",
+      "type": "verb",
+      "turkish": "Uyum sağlamak",
+      "example_en": "Animals adapt to changing weather conditions.",
+      "example_tr": "Hayvanlar değişen hava koşullarına uyum sağlar.",
+      "related_verbs": ["adjust", "fit", "suit", "modify", "change"]
+    },
+    {
+      "word": "migrate",
+      "type": "verb",
+      "turkish": "Göç etmek",
+      "example_en": "Birds migrate south for the winter.",
+      "example_tr": "Kuşlar kış için güneye göç eder.",
+      "related_verbs": ["move", "travel", "relocate", "journey", "transfers"]
+    },
+    {
+      "word": "breathe",
+      "type": "verb",
+      "turkish": "Nefes almak (temiz hava)",
+      "example_en": "We breathe fresh air in the mountains.",
+      "example_tr": "Dağlarda taze hava soluyoruz.",
+      "related_verbs": ["inhale", "exhale", "sigh", "pant", "respire"]
+    },
+    {
+      "word": "walk",
+      "type": "verb",
+      "turkish": "Yürümek (doğada)",
+      "example_en": "They walk through the green valley.",
+      "example_tr": "Yeşil vadi boyunca yürüyorlar.",
+      "related_verbs": ["stroll", "hike", "step", "roam", "wander"]
+    },
+    {
+      "word": "climb",
+      "type": "verb",
+      "turkish": "Tırmanmak (ağaca, dağa)",
+      "example_en": "Monkeys climb tall trees.",
+      "example_tr": "Maymunlar uzun ağaçlara tırmanır.",
+      "related_verbs": ["scale", "mount", "rise", "ascend", "clamber"]
+    },
+    {
+      "word": "camp",
+      "type": "verb",
+      "turkish": "Kamp kurmak",
+      "example_en": "Families camp near the river.",
+      "example_tr": "Aileler nehrin yakınında kamp kuruyor.",
+      "related_verbs": ["stay", "pitch", "tent", "reside", "glamp"]
+    },
+    {
+      "word": "hike",
+      "type": "verb",
+      "turkish": "Doğa yürüyüşü yapmak",
+      "example_en": "Tourists hike up the hill.",
+      "example_tr": "Turistler tepeye doğru doğa yürüyüşü yapıyor.",
+      "related_verbs": ["walk", "trek", "climb", "explore", "stroll"]
+    },
+    {
+      "word": "fish",
+      "type": "verb",
+      "turkish": "Balık tutmak",
+      "example_en": "People fish in the clear lake.",
+      "example_tr": "İnsanlar berrak gölde balık tutuyor.",
+      "related_verbs": ["catch", "angle", "seek", "hunt", "net"]
+    },
+    {
+      "word": "swim",
+      "type": "verb",
+      "turkish": "Yüzmek (denizde, gölde)",
+      "example_en": "Dolphins swim in the ocean.",
+      "example_tr": "Yunuslar okyanusta yüzüyor.",
+      "related_verbs": ["float", "dive", "paddle", "splash", "bask"]
+    },
+    {
+      "word": "photograph",
+      "type": "verb",
+      "turkish": "Fotoğraflamak (manzarayı)",
+      "example_en": "He photographs wonderful landscapes.",
+      "example_tr": "Harika manzaraların fotoğrafını çekiyor.",
+      "related_verbs": ["shoot", "capture", "snap", "picture", "record"]
+    },
+    {
+      "word": "observe",
+      "type": "verb",
+      "turkish": "Gözlemlemek",
+      "example_en": "Scientists observe animal behavior.",
+      "example_tr": "Bilim insanları hayvan davranışlarını gözlemliyor.",
+      "related_verbs": ["watch", "notice", "see", "view", "inspect"]
+    },
+    {
+      "word": "discover",
+      "type": "verb",
+      "turkish": "Keşfetmek",
+      "example_en": "Explorers discover hidden valleys.",
+      "example_tr": "Kaşifler gizli vadileri keşfediyor.",
+      "related_verbs": ["find", "explore", "detect", "spot", "uncover"]
+    },
+    {
+      "word": "wild",
+      "type": "verb",
+      "turkish": "Vahşi yaşamak / serbest kalmak",
+      "example_en": "Animals live wild in the jungle.",
+      "example_tr": "Hayvanlar ormanda vahşi yaşar.",
+      "related_verbs": ["roam", "thrive", "exist", "survive", "free"]
+    },
+    {
+      "word": "shine",
+      "type": "verb",
+      "turkish": "Parlamak (ay vb.)",
+      "example_en": "The moon shines in the dark sky.",
+      "example_tr": "Karanlık gökyüzünde ay parlıyor.",
+      "related_verbs": ["glow", "beam", "sparkle", "radiate", "flash"]
+    },
+    {
+      "word": "gather",
+      "type": "verb",
+      "turkish": "Toplamak (meyve, odun vb.)",
+      "example_en": "They gather wood for the campfire.",
+      "example_tr": "Kamp ateşi için odun topluyorlar.",
+      "related_verbs": ["collect", "accumulate", "assemble", "pick", "store"]
+    },
+    {
+      "word": "shade",
+      "type": "verb",
+      "turkish": "Gölgelemek",
+      "example_en": "Big trees shade the path.",
+      "example_tr": "Büyük ağaçlar patikayı gölgelendiriyor.",
+      "related_verbs": ["cover", "shield", "protect", "darken", "screen"]
+    },
+    {
+      "word": "dry",
+      "type": "verb",
+      "turkish": "Kurutmak, kurumak",
+      "example_en": "The sun dries the wet ground.",
+      "example_tr": "Güneş ıslak zemini kurutuyor.",
+      "related_verbs": ["evaporate", "drain", "wither", "dehydrate", "parch"]
+    },
+    {
+      "word": "spark",
+      "type": "verb",
+      "turkish": "Kıvılcım çıkarmak",
+      "example_en": "Dry wood can spark a fire.",
+      "example_tr": "Kuru odun yangın kıvılcımı çıkarabilir.",
+      "related_verbs": ["trigger", "ignite", "flash", "fire", "start"]
+    },
+    {
+      "word": "burn",
+      "type": "verb",
+      "turkish": "Yanmak (orman yangını vb.)",
+      "example_en": "Forests burn during severe droughts.",
+      "example_tr": "Şiddetli kuraklıklar sırasında ormanlar yanıyor.",
+      "related_verbs": ["scald", "char", "fire", "heat", "blister"]
+    },
+    {
+      "word": "extinguish",
+      "type": "verb",
+      "turkish": "Söndürmek (ateşi)",
+      "example_en": "Firefighters extinguish the forest fire.",
+      "example_tr": "İtfaiyeciler orman yangınını söndürüyor.",
+      "related_verbs": ["put", "quench", "douse", "out", "smother"]
+    },
+    {
+      "word": "protect",
+      "type": "verb",
+      "turkish": "Koruma altına almak",
+      "example_en": "Parks protect natural life.",
+      "example_tr": "Parklar doğal hayatı korur.",
+      "related_verbs": ["guard", "defend", "save", "shield", "keep"]
+    }
+  ]
+}

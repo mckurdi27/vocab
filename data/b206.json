@@ -1,0 +1,408 @@
+{
+  "level": "B2",
+  "scene_id": 6,
+  "scene_title": "Science, Research and Innovation",
+  "total_words_in_scene": 50,
+  "words": [
+    {
+      "word": "discover",
+      "type": "verb",
+      "turkish": "Keşfetmek",
+      "example_en": "Astronomers discover distant planetary systems using advanced deep-space telescope arrays.",
+      "example_tr": "Gökbilimciler, gelişmiş derin uzay teleskop dizilerini kullanarak uzak gezegen sistemlerini keşfeder.",
+      "related_verbs": ["find", "uncover", "detect", "locate", "reveal"]
+    },
+    {
+      "word": "invent",
+      "type": "verb",
+      "turkish": "İcat etmek",
+      "example_en": "Brilliant engineers invent groundbreaking microchip architectures to accelerate quantum computing.",
+      "example_tr": "Parlak mühendisler, kuantum bilgisayarları hızlandırmak için çığır açan mikroçip mimarileri icat ediyor.",
+      "related_verbs": ["create", "design", "devise", "originate", "formulate"]
+    },
+    {
+      "word": "experiment",
+      "type": "verb",
+      "turkish": "Deney yapmak",
+      "example_en": "Molecular biologists experiment with gene-editing tools to cure inherited medical disorders.",
+      "example_tr": "Moleküler biyologlar, kalıtsal tıbbi bozuklukları tedavi etmek için gen düzenleme araçlarıyla deney yapıyor.",
+      "related_verbs": ["test", "trial", "examine", "investigate", "probe"]
+    },
+    {
+      "word": "research",
+      "type": "verb",
+      "turkish": "Araştırmak",
+      "example_en": "Dedicated researchers research renewable energy storage methods in state-of-the-art laboratories.",
+      "example_tr": "Kendini adamış araştırmacılar, son teknoloji laboratuvarlarda yenilenebilir enerji depolama yöntemlerini araştırıyor.",
+      "related_verbs": ["study", "investigate", "explore", "analyze", "examine"]
+    },
+    {
+      "word": "analyze",
+      "type": "verb",
+      "turkish": "Analiz etmek, incelemek",
+      "example_en": "Data scientists analyze complex behavioral patterns using machine learning algorithms.",
+      "example_tr": "Veri bilimcileri, makine öğrenimi algoritmalarını kullanarak karmaşık davranış kalıplarını analiz eder.",
+      "related_verbs": ["examine", "evaluate", "study", "inspect", "parse"]
+    },
+    {
+      "word": "investigate",
+      "type": "verb",
+      "turkish": "Soruşturmak, incelemek",
+      "example_en": "Physicists investigate mysterious cosmic radiation anomalies detected across the galaxy.",
+      "example_tr": "Fizikçiler, galaksi genelinde tespit edilen gizemli kozmik radyasyon anomalilerini inceliyor.",
+      "related_verbs": ["probe", "explore", "examine", "look into", "research"]
+    },
+    {
+      "word": "hypothesis",
+      "type": "verb (contextual verb use / hypothesize)",
+      "turkish": "Varsayımda bulunmak, hipotez kurmak",
+      "example_en": "Biologists hypothesize that deep-sea hydrothermal vents supported early organic life.",
+      "example_tr": "Biyologlar, derin deniz hidrotermal bacalarının erken organik yaşamı desteklediğini varsayar.",
+      "related_verbs": ["theorize", "suppose", "speculate", "presume", "assume"]
+    },
+    {
+      "word": "prove",
+      "type": "verb",
+      "turkish": "Kanıtlamak, ispat etmek",
+      "example_en": "Rigorous clinical trials aim to prove the therapeutic safety of new pharmaceutical drugs.",
+      "example_tr": "Titiz klinik çalışmalar, yeni farmasötik ilaçların terapötik güvenliğini kanıtlamayı amaçlar.",
+      "related_verbs": ["demonstrate", "verify", "confirm", "validate", "substantiate"]
+    },
+    {
+      "word": "validate",
+      "type": "verb",
+      "turkish": "Doğrulamak, geçerli kılmak",
+      "example_en": "Independent peer reviewers validate scientific findings before academic journal publication.",
+      "example_tr": "Bağımsız hakemler, akademik dergi yayınından önce bilimsel bulguları doğrular.",
+      "related_verbs": ["confirm", "verify", "authenticate", "approve", "endorse"]
+    },
+    {
+      "word": "conclude",
+      "type": "verb",
+      "turkish": "Sonuçlandırmak, sonuca varmak",
+      "example_en": "Researchers conclude that rising global temperatures directly impact glacial melting rates.",
+      "example_tr": "Araştırmacılar, yükselen küresel sıcaklıkların buzul erime oranlarını doğrudan etkilediği sonucuna varıyor.",
+      "related_verbs": ["deduce", "infer", "determine", "decide", "finish"]
+    },
+    {
+      "word": "formulate",
+      "type": "verb",
+      "turkish": "Formüle etmek, oluşturmak",
+      "example_en": "Chemists formulate non-toxic cleaning solvents using biodegradable organic compounds.",
+      "example_tr": "Kimyagerler, biyolojik olarak parçalanabilen organik bileşikleri kullanarak toksik olmayan temizlik solventleri formüle eder.",
+      "related_verbs": ["devise", "create", "draft", "construct", "prepare"]
+    },
+    {
+      "word": "innovate",
+      "type": "verb",
+      "turkish": "Yenilik yapmak, inovasyon üretmek",
+      "example_en": "Technology firms constantly innovate to stay competitive in fast-evolving global markets.",
+      "example_tr": "Teknoloji firmaları, hızla evrilen küresel pazarlarda rekabetçi kalabilmek için sürekli yenilik yapar.",
+      "related_verbs": ["modernize", "improve", "reform", "revolutionize", "pioneers"]
+    },
+    {
+      "word": "develop",
+      "type": "verb",
+      "turkish": "Geliştirmek",
+      "example_en": "Software engineers develop intuitive artificial intelligence tools for automated medical diagnoses.",
+      "example_tr": "Yazılım mühendisleri, otomatik tıbbi teşhisler için sezgisel yapay zeka araçları geliştirir.",
+      "related_verbs": ["improve", "advance", "expand", "grow", "progress"]
+    },
+    {
+      "word": "advance",
+      "type": "verb",
+      "turkish": "İlerletmek, gelişmek",
+      "example_en": "Nanotechnology continues to advance rapidly, opening new possibilities in material science.",
+      "example_tr": "Nanoteknoloji hızla ilerlemeye devam ederek malzeme biliminde yeni olasılıklar açıyor.",
+      "related_verbs": ["progress", "develop", "move forward", "improve", "promote"]
+    },
+    {
+      "word": "explore",
+      "type": "verb",
+      "turkish": "Keşfetmek, incelemek (derinlemesine)",
+      "example_en": "Unmanned robotic probes explore harsh terrain on the surface of Mars.",
+      "example_tr": "İnsansız robotik sondalar Mars yüzeyindeki sert araziyi keşfediyor.",
+      "related_verbs": ["investigate", "examine", "search", "survey", "discover"]
+    },
+    {
+      "word": "observe",
+      "type": "verb",
+      "turkish": "Gözlemlemek",
+      "example_en": "Wildlife scientists observe animal migration patterns using satellite tracking collars.",
+      "example_tr": "Yaban hayatı bilimcileri, uydu takip tasmalarını kullanarak hayvan göç kalıplarını gözlemler.",
+      "related_verbs": ["watch", "monitor", "notice", "see", "witness"]
+    },
+    {
+      "word": "monitor",
+      "type": "verb",
+      "turkish": "İzlemek, takip etmek",
+      "example_en": "Meteorologists monitor seismic activity closely to predict potential volcanic eruptions.",
+      "example_tr": "Meteorologlar, olası volkanik patlamaları tahmin etmek için sismik aktiviteyi yakından izler.",
+      "related_verbs": ["track", "observe", "supervise", "watch", "scan"]
+    },
+    {
+      "word": "simulate",
+      "type": "verb",
+      "turkish": "Simüle etmek, benzetimini yapmak",
+      "example_en": "Aerospace engineers simulate supersonic flight dynamics using powerful supercomputers.",
+      "example_tr": "Uzay mühendisleri güçlü süper bilgisayarlar kullanarak süpersonik uçuş dinamiklerini simüle eder.",
+      "related_verbs": ["model", "mimic", "replicate", "imitate", "virtualize"]
+    },
+    {
+      "word": "synthesize",
+      "type": "verb",
+      "turkish": "Sentezlemek",
+      "example_en": "Pharmacists synthesize complex organic molecules to create effective antiviral treatments.",
+      "example_tr": "Eczacılar, etkili antiviral tedaviler oluşturmak için karmaşık organik molekülleri sentezler.",
+      "related_verbs": ["combine", "blend", "integrate", "fuse", "compound"]
+    },
+    {
+      "word": "patent",
+      "type": "verb",
+      "turkish": "Patentini almak",
+      "example_en": "Inventors rush to patent unique technological designs before commercial product launches.",
+      "example_tr": "İcatçılar, ticari ürün lansmanlarından önce benzersiz teknoloji tasarımlarının patentini almak için yarışır.",
+      "related_verbs": ["register", "copyright", "secure", "protect", "certify"]
+    },
+    {
+      "word": "publish",
+      "type": "verb",
+      "turkish": "Yayınlamak",
+      "example_en": "Academics publish their experimental methodology in peer-reviewed scientific journals.",
+      "example_tr": "Akademisyenler, deneysel metodolojilerini hakemli bilimsel dergilerde yayınlar.",
+      "related_verbs": ["release", "print", "issue", "distribute", "disseminate"]
+    },
+    {
+      "word": "collaborate",
+      "type": "verb",
+      "turkish": "İş birliği yapmak",
+      "example_en": "International research institutes collaborate globally to decode the human genome.",
+      "example_tr": "Uluslararası araştırma enstitüleri insan genomunun şifresini çözmek için küresel çapta iş birliği yapar.",
+      "related_verbs": ["cooperate", "partner", "team up", "work together", "join forces"]
+    },
+    {
+      "word": "pioneers",
+      "type": "verb (used as verb: pioneer)",
+      "turkish": "Öncülük etmek",
+      "example_en": "Visionary scientists pioneer new frontiers in regenerative medicine and stem cell therapy.",
+      "example_tr": "Vizyoner bilimciler rejeneratif tıp ve kök hücre tedavisinde yeni sınırlara öncülük ediyor.",
+      "related_verbs": ["lead", "initiate", "introduce", "spearhead", "originate"]
+    },
+    {
+      "word": "revolutionize",
+      "type": "verb",
+      "turkish": "Devrim yaratmak, kökten değiştirmek",
+      "example_en": "Artificial intelligence technologies revolutionize how modern industries process big data.",
+      "example_tr": "Yapay zeka teknolojileri, modern endüstrilerin büyük veriyi işleme biçiminde devrim yaratıyor.",
+      "related_verbs": ["transform", "overhaul", "change", "redefine", "modernize"]
+    },
+    {
+      "word": "upgrade",
+      "type": "verb",
+      "turkish": "Yükseltmek, üst versiyona geçirmek",
+      "example_en": "Laboratories must upgrade optical microscopes to examine cellular structures accurately.",
+      "example_tr": "Laboratuvarlar, hücre yapılarını doğru bir şekilde incelemek için optik mikroskopları yükseltmelidir.",
+      "related_verbs": ["improve", "enhance", "update", "modernize", "boost"]
+    },
+    {
+      "word": "engineer",
+      "type": "verb",
+      "turkish": "Mühendisliğini yapmak, tasarlamak",
+      "example_en": "Bioengineers engineer synthetic bacteria to consume and break down marine plastic waste.",
+      "example_tr": "Biyomühendisler, deniz plastiği atıklarını tüketip parçalamak için sentetik bakteriler tasarlar.",
+      "related_verbs": ["design", "construct", "build", "craft", "fabricate"]
+    },
+    {
+      "word": "fabricate",
+      "type": "verb",
+      "turkish": "İmal etmek, üretmek / uydurmak",
+      "example_en": "Advanced 3D printers fabricate intricate medical prosthetics with remarkable precision.",
+      "example_tr": "Gelişmiş 3D yazıcılar, olağanüstü hassasiyetle karmaşık tıbbi protezler imal eder.",
+      "related_verbs": ["manufacture", "produce", "build", "construct", "assemble"]
+    },
+    {
+      "word": "automate",
+      "type": "verb",
+      "turkish": "Otomatikleştirmek",
+      "example_en": "Factories automate assembly lines using robotic arms to increase manufacturing efficiency.",
+      "example_tr": "Fabrikalar üretim verimliliğini artırmak için robotik kollar kullanarak montaj hatlarını otomatikleştirir.",
+      "related_verbs": ["mechanize", "computerize", "streamline", "systematize", "robotize"]
+    },
+    {
+      "word": "program",
+      "type": "verb",
+      "turkish": "Programlamak",
+      "example_en": "Computer scientists program neural networks to recognize complex visual patterns automatically.",
+      "example_tr": "Bilgisayar bilimcileri karmaşık görsel kalıpları otomatik olarak tanımak için sinir ağlarını programlar.",
+      "related_verbs": ["code", "design", "configure", "set", "script"]
+    },
+    {
+      "word": "debug",
+      "type": "verb",
+      "turkish": "Hata ayıklamak, kod hatasını düzeltmek",
+      "example_en": "Software developers spend hours to debug complex quantum computing software scripts.",
+      "example_tr": "Yazılım geliştiriciler, karmaşık kuantum bilgisayar yazılım komut dosyalarındaki hataları ayıklamak için saatler harcar.",
+      "related_verbs": ["troubleshoot", "fix", "correct", "repair", "resolve"]
+    },
+    {
+      "word": "encrypt",
+      "type": "verb",
+      "turkish": "Şifrelemek",
+      "example_en": "Cyber security experts encrypt confidential research data to prevent unauthorized digital access.",
+      "example_tr": "Siber güvenlik uzmanları, yetkisiz dijital erişimi önlemek için gizli araştırma verilerini şifreler.",
+      "related_verbs": ["code", "secure", "lock", "scramble", "protect"]
+    },
+    {
+      "word": "decrypt",
+      "type": "verb",
+      "turkish": "Şifresini çözmek",
+      "example_en": "Specialized algorithms help researchers decrypt historical encrypted manuscripts rapidly.",
+      "example_tr": "Özel algoritmalar, araştırmacıların tarihsel şifrelenmiş el yazmalarının şifresini hızla çözmesine yardımcı olur.",
+      "related_verbs": ["decode", "unscramble", "unlock", "solve", "interpret"]
+    },
+    {
+      "word": "transmit",
+      "type": "verb",
+      "turkish": "İletmek, aktarmak (sinyal/veri)",
+      "example_en": "Deep-space probes transmit telemetry data across millions of miles of empty space.",
+      "example_tr": "Derin uzay sondaları, milyonlarca millik boş uzay boyunca telemetri verilerini iletir.",
+      "related_verbs": ["send", "transfer", "broadcast", "convey", "relay"]
+    },
+    {
+      "word": "receive",
+      "type": "verb",
+      "turkish": "Almak, teslim almak",
+      "example_en": "Ground antennas receive faint radio signals originating from distant celestial bodies.",
+      "example_tr": "Yer antenleri, uzak gök cisimlerinden kaynaklanan zayıf radyo sinyallerini alır.",
+      "related_verbs": ["get", "obtain", "accept", "acquire", "capture"]
+    },
+    {
+      "word": "verify",
+      "type": "verb",
+      "turkish": "Doğrulamak, teyit etmek",
+      "example_en": "Scientists must verify experimental data multiple times before announcing breakthrough discoveries.",
+      "example_tr": "Bilimciler, çığır açan keşifleri açıklamadan önce deneysel verileri birkaç kez doğrulamalıdır.",
+      "related_verbs": ["confirm", "validate", "check", "authenticate", "prove"]
+    },
+    {
+      "word": "falsify",
+      "type": "verb",
+      "turkish": "Çürütmek, sahtesini yapmak",
+      "example_en": "New empirical evidence can easily falsify long-standing historical scientific theories.",
+      "example_tr": "Yeni ampirik kanıtlar, uzun süredir var olan tarihsel bilimsel teorileri kolayca çürütebilir.",
+      "related_verbs": ["disprove", "invalidate", "debunk", "counter", "forge"]
+    },
+    {
+      "word": "debunk",
+      "type": "verb",
+      "turkish": "Safsatayı çürütmek, asılsızlığını ortaya koymak",
+      "example_en": "Modern scientific studies successfully debunk common misconceptions regarding human genetics.",
+      "example_tr": "Modern bilimsel çalışmalar, insan genetiğiyle ilgili yaygın yanılgıları başarıyla çürütür.",
+      "related_verbs": ["disprove", "expose", "invalidate", "discredit", "falsify"]
+    },
+    {
+      "word": "extrapolate",
+      "type": "verb",
+      "turkish": "Genellemek, yola çıkarak tahmin yürütmek",
+      "example_en": "Statisticians extrapolate future technology adoption rates from current consumer trends.",
+      "example_tr": "İstatistikçiler, mevcut tüketici eğilimlerinden gelecekteki teknoloji benimseme oranlarını tahmin eder.",
+      "related_verbs": ["project", "infer", "estimate", "extend", "predict"]
+    },
+    {
+      "word": "quantify",
+      "type": "verb",
+      "turkish": "Miktarını belirlemek, sayısallaştırmak",
+      "example_en": "Researchers struggle to quantify the exact economic impacts of disruptive artificial intelligence.",
+      "example_tr": "Araştırmacılar, yıkıcı yapay zekanın tam ekonomik etkilerini sayısallaştırmakta zorlanıyor.",
+      "related_verbs": ["measure", "calculate", "evaluate", "assess", "count"]
+    },
+    {
+      "word": "standardize",
+      "type": "verb",
+      "turkish": "Standartlaştırmak",
+      "example_en": "Global regulatory bodies standardize data security protocols for international technology firms.",
+      "example_tr": "Küresel düzenleyici kurumlar, uluslararası teknoloji firmaları için veri güvenliği protokollerini standartlaştırır.",
+      "related_verbs": ["uniform", "normalize", "regulate", "codify", "systemize"]
+    },
+    {
+      "word": "commercialize",
+      "type": "verb",
+      "turkish": "Ticaretileştirmek, pazara sunmak",
+      "example_en": "University startup incubators help scientists commercialize academic research inventions safely.",
+      "example_tr": "Üniversite kuluçka merkezleri, bilim insanlarının akademik araştırma buluşlarını güvenli bir şekilde pazara sunmasına yardımcı olur.",
+      "related_verbs": ["market", "monetize", "launch", "sell", "exploit"]
+    },
+    {
+      "word": "optimize",
+      "type": "verb",
+      "turkish": "En uygun duruma getirmek, optimize etmek",
+      "example_en": "Engineers optimize battery charging speeds for next-generation electric vehicle models.",
+      "example_tr": "Mühendisler, yeni nesil elektrikli araç modelleri için pil şarj hızlarını optimize eder.",
+      "related_verbs": ["improve", "enhance", "maximize", "fine-tune", "perfect"]
+    },
+    {
+      "word": "upgrade",
+      "type": "verb",
+      "turkish": "Güncellemek (tekrar pekiştirme)",
+      "example_en": "IT departments regularly upgrade server infrastructure to handle massive data traffic.",
+      "example_tr": "Bilgi işlem departmanları, devasa veri trafiğini yönetmek için sunucu altyapısını düzenli olarak günceller.",
+      "related_verbs": ["improve", "enhance", "update", "modernize", "boost"]
+    },
+    {
+      "word": "disseminate",
+      "type": "verb",
+      "turkish": "Yaymak, dağıtmak (bilgi vb.)",
+      "example_en": "Open-access digital platforms disseminate medical research findings quickly across the globe.",
+      "example_tr": "Açık erişimli dijital platformlar, tıbbi araştırma bulgularını küresel çapta hızlı bir şekilde yayar.",
+      "related_verbs": ["spread", "distribute", "broadcast", "circulate", "publish"]
+    },
+    {
+      "word": "simulate",
+      "type": "verb",
+      "turkish": "Simülasyonunu yapmak (pekiştirme)",
+      "example_en": "Climatologists simulate future atmospheric carbon levels using complex supercomputer models.",
+      "example_tr": "İklim bilimciler karmaşık süper bilgisayar modellerini kullanarak gelecekteki atmosferik karbon seviyelerini simüle eder.",
+      "related_verbs": ["model", "mimic", "replicate", "imitate", "virtualize"]
+    },
+    {
+      "word": "substantiate",
+      "type": "verb",
+      "turkish": "Somut kanıtlarla doğrulamak, kanıtlamak",
+      "example_en": "Additional laboratory tests are required to substantiate the initial quantum physics calculations.",
+      "example_tr": "İlk kuantum fiziği hesaplamalarını somut kanıtlarla doğrulamak için ek laboratuvar testleri gereklidir.",
+      "related_verbs": ["prove", "confirm", "support", "validate", "verify"]
+    },
+    {
+      "word": "synthesize",
+      "type": "verb",
+      "turkish": "Bileşime ulaştırmak, sentezlemek (pekiştirme)",
+      "example_en": "Advanced chemistry students synthesize various polymer compounds during laboratory practical sessions.",
+      "example_tr": "İleri düzey kimya öğrencileri laboratuvar pratik seansları sırasında çeşitli polimer bileşiklerini sentezler.",
+      "related_verbs": ["combine", "blend", "integrate", "fuse", "compound"]
+    },
+    {
+      "word": "scrutinize",
+      "type": "verb",
+      "turkish": "İnce eleyip sık dokumak, dikkatle incelemek",
+      "example_en": "Grant committees scrutinize research proposals carefully before allocating limited financial funding.",
+      "example_tr": "Hibe komiteleri, sınırlı finansal fonları tahsis etmeden önce araştırma tekliflerini dikkatle inceler.",
+      "related_verbs": ["examine", "inspect", "analyze", "study", "review"]
+    },
+    {
+      "word": "prototype",
+      "type": "verb",
+      "turkish": "Prototipini üretmek",
+      "example_en": "Designers prototype innovative wearable medical gadgets using rapid 3D printing technology.",
+      "example_tr": "Tasarımcılar hızlı 3D baskı teknolojisini kullanarak yenilikçi giyilebilir tıbbi cihazların prototipini üretir.",
+      "related_verbs": ["model", "sample", "draft", "test", "build"]
+    },
+    {
+      "word": "conceptualize",
+      "type": "verb",
+      "turkish": "Kavramsallaştırmak, zihinde tasarlamak",
+      "example_en": "Architects conceptualize sustainable urban housing complexes that integrate green energy solutions.",
+      "example_tr": "Mimarlar, yeşil enerji çözümlerini entegre eden sürdürülebilir kentsel konut komplekslerini kavramsallaştırır.",
+      "related_verbs": ["envision", "imagine", "formulate", "design", "conceive"]
+    }
+  ]
+}
