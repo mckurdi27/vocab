@@ -3,6 +3,8 @@
   "scene_id": 3,
   "scene_title": "Home and Housework",
   "total_words_in_scene": 50,
+  "story_en": "Every Saturday, I wake up early, enter the room, step carefully, and open the windows for fresh air. Someone knocks on the front door, and the doorbell rings loudly. I unlock the door, welcome guests, and we live together. At home, we clean, wash laundry, sweep the floors, vacuum carpets, and dust furniture. We tidy desks, cook delicious meals, bake fresh cakes, prepare breakfast, set the table, serve tea, and clear dishes after eating. I iron shirts, fold clean clothes, hang wet items outside, and let the sun dry them. Sometimes we paint walls, repair broken chairs, fix leaking taps, turn on lights, light candles, heat rooms, or cool spaces with AC. People rent flats, buy houses, sell old furniture, build new rooms, decorate spaces, furnish interiors, store boxes in attics, avoid wasting water, and save electricity. To relax, we rest, sit on sofas, stand in kitchens, lie on beds, sleep at night, move homes, close doors, lock entries, and exit safely.",
+  "story_tr": "Her cumartesi erken uyanırım, odayı girerim, dikkatlice adım atarım ve taze hava için pencereleri açarım. Biri ön kapıyı çalar ve kapı zili yüksek sesle çalar. Kapının kilidini açarım, misafirleri karşılarım ve birlikte yaşarız. Evde temizlik yaparız, çamaşır yıkarız, zeminleri süpürürüz, halıları elektrik süpürgesiyle süpürürüz ve mobilyaların tozunu alırız. Masaları düzenleriz, lezzetli yemekler pişiririz, taze kekler fırında pişiririz, kahvaltı hazırlarız, sofrayı kurarız, çay servis ederiz ve yedikten sonra bulaşıkları ortadan kaldırırız. Gömlekleri ütülerim, temiz kıyafetleri katlarım, ıslak eşyaları dışarıya asarım ve güneşin kurutmasına izin veririm. Bazen duvarları boyarız, kırık sandalyeleri tamir ederiz, sızdıran muslukları düzeltiriz, lambaları açarız, mum yakarız, odaları ısıtırız veya alanları klima ile soğuturuz. İnsanlar daireler kiralar, evler satın alır, eski mobilyaları satar, yeni odalar inşa eder, alanları dekore eder, iç kısımları döşer, kutuları çatı katlarında depolar, suyu boşa harcamaktan kaçınır ve elektrik tasarrufu yapar. Rahatlamak için dinleniriz, kanepelerde otururuz, mutfaklarda ayakta dururuz, yataklara uzanırız, geceleri uyuruz, evler taşırız, kapıları kapatırız, girişleri kilitleriz ve güvenli bir şekilde çıkış yaparız.",
   "words": [
     {
       "word": "clean",
@@ -317,7 +319,6 @@
       "related_verbs": ["rest", "calm", "unwind", "ease", "sit"]
     },
     {
-      "value": "rest",
       "word": "rest",
       "type": "verb",
       "turkish": "Dinlenmek",
