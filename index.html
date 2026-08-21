@@ -6,7 +6,7 @@
     <title>Kelime ve Soru Bankası</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Analiz Butonu için eklenen stil (Orijinal tasarımı bozmaz) */
+        /* Analiz Butonu ve Gezinme Butonları için Stil */
         .header-top {
             display: flex;
             justify-content: space-between;
@@ -27,6 +27,25 @@
         .analysis-btn:hover {
             background-color: #34495e;
         }
+        .selectors-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .nav-arrow-btn {
+            background-color: #f3f4f6;
+            border: 1px solid #ccc;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .nav-arrow-btn:hover {
+            background-color: #e5e7eb;
+        }
     </style>
 </head>
 <body>
@@ -40,7 +59,7 @@
                 <a href="analysis.html" class="analysis-btn">📊 Analiz Sayfası</a>
             </div>
 
-            <div class="selectors">
+            <div class="selectors-wrapper">
                 <select id="levelSelect" onchange="generateDayOptions()">
                     <option value="a1">a1 Seviyesi</option>
                     <option value="a2">a2 Seviyesi</option>
@@ -48,7 +67,14 @@
                     <option value="b2">b2 Seviyesi</option>
                     <option value="c1">c1 Seviyesi</option>
                 </select>
+
+                <!-- Önceki Dosya Butonu -->
+                <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
+
                 <select id="daySelect" onchange="loadData()"></select>
+
+                <!-- Sonraki Dosya Butonu -->
+                <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
             </div>
 
         </header>
@@ -65,5 +91,24 @@
     </div>
 
     <script src="app.js"></script>
+    <script>
+        // Dosya listesinde bir sonraki öğeye geçiş
+        function nextFile() {
+            const select = document.getElementById('daySelect');
+            if (select && select.selectedIndex < select.options.length - 1) {
+                select.selectedIndex++;
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
+            }
+        }
+
+        // Dosya listesinde bir önceki öğeye geçiş
+        function prevFile() {
+            const select = document.getElementById('daySelect');
+            if (select && select.selectedIndex > 0) {
+                select.selectedIndex--;
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
+            }
+        }
+    </script>
 </body>
 </html>
