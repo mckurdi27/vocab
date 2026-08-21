@@ -87,7 +87,8 @@
         statusDiv.innerText = "Analiz ediliyor...";
         
         try {
-            const res = await fetch('cefr.csv'); 
+            // Dosya yolu 'analiz' klasörü altına güncellendi
+            const res = await fetch('analiz/cefr.csv'); 
             if (!res.ok) throw new Error("Dosya sunucuda bulunamadı.");
             
             const text = await res.text();
