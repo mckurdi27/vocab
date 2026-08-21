@@ -142,20 +142,31 @@
             const cefrMap = {};
             csvText.split(/\r?\n/).forEach(row => {
                 if (!row.trim()) return;
-                const cols = row.split(',').map(c => c.replace(/["']/g, "").trim());
+                
+                // Sütunları tırnaklardan temizleyerek ayırıyoruz
+                const cols = row.split(',').map(c => c.replace(/^["']|["']$/g, "").trim());
+                
                 if (cols.length >= 2) {
-                    let word = cols[0].toLowerCase();
+                    let possibleLevel = cols[0].toUpperCase();
+                    let word = "";
                     let level = "";
-                    
-                    for (let c of cols) {
-                        if (/^(a1|a2|b1|b2|c1|c2)$/i.test(c)) {
-                            level = c.toUpperCase();
-                            break;
+
+                    // CSV yapınıza göre 1. sütun Seviye (A1, A2...), 2. sütun Kelime
+                    if (/^(A1|A2|B1|B2|C1|C2)$/.test(possibleLevel)) {
+                        level = possibleLevel;
+                        word = cols[1].toLowerCase();
+                    } else {
+                        // Güvence için satır içinde seviye arama
+                        for (let c of cols) {
+                            if (/^(A1|A2|B1|B2|C1|C2)$/i.test(c)) {
+                                level = c.toUpperCase();
+                                break;
+                            }
                         }
+                        if (cols[1]) word = cols[1].toLowerCase();
                     }
-                    if (!level && cols[1]) level = cols[1].toUpperCase();
-                    
-                    if (word && level) {
+
+                    if (word && level && word !== "kelime") {
                         cefrMap[word] = level;
                     }
                 }
@@ -232,7 +243,7 @@
             });
 
             resultArea.innerHTML = `
-                <h4>📊 ${jsonPath === 'ALL' ? 'Tüm Dosyalar (Toplu Tarama)' : jsonPath} - Seviye Dağılım Özeti</h4>
+                <h4>📊 ${jsonPath === 'ALL' ? 'Tüm Dosyaları Tara (Toplu Tarama)' : jsonPath} - Seviye Dağılım Özeti</h4>
                 <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
                     <div style="background: #f3f4f6; padding: 10px 15px; border-radius: 6px;">Toplam Kelime: <strong>${rawWordsList.length}</strong></div>
                     <div style="background: #ecfdf5; padding: 10px 15px; border-radius: 6px;">A1-A2: <strong>${levelCounts['A1'] + levelCounts['A2']}</strong></div>
