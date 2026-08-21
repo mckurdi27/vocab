@@ -7,15 +7,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 15px; background-color: #f8f9fa; color: #333; }
-        .header-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        h1 { color: #2c3e50; font-size: 20px; }
+        .header-container { margin-bottom: 15px; }
         .upload-section { background: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 15px; }
         .control-group { margin-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-size: 13px; }
+        table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-size: 13px; margin-top: 15px; }
         th, td { padding: 10px; border: 1px solid #eee; text-align: left; }
         th { background-color: #34495e; color: #fff; }
-        .badge { background: #3498db; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; }
-        .export-btn { background: #27ae60; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; margin-top: 10px; display: none; }
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+        .export-btn { border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; color: white; display: none; }
+        .btn-excel { background: #27ae60; }
+        .btn-txt { background: #2980b9; }
     </style>
 </head>
 <body>
@@ -28,13 +29,16 @@
         <div class="control-group">
             <label><strong>Mod Seç:</strong></label>
             <select id="analysisMode">
-                <option value="dictionary">Sözlük Modu (Gelişmiş)</option>
+                <option value="dictionary">Sözlük Modu (Kelime, Tür, Anlam, Cümle)</option>
                 <option value="frequency">Standart Frekans Modu</option>
             </select>
         </div>
         <input type="file" id="pdfInput" accept=".pdf" onchange="processFile(event)">
-        <br>
-        <button id="excelBtn" class="export-btn" onclick="exportData()" style="display:inline-block;">📊 Excel (CSV) Olarak İndir</button>
+        
+        <div class="btn-group">
+            <button id="excelBtn" class="export-btn btn-excel" onclick="exportExcel()">📊 Excel (CSV) İndir</button>
+            <button id="txtBtn" class="export-btn btn-txt" onclick="exportTxt()">📄 Ham Metni (TXT) İndir</button>
+        </div>
     </div>
 
     <table id="analysisTable">
@@ -45,6 +49,7 @@
     <script>
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
         let globalData = [];
+        let extractedFullText = "";
 
         async function processFile(event) {
             const file = event.target.files[0];
@@ -53,25 +58,27 @@
             
             reader.onload = async function() {
                 const pdf = await pdfjsLib.getDocument(new Uint8Array(this.result)).promise;
-                let fullText = "";
+                extractedFullText = "";
                 for (let i = 1; i <= pdf.numPages; i++) {
                     const page = await pdf.getPage(i);
                     const content = await page.getTextContent();
-                    fullText += content.items.map(it => it.str).join(" ") + " ";
+                    extractedFullText += content.items.map(it => it.str).join(" ") + " ";
                 }
 
                 const mode = document.getElementById('analysisMode').value;
                 if (mode === 'dictionary') {
-                    parseDictionary(fullText);
+                    parseDictionary(extractedFullText);
                 } else {
-                    parseFrequency(fullText);
+                    parseFrequency(extractedFullText);
                 }
+                
+                document.getElementById('excelBtn').style.display = 'inline-block';
+                document.getElementById('txtBtn').style.display = 'inline-block';
             };
         }
 
         function parseDictionary(text) {
             globalData = [];
-            // Oxford sözlük yapısı için esnek Regex
             const regex = /([a-zA-ZçğıöşüÇĞİÖŞÜ]+)\s*\(([^)]+)\)\s*[:]?\s*([^.]+?\.)\s*([^•]*?)(?=\s+[a-zA-ZçğıöşüÇĞİÖŞÜ]+\s*\(|$)/gi;
             let match;
             while ((match = regex.exec(text)) !== null) {
@@ -82,7 +89,7 @@
 
         function parseFrequency(text) {
             globalData = [];
-            let words = text.toLowerCase().match(/\b[a-z]{2,}\b/g);
+            let words = text.toLowerCase().match(/\b[a-z]{2,}\b/g) || [];
             let counts = {};
             words.forEach(w => counts[w] = (counts[w] || 0) + 1);
             for(let w in counts) globalData.push({ Kelime: w, Frekans: counts[w] });
@@ -95,16 +102,23 @@
             document.getElementById('tableBody').innerHTML = globalData.map(row => 
                 `<tr>${Object.values(row).map(val => `<td>${val}</td>`).join('')}</tr>`
             ).join('');
-            document.getElementById('excelBtn').style.display = 'block';
         }
 
-        function exportData() {
+        function exportExcel() {
             let csv = "\uFEFF" + Object.keys(globalData[0]).join(';') + "\n";
             globalData.forEach(row => csv += Object.values(row).join(';') + "\n");
-            const blob = new Blob([csv], { type: 'text/csv' });
+            downloadFile(csv, 'analiz.csv', 'text/csv');
+        }
+
+        function exportTxt() {
+            downloadFile(extractedFullText, 'sozluk_metni.txt', 'text/plain');
+        }
+
+        function downloadFile(content, filename, type) {
+            const blob = new Blob([content], { type: type });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.href = url; a.download = 'analiz.csv'; a.click();
+            a.href = url; a.download = filename; a.click();
         }
     </script>
 </body>
