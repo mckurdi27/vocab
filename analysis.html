@@ -143,7 +143,7 @@
             csvText.split(/\r?\n/).forEach(row => {
                 if (!row.trim()) return;
                 
-                // Sütunları tırnaklardan temizleyerek ayırıyoruz
+                // CSV sütunlarını tırnaklardan temizleyerek ayırıyoruz
                 const cols = row.split(',').map(c => c.replace(/^["']|["']$/g, "").trim());
                 
                 if (cols.length >= 2) {
@@ -151,12 +151,11 @@
                     let word = "";
                     let level = "";
 
-                    // CSV yapınıza göre 1. sütun Seviye (A1, A2...), 2. sütun Kelime
+                    // 1. Sütun Seviye (A1, A2...), 2. Sütun Kelime yapısına göre eşleme
                     if (/^(A1|A2|B1|B2|C1|C2)$/.test(possibleLevel)) {
                         level = possibleLevel;
                         word = cols[1].toLowerCase();
                     } else {
-                        // Güvence için satır içinde seviye arama
                         for (let c of cols) {
                             if (/^(A1|A2|B1|B2|C1|C2)$/i.test(c)) {
                                 level = c.toUpperCase();
@@ -166,7 +165,7 @@
                         if (cols[1]) word = cols[1].toLowerCase();
                     }
 
-                    if (word && level && word !== "kelime") {
+                    if (word && level && word !== "kelime" && word !== "seviye") {
                         cefrMap[word] = level;
                     }
                 }
@@ -243,13 +242,16 @@
             });
 
             resultArea.innerHTML = `
-                <h4>📊 ${jsonPath === 'ALL' ? 'Tüm Dosyaları Tara (Toplu Tarama)' : jsonPath} - Seviye Dağılım Özeti</h4>
-                <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
-                    <div style="background: #f3f4f6; padding: 10px 15px; border-radius: 6px;">Toplam Kelime: <strong>${rawWordsList.length}</strong></div>
-                    <div style="background: #ecfdf5; padding: 10px 15px; border-radius: 6px;">A1-A2: <strong>${levelCounts['A1'] + levelCounts['A2']}</strong></div>
-                    <div style="background: #eff6ff; padding: 10px 15px; border-radius: 6px;">B1-B2: <strong>${levelCounts['B1'] + levelCounts['B2']}</strong></div>
-                    <div style="background: #fef2f2; padding: 10px 15px; border-radius: 6px;">C1-C2: <strong>${levelCounts['C1'] + levelCounts['C2']}</strong></div>
-                    <div style="background: #fffbeb; padding: 10px 15px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
+                <h4>📊 ${jsonPath === 'ALL' ? 'Tüm Dosyalar (Toplu Tarama)' : jsonPath} - Seviye Dağılım Özeti</h4>
+                <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+                    <div style="background: #f3f4f6; padding: 10px 14px; border-radius: 6px;">Toplam: <strong>${rawWordsList.length}</strong></div>
+                    <div style="background: #d1fae5; padding: 10px 14px; border-radius: 6px;">A1: <strong>${levelCounts['A1']}</strong></div>
+                    <div style="background: #a7f3d0; padding: 10px 14px; border-radius: 6px;">A2: <strong>${levelCounts['A2']}</strong></div>
+                    <div style="background: #bfdbfe; padding: 10px 14px; border-radius: 6px;">B1: <strong>${levelCounts['B1']}</strong></div>
+                    <div style="background: #93c5fd; padding: 10px 14px; border-radius: 6px;">B2: <strong>${levelCounts['B2']}</strong></div>
+                    <div style="background: #fecaca; padding: 10px 14px; border-radius: 6px;">C1: <strong>${levelCounts['C1']}</strong></div>
+                    <div style="background: #fca5a5; padding: 10px 14px; border-radius: 6px;">C2: <strong>${levelCounts['C2']}</strong></div>
+                    <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
                 </div>
 
                 <h4>📝 Kelime Bazlı Seviye Listesi</h4>
