@@ -184,7 +184,6 @@
             const csvText = await csvRes.text();
             
             const cefrMap = {};
-            const csvExactDuplicates = {};
             const rows = csvText.split(/\r?\n/);
             
             for (let row of rows) {
@@ -198,23 +197,20 @@
                     if (char === '"') {
                         inQuotes = !inQuotes;
                     } else if (char === ',' && !inQuotes) {
-                        parts.push(currentField.trim().replace(/^["']|["']$/g, ""));
+                        parts.push(currentField.trim().replace(/^["']|["']$/g, "").replace(/\s+/g, " "));
                         currentField = '';
                     } else {
                         currentField += char;
                     }
                 }
-                parts.push(currentField.trim().replace(/^["']|["']$/g, ""));
+                parts.push(currentField.trim().replace(/^["']|["']$/g, "").replace(/\s+/g, " "));
                 
-                if (parts.length >= 3) {
-                    let level = parts[0].toUpperCase();
-                    let word = parts[1].toLowerCase();
-                    let posType = parts[2].toLowerCase();
+                if (parts.length >= 2) {
+                    let level = parts[0].toUpperCase().trim();
+                    let word = parts[1].toLowerCase().trim();
                     
                     if (/^(A1|A2|B1|B2|C1|C2)$/.test(level) && word && word !== "kelime" && word !== "seviye") {
                         cefrMap[word] = level;
-                        let uniqueKey = `${word}_${posType}`;
-                        csvExactDuplicates[uniqueKey] = (csvExactDuplicates[uniqueKey] || 0) + 1;
                     }
                 }
             }
@@ -307,10 +303,10 @@
                             
                             if (!itemTracking[cleanW]) {
                                 itemTracking[cleanW] = { 
-                                    original: wordStr, 
-                                    type: item.type || '-',
-                                    turkish: item.turkish || item.Anlam || '-',
-                                    example_en: item.example_en || '',
+                                    original: wordStr.trim(), 
+                                    type: (item.type || '-').replace(/\s+/g, ' '),
+                                    turkish: (item.turkish || item.Anlam || '-').replace(/\s+/g, ' '),
+                                    example_en: (item.example_en || '').replace(/\s+/g, ' '),
                                     related: item.related_verbs ? item.related_verbs.join(', ') : '',
                                     files: [] 
                                 };
@@ -353,7 +349,6 @@
             let uniqueKeysCount = Object.keys(itemTracking).length;
             let tableHeaderHtml = '';
             
-            // Başlıklara tıklayınca sıralama (sortTable), altına yazınca filtreleme (filterTable) çalışır
             if (state.task === 'hikaye') {
                 tableHeaderHtml = `
                     <tr>
@@ -415,7 +410,6 @@
         }
     }
 
-    // Tablo başlıklarına tıklayınca yukarıdan aşağıya (A-Z / A1-C2) sıralama yapan fonksiyon
     function sortTable(columnIndex) {
         const table = document.getElementById("analysisTable");
         const tbody = table.tBodies[0];
@@ -424,28 +418,24 @@
         sortDirections[columnIndex] = !sortDirections[columnIndex];
         let asc = sortDirections[columnIndex];
 
-        // CEFR Seviyeleri için özel sıralama ağırlığı (A1 en üstte, Bilinmiyor en altta çıksın diye)
-        const levelOrder = { 'A1': 1, 'A2': 2, 'B1': 3, 'B2': 4, 'C1': 5, 'C2': 6, 'bilinmiyor': 7 };
+        const levelOrder = { 'a1': 1, 'a2': 2, 'b1': 3, 'b2': 4, 'c1': 5, 'c2': 6, 'bilinmiyor': 7 };
 
         rows.sort((rowA, rowB) => {
             let cellA = rowA.cells[columnIndex].innerText.trim().toLowerCase();
             let cellB = rowB.cells[columnIndex].innerText.trim().toLowerCase();
 
-            // Eğer Seviye sütununa (2. sütun) tıklandıysa özel CEFR sıralaması uygula
             if (columnIndex === 2) {
                 let rankA = levelOrder[cellA] || 99;
                 let rankB = levelOrder[cellB] || 99;
                 return asc ? rankA - rankB : rankB - rankA;
             }
 
-            // Sayısal değerler (frekans vb.)
             let numA = parseFloat(cellA);
             let numB = parseFloat(cellB);
             if (!isNaN(numA) && !isNaN(numB)) {
                 return asc ? numA - numB : numB - numA;
             }
 
-            // Standart alfabetik sıralama (A'dan Z'ye)
             if (cellA < cellB) return asc ? -1 : 1;
             if (cellA > cellB) return asc ? 1 : -1;
             return 0;
@@ -453,12 +443,11 @@
 
         tbody.innerHTML = "";
         rows.forEach((row, index) => {
-            row.cells[0].innerText = index + 1; // Sıra numarasını güncelle
+            row.cells[0].innerText = index + 1;
             tbody.appendChild(row);
         });
     }
 
-    // Arama kutuları ile anlık filtreleme fonksiyonu
     function filterTable() {
         const table = document.getElementById("analysisTable");
         if (!table) return;
