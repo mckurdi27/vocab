@@ -197,12 +197,12 @@
                                 }
 
                                 list.forEach(item => {
-                                    let wStr = extractWordString(item);
-                                    if (wStr) {
-                                        let cleanW = wStr.trim().toLowerCase();
+                                    let wObj = extractWordDetails(item);
+                                    if (wObj.word) {
+                                        let cleanW = wObj.word.trim().toLowerCase();
                                         totalCheckedCount++;
                                         if (!wordTracking[cleanW]) {
-                                            wordTracking[cleanW] = { original: wStr, files: [] };
+                                            wordTracking[cleanW] = { original: wObj.word, details: wObj, files: [] };
                                         }
                                         if (!wordTracking[cleanW].files.includes(fName)) {
                                             wordTracking[cleanW].files.push(fName);
@@ -230,12 +230,12 @@
                 }
 
                 list.forEach(item => {
-                    let wStr = extractWordString(item);
-                    if (wStr) {
-                        let cleanW = wStr.trim().toLowerCase();
+                    let wObj = extractWordDetails(item);
+                    if (wObj.word) {
+                        let cleanW = wObj.word.trim().toLowerCase();
                         totalCheckedCount++;
                         if (!wordTracking[cleanW]) {
-                            wordTracking[cleanW] = { original: wStr, files: [] };
+                            wordTracking[cleanW] = { original: wObj.word, details: wObj, files: [] };
                         }
                         if (!wordTracking[cleanW].files.includes(jsonPath)) {
                             wordTracking[cleanW].files.push(jsonPath);
@@ -265,23 +265,57 @@
                 if (isDuplicate) duplicateCount++;
 
                 let fileBadge = isDuplicate 
-                    ? `<span class="badge-duplicate">⚠️ ${info.files.length} Dosyada Tekrar Ediyor: ${info.files.join(', ')}</span>`
-                    : `<span class="badge-unique">✔ Tek (Benzersiz): ${info.files[0] || ''}</span>`;
+                    ? `<span class="badge-duplicate">⚠️ ${info.files.length} Dosyada Tekrar: ${info.files.join(', ')}</span>`
+                    : `<span class="badge-unique">✔ Benzersiz: ${info.files[0] || ''}</span>`;
 
-                tableRows += `
-                    <tr>
-                        <td>${index++}</td>
-                        <td><strong>${info.original}</strong></td>
-                        <td><span style="padding: 3px 8px; border-radius: 4px; background: ${level === 'Bilinmiyor' ? '#eee' : '#d1fae5'}; color: ${level === 'Bilinmiyor' ? '#333' : '#065f46'}; font-weight: bold;">${level}</span></td>
-                        <td>${fileBadge}</td>
-                    </tr>
-                `;
+                // İşlem türüne göre tablo sütunlarını şekillendiriyoruz
+                if (state.task === 'cevir') {
+                    tableRows += `
+                        <tr>
+                            <td>${index++}</td>
+                            <td><strong>${info.original}</strong></td>
+                            <td><span style="padding: 3px 8px; border-radius: 4px; background: ${level === 'Bilinmiyor' ? '#eee' : '#d1fae5'}; color: ${level === 'Bilinmiyor' ? '#333' : '#065f46'}; font-weight: bold;">${level}</span></td>
+                            <td>${info.details.meaning || 'Belirtilmemiş'}</td>
+                            <td>${fileBadge}</td>
+                        </tr>
+                    `;
+                } else {
+                    tableRows += `
+                        <tr>
+                            <td>${index++}</td>
+                            <td><strong>${info.original}</strong></td>
+                            <td><span style="padding: 3px 8px; border-radius: 4px; background: ${level === 'Bilinmiyor' ? '#eee' : '#d1fae5'}; color: ${level === 'Bilinmiyor' ? '#333' : '#065f46'}; font-weight: bold;">${level}</span></td>
+                            <td>${fileBadge}</td>
+                        </tr>
+                    `;
+                }
             }
 
             let uniqueKeysCount = Object.keys(wordTracking).length;
 
+            let tableHeaderHtml = `
+                <tr>
+                    <th style="width: 50px;">#</th>
+                    <th>Kelime / Madde</th>
+                    <th>CEFR Seviyesi</th>
+                    <th>Geçtiği Dosyalar / Durum</th>
+                </tr>
+            `;
+
+            if (state.task === 'cevir') {
+                tableHeaderHtml = `
+                    <tr>
+                        <th style="width: 50px;">#</th>
+                        <th>Kelime / Madde</th>
+                        <th>CEFR Seviyesi</th>
+                        <th>Anlam / Çeviri</th>
+                        <th>Geçtiği Dosyalar / Durum</th>
+                    </tr>
+                `;
+            }
+
             resultArea.innerHTML = `
-                <h4>📊 Analiz ve Mükerrer (Tekrar Eden) Kelime Özeti</h4>
+                <h4>📊 ${state.task === 'frekans' ? 'Frekans ve Seviye Analizi Özeti' : (state.task === 'cevir' ? 'Çeviri ve Sözlük Görünümü' : 'Kelime Bazlı Seviye Listesi')}</h4>
                 <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
                     <div style="background: #f3f4f6; padding: 10px 14px; border-radius: 6px;">Toplam Kayıt: <strong>${totalCheckedCount}</strong></div>
                     <div style="background: #e0f2fe; padding: 10px 14px; border-radius: 6px;">Benzersiz Kelime: <strong>${uniqueKeysCount}</strong></div>
@@ -298,16 +332,11 @@
                     <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
                 </div>
 
-                <h4>📝 Kelime Bazlı Takip ve Çakışma Listesi</h4>
+                <h4>📝 Detaylı Liste</h4>
                 <div style="max-height: 450px; overflow-y: auto;">
                     <table>
                         <thead>
-                            <tr>
-                                <th style="width: 50px;">#</th>
-                                <th>Kelime / Madde</th>
-                                <th>CEFR Seviyesi</th>
-                                <th>Geçtiği Dosyalar / Durum</th>
-                            </tr>
+                            ${tableHeaderHtml}
                         </thead>
                         <tbody>
                             ${tableRows}
@@ -321,15 +350,19 @@
         }
     }
 
-    function extractWordString(item) {
-        if (!item) return '';
-        if (typeof item === 'string') return item;
+    function extractWordDetails(item) {
+        if (!item) return { word: '', meaning: '' };
+        if (typeof item === 'string') return { word: item, meaning: '' };
+        
         let wordStr = item.Kelime || item.kelime || item.Word || item.word || item.term || item.madde || '';
+        let meaningStr = item.Anlam || item.anlam || item.Meaning || item.meaning || item.ceviri || item.translation || '';
+
         if (!wordStr && typeof item === 'object') {
             let vals = Object.values(item).filter(v => typeof v === 'string');
             wordStr = vals[0] || '';
+            meaningStr = vals[1] || '';
         }
-        return wordStr;
+        return { word: wordStr, meaning: meaningStr };
     }
 </script>
 
