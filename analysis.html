@@ -53,8 +53,8 @@
     <div class="mode-buttons-container">
         <h3>İşlem Seçin:</h3>
         <button class="mode-btn active" onclick="switchMode('bulkAnalysis', this)">📊 Gelişmiş JSON Analiz</button>
-        <button class="mode-btn" onclick="switchMode('templateAnalysis', this)">📂 Şablon & Klasör Analizi</button>
-        <button class="mode-btn" onclick="switchMode('customTextAnalysis', this)">📝 Metin / Görsel Analiz (Yeni)</button>
+        <button class="mode-btn" onclick="switchMode('templateAnalysis', this)">📂 Şablon & Klasör Analizi (JSON/CSV)</button>
+        <button class="mode-btn" onclick="switchMode('customTextAnalysis', this)">📝 Metin / Görsel Analiz</button>
         <button class="mode-btn" onclick="switchMode('dictionary', this)">📖 Sözlük (PDF)</button>
         <button class="mode-btn" onclick="switchMode('txtConverter', this)">📄 PDF to TXT</button>
         <button class="mode-btn" onclick="switchMode('ocrScanner', this)">🖼️ OCR</button>
@@ -83,13 +83,15 @@
         <button class="execute-btn" onclick="runAdvancedAnalysis()">Analizi Başlat</button>
     </div>
 
-    <!-- 2. Şablon & Analiz Klasörü Modu -->
+    <!-- 2. Akıllı Şablon & Klasör Analizi (CEFR CSV İlk Sırada) -->
     <div id="templateAnalysis" class="action-area">
-        <h3>📂 Analiz Klasörü & Şablon Seçimi</h3>
-        <p><b>Kullanılacak Şablonu Seçin:</b></p>
+        <h3>📂 Analiz Klasörü & Akıllı Şablon Seçimi</h3>
+        <p><b>Kullanılacak Şablon Dosyasını Seçin (JSON veya CSV):</b></p>
         <select id="analysisTemplate">
-            <option value="analiz/kelime_sablonu.json">Kelime Detay Şablonu (Kelime, Tür, Anlam, Frekans)</option>
-            <option value="analiz/fiil_sablonu.json">Fiil Çekim ve Sıklık Şablonu</option>
+            <option value="cefr.csv">CEFR Seviye Kelime Listesi (cefr.csv)</option>
+            <option value="analiz/kelime_sablonu.json">Kelime Detay Şablonu (.json)</option>
+            <option value="analiz/kelime_listesi.csv">Kelime Listesi (.csv)</option>
+            <option value="analiz/fiil_sablonu.json">Fiil Çekim Şablonu (.json)</option>
         </select>
         <select id="templateLevel">
             <option value="all">Tüm Seviyeler</option>
@@ -99,13 +101,12 @@
             <option value="B2">B2 Seviyesi</option>
         </select>
         <br><br>
-        <button class="execute-btn" onclick="runTemplateAnalysis()">Şablon Analizini Çalıştır</button>
+        <button class="execute-btn" onclick="runSmartTemplateAnalysis()">Akıllı Şablon Analizini Çalıştır</button>
     </div>
 
-    <!-- 3. Yeni: Kopyala-Yapıştır veya Görselden Metin Analiz Modu -->
+    <!-- 3. Metin / Görsel İçerik Analiz Modu -->
     <div id="customTextAnalysis" class="action-area">
         <h3>📝 Metin / Görsel İçerik Analizi</h3>
-        <p>Buraya dilediğin metni yapıştırabilir veya bir görsel/fotoğraf yükleyerek içindeki metni doğrudan analiz edebilirsin:</p>
         <textarea id="customInputText" placeholder="Metni buraya yapıştırın veya görsel yükleyin..."></textarea><br>
         <label><b>Veya Görsel / Fotoğraf Yükle (OCR):</b></label><br>
         <input type="file" id="customImageFile" accept=".jpg,.png,.jpeg"><br><br>
@@ -215,11 +216,45 @@
         }
     }
 
-    async function runTemplateAnalysis() {
+    // Akıllı Şablon Okuyucu: CSV veya JSON dosyalarını otomatik ayrıştırır
+    async function runSmartTemplateAnalysis() {
+        const templatePath = document.getElementById('analysisTemplate').value;
         const selectedLevel = document.getElementById('templateLevel').value;
         document.getElementById('status').innerText = "Şablon ve veriler yükleniyor...";
 
         try {
+            let templateHeaders = ['Kelime', 'Tür', 'Anlam', 'Tekrar Sıklığı'];
+            let tableRows = [];
+            
+            // Eğer seçilen dosya cefr.csv veya başka bir CSV ise doğrudan satır/sütun olarak okuyalım
+            if (templatePath.endsWith('.csv')) {
+                const res = await fetch(templatePath);
+                const csvText = await res.text();
+                const lines = csvText.split('\n').filter(l => l.trim() !== '');
+                
+                if (lines.length > 0) {
+                    // İlk satır başlıklar (Unnamed olanları temizle)
+                    templateHeaders = lines[0].split(',').map(h => h.trim()).filter(h => !h.startsWith('Unnamed'));
+                    
+                    // Geri kalan satırları tablo verisine dönüştür
+                    for (let i = 1; i < lines.length; i++) {
+                        let cols = lines[i].split(',').map(c => c.trim());
+                        // Başlık sayısı kadar kolonu al
+                        tableRows.push(cols.slice(0, templateHeaders.length));
+                    }
+                }
+                renderTable(templateHeaders, tableRows);
+                document.getElementById('status').innerText = `CEFR CSV şablonu başarıyla yüklendi! Toplam ${tableRows.length} kayıt listelendi.`;
+                return;
+            }
+
+            // JSON şablonları için standart GitHub veri tarama mantığı
+            try {
+                const tRes = await fetch(templatePath);
+                const tJson = await tRes.json();
+                if (tJson.headers) templateHeaders = tJson.headers;
+            } catch(e) { /* Varsayılan başlıklar */ }
+
             const response = await fetch('data/index.json');
             const fileList = await response.json();
             let wordMap = {};
@@ -251,48 +286,41 @@
                 } catch (e) { console.warn("Hata: " + fileName); }
             }
 
-            let tableRows = Object.values(wordMap)
+            tableRows = Object.values(wordMap)
                 .sort((a, b) => b.count - a.count)
                 .map(item => [item.word, item.type, item.meaning, item.count]);
 
-            renderTable(['Kelime', 'Kelime Türü (Verb/Noun vb.)', 'Anlamı / Karşılığı', 'Tekrar Sıklığı'], tableRows);
-            document.getElementById('status').innerText = `Şablon analizi tamamlandı! Toplam ${tableRows.length} kayıt listelendi.`;
+            renderTable(templateHeaders, tableRows);
+            document.getElementById('status').innerText = `Analiz tamamlandı! Şablon başarıyla uygulandı.`;
         } catch (err) {
-            document.getElementById('status').innerText = "Hata: Veri dosyaları okunamadı!";
+            document.getElementById('status').innerText = "Hata: Şablon dosyası veya veriler okunamadı!";
         }
     }
 
-    // Yeni: Kopyalanan veya görselden okunan metni analiz etme fonksiyonu
     async function runCustomTextAnalysis() {
         let text = document.getElementById('customInputText').value;
         const imageFile = document.getElementById('customImageFile').files[0];
 
         if (imageFile) {
-            document.getElementById('status').innerText = "Görsel taranıyor (OCR), lütfen bekleyin...";
+            document.getElementById('status').innerText = "Görsel taranıyor (OCR)...";
             const result = await Tesseract.recognize(imageFile, 'eng+tur');
             text = result.data.text;
             document.getElementById('customInputText').value = text;
         }
 
-        if (!text.trim()) {
-            alert("Lütfen bir metin girin veya görsel seçin!");
-            return;
-        }
+        if (!text.trim()) { alert("Lütfen metin girin veya görsel seçin!"); return; }
 
-        document.getElementById('status').innerText = "Metin kelimelerine ayrılarak analiz ediliyor...";
-        
+        document.getElementById('status').innerText = "Analiz ediliyor...";
         let wordCounts = {};
         let words = text.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
-        words.forEach(w => {
-            wordCounts[w] = (wordCounts[w] || 0) + 1;
-        });
+        words.forEach(w => { wordCounts[w] = (wordCounts[w] || 0) + 1; });
 
         let tableRows = Object.entries(wordCounts)
             .sort((a, b) => b[1] - a[1])
             .map(([word, count]) => [word, 'Özel Metin', 'Analiz Edildi', count]);
 
         renderTable(['Kelime', 'Kaynak Türü', 'Durum', 'Geçiş Sıklığı'], tableRows);
-        document.getElementById('status').innerText = "Özel metin analizi başarıyla tamamlandı!";
+        document.getElementById('status').innerText = "Özel metin analizi tamamlandı!";
     }
 
     async function runDictionary() {
@@ -308,8 +336,8 @@
 
     async function runTxtConverter() {
         const file = document.getElementById('txtFile').files[0];
-        if (!file) { alert("Lütfen bir PDF seçin!"); return; }
-        document.getElementById('status').innerText = "Metne dönüştürüldü ve indiriliyor...";
+        if (!file) { alert("Lütfen PDF seçin!"); return; }
+        document.getElementById('status').innerText = "Dönüştürülüyor...";
 
         const text = await extractPdfText(file);
         document.getElementById('outputTextArea').value = text;
@@ -319,13 +347,13 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url; a.download = file.name.replace(/\.[^/.]+$/, "") + "_metin.txt"; a.click();
-        document.getElementById('status').innerText = "Metin başarıyla indirildi!";
+        document.getElementById('status').innerText = "İndirildi!";
     }
 
     async function runEnhancedOcr() {
         const file = document.getElementById('ocrFile').files[0];
         if (!file) { alert("Lütfen dosya seçin!"); return; }
-        document.getElementById('status').innerText = "OCR taraması yapılıyor, lütfen bekleyin...";
+        document.getElementById('status').innerText = "OCR taranıyor...";
         
         const result = await Tesseract.recognize(file, 'eng+tur');
         document.getElementById('outputTextArea').value = result.data.text;
@@ -337,7 +365,7 @@
         const head = document.getElementById('tableHead');
         const body = document.getElementById('tableBody');
         head.innerHTML = `<tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>`;
-        body.innerHTML = data.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('');
+        body.innerHTML = data.map(row => `<tr>${row.map(cell => `<td>${cell !== undefined ? cell : ''}</td>`).join('')}</tr>`).join('');
         document.getElementById('analysisTable').style.display = 'table';
         document.getElementById('textOutputContainer').style.display = 'none';
         document.getElementById('status').innerText = "İşlem Tamamlandı!";
