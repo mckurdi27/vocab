@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>50'li Kelime Blokları ve Seviye Analizi</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa; color: #333; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        h1 { color: #2c3e50; margin: 0; }
+        .back-btn { background: #95a5a6; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; }
+        .back-btn:hover { background: #7f8c8d; }
+        
+        .filters { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .filters input, .filters select { padding: 10px; font-size: 15px; border: 1px solid #ccc; border-radius: 4px; }
+        .filters input { flex: 1; min-width: 250px; }
+        
+        table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden; }
+        th, td { padding: 12px 15px; border-bottom: 1px solid #eee; text-align: left; }
+        th { background-color: #34495e; color: #fff; }
+        tr:hover { background-color: #f1f1f1; }
+        .badge { background: #3498db; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+        .stats { margin-bottom: 15px; font-weight: bold; color: #555; }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>Kelime Blokları & Seviye Analitiği</h1>
+        <a href="index.html" class="back-btn">← Ana Sayfaya Dön</a>
+    </div>
+
+    <div class="stats" id="statsText">Veriler yükleniyor...</div>
+
+    <div class="filters">
+        <input type="text" id="searchInput" placeholder="Kelime, anlam veya blok adı ara..." onkeyup="filterData()">
+        <select id="levelFilter" onchange="filterData()">
+            <option value="">Tüm Seviyeler</option>
+            <!-- Dinamik dolacak veya standart seviyeler -->
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
+        </select>
+    </div>
+
+    <table id="analysisTable">
+        <thead>
+            <tr>
+                <th>Kelime</th>
+                <th>Seviye</th>
+                <th>Blok / Grup Bilgisi (50'li Liste)</th>
+                <th>Kaynak Dosya</th>
+                <th>Tekrar / Frekans</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- JavaScript ile doldurulacak -->
+        </tbody>
+    </table>
+
+    <script>
+        let globalVocabData = [];
+
+        // x.json dosyalarınızı tarayan veya önceden derlenmiş blok JSON'ını çeken yapı
+        // Not: 100+ dosyayı taramak için ana analiz betiğinizden çıkan çıktıyı buraya bağlayabilirsiniz.
+        fetch('analysis_results.json')
+            .then(response => response.json())
+            .then(data => {
+                // Senaryo alanlarını filtreleyip sadece 50'li kelime bloklarına odaklanıyoruz
+                globalVocabData = data;
+                updateStats(globalVocabData.length);
+                renderTable(globalVocabData);
+            })
+            .catch(error => {
+                console.error('Veri yüklenemedi:', error);
+                document.getElementById('statsText').innerText = "Analiz dosyası bulunamadı. Lütfen önce python betiğini çalıştırın.";
+            });
+
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Kriterlere uygun kelime bulunamadı.</td></tr>';
+                return;
+            }
+
+            data.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${item.word}</strong></td>
+                    <td><span class="badge">${item.level || 'Belirtilmemiş'}</span></td>
+                    <td>${item.block_name || '50\'li Kelime Bloğu'}</td>
+                    <td>${item.files ? item.files.join(', ') : '-'}</td>
+                    <td>${item.count || 1}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function filterData() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const levelVal = document.getElementById('levelFilter').value;
+
+            const filtered = globalVocabData.filter(item => {
+                const matchesSearch = item.word.toLowerCase().includes(searchVal) || 
+                                      (item.block_name && item.block_name.toLowerCase().includes(searchVal));
+                const matchesLevel = levelVal === "" || (item.level && item.level.toUpperCase().includes(levelVal));
+                return matchesSearch && matchesLevel;
+            });
+
+            updateStats(filtered.length);
+            renderTable(filtered);
+        }
+
+        function updateStats(count) {
+            document.getElementById('statsText').innerText = `Toplam ${count} kelime/blok öğesi listeleniyor (Senaryolar hariç tutulmuştur).`;
+        }
+    </script>
+
+</body>
+</html>
