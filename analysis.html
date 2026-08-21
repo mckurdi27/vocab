@@ -73,13 +73,14 @@
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
     // 1. Mod Değiştirme
-    function switchMode(id, btn) {
+    function switchMode(mode, btn) {
         document.querySelectorAll('.action-area').forEach(a => a.classList.remove('active'));
         document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(id).classList.add('active');
         btn.classList.add('active');
         document.getElementById('status').innerText = "";
         document.getElementById('analysisTable').style.display = 'none';
+        document.getElementById('textOutputContainer').style.display = 'none';
     }
 
     // 2. Gelişmiş JSON Analizi (Filtreli)
@@ -118,6 +119,17 @@
             }
 
             renderTable(['Kelime / İfade', 'Frekans'], Object.entries(wordCounts).sort((a,b) => b[1] - a[1]));
+           }
+
+           function renderTable(headers, data) {
+             const head = document.getElementById('tableHead');
+             const body = document.getElementById('tableBody');
+             head.innerHTML = `<tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>`;
+             body.innerHTML = data.map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td></tr>`).join('');
+             document.getElementById('analysisTable').style.display = 'table';
+             document.getElementById('status').innerText = "Analiz Tamamlandı!";
+    }
+            
         } catch (err) {
             document.getElementById('status').innerText = "Hata: index.json okunamadı!";
         }
@@ -150,8 +162,46 @@
         const result = await Tesseract.recognize(file, 'eng+tur');
         document.getElementById('status').innerText = "OCR Tamamlandı! Metin uzunluğu: " + result.data.text.length + " karakter.";
     }
+    
+   // 5.PDF metin çıkarma fonksiyonu
+        async function extractPdfText(file) {
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+            let fullText = "";
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const content = await page.getTextContent();
+                fullText += content.items.map(it => it.str).join(" ") + " ";
+            }
+            return fullText;
+    }
+       // 6. Cihazdan Toplu Dosya Analizi (Eski yöntem korundu)
+        async function runBulkDataAnalysis() {
+            const input = document.getElementById('bulkFiles');
+            if (!input.files.length) { alert("Lütfen en az bir dosya seçin!"); return; }
+            
+            statusMsg("Seçilen toplu veriler taranıyor ve analiz ediliyor...");
+            let wordCounts = {};
 
-    // 5. Tablo Oluşturucu
+            for (let file of input.files) {
+                let content = await file.text();
+                let parsedText = content;
+                if (file.name.endsWith('.json')) {
+                    try { parsedText = JSON.stringify(JSON.parse(content)); } catch(e) {}
+                }
+                let words = parsedText.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
+                words.forEach(w => { wordCounts[w] = (wordCounts[w] || 0) + 1; });
+            }
+
+            let sortedData = Object.entries(wordCounts)
+                .map(([word, count]) => ({ Kelime: word, Tekrar: count }))
+                .sort((a, b) => b.Tekrar - a.Tekrar)
+                .slice(0, 300);
+
+            renderTable(['Kelime', 'Toplam Tekrar'], sortedData);
+            statusMsg(`${input.files.length} dosya başarıyla tarandı.`);
+      }
+    // 7. Tablo Oluşturucu
     function renderTable(headers, data) {
         const head = document.getElementById('tableHead');
         const body = document.getElementById('tableBody');
@@ -159,6 +209,12 @@
         body.innerHTML = data.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('');
         document.getElementById('analysisTable').style.display = 'table';
         document.getElementById('status').innerText = "Analiz Tamamlandı!";
+          }
+
+      // Durum mesajı yazdırma fonksiyonu
+        function statusMsg(msg) {
+            const statusEl = document.getElementById('status');
+            if (statusEl) statusEl.innerText = msg; 
     }
 </script>
 </body>
