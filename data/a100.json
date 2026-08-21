@@ -3,6 +3,8 @@
   "scene_id": 1,
   "scene_title": "Daily Routine and Greetings",
   "total_words_in_scene": 50,
+  "story_en": "Every morning, John can wake up early...",
+  "story_tr": "Her sabah John erkenden uyanabilir...",
   "words": [
     {
       "word": "start",
@@ -27,6 +29,30 @@
       "example_en": "Stop at the red light.",
       "example_tr": "Kırmızı ışıkta dur.",
       "related_verbs": ["halt", "pause", "cease", "discontinue", "block"]
+    }
+      ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "What does John do every morning?",
+      "options": [
+        "He sleeps all day.",
+        "He wakes up early and opens his window.",
+        "He drives a car to another city.",
+        "He works at night."
+      ],
+      "answer": "He wakes up early and opens his window."
+    },
+    {
+      "id": 2,
+      "question": "Which verb means 'satın almak' in the text?",
+      "options": [
+        "sell",
+        "buy",
+        "borrow",
+        "pay"
+      ],
+      "answer": "buy"
     }
   ]
 }
