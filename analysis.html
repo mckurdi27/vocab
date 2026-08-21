@@ -83,12 +83,12 @@
         <button class="execute-btn" onclick="runAdvancedAnalysis()">Analizi Başlat</button>
     </div>
 
-    <!-- 2. Akıllı Şablon & Klasör Analizi (CEFR CSV İlk Sırada) -->
+    <!-- 2. Akıllı Şablon & Klasör Analizi (Doğrudan Seçilen Dosyayı Okur) -->
     <div id="templateAnalysis" class="action-area">
         <h3>📂 Analiz Klasörü & Akıllı Şablon Seçimi</h3>
         <p><b>Kullanılacak Şablon Dosyasını Seçin (JSON veya CSV):</b></p>
         <select id="analysisTemplate">
-            <option value="cefr.csv">CEFR Seviye Kelime Listesi (cefr.csv)</option>
+            <option value="cefr.csv">CEFR Seviye Kelime Listesi (cefr.csv - Seviye İlk Sırada)</option>
             <option value="analiz/kelime_sablonu.json">Kelime Detay Şablonu (.json)</option>
             <option value="analiz/kelime_listesi.csv">Kelime Listesi (.csv)</option>
             <option value="analiz/fiil_sablonu.json">Fiil Çekim Şablonu (.json)</option>
@@ -99,6 +99,8 @@
             <option value="A2">A2 Seviyesi</option>
             <option value="B1">B1 Seviyesi</option>
             <option value="B2">B2 Seviyesi</option>
+            <option value="C1">C1 Seviyesi</option>
+            <option value="C2">C2 Seviyesi</option>
         </select>
         <br><br>
         <button class="execute-btn" onclick="runSmartTemplateAnalysis()">Akıllı Şablon Analizini Çalıştır</button>
@@ -216,17 +218,17 @@
         }
     }
 
-    // Akıllı Şablon Okuyucu: CSV veya JSON dosyalarını otomatik ayrıştırır
+    // Akıllı Şablon Okuyucu: Seçilen CSV veya JSON dosyasını doğrudan hedefler ve seviyeye göre filtreler
     async function runSmartTemplateAnalysis() {
         const templatePath = document.getElementById('analysisTemplate').value;
         const selectedLevel = document.getElementById('templateLevel').value;
-        document.getElementById('status').innerText = "Şablon ve veriler yükleniyor...";
+        document.getElementById('status').innerText = "Seçilen şablon dosyası yükleniyor...";
 
         try {
-            let templateHeaders = ['Kelime', 'Tür', 'Anlam', 'Tekrar Sıklığı'];
+            let templateHeaders = [];
             let tableRows = [];
             
-            // Eğer seçilen dosya cefr.csv veya başka bir CSV ise doğrudan satır/sütun olarak okuyalım
+            // Eğer seçilen dosya CSV formatındaysa (örn: cefr.csv)
             if (templatePath.endsWith('.csv')) {
                 const res = await fetch(templatePath);
                 const csvText = await res.text();
@@ -236,64 +238,49 @@
                     // İlk satır başlıklar (Unnamed olanları temizle)
                     templateHeaders = lines[0].split(',').map(h => h.trim()).filter(h => !h.startsWith('Unnamed'));
                     
-                    // Geri kalan satırları tablo verisine dönüştür
+                    // Geri kalan satırları ayrıştır
                     for (let i = 1; i < lines.length; i++) {
                         let cols = lines[i].split(',').map(c => c.trim());
-                        // Başlık sayısı kadar kolonu al
-                        tableRows.push(cols.slice(0, templateHeaders.length));
+                        let rowData = cols.slice(0, templateHeaders.length);
+                        
+                        // Seviye filtresi kontrolü (Eğer ilk sütun Seviye ise ve 'all' seçili değilse filtrele)
+                        if (selectedLevel === 'all' || rowData[0].toUpperCase() === selectedLevel.toUpperCase()) {
+                            tableRows.push(rowData);
+                        }
                     }
                 }
                 renderTable(templateHeaders, tableRows);
-                document.getElementById('status').innerText = `CEFR CSV şablonu başarıyla yüklendi! Toplam ${tableRows.length} kayıt listelendi.`;
+                document.getElementById('status').innerText = `${templatePath} dosyası başarıyla yüklendi! (${tableRows.length} kayıt gösteriliyor)`;
                 return;
             }
 
-            // JSON şablonları için standart GitHub veri tarama mantığı
-            try {
-                const tRes = await fetch(templatePath);
-                const tJson = await tRes.json();
-                if (tJson.headers) templateHeaders = tJson.headers;
-            } catch(e) { /* Varsayılan başlıklar */ }
+            // JSON şablonları için dosya okuma mantığı
+            const res = await fetch(templatePath);
+            const jsonContent = await res.json();
+            
+            // JSON şablonu bir kelime listesi içeriyorsa
+            if (jsonContent.headers) templateHeaders = jsonContent.headers;
+            else templateHeaders = ['Seviye', 'Kelime', 'Tür', 'Anlam'];
 
-            const response = await fetch('data/index.json');
-            const fileList = await response.json();
-            let wordMap = {};
-
-            for (let fileName of fileList) {
-                try {
-                    const res = await fetch(`data/${fileName}`);
-                    const json = await res.json();
-
-                    if (selectedLevel === 'all' || json.level === selectedLevel) {
-                        if (json.words && Array.isArray(json.words)) {
-                            json.words.forEach(item => {
-                                if (item.word) {
-                                    let w = item.word.toLowerCase();
-                                    if (!wordMap[w]) {
-                                        wordMap[w] = {
-                                            word: item.word,
-                                            type: item.type || 'Belirtilmemiş',
-                                            meaning: item.meaning || item.tr || 'Açıklama yok',
-                                            count: 1
-                                        };
-                                    } else {
-                                        wordMap[w].count += 1;
-                                    }
-                                }
-                            });
-                        }
-                    }
-                } catch (e) { console.warn("Hata: " + fileName); }
-            }
-
-            tableRows = Object.values(wordMap)
-                .sort((a, b) => b.count - a.count)
-                .map(item => [item.word, item.type, item.meaning, item.count]);
+            let wordsArray = jsonContent.words || jsonContent.data || (Array.isArray(jsonContent) ? jsonContent : []);
+            
+            wordsArray.forEach(item => {
+                let level = item.level || 'A1';
+                if (selectedLevel === 'all' || level.toUpperCase() === selectedLevel.toUpperCase()) {
+                    tableRows.push([
+                        level,
+                        item.word || item.kelime || '',
+                        item.type || item.tur || '',
+                        item.meaning || item.anlam || ''
+                    ]);
+                }
+            });
 
             renderTable(templateHeaders, tableRows);
-            document.getElementById('status').innerText = `Analiz tamamlandı! Şablon başarıyla uygulandı.`;
+            document.getElementById('status').innerText = `Şablon analizi tamamlandı! Toplam ${tableRows.length} kayıt listelendi.`;
         } catch (err) {
-            document.getElementById('status').innerText = "Hata: Şablon dosyası veya veriler okunamadı!";
+            document.getElementById('status').innerText = "Hata: Şablon dosyası okunurken bir sorun oluştu!";
+            console.error(err);
         }
     }
 
