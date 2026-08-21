@@ -20,6 +20,8 @@
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
         select { padding: 8px; width: 320px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
+        .badge-duplicate { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
+        .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -164,7 +166,6 @@
                 
                 if (parts.length >= 2) {
                     let level = parts[0].toUpperCase();
-                    // CSV'deki kelimeyi tamamen küçük harfe çevirerek harf uyumsuzluğunu önlüyoruz
                     let word = parts[1].toLowerCase();
                     
                     if (/^(A1|A2|B1|B2|C1|C2)$/.test(level) && word && word !== "kelime" && word !== "seviye") {
@@ -173,7 +174,8 @@
                 }
             }
 
-            let rawWordsList = [];
+            let wordTracking = {};
+            let totalCheckedCount = 0;
 
             if (jsonPath === 'ALL') {
                 const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
@@ -185,13 +187,28 @@
                             const res = await fetch(fName);
                             if (res.ok) {
                                 const data = await res.json();
+                                let list = [];
                                 if (Array.isArray(data)) {
-                                    rawWordsList.push(...data);
+                                    list = data;
                                 } else if (data.words && Array.isArray(data.words)) {
-                                    rawWordsList.push(...data.words);
+                                    list = data.words;
                                 } else if (data.kelimeler && Array.isArray(data.kelimeler)) {
-                                    rawWordsList.push(...data.kelimeler);
+                                    list = data.kelimeler;
                                 }
+
+                                list.forEach(item => {
+                                    let wStr = extractWordString(item);
+                                    if (wStr) {
+                                        let cleanW = wStr.trim().toLowerCase();
+                                        totalCheckedCount++;
+                                        if (!wordTracking[cleanW]) {
+                                            wordTracking[cleanW] = { original: wStr, files: [] };
+                                        }
+                                        if (!wordTracking[cleanW].files.includes(fName)) {
+                                            wordTracking[cleanW].files.push(fName);
+                                        }
+                                    }
+                                });
                             }
                         } catch (e) {}
                     }
@@ -201,36 +218,42 @@
                 if (!jsonRes.ok) throw new Error(`${jsonPath} dosyası depoda bulunamadı.`);
                 const jsonData = await jsonRes.json();
 
+                let list = [];
                 if (Array.isArray(jsonData)) {
-                    rawWordsList = jsonData;
+                    list = jsonData;
                 } else if (jsonData.words && Array.isArray(jsonData.words)) {
-                    rawWordsList = jsonData.words;
+                    list = jsonData.words;
                 } else if (jsonData.kelimeler && Array.isArray(jsonData.kelimeler)) {
-                    rawWordsList = jsonData.kelimeler;
+                    list = jsonData.kelimeler;
                 } else {
-                    rawWordsList = Object.keys(jsonData);
+                    list = Object.keys(jsonData);
                 }
+
+                list.forEach(item => {
+                    let wStr = extractWordString(item);
+                    if (wStr) {
+                        let cleanW = wStr.trim().toLowerCase();
+                        totalCheckedCount++;
+                        if (!wordTracking[cleanW]) {
+                            wordTracking[cleanW] = { original: wStr, files: [] };
+                        }
+                        if (!wordTracking[cleanW].files.includes(jsonPath)) {
+                            wordTracking[cleanW].files.push(jsonPath);
+                        }
+                    }
+                });
             }
 
-            statusDiv.innerText = `✅ Analiz başarıyla tamamlandı. Toplam ${rawWordsList.length} öğe incelendi.`;
+            statusDiv.innerText = `✅ Analiz tamamlandı. Toplam ${totalCheckedCount} kayıt incelendi.`;
 
             let tableRows = '';
             let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
+            let duplicateCount = 0;
 
-            rawWordsList.forEach((item, index) => {
-                let wordStr = '';
-                if (typeof item === 'string') {
-                    wordStr = item;
-                } else if (item) {
-                    wordStr = item.Kelime || item.kelime || item.Word || item.word || item.term || item.madde || '';
-                    if (!wordStr && typeof item === 'object') {
-                        let vals = Object.values(item).filter(v => typeof v === 'string');
-                        wordStr = vals[0] || JSON.stringify(item);
-                    }
-                }
-
-                const cleanWord = wordStr.trim().toLowerCase();
-                const level = cefrMap[cleanWord] || 'Bilinmiyor';
+            let index = 1;
+            for (let cleanW in wordTracking) {
+                let info = wordTracking[cleanW];
+                let level = cefrMap[cleanW] || 'Bilinmiyor';
                 
                 if (levelCounts[level] !== undefined) {
                     levelCounts[level]++;
@@ -238,19 +261,34 @@
                     levelCounts['Bilinmiyor']++;
                 }
 
+                let isDuplicate = info.files.length > 1;
+                if (isDuplicate) duplicateCount++;
+
+                let fileBadge = isDuplicate 
+                    ? `<span class="badge-duplicate">⚠️ ${info.files.length} Dosyada Tekrar Ediyor: ${info.files.join(', ')}</span>`
+                    : `<span class="badge-unique">✔ Tek (Benzersiz): ${info.files[0] || ''}</span>`;
+
                 tableRows += `
                     <tr>
-                        <td>${index + 1}</td>
-                        <td><strong>${wordStr}</strong></td>
+                        <td>${index++}</td>
+                        <td><strong>${info.original}</strong></td>
                         <td><span style="padding: 3px 8px; border-radius: 4px; background: ${level === 'Bilinmiyor' ? '#eee' : '#d1fae5'}; color: ${level === 'Bilinmiyor' ? '#333' : '#065f46'}; font-weight: bold;">${level}</span></td>
+                        <td>${fileBadge}</td>
                     </tr>
                 `;
-            });
+            }
+
+            let uniqueKeysCount = Object.keys(wordTracking).length;
 
             resultArea.innerHTML = `
-                <h4>📊 ${jsonPath === 'ALL' ? 'Tüm Dosyalar (Toplu Tarama)' : jsonPath} - Seviye Dağılım Özeti</h4>
+                <h4>📊 Analiz ve Mükerrer (Tekrar Eden) Kelime Özeti</h4>
                 <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
-                    <div style="background: #f3f4f6; padding: 10px 14px; border-radius: 6px;">Toplam: <strong>${rawWordsList.length}</strong></div>
+                    <div style="background: #f3f4f6; padding: 10px 14px; border-radius: 6px;">Toplam Kayıt: <strong>${totalCheckedCount}</strong></div>
+                    <div style="background: #e0f2fe; padding: 10px 14px; border-radius: 6px;">Benzersiz Kelime: <strong>${uniqueKeysCount}</strong></div>
+                    <div style="background: #fee2e2; padding: 10px 14px; border-radius: 6px; color: #991b1b;">Birden Fazla Geçen (Mükerrer): <strong>${duplicateCount}</strong></div>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
                     <div style="background: #d1fae5; padding: 10px 14px; border-radius: 6px;">A1: <strong>${levelCounts['A1']}</strong></div>
                     <div style="background: #a7f3d0; padding: 10px 14px; border-radius: 6px;">A2: <strong>${levelCounts['A2']}</strong></div>
                     <div style="background: #bfdbfe; padding: 10px 14px; border-radius: 6px;">B1: <strong>${levelCounts['B1']}</strong></div>
@@ -260,14 +298,15 @@
                     <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
                 </div>
 
-                <h4>📝 Kelime Bazlı Seviye Listesi</h4>
-                <div style="max-height: 400px; overflow-y: auto;">
+                <h4>📝 Kelime Bazlı Takip ve Çakışma Listesi</h4>
+                <div style="max-height: 450px; overflow-y: auto;">
                     <table>
                         <thead>
                             <tr>
                                 <th style="width: 50px;">#</th>
                                 <th>Kelime / Madde</th>
                                 <th>CEFR Seviyesi</th>
+                                <th>Geçtiği Dosyalar / Durum</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -280,6 +319,17 @@
         } catch (err) {
             statusDiv.innerText = "❌ Hata: " + err.message;
         }
+    }
+
+    function extractWordString(item) {
+        if (!item) return '';
+        if (typeof item === 'string') return item;
+        let wordStr = item.Kelime || item.kelime || item.Word || item.word || item.term || item.madde || '';
+        if (!wordStr && typeof item === 'object') {
+            let vals = Object.values(item).filter(v => typeof v === 'string');
+            wordStr = vals[0] || '';
+        }
+        return wordStr;
     }
 </script>
 
