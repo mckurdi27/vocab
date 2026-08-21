@@ -18,7 +18,7 @@
         th { background: #eee; }
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-        select { padding: 8px; width: 300px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
+        select { padding: 8px; width: 320px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
     </style>
 </head>
 <body>
@@ -42,10 +42,7 @@
     <div class="input-box" style="margin-top: 15px;">
         <label for="jsonSelect"><strong>Hedef JSON Dosyası Seçin:</strong></label>
         <select id="jsonSelect">
-            <option value="data/day-01.json">day-01.json</option>
-            <option value="data/day-02.json">day-02.json</option>
-            <option value="data/day-03.json">day-03.json</option>
-            <!-- Ekstra dosyalarınız varsa buraya ekleyebilirsiniz -->
+            <!-- JavaScript otomatik olarak A1-C2 arası 0-50 dosyalarını buraya dolduracaktır -->
         </select>
     </div>
 </div>
@@ -70,6 +67,26 @@
 </div>
 
 <script>
+    // Sayfa açıldığında A1, A2, B1, B2, C1, C2 (0-50) dosyalarını otomatik olarak seçeneklere ekle
+    window.addEventListener('DOMContentLoaded', () => {
+        const select = document.getElementById('jsonSelect');
+        const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
+        
+        levels.forEach(lvl => {
+            for (let i = 0; i <= 50; i++) {
+                // Dosya isimlendirmeniz örn: a100.json, a101.json ... a150.json şeklinde ise:
+                // (Eğer aralarında tire varsa örn: data/a1-01.json, burayı projene göre uyarlayabiliriz)
+                let numStr = i < 10 ? '0' + i : i;
+                let fileName = `data/${lvl}${numStr}.json`;
+                
+                let option = document.createElement('option');
+                option.value = fileName;
+                option.text = `${lvl.toUpperCase()} Seviyesi - Dosya ${i} (${lvl}${numStr}.json)`;
+                select.appendChild(option);
+            }
+        });
+    });
+
     let state = { source: '', task: '' };
 
     function setSource(s, btn) {
@@ -120,7 +137,7 @@
 
             // 2. Seçilen JSON dosyasını yükle
             const jsonRes = await fetch(jsonPath);
-            if (!jsonRes.ok) throw new Error(`${jsonPath} dosyası sunucuda veya data klasöründe bulunamadı.`);
+            if (!jsonRes.ok) throw new Error(`${jsonPath} dosyası GitHub deposunda bulunamadı. (Bu dosya henüz oluşturulmamış olabilir)`);
             const jsonData = await jsonRes.json();
 
             // JSON içindeki kelime listesini yakalama
