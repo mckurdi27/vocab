@@ -2,96 +2,219 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Akıllı OCR Sözlük Paneli</title>
-    <!-- PDF.js ve Tesseract.js kütüphanelerini ekliyoruz -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çok Amaçlı Belge ve Sözlük Paneli</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background: #f4f7f6; }
-        .upload-section { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        #status { margin-top: 10px; font-weight: bold; color: #e67e22; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
-        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
-        th { background: #2c3e50; color: white; }
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa; color: #333; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .back-btn { background: #95a5a6; color: white; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-size: 14px; }
+        .back-btn:hover { background: #7f8c8d; }
+        
+        .panel-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .mode-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+        .mode-btn { background: #e0e0e0; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13px; transition: 0.2s; }
+        .mode-btn.active { background: #3498db; color: white; }
+        .mode-btn:hover { background: #bdc3c7; }
+        
+        .action-area { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; }
+        .action-area.active { display: block; }
+        
+        button.execute-btn { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        button.execute-btn:hover { background: #219653; }
+
+        #status { margin-top: 10px; font-weight: bold; color: #e67e22; font-size: 13px; }
+        
+        table { width: 100%; border-collapse: collapse; background: white; margin-top: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-size: 13px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #2c3e50; color: white; }
+        textarea { width: 100%; height: 150px; margin-top: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: monospace; }
     </style>
 </head>
 <body>
 
-    <div class="upload-section">
-        <h1>OCR Destekli Kelime Analizi</h1>
-        <input type="file" id="pdfInput" accept=".pdf,.jpg,.jpeg,.png">
+    <div class="header-container">
+        <h1>Belge & Sözlük Analiz Merkezi</h1>
+        <a href="index.html" class="back-btn">← Ana Sayfa</a>
+    </div>
+
+    <div class="panel-card">
+        <h3>İşlem Modunu Seçin:</h3>
+        <div class="mode-buttons">
+            <button class="mode-btn active" onclick="switchMode('dictionary', this)">📖 Sözlük Analizi (Metin PDF)</button>
+            <button class="mode-btn" onclick="switchMode('frequency', this)">📊 Kelime Frekans Sayımı</button>
+            <button class="mode-btn" onclick="switchMode('txtConverter', this)">📄 Kitap / PDF Metin Dönüştürücü</button>
+            <button class="mode-btn" onclick="switchMode('ocrScanner', this)">🖼️ JPG / Taranmış PDF (OCR)</button>
+        </div>
+
+        <!-- 1. Sözlük Modu Alanı -->
+        <div id="dictionary" class="action-area active">
+            <p>PDF sözlük dosyanızı yükleyin, Kelime, Tür, Anlam ve Cümle olarak tablolaştırsın.</p>
+            <input type="file" id="dictFile" accept=".pdf">
+            <br><button class="execute-btn" onclick="runDictionary()">Sözlüğü Analiz Et</button>
+        </div>
+
+        <!-- 2. Frekans Modu Alanı -->
+        <div id="frequency" class="action-area">
+            <p>Metindeki kelimelerin kaç kez geçtiğini frekans sırasına göre listeler.</p>
+            <input type="file" id="freqFile" accept=".pdf">
+            <br><button class="execute-btn" onclick="runFrequency()">Frekansları Hesapla</button>
+        </div>
+
+        <!-- 3. Metin Dönüştürücü Alanı -->
+        <div id="txtConverter" class="action-area">
+            <p>PDF kitabınızı veya belgenizi doğrudan düz metne (TXT) dönüştürün.</p>
+            <input type="file" id="txtFile" accept=".pdf">
+            <br><button class="execute-btn" onclick="runTxtConverter()">Metne Dönüştür ve İndir</button>
+        </div>
+
+        <!-- 4. OCR Alanı -->
+        <div id="ocrScanner" class="action-area">
+            <p>Taranmış PDF veya JPG/PNG fotoğraflarınızı OCR ile okutun.</p>
+            <input type="file" id="ocrFile" accept=".pdf,.jpg,.jpeg,.png">
+            <br><button class="execute-btn" onclick="runOcr()">OCR ile Tara ve Çöz</button>
+        </div>
+
         <div id="status"></div>
     </div>
 
-    <table id="analysisTable">
-        <thead id="tableHead"></thead>
-        <tbody id="tableBody"></tbody>
-    </table>
+    <!-- Sonuçların Gösterileceği Alan -->
+    <div id="resultContainer">
+        <table id="analysisTable" style="display:none;">
+            <thead id="tableHead"></thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+        <div id="textOutputContainer" style="display:none;">
+            <h3>Dönüştürülen Metin Çıktısı:</h3>
+            <textarea id="outputTextArea" readonly></textarea>
+        </div>
+    </div>
 
     <script>
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        let activeTab = 'dictionary';
 
-        async function processFile(event) {
-            const file = event.target.files[0];
-            const status = document.getElementById('status');
-            status.innerText = "İşleniyor... (Eğer taranmış belge ise OCR biraz sürebilir)";
-
-            let fullText = "";
-
-            if (file.type === "application/pdf") {
-                const arrayBuffer = await file.arrayBuffer();
-                const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
-                
-                for (let i = 1; i <= pdf.numPages; i++) {
-                    const page = await pdf.getPage(i);
-                    const textContent = await page.getTextContent();
-                    
-                    // Eğer PDF içinde metin katmanı varsa onu al, yoksa resim olarak OCR yap
-                    if (textContent.items.length > 0) {
-                        fullText += textContent.items.map(it => it.str).join(" ");
-                    } else {
-                        status.innerText = `Sayfa ${i} OCR yapılıyor...`;
-                        const viewport = page.getViewport({ scale: 2 });
-                        const canvas = document.createElement('canvas');
-                        const context = canvas.getContext('2d');
-                        canvas.height = viewport.height;
-                        canvas.width = viewport.width;
-                        await page.render({ canvasContext: context, viewport }).promise;
-                        
-                        const ocrResult = await Tesseract.recognize(canvas, 'eng');
-                        fullText += ocrResult.data.text + " ";
-                    }
-                }
-            } else {
-                // Görsel dosyaları için direkt OCR
-                const ocrResult = await Tesseract.recognize(file, 'eng');
-                fullText = ocrResult.data.text;
-            }
-
-            status.innerText = "Analiz tamamlandı!";
-            parseDictionary(fullText);
+        function switchMode(mode, btn) {
+            activeTab = mode;
+            document.querySelectorAll('.action-area').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.mode-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(mode).classList.add('active');
+            btn.classList.add('active');
+            
+            document.getElementById('status').innerText = "";
+            document.getElementById('analysisTable').style.display = 'none';
+            document.getElementById('textOutputContainer').style.display = 'none';
         }
 
-        function parseDictionary(text) {
+        async function extractPdfText(file) {
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+            let fullText = "";
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const content = await page.getTextContent();
+                fullText += content.items.map(it => it.str).join(" ") + " ";
+            }
+            return fullText;
+        }
+
+        async function runDictionary() {
+            const file = document.getElementById('dictFile').files[0];
+            if (!file) { alert("Lütfen bir PDF seçin!"); return; }
+            statusMsg("Metin okunuyor ve analiz ediliyor...");
+            
+            const text = await extractPdfText(file);
             const globalData = [];
-            const regex = /([a-zA-ZçğıöşüÇĞİÖŞÜ]+)\s*\(([^)]+)\)\s*[:]?\s*([^.]+?\.)\s*([^•\n\r]*?)(?=\s+[a-zA-ZçğıöşüÇĞİÖŞÜ]+\s*\(|$)/gi;
+            const regex = /([a-zA-ZçğıöşüÇĞİÖŞÜ]+)\s*\(([^)]+)\)\s*[:]?\s*([^.]+?\.)\s*([^•]*?)(?=\s+[a-zA-ZçğıöşüÇĞİÖŞÜ]+\s*\(|$)/gi;
             let match;
             while ((match = regex.exec(text)) !== null) {
                 globalData.push({ Kelime: match[1], Tür: match[2], Anlam: match[3], Cümle: match[4].trim() });
             }
-            renderTable(globalData);
+
+            renderTable(['Kelime', 'Tür', 'Anlam', 'Cümle'], globalData);
+            statusMsg(`Analiz tamamlandı. ${globalData.length} kayıt bulundu.`);
         }
 
-        function renderTable(data) {
+        async function runFrequency() {
+            const file = document.getElementById('freqFile').files[0];
+            if (!file) { alert("Lütfen bir PDF seçin!"); return; }
+            statusMsg("Frekanslar hesaplanıyor...");
+
+            const text = await extractPdfText(file);
+            let words = text.toLowerCase().match(/\b[a-zçğıöşü]{2,}\b/g) || [];
+            let counts = {};
+            words.forEach(w => counts[w] = (counts[w] || 0) + 1);
+            
+            let globalData = [];
+            for(let w in counts) globalData.push({ Kelime: w, Frekans: counts[w] });
+            globalData.sort((a,b) => b.Frekans - a.Frekans);
+
+            renderTable(['Kelime', 'Frekans'], globalData);
+            statusMsg("Frekans analizi tamamlandı.");
+        }
+
+        async function runTxtConverter() {
+            const file = document.getElementById('txtFile').files[0];
+            if (!file) { alert("Lütfen bir PDF seçin!"); return; }
+            statusMsg("Metne dönüştürülüyor...");
+
+            const text = await extractPdfText(file);
+            document.getElementById('outputTextArea').value = text;
+            document.getElementById('textOutputContainer').style.display = 'block';
+            
+            // Otomatik indirme başlat
+            const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = file.name.replace(/\.[^/.]+$/, "") + "_metin.txt"; a.click();
+            
+            statusMsg("Metne dönüştürüldü ve TXT olarak indirildi!");
+        }
+
+        async function runOcr() {
+            const file = document.getElementById('ocrFile').files[0];
+            if (!file) { alert("Lütfen bir dosya (PDF veya Resim) seçin!"); return; }
+            statusMsg("OCR taraması başlatıldı, taranan sayfa yoğunluğuna göre biraz sürebilir...");
+
+            let fullText = "";
+            if (file.type === "application/pdf") {
+                const arrayBuffer = await file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    statusMsg(`Sayfa ${i} / ${pdf.numPages} OCR ile taranıyor...`);
+                    const page = await pdf.getPage(i);
+                    const viewport = page.getViewport({ scale: 2 });
+                    const canvas = document.createElement('canvas');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+                    
+                    const ocrRes = await Tesseract.recognize(canvas, 'eng');
+                    fullText += ocrRes.data.text + " ";
+                }
+            } else {
+                const ocrRes = await Tesseract.recognize(file, 'eng');
+                fullText = ocrRes.data.text;
+            }
+
+            document.getElementById('outputTextArea').value = fullText;
+            document.getElementById('textOutputContainer').style.display = 'block';
+            statusMsg("OCR taraması başarıyla tamamlandı!");
+        }
+
+        function renderTable(headers, data) {
             const head = document.getElementById('tableHead');
             const body = document.getElementById('tableBody');
-            head.innerHTML = `<tr><th>Kelime</th><th>Tür</th><th>Anlam</th><th>Cümle</th></tr>`;
-            body.innerHTML = data.map(row => 
-                `<tr><td>${row.Kelime}</td><td>${row.Tür}</td><td>${row.Anlam}</td><td>${row.Cümle}</td></tr>`
-            ).join('');
+            head.innerHTML = `<tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>`;
+            body.innerHTML = data.map(row => `<tr>${Object.values(row).map(val => `<td>${val}</td>`).join('')}</tr>`).join('');
+            document.getElementById('analysisTable').style.display = 'table';
         }
 
-        document.getElementById('pdfInput').addEventListener('change', processFile);
+        function statusMsg(msg) {
+            document.getElementById('status').innerText = msg;
+        }
     </script>
 </body>
 </html>
