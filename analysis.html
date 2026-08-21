@@ -42,9 +42,18 @@
     <div class="input-box" style="margin-top: 15px;">
         <label for="jsonSelect"><strong>Hedef JSON Dosyası Seçin:</strong></label>
         <select id="jsonSelect">
-            <!-- JavaScript otomatik olarak A1-C2 arası 0-50 dosyalarını buraya dolduracaktır -->
+            <option value="ALL">📁 Tüm Dosyaları Tara (Tümü)</option>
         </select>
     </div>
+    
+    <div class="input-box" style="margin-top: 15px;">
+        <label><strong>CSV Sözlük Kaynağı:</strong></label>
+        <div class="btn-group" id="csvSourceGroup" style="margin-bottom:0;">
+            <button onclick="setCsvSource('analiz/cefr.csv', this)">Standart CEFR Sözlüğü</button>
+            <button onclick="setCsvSource('analiz/frequency.csv', this)">Frekans (Frequency) Listesi</button>
+        </div>
+    </div>
+    <div id="csvSourceDetails" style="font-size: 13px; color: #666; margin-top: 5px;">Seçilen CSV: Belirtilmedi</div>
 </div>
 
 <!-- BÖLÜM 2: İŞLEM TÜRÜ -->
@@ -67,15 +76,12 @@
 </div>
 
 <script>
-    // Sayfa açıldığında A1, A2, B1, B2, C1, C2 (0-50) dosyalarını otomatik olarak seçeneklere ekle
     window.addEventListener('DOMContentLoaded', () => {
         const select = document.getElementById('jsonSelect');
         const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
         
         levels.forEach(lvl => {
             for (let i = 0; i <= 50; i++) {
-                // Dosya isimlendirmeniz örn: a100.json, a101.json ... a150.json şeklinde ise:
-                // (Eğer aralarında tire varsa örn: data/a1-01.json, burayı projene göre uyarlayabiliriz)
                 let numStr = i < 10 ? '0' + i : i;
                 let fileName = `data/${lvl}${numStr}.json`;
                 
@@ -87,11 +93,17 @@
         });
     });
 
-    let state = { source: '', task: '' };
+    let state = { source: '', task: '', csvPath: '' };
 
     function setSource(s, btn) {
         state.source = s;
         document.getElementById('sourceDetails').innerText = "Seçilen Kaynak: " + s;
+        highlight(btn);
+    }
+
+    function setCsvSource(path, btn) {
+        state.csvPath = path;
+        document.getElementById('csvSourceDetails').innerText = "Seçilen CSV: " + path;
         highlight(btn);
     }
 
@@ -107,8 +119,8 @@
     }
 
     async function runAnalysis() {
-        if (!state.source || !state.task) {
-            alert("Lütfen hem kaynak hem işlem türü seçin.");
+        if (!state.source || !state.task || !state.csvPath) {
+            alert("Lütfen kaynak, işlem türü ve CSV sözlük kaynağını eksiksiz seçin.");
             return;
         }
         
@@ -120,13 +132,13 @@
         resultArea.innerHTML = "";
         
         try {
-            // 1. CEFR referans sözlüğünü yükle
-            const cefrRes = await fetch('analiz/cefr.csv');
-            if (!cefrRes.ok) throw new Error("analiz/cefr.csv referans dosyası bulunamadı.");
-            const cefrText = await cefrRes.text();
+            // 1. Seçilen CSV sözlüğünü yükle
+            const csvRes = await fetch(state.csvPath);
+            if (!csvRes.ok) throw new Error(`${state.csvPath} referans dosyası bulunamadı.`);
+            const csvText = await csvRes.text();
             
             const cefrMap = {};
-            cefrText.split('\n').forEach(row => {
+            csvText.split('\n').forEach(row => {
                 const cols = row.split(',');
                 if (cols.length >= 2) {
                     const word = cols[0].trim().toLowerCase();
@@ -135,21 +147,46 @@
                 }
             });
 
-            // 2. Seçilen JSON dosyasını yükle
-            const jsonRes = await fetch(jsonPath);
-            if (!jsonRes.ok) throw new Error(`${jsonPath} dosyası GitHub deposunda bulunamadı. (Bu dosya henüz oluşturulmamış olabilir)`);
-            const jsonData = await jsonRes.json();
-
-            // JSON içindeki kelime listesini yakalama
             let wordsList = [];
-            if (Array.isArray(jsonData)) {
-                wordsList = jsonData;
-            } else if (jsonData.words && Array.isArray(jsonData.words)) {
-                wordsList = jsonData.words;
-            } else if (jsonData.kelimeler && Array.isArray(jsonData.kelimeler)) {
-                wordsList = jsonData.kelimeler;
+
+            // 2. Tekli veya Toplu JSON Yükleme Mantığı
+            if (jsonPath === 'ALL') {
+                const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
+                for (let lvl of levels) {
+                    for (let i = 0; i <= 50; i++) {
+                        let numStr = i < 10 ? '0' + i : i;
+                        let fName = `data/${lvl}${numStr}.json`;
+                        try {
+                            const res = await fetch(fName);
+                            if (res.ok) {
+                                const data = await res.json();
+                                if (Array.isArray(data)) {
+                                    wordsList.push(...data);
+                                } else if (data.words && Array.isArray(data.words)) {
+                                    wordsList.push(...data.words);
+                                } else if (data.kelimeler && Array.isArray(data.kelimeler)) {
+                                    wordsList.push(...data.kelimeler);
+                                }
+                            }
+                        } catch (e) {
+                            // Bulunamayan dosyaları atla
+                        }
+                    }
+                }
             } else {
-                wordsList = Object.keys(jsonData);
+                const jsonRes = await fetch(jsonPath);
+                if (!jsonRes.ok) throw new Error(`${jsonPath} dosyası GitHub deposunda bulunamadı.`);
+                const jsonData = await jsonRes.json();
+
+                if (Array.isArray(jsonData)) {
+                    wordsList = jsonData;
+                } else if (jsonData.words && Array.isArray(jsonData.words)) {
+                    wordsList = jsonData.words;
+                } else if (jsonData.kelimeler && Array.isArray(jsonData.kelimeler)) {
+                    wordsList = jsonData.kelimeler;
+                } else {
+                    wordsList = Object.keys(jsonData);
+                }
             }
 
             statusDiv.innerText = `✅ Analiz başarıyla tamamlandı. Toplam ${wordsList.length} öğe incelendi.`;
@@ -189,12 +226,13 @@
             });
 
             resultArea.innerHTML = `
-                <h4>📊 ${jsonPath} - Seviye Dağılım Özeti</h4>
+                <h4>📊 ${jsonPath === 'ALL' ? 'Tüm Dosyalar (Toplu Tarama)' : jsonPath} - Seviye Dağılım Özeti</h4>
                 <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
                     <div style="background: #f3f4f6; padding: 10px 15px; border-radius: 6px;">Toplam Kelime: <strong>${wordsList.length}</strong></div>
                     <div style="background: #ecfdf5; padding: 10px 15px; border-radius: 6px;">A1-A2: <strong>${levelCounts['A1'] + levelCounts['A2']}</strong></div>
                     <div style="background: #eff6ff; padding: 10px 15px; border-radius: 6px;">B1-B2: <strong>${levelCounts['B1'] + levelCounts['B2']}</strong></div>
                     <div style="background: #fef2f2; padding: 10px 15px; border-radius: 6px;">C1-C2: <strong>${levelCounts['C1'] + levelCounts['C2']}</strong></div>
+                    <div style="background: #fffbeb; padding: 10px 15px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
                 </div>
 
                 <h4>📝 Kelime Bazlı Seviye Listesi</h4>
