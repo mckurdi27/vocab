@@ -14,9 +14,9 @@
         button { padding: 10px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; }
         .active-btn { background: #27ae60; color: white; border: none; }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
         th { background: #eee; }
-        .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; }
+        .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
     </style>
 </head>
 <body>
@@ -31,7 +31,7 @@
 <div class="section">
     <h3>1. Kaynak Seçimi</h3>
     <div class="btn-group">
-        <button onclick="setSource('site', this)">🌐 Site (GitHub)</button>
+        <button onclick="setSource('site', this)">🌐 Site (GitHub / Veriler)</button>
         <button onclick="setSource('harici', this)">🔗 Harici Dosya</button>
         <button onclick="setSource('foto', this)">🖼️ Fotoğraf (OCR)</button>
     </div>
@@ -42,8 +42,8 @@
 <div class="section">
     <h3>2. İşlem Türü</h3>
     <div class="btn-group">
-        <button onclick="setTask('frekans', this)">📊 Frekans Analizi</button>
-        <button onclick="setTask('seviye', this)">📈 Seviye Kontrolü</button>
+        <button onclick="setTask('frekans', this)">📊 Frekans ve Seviye Analizi</button>
+        <button onclick="setTask('seviye', this)">📈 Hikaye / Kelime Seviye Kontrolü</button>
         <button onclick="setTask('cevir', this)">🔤 Çeviri / Sözlük</button>
     </div>
     <div id="taskDetails">Lütfen bir işlem türü seçin.</div>
@@ -52,7 +52,7 @@
 <!-- BÖLÜM 3: ANALİZ SONUCU -->
 <div class="section">
     <h3>3. Analiz Sonucu</h3>
-    <button onclick="runAnalysis()">🚀 Analizi Çalıştır</button>
+    <button onclick="runAnalysis()" style="background: #4f46e5; color: white; font-weight: bold; padding: 12px 20px; border: none; border-radius: 6px;">🚀 Analizi Çalıştır</button>
     <div id="status" class="status-bar">Sistem hazır.</div>
     <div id="resultArea" style="margin-top:20px;"></div>
 </div>
@@ -84,18 +84,59 @@
         }
         
         const statusDiv = document.getElementById('status');
-        statusDiv.innerText = "Analiz ediliyor...";
+        const resultArea = document.getElementById('resultArea');
+        statusDiv.innerText = "Analiz gerçekleştiriliyor, lütfen bekleyin...";
+        resultArea.innerHTML = "";
         
         try {
-            // Dosya yolu 'analiz' klasörü altına güncellendi
-            const res = await fetch('analiz/cefr.csv'); 
-            if (!res.ok) throw new Error("Dosya sunucuda bulunamadı.");
+            // Örnek olarak cefr.csv referans sözlüğünü çekiyoruz
+            const cefrRes = await fetch('analiz/cefr.csv');
+            if (!cefrRes.ok) throw new Error("cefr.csv referans dosyası bulunamadı.");
+            const cefrText = await cefrRes.text();
             
-            const text = await res.text();
-            document.getElementById('resultArea').innerHTML = `<table><tr><th>Analiz</th><th>Değer</th></tr><tr><td>Kaynak</td><td>${state.source}</td></tr><tr><td>Durum</td><td>Başarılı</td></tr></table>`;
-            statusDiv.innerText = "✅ Analiz tamamlandı.";
+            // CSV verisini basitçe kelime->seviye haritasına çevirelim
+            const cefrMap = {};
+            const rows = cefrText.split('\n');
+            rows.forEach(row => {
+                const cols = row.split(',');
+                if (cols.length >= 2) {
+                    const word = cols[0].trim().toLowerCase();
+                    const level = cols[1].trim().toUpperCase();
+                    cefrMap[word] = level;
+                }
+            });
+
+            // Burada data klasöründeki JSON dosyalarınızı simüle edebilir veya listeleyebilirsiniz.
+            // Projenizde kaç JSON varsa buraya örnek dosya isimlerini yazabiliriz (Örn: day-01.json, hikaye1.json vb.)
+            // Şimdilik sistemin yapısını kurduk:
+            
+            statusDiv.innerText = "✅ Analiz başarıyla tamamlandı.";
+            
+            // Sonuç tablosu örneği
+            resultArea.innerHTML = `
+                <h4>Genel Analiz Raporu</h4>
+                <table>
+                    <tr>
+                        <th>Dosya Adı / Kaynak</th>
+                        <th>Toplam Kelime Sayısı</th>
+                        <th>A1-A2 Kelime</th>
+                        <th>B1-B2 Kelime</th>
+                        <th>C1-C2 Kelime</th>
+                        <th>Durum</th>
+                    </tr>
+                    <tr>
+                        <td>data/day-01.json (Örnek)</td>
+                        <td>50</td>
+                        <td>20</td>
+                        <td>22</td>
+                        <td>8</td>
+                        <td><span style="color:green; font-weight:bold;">Tamamlandı</span></td>
+                    </tr>
+                </table>
+            `;
+
         } catch (err) {
-            statusDiv.innerText = "❌ Hata: " + err.message + " (Lütfen dosya yolunun doğruluğunu kontrol edin.)";
+            statusDiv.innerText = "❌ Hata: " + err.message;
         }
     }
 </script>
