@@ -149,6 +149,3 @@ Eğlence ve Hobiler
 -------
 
 #Eee inceleyelim.
-
-
-
