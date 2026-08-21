@@ -145,6 +145,7 @@
             for (let row of rows) {
                 if (!row.trim()) continue;
                 
+                // Tırnaklı CSV sütunlarını güvenle parçalayan yapı
                 let parts = [];
                 let inQuotes = false;
                 let currentField = '';
@@ -154,17 +155,17 @@
                     if (char === '"') {
                         inQuotes = !inQuotes;
                     } else if (char === ',' && !inQuotes) {
-                        parts.push(currentField);
+                        parts.push(currentField.trim().replace(/^["']|["']$/g, ""));
                         currentField = '';
                     } else {
                         currentField += char;
                     }
                 }
-                parts.push(currentField);
+                parts.push(currentField.trim().replace(/^["']|["']$/g, ""));
                 
                 if (parts.length >= 2) {
-                    let level = parts[0].replace(/^["']|["']$/g, "").trim().toUpperCase();
-                    let word = parts[1].replace(/^["']|["']$/g, "").trim().toLowerCase();
+                    let level = parts[0].toUpperCase();
+                    let word = parts[1].toLowerCase();
                     
                     if (/^(A1|A2|B1|B2|C1|C2)$/.test(level) && word && word !== "kelime" && word !== "seviye") {
                         cefrMap[word] = level;
@@ -221,7 +222,13 @@
                 if (typeof item === 'string') {
                     wordStr = item;
                 } else if (item) {
-                    wordStr = item.word || item.kelime || item.term || item.madde || JSON.stringify(item);
+                    // JSON içindeki kelime alanını doğru okumak için anahtar kontrolleri
+                    wordStr = item.Kelime || item.kelime || item.Word || item.word || item.term || item.madde || '';
+                    if (!wordStr && typeof item === 'object') {
+                        // Eğer nesne düz metin değilse ilk string değeri bul
+                        let vals = Object.values(item).filter(v => typeof v === 'string');
+                        wordStr = vals[0] || JSON.stringify(item);
+                    }
                 }
 
                 const cleanWord = wordStr.trim().toLowerCase();
