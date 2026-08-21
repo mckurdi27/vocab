@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelime Blokları ve Çoklu Format PDF Analiz Paneli</title>
-    <!-- PDF.js Kütüphanesi -->
+    <title>Çok Amaçlı Kelime ve Sözlük Analiz Paneli</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 15px; background-color: #f8f9fa; color: #333; }
@@ -13,24 +12,20 @@
         .back-btn { background: #95a5a6; color: white; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-size: 14px; }
         .back-btn:hover { background: #7f8c8d; }
         
-        .upload-section { background: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 15px; }
-        .upload-section input[type="file"] { margin-top: 5px; font-size: 14px; }
+        .upload-section { background: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 15px; display: flex; flex-direction: column; gap: 12px; }
+        .control-group { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+        .control-group label { font-weight: bold; font-size: 14px; }
+        .control-group select, .control-group input[type="file"] { padding: 8px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; }
 
-        .export-container { margin-top: 12px; display: none; flex-direction: column; gap: 8px; border-top: 1px solid #eee; padding-top: 12px; }
-        .export-group { display: flex; gap: 8px; flex-wrap: wrap; }
-        .export-label { font-size: 13px; font-weight: bold; color: #555; width: 100%; }
-        
-        .export-btn { border: none; padding: 7px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; color: white; transition: opacity 0.2s; }
+        .export-container { display: none; gap: 8px; flex-wrap: wrap; border-top: 1px solid #eee; padding-top: 10px; }
+        .export-btn { border: none; padding: 7px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; color: white; }
         .btn-excel { background-color: #27ae60; }
-        .btn-txt { background-color: #2980b9; }
         .btn-json { background-color: #8e44ad; }
-        .btn-md { background-color: #d35400; }
         .btn-html { background-color: #c0392b; }
         .export-btn:hover { opacity: 0.85; }
 
         .filters { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
-        .filters input, .filters select { padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; }
-        .filters input { flex: 1; min-width: 200px; }
+        .filters input { padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; flex: 1; min-width: 200px; }
         
         table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden; font-size: 14px; }
         th, td { padding: 10px 12px; border-bottom: 1px solid #eee; text-align: left; }
@@ -43,53 +38,47 @@
 <body>
 
     <div class="header-container">
-        <h1>Kelime & PDF Analiz Paneli</h1>
+        <h1>Kelime & Sözlük Analiz Paneli</h1>
         <a href="index.html" class="back-btn">← Ana Sayfa</a>
     </div>
 
-    <!-- PDF Yükleme ve Çoklu Format İndirme Alanı -->
+    <!-- Mod Seçimi ve PDF Yükleme Alanı -->
     <div class="upload-section">
-        <label for="pdfInput"><strong>PDF Dosyası Yükle ve Analiz Et:</strong></label><br>
-        <input type="file" id="pdfInput" accept=".pdf" onchange="handlePdfUpload(event)">
+        <div class="control-group">
+            <label for="analysisMode">Analiz Modu Seç:</label>
+            <select id="analysisMode" onchange="clearData()">
+                <option value="frequency">Standart Kelime & Frekans Analizi</option>
+                <option value="dictionary">Sözlük Modu (Kelime, Tür, Anlam, Cümle)</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="pdfInput">PDF Dosyası:</label>
+            <input type="file" id="pdfInput" accept=".pdf" onchange="handlePdfUpload(event)">
+        </div>
         
-        <!-- Tüm İndirme Formatları -->
+        <!-- Dışa Aktarım Butonları -->
         <div id="exportContainer" class="export-container">
-            <div class="export-group">
-                <span class="export-label">📊 Kelime Analizi İndir:</span>
-                <button class="export-btn btn-excel" onclick="exportFile('excel')">Excel (CSV)</button>
-                <button class="export-btn btn-json" onclick="exportFile('json')">JSON</button>
-                <button class="export-btn btn-md" onclick="exportFile('markdown')">Markdown (MD)</button>
-                <button class="export-btn btn-html" onclick="exportFile('html')">HTML Rapor</button>
-            </div>
-            <div class="export-group" style="margin-top: 5px;">
-                <span class="export-label">📄 Ham Metin Dönüşümü İndir:</span>
-                <button class="export-btn btn-txt" onclick="exportFile('txt')">Düz Metin (TXT)</button>
-            </div>
+            <span style="font-weight:bold; font-size:13px; width:100%; color:#555;">Dışa Aktar:</span>
+            <button class="export-btn btn-excel" onclick="exportFile('excel')">Excel (CSV)</button>
+            <button class="export-btn btn-json" onclick="exportFile('json')">JSON</button>
+            <button class="export-btn btn-html" onclick="exportFile('html')">HTML Rapor</button>
         </div>
     </div>
 
-    <div class="stats" id="statsText">Analiz için hazır. İsterseniz yukarıdan PDF yükleyebilirsiniz.</div>
+    <div class="stats" id="statsText">Lütfen mod seçip PDF yükleyin.</div>
 
     <div class="filters">
-        <input type="text" id="searchInput" placeholder="Kelime ara..." onkeyup="filterData()">
-        <select id="levelFilter" onchange="filterData()">
-            <option value="">Tüm Kaynaklar / Seviyeler</option>
-            <option value="PDF">PDF Kaynağı</option>
-            <option value="A1">A1</option>
-            <option value="A2">A2</option>
-            <option value="B1">B1</option>
-            <option value="B2">B2</option>
-            <option value="C1">C1</option>
-        </select>
+        <input type="text" id="searchInput" placeholder="Listede ara..." onkeyup="filterData()">
     </div>
 
     <table id="analysisTable">
         <thead>
-            <tr>
+            <tr id="tableHeaderRow">
                 <th>Kelime</th>
                 <th>Seviye / Kaynak</th>
                 <th>Tekrar / Frekans</th>
-                <th>Geçtiği Dosya / Belge</th>
+                <th>Dosya</th>
             </tr>
         </thead>
         <tbody id="tableBody">
@@ -100,46 +89,40 @@
     <script>
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-        let globalVocabData = [];
-        let fullExtractedText = "";
+        let globalData = [];
         let currentFileName = "belge";
+
+        function clearData() {
+            globalData = [];
+            document.getElementById('tableBody').innerHTML = '<tr><td colspan="4" style="text-align:center;">Mod değiştirildi. Lütfen PDF tekrar seçin.</td></tr>';
+            document.getElementById('exportContainer').style.display = 'none';
+            document.getElementById('statsText').innerText = "Analiz için hazır.";
+        }
 
         function handlePdfUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
 
             currentFileName = file.name.replace(/\.[^/.]+$/, "");
-            document.getElementById('statsText').innerText = `${file.name} okunuyor ve analiz ediliyor...`;
+            const mode = document.getElementById('analysisMode').value;
+            document.getElementById('statsText').innerText = `${file.name} (${mode === 'dictionary' ? 'Sözlük Modu' : 'Frekans Modu'}) taranıyor...`;
 
             const reader = new FileReader();
             reader.readAsArrayBuffer(file);
             reader.onload = function() {
                 const typedarray = new Uint8Array(this.result);
-                fullExtractedText = "";
 
                 pdfjsLib.getDocument(typedarray).promise.then(function(pdfDoc) {
                     let totalPages = pdfDoc.numPages;
-                    let extractedWordsMap = {};
                     let promises = [];
+                    let fullText = "";
 
                     for (let i = 1; i <= totalPages; i++) {
                         promises.push(
                             pdfDoc.getPage(i).then(function(page) {
                                 return page.getTextContent().then(function(textContent) {
                                     textContent.items.forEach(function(item) {
-                                        fullExtractedText += item.str + " ";
-                                        
-                                        let words = item.str.split(/\s+/);
-                                        words.forEach(w => {
-                                            let cleanWord = w.replace(/^[.,;:!?()\[\]{}""„“»«]+|[.,;:!?()\[\]{}""„“»«]+$/g, "").toLowerCase();
-                                            if (cleanWord.length > 1) {
-                                                if (!extractedWordsMap[cleanWord]) {
-                                                    extractedWordsMap[cleanWord] = { count: 0, files: new Set() };
-                                                }
-                                                extractedWordsMap[cleanWord].count += 1;
-                                                extractedWordsMap[cleanWord].files.add(file.name);
-                                            }
-                                        });
+                                        fullText += item.str + " ";
                                     });
                                 });
                             })
@@ -147,119 +130,130 @@
                     }
 
                     Promise.all(promises).then(function() {
-                        globalVocabData = [];
-                        for (let [word, info] of Object.entries(extractedWordsMap)) {
-                            globalVocabData.push({
-                                word: word,
-                                level: "PDF Kaynağı",
-                                count: info.count,
-                                files: Array.from(info.files)
+                        globalData = [];
+
+                        if (mode === 'frequency') {
+                            // Standart Frekans Analizi
+                            let extractedWordsMap = {};
+                            let words = fullText.split(/\s+/);
+                            words.forEach(w => {
+                                let cleanWord = w.replace(/^[.,;:!?()\[\]{}""„“»«]+|[.,;:!?()\[\]{}""„“»«]+$/g, "").toLowerCase();
+                                if (cleanWord.length > 1) {
+                                    if (!extractedWordsMap[cleanWord]) {
+                                        extractedWordsMap[cleanWord] = { count: 0, files: new Set() };
+                                    }
+                                    extractedWordsMap[cleanWord].count += 1;
+                                    extractedWordsMap[cleanWord].files.add(file.name);
+                                }
                             });
+
+                            for (let [word, info] of Object.entries(extractedWordsMap)) {
+                                globalData.push({
+                                    col1: word,
+                                    col2: "PDF Kaynağı",
+                                    col3: info.count,
+                                    col4: Array.from(info.files).join(', ')
+                                });
+                            }
+                            globalData.sort((a, b) => b.col3 - a.col3);
+                            renderFrequencyTable(globalData);
+
+                        } else {
+                            // Sözlük Modu Analizi
+                            const regex = /•\s*([a-zA-Z]+)\s*\(([^)]+)\)\s*:\s*([^.]+)\.\s*([a-zA-Z\s]+(?:\.|\?|!))/g;
+                            let match;
+                            while ((match = regex.exec(fullText)) !== null) {
+                                globalData.push({
+                                    col1: match[1], // Kelime
+                                    col2: match[2], // Tür
+                                    col3: match[3], // Anlam
+                                    col4: match[4]  // Örnek Cümle
+                                });
+                            }
+                            renderDictionaryTable(globalData);
                         }
 
-                        globalVocabData.sort((a, b) => b.count - a.count);
-
-                        updateStats(globalVocabData.length);
-                        renderTable(globalVocabData);
-
-                        // İndirme panellerini görünür yap
+                        document.getElementById('statsText').innerText = `Toplam ${globalData.length} kayıt bulundu.`;
                         document.getElementById('exportContainer').style.display = 'flex';
                     });
-                }).catch(function(error) {
-                    console.error("PDF okuma hatası:", error);
-                    alert("PDF okunurken bir hata oluştu.");
                 });
             };
         }
 
-        // Merkezi Dosya İndirme Fonksiyonu (Tüm Formatlar)
+        function renderFrequencyTable(data) {
+            document.getElementById('tableHeaderRow').innerHTML = `<th>Kelime</th><th>Kaynak</th><th>Tekrar</th><th>Dosya</th>`;
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = data.slice(0, 200).map(item => `
+                <tr>
+                    <td><strong>${item.col1}</strong></td>
+                    <td><span class="badge">${item.col2}</span></td>
+                    <td>${item.col3}</td>
+                    <td>${item.col4}</td>
+                </tr>
+            `).join('') || '<tr><td colspan="4" style="text-align:center;">Kayıt bulunamadı.</td></tr>';
+        }
+
+        function renderDictionaryTable(data) {
+            document.getElementById('tableHeaderRow').innerHTML = `<th>Kelime</th><th>Tür</th><th>Anlam</th><th>Örnek Cümle</th>`;
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = data.slice(0, 200).map(item => `
+                <tr>
+                    <td><strong>${item.col1}</strong></td>
+                    <td><span class="badge">${item.col2}</span></td>
+                    <td>${item.col3}</td>
+                    <td><em>${item.col4}</em></td>
+                </tr>
+            `).join('') || '<tr><td colspan="4" style="text-align:center;">Sözlük formatına uygun eşleşme bulunamadı. PDF formatını kontrol edin.</td></tr>';
+        }
+
+        function filterData() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = globalData.filter(item => 
+                item.col1.toLowerCase().includes(searchVal) || 
+                item.col2.toLowerCase().includes(searchVal) || 
+                item.col3.toLowerCase().includes(searchVal)
+            );
+            const mode = document.getElementById('analysisMode').value;
+            if (mode === 'frequency') renderFrequencyTable(filtered);
+            else renderDictionaryTable(filtered);
+        }
+
         function exportFile(format) {
             let content = "";
             let mimeType = "text/plain;charset=utf-8";
             let extension = "";
+            const mode = document.getElementById('analysisMode').value;
 
             if (format === 'excel') {
                 extension = "csv";
                 mimeType = "text/csv;charset=utf-8;";
-                content = "\uFEFFKelime;Seviye;Tekrar Sayısı;Dosya\n";
-                globalVocabData.forEach(item => {
-                    content += `"${item.word}";"${item.level}";${item.count};"${item.files.join(', ')}"\n`;
+                content = "\uFEFFSütun 1;Sütun 2;Sütun 3;Sütun 4\n";
+                globalData.forEach(item => {
+                    content += `"${item.col1}";"${item.col2}";"${item.col3}";"${item.col4}"\n`;
                 });
             } else if (format === 'json') {
                 extension = "json";
                 mimeType = "application/json;charset=utf-8;";
-                content = JSON.stringify(globalVocabData, null, 2);
-            } else if (format === 'markdown') {
-                extension = "md";
-                content = `# ${currentFileName} - Kelime Analiz Raporu\n\n`;
-                content += "| Kelime | Seviye | Tekrar | Dosya |\n|---|---|---|---|\n";
-                globalVocabData.forEach(item => {
-                    content += `| ${item.word} | ${item.level} | ${item.count} | ${item.files.join(', ')} |\n`;
-                });
+                content = JSON.stringify(globalData, null, 2);
             } else if (format === 'html') {
                 extension = "html";
                 mimeType = "text/html;charset=utf-8;";
-                content = `<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><title>${currentFileName} Analiz</title></head><body style="font-family:Arial;padding:20px;"><h2>${currentFileName} Analiz Raporu</h2><table border="1" style="border-collapse:collapse;width:100%;"><tr><th>Kelime</th><th>Seviye</th><th>Tekrar</th><th>Dosya</th></tr>`;
-                globalVocabData.forEach(item => {
-                    content += `<tr><td>${item.word}</td><td>${item.level}</td><td>${item.count}</td><td>${item.files.join(', ')}</td></tr>`;
+                content = `<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><title>Rapor</title></head><body style="font-family:Arial;padding:20px;"><table border="1" style="border-collapse:collapse;width:100%;">`;
+                globalData.forEach(item => {
+                    content += `<tr><td>${item.col1}</td><td>${item.col2}</td><td>${item.col3}</td><td>${item.col4}</td></tr>`;
                 });
                 content += `</table></body></html>`;
-            } else if (format === 'txt') {
-                extension = "txt";
-                content = fullExtractedText;
             }
 
             const blob = new Blob([content], { type: mimeType });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.setAttribute('href', url);
-            a.setAttribute('download', `${currentFileName}_analiz.${extension}`);
+            a.setAttribute('download', `${currentFileName}_${mode}_analiz.${extension}`);
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
         }
-
-        function renderTable(data) {
-            const tbody = document.getElementById('tableBody');
-            tbody.innerHTML = '';
-
-            if (data.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Kelime bulunamadı.</td></tr>';
-                return;
-            }
-
-            const displayData = data.slice(0, 200);
-
-            displayData.forEach(item => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td><strong>${item.word}</strong></td>
-                    <td><span class="badge">${item.level || 'PDF'}</span></td>
-                    <td>${item.count}</td>
-                    <td>${item.files ? item.files.join(', ') : '-'}</td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        function filterData() {
-            const searchVal = document.getElementById('searchInput').value.toLowerCase();
-            const levelVal = document.getElementById('levelFilter').value;
-
-            const filtered = globalVocabData.filter(item => {
-                const matchesSearch = item.word.toLowerCase().includes(searchVal);
-                const matchesLevel = levelVal === "" || (item.level && item.level.includes(levelVal));
-                return matchesSearch && matchesLevel;
-            });
-
-            updateStats(filtered.length);
-            renderTable(filtered);
-        }
-
-        function updateStats(count) {
-            document.getElementById('statsText').innerText = `Toplam ${count} benzersiz kelime analiz edildi.`;
-        }
     </script>
-
 </body>
 </html>
