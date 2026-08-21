@@ -135,7 +135,6 @@
         resultArea.innerHTML = "";
         
         try {
-            // 1. CSV Sözlüğünü oku ve esnek haritalama yap
             const csvRes = await fetch(state.csvPath);
             if (!csvRes.ok) throw new Error(`${state.csvPath} referans dosyası bulunamadı.`);
             const csvText = await csvRes.text();
@@ -143,10 +142,8 @@
             const cefrMap = {};
             csvText.split(/\r?\n/).forEach(row => {
                 if (!row.trim()) return;
-                // Virgül veya tırnaklara göre sütunları ayır
                 const cols = row.split(',').map(c => c.replace(/["']/g, "").trim());
                 if (cols.length >= 2) {
-                    // Genellikle 1. sütun kelime, 2. veya sonraki sütun seviyedir (A1, A2 vb.)
                     let word = cols[0].toLowerCase();
                     let level = "";
                     
@@ -156,7 +153,7 @@
                             break;
                         }
                     }
-                    if (!level && cols[1]) level = cols[1].toUpperCase(); // Bulamazsa 2. sütunu al
+                    if (!level && cols[1]) level = cols[1].toUpperCase();
                     
                     if (word && level) {
                         cefrMap[word] = level;
@@ -166,7 +163,6 @@
 
             let rawWordsList = [];
 
-            // 2. JSON Verilerini Topla
             if (jsonPath === 'ALL') {
                 const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
                 for (let lvl of levels) {
@@ -214,7 +210,6 @@
                 if (typeof item === 'string') {
                     wordStr = item;
                 } else if (item) {
-                    // Obje içindeki olası kelime anahtarlarını kontrol et
                     wordStr = item.word || item.kelime || item.term || item.madde || JSON.stringify(item);
                 }
 
