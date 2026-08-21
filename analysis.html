@@ -13,7 +13,7 @@
         h3 { margin-top: 0; color: #333; }
         .btn-group { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
         button { padding: 10px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; background: #fff; font-weight: 500; }
-        .active-btn { background: #27ae60 !important; color: white; border: !important; }
+        .active-btn { background: #27ae60 !important; color: white; border: none; }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
         th { background: #f1f5f9; color: #0f172a; user-select: none; }
@@ -25,7 +25,7 @@
         .badge-duplicate { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
         .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; display: none; }
-        .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; }
+        .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; }
     </style>
 </head>
 <body>
@@ -48,7 +48,6 @@
     </div>
     <div id="sourceDetails" style="font-size: 13px; color: #555;">Lütfen bir kaynak seçin.</div>
     
-    <!-- 1.1: SİTE SEÇİLDİĞİNDE GÖRÜNEN JSON SEÇİMİ -->
     <div id="siteInputArea" class="input-box" style="margin-top: 15px; display: none;">
         <label for="jsonSelect"><strong>Hedef JSON Dosyası / Grubu:</strong></label>
         <select id="jsonSelect">
@@ -62,18 +61,16 @@
         </select>
     </div>
 
-    <!-- 1.2: HARİCİ DOSYA SEÇİLDİĞİNDE GÖRÜNEN YÜKLEME ALANI -->
     <div id="hariciInputArea" class="dynamic-input-container">
         <label><strong>Cihazdan Dosya Seç (JSON / Metin):</strong></label><br>
         <input type="file" id="externalFile" accept=".json, .txt, .csv" style="margin-top: 8px;">
         <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Bilgisayarınızdan veya telefonunuzdan bir dosya yükleyerek analiz edin.</div>
     </div>
 
-    <!-- 1.3: FOTOĞRAF / OCR SEÇİLDİĞİNDE GÖRÜNEN ALAN -->
     <div id="fotoInputArea" class="dynamic-input-container">
         <label><strong>Fotoğraf Yükle veya Kamera ile Çek (OCR):</strong></label><br>
         <input type="file" id="photoFile" accept="image/*" capture="environment" style="margin-top: 8px;">
-        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Metin içeren bir fotoğraf yükleyin (OCR motoru ile metne dönüştürülecektir).</div>
+        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Metin içeren bir fotoğraf yükleyin.</div>
     </div>
     
     <div class="input-box" style="margin-top: 15px;">
@@ -106,7 +103,6 @@
 </div>
 
 <script>
-    // Site için dosya seçeneklerini dinamik doldurma
     window.addEventListener('DOMContentLoaded', () => {
         const select = document.getElementById('jsonSelect');
         const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
@@ -129,7 +125,7 @@
     });
 
     let state = { source: '', task: '', csvPath: '' };
-    let sortDirections = {}; // Her sütun için sıralama yönü takibi
+    let sortDirections = {};
 
     function setSource(s, btn) {
         state.source = s;
@@ -357,7 +353,7 @@
             let uniqueKeysCount = Object.keys(itemTracking).length;
             let tableHeaderHtml = '';
             
-            // Başlıklara tıklama (sortTable) ve filtreleme (filterTable) özellikleri entegre edildi
+            // Başlıklara tıklayınca sıralama (sortTable), altına yazınca filtreleme (filterTable) çalışır
             if (state.task === 'hikaye') {
                 tableHeaderHtml = `
                     <tr>
@@ -419,27 +415,37 @@
         }
     }
 
-    // Tablo başlığına tıklayarak yukarıdan aşağıya (A-Z / Z-A / Sayısal) sıralama fonksiyonu
+    // Tablo başlıklarına tıklayınca yukarıdan aşağıya (A-Z / A1-C2) sıralama yapan fonksiyon
     function sortTable(columnIndex) {
         const table = document.getElementById("analysisTable");
         const tbody = table.tBodies[0];
         const rows = Array.from(tbody.querySelectorAll("tr"));
         
-        // Sütun bazlı sıralama yönünü tersine çevir
         sortDirections[columnIndex] = !sortDirections[columnIndex];
         let asc = sortDirections[columnIndex];
+
+        // CEFR Seviyeleri için özel sıralama ağırlığı (A1 en üstte, Bilinmiyor en altta çıksın diye)
+        const levelOrder = { 'A1': 1, 'A2': 2, 'B1': 3, 'B2': 4, 'C1': 5, 'C2': 6, 'bilinmiyor': 7 };
 
         rows.sort((rowA, rowB) => {
             let cellA = rowA.cells[columnIndex].innerText.trim().toLowerCase();
             let cellB = rowB.cells[columnIndex].innerText.trim().toLowerCase();
 
+            // Eğer Seviye sütununa (2. sütun) tıklandıysa özel CEFR sıralaması uygula
+            if (columnIndex === 2) {
+                let rankA = levelOrder[cellA] || 99;
+                let rankB = levelOrder[cellB] || 99;
+                return asc ? rankA - rankB : rankB - rankA;
+            }
+
+            // Sayısal değerler (frekans vb.)
             let numA = parseFloat(cellA);
             let numB = parseFloat(cellB);
-
             if (!isNaN(numA) && !isNaN(numB)) {
                 return asc ? numA - numB : numB - numA;
             }
 
+            // Standart alfabetik sıralama (A'dan Z'ye)
             if (cellA < cellB) return asc ? -1 : 1;
             if (cellA > cellB) return asc ? 1 : -1;
             return 0;
@@ -452,13 +458,11 @@
         });
     }
 
-    // Her sütun altındaki inputlar ile anlık filtreleme fonksiyonu
+    // Arama kutuları ile anlık filtreleme fonksiyonu
     function filterTable() {
         const table = document.getElementById("analysisTable");
         if (!table) return;
         const trs = table.tBodies[0].getElementsByTagName("tr");
-
-        // Tüm aktif filtre inputlarını bul
         const inputs = table.tHead.querySelectorAll(".filter-input");
         
         for (let i = 0; i < trs.length; i++) {
@@ -467,7 +471,7 @@
             inputs.forEach((input, index) => {
                 let filterVal = input.value.toLowerCase().trim();
                 if (filterVal) {
-                    let cellIndex = index + 1; // 0. sütun sıra numarası olduğu için +1
+                    let cellIndex = index + 1;
                     let cell = trs[i].cells[cellIndex];
                     if (cell) {
                         let cellText = cell.innerText.toLowerCase();
