@@ -2,287 +2,125 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Çok Amaçlı Belge & Veri Analiz Paneli</title>
+    <title>Gelişmiş Dil Analiz Paneli</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa; color: #333; }
-        .header-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .back-btn { background: #95a5a6; color: white; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-size: 14px; }
-        .back-btn:hover { background: #7f8c8d; }
-        
-        .panel-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .mode-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
-        .mode-btn { background: #e0e0e0; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13px; transition: 0.2s; }
-        .mode-btn.active { background: #3498db; color: white; }
-        .mode-btn:hover { background: #bdc3c7; }
-        
-        .action-area { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 20px; background-color: #f4f7f6; color: #2c3e50; }
+        .panel-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .action-area { display: none; margin-top: 20px; padding-top: 20px; border-top: 2px solid #ecf0f1; }
         .action-area.active { display: block; }
-        
-        button.execute-btn { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 10px; }
-        button.execute-btn:hover { background: #219653; }
-        
-        button.github-btn { background: #8e44ad; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 10px; margin-left: 10px; }
-        button.github-btn:hover { background: #732d91; }
-
-        #status { margin-top: 10px; font-weight: bold; color: #e67e22; font-size: 13px; }
-        
-        table { width: 100%; border-collapse: collapse; background: white; margin-top: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-size: 13px; }
-        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
-        th { background-color: #2c3e50; color: white; }
-        textarea { width: 100%; height: 200px; margin-top: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: monospace; }
+        .mode-btn { background: #eee; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; margin-right: 5px; font-weight: bold; }
+        .mode-btn.active { background: #3498db; color: white; }
+        select, button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        .execute-btn { background: #27ae60; color: white; cursor: pointer; }
+        #status { margin-top: 15px; font-weight: bold; color: #d35400; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background: #34495e; color: white; }
     </style>
 </head>
 <body>
 
-    <div class="header-container">
-        <h1>Belge & Toplu Veri Analiz Merkezi</h1>
-        <a href="index.html" class="back-btn">← Ana Sayfa</a>
+<div class="panel-card">
+    <h2>🚀 Gelişmiş Dil Analiz Paneli</h2>
+    <div class="mode-buttons">
+        <button class="mode-btn active" onclick="switchMode('bulkAnalysis', this)">📊 Gelişmiş JSON Analiz</button>
+        <button class="mode-btn" onclick="switchMode('dictionary', this)">📖 Sözlük (PDF)</button>
+        <button class="mode-btn" onclick="switchMode('ocrScanner', this)">🖼️ OCR</button>
     </div>
 
-    <div class="panel-card">
-        <h3>İşlem Modunu Seçin:</h3>
-        <div class="mode-buttons">
-            <button class="mode-btn active" onclick="switchMode('bulkAnalysis', this)">📂 Toplu Veri Analizi (JSON / Metin)</button>
-            <button class="mode-btn" onclick="switchMode('dictionary', this)">📖 Sözlük Analizi (PDF)</button>
-            <button class="mode-btn" onclick="switchMode('txtConverter', this)">📄 Metin Dönüştürücü (TXT)</button>
-            <button class="mode-btn" onclick="switchMode('ocrScanner', this)">🖼️ Gelişmiş OCR (Resim/PDF)</button>
-        </div>
-
-        <!-- 1. Toplu Veri / JSON Analiz Sekmesi -->
-        <div id="bulkAnalysis" class="action-area active">
-            <p><strong>Yöntem 1:</strong> Cihazınızdan birden fazla JSON veya metin dosyasını seçip yükleyin.</p>
-            <input type="file" id="bulkFiles" multiple accept=".json,.txt">
-            <br><button class="execute-btn" onclick="runBulkDataAnalysis()">Seçilen Dosyaları Analiz Et</button>
-
-            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
-
-            <p><strong>Yöntem 2:</strong> `data/index.json` listesini kullanarak sitedeki tüm JSON dosyalarını otomatik çekip tara.</p>
-            <button class="github-btn" onclick="runGitHubAutoAnalysis()">🌐 Sitedeki (GitHub) JSON'ları Otomatik Tara</button>
-        </div>
-
-        <!-- 2. Sözlük Modu -->
-        <div id="dictionary" class="action-area">
-            <p>PDF sözlük dosyanızı yükleyin, Kelime, Tür, Anlam ve Cümle olarak tablolaştırsın.</p>
-            <input type="file" id="dictFile" accept=".pdf">
-            <br><button class="execute-btn" onclick="runDictionary()">Sözlüğü Analiz Et</button>
-        </div>
-
-        <!-- 3. Metin Dönüştürücü -->
-        <div id="txtConverter" class="action-area">
-            <p>PDF kitabınızı veya belgenizi doğrudan düz metne (TXT) dönüştürün ve indirin.</p>
-            <input type="file" id="txtFile" accept=".pdf">
-            <br><button class="execute-btn" onclick="runTxtConverter()">Metne Dönüştür</button>
-        </div>
-
-        <!-- 4. Gelişmiş OCR Modu -->
-        <div id="ocrScanner" class="action-area">
-            <p>Taranmış belgeler veya fotoğraflar için kontrast ve netlik filtreli gelişmiş OCR.</p>
-            <input type="file" id="ocrFile" accept=".pdf,.jpg,.jpeg,.png">
-            <br><button class="execute-btn" onclick="runEnhancedOcr()">Gelişmiş OCR ile Tara</button>
-        </div>
-
-        <div id="status"></div>
+    <!-- Gelişmiş Analiz Modu -->
+    <div id="bulkAnalysis" class="action-area active">
+        <p><b>Analiz Hedefi:</b></p>
+        <select id="scanTarget">
+            <option value="story_en">İngilizce Hikaye</option>
+            <option value="story_tr">Türkçe Hikaye</option>
+            <option value="words">Kelime Listesi (words)</option>
+            <option value="questions">Soru Bankası</option>
+        </select>
+        <select id="wordCategory">
+            <option value="all">Tüm Türler</option>
+            <option value="verb">Fiiller</option>
+            <option value="noun">İsimler</option>
+            <option value="adjective">Sıfatlar</option>
+            <option value="adverb">Zarflar</option>
+        </select>
+        <button class="execute-btn" onclick="runAdvancedAnalysis()">Analizi Başlat</button>
     </div>
 
-    <!-- Sonuç Alanı -->
-    <div id="resultContainer">
-        <table id="analysisTable" style="display:none;">
-            <thead id="tableHead"></thead>
-            <tbody id="tableBody"></tbody>
-        </table>
-        <div id="textOutputContainer" style="display:none;">
-            <h3>İşlem Çıktısı (Metin):</h3>
-            <textarea id="outputTextArea" readonly></textarea>
-        </div>
+    <!-- Sözlük Modu -->
+    <div id="dictionary" class="action-area">
+        <input type="file" id="dictFile" accept=".pdf">
+        <button class="execute-btn" onclick="runDictionary()">Analiz Et</button>
     </div>
 
-    <script>
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    <!-- OCR Modu -->
+    <div id="ocrScanner" class="action-area">
+        <input type="file" id="ocrFile" accept=".pdf,.jpg">
+        <button class="execute-btn" onclick="runOcr()">OCR ile Tara</button>
+    </div>
 
-        function switchMode(mode, btn) {
-            document.querySelectorAll('.action-area').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.mode-btn').forEach(el => el.classList.remove('active'));
-            
-            document.getElementById(mode).classList.add('active');
-            btn.classList.add('active');
-            
-            document.getElementById('status').innerText = "";
-            document.getElementById('analysisTable').style.display = 'none';
-            document.getElementById('textOutputContainer').style.display = 'none';
-        }
+    <div id="status"></div>
+</div>
 
-        async function extractPdfText(file) {
-            const arrayBuffer = await file.arrayBuffer();
-            const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
-            let fullText = "";
-            for (let i = 1; i <= pdf.numPages; i++) {
-                const page = await pdf.getPage(i);
-                const content = await page.getTextContent();
-                fullText += content.items.map(it => it.str).join(" ") + " ";
-            }
-            return fullText;
-        }
+<table id="analysisTable" style="display:none;">
+    <thead id="tableHead"></thead>
+    <tbody id="tableBody"></tbody>
+</table>
 
-        // Cihazdan Toplu Dosya Analizi
-        async function runBulkDataAnalysis() {
-            const input = document.getElementById('bulkFiles');
-            if (!input.files.length) { alert("Lütfen en az bir dosya seçin!"); return; }
-            
-            statusMsg("Seçilen toplu veriler taranıyor ve analiz ediliyor...");
-            let wordCounts = {};
+<script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-            for (let file of input.files) {
-                let content = await file.text();
-                let parsedText = content;
-                if (file.name.endsWith('.json')) {
-                    try { parsedText = JSON.stringify(JSON.parse(content)); } catch(e) {}
-                }
-                let words = parsedText.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
-                words.forEach(w => { wordCounts[w] = (wordCounts[w] || 0) + 1; });
-            }
+    function switchMode(id, btn) {
+        document.querySelectorAll('.action-area').forEach(a => a.classList.remove('active'));
+        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        btn.classList.add('active');
+    }
 
-            processAndRenderResults(wordCounts, input.files.length);
-        }
+    async function runAdvancedAnalysis() {
+        const target = document.getElementById('scanTarget').value;
+        const category = document.getElementById('wordCategory').value;
+        document.getElementById('status').innerText = "Veriler çekiliyor...";
+        
+        let wordCounts = {};
+        const response = await fetch('data/index.json');
+        const fileList = await response.json();
 
-        // GitHub / Sunucudaki data/ index.json üzerinden otomatik çekme
-        async function runGitHubAutoAnalysis() {
-            statusMsg("`data/index.json` listesi okunuyor...");
-            let wordCounts = {};
-            let successCount = 0;
-
+        for (let fileName of fileList) {
             try {
-                const response = await fetch('data/index.json');
-                if (!response.ok) throw new Error("data/index.json bulunamadı!");
-                
-                const fileList = await response.json();
-                
-                for (let fileName of fileList) {
-                    statusMsg(`İndiriliyor ve taranıyor: data/${fileName}`);
-                    try {
-                        const fileRes = await fetch(`data/${fileName}`);
-                        if (fileRes.ok) {
-                            let jsonContent = await fileRes.json();
-                            let parsedText = JSON.stringify(jsonContent);
-                            let words = parsedText.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
-                            words.forEach(w => { wordCounts[w] = (wordCounts[w] || 0) + 1; });
-                            successCount++;
+                const res = await fetch(`data/${fileName}`);
+                const json = await res.json();
+
+                if (target === 'words') {
+                    json.words.forEach(item => {
+                        if (category === 'all' || item.type === category) {
+                            let w = item.word.toLowerCase();
+                            wordCounts[w] = (wordCounts[w] || 0) + 1;
                         }
-                    } catch (err) {
-                        console.warn(`Dosya okunamadı: ${fileName}`);
-                    }
+                    });
+                } else {
+                    let text = (target === 'story_en') ? json.story_en : 
+                               (target === 'story_tr') ? json.story_tr : 
+                               JSON.stringify(json.questions);
+                    let words = text.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
+                    words.forEach(w => { wordCounts[w] = (wordCounts[w] || 0) + 1; });
                 }
-
-                processAndRenderResults(wordCounts, successCount);
-            } catch (error) {
-                statusMsg("Hata: " + error.message + " Lütfen data/ klasöründe index.json olduğundan emin olun.");
-            }
+            } catch (e) { console.warn("Hata: " + fileName); }
         }
 
-        function processAndRenderResults(wordCounts, fileCount) {
-            let sortedData = Object.entries(wordCounts)
-                .map(([word, count]) => ({ Kelime: word, Tekrar: count }))
-                .sort((a, b) => b.Tekrar - a.Tekrar)
-                .slice(0, 300);
+        renderTable(['Kelime', 'Frekans'], Object.entries(wordCounts).sort((a,b) => b[1] - a[1]));
+    }
 
-            renderTable(['Kelime', 'Toplam Tekrar'], sortedData);
-            statusMsg(`${fileCount} dosya başarıyla tarandı. Toplam ${Object.keys(wordCounts).length} farklı kelime analiz edildi.`);
-        }
-
-        async function runDictionary() {
-            const file = document.getElementById('dictFile').files[0];
-            if (!file) { alert("Lütfen bir PDF seçin!"); return; }
-            statusMsg("Sözlük metni okunuyor...");
-            
-            const text = await extractPdfText(file);
-            const globalData = [];
-            const regex = /([a-zA-ZçğıöşüÇĞİÖŞÜ]+)\s*\(([^)]+)\)\s*[:]?\s*([^.]+?\.)\s*([^•]*?)(?=\s+[a-zA-ZçğıöşüÇĞİÖŞÜ]+\s*\(|$)/gi;
-            let match;
-            while ((match = regex.exec(text)) !== null) {
-                globalData.push({ Kelime: match[1], Tür: match[2], Anlam: match[3], Cümle: match[4].trim() });
-            }
-
-            renderTable(['Kelime', 'Tür', 'Anlam', 'Cümle'], globalData);
-            statusMsg(`Analiz tamamlandı. ${globalData.length} kayıt bulundu.`);
-        }
-
-        async function runTxtConverter() {
-            const file = document.getElementById('txtFile').files[0];
-            if (!file) { alert("Lütfen bir PDF seçin!"); return; }
-            statusMsg("Metne dönüştürüldü ve indiriliyor...");
-
-            const text = await extractPdfText(file);
-            document.getElementById('outputTextArea').value = text;
-            document.getElementById('textOutputContainer').style.display = 'block';
-            
-            const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url; a.download = file.name.replace(/\.[^/.]+$/, "") + "_metin.txt"; a.click();
-            statusMsg("İşlem tamamlandı!");
-        }
-
-        async function runEnhancedOcr() {
-            const file = document.getElementById('ocrFile').files[0];
-            if (!file) { alert("Lütfen bir dosya seçin!"); return; }
-            statusMsg("OCR taraması yapılıyor...");
-
-            let fullText = "";
-            async function processCanvas(canvas) {
-                const ctx = canvas.getContext('2d');
-                const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                const data = imgData.data;
-                for (let i = 0; i < data.length; i += 4) {
-                    let avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
-                    let val = avg < 160 ? 0 : 255; 
-                    data[i] = val; data[i + 1] = val; data[i + 2] = val;
-                }
-                ctx.putImageData(imgData, 0, 0);
-                const result = await Tesseract.recognize(canvas, 'eng+tur');
-                return result.data.text;
-            }
-
-            if (file.type === "application/pdf") {
-                const arrayBuffer = await file.arrayBuffer();
-                const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
-                for (let i = 1; i <= pdf.numPages; i++) {
-                    statusMsg(`Sayfa ${i} / ${pdf.numPages} taranıyor...`);
-                    const page = await pdf.getPage(i);
-                    const viewport = page.getViewport({ scale: 2.55 });
-                    const canvas = document.createElement('canvas');
-                    canvas.height = viewport.height; canvas.width = viewport.width;
-                    await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
-                    fullText += await processCanvas(canvas) + "\n";
-                }
-            } else {
-                const img = new Image();
-                img.src = URL.createObjectURL(file);
-                await img.decode();
-                const canvas = document.createElement('canvas');
-                canvas.width = img.width; canvas.height = img.height;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0);
-                fullText = await processCanvas(canvas);
-            }
-
-            document.getElementById('outputTextArea').value = fullText;
-            document.getElementById('textOutputContainer').style.display = 'block';
-            statusMsg("OCR tamamlandı!");
-        }
-
-        function renderTable(headers, data) {
-            const head = document.getElementById('tableHead');
-            const body = document.getElementById('tableBody');
-            head.innerHTML = `<tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>`;
-            body.innerHTML = data.map(row => `<tr>${Object.values(row).map(val => `<td>${val}</td>`).join('')}</tr>`).join('');
-            document.getElementById('analysisTable').style.display = 'table';
-        }
-
-        function statusMsg(msg) {
-            document.getElementById('status').innerText = msg;
-        }
-    </script>
+    function renderTable(headers, data) {
+        const head = document.getElementById('tableHead');
+        const body = document.getElementById('tableBody');
+        head.innerHTML = `<tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>`;
+        body.innerHTML = data.map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td></tr>`).join('');
+        document.getElementById('analysisTable').style.display = 'table';
+        document.getElementById('status').innerText = "Analiz Tamamlandı!";
+    }
+</script>
 </body>
 </html>
