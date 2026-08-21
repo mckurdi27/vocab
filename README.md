@@ -1,4 +1,4 @@
-#Aşağıdaki sitede kelimeleri kullan:.
+#Aşağıdaki sitede kelimeleri kullan:
 
 kelimelog.com/oxford-5000-kelime-listesi
 
