@@ -22,6 +22,7 @@
         select { padding: 8px; width: 320px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
         .badge-duplicate { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
         .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
+        .badge-csv-dup { background: #fef3c7; color: #b45309; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -142,6 +143,7 @@
             const csvText = await csvRes.text();
             
             const cefrMap = {};
+            const csvExactDuplicates = {}; // Aynı kelime + aynı tür mükerrerliklerini takip için
             const rows = csvText.split(/\r?\n/);
             
             for (let row of rows) {
@@ -164,15 +166,27 @@
                 }
                 parts.push(currentField.trim().replace(/^["']|["']$/g, ""));
                 
-                if (parts.length >= 2) {
+                if (parts.length >= 3) {
                     let level = parts[0].toUpperCase();
                     let word = parts[1].toLowerCase();
+                    let posType = parts[2].toLowerCase(); // Tür (noun, verb vb.)
                     
                     if (/^(A1|A2|B1|B2|C1|C2)$/.test(level) && word && word !== "kelime" && word !== "seviye") {
                         cefrMap[word] = level;
+
+                        // Aynı kelime ve aynı tür kontrolü (Hatalı mükerrerlik analizi)
+                        let uniqueKey = `${word}_${posType}`;
+                        if (!csvExactDuplicates[uniqueKey]) {
+                            csvExactDuplicates[uniqueKey] = 1;
+                        } else {
+                            csvExactDuplicates[uniqueKey]++;
+                        }
                     }
                 }
             }
+
+            // Hatalı CSV mükerrerlerini filtrele (birden fazla geçenler aynı kelime + aynı tür olanlar)
+            const exactDupList = Object.keys(csvExactDuplicates).filter(k => csvExactDuplicates[k] > 1);
 
             let wordTracking = {};
             let totalCheckedCount = 0;
@@ -244,7 +258,7 @@
                 });
             }
 
-            statusDiv.innerText = `✅ Analiz tamamlandı. Toplam ${totalCheckedCount} kayıt incelendi.`;
+            statusDiv.innerText = `✅ Analiz tamamlandı. Toplam ${totalCheckedCount} kayıt incelendi. CSV'de aynı kelime+tür çakışma sayısı: ${exactDupList.length}`;
 
             let tableRows = '';
             let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
@@ -268,7 +282,6 @@
                     ? `<span class="badge-duplicate">⚠️ ${info.files.length} Dosyada Tekrar: ${info.files.join(', ')}</span>`
                     : `<span class="badge-unique">✔ Benzersiz: ${info.files[0] || ''}</span>`;
 
-                // İşlem türüne göre tablo sütunlarını şekillendiriyoruz
                 if (state.task === 'cevir') {
                     tableRows += `
                         <tr>
@@ -315,11 +328,12 @@
             }
 
             resultArea.innerHTML = `
-                <h4>📊 ${state.task === 'frekans' ? 'Frekans ve Seviye Analizi Özeti' : (state.task === 'cevir' ? 'Çeviri ve Sözlük Görünümü' : 'Kelime Bazlı Seviye Listesi')}</h4>
+                <h4>📊 Analiz ve Mükerrer Kontrol Özeti</h4>
                 <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
                     <div style="background: #f3f4f6; padding: 10px 14px; border-radius: 6px;">Toplam Kayıt: <strong>${totalCheckedCount}</strong></div>
                     <div style="background: #e0f2fe; padding: 10px 14px; border-radius: 6px;">Benzersiz Kelime: <strong>${uniqueKeysCount}</strong></div>
                     <div style="background: #fee2e2; padding: 10px 14px; border-radius: 6px; color: #991b1b;">Birden Fazla Geçen (Mükerrer): <strong>${duplicateCount}</strong></div>
+                    <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px; color: #b45309;">CSV Aynı Kelime+Tür Çakışması: <strong>${exactDupList.length}</strong></div>
                 </div>
 
                 <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
