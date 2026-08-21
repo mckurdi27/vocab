@@ -2,43 +2,25 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sözlük & Kelime Analiz Paneli</title>
+    <title>Akıllı OCR Sözlük Paneli</title>
+    <!-- PDF.js ve Tesseract.js kütüphanelerini ekliyoruz -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 15px; background-color: #f8f9fa; color: #333; }
-        .header-container { margin-bottom: 15px; }
-        .upload-section { background: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 15px; }
-        .control-group { margin-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-size: 13px; margin-top: 15px; }
-        th, td { padding: 10px; border: 1px solid #eee; text-align: left; }
-        th { background-color: #34495e; color: #fff; }
-        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
-        .export-btn { border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; color: white; display: none; }
-        .btn-excel { background: #27ae60; }
-        .btn-txt { background: #2980b9; }
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f4f7f6; }
+        .upload-section { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        #status { margin-top: 10px; font-weight: bold; color: #e67e22; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background: #2c3e50; color: white; }
     </style>
 </head>
 <body>
 
-    <div class="header-container">
-        <h1>Sözlük & Kelime Analiz Paneli</h1>
-    </div>
-
     <div class="upload-section">
-        <div class="control-group">
-            <label><strong>Mod Seç:</strong></label>
-            <select id="analysisMode">
-                <option value="dictionary">Sözlük Modu (Kelime, Tür, Anlam, Cümle)</option>
-                <option value="frequency">Standart Frekans Modu</option>
-            </select>
-        </div>
-        <input type="file" id="pdfInput" accept=".pdf" onchange="processFile(event)">
-        
-        <div class="btn-group">
-            <button id="excelBtn" class="export-btn btn-excel" onclick="exportExcel()">📊 Excel (CSV) İndir</button>
-            <button id="txtBtn" class="export-btn btn-txt" onclick="exportTxt()">📄 Ham Metni (TXT) İndir</button>
-        </div>
+        <h1>OCR Destekli Kelime Analizi</h1>
+        <input type="file" id="pdfInput" accept=".pdf,.jpg,.jpeg,.png">
+        <div id="status"></div>
     </div>
 
     <table id="analysisTable">
@@ -48,78 +30,68 @@
 
     <script>
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-        let globalData = [];
-        let extractedFullText = "";
 
         async function processFile(event) {
             const file = event.target.files[0];
-            const reader = new FileReader();
-            reader.readAsArrayBuffer(file);
-            
-            reader.onload = async function() {
-                const pdf = await pdfjsLib.getDocument(new Uint8Array(this.result)).promise;
-                extractedFullText = "";
+            const status = document.getElementById('status');
+            status.innerText = "İşleniyor... (Eğer taranmış belge ise OCR biraz sürebilir)";
+
+            let fullText = "";
+
+            if (file.type === "application/pdf") {
+                const arrayBuffer = await file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+                
                 for (let i = 1; i <= pdf.numPages; i++) {
                     const page = await pdf.getPage(i);
-                    const content = await page.getTextContent();
-                    extractedFullText += content.items.map(it => it.str).join(" ") + " ";
+                    const textContent = await page.getTextContent();
+                    
+                    // Eğer PDF içinde metin katmanı varsa onu al, yoksa resim olarak OCR yap
+                    if (textContent.items.length > 0) {
+                        fullText += textContent.items.map(it => it.str).join(" ");
+                    } else {
+                        status.innerText = `Sayfa ${i} OCR yapılıyor...`;
+                        const viewport = page.getViewport({ scale: 2 });
+                        const canvas = document.createElement('canvas');
+                        const context = canvas.getContext('2d');
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+                        await page.render({ canvasContext: context, viewport }).promise;
+                        
+                        const ocrResult = await Tesseract.recognize(canvas, 'eng');
+                        fullText += ocrResult.data.text + " ";
+                    }
                 }
+            } else {
+                // Görsel dosyaları için direkt OCR
+                const ocrResult = await Tesseract.recognize(file, 'eng');
+                fullText = ocrResult.data.text;
+            }
 
-                const mode = document.getElementById('analysisMode').value;
-                if (mode === 'dictionary') {
-                    parseDictionary(extractedFullText);
-                } else {
-                    parseFrequency(extractedFullText);
-                }
-                
-                document.getElementById('excelBtn').style.display = 'inline-block';
-                document.getElementById('txtBtn').style.display = 'inline-block';
-            };
+            status.innerText = "Analiz tamamlandı!";
+            parseDictionary(fullText);
         }
 
         function parseDictionary(text) {
-            globalData = [];
-            const regex = /([a-zA-ZçğıöşüÇĞİÖŞÜ]+)\s*\(([^)]+)\)\s*[:]?\s*([^.]+?\.)\s*([^•]*?)(?=\s+[a-zA-ZçğıöşüÇĞİÖŞÜ]+\s*\(|$)/gi;
+            const globalData = [];
+            const regex = /([a-zA-ZçğıöşüÇĞİÖŞÜ]+)\s*\(([^)]+)\)\s*[:]?\s*([^.]+?\.)\s*([^•\n\r]*?)(?=\s+[a-zA-ZçğıöşüÇĞİÖŞÜ]+\s*\(|$)/gi;
             let match;
             while ((match = regex.exec(text)) !== null) {
                 globalData.push({ Kelime: match[1], Tür: match[2], Anlam: match[3], Cümle: match[4].trim() });
             }
-            renderTable(['Kelime', 'Tür', 'Anlam', 'Cümle']);
+            renderTable(globalData);
         }
 
-        function parseFrequency(text) {
-            globalData = [];
-            let words = text.toLowerCase().match(/\b[a-z]{2,}\b/g) || [];
-            let counts = {};
-            words.forEach(w => counts[w] = (counts[w] || 0) + 1);
-            for(let w in counts) globalData.push({ Kelime: w, Frekans: counts[w] });
-            globalData.sort((a,b) => b.Frekans - a.Frekans);
-            renderTable(['Kelime', 'Frekans']);
-        }
-
-        function renderTable(headers) {
-            document.getElementById('tableHead').innerHTML = `<tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>`;
-            document.getElementById('tableBody').innerHTML = globalData.map(row => 
-                `<tr>${Object.values(row).map(val => `<td>${val}</td>`).join('')}</tr>`
+        function renderTable(data) {
+            const head = document.getElementById('tableHead');
+            const body = document.getElementById('tableBody');
+            head.innerHTML = `<tr><th>Kelime</th><th>Tür</th><th>Anlam</th><th>Cümle</th></tr>`;
+            body.innerHTML = data.map(row => 
+                `<tr><td>${row.Kelime}</td><td>${row.Tür}</td><td>${row.Anlam}</td><td>${row.Cümle}</td></tr>`
             ).join('');
         }
 
-        function exportExcel() {
-            let csv = "\uFEFF" + Object.keys(globalData[0]).join(';') + "\n";
-            globalData.forEach(row => csv += Object.values(row).join(';') + "\n");
-            downloadFile(csv, 'analiz.csv', 'text/csv');
-        }
-
-        function exportTxt() {
-            downloadFile(extractedFullText, 'sozluk_metni.txt', 'text/plain');
-        }
-
-        function downloadFile(content, filename, type) {
-            const blob = new Blob([content], { type: type });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url; a.download = filename; a.click();
-        }
+        document.getElementById('pdfInput').addEventListener('change', processFile);
     </script>
 </body>
 </html>
