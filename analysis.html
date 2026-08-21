@@ -23,6 +23,9 @@
         
         button.execute-btn { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 10px; }
         button.execute-btn:hover { background: #219653; }
+        
+        button.github-btn { background: #8e44ad; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 10px; margin-left: 10px; }
+        button.github-btn:hover { background: #732d91; }
 
         #status { margin-top: 10px; font-weight: bold; color: #e67e22; font-size: 13px; }
         
@@ -30,7 +33,6 @@
         th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
         th { background-color: #2c3e50; color: white; }
         textarea { width: 100%; height: 200px; margin-top: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: monospace; }
-        .badge { background: #2980b9; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px; }
     </style>
 </head>
 <body>
@@ -49,11 +51,16 @@
             <button class="mode-btn" onclick="switchMode('ocrScanner', this)">🖼️ Gelişmiş OCR (Resim/PDF)</button>
         </div>
 
-        <!-- 1. YENİ: Toplu Veri / JSON Analiz Sekmesi -->
+        <!-- 1. Toplu Veri / JSON Analiz Sekmesi -->
         <div id="bulkAnalysis" class="action-area active">
-            <p>Telefonunuzdan veya bilgisayarınızdan **birden fazla JSON veya metin dosyasını** aynı anda seçerek ortak kelime tekrarını ve frekansını analiz edin.</p>
+            <p><strong>Yöntem 1:</strong> Cihazınızdan birden fazla JSON veya metin dosyasını seçip yükleyin.</p>
             <input type="file" id="bulkFiles" multiple accept=".json,.txt">
-            <br><button class="execute-btn" onclick="runBulkDataAnalysis()">Toplu Verileri Analiz Et</button>
+            <br><button class="execute-btn" onclick="runBulkDataAnalysis()">Seçilen Dosyaları Analiz Et</button>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+            <p><strong>Yöntem 2:</strong> `data/index.json` listesini kullanarak sitedeki tüm JSON dosyalarını otomatik çekip tara.</p>
+            <button class="github-btn" onclick="runGitHubAutoAnalysis()">🌐 Sitedeki (GitHub) JSON'ları Otomatik Tara</button>
         </div>
 
         <!-- 2. Sözlük Modu -->
@@ -119,41 +126,66 @@
             return fullText;
         }
 
-        // Toplu Veri / JSON Analiz Fonksiyonu
+        // Cihazdan Toplu Dosya Analizi
         async function runBulkDataAnalysis() {
             const input = document.getElementById('bulkFiles');
             if (!input.files.length) { alert("Lütfen en az bir dosya seçin!"); return; }
             
             statusMsg("Seçilen toplu veriler taranıyor ve analiz ediliyor...");
             let wordCounts = {};
-            let fileCount = input.files.length;
 
             for (let file of input.files) {
                 let content = await file.text();
                 let parsedText = content;
-                
-                // Eğer JSON ise metne dönüştür
                 if (file.name.endsWith('.json')) {
+                    try { parsedText = JSON.stringify(JSON.parse(content)); } catch(e) {}
+                }
+                let words = parsedText.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
+                words.forEach(w => { wordCounts[w] = (wordCounts[w] || 0) + 1; });
+            }
+
+            processAndRenderResults(wordCounts, input.files.length);
+        }
+
+        // GitHub / Sunucudaki data/ index.json üzerinden otomatik çekme
+        async function runGitHubAutoAnalysis() {
+            statusMsg("`data/index.json` listesi okunuyor...");
+            let wordCounts = {};
+            let successCount = 0;
+
+            try {
+                const response = await fetch('data/index.json');
+                if (!response.ok) throw new Error("data/index.json bulunamadı!");
+                
+                const fileList = await response.json();
+                
+                for (let fileName of fileList) {
+                    statusMsg(`İndiriliyor ve taranıyor: data/${fileName}`);
                     try {
-                        let jsonObj = JSON.parse(content);
-                        parsedText = JSON.stringify(jsonObj);
-                    } catch(e) {
-                        console.error(file.name + " JSON parse edilemedi.");
+                        const fileRes = await fetch(`data/${fileName}`);
+                        if (fileRes.ok) {
+                            let jsonContent = await fileRes.json();
+                            let parsedText = JSON.stringify(jsonContent);
+                            let words = parsedText.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
+                            words.forEach(w => { wordCounts[w] = (wordCounts[w] || 0) + 1; });
+                            successCount++;
+                        }
+                    } catch (err) {
+                        console.warn(`Dosya okunamadı: ${fileName}`);
                     }
                 }
 
-                // Sadece 3 harften uzun kelimeleri ayıkla
-                let words = parsedText.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
-                words.forEach(w => {
-                    wordCounts[w] = (wordCounts[w] || 0) + 1;
-                });
+                processAndRenderResults(wordCounts, successCount);
+            } catch (error) {
+                statusMsg("Hata: " + error.message + " Lütfen data/ klasöründe index.json olduğundan emin olun.");
             }
+        }
 
-            // Tablo için veriyi hazırla (En çok tekrar edenden aza doğru)
+        function processAndRenderResults(wordCounts, fileCount) {
             let sortedData = Object.entries(wordCounts)
                 .map(([word, count]) => ({ Kelime: word, Tekrar: count }))
                 .sort((a, b) => b.Tekrar - a.Tekrar)
-                .slice(0, 300); // İlk 300 kelime
+                .slice(0, 300);
 
             renderTable(['Kelime', 'Toplam Tekrar'], sortedData);
             statusMsg(`${fileCount} dosya başarıyla tarandı. Toplam ${Object.keys(wordCounts).length} farklı kelime analiz edildi.`);
@@ -179,7 +211,7 @@
         async function runTxtConverter() {
             const file = document.getElementById('txtFile').files[0];
             if (!file) { alert("Lütfen bir PDF seçin!"); return; }
-            statusMsg("Metne dönüştürülüyor...");
+            statusMsg("Metne dönüştürüldü ve indiriliyor...");
 
             const text = await extractPdfText(file);
             document.getElementById('outputTextArea').value = text;
@@ -189,14 +221,13 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url; a.download = file.name.replace(/\.[^/.]+$/, "") + "_metin.txt"; a.click();
-            
-            statusMsg("Metne dönüştürüldü ve indirildi!");
+            statusMsg("İşlem tamamlandı!");
         }
 
         async function runEnhancedOcr() {
             const file = document.getElementById('ocrFile').files[0];
             if (!file) { alert("Lütfen bir dosya seçin!"); return; }
-            statusMsg("OCR hazırlığı ve görsel iyileştirme yapılıyor...");
+            statusMsg("OCR taraması yapılıyor...");
 
             let fullText = "";
             async function processCanvas(canvas) {
@@ -221,8 +252,7 @@
                     const page = await pdf.getPage(i);
                     const viewport = page.getViewport({ scale: 2.55 });
                     const canvas = document.createElement('canvas');
-                    canvas.height = viewport.height;
-                    canvas.width = viewport.width;
+                    canvas.height = viewport.height; canvas.width = viewport.width;
                     await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
                     fullText += await processCanvas(canvas) + "\n";
                 }
@@ -239,7 +269,7 @@
 
             document.getElementById('outputTextArea').value = fullText;
             document.getElementById('textOutputContainer').style.display = 'block';
-            statusMsg("Gelişmiş OCR taraması tamamlandı!");
+            statusMsg("OCR tamamlandı!");
         }
 
         function renderTable(headers, data) {
