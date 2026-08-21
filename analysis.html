@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Gelişmiş Dil Analiz Paneli</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
+        body { font-family: sans-serif; padding: 20px; background: #f9f9f9; color: #1e293b; }
         .header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .header-left { display: flex; align-items: center; gap: 15px; }
         .btn-home { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background-color: #4f46e5; color: #ffffff; border-radius: 6px; text-decoration: none; font-weight: 500; transition: background-color 0.2s ease; border: none; cursor: pointer; }
@@ -12,21 +12,23 @@
         .section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         h3 { margin-top: 0; color: #333; }
         .btn-group { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
-        button { padding: 10px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
-        .active-btn { background: #27ae60 !important; color: white; border: none; }
+        button { padding: 10px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; background: #fff; font-weight: 500; }
+        .active-btn { background: #27ae60 !important; color: white; border: !important; }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-        th { background: #eee; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
+        th { background: #f1f5f9; color: #0f172a; }
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-        select { padding: 8px; width: 350px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
-        .badge-duplicate { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
-        .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
+        select, input[type="file"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
+        select { width: 350px; }
+        .badge-duplicate { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
+        .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
+        .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; display: none; }
     </style>
 </head>
 <body>
 
-<!-- ÜST BİLGİ VE ANA SAYFAYA DÖN BUTONU -->
+<!-- ÜST BİLGİ VE ANA SAYFAYA DÖN -->
 <div class="header-bar">
     <div class="header-left">
         <h2 style="margin: 0;">Gelişmiş Dil Analiz Paneli</h2>
@@ -36,15 +38,16 @@
 
 <!-- BÖLÜM 1: KAYNAK SEÇİMİ -->
 <div class="section">
-    <h3>1. Kaynak Seçimi</h3>
-    <div class="btn-group">
-        <button onclick="setSource('site', this)">🌐 Site (GitHub / Veriler)</button>
+    <h3>1. Kaynak ve Kapsam Seçimi</h3>
+    <div class="btn-group" id="sourceBtnGroup">
+        <button onclick="setSource('site', this)">🌐 Site (GitHub Verileri)</button>
         <button onclick="setSource('harici', this)">🔗 Harici Dosya</button>
         <button onclick="setSource('foto', this)">🖼️ Fotoğraf (OCR)</button>
     </div>
-    <div id="sourceDetails">Lütfen bir kaynak seçin.</div>
+    <div id="sourceDetails" style="font-size: 13px; color: #555;">Lütfen bir kaynak seçin.</div>
     
-    <div class="input-box" style="margin-top: 15px;">
+    <!-- 1.1: SİTE SEÇİLDİĞİNDE GÖRÜNEN JSON SEÇİMİ -->
+    <div id="siteInputArea" class="input-box" style="margin-top: 15px; display: none;">
         <label for="jsonSelect"><strong>Hedef JSON Dosyası / Grubu:</strong></label>
         <select id="jsonSelect">
             <option value="ALL">📁 Tüm Dosyaları Tara (Tümü)</option>
@@ -56,9 +59,23 @@
             <option value="GROUP_C2">📂 Tüm C2 Dosyaları (c200 - c250)</option>
         </select>
     </div>
+
+    <!-- 1.2: HARİCİ DOSYA SEÇİLDİĞİNDE GÖRÜNEN YÜKLEME ALANI -->
+    <div id="hariciInputArea" class="dynamic-input-container">
+        <label><strong>Cihazdan Dosya Seç (JSON / Metin):</strong></label><br>
+        <input type="file" id="externalFile" accept=".json, .txt, .csv" style="margin-top: 8px;">
+        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Bilgisayarınızdan veya telefonunuzdan bir dosya yükleyerek analiz edin.</div>
+    </div>
+
+    <!-- 1.3: FOTOĞRAF / OCR SEÇİLDİĞİNDE GÖRÜNEN ALAN -->
+    <div id="fotoInputArea" class="dynamic-input-container">
+        <label><strong>Fotoğraf Yükle veya Kamera ile Çek (OCR):</strong></label><br>
+        <input type="file" id="photoFile" accept="image/*" capture="environment" style="margin-top: 8px;">
+        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Metin içeren bir fotoğraf yükleyin (OCR motoru ile metne dönüştürülecektir).</div>
+    </div>
     
     <div class="input-box" style="margin-top: 15px;">
-        <label><strong>CSV Sözlük Kaynağı:</strong></label>
+        <label><strong>CSV Sözlük Referansı:</strong></label>
         <div class="btn-group" id="csvSourceGroup" style="margin-bottom:0;">
             <button onclick="setCsvSource('analiz/cefr.csv', this)">cefr.csv</button>
             <button onclick="setCsvSource('analiz/cefr_pre.csv', this)">cefr_pre.csv</button>
@@ -69,24 +86,25 @@
 
 <!-- BÖLÜM 2: İŞLEM TÜRÜ -->
 <div class="section">
-    <h3>2. İşlem Türü</h3>
+    <h3>2. İşlem Türü (Analiz Modu)</h3>
     <div class="btn-group">
-        <button onclick="setTask('frekans', this)">📊 Frekans ve Seviye Analizi</button>
-        <button onclick="setTask('seviye', this)">📈 Kelime Kelime Seviye Listesi</button>
-        <button onclick="setTask('cevir', this)">🔤 Çeviri / Sözlük</button>
+        <button onclick="setTask('hikaye', this)">📖 Hikaye Metni Analizi (story_en)</button>
+        <button onclick="setTask('kelimeler', this)">📋 50 Kelime Listesi Analizi (words)</button>
+        <button onclick="setTask('cevir', this)">🔤 Çeviri / Sözlük Detayı</button>
     </div>
-    <div id="taskDetails">Lütfen bir işlem türü seçin.</div>
+    <div id="taskDetails" style="font-size: 13px; color: #555;">Lütfen bir işlem türü seçin.</div>
 </div>
 
 <!-- BÖLÜM 3: ANALİZ SONUCU -->
 <div class="section">
     <h3>3. Analiz Sonucu</h3>
-    <button onclick="runAnalysis()" style="background: #4f46e5; color: white; font-weight: bold; padding: 12px 20px; border: none; border-radius: 6px;">🚀 Analizi Çalıştır</button>
+    <button onclick="runAnalysis()" style="background: #4f46e5; color: white; font-weight: bold; padding: 12px 20px; border: none; border-radius: 6px; cursor:pointer;">🚀 Analizi Çalıştır</button>
     <div id="status" class="status-bar">Sistem hazır.</div>
     <div id="resultArea" style="margin-top:20px;"></div>
 </div>
 
 <script>
+    // Site için dosya seçeneklerini dinamik doldurma
     window.addEventListener('DOMContentLoaded', () => {
         const select = document.getElementById('jsonSelect');
         const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
@@ -112,23 +130,43 @@
 
     function setSource(s, btn) {
         state.source = s;
-        document.getElementById('sourceDetails').innerText = "Seçilen Kaynak: " + s;
-        highlight(btn);
+        
+        // Alanları gizle/göster mantığı
+        document.getElementById('siteInputArea').style.display = (s === 'site') ? 'flex' : 'none';
+        document.getElementById('hariciInputArea').style.display = (s === 'harici') ? 'block' : 'none';
+        document.getElementById('fotoInputArea').style.display = (s === 'foto') ? 'block' : 'none';
+
+        const descriptions = {
+            'site': 'Seçilen Kaynak: Site Verileri (GitHub / Klasör Yapısı)',
+            'harici': 'Seçilen Kaynak: Harici Dosya (Cihazınızdan yüklenecek dosya)',
+            'foto': 'Seçilen Kaynak: Fotoğraf / Kamera (OCR görsel analizi)'
+        };
+        document.getElementById('sourceDetails').innerText = descriptions[s];
+        
+        // Buton aktiflik sınıflarını yönet
+        const buttons = document.querySelectorAll('#sourceBtnGroup button');
+        buttons.forEach(b => b.classList.remove('active-btn'));
+        btn.classList.add('active-btn');
     }
 
     function setCsvSource(path, btn) {
         state.csvPath = path;
         document.getElementById('csvSourceDetails').innerText = "Seçilen CSV: " + path;
-        highlight(btn);
+        highlightBtn(btn);
     }
 
     function setTask(t, btn) {
         state.task = t;
-        document.getElementById('taskDetails').innerText = "Seçilen İşlem: " + t;
-        highlight(btn);
+        const descriptions = {
+            'hikaye': 'Mod: JSON içerisindeki "story_en" hikaye metni kelime bazlı taranır ve frekansları ölçülür.',
+            'kelimeler': 'Mod: Sahneye ait bağımsız "words" listesindeki 50 kelime, türleri ve anlamlarıyla incelenir.',
+            'cevir': 'Mod: Kelimeler, Türkçe karşılıkları ve örnek cümleleriyle sözlük formatında listelenir.'
+        };
+        document.getElementById('taskDetails').innerText = descriptions[t];
+        highlightBtn(btn);
     }
 
-    function highlight(btn) {
+    function highlightBtn(btn) {
         btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active-btn'));
         btn.classList.add('active-btn');
     }
@@ -141,12 +179,11 @@
         
         const statusDiv = document.getElementById('status');
         const resultArea = document.getElementById('resultArea');
-        const selectionVal = document.getElementById('jsonSelect').value;
-        
-        statusDiv.innerText = "Analiz gerçekleştiriliyor, veriler yükleniyor...";
+        statusDiv.innerText = "Analiz gerçekleştiriliyor, veriler işleniyor...";
         resultArea.innerHTML = "";
         
         try {
+            // 1. CSV Sözlüğünü Yükle ve Haritala
             const csvRes = await fetch(state.csvPath);
             if (!csvRes.ok) throw new Error(`${state.csvPath} referans dosyası bulunamadı.`);
             const csvText = await csvRes.text();
@@ -157,7 +194,6 @@
             
             for (let row of rows) {
                 if (!row.trim()) continue;
-                
                 let parts = [];
                 let inQuotes = false;
                 let currentField = '';
@@ -190,134 +226,160 @@
 
             const exactDupList = Object.keys(csvExactDuplicates).filter(k => csvExactDuplicates[k] > 1);
 
-            let wordTracking = {};
-            let totalCheckedCount = 0;
-            let filesToFetch = [];
+            // 2. Verileri Toplama Adımı (Kaynağa Göre Ayrışır)
+            let rawJsonDataArray = [];
 
-            // Seçim Türüne Göre Dosya Listesini Belirleme
-            if (selectionVal === 'ALL') {
-                const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
-                levels.forEach(lvl => {
+            if (state.source === 'site') {
+                const selectionVal = document.getElementById('jsonSelect').value;
+                let filesToFetch = [];
+                
+                if (selectionVal === 'ALL') {
+                    ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'].forEach(lvl => {
+                        for (let i = 0; i <= 50; i++) {
+                            let numStr = i < 10 ? '0' + i : i;
+                            filesToFetch.push(`data/${lvl}${numStr}.json`);
+                        }
+                    });
+                } else if (selectionVal.startsWith('GROUP_')) {
+                    let targetLvl = selectionVal.replace('GROUP_', '').toLowerCase();
                     for (let i = 0; i <= 50; i++) {
                         let numStr = i < 10 ? '0' + i : i;
-                        filesToFetch.push(`data/${lvl}${numStr}.json`);
+                        filesToFetch.push(`data/${targetLvl}${numStr}.json`);
                     }
-                });
-            } else if (selectionVal.startsWith('GROUP_')) {
-                let targetLvl = selectionVal.replace('GROUP_', '').toLowerCase();
-                for (let i = 0; i <= 50; i++) {
-                    let numStr = i < 10 ? '0' + i : i;
-                    filesToFetch.push(`data/${targetLvl}${numStr}.json`);
+                } else {
+                    filesToFetch.push(selectionVal);
                 }
-            } else {
-                filesToFetch.push(selectionVal);
+
+                for (let fName of filesToFetch) {
+                    try {
+                        const res = await fetch(fName);
+                        if (res.ok) {
+                            const json = await res.json();
+                            rawJsonDataArray.push({ sourceName: fName, data: json });
+                        }
+                    } catch (e) {}
+                }
+            } 
+            else if (state.source === 'harici') {
+                const fileInput = document.getElementById('externalFile');
+                if (!fileInput.files || fileInput.files.length === 0) {
+                    throw new Error("Lütfen cihazınızdan analiz edilecek harici bir dosya seçin.");
+                }
+                let file = fileInput.files[0];
+                let fileText = await file.text();
+                let json = JSON.parse(fileText);
+                rawJsonDataArray.push({ sourceName: file.name, data: json });
+            } 
+            else if (state.source === 'foto') {
+                const photoInput = document.getElementById('photoFile');
+                if (!photoInput.files || photoInput.files.length === 0) {
+                    throw new Error("Lütfen analiz için bir fotoğraf seçin veya çekin.");
+                }
+                // Gelecekteki OCR Entegrasyon Alanı Köprüsü
+                alert("Fotoğraf alındı! OCR motoru entegrasyonu ile bu alandan metin çıkarımı sağlanacaktır.");
+                return;
             }
 
-            // Dosyaları Dön ve Verileri Topla
-            for (let fName of filesToFetch) {
-                try {
-                    const res = await fetch(fName);
-                    if (res.ok) {
-                        const data = await res.json();
-                        let list = [];
-                        if (Array.isArray(data)) {
-                            list = data;
-                        } else if (data.words && Array.isArray(data.words)) {
-                            list = data.words;
-                        } else if (data.kelimeler && Array.isArray(data.kelimeler)) {
-                            list = data.kelimeler;
-                        }
+            // 3. Verileri İşleme ve Ayrıştırma Modu
+            let itemTracking = {};
+            let totalCheckedCount = 0;
 
-                        list.forEach(item => {
-                            let wObj = extractWordDetails(item);
-                            if (wObj.word) {
-                                let cleanW = wObj.word.trim().toLowerCase();
+            rawJsonDataArray.forEach(itemObj => {
+                let fName = itemObj.sourceName;
+                let data = itemObj.data;
+
+                if (state.task === 'hikaye') {
+                    if (data.story_en && typeof data.story_en === 'string') {
+                        let cleanStory = data.story_en.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").toLowerCase();
+                        let wordsArr = cleanStory.split(/\s+/);
+                        
+                        wordsArr.forEach(w => {
+                            if (w.trim().length > 1) {
                                 totalCheckedCount++;
-                                if (!wordTracking[cleanW]) {
-                                    wordTracking[cleanW] = { original: wObj.word, details: wObj, files: [] };
+                                let cleanW = w.trim();
+                                if (!itemTracking[cleanW]) {
+                                    itemTracking[cleanW] = { original: cleanW, count: 0, files: [] };
                                 }
-                                if (!wordTracking[cleanW].files.includes(fName)) {
-                                    wordTracking[cleanW].files.push(fName);
+                                itemTracking[cleanW].count++;
+                                if (!itemTracking[cleanW].files.includes(fName)) {
+                                    itemTracking[cleanW].files.push(fName);
                                 }
                             }
                         });
                     }
-                } catch (e) {}
-            }
+                } else {
+                    let list = data.words && Array.isArray(data.words) ? data.words : [];
+                    list.forEach(item => {
+                        let wordStr = item.word || item.Kelime || '';
+                        if (wordStr) {
+                            let cleanW = wordStr.trim().toLowerCase();
+                            totalCheckedCount++;
+                            
+                            if (!itemTracking[cleanW]) {
+                                itemTracking[cleanW] = { 
+                                    original: wordStr, 
+                                    type: item.type || '-',
+                                    turkish: item.turkish || item.Anlam || '-',
+                                    example_en: item.example_en || '',
+                                    related: item.related_verbs ? item.related_verbs.join(', ') : '',
+                                    files: [] 
+                                };
+                            }
+                            if (!itemTracking[cleanW].files.includes(fName)) {
+                                itemTracking[cleanW].files.push(fName);
+                            }
+                        }
+                    });
+                }
+            });
 
-            statusDiv.innerText = `✅ Analiz tamamlandı. Toplam ${totalCheckedCount} kayıt incelendi. CSV'de aynı kelime+tür çakışma sayısı: ${exactDupList.length}`;
+            statusDiv.innerText = `✅ Analiz tamamlandı. İşlenen toplam birim: ${totalCheckedCount}.`;
 
+            // 4. Tablo ve Rapor Çıktısı
             let tableRows = '';
             let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
             let duplicateCount = 0;
-
             let index = 1;
-            for (let cleanW in wordTracking) {
-                let info = wordTracking[cleanW];
+
+            for (let cleanW in itemTracking) {
+                let info = itemTracking[cleanW];
                 let level = cefrMap[cleanW] || 'Bilinmiyor';
                 
-                if (levelCounts[level] !== undefined) {
-                    levelCounts[level]++;
-                } else {
-                    levelCounts['Bilinmiyor']++;
-                }
+                if (levelCounts[level] !== undefined) levelCounts[level]++;
+                else levelCounts['Bilinmiyor']++;
 
                 let isDuplicate = info.files.length > 1;
                 if (isDuplicate) duplicateCount++;
 
                 let fileBadge = isDuplicate 
-                    ? `<span class="badge-duplicate">⚠️ ${info.files.length} Dosyada Tekrar: ${info.files.join(', ')}</span>`
-                    : `<span class="badge-unique">✔ Benzersiz: ${info.files[0] || ''}</span>`;
+                    ? `<span class="badge-duplicate">⚠️ ${info.files.length} Kaynakta</span>`
+                    : `<span class="badge-unique">✔ ${info.files[0] || ''}</span>`;
 
-                if (state.task === 'cevir') {
-                    tableRows += `
-                        <tr>
-                            <td>${index++}</td>
-                            <td><strong>${info.original}</strong></td>
-                            <td><span style="padding: 3px 8px; border-radius: 4px; background: ${level === 'Bilinmiyor' ? '#eee' : '#d1fae5'}; color: ${level === 'Bilinmiyor' ? '#333' : '#065f46'}; font-weight: bold;">${level}</span></td>
-                            <td>${info.details.meaning || 'Belirtilmemiş'}</td>
-                            <td>${fileBadge}</td>
-                        </tr>
-                    `;
+                if (state.task === 'hikaye') {
+                    tableRows += `<tr><td>${index++}</td><td><strong>${info.original}</strong></td><td><span style="padding: 3px 8px; border-radius: 4px; background: ${level === 'Bilinmiyor' ? '#eee' : '#d1fae5'}; font-weight: bold;">${level}</span></td><td><strong>${info.count} kez</strong></td><td>${fileBadge}</td></tr>`;
+                } else if (state.task === 'kelimeler') {
+                    tableRows += `<tr><td>${index++}</td><td><strong>${info.original}</strong></td><td><span style="padding: 3px 8px; border-radius: 4px; background: ${level === 'Bilinmiyor' ? '#eee' : '#d1fae5'}; font-weight: bold;">${level}</span></td><td><code>${info.type}</code></td><td>${info.turkish}</td><td><small>${info.related || '-'}</small></td><td>${fileBadge}</td></tr>`;
                 } else {
-                    tableRows += `
-                        <tr>
-                            <td>${index++}</td>
-                            <td><strong>${info.original}</strong></td>
-                            <td><span style="padding: 3px 8px; border-radius: 4px; background: ${level === 'Bilinmiyor' ? '#eee' : '#d1fae5'}; color: ${level === 'Bilinmiyor' ? '#333' : '#065f46'}; font-weight: bold;">${level}</span></td>
-                            <td>${fileBadge}</td>
-                        </tr>
-                    `;
+                    tableRows += `<tr><td>${index++}</td><td><strong>${info.original}</strong></td><td><span style="padding: 3px 8px; border-radius: 4px; background: ${level === 'Bilinmiyor' ? '#eee' : '#d1fae5'}; font-weight: bold;">${level}</span></td><td>${info.turkish}</td><td><em>${info.example_en || 'Örnek yok'}</em></td><td>${fileBadge}</td></tr>`;
                 }
             }
 
-            let uniqueKeysCount = Object.keys(wordTracking).length;
-            let tableHeaderHtml = (state.task === 'cevir') ? `
-                <tr>
-                    <th style="width: 50px;">#</th>
-                    <th>Kelime / Madde</th>
-                    <th>CEFR Seviyesi</th>
-                    <th>Anlam / Çeviri</th>
-                    <th>Geçtiği Dosyalar / Durum</th>
-                </tr>
-            ` : `
-                <tr>
-                    <th style="width: 50px;">#</th>
-                    <th>Kelime / Madde</th>
-                    <th>CEFR Seviyesi</th>
-                    <th>Geçtiği Dosyalar / Durum</th>
-                </tr>
-            `;
+            let uniqueKeysCount = Object.keys(itemTracking).length;
+            let tableHeaderHtml = '';
+            if (state.task === 'hikaye') {
+                tableHeaderHtml = `<tr><th style="width:50px;">#</th><th>Hikaye Kelimesi</th><th>CEFR Seviyesi</th><th>Geçiş Frekansı</th><th>Kaynak Dağılımı</th></tr>`;
+            } else if (state.task === 'kelimeler') {
+                tableHeaderHtml = `<tr><th style="width:50px;">#</th><th>Kelime (Word)</th><th>Seviye</th><th>Tür (Type)</th><th>Türkçe Anlamı</th><th>İlişkili Fiiller</th><th>Kaynak Dağılımı</th></tr>`;
+            } else {
+                tableHeaderHtml = `<tr><th style="width:50px;">#</th><th>Kelime</th><th>Seviye</th><th>Türkçe Karşılığı</th><th>Örnek Cümle</th><th>Kaynak Dağılımı</th></tr>`;
+            }
 
             resultArea.innerHTML = `
-                <h4>📊 Analiz ve Mükerrer Kontrol Özeti</h4>
+                <h4>📊 ${state.task.toUpperCase()} Analiz Özeti</h4>
                 <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
-                    <div style="background: #f3f4f6; padding: 10px 14px; border-radius: 6px;">Toplam Kayıt: <strong>${totalCheckedCount}</strong></div>
-                    <div style="background: #e0f2fe; padding: 10px 14px; border-radius: 6px;">Benzersiz Kelime: <strong>${uniqueKeysCount}</strong></div>
-                    <div style="background: #fee2e2; padding: 10px 14px; border-radius: 6px; color: #991b1b;">Birden Fazla Geçen (Mükerrer): <strong>${duplicateCount}</strong></div>
-                    <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px; color: #b45309;">CSV Aynı Kelime+Tür Çakışması: <strong>${exactDupList.length}</strong></div>
+                    <div style="background: #f3f4f6; padding: 10px 14px; border-radius: 6px;">İncelenen Birim: <strong>${totalCheckedCount}</strong></div>
+                    <div style="background: #e0f2fe; padding: 10px 14px; border-radius: 6px;">Benzersiz Öğe: <strong>${uniqueKeysCount}</strong></div>
                 </div>
-
                 <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
                     <div style="background: #d1fae5; padding: 10px 14px; border-radius: 6px;">A1: <strong>${levelCounts['A1']}</strong></div>
                     <div style="background: #a7f3d0; padding: 10px 14px; border-radius: 6px;">A2: <strong>${levelCounts['A2']}</strong></div>
@@ -327,9 +389,8 @@
                     <div style="background: #fca5a5; padding: 10px 14px; border-radius: 6px;">C2: <strong>${levelCounts['C2']}</strong></div>
                     <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
                 </div>
-
-                <h4>📝 Detaylı Liste</h4>
-                <div style="max-height: 450px; overflow-y: auto;">
+                <h4>📝 Detaylı Sonuç Tablosu</h4>
+                <div style="max-height: 500px; overflow-y: auto;">
                     <table>
                         <thead>${tableHeaderHtml}</thead>
                         <tbody>${tableRows}</tbody>
@@ -340,21 +401,6 @@
         } catch (err) {
             statusDiv.innerText = "❌ Hata: " + err.message;
         }
-    }
-
-    function extractWordDetails(item) {
-        if (!item) return { word: '', meaning: '' };
-        if (typeof item === 'string') return { word: item, meaning: '' };
-        
-        let wordStr = item.Kelime || item.kelime || item.Word || item.word || item.term || item.madde || '';
-        let meaningStr = item.Anlam || item.anlam || item.Meaning || item.meaning || item.ceviri || item.translation || '';
-
-        if (!wordStr && typeof item === 'object') {
-            let vals = Object.values(item).filter(v => typeof v === 'string');
-            wordStr = vals[0] || '';
-            meaningStr = vals[1] || '';
-        }
-        return { word: wordStr, meaning: meaningStr };
     }
 </script>
 
