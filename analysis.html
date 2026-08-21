@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelime Blokları ve PDF Analiz Paneli</title>
-    <!-- PDF okumak için güçlü bir kütüphane olan PDF.js ekliyoruz -->
+    <!-- PDF.js Kütüphanesi -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 15px; background-color: #f8f9fa; color: #333; }
@@ -15,6 +15,11 @@
         
         .upload-section { background: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 15px; }
         .upload-section input[type="file"] { margin-top: 5px; font-size: 14px; }
+
+        .export-buttons { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .export-btn { background: #27ae60; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold; display: none; }
+        .export-btn.txt-btn { background: #2980b9; }
+        .export-btn:hover { opacity: 0.9; }
 
         .filters { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
         .filters input, .filters select { padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; }
@@ -35,10 +40,15 @@
         <a href="index.html" class="back-btn">← Ana Sayfa</a>
     </div>
 
-    <!-- Telefondan PDF Yükleme Alanı -->
+    <!-- Telefonda PDF Yükleme ve Dışa Aktarım Alanı -->
     <div class="upload-section">
         <label for="pdfInput"><strong>PDF Dosyası Yükle ve Analiz Et:</strong></label><br>
         <input type="file" id="pdfInput" accept=".pdf" onchange="handlePdfUpload(event)">
+        
+        <div class="export-buttons">
+            <button id="excelBtn" class="export-btn" onclick="exportToExcel()">📊 Analizi Excel'e (CSV) İndir</button>
+            <button id="txtBtn" class="export-btn txt-btn" onclick="exportToTxt()">📄 PDF Metnini (TXT) İndir</button>
+        </div>
     </div>
 
     <div class="stats" id="statsText">Analiz için hazır. İsterseniz yukarıdan PDF yükleyebilirsiniz.</div>
@@ -71,22 +81,24 @@
     </table>
 
     <script>
-        // PDF.js worker ayarı
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
         let globalVocabData = [];
+        let fullExtractedText = ""; // PDF'in ham metnini tutmak için
+        let currentFileName = "belge";
 
-        // Telefonda PDF seçildiğinde çalışacak fonksiyon
         function handlePdfUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
 
+            currentFileName = file.name.replace(/\.[^/.]+$/, "");
             document.getElementById('statsText').innerText = `${file.name} okunuyor ve analiz ediliyor...`;
 
             const reader = new FileReader();
             reader.readAsArrayBuffer(file);
             reader.onload = function() {
                 const typedarray = new Uint8Array(this.result);
+                fullExtractedText = ""; // Sıfırla
 
                 pdfjsLib.getDocument(typedarray).promise.then(function(pdfDoc) {
                     let totalPages = pdfDoc.numPages;
@@ -98,7 +110,8 @@
                             pdfDoc.getPage(i).then(function(page) {
                                 return page.getTextContent().then(function(textContent) {
                                     textContent.items.forEach(function(item) {
-                                        // Kelimeleri boşluklara göre ayır
+                                        fullExtractedText += item.str + " "; // Ham metni biriktir
+                                        
                                         let words = item.str.split(/\s+/);
                                         words.forEach(w => {
                                             let cleanWord = w.replace(/^[.,;:!?()\[\]{}""„“»«]+|[.,;:!?()\[\]{}""„“»«]+$/g, "").toLowerCase();
@@ -117,7 +130,6 @@
                     }
 
                     Promise.all(promises).then(function() {
-                        // Verileri tablo formatına dönüştür
                         globalVocabData = [];
                         for (let [word, info] of Object.entries(extractedWordsMap)) {
                             globalVocabData.push({
@@ -128,17 +140,49 @@
                             });
                         }
 
-                        // Frekansa göre büyükten küçüğe sırala
                         globalVocabData.sort((a, b) => b.count - a.count);
 
                         updateStats(globalVocabData.length);
                         renderTable(globalVocabData);
+
+                        // İndirme butonlarını görünür yap
+                        document.getElementById('excelBtn').style.display = 'inline-block';
+                        document.getElementById('txtBtn').style.display = 'inline-block';
                     });
                 }).catch(function(error) {
                     console.error("PDF okuma hatası:", error);
                     alert("PDF okunurken bir hata oluştu.");
                 });
             };
+        }
+
+        // Analiz listesini Excel (CSV) olarak indir
+        function exportToExcel() {
+            let csvContent = "\uFEFFKelime;Seviye;Tekrar Sayısı;Dosya\n"; // Türkçe karakter için BOM
+            globalVocabData.forEach(item => {
+                csvContent += `"${item.word}";"${item.level}";${item.count};"${item.files.join(', ')}"\n`;
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', `${currentFileName}_analiz.csv`);
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // PDF'in metne dönüştürülmüş halini TXT olarak indir
+        function exportToTxt() {
+            const blob = new Blob([fullExtractedText], { type: 'text/plain;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', `${currentFileName}_metin.txt`);
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         }
 
         function renderTable(data) {
@@ -150,7 +194,6 @@
                 return;
             }
 
-            // Performans için ilk 200 kelimeyi göster (telefon kasmasın)
             const displayData = data.slice(0, 200);
 
             displayData.forEach(item => {
