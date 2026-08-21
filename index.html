@@ -6,45 +6,109 @@
     <title>Kelime ve Soru Bankası</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Analiz Butonu ve Gezinme Butonları için Stil */
+        /* Ana Konteyner ve Genel Düzen */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Üst Kontrol Paneli - Modern ve Uyumlu Tasarım */
+        .header {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            margin-bottom: 24px;
+        }
+
         .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 12px;
         }
+
+        .header-top h2 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
         .analysis-btn {
-            background-color: #2c3e50;
+            background-color: #2563eb;
             color: white;
-            padding: 8px 15px;
+            padding: 8px 16px;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 14px;
-            transition: background 0.3s;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
         }
+
         .analysis-btn:hover {
-            background-color: #34495e;
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
         }
+
         .selectors-wrapper {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-top: 10px;
         }
-        .nav-arrow-btn {
-            background-color: #f3f4f6;
-            border: 1px solid #ccc;
-            padding: 6px 12px;
-            border-radius: 4px;
+
+        /* Seçim Kutuları ve Butonlar */
+        .selectors-wrapper select {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            outline: none;
             cursor: pointer;
-            font-weight: bold;
-            transition: background 0.2s;
         }
+
+        .selectors-wrapper select:hover, 
+        .selectors-wrapper select:focus {
+            border-color: #3b82f6;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-arrow-btn {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
         .nav-arrow-btn:hover {
-            background-color: #e5e7eb;
+            background-color: #dbeafe;
+            border-color: #93c5fd;
         }
     </style>
 </head>
@@ -61,11 +125,12 @@
 
             <div class="selectors-wrapper">
                 <select id="levelSelect" onchange="generateDayOptions()">
-                    <option value="a1">a1 Seviyesi</option>
-                    <option value="a2">a2 Seviyesi</option>
-                    <option value="b1">b1 Seviyesi</option>
-                    <option value="b2">b2 Seviyesi</option>
-                    <option value="c1">c1 Seviyesi</option>
+                    <option value="a1">A1 Seviyesi</option>
+                    <option value="a2">A2 Seviyesi</option>
+                    <option value="b1">B1 Seviyesi</option>
+                    <option value="b2">B2 Seviyesi</option>
+                    <option value="c1">C1 Seviyesi</option>
+                    <option value="c2">C2 Seviyesi</option>
                 </select>
 
                 <!-- Önceki Dosya Butonu -->
@@ -76,7 +141,6 @@
                 <!-- Sonraki Dosya Butonu -->
                 <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
             </div>
-
         </header>
 
         <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı (Kelimelerin Üstünde) -->
