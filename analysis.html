@@ -16,7 +16,8 @@
         .active-btn { background: #27ae60 !important; color: white; border: !important; }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
-        th { background: #f1f5f9; color: #0f172a; }
+        th { background: #f1f5f9; color: #0f172a; user-select: none; }
+        th.sortable:hover { background: #e2e8f0; cursor: pointer; }
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
         select, input[type="file"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
@@ -24,6 +25,7 @@
         .badge-duplicate { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
         .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; display: none; }
+        .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; }
     </style>
 </head>
 <body>
@@ -127,11 +129,10 @@
     });
 
     let state = { source: '', task: '', csvPath: '' };
+    let sortDirections = {}; // Her sütun için sıralama yönü takibi
 
     function setSource(s, btn) {
         state.source = s;
-        
-        // Alanları gizle/göster mantığı
         document.getElementById('siteInputArea').style.display = (s === 'site') ? 'flex' : 'none';
         document.getElementById('hariciInputArea').style.display = (s === 'harici') ? 'block' : 'none';
         document.getElementById('fotoInputArea').style.display = (s === 'foto') ? 'block' : 'none';
@@ -143,7 +144,6 @@
         };
         document.getElementById('sourceDetails').innerText = descriptions[s];
         
-        // Buton aktiflik sınıflarını yönet
         const buttons = document.querySelectorAll('#sourceBtnGroup button');
         buttons.forEach(b => b.classList.remove('active-btn'));
         btn.classList.add('active-btn');
@@ -183,7 +183,6 @@
         resultArea.innerHTML = "";
         
         try {
-            // 1. CSV Sözlüğünü Yükle ve Haritala
             const csvRes = await fetch(state.csvPath);
             if (!csvRes.ok) throw new Error(`${state.csvPath} referans dosyası bulunamadı.`);
             const csvText = await csvRes.text();
@@ -224,9 +223,6 @@
                 }
             }
 
-            const exactDupList = Object.keys(csvExactDuplicates).filter(k => csvExactDuplicates[k] > 1);
-
-            // 2. Verileri Toplama Adımı (Kaynağa Göre Ayrışır)
             let rawJsonDataArray = [];
 
             if (state.source === 'site') {
@@ -275,12 +271,10 @@
                 if (!photoInput.files || photoInput.files.length === 0) {
                     throw new Error("Lütfen analiz için bir fotoğraf seçin veya çekin.");
                 }
-                // Gelecekteki OCR Entegrasyon Alanı Köprüsü
                 alert("Fotoğraf alındı! OCR motoru entegrasyonu ile bu alandan metin çıkarımı sağlanacaktır.");
                 return;
             }
 
-            // 3. Verileri İşleme ve Ayrıştırma Modu
             let itemTracking = {};
             let totalCheckedCount = 0;
 
@@ -335,10 +329,8 @@
 
             statusDiv.innerText = `✅ Analiz tamamlandı. İşlenen toplam birim: ${totalCheckedCount}.`;
 
-            // 4. Tablo ve Rapor Çıktısı
             let tableRows = '';
             let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
-            let duplicateCount = 0;
             let index = 1;
 
             for (let cleanW in itemTracking) {
@@ -349,29 +341,53 @@
                 else levelCounts['Bilinmiyor']++;
 
                 let isDuplicate = info.files.length > 1;
-                if (isDuplicate) duplicateCount++;
-
                 let fileBadge = isDuplicate 
                     ? `<span class="badge-duplicate">⚠️ ${info.files.length} Kaynakta</span>`
                     : `<span class="badge-unique">✔ ${info.files[0] || ''}</span>`;
 
                 if (state.task === 'hikaye') {
-                    tableRows += `<tr><td>${index++}</td><td><strong>${info.original}</strong></td><td><span style="padding: 3px 8px; border-radius: 4px; background: ${level === 'Bilinmiyor' ? '#eee' : '#d1fae5'}; font-weight: bold;">${level}</span></td><td><strong>${info.count} kez</strong></td><td>${fileBadge}</td></tr>`;
+                    tableRows += `<tr><td>${index++}</td><td><strong>${info.original}</strong></td><td>${level}</td><td><strong>${info.count}</strong></td><td>${fileBadge}</td></tr>`;
                 } else if (state.task === 'kelimeler') {
-                    tableRows += `<tr><td>${index++}</td><td><strong>${info.original}</strong></td><td><span style="padding: 3px 8px; border-radius: 4px; background: ${level === 'Bilinmiyor' ? '#eee' : '#d1fae5'}; font-weight: bold;">${level}</span></td><td><code>${info.type}</code></td><td>${info.turkish}</td><td><small>${info.related || '-'}</small></td><td>${fileBadge}</td></tr>`;
+                    tableRows += `<tr><td>${index++}</td><td><strong>${info.original}</strong></td><td>${level}</td><td><code>${info.type}</code></td><td>${info.turkish}</td><td><small>${info.related || '-'}</small></td><td>${fileBadge}</td></tr>`;
                 } else {
-                    tableRows += `<tr><td>${index++}</td><td><strong>${info.original}</strong></td><td><span style="padding: 3px 8px; border-radius: 4px; background: ${level === 'Bilinmiyor' ? '#eee' : '#d1fae5'}; font-weight: bold;">${level}</span></td><td>${info.turkish}</td><td><em>${info.example_en || 'Örnek yok'}</em></td><td>${fileBadge}</td></tr>`;
+                    tableRows += `<tr><td>${index++}</td><td><strong>${info.original}</strong></td><td>${level}</td><td>${info.turkish}</td><td><em>${info.example_en || 'Örnek yok'}</em></td><td>${fileBadge}</td></tr>`;
                 }
             }
 
             let uniqueKeysCount = Object.keys(itemTracking).length;
             let tableHeaderHtml = '';
+            
+            // Başlıklara tıklama (sortTable) ve filtreleme (filterTable) özellikleri entegre edildi
             if (state.task === 'hikaye') {
-                tableHeaderHtml = `<tr><th style="width:50px;">#</th><th>Hikaye Kelimesi</th><th>CEFR Seviyesi</th><th>Geçiş Frekansı</th><th>Kaynak Dağılımı</th></tr>`;
+                tableHeaderHtml = `
+                    <tr>
+                        <th style="width:50px;">#</th>
+                        <th class="sortable" onclick="sortTable(1)">Hikaye Kelimesi ↕<br><input type="text" id="f1" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                        <th class="sortable" onclick="sortTable(2)">CEFR Seviyesi ↕<br><input type="text" id="f2" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                        <th class="sortable" onclick="sortTable(3)">Frekans ↕</th>
+                        <th>Kaynak Dağılımı</th>
+                    </tr>`;
             } else if (state.task === 'kelimeler') {
-                tableHeaderHtml = `<tr><th style="width:50px;">#</th><th>Kelime (Word)</th><th>Seviye</th><th>Tür (Type)</th><th>Türkçe Anlamı</th><th>İlişkili Fiiller</th><th>Kaynak Dağılımı</th></tr>`;
+                tableHeaderHtml = `
+                    <tr>
+                        <th style="width:50px;">#</th>
+                        <th class="sortable" onclick="sortTable(1)">Kelime (Word) ↕<br><input type="text" id="f1" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                        <th class="sortable" onclick="sortTable(2)">Seviye ↕<br><input type="text" id="f2" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                        <th class="sortable" onclick="sortTable(3)">Tür (Type) ↕<br><input type="text" id="f3" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                        <th class="sortable" onclick="sortTable(4)">Türkçe Anlamı ↕<br><input type="text" id="f4" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                        <th>İlişkili Fiiller</th>
+                        <th>Kaynak Dağılımı</th>
+                    </tr>`;
             } else {
-                tableHeaderHtml = `<tr><th style="width:50px;">#</th><th>Kelime</th><th>Seviye</th><th>Türkçe Karşılığı</th><th>Örnek Cümle</th><th>Kaynak Dağılımı</th></tr>`;
+                tableHeaderHtml = `
+                    <tr>
+                        <th style="width:50px;">#</th>
+                        <th class="sortable" onclick="sortTable(1)">Kelime ↕<br><input type="text" id="f1" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                        <th class="sortable" onclick="sortTable(2)">Seviye ↕<br><input type="text" id="f2" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                        <th class="sortable" onclick="sortTable(3)">Türkçe Karşılığı ↕<br><input type="text" id="f3" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                        <th>Örnek Cümle</th>
+                        <th>Kaynak Dağılımı</th>
+                    </tr>`;
             }
 
             resultArea.innerHTML = `
@@ -391,15 +407,78 @@
                 </div>
                 <h4>📝 Detaylı Sonuç Tablosu</h4>
                 <div style="max-height: 500px; overflow-y: auto;">
-                    <table>
+                    <table id="analysisTable">
                         <thead>${tableHeaderHtml}</thead>
-                        <tbody>${tableRows}</tbody>
+                        <tbody id="tableBody">${tableRows}</tbody>
                     </table>
                 </div>
             `;
 
         } catch (err) {
             statusDiv.innerText = "❌ Hata: " + err.message;
+        }
+    }
+
+    // Tablo başlığına tıklayarak yukarıdan aşağıya (A-Z / Z-A / Sayısal) sıralama fonksiyonu
+    function sortTable(columnIndex) {
+        const table = document.getElementById("analysisTable");
+        const tbody = table.tBodies[0];
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+        
+        // Sütun bazlı sıralama yönünü tersine çevir
+        sortDirections[columnIndex] = !sortDirections[columnIndex];
+        let asc = sortDirections[columnIndex];
+
+        rows.sort((rowA, rowB) => {
+            let cellA = rowA.cells[columnIndex].innerText.trim().toLowerCase();
+            let cellB = rowB.cells[columnIndex].innerText.trim().toLowerCase();
+
+            let numA = parseFloat(cellA);
+            let numB = parseFloat(cellB);
+
+            if (!isNaN(numA) && !isNaN(numB)) {
+                return asc ? numA - numB : numB - numA;
+            }
+
+            if (cellA < cellB) return asc ? -1 : 1;
+            if (cellA > cellB) return asc ? 1 : -1;
+            return 0;
+        });
+
+        tbody.innerHTML = "";
+        rows.forEach((row, index) => {
+            row.cells[0].innerText = index + 1; // Sıra numarasını güncelle
+            tbody.appendChild(row);
+        });
+    }
+
+    // Her sütun altındaki inputlar ile anlık filtreleme fonksiyonu
+    function filterTable() {
+        const table = document.getElementById("analysisTable");
+        if (!table) return;
+        const trs = table.tBodies[0].getElementsByTagName("tr");
+
+        // Tüm aktif filtre inputlarını bul
+        const inputs = table.tHead.querySelectorAll(".filter-input");
+        
+        for (let i = 0; i < trs.length; i++) {
+            let showRow = true;
+            
+            inputs.forEach((input, index) => {
+                let filterVal = input.value.toLowerCase().trim();
+                if (filterVal) {
+                    let cellIndex = index + 1; // 0. sütun sıra numarası olduğu için +1
+                    let cell = trs[i].cells[cellIndex];
+                    if (cell) {
+                        let cellText = cell.innerText.toLowerCase();
+                        if (!cellText.includes(filterVal)) {
+                            showRow = false;
+                        }
+                    }
+                }
+            });
+
+            trs[i].style.display = showRow ? "" : "none";
         }
     }
 </script>
