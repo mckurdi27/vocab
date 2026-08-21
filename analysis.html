@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Çok Amaçlı Belge ve Gelişmiş OCR Paneli</title>
+    <title>Çok Amaçlı Belge & Veri Analiz Paneli</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
     <style>
@@ -30,36 +30,37 @@
         th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
         th { background-color: #2c3e50; color: white; }
         textarea { width: 100%; height: 200px; margin-top: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: monospace; }
+        .badge { background: #2980b9; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px; }
     </style>
 </head>
 <body>
 
     <div class="header-container">
-        <h1>Belge & Gelişmiş OCR Merkezi</h1>
+        <h1>Belge & Toplu Veri Analiz Merkezi</h1>
         <a href="index.html" class="back-btn">← Ana Sayfa</a>
     </div>
 
     <div class="panel-card">
         <h3>İşlem Modunu Seçin:</h3>
         <div class="mode-buttons">
-            <button class="mode-btn active" onclick="switchMode('dictionary', this)">📖 Sözlük Analizi (Metin PDF)</button>
-            <button class="mode-btn" onclick="switchMode('frequency', this)">📊 Kelime Frekans Sayımı</button>
+            <button class="mode-btn active" onclick="switchMode('bulkAnalysis', this)">📂 Toplu Veri Analizi (JSON / Metin)</button>
+            <button class="mode-btn" onclick="switchMode('dictionary', this)">📖 Sözlük Analizi (PDF)</button>
             <button class="mode-btn" onclick="switchMode('txtConverter', this)">📄 Metin Dönüştürücü (TXT)</button>
-            <button class="mode-btn" onclick="switchMode('ocrScanner', this)">🖼️ Gelişmiş OCR (JPG / Taranmış PDF)</button>
+            <button class="mode-btn" onclick="switchMode('ocrScanner', this)">🖼️ Gelişmiş OCR (Resim/PDF)</button>
         </div>
 
-        <!-- 1. Sözlük Modu -->
-        <div id="dictionary" class="action-area active">
+        <!-- 1. YENİ: Toplu Veri / JSON Analiz Sekmesi -->
+        <div id="bulkAnalysis" class="action-area active">
+            <p>Telefonunuzdan veya bilgisayarınızdan **birden fazla JSON veya metin dosyasını** aynı anda seçerek ortak kelime tekrarını ve frekansını analiz edin.</p>
+            <input type="file" id="bulkFiles" multiple accept=".json,.txt">
+            <br><button class="execute-btn" onclick="runBulkDataAnalysis()">Toplu Verileri Analiz Et</button>
+        </div>
+
+        <!-- 2. Sözlük Modu -->
+        <div id="dictionary" class="action-area">
             <p>PDF sözlük dosyanızı yükleyin, Kelime, Tür, Anlam ve Cümle olarak tablolaştırsın.</p>
             <input type="file" id="dictFile" accept=".pdf">
             <br><button class="execute-btn" onclick="runDictionary()">Sözlüğü Analiz Et</button>
-        </div>
-
-        <!-- 2. Frekans Modu -->
-        <div id="frequency" class="action-area">
-            <p>Metindeki kelimelerin kaç kez geçtiğini frekans sırasına göre listeler.</p>
-            <input type="file" id="freqFile" accept=".pdf">
-            <br><button class="execute-btn" onclick="runFrequency()">Frekansları Hesapla</button>
         </div>
 
         <!-- 3. Metin Dönüştürücü -->
@@ -118,10 +119,50 @@
             return fullText;
         }
 
+        // Toplu Veri / JSON Analiz Fonksiyonu
+        async function runBulkDataAnalysis() {
+            const input = document.getElementById('bulkFiles');
+            if (!input.files.length) { alert("Lütfen en az bir dosya seçin!"); return; }
+            
+            statusMsg("Seçilen toplu veriler taranıyor ve analiz ediliyor...");
+            let wordCounts = {};
+            let fileCount = input.files.length;
+
+            for (let file of input.files) {
+                let content = await file.text();
+                let parsedText = content;
+                
+                // Eğer JSON ise metne dönüştür
+                if (file.name.endsWith('.json')) {
+                    try {
+                        let jsonObj = JSON.parse(content);
+                        parsedText = JSON.stringify(jsonObj);
+                    } catch(e) {
+                        console.error(file.name + " JSON parse edilemedi.");
+                    }
+                }
+
+                // Sadece 3 harften uzun kelimeleri ayıkla
+                let words = parsedText.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
+                words.forEach(w => {
+                    wordCounts[w] = (wordCounts[w] || 0) + 1;
+                });
+            }
+
+            // Tablo için veriyi hazırla (En çok tekrar edenden aza doğru)
+            let sortedData = Object.entries(wordCounts)
+                .map(([word, count]) => ({ Kelime: word, Tekrar: count }))
+                .sort((a, b) => b.Tekrar - a.Tekrar)
+                .slice(0, 300); // İlk 300 kelime
+
+            renderTable(['Kelime', 'Toplam Tekrar'], sortedData);
+            statusMsg(`${fileCount} dosya başarıyla tarandı. Toplam ${Object.keys(wordCounts).length} farklı kelime analiz edildi.`);
+        }
+
         async function runDictionary() {
             const file = document.getElementById('dictFile').files[0];
             if (!file) { alert("Lütfen bir PDF seçin!"); return; }
-            statusMsg("Metin okunuyor...");
+            statusMsg("Sözlük metni okunuyor...");
             
             const text = await extractPdfText(file);
             const globalData = [];
@@ -133,24 +174,6 @@
 
             renderTable(['Kelime', 'Tür', 'Anlam', 'Cümle'], globalData);
             statusMsg(`Analiz tamamlandı. ${globalData.length} kayıt bulundu.`);
-        }
-
-        async function runFrequency() {
-            const file = document.getElementById('freqFile').files[0];
-            if (!file) { alert("Lütfen bir PDF seçin!"); return; }
-            statusMsg("Frekanslar hesaplanıyor...");
-
-            const text = await extractPdfText(file);
-            let words = text.toLowerCase().match(/\b[a-zçğıöşü]{2,}\b/g) || [];
-            let counts = {};
-            words.forEach(w => counts[w] = (counts[w] || 0) + 1);
-            
-            let globalData = [];
-            for(let w in counts) globalData.push({ Kelime: w, Frekans: counts[w] });
-            globalData.sort((a,b) => b.Frekans - a.Frekans);
-
-            renderTable(['Kelime', 'Frekans'], globalData);
-            statusMsg("Frekans analizi tamamlandı.");
         }
 
         async function runTxtConverter() {
@@ -170,32 +193,22 @@
             statusMsg("Metne dönüştürüldü ve indirildi!");
         }
 
-        // Gelişmiş Ön İşlemeli OCR Fonksiyonu
         async function runEnhancedOcr() {
             const file = document.getElementById('ocrFile').files[0];
             if (!file) { alert("Lütfen bir dosya seçin!"); return; }
             statusMsg("OCR hazırlığı ve görsel iyileştirme yapılıyor...");
 
             let fullText = "";
-            
-            // Görseli işlemek ve kontrast vermek için yardımcı fonksiyon
             async function processCanvas(canvas) {
                 const ctx = canvas.getContext('2d');
                 const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                 const data = imgData.data;
-                
-                // Basit gri tonlama ve kontrast artırma (Thresholding efekti)
                 for (let i = 0; i < data.length; i += 4) {
                     let avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
-                    // Kontrastı sertleştirerek harfleri arka plandan ayır
                     let val = avg < 160 ? 0 : 255; 
-                    data[i] = val;     // R
-                    data[i + 1] = val; // G
-                    data[i + 2] = val; // B
+                    data[i] = val; data[i + 1] = val; data[i + 2] = val;
                 }
                 ctx.putImageData(imgData, 0, 0);
-                
-                // Tesseract ile Türkçe ve İngilizce ortak tarama
                 const result = await Tesseract.recognize(canvas, 'eng+tur');
                 return result.data.text;
             }
@@ -204,27 +217,23 @@
                 const arrayBuffer = await file.arrayBuffer();
                 const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
                 for (let i = 1; i <= pdf.numPages; i++) {
-                    statusMsg(`Sayfa ${i} / ${pdf.numPages} taranıyor ve optimize ediliyor...`);
+                    statusMsg(`Sayfa ${i} / ${pdf.numPages} taranıyor...`);
                     const page = await pdf.getPage(i);
-                    const viewport = page.getViewport({ scale: 2.55 }); // Daha yüksek çözünürlük
+                    const viewport = page.getViewport({ scale: 2.55 });
                     const canvas = document.createElement('canvas');
                     canvas.height = viewport.height;
                     canvas.width = viewport.width;
                     await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
-                    
                     fullText += await processCanvas(canvas) + "\n";
                 }
             } else {
-                // Normal resim dosyaları için
                 const img = new Image();
                 img.src = URL.createObjectURL(file);
                 await img.decode();
                 const canvas = document.createElement('canvas');
-                canvas.width = img.width;
-                canvas.height = img.height;
+                canvas.width = img.width; canvas.height = img.height;
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0);
-                
                 fullText = await processCanvas(canvas);
             }
 
