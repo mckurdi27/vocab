@@ -140,36 +140,38 @@
             const csvText = await csvRes.text();
             
             const cefrMap = {};
-            csvText.split(/\r?\n/).forEach(row => {
-                if (!row.trim()) return;
+            const rows = csvText.split(/\r?\n/);
+            
+            for (let row of rows) {
+                if (!row.trim()) continue;
                 
-                // CSV sütunlarını tırnaklardan temizleyerek ayırıyoruz
-                const cols = row.split(',').map(c => c.replace(/^["']|["']$/g, "").trim());
+                // Gönderdiğin tırnaklı CSV yapısına tam uyumlu güvenli ayrıştırma ("Seviye","Kelime",...)
+                let parts = [];
+                let inQuotes = false;
+                let currentField = '';
                 
-                if (cols.length >= 2) {
-                    let possibleLevel = cols[0].toUpperCase();
-                    let word = "";
-                    let level = "";
-
-                    // 1. Sütun Seviye (A1, A2...), 2. Sütun Kelime yapısına göre eşleme
-                    if (/^(A1|A2|B1|B2|C1|C2)$/.test(possibleLevel)) {
-                        level = possibleLevel;
-                        word = cols[1].toLowerCase();
+                for (let i = 0; i < row.length; i++) {
+                    let char = row[i];
+                    if (char === '"') {
+                        inQuotes = !inQuotes;
+                    } else if (char === ',' && !inQuotes) {
+                        parts.push(currentField.trim().replace(/^["']|["']$/g, ""));
+                        currentField = '';
                     } else {
-                        for (let c of cols) {
-                            if (/^(A1|A2|B1|B2|C1|C2)$/i.test(c)) {
-                                level = c.toUpperCase();
-                                break;
-                            }
-                        }
-                        if (cols[1]) word = cols[1].toLowerCase();
+                        currentField += char;
                     }
-
-                    if (word && level && word !== "kelime" && word !== "seviye") {
+                }
+                parts.push(currentField.trim().replace(/^["']|["']$/g, ""));
+                
+                if (parts.length >= 2) {
+                    let level = parts[0].toUpperCase();
+                    let word = parts[1].toLowerCase();
+                    
+                    if (/^(A1|A2|B1|B2|C1|C2)$/.test(level) && word && word !== "kelime" && word !== "seviye") {
                         cefrMap[word] = level;
                     }
                 }
-            });
+            }
 
             let rawWordsList = [];
 
@@ -196,7 +198,7 @@
                 }
             } else {
                 const jsonRes = await fetch(jsonPath);
-                if (!jsonRes.ok) throw new Error(`${jsonPath} dosyası GitHub deposunda bulunamadı.`);
+                if (!jsonRes.ok) throw new Error(`${jsonPath} dosyası depoda bulunamadı.`);
                 const jsonData = await jsonRes.json();
 
                 if (Array.isArray(jsonData)) {
