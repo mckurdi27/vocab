@@ -8,18 +8,34 @@
     <style>
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 20px; background-color: #f4f7f6; color: #2c3e50; }
         .panel-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .home-btn { background: #7f8c8d; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; text-decoration: none; font-size: 14px; }
-        .action-area { display: none; margin-top: 20px; padding-top: 20px; border-top: 2px solid #ecf0f1; }
-        .action-area.active { display: block; }
-        .mode-btn { background: #eee; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; margin-right: 5px; margin-bottom: 5px; font-weight: bold; }
+        
+        /* Üst Panel & Başlık Alanı */
+        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e2e8f0; }
+        .home-btn { background: #7f8c8d; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; }
+        .home-btn:hover { background: #6c7a89; }
+
+        /* Buton Paneli Alanı */
+        .mode-buttons-container { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 2px dashed #cbd5e1; }
+        .mode-buttons-container h3 { margin-top: 0; margin-bottom: 12px; font-size: 16px; color: #34495e; }
+        .mode-btn { background: #e2e8f0; color: #2c3e50; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; margin-right: 8px; margin-bottom: 8px; font-weight: bold; transition: all 0.2s; }
+        .mode-btn:hover { background: #cbd5e1; }
         .mode-btn.active { background: #3498db; color: white; }
-        select, button, input[type="file"] { padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-top: 5px; }
-        .execute-btn { background: #27ae60; color: white; cursor: pointer; }
+
+        /* Özellik Paneli (Aktif Mod Alanları) */
+        .action-area { display: none; background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 10px; }
+        .action-area.active { display: block; }
+        
+        select, button, input[type="file"] { padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-top: 5px; font-size: 14px; }
+        .execute-btn { background: #27ae60; color: white; cursor: pointer; font-weight: bold; }
+        .execute-btn:hover { background: #219653; }
+
         #status { margin-top: 15px; font-weight: bold; color: #d35400; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        
+        /* Çıktı ve Tablolar */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
         th { background: #34495e; color: white; }
+        
         #textOutputContainer { display: none; margin-top: 20px; }
         textarea { width: 100%; height: 200px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
     </style>
@@ -27,21 +43,28 @@
 <body>
 
 <div class="panel-card">
+    <!-- ÜST PANEL -->
     <div class="header-top">
         <h2>🚀 Gelişmiş Dil Analiz Paneli</h2>
         <a href="index.html" class="home-btn">🏠 Ana Ekrana Dön</a>
     </div>
 
-    <div class="mode-buttons">
+    <!-- BUTON PANELI -->
+    <div class="mode-buttons-container">
+        <h3>İşlem Seçin:</h3>
         <button class="mode-btn active" onclick="switchMode('bulkAnalysis', this)">📊 Gelişmiş JSON Analiz</button>
+        <button class="mode-btn" onclick="switchMode('levelWordAnalysis', this)">🎯 Seviye & Kelime Analizi</button>
         <button class="mode-btn" onclick="switchMode('dictionary', this)">📖 Sözlük (PDF)</button>
         <button class="mode-btn" onclick="switchMode('txtConverter', this)">📄 PDF to TXT</button>
         <button class="mode-btn" onclick="switchMode('ocrScanner', this)">🖼️ OCR</button>
     </div>
 
-    <!-- Gelişmiş Analiz Modu -->
+    <!-- ÖZELLİK PANELI (MODLAR) -->
+    
+    <!-- 1. Gelişmiş JSON Analiz Modu -->
     <div id="bulkAnalysis" class="action-area active">
-        <p><b>Analiz Hedefi:</b></p>
+        <h3>📊 Gelişmiş JSON Analiz Paneli</h3>
+        <p><b>Analiz Hedefi ve Kategori Seçin:</b></p>
         <select id="scanTarget">
             <option value="story_en">İngilizce Hikaye</option>
             <option value="story_tr">Türkçe Hikaye</option>
@@ -59,21 +82,39 @@
         <button class="execute-btn" onclick="runAdvancedAnalysis()">Analizi Başlat</button>
     </div>
 
-    <!-- Sözlük Modu -->
+    <!-- 2. Seviye & Kelime Analizi Modu (Yeni Eklenen) -->
+    <div id="levelWordAnalysis" class="action-area">
+        <h3>🎯 Seviye Bazlı Kelime Analizi</h3>
+        <p><b>Hedef Seviye Seçin:</b></p>
+        <select id="targetLevel">
+            <option value="all">Tüm Seviyeler</option>
+            <option value="A1">A1 Seviyesi</option>
+            <option value="A2">A2 Seviyesi</option>
+            <option value="B1">B1 Seviyesi</option>
+            <option value="B2">B2 Seviyesi</option>
+        </select>
+        <br><br>
+        <button class="execute-btn" onclick="runLevelWordAnalysis()">Seviye Kelimelerini Listele</button>
+    </div>
+
+    <!-- 3. Sözlük Modu -->
     <div id="dictionary" class="action-area">
-        <input type="file" id="dictFile" accept=".pdf"><br>
+        <h3>📖 Sözlük PDF Analizi</h3>
+        <input type="file" id="dictFile" accept=".pdf"><br><br>
         <button class="execute-btn" onclick="runDictionary()">Sözlüğü Analiz Et</button>
     </div>
 
-    <!-- TXT Dönüştürücü Modu -->
+    <!-- 4. TXT Dönüştürücü Modu -->
     <div id="txtConverter" class="action-area">
-        <input type="file" id="txtFile" accept=".pdf"><br>
+        <h3>📄 PDF to TXT Dönüştürücü</h3>
+        <input type="file" id="txtFile" accept=".pdf"><br><br>
         <button class="execute-btn" onclick="runTxtConverter()">Metne Dönüştür ve İndir</button>
     </div>
 
-    <!-- OCR Modu -->
+    <!-- 5. OCR Modu -->
     <div id="ocrScanner" class="action-area">
-        <input type="file" id="ocrFile" accept=".pdf,.jpg,.png"><br>
+        <h3>🖼️ OCR (Görsel/PDF Metin Okuyucu)</h3>
+        <input type="file" id="ocrFile" accept=".pdf,.jpg,.png"><br><br>
         <button class="execute-btn" onclick="runEnhancedOcr()">OCR ile Metne Çevir</button>
     </div>
 
@@ -152,6 +193,40 @@
             renderTable(['Kelime / İfade', 'Frekans'], Object.entries(wordCounts).sort((a,b) => b[1] - a[1]));
         } catch (err) {
             document.getElementById('status').innerText = "Hata: data/index.json okunamadı!";
+        }
+    }
+
+    async function runLevelWordAnalysis() {
+        const selectedLevel = document.getElementById('targetLevel').value;
+        document.getElementById('status').innerText = "Seviye bazlı kelimeler taranıyor...";
+        
+        let wordCounts = {};
+        try {
+            const response = await fetch('data/index.json');
+            const fileList = await response.json();
+
+            for (let fileName of fileList) {
+                try {
+                    const res = await fetch(`data/${fileName}`);
+                    const json = await res.json();
+
+                    if (selectedLevel === 'all' || json.level === selectedLevel) {
+                        if (json.words && Array.isArray(json.words)) {
+                            json.words.forEach(item => {
+                                if (item.word) {
+                                    let w = item.word.toLowerCase();
+                                    wordCounts[w] = (wordCounts[w] || 0) + 1;
+                                }
+                            });
+                        }
+                    }
+                } catch (e) { console.warn("Hata: " + fileName); }
+            }
+
+            renderTable(['Kelime', 'Geçiş Sıklığı / Tekrar'], Object.entries(wordCounts).sort((a,b) => b[1] - a[1]));
+            document.getElementById('status').innerText = `Analiz tamamlandı! Seçilen seviyedeki kelimeler listelendi.`;
+        } catch (err) {
+            document.getElementById('status').innerText = "Hata: Veriler okunamadı!";
         }
     }
 
