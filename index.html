@@ -73,15 +73,15 @@
             flex-wrap: wrap;
         }
 
-        /* Seçim Kutuları ve Butonlar */
+        /* Seçim Kutuları - Butonlarla Birebir Aynı ve Belirgin Çerçeve */
         .selectors-wrapper select {
-            background: #f8fafc;
-            border: 1px solid #cbd5e1;
-            color: #334155;
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
             padding: 8px 14px;
             border-radius: 8px;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.2s ease;
             outline: none;
             cursor: pointer;
@@ -89,11 +89,12 @@
 
         .selectors-wrapper select:hover, 
         .selectors-wrapper select:focus {
-            border-color: #3b82f6;
-            background: #ffffff;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            background-color: #dbeafe;
+            border-color: #93c5fd;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
 
+        /* Navigasyon Butonları */
         .nav-arrow-btn {
             background-color: #eff6ff;
             border: 1px solid #bfdbfe;
@@ -124,6 +125,7 @@
             </div>
 
             <div class="selectors-wrapper">
+                <!-- Seviye ve Dosya Seçimleri Yan Yana -->
                 <select id="levelSelect" onchange="generateDayOptions()">
                     <option value="a1">A1 Seviyesi</option>
                     <option value="a2">A2 Seviyesi</option>
@@ -133,12 +135,10 @@
                     <option value="c2">C2 Seviyesi</option>
                 </select>
 
-                <!-- Önceki Dosya Butonu -->
-                <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
-
                 <select id="daySelect" onchange="loadData()"></select>
 
-                <!-- Sonraki Dosya Butonu -->
+                <!-- Önceki ve Sonraki Butonları Yan Yana -->
+                <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
                 <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
             </div>
         </header>
