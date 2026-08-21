@@ -15,17 +15,28 @@
         .home-btn:hover { background: #6c7a89; }
 
         /* Buton Paneli Alanı */
-        .mode-buttons-container { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 2px dashed #cbd5e1; }
-        .mode-buttons-container h3 { margin-top: 0; margin-bottom: 12px; font-size: 16px; color: #34495e; }
+        .mode-buttons-container { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px dashed #cbd5e1; }
+        .mode-buttons-container h3 { margin-top: 0; margin-bottom: 10px; font-size: 16px; color: #34495e; }
         .mode-btn { background: #e2e8f0; color: #2c3e50; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; margin-right: 8px; margin-bottom: 8px; font-weight: bold; transition: all 0.2s; }
         .mode-btn:hover { background: #cbd5e1; }
         .mode-btn.active { background: #3498db; color: white; }
 
+        /* Kaynak Seçim Sekmeleri (Yeni Eklenen Katman) */
+        .source-selector-container { background: #eef2f7; padding: 12px 15px; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .source-selector-container label { font-weight: bold; font-size: 14px; color: #2c3e50; }
+        .source-tab-btn { background: #cbd5e1; color: #2c3e50; border: none; padding: 8px 14px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13px; transition: all 0.2s; }
+        .source-tab-btn:hover { background: #b0c4de; }
+        .source-tab-btn.active { background: #2980b9; color: white; }
+
         /* Özellik Paneli (Aktif Mod Alanları) */
         .action-area { display: none; background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 10px; }
         .action-area.active { display: block; }
+
+        /* Kaynak Alt Panelleri */
+        .source-panel { display: none; margin-top: 15px; padding: 15px; background: #fff; border-radius: 6px; border: 1px solid #dcdde1; }
+        .source-panel.active { display: block; }
         
-        select, button, input[type="file"] { padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-top: 5px; margin-right: 10px; font-size: 14px; }
+        select, button, input[type="file"], input[type="text"] { padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-top: 5px; margin-right: 10px; font-size: 14px; }
         .execute-btn { background: #27ae60; color: white; cursor: pointer; font-weight: bold; }
         .execute-btn:hover { background: #219653; }
 
@@ -37,7 +48,7 @@
         th { background: #34495e; color: white; }
         
         #textOutputContainer { display: none; margin-top: 20px; }
-        textarea { width: 100%; height: 200px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit; }
+        textarea { width: 100%; height: 180px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit; }
     </style>
 </head>
 <body>
@@ -51,7 +62,7 @@
 
     <!-- BUTON PANELI -->
     <div class="mode-buttons-container">
-        <h3>İşlem Seçin:</h3>
+        <h3>İşlem Modu Seçin:</h3>
         <button class="mode-btn active" onclick="switchMode('bulkAnalysis', this)">📊 Gelişmiş JSON Analiz</button>
         <button class="mode-btn" onclick="switchMode('templateAnalysis', this)">📂 Şablon & Klasör Analizi (JSON/CSV)</button>
         <button class="mode-btn" onclick="switchMode('customTextAnalysis', this)">📝 Metin / Görsel Analiz</button>
@@ -83,7 +94,7 @@
         <button class="execute-btn" onclick="runAdvancedAnalysis()">Analizi Başlat</button>
     </div>
 
-    <!-- 2. Akıllı Şablon & Klasör Analizi (Doğrudan Seçilen Dosyayı Okur) -->
+    <!-- 2. Akıllı Şablon & Klasör Analizi -->
     <div id="templateAnalysis" class="action-area">
         <h3>📂 Analiz Klasörü & Akıllı Şablon Seçimi</h3>
         <p><b>Kullanılacak Şablon Dosyasını Seçin (JSON veya CSV):</b></p>
@@ -106,13 +117,39 @@
         <button class="execute-btn" onclick="runSmartTemplateAnalysis()">Akıllı Şablon Analizini Çalıştır</button>
     </div>
 
-    <!-- 3. Metin / Görsel İçerik Analiz Modu -->
+    <!-- 3. Metin / Görsel İçerik Analiz Modu (Kaynak Seçim Paneli ile Güçlendirildi) -->
     <div id="customTextAnalysis" class="action-area">
         <h3>📝 Metin / Görsel İçerik Analizi</h3>
-        <textarea id="customInputText" placeholder="Metni buraya yapıştırın veya görsel yükleyin..."></textarea><br>
-        <label><b>Veya Görsel / Fotoğraf Yükle (OCR):</b></label><br>
-        <input type="file" id="customImageFile" accept=".jpg,.png,.jpeg"><br><br>
-        <button class="execute-btn" onclick="runCustomTextAnalysis()">Metni Analiz Et ve Tablola</button>
+        
+        <!-- KAYNAK SEÇİM SEKMELERİ -->
+        <div class="source-selector-container">
+            <label>Kaynak Türü:</label>
+            <button class="source-tab-btn active" onclick="switchSource('webSource', this)">🌐 Web / Site Kaynağı</button>
+            <button class="source-tab-btn" onclick="switchSource('textSource', this)">📋 Kopyala / Yapıştır Metin</button>
+            <button class="source-tab-btn" onclick="switchSource('imageSource', this)">🖼️ Görsel / Fotoğraf (OCR)</button>
+        </div>
+
+        <!-- 3A. Web / Site Kaynağı Paneli -->
+        <div id="webSource" class="source-panel active">
+            <p><b>Web Sitesi URL veya Depo Kaynağı Girin:</b></p>
+            <input type="text" id="webUrlInput" placeholder="https://ornek.com/veri.json veya .txt" style="width: 70%;">
+            <button class="execute-btn" onclick="runWebSourceAnalysis()">Web Kaynağını Analiz Et</button>
+        </div>
+
+        <!-- 3B. Kopyala / Yapıştır Metin Paneli -->
+        <div id="textSource" class="source-panel">
+            <p><b>Metninizi Buraya Yapıştırın:</b></p>
+            <textarea id="customInputText" placeholder="Analiz edilecek metni buraya yapıştırın..."></textarea>
+            <br>
+            <button class="execute-btn" onclick="runCustomTextAnalysis()">Metni Analiz Et ve Tablola</button>
+        </div>
+
+        <!-- 3C. Görsel / Fotoğraf Paneli (OCR) -->
+        <div id="imageSource" class="source-panel">
+            <p><b>Görsel / Fotoğraf Dosyası Yükleyin:</b></p>
+            <input type="file" id="customImageFile" accept=".jpg,.png,.jpeg"><br><br>
+            <button class="execute-btn" onclick="runImageOcrAnalysis()">Görseli Metne Çevir ve Analiz Et</button>
+        </div>
     </div>
 
     <!-- 4. Sözlük Modu -->
@@ -160,6 +197,15 @@
         document.getElementById('status').innerText = "";
         document.getElementById('analysisTable').style.display = 'none';
         document.getElementById('textOutputContainer').style.display = 'none';
+    }
+
+    // Kaynak Seçim Sekmelerini Değiştirme Fonksiyonu
+    function switchSource(sourceId, btn) {
+        document.querySelectorAll('.source-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.source-tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(sourceId).classList.add('active');
+        btn.classList.add('active');
+        document.getElementById('status').innerText = "";
     }
 
     async function extractPdfText(file) {
@@ -218,7 +264,6 @@
         }
     }
 
-    // Akıllı Şablon Okuyucu: Seçilen CSV veya JSON dosyasını doğrudan hedefler ve seviyeye göre filtreler
     async function runSmartTemplateAnalysis() {
         const templatePath = document.getElementById('analysisTemplate').value;
         const selectedLevel = document.getElementById('templateLevel').value;
@@ -228,22 +273,18 @@
             let templateHeaders = [];
             let tableRows = [];
             
-            // Eğer seçilen dosya CSV formatındaysa (örn: cefr.csv)
             if (templatePath.endsWith('.csv')) {
                 const res = await fetch(templatePath);
                 const csvText = await res.text();
                 const lines = csvText.split('\n').filter(l => l.trim() !== '');
                 
                 if (lines.length > 0) {
-                    // İlk satır başlıklar (Unnamed olanları temizle)
                     templateHeaders = lines[0].split(',').map(h => h.trim()).filter(h => !h.startsWith('Unnamed'));
                     
-                    // Geri kalan satırları ayrıştır
                     for (let i = 1; i < lines.length; i++) {
                         let cols = lines[i].split(',').map(c => c.trim());
                         let rowData = cols.slice(0, templateHeaders.length);
                         
-                        // Seviye filtresi kontrolü (Eğer ilk sütun Seviye ise ve 'all' seçili değilse filtrele)
                         if (selectedLevel === 'all' || rowData[0].toUpperCase() === selectedLevel.toUpperCase()) {
                             tableRows.push(rowData);
                         }
@@ -254,11 +295,9 @@
                 return;
             }
 
-            // JSON şablonları için dosya okuma mantığı
             const res = await fetch(templatePath);
             const jsonContent = await res.json();
             
-            // JSON şablonu bir kelime listesi içeriyorsa
             if (jsonContent.headers) templateHeaders = jsonContent.headers;
             else templateHeaders = ['Seviye', 'Kelime', 'Tür', 'Anlam'];
 
@@ -280,34 +319,71 @@
             document.getElementById('status').innerText = `Şablon analizi tamamlandı! Toplam ${tableRows.length} kayıt listelendi.`;
         } catch (err) {
             document.getElementById('status').innerText = "Hata: Şablon dosyası okunurken bir sorun oluştu!";
-            console.error(err);
         }
     }
 
-    async function runCustomTextAnalysis() {
-        let text = document.getElementById('customInputText').value;
-        const imageFile = document.getElementById('customImageFile').files[0];
+    // 3A. Web / Site Kaynağından Veri Çekme ve Analiz
+    async function runWebSourceAnalysis() {
+        const url = document.getElementById('webUrlInput').value.trim();
+        if (!url) { alert("Lütfen geçerli bir web adresi/URL girin!"); return; }
+        
+        document.getElementById('status').innerText = "Web kaynağından veri çekiliyor...";
+        try {
+            const res = await fetch(url);
+            const text = await res.text();
+            
+            let wordCounts = {};
+            let words = text.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
+            words.forEach(w => { wordCounts[w] = (wordCounts[w] || 0) + 1; });
 
-        if (imageFile) {
-            document.getElementById('status').innerText = "Görsel taranıyor (OCR)...";
-            const result = await Tesseract.recognize(imageFile, 'eng+tur');
-            text = result.data.text;
-            document.getElementById('customInputText').value = text;
+            let tableRows = Object.entries(wordCounts)
+                .sort((a, b) => b[1] - a[1])
+                .map(([word, count]) => [word, 'Web Kaynağı', count]);
+
+            renderTable(['Kelime', 'Kaynak Türü', 'Geçiş Sıklığı'], tableRows);
+            document.getElementById('status').innerText = "Web kaynağı başarıyla analiz edildi!";
+        } catch (err) {
+            document.getElementById('status').innerText = "Hata: Web kaynağından veri çekilemedi (CORS veya URL hatası)!";
         }
+    }
 
-        if (!text.trim()) { alert("Lütfen metin girin veya görsel seçin!"); return; }
+    // 3B. Kopyala / Yapıştır Metin Analizi
+    function runCustomTextAnalysis() {
+        let text = document.getElementById('customInputText').value;
+        if (!text.trim()) { alert("Lütfen analiz edilecek metni girin!"); return; }
 
-        document.getElementById('status').innerText = "Analiz ediliyor...";
+        document.getElementById('status').innerText = "Metin analiz ediliyor...";
         let wordCounts = {};
         let words = text.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
         words.forEach(w => { wordCounts[w] = (wordCounts[w] || 0) + 1; });
 
         let tableRows = Object.entries(wordCounts)
             .sort((a, b) => b[1] - a[1])
-            .map(([word, count]) => [word, 'Özel Metin', 'Analiz Edildi', count]);
+            .map(([word, count]) => [word, 'Kopyala-Yapıştır Metin', count]);
 
-        renderTable(['Kelime', 'Kaynak Türü', 'Durum', 'Geçiş Sıklığı'], tableRows);
-        document.getElementById('status').innerText = "Özel metin analizi tamamlandı!";
+        renderTable(['Kelime', 'Kaynak Türü', 'Geçiş Sıklığı'], tableRows);
+        document.getElementById('status').innerText = "Metin analizi tamamlandı!";
+    }
+
+    // 3C. Görsel OCR Analizi
+    async function runImageOcrAnalysis() {
+        const imageFile = document.getElementById('customImageFile').files[0];
+        if (!imageFile) { alert("Lütfen bir görsel seçin!"); return; }
+
+        document.getElementById('status').innerText = "Görsel taranıyor (OCR)...";
+        const result = await Tesseract.recognize(imageFile, 'eng+tur');
+        let text = result.data.text;
+
+        let wordCounts = {};
+        let words = text.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
+        words.forEach(w => { wordCounts[w] = (wordCounts[w] || 0) + 1; });
+
+        let tableRows = Object.entries(wordCounts)
+            .sort((a, b) => b[1] - a[1])
+            .map(([word, count]) => [word, 'Görsel (OCR)', count]);
+
+        renderTable(['Kelime', 'Kaynak Türü', 'Geçiş Sıklığı'], tableRows);
+        document.getElementById('status').innerText = "Görsel OCR analizi tamamlandı!";
     }
 
     async function runDictionary() {
