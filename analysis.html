@@ -25,7 +25,7 @@
         .action-area { display: none; background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 10px; }
         .action-area.active { display: block; }
         
-        select, button, input[type="file"] { padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-top: 5px; font-size: 14px; }
+        select, button, input[type="file"] { padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-top: 5px; margin-right: 10px; font-size: 14px; }
         .execute-btn { background: #27ae60; color: white; cursor: pointer; font-weight: bold; }
         .execute-btn:hover { background: #219653; }
 
@@ -37,7 +37,7 @@
         th { background: #34495e; color: white; }
         
         #textOutputContainer { display: none; margin-top: 20px; }
-        textarea { width: 100%; height: 200px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        textarea { width: 100%; height: 200px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit; }
     </style>
 </head>
 <body>
@@ -53,7 +53,8 @@
     <div class="mode-buttons-container">
         <h3>İşlem Seçin:</h3>
         <button class="mode-btn active" onclick="switchMode('bulkAnalysis', this)">📊 Gelişmiş JSON Analiz</button>
-        <button class="mode-btn" onclick="switchMode('levelWordAnalysis', this)">🎯 Seviye & Kelime Analizi</button>
+        <button class="mode-btn" onclick="switchMode('templateAnalysis', this)">📂 Şablon & Klasör Analizi</button>
+        <button class="mode-btn" onclick="switchMode('customTextAnalysis', this)">📝 Metin / Görsel Analiz (Yeni)</button>
         <button class="mode-btn" onclick="switchMode('dictionary', this)">📖 Sözlük (PDF)</button>
         <button class="mode-btn" onclick="switchMode('txtConverter', this)">📄 PDF to TXT</button>
         <button class="mode-btn" onclick="switchMode('ocrScanner', this)">🖼️ OCR</button>
@@ -82,11 +83,15 @@
         <button class="execute-btn" onclick="runAdvancedAnalysis()">Analizi Başlat</button>
     </div>
 
-    <!-- 2. Seviye & Kelime Analizi Modu (Yeni Eklenen) -->
-    <div id="levelWordAnalysis" class="action-area">
-        <h3>🎯 Seviye Bazlı Kelime Analizi</h3>
-        <p><b>Hedef Seviye Seçin:</b></p>
-        <select id="targetLevel">
+    <!-- 2. Şablon & Analiz Klasörü Modu -->
+    <div id="templateAnalysis" class="action-area">
+        <h3>📂 Analiz Klasörü & Şablon Seçimi</h3>
+        <p><b>Kullanılacak Şablonu Seçin:</b></p>
+        <select id="analysisTemplate">
+            <option value="analiz/kelime_sablonu.json">Kelime Detay Şablonu (Kelime, Tür, Anlam, Frekans)</option>
+            <option value="analiz/fiil_sablonu.json">Fiil Çekim ve Sıklık Şablonu</option>
+        </select>
+        <select id="templateLevel">
             <option value="all">Tüm Seviyeler</option>
             <option value="A1">A1 Seviyesi</option>
             <option value="A2">A2 Seviyesi</option>
@@ -94,24 +99,34 @@
             <option value="B2">B2 Seviyesi</option>
         </select>
         <br><br>
-        <button class="execute-btn" onclick="runLevelWordAnalysis()">Seviye Kelimelerini Listele</button>
+        <button class="execute-btn" onclick="runTemplateAnalysis()">Şablon Analizini Çalıştır</button>
     </div>
 
-    <!-- 3. Sözlük Modu -->
+    <!-- 3. Yeni: Kopyala-Yapıştır veya Görselden Metin Analiz Modu -->
+    <div id="customTextAnalysis" class="action-area">
+        <h3>📝 Metin / Görsel İçerik Analizi</h3>
+        <p>Buraya dilediğin metni yapıştırabilir veya bir görsel/fotoğraf yükleyerek içindeki metni doğrudan analiz edebilirsin:</p>
+        <textarea id="customInputText" placeholder="Metni buraya yapıştırın veya görsel yükleyin..."></textarea><br>
+        <label><b>Veya Görsel / Fotoğraf Yükle (OCR):</b></label><br>
+        <input type="file" id="customImageFile" accept=".jpg,.png,.jpeg"><br><br>
+        <button class="execute-btn" onclick="runCustomTextAnalysis()">Metni Analiz Et ve Tablola</button>
+    </div>
+
+    <!-- 4. Sözlük Modu -->
     <div id="dictionary" class="action-area">
         <h3>📖 Sözlük PDF Analizi</h3>
         <input type="file" id="dictFile" accept=".pdf"><br><br>
         <button class="execute-btn" onclick="runDictionary()">Sözlüğü Analiz Et</button>
     </div>
 
-    <!-- 4. TXT Dönüştürücü Modu -->
+    <!-- 5. TXT Dönüştürücü Modu -->
     <div id="txtConverter" class="action-area">
         <h3>📄 PDF to TXT Dönüştürücü</h3>
         <input type="file" id="txtFile" accept=".pdf"><br><br>
         <button class="execute-btn" onclick="runTxtConverter()">Metne Dönüştür ve İndir</button>
     </div>
 
-    <!-- 5. OCR Modu -->
+    <!-- 6. OCR Modu -->
     <div id="ocrScanner" class="action-area">
         <h3>🖼️ OCR (Görsel/PDF Metin Okuyucu)</h3>
         <input type="file" id="ocrFile" accept=".pdf,.jpg,.png"><br><br>
@@ -190,20 +205,24 @@
                 } catch (e) { console.warn("Hata: " + fileName); }
             }
 
-            renderTable(['Kelime / İfade', 'Frekans'], Object.entries(wordCounts).sort((a,b) => b[1] - a[1]));
+            let formattedData = Object.entries(wordCounts)
+                .sort((a,b) => b[1] - a[1])
+                .map(([word, count]) => [word, count]);
+
+            renderTable(['Kelime / İfade', 'Frekans (Tekrar)'], formattedData);
         } catch (err) {
             document.getElementById('status').innerText = "Hata: data/index.json okunamadı!";
         }
     }
 
-    async function runLevelWordAnalysis() {
-        const selectedLevel = document.getElementById('targetLevel').value;
-        document.getElementById('status').innerText = "Seviye bazlı kelimeler taranıyor...";
-        
-        let wordCounts = {};
+    async function runTemplateAnalysis() {
+        const selectedLevel = document.getElementById('templateLevel').value;
+        document.getElementById('status').innerText = "Şablon ve veriler yükleniyor...";
+
         try {
             const response = await fetch('data/index.json');
             const fileList = await response.json();
+            let wordMap = {};
 
             for (let fileName of fileList) {
                 try {
@@ -215,7 +234,16 @@
                             json.words.forEach(item => {
                                 if (item.word) {
                                     let w = item.word.toLowerCase();
-                                    wordCounts[w] = (wordCounts[w] || 0) + 1;
+                                    if (!wordMap[w]) {
+                                        wordMap[w] = {
+                                            word: item.word,
+                                            type: item.type || 'Belirtilmemiş',
+                                            meaning: item.meaning || item.tr || 'Açıklama yok',
+                                            count: 1
+                                        };
+                                    } else {
+                                        wordMap[w].count += 1;
+                                    }
                                 }
                             });
                         }
@@ -223,11 +251,48 @@
                 } catch (e) { console.warn("Hata: " + fileName); }
             }
 
-            renderTable(['Kelime', 'Geçiş Sıklığı / Tekrar'], Object.entries(wordCounts).sort((a,b) => b[1] - a[1]));
-            document.getElementById('status').innerText = `Analiz tamamlandı! Seçilen seviyedeki kelimeler listelendi.`;
+            let tableRows = Object.values(wordMap)
+                .sort((a, b) => b.count - a.count)
+                .map(item => [item.word, item.type, item.meaning, item.count]);
+
+            renderTable(['Kelime', 'Kelime Türü (Verb/Noun vb.)', 'Anlamı / Karşılığı', 'Tekrar Sıklığı'], tableRows);
+            document.getElementById('status').innerText = `Şablon analizi tamamlandı! Toplam ${tableRows.length} kayıt listelendi.`;
         } catch (err) {
-            document.getElementById('status').innerText = "Hata: Veriler okunamadı!";
+            document.getElementById('status').innerText = "Hata: Veri dosyaları okunamadı!";
         }
+    }
+
+    // Yeni: Kopyalanan veya görselden okunan metni analiz etme fonksiyonu
+    async function runCustomTextAnalysis() {
+        let text = document.getElementById('customInputText').value;
+        const imageFile = document.getElementById('customImageFile').files[0];
+
+        if (imageFile) {
+            document.getElementById('status').innerText = "Görsel taranıyor (OCR), lütfen bekleyin...";
+            const result = await Tesseract.recognize(imageFile, 'eng+tur');
+            text = result.data.text;
+            document.getElementById('customInputText').value = text;
+        }
+
+        if (!text.trim()) {
+            alert("Lütfen bir metin girin veya görsel seçin!");
+            return;
+        }
+
+        document.getElementById('status').innerText = "Metin kelimelerine ayrılarak analiz ediliyor...";
+        
+        let wordCounts = {};
+        let words = text.toLowerCase().match(/\b[a-zçğıöşü]{3,}\b/g) || [];
+        words.forEach(w => {
+            wordCounts[w] = (wordCounts[w] || 0) + 1;
+        });
+
+        let tableRows = Object.entries(wordCounts)
+            .sort((a, b) => b[1] - a[1])
+            .map(([word, count]) => [word, 'Özel Metin', 'Analiz Edildi', count]);
+
+        renderTable(['Kelime', 'Kaynak Türü', 'Durum', 'Geçiş Sıklığı'], tableRows);
+        document.getElementById('status').innerText = "Özel metin analizi başarıyla tamamlandı!";
     }
 
     async function runDictionary() {
@@ -244,7 +309,7 @@
     async function runTxtConverter() {
         const file = document.getElementById('txtFile').files[0];
         if (!file) { alert("Lütfen bir PDF seçin!"); return; }
-        document.getElementById('status').innerText = "Metne dönüştürülüyor...";
+        document.getElementById('status').innerText = "Metne dönüştürüldü ve indiriliyor...";
 
         const text = await extractPdfText(file);
         document.getElementById('outputTextArea').value = text;
