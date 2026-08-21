@@ -1,37 +1,45 @@
-Seviye,Kelime,Tür,Anlam,Cümle
-A1,a,indefinite article,"(herhangi) bir, belirli bir tür veya nitelikteki","I need a book. She is an artist. Bir kitaba ihtiyacım var. O bir sanatçı."
-A1,abandon,verb,bırakmak, terk etmek,"The project was abandoned due to lack of funds. Proje, fon eksikliği nedeniyle terk edildi."
-A1,ability,noun,"yetenek, beceri, yeterlik","The job needs technical ability. İşin teknik beceriye ihtiyacı var."
-A1,able,adjective,"yetenekli, hünerli, beceri gerektiren","She is able to speak three languages. Üç dil konuşabiliyor."
-A1,abolish,verb,"ortadan kaldırmak, feshetmek, bozmak","The CEO proposed to abolish unnecessary bureaucracy to improve efficiency. CEO, verimliliği artırmak için gereksiz bürokrasinin kaldırılmasını önerdi."
+"Seviye","Kelime","Tür","Anlam","Cümle"
+"A1","a","inde fi nite   article","(herhangi)   bir,   belirli   bir   tür veya   nitelikteki I   need   a   book.","She   is   an   artist. Bir   kitaba   ihtiyacım   var.   O   bir   sanatçı."
+"A1","abandon","verb","bırakmak,   terk   etmek","The   project   was   abandoned   due   to   lack   of   funds. Proje,   fon   eksikliği   nedeniyle   terk   edildi."
+"A1","ability","noun","yetenek,   beceri,   yeterlik","The   job   needs   technical   ability. İşin   teknik   beceriye   ihtiyacı   var."
+"A1","able","adjective","yetenekli,   hünerli,   beceri gerektiren","She   is   able   to   speak   three   languages. Üç   dil   konuşabiliyor."
+"A1","abolish","verb","ortadan   kaldırmak,   feshetmek, bozmak","The   CEO   proposed   to   abolish   unnecessary bureaucracy   to   improve   e ffi ciency. CEO,   verimliliği   artırmak   için   gereksiz   bürokrasinin kaldırılmasını   önerdi."
 
-A2,achieve,verb,"başarmak, elde etmek","She achieved her goal of becoming a doctor. Doktor olma hedefini başardı."
-A2,achievement,noun,"başarı, başarma","Winning the award was a great achievement for her. Ödülü kazanmak onun için büyük bir başarıydı."
-A2,acid,noun,"asit","Lemons contain citric acid, which gives them their sour taste. Limonlar, ekşi tatlarını veren sitrik asit içerir."
-A2,acid,adjective,"asit, ekşi","The acid rain caused significant damage to the ancient marble statues in the park. Asit yağmuru parktaki antik mermer heykellere önemli ölçüde zarar verdi."
-A2,acknowledge,verb,"kabul etmek, doğrulamak, tanımak","They openly acknowledged the importance of teamwork for achieving success. Ekip çalışmasının önemini başarıya ulaşmak için açıkça kabul ettiler."
+"A2","achieve","verb","başarmak,   elde   etmek","She   achieved   her   goal   of   becoming   a   doctor. Doktor   olma   hede fi ni   başardı."
+"A2","achievement","noun","başarı,   başarma","Winning   the   award   was   a   great   achievement   for   her. Ödülü   kazanmak   onun   için   büyük   bir   başarıydı."
+"A2","acid","noun","asit","Lemons   contain   citric   acid,   which   gives   them   their sour   taste. Limonlar,   ekşi   tatlarını   veren   sitrik   asit   içerir."
+"A2","acid","adjective","asit,   ekşi","The   acid   rain   caused   signi fi cant   damage   to   the ancient   marble   statues   in   the   park. Asit   yağmuru   parktaki   antik   mermer   heykellere önemli   ölçüde   zarar   verdi."
+"A2","acknowledge","verb","kabul   etmek,   doğrulamak, tanımak","They   openly   acknowledged   the   importance   of teamwork   for   achieving   success. Ekip   çalışmasının   önemini   başarıya   ulaşmak   için açıkça   kabul   ettiler."
 
-B1,advanced,adjective,"gelişmiş, ileri","This course is for students at an advanced level. Bu kurs ileri seviyedeki öğrenciler içindir."
-B1,advantage,noun,"avantaj, üstünlük, çıkar, menfaat","She took advantage of the opportunity. Fırsatı değerlendirdi."
-B1,adventure,noun,"macera, serüven, tehlikeli iş","They went on an adventure to the Amazon rainforest. Amazon yağmur ormanlarına bir maceraya çıktılar."
-B1,adverse,adjective,"karşıt, zıt, olumsuz","Adverse weather conditions forced the cancellation of the outdoor event. Olumsuz hava koşulları açık hava etkinliğinin iptal edilmesine neden oldu."
-B1,advertise,verb,"reklam yapmak, ilan vermek, duyurmak","They advertised the new product on TV. Yeni ürünün reklamını TV’de yaptılar."
+"B1","expected","adjective","beklenen,   umulan,   tahmin edilen","The   boss   was   disappointed   that   the   results   were   not as   expected. Patron,   sonuçların   beklenen   gibi   olmamasından dolayı   hayal   kırıklığına   uğradı."
+"B1","expedition","noun","keşif   yolculuğu,   sefer,   hızlılık","They   went   on   an   expedition   to   the   mountains. Dağlara   bir   keşif   yolculuğuna   çıktılar."
+"B1","expenditure","noun","gider,   harcama,   masraf","The   organization   has   been   criticized   for   its   high expenditure   on   administrative   costs   rather   than direct   aid   to   those   in   need. Kuruluş,   ihtiyaç   sahiplerine   doğrudan   yardım   etmek yerine   idari   masra fl ara   yaptığı   yüksek   harcamalar nedeniyle   eleştirilmektedir."
+"B1","expense","noun","masraf,   harcama","The   trip   was   canceled   because   of   the   high   expense. Gezi,   yüksek   maliyet   nedeniyle   iptal   edildi."
+"B1","expensive","adjective","pahalı,   masra fl ı","Eating   out   every   day   can   be   expensive. Her   gün   dışarıda   yemek   yemek   pahalı   olabilir."
 
-B2,alert,adjective,"alarm, uyarı, uyarmak, gözünü açmak","The government issued an alert to inform citizens about the approaching storm. Hükümet yaklaşan fırtına konusunda vatandaşları bilgilendirmek için bir uyarı yayınladı."
-B2,alien,noun,"yabancı, uzaylı, ecnebi","The concept of aliens has fascinated humans for centuries, inspiring countless books and movies. Uzaylılar kavramı, yüzyıllardır insanları büyülemiş ve sayısız kitap ve filme ilham vermiştir."
-B2,alien,adjective,"yabancı, uzaylı","She found the customs of the new country fascinating, though they feel alien at first. Yeni ülkenin geleneklerini ilk başta yabancı gelse de büyüleyici buldu."
-B2,align,verb,"sıralamak, dizmek, hizalamak","The architect used a laser tool to align the windows perfectly with the building’s design. Mimar, pencereleri binanın tasarımıyla mükemmel bir şekilde hizalamak için bir lazer aleti kullandı."
-B2,alignment,noun,"hiza, sıra","The chiropractors adjusted her spine to correct its alignment and relieve pain. Kayropraktör omurgasının hizasını düzeltmek ve ağrıyı hafifletmek için ayarlama yaptı."
+"B2","killing","noun","öldürme,   cinayet","The   police   are   investigating   the   killing   of   the   man every   single   day. Polis,   adamın   öldürülmesini   her   geçen   gün araştırıyor."
+"B2","kilometre","noun","kilometre","He   ran   fi ve   kilometres   this   morning. Bu   sabah   beş   kilometre   koştu."
+"B2","kind","noun","tür,   çeşit,   cins","What   kind   of   music   do   you   like? Ne   tür   müzik   seversin?"
+"B2","king","noun","kral,   şah","The   king   ruled   the   kingdom   with   wisdom. Kral,   krallığını   bilgelikle   yönetti."
+"B2","kingdom","noun","krallık,   saltanat,   kraliyet","The   ancient   kingdom   was   known   for   its   impressive architecture   and   strong   army. Antik   krallık   etkileyici   mimarisi   ve   güçlü   ordusuyla tanınıyordu."
 
-C1,analyst,noun,"analist, çözümleyici, yorumcu","The political analyst provided insights into the upcoming election. Siyasi bir analist, yaklaşan seçim hakkında görüşler sundu."
-C1,ancestor,noun,"ata, cet, soy","Our ancestors faced many challenges to build the society we live in today. Atalarımız, bugün yaşadığımız toplumu inşa etmek için birçok zorlukla karşılaştılar."
-C1,anchor,noun,"çapa, demir, dayanak noktası","The ship dropped its anchor near the coast to avoid drifting during the storm. Gemi, fırtına sırasında sürüklenmemek için kıyıya yakın bir yerde demir attı."
-C1,ancient,adjective,"antik, eski, eskiden kalma","The ancient Egyptians built the pyramids. Antik Mısırlılar piramitleri inşa ettiler."
-C1,and,conjunction,"ve, ile, de","I have two brothers and a sister. İki erkek kardeşim ve bir kız kardeşim var."
+"C1","political","adjective","siyasi,   politik","Political   decisions   affect   everyone,   whether   directly or   indirectly. Siyasi   kararlar   herkesi   hem   doğrudan   hem   dolaylı olarak   etkiler."
+"C1","politician","noun","siyasetçi,   politikacı","The   politician   promised   to   lower   taxes   for   the middle   class   . Siyasetçi   vergileri   orta   sınıf   için   düşüreceğine   söz verdi."
+"C1","politics","noun","politika,   siyaset","Politics   can   be   very   complicated,   involving   multiple viewpoints   and   interests. Politika,   birçok   bakış   açısını   ve   çıkarları   içerebilir   ve çok   karmaşık   olabilir."
+"C1","poll","noun","oyların   sayımı,   seçim,   anket,   sandık","After   the   polls   closed,   the   election   o ffi cials   worked tirelessly   to   ensure   that   every   single   vote   was accurately   counted. Sandıklar   kapandıktan   sonra,   seçim   görevlileri   her bir   oyun   doğru   bir   şekilde   sayıldığından   emin   olmak için   yorulmadan   çalıştılar."
+"C1","pollution","noun","kirlilik,   kirlenme,   çevre   kirliliği","Air   pollution   is   a   serious   problem   in   big   cities. Hava   kirliliği   büyük   şehirlerde   ciddi   bir   sorundur."
 
-C2,applicable,adjective,"uygulanabilir","Some of the techniques discussed in the workshop are directly applicable to real-world problems. Çalıştayda tartışılan tekniklerden bazıları gerçek dünyadaki sorunlara doğrudan uygulanabilir."
-C2,applicant,noun,"başvuran, başvuru sahibi, aday","Each applicant must submit a resume and cover letter to be considered for the position. Her başvuru sahibinin pozisyon için değerlendirilmek üzere bir özgeçmiş ve ön yazı sunması gerekmektedir."
-C2,application,noun,"uygulama, başvuru","I filled out the job application and submitted it online. İş başvurusu formunu doldurdum ve online olarak gönderdim."
-C2,apply,verb,"başvurmak, uygulamak","She applies the sunscreen to her face everyday. Güneş kremini yüzüne her gün uygular."
-C2,appoint,verb,"atamak, tayin etmek","The committee appointed a chairperson to oversee the upcoming project. Komite, yaklaşan projeyi denetlemek üzere bir başkan atadı."
+"C2","specimen","noun","örnek,   numune,   model","The   biologist   collected   a   specimen   of   the   rare   plant for   further   study   in   the   laboratory. Biyolog,   laboratuvarda   daha   ileri   inceleme   için   nadir bitkiden   bir   örnek   topladı."
+"C2","spectacle","noun","gösteri,   manzara,   oyun","The   fi reworks   display   on   New   Year’s   Eve   was   a magni fi cent   spectacle   that   drew   large   crowds. Yılbaşı   gecesi   düzenlenen   havai   fi şek   gösterisi, büyük   kalabalıkları   çeken   muhteşem   bir   gösteriydi."
+"C2","spectacular","adjective","görkemli,   muhteşem","The   fi reworks   display   for   the   marriage   proposal   was absolutely   spectacular. Evlilik   tekli fi   için   yapılan   havai   fi şek   gösterisi kesinlikle   muhteşemdi."
+"C2","spectator","noun","seyirci,   izleyici","I   was   one   of   the   thousands   of   spectators   who attended   the   football   match. Futbol   maçına   katılan   binlerce   seyirciden   biriydim."
+"C2","spectrum","noun","spektrum,   çeşitlilik","The   artist’s   work   covers   a   broad   spectrum   of   styles, from   abstract   to   realism. Sanatçının   çalışmaları,   soyuttan   gerçekçiliğe   kadar geniş   bir   yelpazede   stilleri   kapsıyor."
+
+
+
+
+
+
+
+
 
