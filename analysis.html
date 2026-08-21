@@ -17,8 +17,8 @@
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
         th { background: #eee; }
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
-        .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; }
-        input[type="text"] { padding: 8px; width: 300px; border: 1px solid #ccc; border-radius: 4px; }
+        .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        select { padding: 8px; width: 300px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
     </style>
 </head>
 <body>
@@ -40,8 +40,13 @@
     <div id="sourceDetails">Lütfen bir kaynak seçin.</div>
     
     <div class="input-box" style="margin-top: 15px;">
-        <label for="jsonPathInput"><strong>Hedef JSON Dosyası:</strong></label>
-        <input type="text" id="jsonPathInput" value="data/day-01.json" placeholder="Örn: data/day-01.json">
+        <label for="jsonSelect"><strong>Hedef JSON Dosyası Seçin:</strong></label>
+        <select id="jsonSelect">
+            <option value="data/day-01.json">day-01.json</option>
+            <option value="data/day-02.json">day-02.json</option>
+            <option value="data/day-03.json">day-03.json</option>
+            <!-- Ekstra dosyalarınız varsa buraya ekleyebilirsiniz -->
+        </select>
     </div>
 </div>
 
@@ -92,7 +97,7 @@
         
         const statusDiv = document.getElementById('status');
         const resultArea = document.getElementById('resultArea');
-        const jsonPath = document.getElementById('jsonPathInput').value.trim();
+        const jsonPath = document.getElementById('jsonSelect').value;
         
         statusDiv.innerText = "Analiz gerçekleştiriliyor, veriler yükleniyor...";
         resultArea.innerHTML = "";
@@ -115,11 +120,10 @@
 
             // 2. Seçilen JSON dosyasını yükle
             const jsonRes = await fetch(jsonPath);
-            if (!jsonRes.ok) throw new Error(`${jsonPath} dosyası sunucuda bulunamadı.`);
+            if (!jsonRes.ok) throw new Error(`${jsonPath} dosyası sunucuda veya data klasöründe bulunamadı.`);
             const jsonData = await jsonRes.json();
 
-            // JSON içindeki kelimeleri toplama (Yapınıza göre kelimelerin dizi veya nesne olduğunu varsayıyoruz)
-            // Örneğin jsonData bir dizi ise veya içinde .words / .kelimeler barındırıyorsa:
+            // JSON içindeki kelime listesini yakalama
             let wordsList = [];
             if (Array.isArray(jsonData)) {
                 wordsList = jsonData;
@@ -128,13 +132,12 @@
             } else if (jsonData.kelimeler && Array.isArray(jsonData.kelimeler)) {
                 wordsList = jsonData.kelimeler;
             } else {
-                // Eğer doğrudan nesneyse anahtarlarını alalım ya da metin içinden kelime üretelim
                 wordsList = Object.keys(jsonData);
             }
 
             statusDiv.innerText = `✅ Analiz başarıyla tamamlandı. Toplam ${wordsList.length} öğe incelendi.`;
 
-            // 3. Kelime Kelime Liste Tablosunu Oluştur
+            // 3. Tabloyu oluştur
             let tableRows = '';
             let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
 
