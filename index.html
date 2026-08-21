@@ -3,42 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelime ve Soru Bankası</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Kelime ve Senaryo Çalışma Platformu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .nav-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        select, .analysis-btn {
+            padding: 10px 15px;
+            font-size: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        select {
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .analysis-btn {
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .analysis-btn:hover {
+            background-color: #34495e;
+        }
+        main {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            min-height: 400px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Üst Seçim ve Kontrol Paneli -->
-        <header class="header">
-            <h2>Kelime Çalışma Paneli</h2>    <h2>A1-30 A2-10 B1-50 B2-10 C1-10 blok</h2>
+    <header>
+        <h1>Vocab Platform</h1>
+        <div class="nav-section">
+            <!-- Kelime / Blok Seçme Bölümü -->
+            <label for="vocabSelect"><strong>Kelime Grubu Seç:</strong></label>
+            <select id="vocabSelect" onchange="loadVocabData(this.value)">
+                <option value="">-- Blok Seçin --</option>
+                <option value="blok1">50'li Kelime Bloğu 1</option>
+                <option value="blok2">50'li Kelime Bloğu 2</option>
+            </select>
 
-            <div class="selectors">
-                <select id="levelSelect" onchange="generateDayOptions()">
-                    <option value="a1">a1 Seviyesi</option>
-                    <option value="a2">a2 Seviyesi</option>
-                    <option value="b1">b1 Seviyesi</option>
-                    <option value="b2">b2 Seviyesi</option>
-                    <option value="c1">c1 Seviyesi</option>
-                </select>
-                <select id="daySelect" onchange="loadData()"></select>
-            </div>
-
-        </header>
-
-        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı (Kelimelerin Üstünde) -->
-        <div id="sceneBanner" class="scene-banner">
-            <h3>Yükleniyor...</h3>
+            <!-- Analiz Sayfasına Yönlendiren Buton -->
+            <a href="analysis.html" class="analysis-btn">📊 Analiz Sayfası</a>
         </div>
+    </header>
 
-        <!-- İçerik Alanı -->
-        <main id="content" class="word-grid">
-            <p>Veriler yükleniyor...</p>
-        </main>
-    </div>
+    <main>
+        <h2>Hoş Geldiniz</h2>
+        <p>Yukarıdaki menüden kelime bloklarını seçebilir veya sağ üstteki butona tıklayarak <strong>Kelime & Blok Analiz Paneli</strong>'ne geçiş yapabilirsiniz.</p>
+        <div id="contentArea">
+            <!-- Ana içerikler burada yer alacak -->
+        </div>
+    </main>
 
-    <script src="app.js"></script>
+    <script>
+        function loadVocabData(value) {
+            if (!value) return;
+            console.log(value + " seçildi.");
+            // Kendi projendeki yükleme fonksiyonlarını buraya entegre edebilirsin
+        }
+    </script>
+
 </body>
 </html>
-
-
