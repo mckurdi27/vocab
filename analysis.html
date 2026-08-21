@@ -145,7 +145,6 @@
             for (let row of rows) {
                 if (!row.trim()) continue;
                 
-                // Tırnaklı CSV sütunlarını güvenle parçalayan yapı
                 let parts = [];
                 let inQuotes = false;
                 let currentField = '';
@@ -165,6 +164,7 @@
                 
                 if (parts.length >= 2) {
                     let level = parts[0].toUpperCase();
+                    // CSV'deki kelimeyi tamamen küçük harfe çevirerek harf uyumsuzluğunu önlüyoruz
                     let word = parts[1].toLowerCase();
                     
                     if (/^(A1|A2|B1|B2|C1|C2)$/.test(level) && word && word !== "kelime" && word !== "seviye") {
@@ -222,10 +222,8 @@
                 if (typeof item === 'string') {
                     wordStr = item;
                 } else if (item) {
-                    // JSON içindeki kelime alanını doğru okumak için anahtar kontrolleri
                     wordStr = item.Kelime || item.kelime || item.Word || item.word || item.term || item.madde || '';
                     if (!wordStr && typeof item === 'object') {
-                        // Eğer nesne düz metin değilse ilk string değeri bul
                         let vals = Object.values(item).filter(v => typeof v === 'string');
                         wordStr = vals[0] || JSON.stringify(item);
                     }
