@@ -19,10 +19,9 @@
         th { background: #eee; }
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-        select { padding: 8px; width: 320px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
+        select { padding: 8px; width: 350px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
         .badge-duplicate { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
         .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
-        .badge-csv-dup { background: #fef3c7; color: #b45309; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -46,9 +45,15 @@
     <div id="sourceDetails">Lütfen bir kaynak seçin.</div>
     
     <div class="input-box" style="margin-top: 15px;">
-        <label for="jsonSelect"><strong>Hedef JSON Dosyası Seçin:</strong></label>
+        <label for="jsonSelect"><strong>Hedef JSON Dosyası / Grubu:</strong></label>
         <select id="jsonSelect">
             <option value="ALL">📁 Tüm Dosyaları Tara (Tümü)</option>
+            <option value="GROUP_A1">📂 Tüm A1 Dosyaları (a100 - a150)</option>
+            <option value="GROUP_A2">📂 Tüm A2 Dosyaları (a200 - a250)</option>
+            <option value="GROUP_B1">📂 Tüm B1 Dosyaları (b100 - b150)</option>
+            <option value="GROUP_B2">📂 Tüm B2 Dosyaları (b200 - b250)</option>
+            <option value="GROUP_C1">📂 Tüm C1 Dosyaları (c100 - c150)</option>
+            <option value="GROUP_C2">📂 Tüm C2 Dosyaları (c200 - c250)</option>
         </select>
     </div>
     
@@ -87,13 +92,17 @@
         const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
         
         levels.forEach(lvl => {
+            let optGroup = document.createElement('optgroup');
+            optGroup.label = `--- ${lvl.toUpperCase()} Seviyesi Dosyaları ---`;
+            select.appendChild(optGroup);
+
             for (let i = 0; i <= 50; i++) {
                 let numStr = i < 10 ? '0' + i : i;
                 let fileName = `data/${lvl}${numStr}.json`;
                 
                 let option = document.createElement('option');
                 option.value = fileName;
-                option.text = `${lvl.toUpperCase()} Seviyesi - Dosya ${i} (${lvl}${numStr}.json)`;
+                option.text = `${lvl.toUpperCase()} - Dosya ${i} (${lvl}${numStr}.json)`;
                 select.appendChild(option);
             }
         });
@@ -132,7 +141,7 @@
         
         const statusDiv = document.getElementById('status');
         const resultArea = document.getElementById('resultArea');
-        const jsonPath = document.getElementById('jsonSelect').value;
+        const selectionVal = document.getElementById('jsonSelect').value;
         
         statusDiv.innerText = "Analiz gerçekleştiriliyor, veriler yükleniyor...";
         resultArea.innerHTML = "";
@@ -143,7 +152,7 @@
             const csvText = await csvRes.text();
             
             const cefrMap = {};
-            const csvExactDuplicates = {}; // Aynı kelime + aynı tür mükerrerliklerini takip için
+            const csvExactDuplicates = {};
             const rows = csvText.split(/\r?\n/);
             
             for (let row of rows) {
@@ -169,93 +178,71 @@
                 if (parts.length >= 3) {
                     let level = parts[0].toUpperCase();
                     let word = parts[1].toLowerCase();
-                    let posType = parts[2].toLowerCase(); // Tür (noun, verb vb.)
+                    let posType = parts[2].toLowerCase();
                     
                     if (/^(A1|A2|B1|B2|C1|C2)$/.test(level) && word && word !== "kelime" && word !== "seviye") {
                         cefrMap[word] = level;
-
-                        // Aynı kelime ve aynı tür kontrolü (Hatalı mükerrerlik analizi)
                         let uniqueKey = `${word}_${posType}`;
-                        if (!csvExactDuplicates[uniqueKey]) {
-                            csvExactDuplicates[uniqueKey] = 1;
-                        } else {
-                            csvExactDuplicates[uniqueKey]++;
-                        }
+                        csvExactDuplicates[uniqueKey] = (csvExactDuplicates[uniqueKey] || 0) + 1;
                     }
                 }
             }
 
-            // Hatalı CSV mükerrerlerini filtrele (birden fazla geçenler aynı kelime + aynı tür olanlar)
             const exactDupList = Object.keys(csvExactDuplicates).filter(k => csvExactDuplicates[k] > 1);
 
             let wordTracking = {};
             let totalCheckedCount = 0;
+            let filesToFetch = [];
 
-            if (jsonPath === 'ALL') {
+            // Seçim Türüne Göre Dosya Listesini Belirleme
+            if (selectionVal === 'ALL') {
                 const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
-                for (let lvl of levels) {
+                levels.forEach(lvl => {
                     for (let i = 0; i <= 50; i++) {
                         let numStr = i < 10 ? '0' + i : i;
-                        let fName = `data/${lvl}${numStr}.json`;
-                        try {
-                            const res = await fetch(fName);
-                            if (res.ok) {
-                                const data = await res.json();
-                                let list = [];
-                                if (Array.isArray(data)) {
-                                    list = data;
-                                } else if (data.words && Array.isArray(data.words)) {
-                                    list = data.words;
-                                } else if (data.kelimeler && Array.isArray(data.kelimeler)) {
-                                    list = data.kelimeler;
-                                }
-
-                                list.forEach(item => {
-                                    let wObj = extractWordDetails(item);
-                                    if (wObj.word) {
-                                        let cleanW = wObj.word.trim().toLowerCase();
-                                        totalCheckedCount++;
-                                        if (!wordTracking[cleanW]) {
-                                            wordTracking[cleanW] = { original: wObj.word, details: wObj, files: [] };
-                                        }
-                                        if (!wordTracking[cleanW].files.includes(fName)) {
-                                            wordTracking[cleanW].files.push(fName);
-                                        }
-                                    }
-                                });
-                            }
-                        } catch (e) {}
-                    }
-                }
-            } else {
-                const jsonRes = await fetch(jsonPath);
-                if (!jsonRes.ok) throw new Error(`${jsonPath} dosyası depoda bulunamadı.`);
-                const jsonData = await jsonRes.json();
-
-                let list = [];
-                if (Array.isArray(jsonData)) {
-                    list = jsonData;
-                } else if (jsonData.words && Array.isArray(jsonData.words)) {
-                    list = jsonData.words;
-                } else if (jsonData.kelimeler && Array.isArray(jsonData.kelimeler)) {
-                    list = jsonData.kelimeler;
-                } else {
-                    list = Object.keys(jsonData);
-                }
-
-                list.forEach(item => {
-                    let wObj = extractWordDetails(item);
-                    if (wObj.word) {
-                        let cleanW = wObj.word.trim().toLowerCase();
-                        totalCheckedCount++;
-                        if (!wordTracking[cleanW]) {
-                            wordTracking[cleanW] = { original: wObj.word, details: wObj, files: [] };
-                        }
-                        if (!wordTracking[cleanW].files.includes(jsonPath)) {
-                            wordTracking[cleanW].files.push(jsonPath);
-                        }
+                        filesToFetch.push(`data/${lvl}${numStr}.json`);
                     }
                 });
+            } else if (selectionVal.startsWith('GROUP_')) {
+                let targetLvl = selectionVal.replace('GROUP_', '').toLowerCase();
+                for (let i = 0; i <= 50; i++) {
+                    let numStr = i < 10 ? '0' + i : i;
+                    filesToFetch.push(`data/${targetLvl}${numStr}.json`);
+                }
+            } else {
+                filesToFetch.push(selectionVal);
+            }
+
+            // Dosyaları Dön ve Verileri Topla
+            for (let fName of filesToFetch) {
+                try {
+                    const res = await fetch(fName);
+                    if (res.ok) {
+                        const data = await res.json();
+                        let list = [];
+                        if (Array.isArray(data)) {
+                            list = data;
+                        } else if (data.words && Array.isArray(data.words)) {
+                            list = data.words;
+                        } else if (data.kelimeler && Array.isArray(data.kelimeler)) {
+                            list = data.kelimeler;
+                        }
+
+                        list.forEach(item => {
+                            let wObj = extractWordDetails(item);
+                            if (wObj.word) {
+                                let cleanW = wObj.word.trim().toLowerCase();
+                                totalCheckedCount++;
+                                if (!wordTracking[cleanW]) {
+                                    wordTracking[cleanW] = { original: wObj.word, details: wObj, files: [] };
+                                }
+                                if (!wordTracking[cleanW].files.includes(fName)) {
+                                    wordTracking[cleanW].files.push(fName);
+                                }
+                            }
+                        });
+                    }
+                } catch (e) {}
             }
 
             statusDiv.innerText = `✅ Analiz tamamlandı. Toplam ${totalCheckedCount} kayıt incelendi. CSV'de aynı kelime+tür çakışma sayısı: ${exactDupList.length}`;
@@ -305,8 +292,15 @@
             }
 
             let uniqueKeysCount = Object.keys(wordTracking).length;
-
-            let tableHeaderHtml = `
+            let tableHeaderHtml = (state.task === 'cevir') ? `
+                <tr>
+                    <th style="width: 50px;">#</th>
+                    <th>Kelime / Madde</th>
+                    <th>CEFR Seviyesi</th>
+                    <th>Anlam / Çeviri</th>
+                    <th>Geçtiği Dosyalar / Durum</th>
+                </tr>
+            ` : `
                 <tr>
                     <th style="width: 50px;">#</th>
                     <th>Kelime / Madde</th>
@@ -314,18 +308,6 @@
                     <th>Geçtiği Dosyalar / Durum</th>
                 </tr>
             `;
-
-            if (state.task === 'cevir') {
-                tableHeaderHtml = `
-                    <tr>
-                        <th style="width: 50px;">#</th>
-                        <th>Kelime / Madde</th>
-                        <th>CEFR Seviyesi</th>
-                        <th>Anlam / Çeviri</th>
-                        <th>Geçtiği Dosyalar / Durum</th>
-                    </tr>
-                `;
-            }
 
             resultArea.innerHTML = `
                 <h4>📊 Analiz ve Mükerrer Kontrol Özeti</h4>
@@ -349,12 +331,8 @@
                 <h4>📝 Detaylı Liste</h4>
                 <div style="max-height: 450px; overflow-y: auto;">
                     <table>
-                        <thead>
-                            ${tableHeaderHtml}
-                        </thead>
-                        <tbody>
-                            ${tableRows}
-                        </tbody>
+                        <thead>${tableHeaderHtml}</thead>
+                        <tbody>${tableRows}</tbody>
                     </table>
                 </div>
             `;
