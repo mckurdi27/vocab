@@ -1,3 +1,26 @@
+# Proje Adı
+
+Projenizin kısa açıklaması buraya gelecek.
+
+## 📂 Proje Dosya ve Klasör Yapısı
+
+Projenin kök dizininde bulunan klasörler ve dosyaların genel hiyerarşisi şu şekildedir:
+
+```text
+proje-koku/
+├── analiz/             # Analiz işlemlerine ait alt dosyalar
+                        cefra1.csv 
+├── data/               # JSON veri dosyalarının bulunduğu klasör
+
+├── PDF/                # PDF dokümanlarının saklandığı klasör
+
+├── analiz.html         # Analiz arayüzü / ekranı
+├── app.js              # Ana JavaScript işlevleri
+├── index.html          # Ana giriş sayfası
+├── style.html / .css   # Stil ve tasarım dosyaları
+└── README.md           # Proje dokümantasyonu
+
+
 #Aşağıdaki sitede kelimeleri kullan:.
 
 kelimelog.com/oxford-5000-kelime-listesi
