@@ -1,13 +1,8 @@
-# Proje Adı
-
-Projenizin kısa açıklaması buraya gelecek.
-
-## 📂 Proje Dosya ve Klasör Yapısı
+# 📂 Proje Dosya ve Klasör Yapısı
 
 Projenin kök dizininde bulunan klasörler ve dosyaların genel hiyerarşisi şu şekildedir:
 
-```text
-proje-koku/
+```vocab/
 ├── analiz/             # Analiz işlemlerine ait alt dosyalar
                         cefra1.csv cefra2.csv cefrb1.csv cefrb2.csv cefrc1.csv cefrc2.csv.     
                         cefra1.json
