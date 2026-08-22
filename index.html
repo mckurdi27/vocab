@@ -148,12 +148,10 @@
         let globalWordMap = {};
         let allDaysFiles = [];
 
-        // 1. Uygulama Başlangıcı (data/days.json olarak güncellendi)
+        // 1. Uygulama Başlangıcı (data/days.json olarak ayarlandı)
         async function initApp() {
             try {
                 const response = await fetch('data/days.json');
-                if (!response.ok) throw new Error("days.json bulunamadı");
-                
                 const data = await response.json();
                 
                 // Dosya yollarının başında 'data/' olduğundan emin olunuyor
@@ -195,7 +193,7 @@
                         if (!globalWordMap[wordKey]) {
                             globalWordMap[wordKey] = [];
                         }
-                        // Kelimenin geçtiği dosyayı listeye ekle
+                        // Kelimenin geçtiği dosyayı listeye ekle (aynı dosyada birden fazla eklenmesin)
                         if (!globalWordMap[wordKey].includes(file)) {
                             globalWordMap[wordKey].push(file);
                         }
