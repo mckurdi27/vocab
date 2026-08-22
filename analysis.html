@@ -17,12 +17,10 @@
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
         th { background: #f1f5f9; color: #0f172a; user-select: none; }
-        th.sortable:hover { background: #e2e8f0; cursor: pointer; }
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
         select, input[type="file"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
         select { width: 380px; }
-        .badge-duplicate { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
         .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; display: none; }
         .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; }
@@ -52,8 +50,7 @@
     <div id="siteInputArea" class="input-box" style="margin-top: 15px; display: flex;">
         <label for="jsonSelect"><strong>Hedef JSON Dosyası / Grubu:</strong></label>
         <select id="jsonSelect">
-            <option value="ALL">📁 Tüm Dosyaları Tara (100 Dosya)</option>
-            <!-- Javascript ile dinamik olarak a0.json ... a99.json seçenekleri eklenecektir -->
+            <option value="ALL">📁 Tüm Dosyaları Tara (100+ Dosya)</option>
         </select>
     </div>
 
@@ -222,9 +219,9 @@ by,A1,tarafından / yanında`
     };
 
     window.addEventListener('DOMContentLoaded', () => {
-        // 100 dosya seçeneğini select kutusuna doldur
         const selectEl = document.getElementById('jsonSelect');
-        for (let i = 0; i < 100; i++) {
+        
+        for (let i = 100; i < 150; i++) {
             let opt = document.createElement('option');
             opt.value = `data/a${i}.json`;
             opt.textContent = `data/a${i}.json`;
@@ -237,7 +234,7 @@ by,A1,tarafından / yanında`
     });
 
     let state = { source: 'site', task: 'kelimeler' };
-    let globalTableData = []; // Sıralama işlemleri için global veri tutucu
+    let globalTableData = [];
 
     function setSource(s, btn) {
         state.source = s;
@@ -338,8 +335,8 @@ by,A1,tarafından / yanında`
             const selectedTarget = document.getElementById('jsonSelect').value;
 
             if (selectedTarget === "ALL") {
-                statusDiv.innerText = "data/ klasöründeki 100 dosya taranıyor...";
-                for (let i = 0; i < 100; i++) {
+                statusDiv.innerText = "data/ klasöründeki dosyalar taranıyor...";
+                for (let i = 100; i < 150; i++) {
                     let fileName = `data/a${i}.json`;
                     try {
                         let res = await fetch(fileName);
@@ -361,17 +358,7 @@ by,A1,tarafından / yanında`
             }
 
             if (rawJsonDataArray.length === 0) {
-                rawJsonDataArray.push({
-                    sourceName: "ornek_veri.json",
-                    data: {
-                        story_en: "A cat and a dog play in the garden. The sun is shining and the children eat an apple and a banana.",
-                        words: [
-                            { word: "cat", type: "noun", turkish: "kedi", example_en: "The cat is black." },
-                            { word: "dog", type: "noun", turkish: "köpek", example_en: "A big dog." },
-                            { word: "apple", type: "noun", turkish: "elma", example_en: "Eat an apple." }
-                        ]
-                    }
-                });
+                throw new Error("Seçilen JSON dosyası(arı) bulunamadı veya boş.");
             }
 
             let itemTracking = {};
@@ -493,7 +480,6 @@ by,A1,tarafından / yanında`
                 <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
             </div>
 
-            <!-- A'dan Z'ye Sıralama Butonları -->
             <div class="sort-controls">
                 <span style="font-size: 13px; font-weight: bold; color: #475569;">🔤 Sıralama Seçenekleri:</span>
                 <button type="button" onclick="sortTableData('az')" style="padding: 6px 12px; font-size: 12px; background: #e0e7ff; border: 1px solid #c7d2fe; border-radius: 4px;">Kelime (A-Z)</button>
@@ -521,7 +507,6 @@ by,A1,tarafından / yanında`
             globalTableData.sort((a, b) => a.level.localeCompare(b.level));
         }
 
-        // Mevcut sayım ve filtreleri kaybetmeden tabloyu yeniden çizmek için mevcut istatistikleri topla
         let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
         globalTableData.forEach(item => {
             if (levelCounts[item.level] !== undefined) levelCounts[item.level]++;
