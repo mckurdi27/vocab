@@ -21,13 +21,14 @@
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
         select, input[type="file"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
-        select { width: 350px; }
+        select { width: 380px; }
         .badge-duplicate { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
         .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; display: none; }
         .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; }
         .csv-checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 5px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
         .csv-checkbox-group label { display: flex; align-items: center; gap: 6px; font-weight: 500; cursor: pointer; font-size: 14px; }
+        .sort-controls { margin-top: 12px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
     </style>
 </head>
 <body>
@@ -42,7 +43,7 @@
 <div class="section">
     <h3>1. Kaynak ve Kapsam Seçimi</h3>
     <div class="btn-group" id="sourceBtnGroup">
-        <button onclick="setSource('site', this)">🌐 Site (GitHub Verileri)</button>
+        <button onclick="setSource('site', this)" class="active-btn">🌐 Site (GitHub Verileri)</button>
         <button onclick="setSource('harici', this)">🔗 Harici Dosya</button>
         <button onclick="setSource('foto', this)">🖼️ Fotoğraf (OCR)</button>
     </div>
@@ -51,7 +52,8 @@
     <div id="siteInputArea" class="input-box" style="margin-top: 15px; display: flex;">
         <label for="jsonSelect"><strong>Hedef JSON Dosyası / Grubu:</strong></label>
         <select id="jsonSelect">
-            <option value="ALL">📁 Tüm Dosyaları Tara (100+ Dosya)</option>
+            <option value="ALL">📁 Tüm Dosyaları Tara (100 Dosya)</option>
+            <!-- Javascript ile dinamik olarak a0.json ... a99.json seçenekleri eklenecektir -->
         </select>
     </div>
 
@@ -89,16 +91,16 @@
     <h3>2. İşlem Türü (Analiz Modu)</h3>
     <div class="btn-group">
         <button onclick="setTask('hikaye', this)">📖 Hikaye Metni Analizi (story_en)</button>
-        <button onclick="setTask('kelimeler', this)">📋 50 Kelime Listesi Analizi (words)</button>
+        <button onclick="setTask('kelimeler', this)" class="active-btn">📋 50 Kelime Listesi Analizi (words)</button>
         <button onclick="setTask('cevir', this)">🔤 Çeviri / Sözlük Detayı</button>
     </div>
-    <div id="taskDetails" style="font-size: 13px; color: #555;">Mod: JSON içerisindeki "story_en" hikaye metni kelime bazlı taranır.</div>
+    <div id="taskDetails" style="font-size: 13px; color: #555;">Mod: Sahneye ait bağımsız "words" listesindeki kelimeler incelenir.</div>
 </div>
 
 <div class="section">
     <h3>3. Analiz Sonucu</h3>
     <button onclick="runAnalysis()" style="background: #4f46e5; color: white; font-weight: bold; padding: 12px 20px; border: none; border-radius: 6px; cursor:pointer;">🚀 Analizi Çalıştır</button>
-    <div id="status" class="status-bar">Sistem hazır. Tüm 100 dosya taranmaya hazır.</div>
+    <div id="status" class="status-bar">Sistem hazır.</div>
     <div id="resultArea" style="margin-top:20px;"></div>
 </div>
 
@@ -220,12 +222,22 @@ by,A1,tarafından / yanında`
     };
 
     window.addEventListener('DOMContentLoaded', () => {
+        // 100 dosya seçeneğini select kutusuna doldur
+        const selectEl = document.getElementById('jsonSelect');
+        for (let i = 0; i < 100; i++) {
+            let opt = document.createElement('option');
+            opt.value = `data/a${i}.json`;
+            opt.textContent = `data/a${i}.json`;
+            selectEl.appendChild(opt);
+        }
+
         document.querySelectorAll('input[name="csvFile"]').forEach(cb => {
             cb.addEventListener('change', updateCsvSelectionInfo);
         });
     });
 
-    let state = { source: 'site', task: 'hikaye' };
+    let state = { source: 'site', task: 'kelimeler' };
+    let globalTableData = []; // Sıralama işlemleri için global veri tutucu
 
     function setSource(s, btn) {
         state.source = s;
@@ -285,7 +297,7 @@ by,A1,tarafından / yanında`
         
         const statusDiv = document.getElementById('status');
         const resultArea = document.getElementById('resultArea');
-        statusDiv.innerText = "CSV sözlükleri ve 100 dosya taranıyor, lütfen bekleyin...";
+        statusDiv.innerText = "Sözlükler ve hedef veriler taranıyor, lütfen bekleyin...";
         resultArea.innerHTML = "";
         
         try {
@@ -323,20 +335,27 @@ by,A1,tarafından / yanında`
             }
 
             let rawJsonDataArray = [];
-            
-            statusDiv.innerText = "data/ klasöründeki 100 dosya taranıyor...";
+            const selectedTarget = document.getElementById('jsonSelect').value;
 
-            // 0'dan 200'e kadar olan tüm olası dosya isimlerini (a0, a1, ..., a100, a101 ...) kapsayacak şekilde genişletildi
-            for (let i = 0; i <= 200; i++) {
-                let fileName = `data/a${i}.json`;
+            if (selectedTarget === "ALL") {
+                statusDiv.innerText = "data/ klasöründeki 100 dosya taranıyor...";
+                for (let i = 0; i < 100; i++) {
+                    let fileName = `data/a${i}.json`;
+                    try {
+                        let res = await fetch(fileName);
+                        if (res.ok) {
+                            let jsonData = await res.json();
+                            rawJsonDataArray.push({ sourceName: `a${i}.json`, data: jsonData });
+                        }
+                    } catch (e) {}
+                }
+            } else {
+                statusDiv.innerText = `${selectedTarget} dosyası taranıyor...`;
                 try {
-                    let res = await fetch(fileName);
+                    let res = await fetch(selectedTarget);
                     if (res.ok) {
                         let jsonData = await res.json();
-                        rawJsonDataArray.push({
-                            sourceName: `a${i}.json`,
-                            data: jsonData
-                        });
+                        rawJsonDataArray.push({ sourceName: selectedTarget.split('/').pop(), data: jsonData });
                     }
                 } catch (e) {}
             }
@@ -394,7 +413,6 @@ by,A1,tarafından / yanında`
                                     original: wordStr.trim(), 
                                     type: (item.type || '-'),
                                     turkish: (item.turkish || '-'),
-                                    example_en: (item.example_en || ''),
                                     files: [] 
                                 };
                             }
@@ -406,65 +424,111 @@ by,A1,tarafından / yanında`
                 }
             });
 
-            statusDiv.innerText = `✅ Başarıyla tamamlandı! Bulunan Dosya: ${rawJsonDataArray.length} adet. Toplam taranan birim: ${totalCheckedCount}.`;
+            statusDiv.innerText = `✅ Başarıyla tamamlandı! İncelenen Birim: ${totalCheckedCount}.`;
 
-            let tableRows = '';
+            globalTableData = [];
             let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
-            let index = 1;
 
             for (let cleanW in itemTracking) {
                 let info = itemTracking[cleanW];
                 let level = cefrMap[cleanW] || 'Bilinmiyor';
-                
                 if (levelCounts[level] !== undefined) levelCounts[level]++;
                 else levelCounts['Bilinmiyor']++;
 
-                let fileBadge = `<span class="badge-unique">✔ ${info.files.length} dosya</span>`;
-
-                if (state.task === 'hikaye') {
-                    tableRows += `<tr><td>${index++}</td><td><strong>${info.original}</strong></td><td>${level}</td><td><strong>${info.count}</strong></td><td>${fileBadge}</td></tr>`;
-                } else {
-                    tableRows += `<tr><td>${index++}</td><td><strong>${info.original}</strong></td><td>${level}</td><td><code>${info.type || '-'}</code></td><td>${info.turkish || '-'}</td><td>${fileBadge}</td></tr>`;
-                }
+                globalTableData.push({
+                    original: info.original,
+                    level: level,
+                    count: info.count || 1,
+                    type: info.type || '-',
+                    turkish: info.turkish || '-',
+                    filesCount: info.files.length
+                });
             }
 
-            let uniqueKeysCount = Object.keys(itemTracking).length;
-            let tableHeaderHtml = (state.task === 'hikaye') ? `
-                <tr>
-                    <th style="width:50px;">#</th>
-                    <th class="sortable">Hikaye Kelimesi ↕<br><input type="text" id="f1" class="filter-input" placeholder="Ara..." onkeyup="filterTable()"></th>
-                    <th class="sortable">CEFR Seviyesi ↕</th>
-                    <th class="sortable">Frekans ↕</th>
-                    <th>Kaynak</th>
-                </tr>` : `
-                <tr>
-                    <th style="width:50px;">#</th>
-                    <th class="sortable">Kelime ↕<br><input type="text" id="f1" class="filter-input" placeholder="Ara..." onkeyup="filterTable()"></th>
-                    <th class="sortable">Seviye ↕</th>
-                    <th>Tür</th>
-                    <th>Türkçe Anlamı</th>
-                    <th>Kaynak</th>
-                </tr>`;
-
-            resultArea.innerHTML = `
-                <h4>📊 ${state.task.toUpperCase()} Analiz Özeti (${rawJsonDataArray.length} Dosya Tarandı)</h4>
-                <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
-                    <div style="background: #f3f4f6; padding: 10px 14px; border-radius: 6px;">İncelenen Kelime: <strong>${totalCheckedCount}</strong></div>
-                    <div style="background: #e0f2fe; padding: 10px 14px; border-radius: 6px;">Benzersiz: <strong>${uniqueKeysCount}</strong></div>
-                    <div style="background: #d1fae5; padding: 10px 14px; border-radius: 6px;">A1 Seviye: <strong>${levelCounts['A1']}</strong></div>
-                    <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
-                </div>
-                <div style="max-height: 450px; overflow-y: auto;">
-                    <table id="analysisTable">
-                        <thead>${tableHeaderHtml}</thead>
-                        <tbody>${tableRows}</tbody>
-                    </table>
-                </div>
-            `;
+            renderTable(globalTableData, totalCheckedCount, rawJsonDataArray.length, levelCounts);
 
         } catch (err) {
             statusDiv.innerText = "❌ Hata: " + err.message;
         }
+    }
+
+    function renderTable(dataArray, totalCheckedCount, fileCount, levelCounts) {
+        const resultArea = document.getElementById('resultArea');
+        let tableRows = '';
+        
+        dataArray.forEach((item, index) => {
+            let fileBadge = `<span class="badge-unique">✔ ${item.filesCount} dosya</span>`;
+            if (state.task === 'hikaye') {
+                tableRows += `<tr><td>${index + 1}</td><td><strong>${item.original}</strong></td><td>${item.level}</td><td><strong>${item.count}</strong></td><td>${fileBadge}</td></tr>`;
+            } else {
+                tableRows += `<tr><td>${index + 1}</td><td><strong>${item.original}</strong></td><td>${item.level}</td><td><code>${item.type}</code></td><td>${item.turkish}</td><td>${fileBadge}</td></tr>`;
+            }
+        });
+
+        let tableHeaderHtml = (state.task === 'hikaye') ? `
+            <tr>
+                <th style="width:50px;">#</th>
+                <th>Hikaye Kelimesi<br><input type="text" id="f1" class="filter-input" placeholder="Ara..." onkeyup="filterTable()"></th>
+                <th>CEFR Seviyesi</th>
+                <th>Frekans</th>
+                <th>Kaynak</th>
+            </tr>` : `
+            <tr>
+                <th style="width:50px;">#</th>
+                <th>Kelime<br><input type="text" id="f1" class="filter-input" placeholder="Ara..." onkeyup="filterTable()"></th>
+                <th>Seviye</th>
+                <th>Tür</th>
+                <th>Türkçe Anlamı</th>
+                <th>Kaynak</th>
+            </tr>`;
+
+        let uniqueKeysCount = dataArray.length;
+
+        resultArea.innerHTML = `
+            <h4>📊 ${state.task.toUpperCase()} Analiz Özeti (${fileCount} Dosya İncelendi)</h4>
+            <div style="display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
+                <div style="background: #f3f4f6; padding: 10px 14px; border-radius: 6px;">İncelenen Kelime: <strong>${totalCheckedCount}</strong></div>
+                <div style="background: #e0f2fe; padding: 10px 14px; border-radius: 6px;">Benzersiz: <strong>${uniqueKeysCount}</strong></div>
+                <div style="background: #d1fae5; padding: 10px 14px; border-radius: 6px;">A1 Seviye: <strong>${levelCounts['A1']}</strong></div>
+                <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
+            </div>
+
+            <!-- A'dan Z'ye Sıralama Butonları -->
+            <div class="sort-controls">
+                <span style="font-size: 13px; font-weight: bold; color: #475569;">🔤 Sıralama Seçenekleri:</span>
+                <button type="button" onclick="sortTableData('az')" style="padding: 6px 12px; font-size: 12px; background: #e0e7ff; border: 1px solid #c7d2fe; border-radius: 4px;">Kelime (A-Z)</button>
+                <button type="button" onclick="sortTableData('za')" style="padding: 6px 12px; font-size: 12px; background: #e0e7ff; border: 1px solid #c7d2fe; border-radius: 4px;">Kelime (Z-A)</button>
+                <button type="button" onclick="sortTableData('level')" style="padding: 6px 12px; font-size: 12px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px;">Seviyeye Göre</button>
+            </div>
+
+            <div style="max-height: 450px; overflow-y: auto; margin-top: 10px;">
+                <table id="analysisTable">
+                    <thead>${tableHeaderHtml}</thead>
+                    <tbody>${tableRows}</tbody>
+                </table>
+            </div>
+        `;
+    }
+
+    function sortTableData(criteria) {
+        if (!globalTableData || globalTableData.length === 0) return;
+
+        if (criteria === 'az') {
+            globalTableData.sort((a, b) => a.original.localeCompare(b.original));
+        } else if (criteria === 'za') {
+            globalTableData.sort((a, b) => b.original.localeCompare(a.original));
+        } else if (criteria === 'level') {
+            globalTableData.sort((a, b) => a.level.localeCompare(b.level));
+        }
+
+        // Mevcut sayım ve filtreleri kaybetmeden tabloyu yeniden çizmek için mevcut istatistikleri topla
+        let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
+        globalTableData.forEach(item => {
+            if (levelCounts[item.level] !== undefined) levelCounts[item.level]++;
+            else levelCounts['Bilinmiyor']++;
+        });
+
+        renderTable(globalTableData, globalTableData.reduce((acc, curr) => acc + curr.count, 0), 1, levelCounts);
     }
 
     function filterTable() {
