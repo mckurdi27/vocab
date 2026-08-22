@@ -109,16 +109,17 @@
     </div>
 
     <div class="source-panel" id="panel-text-pdf">
-        <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #cbd5e1; display: flex; flexDirection: column; gap: 12px;">
+        <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #cbd5e1; display: flex; flex-direction: column; gap: 12px;">
             <div>
                 <label style="font-weight: bold; font-size: 13px; display: block; margin-bottom: 5px;">A) Doğrudan Metin Yapıştır / Yaz:</label>
                 <textarea id="directTextArea" rows="4" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 4px; padding: 8px;" placeholder="Analiz edilmesini istediğiniz metni buraya yapıştırın..."></textarea>
             </div>
             <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 0;">
             <div>
-                <label style="font-weight: bold; font-size: 13px; display: block; margin-bottom: 5px;">B) PDF Dosyasından Belirli Bir Sayfayı Tara:</label>
+                <label style="font-weight: bold; font-size: 13px; display: block; margin-bottom: 5px;">B) PDF Dosyası Seç (Çoklu Seçim Yapabilirsiniz):</label>
                 <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                    <input type="file" id="pdfFileInput" accept=".pdf" style="font-size: 12px;">
+                    <!-- multiple özelliği ile birden fazla PDF dosyası aynı anda seçilebilir -->
+                    <input type="file" id="pdfFileInput" accept=".pdf" multiple style="font-size: 12px;">
                     <label style="font-size: 12px;">Sayfa No: <input type="number" id="pdfPageNumInput" value="1" min="1" style="width: 60px; padding: 4px;"></label>
                     <button type="button" onclick="handlePdfPageExtract()" style="background: #4f46e5; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; cursor: pointer;">PDF Sayfasını Metne Çevir</button>
                 </div>
@@ -247,31 +248,35 @@
         const pageNumInput = document.getElementById('pdfPageNumInput');
         const statusEl = document.getElementById('pdfStatus');
 
-        if (!fileInput.files || !fileInput.files[0]) {
-            alert("Lütfen önce bir PDF dosyası seçin!");
+        if (!fileInput.files || fileInput.files.length === 0) {
+            alert("Lütfen önce en az bir PDF dosyası seçin!");
             return;
         }
 
-        let file = fileInput.files[0];
         let targetPageNum = parseInt(pageNumInput.value) || 1;
-        statusEl.innerText = `⏳ PDF okunuyor (${targetPageNum}. sayfa)...`;
+        statusEl.innerText = `⏳ Seçilen PDF'ler okunuyor (${targetPageNum}. sayfa)...`;
 
         try {
-            let arrayBuffer = await file.arrayBuffer();
-            let loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
-            let pdfDoc = await loadingTask.promise;
+            let combinedTexts = [];
+            // Çoklu seçilen tüm PDF dosyalarını döngüye alıp metinlerini birleştiriyoruz
+            for (let i = 0; i < fileInput.files.length; i++) {
+                let file = fileInput.files[i];
+                let arrayBuffer = await file.arrayBuffer();
+                let loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+                let pdfDoc = await loadingTask.promise;
 
-            if (targetPageNum > pdfDoc.numPages) {
-                statusEl.innerText = `❌ Hata: Bu PDF toplamda ${pdfDoc.numPages} sayfa!`;
-                return;
+                if (targetPageNum <= pdfDoc.numPages) {
+                    let page = await pdfDoc.getPage(targetPageNum);
+                    let textContent = await page.getTextContent();
+                    let pageText = textContent.items.map(item => item.str).join(' ');
+                    combinedTexts.push(`--- Dosya: ${file.name} --- \n` + pageText);
+                } else {
+                    combinedTexts.push(`--- Dosya: ${file.name} (Bu PDF toplam ${pdfDoc.numPages} sayfa, bu sayfada içerik yok) ---`);
+                }
             }
 
-            let page = await pdfDoc.getPage(targetPageNum);
-            let textContent = await page.getTextContent();
-            let pageText = textContent.items.map(item => item.str).join(' ');
-
-            state.customExtractedText = pageText;
-            statusEl.innerText = `✅ PDF ${targetPageNum}. sayfa başarıyla okundu! Metin belleğe alındı.`;
+            state.customExtractedText = combinedTexts.join('\n\n');
+            statusEl.innerText = `✅ Toplam ${fileInput.files.length} PDF dosyasının ${targetPageNum}. sayfası başarıyla okundu!`;
         } catch (err) {
             statusEl.innerText = "❌ PDF Okuma Hatası: " + err.message;
         }
@@ -379,13 +384,13 @@
 
                         if (!itemTracking[cleanW]) {
                             itemTracking[cleanW] = { 
-                                original: cleanW, count: 0, files: ['PDF_veya_Metin_Girdisi'], fileOccurrences: [],
+                                original: cleanW, count: 0, files: ['Coklu_PDF_Girdisi'], fileOccurrences: [],
                                 level: finalLevel, jsonLevel: 'Özel', csvMatched: csvMatched,
                                 type: '-', turkish: csvMatched ? globalCsvDictionary[cleanW].turkish : '-'
                             };
                         }
                         itemTracking[cleanW].count++;
-                        itemTracking[cleanW].fileOccurrences.push({ file: 'PDF_veya_Metin_Girdisi', index: wordIndex + 1 });
+                        itemTracking[cleanW].fileOccurrences.push({ file: 'Coklu_PDF_Girdisi', index: wordIndex + 1 });
                     }
                 });
             } else {
@@ -533,7 +538,7 @@
                         original: info.original, level: lvl, jsonLevel: info.jsonLevel, csvMatched: info.csvMatched,
                         type: info.type || '-', turkish: info.turkish || '-', count: info.count || 1,
                         example_en: info.example_en || '', filesCount: info.files ? info.files.length : 1,
-                        filesList: info.files ? info.files.sort().join(', ') : 'PDF_veya_Metin_Girdisi',
+                        filesList: info.files ? info.files.sort().join(', ') : 'Coklu_PDF_Girdisi',
                         fileOccurrences: info.fileOccurrences || [],
                         occurrences: info.fileOccurrences ? info.fileOccurrences.map(fo => ({ file: fo.file, index: fo.index, turkish: info.turkish, example_en: info.example_en })) : []
                     });
