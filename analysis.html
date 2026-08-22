@@ -19,20 +19,24 @@
         table { width: 100%; border-collapse: collapse; background: white; }
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
         
-        th { background: #f1f5f9; color: #0f172a; user-select: none; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1); }
-        th.sortable { cursor: pointer; transition: background 0.2s; }
-        th.sortable:hover { background: #e2e8f0; }
+        th { background: #f1f5f9; color: #0f172a; user-select: none; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1); vertical-align: top; }
+        
+        /* Büyük ve Kolay Dokunulabilir Sıralama Satırı Butonları */
+        .sort-trigger-btn { display: block; width: 100%; padding: 6px 8px; margin-bottom: 6px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px; font-weight: bold; color: #4f46e5; cursor: pointer; text-align: center; transition: background 0.2s, border-color 0.2s; }
+        .sort-trigger-btn:hover { background: #e0e7ff; border-color: #6366f1; }
         
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
         select, input[type="file"] { padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff; }
         select { width: 380px; }
-        .badge-unique { background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; display: inline-block; }
+        
+        .badge-unique { background: #e0f2fe; color: #0369a1; padding: 3px 6px; border-radius: 4px; font-weight: 600; font-size: 11px; display: inline-block; margin: 2px; border: 1px solid #bae6fd; }
         .badge-diff { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; display: inline-block; margin-left: 5px; }
         .badge-dup { background: #fee2e2; color: #dc2626; padding: 3px 6px; border-radius: 4px; font-weight: 600; font-size: 11px; display: inline-block; margin: 2px; border: 1px solid #fecaca; }
+        
         .file-list-tag { background: #f1f5f9; color: #334155; padding: 2px 6px; border-radius: 4px; font-size: 11px; display: inline-block; margin: 1px; font-family: monospace; border: 1px solid #e2e8f0; }
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; }
-        .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; background: #fff; }
+        .filter-input { width: 90%; padding: 5px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; background: #fff; }
         .sticky-summary { position: sticky; top: 0; z-index: 20; background: #ffffff; padding: 10px 0; border-bottom: 2px solid #e2e8f0; }
         
         .csv-checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 8px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
@@ -336,7 +340,7 @@
                                     turkish: (item.turkish || item.Anlam || (globalCsvDictionary[cleanW] ? globalCsvDictionary[cleanW].turkish : '-')).replace(/\s+/g, ' '),
                                     example_en: (item.example_en || '').replace(/\s+/g, ' '),
                                     files: [], 
-                                    fileOccurrences: [], // Hangi dosyada kaçıncı sırada geçtiğini tutmak için dizi
+                                    fileOccurrences: [],
                                     level: finalLevel,
                                     jsonLevel: jsonFileLevel,
                                     csvMatched: csvMatched
@@ -346,7 +350,6 @@
                             if (!itemTracking[cleanW].files.includes(fName)) {
                                 itemTracking[cleanW].files.push(fName);
                             }
-                            // Her geçiş için dosya adı ve sıra numarasını kaydediyoruz
                             itemTracking[cleanW].fileOccurrences.push({ file: fName, index: itemIndex + 1 });
                         }
                     });
@@ -449,11 +452,14 @@
                     </td>
                 </tr>`;
             } else if (state.task === 'kelimeler') {
-                // Tekrar ettiği dosyaları ve sıra numaralarını yan yana badge olarak listeleme
+                // 1 kere geçiyorsa Mavi (badge-unique), birden fazla geçiyorsa Kırmızı (badge-dup)
                 let duplicateDetailsHtml = '-';
                 if (item.fileOccurrences && item.fileOccurrences.length > 0) {
+                    let isMultiple = item.fileOccurrences.length > 1;
+                    let badgeClass = isMultiple ? 'badge-dup' : 'badge-unique';
+                    
                     duplicateDetailsHtml = item.fileOccurrences.map(occ => 
-                        `<span class="badge-dup">${occ.file} (Sıra: ${occ.index})</span>`
+                        `<span class="${badgeClass}">${occ.file} (Sıra: ${occ.index})</span>`
                     ).join(' ');
                 }
 
@@ -464,7 +470,7 @@
                     <td><code>${item.type}</code></td>
                     <td>${item.turkish}</td>
                     <td style="text-align: center;"><span class="badge-unique">${item.filesCount} Dosya</span></td>
-                    <td>${duplicateDetailsHtml}</td> <!-- Güncellenen sütun içeriği -->
+                    <td>${duplicateDetailsHtml}</td>
                     <td>
                         <div class="file-tags-wrapper">${fileTagsHtml}</div>
                         <div style="font-size: 11px; color: #64748b; margin-top: 4px; font-weight: 500;">Toplam Dosya: <span>${item.filesCount}</span></div>
@@ -490,32 +496,73 @@
             tableHeaderHtml = `
                 <tr>
                     <th style="width:50px;">#</th>
-                    <th class="sortable" onclick="handleSort('original')">Hikaye Kelimesi${getArrow('original')}<br><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                    <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                    <th class="sortable" onclick="handleSort('count')">Frekans${getArrow('count')}</th>
-                    <th>Bulunduğu Dosyalar (Toplam: ${totalFilesOccurrencesSum})<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('original')">Hikaye Kelimesi ${getArrow('original')}</button>
+                        <input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()">
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('level')">Seviye ${getArrow('level')}</button>
+                        <input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()">
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('count')">Frekans ${getArrow('count')}</button>
+                    </th>
+                    <th>
+                        <div style="padding: 6px 0; font-weight: bold; font-size: 13px; color: #334155;">Bulunduğu Dosyalar (Top: ${totalFilesOccurrencesSum})</div>
+                        <input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()">
+                    </th>
                 </tr>`;
         } else if (state.task === 'kelimeler') {
             tableHeaderHtml = `
                 <tr>
                     <th style="width:50px;">#</th>
-                    <th class="sortable" onclick="handleSort('original')">Kelime (Word)${getArrow('original')}<br><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                    <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                    <th class="sortable" onclick="handleSort('type')">Tür (Type)${getArrow('type')}</th>
-                    <th class="sortable" onclick="handleSort('turkish')">Türkçe Anlamı${getArrow('turkish')}</th>
-                    <th style="text-align: center;" class="sortable" onclick="handleSort('filesCount')">Dosya Sayısı (Top: ${totalFilesCountSum})${getArrow('filesCount')}</th>
-                    <th>Tekrar Ettiği Dosyalar ve Sıraları</th> <!-- Güncellenen sütun başlığı -->
-                    <th>Bulunduğu Dosyalar (Toplam: ${totalFilesOccurrencesSum})<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('original')">Kelime (Word) ${getArrow('original')}</button>
+                        <input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()">
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('level')">Seviye ${getArrow('level')}</button>
+                        <input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()">
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('type')">Tür (Type) ${getArrow('type')}</button>
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('turkish')">Türkçe Anlamı ${getArrow('turkish')}</button>
+                    </th>
+                    <th style="text-align: center;">
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('filesCount')">Dosya Sayısı (Top: ${totalFilesCountSum}) ${getArrow('filesCount')}</button>
+                    </th>
+                    <th>
+                        <div style="padding: 6px 0; font-weight: bold; font-size: 13px; color: #334155;">Tekrar Ettiği Dosyalar ve Sıraları</div>
+                    </th>
+                    <th>
+                        <div style="padding: 6px 0; font-weight: bold; font-size: 13px; color: #334155;">Bulunduğu Dosyalar (Top: ${totalFilesOccurrencesSum})</div>
+                        <input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()">
+                    </th>
                 </tr>`;
         } else {
             tableHeaderHtml = `
                 <tr>
                     <th style="width:50px;">#</th>
-                    <th class="sortable" onclick="handleSort('original')">Kelime${getArrow('original')}<br><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                    <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                    <th class="sortable" onclick="handleSort('turkish')">Türkçe Karşılığı${getArrow('turkish')}</th>
-                    <th>Örnek Cümle</th>
-                    <th>Bulunduğu Dosyalar (Toplam: ${totalFilesOccurrencesSum})<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('original')">Kelime ${getArrow('original')}</button>
+                        <input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()">
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('level')">Seviye ${getArrow('level')}</button>
+                        <input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()">
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('turkish')">Türkçe Karşılığı ${getArrow('turkish')}</button>
+                    </th>
+                    <th>
+                        <div style="padding: 6px 0; font-weight: bold; font-size: 13px; color: #334155;">Örnek Cümle</div>
+                    </th>
+                    <th>
+                        <div style="padding: 6px 0; font-weight: bold; font-size: 13px; color: #334155;">Bulunduğu Dosyalar (Top: ${totalFilesOccurrencesSum})</div>
+                        <input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()">
+                    </th>
                 </tr>`;
         }
 
