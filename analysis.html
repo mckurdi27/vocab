@@ -30,6 +30,8 @@
         .sort-trigger-btn { display: block; width: 100%; padding: 6px 8px; margin-bottom: 6px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px; font-weight: bold; color: #4f46e5; cursor: pointer; text-align: center; transition: background 0.2s, border-color 0.2s; }
         .sort-trigger-btn:hover { background: #e0e7ff; border-color: #6366f1; }
         
+        .th-inner-box { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px; margin-top: 6px; text-align: center; font-size: 12px; font-weight: bold; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
         select, input[type="file"], textarea { padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff; font-family: inherit; }
@@ -717,22 +719,55 @@
             tableHeaderHtml = `
                 <tr>
                     <th style="width:50px;">#</th>
-                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('original')">Kelime ${getArrow('original')}</button><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()"></th>
-                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('level')">Seviye ${getArrow('level')}</button><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()"></th>
-                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('turkish')">Türkçe Karşılığı ${getArrow('turkish')}</button></th>
-                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('example_en')">Örnek Cümle ${getArrow('example_en')}</button></th>
-                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('filesCount')">Tekrar Yerleri ${getArrow('filesCount')}</button></th>
-                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('filesList')">Bulunduğu Kaynak ${getArrow('filesList')}</button></th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('original')">Kelime ${getArrow('original')}</button>
+                        <input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()">
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('level')">Seviye ${getArrow('level')}</button>
+                        <input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()">
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('turkish')">Türkçe Karşılığı ${getArrow('turkish')}</button>
+                        <div class="th-inner-box">Toplam: ${globalTableData.length}</div>
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('example_en')">Örnek Cümle ${getArrow('example_en')}</button>
+                        <div class="th-inner-box">Toplam: ${globalTableData.length}</div>
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('filesCount')">Tekrar Yerleri ${getArrow('filesCount')}</button>
+                        <div class="th-inner-box" style="color: #dc2626;">Toplam: ${grandTotalOccurrencesSum}</div>
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('filesList')">Bulunduğu Kaynak ${getArrow('filesList')}</button>
+                        <div class="th-inner-box" style="color: #0369a1;">Toplam: ${uniqueFilesAllSet.size}</div>
+                    </th>
                 </tr>`;
         } else {
             tableHeaderHtml = `
                 <tr>
                     <th style="width:50px;">#</th>
-                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('original')">Kelime ${getArrow('original')}</button><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()"></th>
-                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('level')">Seviye ${getArrow('level')}</button><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()"></th>
-                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('count')">Frekans ${getArrow('count')}</button></th>
-                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('filesCount')">Tekrar Yerleri ${getArrow('filesCount')}</button></th>
-                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('filesList')">Bulunduğu Kaynak ${getArrow('filesList')}</button></th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('original')">Kelime ${getArrow('original')}</button>
+                        <input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()">
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('level')">Seviye ${getArrow('level')}</button>
+                        <input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()">
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('count')">Frekans ${getArrow('count')}</button>
+                        <div class="th-inner-box">Toplam: ${grandTotalFrequencySum}</div>
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('filesCount')">Tekrar Yerleri ${getArrow('filesCount')}</button>
+                        <div class="th-inner-box" style="color: #dc2626;">Toplam: ${grandTotalOccurrencesSum}</div>
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('filesList')">Bulunduğu Kaynak ${getArrow('filesList')}</button>
+                        <div class="th-inner-box" style="color: #0369a1;">Toplam: ${uniqueFilesAllSet.size}</div>
+                    </th>
                 </tr>`;
         }
 
