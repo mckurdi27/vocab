@@ -110,14 +110,7 @@
 </div>
 
 <script>
-    const embeddedCsvData = {
-        "cefra1.csv": "word,level,turkish\na,A1,bir\nabout,A1,hakkında\nabove,A1,yukarıda\nabide,A1,uymak\nabsent,A1,eksik",
-        "cefra2.csv": "word,level,turkish\nabrogate,A2,iptal etmek\nabsolute,A2,mutlak\nacademic,A2,akademik\nwork,A2,çalışmak\nworkout,A2,antrenman yapmak",
-        "cefrb1.csv": "word,level,turkish\nabsorb,B1,emmek\nabstract,B1,soyut\nworry,B1,endişelenmek\nworsen,B1,kötüleşmek",
-        "cefrb2.csv": "word,level,turkish\nabolish,B2,kaldırmak\nabundance,B2,bolluk\nwrap,B2,paketlemek",
-        "cefrc1.csv": "word,level,turkish\nabdicate,C1,tahttan çekilmek\naberration,C1,sapma\nwrite,C1,yazmak",
-        "cefrc2.csv": "word,level,turkish\nabject,C2,sefil\nabjure,C2,çaymak\nyield,C2,vermek\nyoga,C2,yoga yapmak\nzip,C2,fermuar\nzipper,C2,fermuar çekmek"
-    };
+    const embeddedCsvData = {};
 
     const fileConfigs = [
         { prefix: 'a', start: 101, end: 150, label: 'A1' },
@@ -134,10 +127,9 @@
             let optgroup = document.createElement('optgroup');
             optgroup.label = `Seviye ${cfg.label} (${cfg.prefix}${cfg.start}.json - ${cfg.prefix}${cfg.end}.json)`;
             
-            // Toplu Seçim Seçeneği (Seviyenin tümü)
             let groupAllOpt = document.createElement('option');
             groupAllOpt.value = `GROUP_${cfg.label}`;
-            groupAllOpt.textContent = `🌟 Seviye ${cfg.label} Tümünü Seç (${cfg.prefix}${cfg.start}.json - ${cfg.prefix}${cfg.end.json} - 50 Dosya)`;
+            groupAllOpt.textContent = `🌟 Seviye ${cfg.label} Tümünü Seç (50 Dosya)`;
             groupAllOpt.style.fontWeight = "bold";
             groupAllOpt.style.color = "#4f46e5";
             optgroup.appendChild(groupAllOpt);
@@ -200,50 +192,37 @@
 
     async function runAnalysis() {
         const checkedCsvs = Array.from(document.querySelectorAll('input[name="csvFile"]:checked')).map(cb => cb.value);
-        if (!state.source || !state.task || checkedCsvs.length === 0) {
-            alert("Lütfen kaynak, işlem türü ve en az bir CSV sözlük referansı seçin.");
+        if (!state.source || !state.task) {
+            alert("Lütfen kaynak ve işlem türü seçin.");
             return;
         }
         
         const statusDiv = document.getElementById('status');
         const resultArea = document.getElementById('resultArea');
-        statusDiv.innerText = "Sözlükler ve hedef veriler taranıyor, lütfen bekleyin...";
+        statusDiv.innerText = "Veriler taranıyor, lütfen bekleyin...";
         resultArea.innerHTML = "";
         
         try {
-            let combinedCsvText = "";
+            const cefrMap = {};
             for (let fPath of checkedCsvs) {
-                let loaded = false;
                 try {
                     let response = await fetch(fPath);
                     if (response.ok) {
                         let text = await response.text();
-                        if (text && text.includes(",")) {
-                            combinedCsvText += text + "\n";
-                            loaded = true;
+                        let rows = text.split(/\r?\n/);
+                        for (let row of rows) {
+                            if (!row.trim() || row.toLowerCase().includes("headword") || row.toLowerCase().includes("word")) continue;
+                            let parts = row.split(',');
+                            if (parts.length >= 2) {
+                                let wordCol = parts[0].toLowerCase().trim().replace(/^["']|["']$/g, "");
+                                let level = parts[1].toUpperCase().trim().replace(/^["']|["']$/g, "");
+                                if (wordCol && ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].includes(level)) {
+                                    cefrMap[wordCol] = level;
+                                }
+                            }
                         }
                     }
                 } catch(e) {}
-                
-                if (!loaded && embeddedCsvData[fPath]) {
-                    combinedCsvText += embeddedCsvData[fPath] + "\n";
-                }
-            }
-
-            if (!combinedCsvText.trim()) throw new Error("Seçilen CSV dosyalarından veri okunamadı.");
-            
-            const cefrMap = {};
-            const rows = combinedCsvText.split(/\r?\n/);
-            for (let row of rows) {
-                if (!row.trim() || row.toLowerCase().includes("headword") || row.toLowerCase().includes("word")) continue;
-                let parts = row.split(',');
-                if (parts.length >= 2) {
-                    let wordCol = parts[0].toLowerCase().trim().replace(/^["']|["']$/g, "");
-                    let level = parts[1].toUpperCase().trim().replace(/^["']|["']$/g, "");
-                    if (wordCol && ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].includes(level)) {
-                        cefrMap[wordCol] = level;
-                    }
-                }
             }
 
             let rawJsonDataArray = [];
@@ -258,7 +237,7 @@
                             let res = await fetch(fileName);
                             if (res.ok) {
                                 let jsonData = await res.json();
-                                rawJsonDataArray.push({ sourceName: `${cfg.prefix}${i}.json`, data: jsonData });
+                                rawJsonDataArray.push({ sourceName: `${cfg.prefix}${i}.json`, data: jsonData, defaultLevel: cfg.label });
                             }
                         } catch (e) {}
                     }
@@ -274,7 +253,7 @@
                             let res = await fetch(fileName);
                             if (res.ok) {
                                 let jsonData = await res.json();
-                                rawJsonDataArray.push({ sourceName: `${targetCfg.prefix}${i}.json`, data: jsonData });
+                                rawJsonDataArray.push({ sourceName: `${targetCfg.prefix}${i}.json`, data: jsonData, defaultLevel: targetCfg.label });
                             }
                         } catch (e) {}
                     }
@@ -285,7 +264,11 @@
                     let res = await fetch(selectedTarget);
                     if (res.ok) {
                         let jsonData = await res.json();
-                        rawJsonDataArray.push({ sourceName: selectedTarget.split('/').pop(), data: jsonData });
+                        let detectedLevel = 'Bilinmiyor';
+                        fileConfigs.forEach(cfg => {
+                            if (selectedTarget.includes(`/${cfg.prefix}`)) detectedLevel = cfg.label;
+                        });
+                        rawJsonDataArray.push({ sourceName: selectedTarget.split('/').pop(), data: jsonData, defaultLevel: detectedLevel });
                     }
                 } catch (e) {}
             }
@@ -299,6 +282,7 @@
             rawJsonDataArray.forEach(itemObj => {
                 let fName = itemObj.sourceName;
                 let data = itemObj.data;
+                let fallbackLvl = data.level || itemObj.defaultLevel || 'Bilinmiyor';
 
                 if (state.task === 'hikaye') {
                     if (data.story_en && typeof data.story_en === 'string') {
@@ -308,7 +292,7 @@
                             if (w.trim().length > 1) {
                                 totalCheckedCount++;
                                 let cleanW = w.trim();
-                                if (!itemTracking[cleanW]) itemTracking[cleanW] = { original: cleanW, count: 0, files: [] };
+                                if (!itemTracking[cleanW]) itemTracking[cleanW] = { original: cleanW, count: 0, files: [], fallbackLevel: fallbackLvl };
                                 itemTracking[cleanW].count++;
                                 if (!itemTracking[cleanW].files.includes(fName)) itemTracking[cleanW].files.push(fName);
                             }
@@ -322,7 +306,7 @@
                             let cleanW = wordStr.trim().toLowerCase();
                             totalCheckedCount++;
                             if (!itemTracking[cleanW]) {
-                                itemTracking[cleanW] = { original: wordStr.trim(), type: (item.type || '-'), turkish: (item.turkish || '-'), files: [] };
+                                itemTracking[cleanW] = { original: wordStr.trim(), type: (item.type || '-'), turkish: (item.turkish || '-'), files: [], fallbackLevel: fallbackLvl };
                             }
                             if (!itemTracking[cleanW].files.includes(fName)) itemTracking[cleanW].files.push(fName);
                         }
@@ -337,7 +321,8 @@
 
             for (let cleanW in itemTracking) {
                 let info = itemTracking[cleanW];
-                let level = cefrMap[cleanW] || 'Bilinmiyor';
+                // Öncelik CSV sözlüğünde, yoksa JSON dosyasının kendi seviyesinde
+                let level = cefrMap[cleanW] || info.fallbackLevel || 'Bilinmiyor';
                 if (levelCounts[level] !== undefined) levelCounts[level]++;
                 else levelCounts['Bilinmiyor']++;
 
