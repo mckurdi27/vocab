@@ -15,16 +15,14 @@
         button { padding: 10px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; background: #fff; font-weight: 500; }
         .active-btn { background: #27ae60 !important; color: white; border: none; }
         
-        /* Tablo ve Sabit Alan Düzenlemeleri */
         .table-container { max-height: 480px; overflow-y: auto; margin-top: 10px; border: 1px solid #ddd; border-radius: 6px; position: relative; }
         table { width: 100%; border-collapse: collapse; background: white; }
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
         
-        /* Sabit Başlıklar */
         th { background: #f1f5f9; color: #0f172a; user-select: none; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1); }
-        
         th.sortable { cursor: pointer; transition: background 0.2s; }
         th.sortable:hover { background: #e2e8f0; }
+        
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
         select, input[type="file"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
@@ -33,9 +31,7 @@
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; display: none; }
         .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; }
         
-        /* Sabit Üst Özet Alanı */
         .sticky-summary { position: sticky; top: 0; z-index: 20; background: #ffffff; padding: 10px 0; border-bottom: 2px solid #e2e8f0; }
-        
         .csv-checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 5px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
         .csv-checkbox-group label { display: flex; align-items: center; gap: 6px; font-weight: 500; cursor: pointer; font-size: 14px; }
     </style>
@@ -113,14 +109,13 @@
 </div>
 
 <script>
-    // Genişletilmiş ve tüm seviyeleri (A1, A2, B1, B2, C1, C2) içeren gömülü yedek sözlük verisi
     const embeddedCsvData = {
-        "cefra1.csv": `Headword,CEFR,Turkish\na,A1,bir\nabout,A1,hakkında\nabove,A1,yukarıda\nabide,A1,uymak\nabrogate,A2,iptal etmek\nabsent,A1,eksik / derste olmayan\nabsorb,B1,emmek\nabsorbed,B1,edilmiş\nabsorbing,B1,emerek\nabsorbs,B1,emer`,
-        "cefra2.csv": `Headword,CEFR,Turkish\nabrogate,A2,iptal etmek\nabsolute,A2,mutlak\nacademic,A2,akademik`,
-        "cefrb1.csv": `Headword,CEFR,Turkish\nabsorb,B1,emmek\nabstract,B1,soyut\nabuse,B1,istismar`,
-        "cefrb2.csv": `Headword,CEFR,Turkish\nabolish,B2,yürürlükten kaldırmak\nabundance,B2,bolluk`,
-        "cefrc1.csv": `Headword,CEFR,Turkish\nabdicate,C1,tahttan çekilmek\naberration,C1,sapma`,
-        "cefrc2.csv": `Headword,CEFR,Turkish\nabject,C2,sefil\nabjure,C2,çaymak`
+        "cefra1.csv": "word,level,turkish\na,A1,bir\nabout,A1,hakkında\nabove,A1,yukarıda\nabide,A1,uymak\nabsent,A1,eksik",
+        "cefra2.csv": "word,level,turkish\nabrogate,A2,iptal etmek\nabsolute,A2,mutlak\nacademic,A2,akademik\nwork,A2,çalışmak\nworkout,A2,antrenman yapmak",
+        "cefrb1.csv": "word,level,turkish\nabsorb,B1,emmek\nabstract,B1,soyut\nworry,B1,endişelenmek\nworsen,B1,kötüleşmek",
+        "cefrb2.csv": "word,level,turkish\nabolish,B2,kaldırmak\nabundance,B2,bolluk\nwrap,B2,paketlemek",
+        "cefrc1.csv": "word,level,turkish\nabdicate,C1,tahttan çekilmek\naberration,C1,sapma\nwrite,C1,yazmak",
+        "cefrc2.csv": "word,level,turkish\nabject,C2,sefil\nabjure,C2,çaymak\nyield,C2,vermek\nyoga,C2,yoga yapmak\nzip,C2,fermuar\nzipper,C2,fermuar çekmek"
     };
 
     const fileConfigs = [
@@ -230,20 +225,12 @@
             const cefrMap = {};
             const rows = combinedCsvText.split(/\r?\n/);
             for (let row of rows) {
-                if (!row.trim() || row.toLowerCase().includes("headword")) continue;
-                let firstComma = row.indexOf(',');
-                let secondComma = row.indexOf(',', firstComma + 1);
-                
-                if (firstComma !== -1 && secondComma !== -1) {
-                    let wordCol = row.substring(0, firstComma).toLowerCase().trim();
-                    let level = row.substring(firstComma + 1, secondComma).toUpperCase().trim();
-                    
-                    if (wordCol && level) {
-                        let subWords = wordCol.split('/');
-                        subWords.forEach(sw => {
-                            let cleanSubW = sw.trim();
-                            if (cleanSubW) cefrMap[cleanSubW] = level;
-                        });
+                if (!row.trim() || row.toLowerCase().includes("headword") || row.toLowerCase().includes("word")) continue;
+                let parts = row.split(',');
+                if (parts.length >= 2) {
+                    let wordCol = parts[0].toLowerCase().trim().replace(/^["']|["']$/g, "");
+                    let level = parts[1].toUpperCase().trim().replace(/^["']|["']$/g, "");
+                    if (wordCol && ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].includes(level)) {
                         cefrMap[wordCol] = level;
                     }
                 }
@@ -377,8 +364,8 @@
     }
 
     function getArrow(colName) {
-        if (currentSortColumn !== colName) return ' ↕';
-        return currentSortOrder === 'asc' ? ' 🔼' : ' 🔽';
+        if (currentSortColumn !== colName) return ' ↕ (A-Z)';
+        return currentSortOrder === 'asc' ? ' 🔼 (A-Z)' : ' 🔽 (Z-A)';
     }
 
     function renderTable(totalCheckedCount, fileCount, levelCounts) {
@@ -397,18 +384,18 @@
         let tableHeaderHtml = (state.task === 'hikaye') ? `
             <tr>
                 <th style="width:50px;">#</th>
-                <th class="sortable" onclick="handleSort('original')">Hikaye Kelimesi${getArrow('original')}<br><input type="text" id="f_word" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                <th class="sortable" onclick="handleSort('original')">Hikaye Kelimesi${getArrow('original')}<br><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                 <th class="sortable" onclick="handleSort('count')">Frekans${getArrow('count')}</th>
                 <th class="sortable" onclick="handleSort('filesCount')">Kaynak${getArrow('filesCount')}</th>
             </tr>` : `
             <tr>
                 <th style="width:50px;">#</th>
-                <th class="sortable" onclick="handleSort('original')">Kelime${getArrow('original')}<br><input type="text" id="f_word" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                <th class="sortable" onclick="handleSort('type')">Tür${getArrow('type')}<br><input type="text" id="f_type" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                <th class="sortable" onclick="handleSort('turkish')">Türkçe Anlamı${getArrow('turkish')}<br><input type="text" id="f_turkish" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                <th class="sortable" onclick="handleSort('filesCount')">Kaynak${getArrow('filesCount')}</th>
+                <th class="sortable" onclick="handleSort('original')">Kelime${getArrow('original')}<br><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                <th class="sortable" onclick="handleSort('type')">Tür${getArrow('type')}<br><input type="text" id="f_type" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                <th class="sortable" onclick="handleSort('turkish')">Türkçe Anlamı${getArrow('turkish')}<br><input type="text" id="f_turkish" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                <th class="sortable" onclick="handleSort('filesCount')">Kaynak${getArrow('filesCount')}<br><input type="text" id="f_source" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
             </tr>`;
 
         let uniqueKeysCount = globalTableData.length;
@@ -416,11 +403,16 @@
         resultArea.innerHTML = `
             <div class="sticky-summary">
                 <h4>📊 ${state.task.toUpperCase()} Analiz Özeti (${fileCount} Dosya İncelendi)</h4>
-                <div style="display: flex; gap: 10px; margin-bottom: 5px; flex-wrap: wrap;">
-                    <div style="background: #f3f4f6; padding: 8px 12px; border-radius: 6px;">İncelenen: <strong>${totalCheckedCount}</strong></div>
-                    <div style="background: #e0f2fe; padding: 8px 12px; border-radius: 6px;">Benzersiz: <strong>${uniqueKeysCount}</strong></div>
-                    <div style="background: #d1fae5; padding: 8px 12px; border-radius: 6px;">A1: <strong>${levelCounts['A1']}</strong></div>
-                    <div style="background: #fef3c7; padding: 8px 12px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
+                <div style="display: flex; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; font-size: 13px;">
+                    <div style="background: #f3f4f6; padding: 6px 10px; border-radius: 6px;">İncelenen: <strong>${totalCheckedCount}</strong></div>
+                    <div style="background: #e0f2fe; padding: 6px 10px; border-radius: 6px;">Benzersiz: <strong>${uniqueKeysCount}</strong></div>
+                    <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">A1: <strong>${levelCounts['A1']}</strong></div>
+                    <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">A2: <strong>${levelCounts['A2']}</strong></div>
+                    <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">B1: <strong>${levelCounts['B1']}</strong></div>
+                    <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">B2: <strong>${levelCounts['B2']}</strong></div>
+                    <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">C1: <strong>${levelCounts['C1']}</strong></div>
+                    <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">C2: <strong>${levelCounts['C2']}</strong></div>
+                    <div style="background: #fef3c7; padding: 6px 10px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
                 </div>
             </div>
 
@@ -442,6 +434,7 @@
         let fLevel = document.getElementById("f_level") ? document.getElementById("f_level").value.toLowerCase().trim() : "";
         let fType = document.getElementById("f_type") ? document.getElementById("f_type").value.toLowerCase().trim() : "";
         let fTurkish = document.getElementById("f_turkish") ? document.getElementById("f_turkish").value.toLowerCase().trim() : "";
+        let fSource = document.getElementById("f_source") ? document.getElementById("f_source").value.toLowerCase().trim() : "";
 
         for (let i = 0; i < trs.length; i++) {
             let cells = trs[i].cells;
@@ -457,11 +450,13 @@
                 let lText = cells[2].innerText.toLowerCase();
                 let tText = cells[3].innerText.toLowerCase();
                 let trText = cells[4].innerText.toLowerCase();
+                let sText = cells[5].innerText.toLowerCase();
 
                 if (fWord && !wText.includes(fWord)) match = false;
                 if (fLevel && !lText.includes(fLevel)) match = false;
                 if (fType && !tText.includes(fType)) match = false;
                 if (fTurkish && !trText.includes(fTurkish)) match = false;
+                if (fSource && !sText.includes(fSource)) match = false;
             }
 
             trs[i].style.display = match ? "" : "none";
