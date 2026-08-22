@@ -87,7 +87,7 @@
         { prefix: 'c', start: 201, end: 250, label: 'C2' }
     ];
 
-    let globalCsvDictionary = {}; // CSV'den okunan kelime -> { cefr, turkish } haritası
+    let globalCsvDictionary = {};
 
     window.addEventListener('DOMContentLoaded', () => {
         const selectEl = document.getElementById('jsonSelect');
@@ -95,7 +95,7 @@
             let optgroup = document.createElement('optgroup');
             optgroup.label = `Seviye ${cfg.label} (${cfg.prefix}${cfg.start}.json - ${cfg.prefix}${cfg.end}.json)`;
             
-            let groupAllOpt = document.option ? document.option : document.createElement('option');
+            let groupAllOpt = document.createElement('option');
             groupAllOpt.value = `GROUP_${cfg.label}`;
             groupAllOpt.textContent = `🌟 Seviye ${cfg.label} Tümünü Seç (50 Dosya)`;
             groupAllOpt.style.fontWeight = "bold";
@@ -111,7 +111,6 @@
             selectEl.appendChild(optgroup);
         });
 
-        // CSV Dosyası Okuma Dinleyicisi
         document.getElementById('csvFile').addEventListener('change', function(e) {
             let file = e.target.files[0];
             if (!file) return;
@@ -132,14 +131,12 @@
             let line = lines[i].trim();
             if (!line) continue;
             
-            // Basit CSV ayırıcı (tırnak içindeki virgülleri bozmamak için temel split)
             let parts = line.split(',');
             if (parts.length >= 2) {
                 let headword = parts[0].trim().toLowerCase();
                 let cefr = parts[1].trim().toUpperCase();
-                let turkish = parts.slice(2).join(',').trim(); // Geri kalanlar Türkçe anlam olabilir
+                let turkish = parts.slice(2).join(',').trim();
                 
-                // Eğer ilk satır başlık ('headword') ise atla
                 if (i === 0 && headword === 'headword') continue;
 
                 if (headword && cefr) {
@@ -235,9 +232,6 @@
                         let cleanW = wordStr.trim().toLowerCase();
                         totalCheckedCount++;
 
-                        // CSV Kıyaslama Mantığı:
-                        // Eğer CSV sözlüğü yüklendiyse, kelimenin gerçek seviyesini CSV'den alıyoruz.
-                        // CSV'de yoksa JSON'daki seviyeyi yedek olarak kullanıyoruz.
                         let finalLevel = jsonFileLevel;
                         let csvMatched = false;
                         if (globalCsvDictionary[cleanW]) {
@@ -329,23 +323,25 @@
         let tableRows = '';
         
         globalTableData.forEach((item, index) => {
-            let fileBadge = `<span class="badge-unique">✔ ${item.filesCount} dosya</span>`;
+            let fileBadge = `<span class="badge-unique" style="background: #e0f2fe; color: #0369a1; font-weight: bold;">📁 ${item.filesCount} Dosyada Geçiyor</span>`;
             let fileTagsHtml = item.filesList.split(', ').map(f => `<span class="file-list-tag">${f}</span>`).join(' ');
             
-            // Eğer JSON'daki seviye ile CSV'den gelen gerçek seviye uyuşmuyorsa uyarı rozeti gösterelim
             let levelDisplay = item.level;
             if (item.csvMatched && item.jsonLevel !== item.level) {
                 levelDisplay += ` <span class="badge-diff" title="JSON'da ${item.jsonLevel} yazıyordu, CSV referansı ile düzeltildi!">JSON: ${item.jsonLevel} ⚠️</span>`;
             }
 
-            tableRows += `<tr>
+            tableRows += `<tr data-files="${item.filesList}">
                 <td>${index + 1}</td>
                 <td><strong>${item.original}</strong></td>
                 <td>${levelDisplay}</td>
                 <td><code>${item.type}</code></td>
                 <td>${item.turkish}</td>
-                <td>${fileBadge}</td>
-                <td>${fileTagsHtml}</td>
+                <td style="text-align: center;">${fileBadge}</td>
+                <td>
+                    <div class="file-tags-wrapper">${fileTagsHtml}</div>
+                    <div class="file-count-info" style="font-size: 11px; color: #64748b; margin-top: 4px; font-weight: 500;">Toplam Dosya: <span>${item.filesCount}</span></div>
+                </td>
             </tr>`;
         });
 
@@ -353,7 +349,8 @@
             <div class="sticky-summary">
                 <h4>📊 Kelime Analiz Özeti (${fileCount} Dosya İncelendi)</h4>
                 <div style="display: flex; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; font-size: 13px;">
-                    <div style="background: #f3f4f6; padding: 6px 10px; border-radius: 6px;">Toplam Kelime: <strong>${globalTableData.length}</strong></div>
+                    <div style="background: #f3f4f6; padding: 6px 10px; border-radius: 6px;">Toplam Taranan Satır: <strong>${totalCheckedCount}</strong></div>
+                    <div style="background: #eef2f7; padding: 6px 10px; border-radius: 6px;">Benzersiz Kelime: <strong>${globalTableData.length}</strong></div>
                     <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">A1: <strong>${levelCounts['A1']}</strong></div>
                     <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">A2: <strong>${levelCounts['A2']}</strong></div>
                     <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">B1: <strong>${levelCounts['B1']}</strong></div>
@@ -372,8 +369,11 @@
                             <th class="sortable" onclick="handleSort('level')">Seviye (CSV Referanslı)${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                             <th class="sortable" onclick="handleSort('type')">Tür${getArrow('type')}</th>
                             <th class="sortable" onclick="handleSort('turkish')">Türkçe Anlamı${getArrow('turkish')}</th>
-                            <th>Kaynak</th>
-                            <th>Bulunduğu Dosyalar</th>
+                            <th style="text-align: center;" class="sortable" onclick="handleSort('filesCount')">Dosya Sayısı${getArrow('filesCount')}</th>
+                            <th>
+                                Bulunduğu Dosyalar
+                                <br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele (örn: b101)..." onkeyup="filterTable()" onclick="event.stopPropagation()">
+                            </th>
                         </tr>
                     </thead>
                     <tbody>${tableRows}</tbody>
@@ -388,15 +388,18 @@
         const trs = table.tBodies[0].getElementsByTagName("tr");
         let fWord = document.getElementById("f_word") ? document.getElementById("f_word").value.toLowerCase().trim() : "";
         let fLevel = document.getElementById("f_level") ? document.getElementById("f_level").value.toLowerCase().trim() : "";
+        let fFiles = document.getElementById("f_files") ? document.getElementById("f_files").value.toLowerCase().trim() : "";
 
         for (let i = 0; i < trs.length; i++) {
             let cells = trs[i].cells;
             let wText = cells[1].innerText.toLowerCase();
             let lText = cells[2].innerText.toLowerCase();
+            let fText = trs[i].getAttribute("data-files").toLowerCase();
             let match = true;
 
             if (fWord && !wText.includes(fWord)) match = false;
             if (fLevel && !lText.includes(fLevel)) match = false;
+            if (fFiles && !fText.includes(fFiles)) match = false;
 
             trs[i].style.display = match ? "" : "none";
         }
