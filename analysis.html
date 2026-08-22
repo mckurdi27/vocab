@@ -15,17 +15,15 @@
         button { padding: 10px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; background: #fff; font-weight: 500; }
         .active-btn { background: #27ae60 !important; color: white; border: none; }
         table { width: 100%; border-collapse: collapse; margin-top: 0; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; background: #fff; }
         th { background: #f1f5f9; color: #0f172a; user-select: none; position: sticky; top: 0; z-index: 10; }
         th.sortable:hover { background: #e2e8f0; cursor: pointer; }
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
         select, input[type="file"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
         select { width: 350px; }
-        .badge-duplicate { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
-        .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; display: none; }
-        .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; }
+        .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; background: #fff; }
         
         .csv-checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 5px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
         .csv-checkbox-group label { display: flex; align-items: center; gap: 6px; font-weight: 500; cursor: pointer; font-size: 14px; }
@@ -78,7 +76,6 @@
         <label><strong>CSV Sözlük Referansı (İstediğiniz kadar seçin):</strong></label>
         <div style="margin-bottom: 5px; font-size: 12px; color: #64748b;">Tek bir dosya seçebileceğiniz gibi, dilediğiniz kombinasyonu seçebilirsiniz.</div>
         
-        <!-- Hepsini Seç, Seçimleri Kaldır ve Yanında Telefondan CSV Seçme Alanı -->
         <div style="margin-bottom: 8px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
             <button type="button" onclick="toggleAllCsv(true)" style="padding: 6px 12px; font-size: 12px; background: #e2e8f0;">Hepsini Seç</button>
             <button type="button" onclick="toggleAllCsv(false)" style="padding: 6px 12px; font-size: 12px; background: #e2e8f0;">Seçimleri Kaldır</button>
@@ -283,16 +280,34 @@
                 }
                 parts.push(currentField.trim().replace(/^["']|["']$/g, "").replace(/\s+/g, " "));
                 
-                if (parts.length >= 2) {
+                // Akıllı tarama: Satır içindeki parçalardan seviye ve kelimeyi bul
+                let foundLevel = "";
+                let foundWord = "";
+
+                parts.forEach(p => {
+                    let cleanP = p.toUpperCase();
+                    if (/^(A1|A2|B1|B2|C1|C2)$/.test(cleanP)) {
+                        foundLevel = cleanP;
+                    }
+                });
+
+                // Genellikle kelime ilk veya ikinci sütundadır, seviye dışındaki metinleri kelime adayı yapalım
+                for (let p of parts) {
+                    let cleanP = p.toLowerCase();
+                    if (cleanP && !/^(a1|a2|b1|b2|c1|c2)$/.test(cleanP) && cleanP !== "kelime" && cleanP !== "seviye" && cleanP !== "word") {
+                        foundWord = cleanP;
+                        break;
+                    }
+                }
+
+                if (foundWord && foundLevel) {
+                    cefrMap[foundWord] = foundLevel;
+                } else if (parts.length >= 2) {
+                    // Alternatif klasik eşleşme
                     let level = parts[0].toUpperCase().trim();
                     let word = parts[1].toLowerCase().trim();
-                    
                     if (word && word !== "kelime" && word !== "seviye") {
-                        if (/^(A1|A2|B1|B2|C1|C2)$/.test(level)) {
-                            cefrMap[word] = level;
-                        } else {
-                            cefrMap[word] = level; 
-                        }
+                        cefrMap[word] = /^(A1|A2|B1|B2|C1|C2)$/.test(level) ? level : "Bilinmiyor";
                     }
                 }
             }
@@ -414,9 +429,6 @@
                 let upperLevel = level.toUpperCase();
                 if (levelCounts[upperLevel] !== undefined) {
                     levelCounts[upperLevel]++;
-                } else if (/^(A1|A2|B1|B2|C1|C2)$/.test(upperLevel)) {
-                    levelCounts[upperLevel] = (levelCounts[upperLevel] || 0) + 1;
-                    level = upperLevel;
                 } else {
                     levelCounts['Bilinmiyor']++;
                     level = 'Bilinmiyor';
@@ -521,7 +533,7 @@
                     <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
                 </div>
                 <h4>📝 Detaylı Sonuç Tablosu</h4>
-                <div style="max-height: 500px; overflow-y: auto; position: relative;">
+                <div style="max-height: 500px; overflow-y: auto; position: relative; border: 1px solid #cbd5e1; border-radius: 6px;">
                     <table id="analysisTable">
                         <thead>${tableHeaderHtml}</thead>
                         <tbody id="tableBody">${tableRows}</tbody>
