@@ -2,7 +2,9 @@
 
 Projenin kök dizininde bulunan klasörler ve dosyaların genel hiyerarşisi şu şekildedir:
 
-```vocab/
+```
+
+vocab/
 ├── analiz/             # Analiz işlemlerine ait alt dosyalar
                         cefra1.csv cefra2.csv cefrb1.csv cefrb2.csv cefrc1.csv cefrc2.csv.     
                         cefra1.json
@@ -21,6 +23,7 @@ Projenin kök dizininde bulunan klasörler ve dosyaların genel hiyerarşisi şu
 ├── style.html / .css   # Stil ve tasarım dosyaları
 └── README.md           # Proje dokümantasyonu
 
+'''
 
 #Aşağıdaki sitede kelimeleri kullan:.
 
