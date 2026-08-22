@@ -25,6 +25,7 @@
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
         
         th { background: #f1f5f9; color: #0f172a; user-select: none; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1); vertical-align: top; }
+        tfoot td { position: sticky; bottom: 0; z-index: 5; background: #f1f5f9; box-shadow: 0 -2px 2px -1px rgba(0,0,0,0.1); }
         
         .sort-trigger-btn { display: block; width: 100%; padding: 6px 8px; margin-bottom: 6px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px; font-weight: bold; color: #4f46e5; cursor: pointer; text-align: center; transition: background 0.2s, border-color 0.2s; }
         .sort-trigger-btn:hover { background: #e0e7ff; border-color: #6366f1; }
@@ -651,30 +652,31 @@
             }
         });
 
-        // Tablo altı sütun bazlı hizalanmış ayrı toplam satırı
+        // Tablo altı sütun bazlı hizalanmış ayrı toplam satırı (Footer)
         let tableFooterHtml = '';
         if (state.task === 'cevir') {
             let totalLevelSumText = `A1:${levelCounts['A1']} | A2:${levelCounts['A2']} | B1:${levelCounts['B1']} | B2:${levelCounts['B2']} | C1:${levelCounts['C1']} | C2:${levelCounts['C2']}`;
             tableFooterHtml = `
                 <tr style="background: #f1f5f9; font-weight: bold; border-top: 2px solid #cbd5e1; font-size: 13px;">
-                    <td colspan="2" style="text-align: right;">SÜTUN TOPLAMLARI:</td>
+                    <td style="text-align: center;">TOPLAM</td>
+                    <td>Benzersiz: ${globalTableData.length}</td>
                     <td>${totalLevelSumText}</td>
-                    <td>Çeviri Kaydı Arşivi</td>
+                    <td>Sözlük Arşivi</td>
                     <td>Örnek Cümleler</td>
                     <td><span style="color: #0369a1;">Mavi: ${totalUniqueBadgesCount}</span> | <span style="color: #dc2626;">Kırmızı: ${totalDupBadgesCount}</span><br><strong>Toplam: ${grandTotalOccurrencesSum}</strong></td>
-                    <td>Toplam Kaynak: ${totalFileSourcesSum}</td>
+                    <td>Benzersiz Kaynak: ${uniqueFilesAllSet.size}</td>
                 </tr>
             `;
         } else {
             let totalLevelSumText = `A1:${levelCounts['A1']} | A2:${levelCounts['A2']} | B1:${levelCounts['B1']} | B2:${levelCounts['B2']} | C1:${levelCounts['C1']} | C2:${levelCounts['C2']}`;
             tableFooterHtml = `
                 <tr style="background: #f1f5f9; font-weight: bold; border-top: 2px solid #cbd5e1; font-size: 13px;">
-                    <td>-</td>
-                    <td style="text-align: right;">SÜTUN TOPLAMLARI:</td>
+                    <td style="text-align: center;">TOPLAM</td>
+                    <td>Benzersiz: ${globalTableData.length}</td>
                     <td>${totalLevelSumText}</td>
                     <td>Frekans: ${grandTotalFrequencySum}</td>
-                    <td><span style="color: #0369a1;">Mavi: ${totalUniqueBadgesCount}</span> | <span style="color: #dc2626;">Kırmızı: ${totalDupBadgesCount}</span><br><strong>Toplam Tekrar: ${grandTotalOccurrencesSum}</strong></td>
-                    <td>Toplam Dosya Kaynağı: ${totalFileSourcesSum}</td>
+                    <td><span style="color: #0369a1;">Mavi: ${totalUniqueBadgesCount}</span> | <span style="color: #dc2626;">Kırmızı: ${totalDupBadgesCount}</span><br><strong>Toplam: ${grandTotalOccurrencesSum}</strong></td>
+                    <td>Benzersiz Kaynak: ${uniqueFilesAllSet.size}</td>
                 </tr>
             `;
         }
