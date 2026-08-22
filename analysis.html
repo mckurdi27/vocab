@@ -29,6 +29,7 @@
         select { width: 380px; }
         .badge-unique { background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; display: inline-block; }
         .badge-diff { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; display: inline-block; margin-left: 5px; }
+        .badge-dup { background: #fee2e2; color: #dc2626; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; display: inline-block; }
         .file-list-tag { background: #f1f5f9; color: #334155; padding: 2px 6px; border-radius: 4px; font-size: 11px; display: inline-block; margin: 1px; font-family: monospace; border: 1px solid #e2e8f0; }
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; }
         .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; background: #fff; }
@@ -315,7 +316,7 @@
                     });
                 } else {
                     let list = data.words && Array.isArray(data.words) ? data.words : [];
-                    list.forEach(item => {
+                    list.forEach((item, itemIndex) => {
                         let wordStr = item.word || item.Kelime || '';
                         if (wordStr) {
                             let cleanW = wordStr.trim().toLowerCase();
@@ -337,8 +338,14 @@
                                     files: [], 
                                     level: finalLevel,
                                     jsonLevel: jsonFileLevel,
-                                    csvMatched: csvMatched
+                                    csvMatched: csvMatched,
+                                    occurrenceIndex: itemIndex + 1, // Listede kaçıncı sırada geçtiği
+                                    isDuplicateEntry: false
                                 };
+                            } else {
+                                // Aynı kelime listede daha önce de geçtiyse, tekrar eden durumunu işaretle
+                                itemTracking[cleanW].isDuplicateEntry = true;
+                                itemTracking[cleanW].duplicateRowIndex = itemIndex + 1;
                             }
                             if (!itemTracking[cleanW].files.includes(fName)) itemTracking[cleanW].files.push(fName);
                         }
@@ -367,7 +374,10 @@
                     count: info.count || 0,
                     example_en: info.example_en || '',
                     filesCount: info.files.length,
-                    filesList: info.files.sort().join(', ')
+                    filesList: info.files.sort().join(', '),
+                    occurrenceIndex: info.occurrenceIndex || 1,
+                    isDuplicateEntry: info.isDuplicateEntry || false,
+                    duplicateRowIndex: info.duplicateRowIndex || null
                 });
             }
 
@@ -415,12 +425,12 @@
         const resultArea = document.getElementById('resultArea');
         let tableRows = '';
         
-        let totalFilesCountSum = 0; // Dosya sayısı sütununun toplamı
-        let totalFilesOccurrencesSum = 0; // Bulunduğu dosyalar listesindeki toplam dosya adedi
+        let totalFilesCountSum = 0; 
+        let totalFilesOccurrencesSum = 0; 
 
         globalTableData.forEach((item, index) => {
             totalFilesCountSum += item.filesCount;
-            totalFilesOccurrencesSum += item.filesCount; // Her satırdaki benzersiz dosya sayısını toplar
+            totalFilesOccurrencesSum += item.filesCount; 
 
             let fileTagsHtml = item.filesList.split(', ').map(f => `<span class="file-list-tag">${f}</span>`).join(' ');
             
@@ -441,6 +451,11 @@
                     </td>
                 </tr>`;
             } else if (state.task === 'kelimeler') {
+                // YENİ SÜTUN: Tekrar Eden / İkinci Geçiş bilgisi
+                let duplicateInfoHtml = item.isDuplicateEntry 
+                    ? `<span class="badge-dup">Tekrar (Sıra: ${item.duplicateRowIndex})</span>` 
+                    : `<span style="color: #94a3b8;">-</span>`;
+
                 tableRows += `<tr data-files="${item.filesList}">
                     <td>${index + 1}</td>
                     <td><strong>${item.original}</strong></td>
@@ -448,6 +463,7 @@
                     <td><code>${item.type}</code></td>
                     <td>${item.turkish}</td>
                     <td style="text-align: center;"><span class="badge-unique">${item.filesCount} Dosya</span></td>
+                    <td style="text-align: center;">${duplicateInfoHtml}</td> <!-- YENİ EKLENEN SÜTUN -->
                     <td>
                         <div class="file-tags-wrapper">${fileTagsHtml}</div>
                         <div style="font-size: 11px; color: #64748b; margin-top: 4px; font-weight: 500;">Toplam Dosya: <span>${item.filesCount}</span></div>
@@ -487,6 +503,7 @@
                     <th class="sortable" onclick="handleSort('type')">Tür (Type)${getArrow('type')}</th>
                     <th class="sortable" onclick="handleSort('turkish')">Türkçe Anlamı${getArrow('turkish')}</th>
                     <th style="text-align: center;" class="sortable" onclick="handleSort('filesCount')">Dosya Sayısı (Top: ${totalFilesCountSum})${getArrow('filesCount')}</th>
+                    <th style="text-align: center;">Tekrar Eden / İkinci Geçiş</th> <!-- YENİ EKLENEN SÜTUN BAŞLIĞI -->
                     <th>Bulunduğu Dosyalar (Toplam: ${totalFilesOccurrencesSum})<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                 </tr>`;
         } else {
