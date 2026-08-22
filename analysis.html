@@ -301,7 +301,7 @@
                     let cleanStory = textToAnalyze.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, " ").toLowerCase();
                     let wordsArr = cleanStory.split(/\s+/);
                     
-                    wordsArr.forEach(w => {
+                    wordsArr.forEach((w, wordIndex) => {
                         let cleanW = w.trim();
                         if (cleanW.length > 1 && !/^\d+$/.test(cleanW)) {
                             totalCheckedCount++;
@@ -317,6 +317,7 @@
                                     original: cleanW, 
                                     count: 0, 
                                     files: [], 
+                                    fileOccurrences: [],
                                     level: finalLevel,
                                     jsonLevel: jsonFileLevel,
                                     csvMatched: csvMatched,
@@ -326,6 +327,7 @@
                             }
                             itemTracking[cleanW].count++;
                             if (!itemTracking[cleanW].files.includes(fName)) itemTracking[cleanW].files.push(fName);
+                            itemTracking[cleanW].fileOccurrences.push({ file: fName, index: wordIndex + 1 });
                         }
                     });
                 } else {
@@ -460,11 +462,23 @@
             }
 
             if (state.task === 'hikaye') {
+                let duplicateDetailsHtml = '-';
+                if (item.fileOccurrences && item.fileOccurrences.length > 0) {
+                    duplicateDetailsHtml = item.fileOccurrences.map((occ, i) => {
+                        let badgeClass = (i === 0) ? 'badge-unique' : 'badge-dup';
+                        if (badgeClass === 'badge-unique') totalUniqueBadgesCount++;
+                        else totalDupBadgesCount++;
+
+                        return `<span class="${badgeClass}">${occ.file} (Sıra: ${occ.index})</span>`;
+                    }).join(' ');
+                }
+
                 tableRows += `<tr data-files="${item.filesList}">
                     <td>${index + 1}</td>
                     <td><strong>${item.original}</strong></td>
                     <td>${levelDisplay}</td>
                     <td><strong>${item.count}</strong></td>
+                    <td>${duplicateDetailsHtml}</td>
                     <td>
                         <div class="file-tags-wrapper">${fileTagsHtml}</div>
                         <div style="font-size: 11px; color: #64748b; margin-top: 4px; font-weight: 500;">Toplam Dosya: <span>${item.filesCount}</span></div>
@@ -525,6 +539,13 @@
                     </th>
                     <th>
                         <button type="button" class="sort-trigger-btn" onclick="handleSort('count')">Frekans ${getArrow('count')}</button>
+                    </th>
+                    <th>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('fileOccurrences')">Tekrar Ettiği Yerler ve Sıraları ${getArrow('fileOccurrences')}</button>
+                        <div style="font-size: 11px; margin-top: 4px; display: flex; gap: 6px; font-weight: normal; align-items: center;">
+                            <span class="badge-unique">Mavi Toplam: ${totalUniqueBadgesCount}</span>
+                            <span class="badge-dup">Kırmızı Toplam: ${totalDupBadgesCount}</span>
+                        </div>
                     </th>
                     <th>
                         <div style="padding: 6px 0; font-weight: bold; font-size: 13px; color: #334155;">Bulunduğu Dosyalar (Top: ${totalFilesOccurrencesSum})</div>
