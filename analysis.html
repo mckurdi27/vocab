@@ -21,7 +21,6 @@
         
         th { background: #f1f5f9; color: #0f172a; user-select: none; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1); vertical-align: top; }
         
-        /* Büyük ve Kolay Dokunulabilir Sıralama Satırı Butonları */
         .sort-trigger-btn { display: block; width: 100%; padding: 6px 8px; margin-bottom: 6px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px; font-weight: bold; color: #4f46e5; cursor: pointer; text-align: center; transition: background 0.2s, border-color 0.2s; }
         .sort-trigger-btn:hover { background: #e0e7ff; border-color: #6366f1; }
         
@@ -45,10 +44,9 @@
         .btn-print { background-color: #0f172a; color: white; border: none; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; transition: background 0.2s; }
         .btn-print:hover { background-color: #334155; }
 
-        /* Yazdırma Sırasında Renklerin Korunması İçin */
         @media print {
             body { background: white; padding: 0; color: black; }
-            .header-bar, .section:not(#resultArea), .sort-trigger-btn, .filter-input, .btn-print { display: none !important; }
+            .header-bar, .section:not(#resultSection), .sort-trigger-btn, .filter-input, .btn-print { display: none !important; }
             .sticky-summary { position: static; border: none; }
             .table-container { max-height: none; overflow: visible; border: none; }
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
@@ -434,6 +432,13 @@
         return currentSortOrder === 'asc' ? ' 🔼' : ' 🔽';
     }
 
+    function triggerPrint() {
+        setTimeout(() => {
+            window.focus();
+            window.print();
+        }, 150);
+    }
+
     function renderTable(totalCheckedCount, fileCount, levelCounts) {
         const resultArea = document.getElementById('resultArea');
         let tableRows = '';
@@ -588,7 +593,7 @@
             <div class="sticky-summary">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
                     <h4 style="margin: 0;">📊 ${state.task.toUpperCase()} Analiz Özeti (${fileCount} Dosya İncelendi)</h4>
-                    <button type="button" class="btn-print" onclick="window.print()">🖨️ Sayfayı Renkli Yazdır / PDF Kaydet</button>
+                    <button type="button" class="btn-print" onclick="triggerPrint()">🖨️ Sayfayı Renkli Yazdır / PDF Kaydet</button>
                 </div>
                 <div style="display: flex; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; font-size: 13px; align-items: center;">
                     <div style="background: #f3f4f6; padding: 6px 10px; border-radius: 6px;">Toplam Taranan Birim: <strong>${totalCheckedCount}</strong></div>
