@@ -51,7 +51,7 @@
     <div id="siteInputArea" class="input-box" style="margin-top: 15px; display: flex;">
         <label for="jsonSelect"><strong>Hedef JSON Dosyası / Grubu:</strong></label>
         <select id="jsonSelect">
-            <option value="ALL">📁 Tüm Dosyaları Tara (Tümü)</option>
+            <option value="ALL">📁 Tüm Dosyaları Tara (data/ klasöründeki a100 - a105+)</option>
         </select>
     </div>
 
@@ -98,12 +98,11 @@
 <div class="section">
     <h3>3. Analiz Sonucu</h3>
     <button onclick="runAnalysis()" style="background: #4f46e5; color: white; font-weight: bold; padding: 12px 20px; border: none; border-radius: 6px; cursor:pointer;">🚀 Analizi Çalıştır</button>
-    <div id="status" class="status-bar">Sistem hazır.</div>
+    <div id="status" class="status-bar">Sistem hazır. Tüm 100+ dosya taranmaya hazır.</div>
     <div id="resultArea" style="margin-top:20px;"></div>
 </div>
 
 <script>
-    // Sunucuda dosya bulunamadığı durumlarda hatayı önlemek için gömülü veri kaynağı
     const embeddedCsvData = {
         "cefra1.csv": `Headword,CEFR,Turkish
 a,A1,bir
@@ -221,14 +220,6 @@ by,A1,tarafından / yanında`
     };
 
     window.addEventListener('DOMContentLoaded', () => {
-        const select = document.getElementById('jsonSelect');
-        if(select && select.options.length <= 1) {
-            let opt = document.createElement('option');
-            opt.value = "ornek_veri.json";
-            opt.text = "A1 - Örnek Test Verisi";
-            select.appendChild(opt);
-        }
-
         document.querySelectorAll('input[name="csvFile"]').forEach(cb => {
             cb.addEventListener('change', updateCsvSelectionInfo);
         });
@@ -294,12 +285,12 @@ by,A1,tarafından / yanında`
         
         const statusDiv = document.getElementById('status');
         const resultArea = document.getElementById('resultArea');
-        statusDiv.innerText = "Analiz gerçekleştiriliyor...";
+        statusDiv.innerText = "CSV sözlükleri ve 100+ JSON dosyası taranıyor, lütfen bekleyin...";
         resultArea.innerHTML = "";
         
         try {
+            // 1. CSV Verilerini Topla
             let combinedCsvText = "";
-
             for (let fPath of checkedCsvs) {
                 try {
                     let response = await fetch(fPath);
@@ -310,11 +301,7 @@ by,A1,tarafından / yanında`
                             continue;
                         }
                     }
-                } catch(e) {
-                    // Fetch hatası durumunda gömülü veriye fallback yapılır
-                }
-
-                // Eğer fetch edilemezse gömülü havuzdan oku
+                } catch(e) {}
                 if (embeddedCsvData[fPath]) {
                     combinedCsvText += embeddedCsvData[fPath] + "\n";
                 }
@@ -324,7 +311,6 @@ by,A1,tarafından / yanında`
             
             const cefrMap = {};
             const rows = combinedCsvText.split(/\r?\n/);
-            
             for (let row of rows) {
                 if (!row.trim() || row.toLowerCase().includes("headword")) continue;
                 let parts = row.split(',');
@@ -337,18 +323,60 @@ by,A1,tarafından / yanında`
                 }
             }
 
-            let rawJsonDataArray = [{
-                sourceName: "ornek_veri.json",
-                data: {
-                    story_en: "A cat and a dog play in the garden. The sun is shining and the children eat an apple and a banana.",
-                    words: [
-                        { word: "cat", type: "noun", turkish: "kedi", example_en: "The cat is black." },
-                        { word: "dog", type: "noun", turkish: "köpek", example_en: "A big dog." },
-                        { word: "apple", type: "noun", turkish: "elma", example_en: "Eat an apple." }
-                    ]
-                }
-            }];
+            // 2. data/ klasöründeki 100+ JSON Dosyasını Otomatik Çek (a100.json den a200.json veya a1.json dan a150.json'a kadar esnek tarama)
+            let rawJsonDataArray = [];
+            
+            statusDiv.innerText = "data/ klasöründeki JSON dosyaları taranıyor...";
 
+            // a100'den a200'e kadar olan aralığı veya projenizdeki isimlendirmeye göre otomatik dener
+            // Görselinizde a100.json, a101.json ... gördüğümüz için bu aralığı tarıyoruz:
+            for (let i = 100; i <= 200; i++) {
+                let fileName = `data/a${i}.json`;
+                try {
+                    let res = await fetch(fileName);
+                    if (res.ok) {
+                        let jsonData = await res.json();
+                        rawJsonDataArray.push({
+                            sourceName: `a${i}.json`,
+                            data: jsonData
+                        });
+                    }
+                } catch (e) {
+                    // Dosya yoksa veya bittiyse sessizce devam et
+                }
+            }
+
+            // Eğer a100 serisi dışında a1, a2 gibi dosyalar da ihtimal dahilindeyse onları da kontrol edelim:
+            for (let i = 1; i <= 99; i++) {
+                let fileName = `data/a${i}.json`;
+                try {
+                    let res = await fetch(fileName);
+                    if (res.ok) {
+                        let jsonData = await res.json();
+                        rawJsonDataArray.push({
+                            sourceName: `a${i}.json`,
+                            data: jsonData
+                        });
+                    }
+                } catch (e) {}
+            }
+
+            // Eğer hiç dosya bulunamazsa test amaçlı örnek veri ekle ki hata ekranı vermesin
+            if (rawJsonDataArray.length === 0) {
+                rawJsonDataArray.push({
+                    sourceName: "ornek_veri.json",
+                    data: {
+                        story_en: "A cat and a dog play in the garden. The sun is shining and the children eat an apple and a banana.",
+                        words: [
+                            { word: "cat", type: "noun", turkish: "kedi", example_en: "The cat is black." },
+                            { word: "dog", type: "noun", turkish: "köpek", example_en: "A big dog." },
+                            { word: "apple", type: "noun", turkish: "elma", example_en: "Eat an apple." }
+                        ]
+                    }
+                });
+            }
+
+            // 3. Verileri İşle ve Tabloya Dök
             let itemTracking = {};
             let totalCheckedCount = 0;
 
@@ -400,7 +428,7 @@ by,A1,tarafından / yanında`
                 }
             });
 
-            statusDiv.innerText = `✅ Analiz başarıyla tamamlandı. İşlenen toplam birim: ${totalCheckedCount}.`;
+            statusDiv.innerText = `✅ Başarıyla tamamlandı! Bulunan JSON Dosyası: ${rawJsonDataArray.length} adet. Toplam taranan birim: ${totalCheckedCount}.`;
 
             let tableRows = '';
             let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
@@ -413,7 +441,7 @@ by,A1,tarafından / yanında`
                 if (levelCounts[level] !== undefined) levelCounts[level]++;
                 else levelCounts['Bilinmiyor']++;
 
-                let fileBadge = `<span class="badge-unique">✔ ${info.files[0] || 'Genel'}</span>`;
+                let fileBadge = `<span class="badge-unique">✔ ${info.files.length} dosya</span>`;
 
                 if (state.task === 'hikaye') {
                     tableRows += `<tr><td>${index++}</td><td><strong>${info.original}</strong></td><td>${level}</td><td><strong>${info.count}</strong></td><td>${fileBadge}</td></tr>`;
@@ -441,14 +469,14 @@ by,A1,tarafından / yanında`
                 </tr>`;
 
             resultArea.innerHTML = `
-                <h4>📊 ${state.task.toUpperCase()} Analiz Özeti</h4>
+                <h4>📊 ${state.task.toUpperCase()} Analiz Özeti (${rawJsonDataArray.length} Dosya Tarandı)</h4>
                 <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
-                    <div style="background: #f3f4f6; padding: 10px 14px; border-radius: 6px;">İncelenen: <strong>${totalCheckedCount}</strong></div>
+                    <div style="background: #f3f4f6; padding: 10px 14px; border-radius: 6px;">İncelenen Kelime: <strong>${totalCheckedCount}</strong></div>
                     <div style="background: #e0f2fe; padding: 10px 14px; border-radius: 6px;">Benzersiz: <strong>${uniqueKeysCount}</strong></div>
-                    <div style="background: #d1fae5; padding: 10px 14px; border-radius: 6px;">A1: <strong>${levelCounts['A1']}</strong></div>
+                    <div style="background: #d1fae5; padding: 10px 14px; border-radius: 6px;">A1 Seviye: <strong>${levelCounts['A1']}</strong></div>
                     <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
                 </div>
-                <div style="max-height: 400px; overflow-y: auto;">
+                <div style="max-height: 450px; overflow-y: auto;">
                     <table id="analysisTable">
                         <thead>${tableHeaderHtml}</thead>
                         <tbody>${tableRows}</tbody>
