@@ -651,28 +651,29 @@
             }
         });
 
-        // Tablo altı sütun bazlı hizalanmış toplam satırı
+        // Tablo altı sütun bazlı hizalanmış ayrı toplam satırı
         let tableFooterHtml = '';
         if (state.task === 'cevir') {
             let totalLevelSumText = `A1:${levelCounts['A1']} | A2:${levelCounts['A2']} | B1:${levelCounts['B1']} | B2:${levelCounts['B2']} | C1:${levelCounts['C1']} | C2:${levelCounts['C2']}`;
             tableFooterHtml = `
                 <tr style="background: #f1f5f9; font-weight: bold; border-top: 2px solid #cbd5e1; font-size: 13px;">
-                    <td colspan="2" style="text-align: right;">SÜTUN TOPLAM / ÖZETİ:</td>
+                    <td colspan="2" style="text-align: right;">SÜTUN TOPLAMLARI:</td>
                     <td>${totalLevelSumText}</td>
-                    <td>Toplam Çeviri Kaydı</td>
-                    <td>Örnek Cümleler Arşivi</td>
-                    <td><span style="color: #0369a1;">Mavi (İlk): ${totalUniqueBadgesCount}</span><br><span style="color: #dc2626;">Kırmızı (Tekrar): ${totalDupBadgesCount}</span><br><strong>Toplam: ${grandTotalOccurrencesSum}</strong></td>
-                    <td>${totalFileSourcesSum} Kaynak Dağılımı</td>
+                    <td>Çeviri Kaydı Arşivi</td>
+                    <td>Örnek Cümleler</td>
+                    <td><span style="color: #0369a1;">Mavi: ${totalUniqueBadgesCount}</span> | <span style="color: #dc2626;">Kırmızı: ${totalDupBadgesCount}</span><br><strong>Toplam: ${grandTotalOccurrencesSum}</strong></td>
+                    <td>Toplam Kaynak: ${totalFileSourcesSum}</td>
                 </tr>
             `;
         } else {
             let totalLevelSumText = `A1:${levelCounts['A1']} | A2:${levelCounts['A2']} | B1:${levelCounts['B1']} | B2:${levelCounts['B2']} | C1:${levelCounts['C1']} | C2:${levelCounts['C2']}`;
             tableFooterHtml = `
                 <tr style="background: #f1f5f9; font-weight: bold; border-top: 2px solid #cbd5e1; font-size: 13px;">
-                    <td colspan="2" style="text-align: right;">SÜTUN TOPLAM / ÖZETİ:</td>
+                    <td>-</td>
+                    <td style="text-align: right;">SÜTUN TOPLAMLARI:</td>
                     <td>${totalLevelSumText}</td>
-                    <td>Frekans Toplamı: ${grandTotalFrequencySum}</td>
-                    <td><span style="color: #0369a1;">Mavi (İlk): ${totalUniqueBadgesCount}</span><br><span style="color: #dc2626;">Kırmızı (Tekrar): ${totalDupBadgesCount}</span><br><strong>Toplam: ${grandTotalOccurrencesSum} Tekrar</strong></td>
+                    <td>Frekans: ${grandTotalFrequencySum}</td>
+                    <td><span style="color: #0369a1;">Mavi: ${totalUniqueBadgesCount}</span> | <span style="color: #dc2626;">Kırmızı: ${totalDupBadgesCount}</span><br><strong>Toplam Tekrar: ${grandTotalOccurrencesSum}</strong></td>
                     <td>Toplam Dosya Kaynağı: ${totalFileSourcesSum}</td>
                 </tr>
             `;
