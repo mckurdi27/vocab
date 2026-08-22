@@ -27,12 +27,15 @@
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
         select, input[type="file"] { padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #fff; }
         select { width: 380px; }
-        .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; display: inline-block; }
+        .badge-unique { background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; display: inline-block; }
         .badge-diff { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; display: inline-block; margin-left: 5px; }
-        .file-list-tag { background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-size: 11px; display: inline-block; margin: 1px; font-family: monospace; }
+        .file-list-tag { background: #f1f5f9; color: #334155; padding: 2px 6px; border-radius: 4px; font-size: 11px; display: inline-block; margin: 1px; font-family: monospace; border: 1px solid #e2e8f0; }
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; }
-        .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; }
+        .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; background: #fff; }
         .sticky-summary { position: sticky; top: 0; z-index: 20; background: #ffffff; padding: 10px 0; border-bottom: 2px solid #e2e8f0; }
+        
+        .csv-checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 8px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
+        .csv-checkbox-group label { display: flex; align-items: center; gap: 6px; font-weight: 500; cursor: pointer; font-size: 13px; }
     </style>
 </head>
 <body>
@@ -54,9 +57,29 @@
     </div>
 
     <div class="dynamic-input-container">
-        <label><strong>📌 Referans CSV Sözlüğü Yükle (headword,CEFR,Turkish):</strong></label><br>
-        <input type="file" id="csvFile" accept=".csv" style="margin-top: 8px;">
-        <span id="csvStatus" style="font-size: 12px; color: #666; margin-left: 10px;">(Yüklenmediyse JSON içerisindeki seviyeler baz alınır)</span>
+        <label><strong>📌 CSV Sözlük Referansı (İstediğiniz kadar seçin veya yükleyin):</strong></label><br>
+        
+        <div style="margin-top: 8px; margin-bottom: 8px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <button type="button" onclick="toggleAllCsv(true)" style="padding: 6px 12px; font-size: 12px; background: #e2e8f0;">Hepsini Seç</button>
+            <button type="button" onclick="toggleAllCsv(false)" style="padding: 6px 12px; font-size: 12px; background: #e2e8f0;">Seçimleri Kaldır</button>
+            
+            <label style="display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: normal; background: #f1f5f9; padding: 4px 8px; border-radius: 4px; border: 1px solid #cbd5e1; cursor: pointer;">
+                <span>📁 Telefondan CSV Seç:</span>
+                <input type="file" id="customCsvFile" accept=".csv" style="font-size: 11px;" onchange="handleCustomCsvUpload(this)">
+            </label>
+        </div>
+
+        <div class="csv-checkbox-group">
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr.csv"> cefr.csv (Tümü)</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_pre.csv"> cefr_pre.csv</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_a1.csv"> CEFR A1</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_a2.csv"> CEFR A2</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_b1.csv"> CEFR B1</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_b2.csv"> CEFR B2</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_c1.csv"> CEFR C1</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_c2.csv"> CEFR C2</label>
+        </div>
+        <div id="csvSourceDetails" style="font-size: 12px; color: #666; margin-top: 8px;">Seçilen CSV: Belirtilmedi</div>
     </div>
 </div>
 
@@ -79,137 +102,179 @@
 
 <script>
     const fileConfigs = [
-        { prefix: 'a', start: 101, end: 150, label: 'A1' },
-        { prefix: 'a', start: 201, end: 250, label: 'A2' },
-        { prefix: 'b', start: 101, end: 150, label: 'B1' },
-        { prefix: 'b', start: 201, end: 250, label: 'B2' },
-        { prefix: 'c', start: 101, end: 150, label: 'C1' },
-        { prefix: 'c', start: 201, end: 250, label: 'C2' }
+        { prefix: 'a', start: 0, end: 50, label: 'A1' },
+        { prefix: 'a', start: 200, end: 250, label: 'A2' },
+        { prefix: 'b', start: 100, end: 150, label: 'B1' },
+        { prefix: 'b', start: 200, end: 250, label: 'B2' },
+        { prefix: 'c', start: 100, end: 150, label: 'C1' },
+        { prefix: 'c', start: 200, end: 250, label: 'C2' }
     ];
 
+    let customCsvContent = "";
     let globalCsvDictionary = {};
-
-    window.addEventListener('DOMContentLoaded', () => {
-        const selectEl = document.getElementById('jsonSelect');
-        fileConfigs.forEach(cfg => {
-            let optgroup = document.createElement('optgroup');
-            optgroup.label = `Seviye ${cfg.label} (${cfg.prefix}${cfg.start}.json - ${cfg.prefix}${cfg.end}.json)`;
-            
-            let groupAllOpt = document.createElement('option');
-            groupAllOpt.value = `GROUP_${cfg.label}`;
-            groupAllOpt.textContent = `🌟 Seviye ${cfg.label} Tümünü Seç (50 Dosya)`;
-            groupAllOpt.style.fontWeight = "bold";
-            groupAllOpt.style.color = "#4f46e5";
-            optgroup.appendChild(groupAllOpt);
-
-            for (let i = cfg.start; i <= cfg.end; i++) {
-                let opt = document.createElement('option');
-                opt.value = `data/${cfg.prefix}${i}.json`;
-                opt.textContent = `data/${cfg.prefix}${i}.json`;
-                optgroup.appendChild(opt);
-            }
-            selectEl.appendChild(optgroup);
-        });
-
-        document.getElementById('csvFile').addEventListener('change', function(e) {
-            let file = e.target.files[0];
-            if (!file) return;
-            let reader = new FileReader();
-            reader.onload = function(evt) {
-                parseCSV(evt.target.result);
-            };
-            reader.readAsText(file, 'UTF-8');
-        });
-    });
-
-    function parseCSV(text) {
-        globalCsvDictionary = {};
-        let lines = text.split(/\r\n|\n/);
-        let count = 0;
-        
-        for (let i = 0; i < lines.length; i++) {
-            let line = lines[i].trim();
-            if (!line) continue;
-            
-            let parts = line.split(',');
-            if (parts.length >= 2) {
-                let headword = parts[0].trim().toLowerCase();
-                let cefr = parts[1].trim().toUpperCase();
-                let turkish = parts.slice(2).join(',').trim();
-                
-                if (i === 0 && headword === 'headword') continue;
-
-                if (headword && cefr) {
-                    globalCsvDictionary[headword] = { cefr: cefr, turkish: turkish };
-                    count++;
-                }
-            }
-        }
-        document.getElementById('csvStatus').innerText = `✅ Başarıyla yüklendi (${count} kelime referansı alındı).`;
-        document.getElementById('csvStatus').style.color = "#059669";
-        document.getElementById('csvStatus').style.fontWeight = "bold";
-    }
-
     let state = { task: 'kelimeler' };
     let globalTableData = [];
     let fileCountToProcess = 1;
     let currentSortColumn = 'original';
     let currentSortOrder = 'asc';
 
+    window.addEventListener('DOMContentLoaded', () => {
+        const selectEl = document.getElementById('jsonSelect');
+        
+        const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
+        levels.forEach(lvl => {
+            let optGroup = document.createElement('optgroup');
+            optGroup.label = `--- ${lvl.toUpperCase()} Seviyesi Dosyaları ---`;
+            
+            let groupAllOpt = document.createElement('option');
+            groupAllOpt.value = `GROUP_${lvl.toUpperCase()}`;
+            groupAllOpt.textContent = `📂 Tüm ${lvl.toUpperCase()} Dosyaları`;
+            groupAllOpt.style.fontWeight = "bold";
+            groupAllOpt.style.color = "#4f46e5";
+            optGroup.appendChild(groupAllOpt);
+
+            for (let i = 0; i <= 50; i++) {
+                let numStr = i < 10 ? '0' + i : i;
+                let fileName = `data/${lvl}${numStr}.json`;
+                
+                let option = document.createElement('option');
+                option.value = fileName;
+                option.text = `${lvl.toUpperCase()} - Dosya ${i} (${lvl}${numStr}.json)`;
+                optGroup.appendChild(option);
+            }
+            selectEl.appendChild(optGroup);
+        });
+
+        document.querySelectorAll('input[name="csvFile"]').forEach(cb => {
+            cb.addEventListener('change', updateCsvSelectionInfo);
+        });
+    });
+
+    function toggleAllCsv(select) {
+        document.querySelectorAll('input[name="csvFile"]').forEach(cb => {
+            cb.checked = select;
+        });
+        updateCsvSelectionInfo();
+    }
+
+    async function handleCustomCsvUpload(input) {
+        if (input.files && input.files[0]) {
+            let file = input.files[0];
+            try {
+                customCsvContent = await file.text();
+                updateCsvSelectionInfo();
+            } catch (err) {
+                alert("Özel CSV dosyası okunamadı: " + err.message);
+            }
+        }
+    }
+
+    function updateCsvSelectionInfo() {
+        const checkedBoxes = document.querySelectorAll('input[name="csvFile"]:checked');
+        let selectedFiles = Array.from(checkedBoxes).map(cb => cb.parentNode.textContent.trim());
+        
+        const customFileInput = document.getElementById('customCsvFile');
+        let customFileName = (customFileInput.files && customFileInput.files[0]) ? customFileInput.files[0].name : null;
+
+        let infoText = "";
+        if (selectedFiles.length > 0) {
+            infoText += "Seçilen CSV'ler: " + selectedFiles.join(', ');
+        }
+        if (customFileName) {
+            infoText += (infoText ? " | " : "") + "📁 Özel Yüklenen Dosya: " + customFileName;
+        }
+
+        document.getElementById('csvSourceDetails').innerText = infoText ? infoText : "Seçilen CSV: Belirtilmedi";
+    }
+
     function setTask(t, btn) {
         state.task = t;
+        const descriptions = {
+            'hikaye': 'Mod: JSON içerisindeki "story_en" hikaye metni kelime bazlı taranır ve frekansları ölçülür.',
+            'kelimeler': 'Mod: Sahneye ait bağımsız "words" listesindeki kelimeler incelenir.',
+            'cevir': 'Mod: Kelimeler, Türkçe karşılıkları ve örnek cümleleriyle sözlük formatında listelenir.'
+        };
+        document.getElementById('taskDetails').innerText = descriptions[t];
         btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active-btn'));
         btn.classList.add('active-btn');
     }
 
     async function runAnalysis() {
+        const checkedCsvs = Array.from(document.querySelectorAll('input[name="csvFile"]:checked')).map(cb => cb.value);
+        const hasCustomCsv = customCsvContent.trim().length > 0;
+
+        if (checkedCsvs.length === 0 && !hasCustomCsv) {
+            alert("Lütfen en az bir CSV sözlük referansı (veya telefondan özel CSV dosyası) seçin.");
+            return;
+        }
+
         const statusDiv = document.getElementById('status');
         const resultArea = document.getElementById('resultArea');
-        statusDiv.innerText = "JSON dosyaları taranıyor ve CSV ile kıyaslanıyor...";
+        statusDiv.innerText = "CSV sözlükleri birleştiriliyor ve JSON dosyaları taranıyor...";
         resultArea.innerHTML = "";
         
         try {
+            let combinedCsvText = "";
+            for (let fPath of checkedCsvs) {
+                try {
+                    const res = await fetch(fPath);
+                    if (res.ok) {
+                        const text = await res.text();
+                        combinedCsvText += text + "\n";
+                    }
+                } catch (e) {}
+            }
+            if (hasCustomCsv) {
+                combinedCsvText += customCsvContent + "\n";
+            }
+
+            // CSV Sözlük Ayrıştırma Motoru
+            globalCsvDictionary = {};
+            let rows = combinedCsvText.split(/\r?\n/);
+            rows.forEach(row => {
+                if (!row.trim()) return;
+                let parts = row.split(',').map(p => p.trim().replace(/^["']|["']$/g, ""));
+                if (parts.length >= 2) {
+                    let headword = parts[0].toLowerCase();
+                    let cefr = parts[1].toUpperCase();
+                    let turkish = parts.slice(2).join(',').trim();
+
+                    if (/^(A1|A2|B1|B2|C1|C2)$/.test(cefr) && headword !== "word" && headword !== "kelime") {
+                        globalCsvDictionary[headword] = { cefr: cefr, turkish: turkish };
+                    } else if (/^(A1|A2|B1|B2|C1|C2)$/.test(headword.toUpperCase()) && !/^(A1|A2|B1|B2|C1|C2)$/.test(cefr)) {
+                        globalCsvDictionary[parts[1].toLowerCase()] = { cefr: headword.toUpperCase(), turkish: turkish };
+                    }
+                }
+            });
+
             let rawJsonDataArray = [];
             const selectedTarget = document.getElementById('jsonSelect').value;
+            let filesToFetch = [];
 
             if (selectedTarget === "ALL") {
-                for (let cfg of fileConfigs) {
-                    for (let i = cfg.start; i <= cfg.end; i++) {
-                        let fileName = `data/${cfg.prefix}${i}.json`;
-                        try {
-                            let res = await fetch(fileName);
-                            if (res.ok) {
-                                let jsonData = await res.json();
-                                rawJsonDataArray.push({ sourceName: `${cfg.prefix}${i}.json`, data: jsonData, defaultLevel: cfg.label });
-                            }
-                        } catch (e) {}
+                ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'].forEach(lvl => {
+                    for (let i = 0; i <= 50; i++) {
+                        let numStr = i < 10 ? '0' + i : i;
+                        filesToFetch.push({ name: `${lvl}${numStr}.json`, path: `data/${lvl}${numStr}.json`, level: lvl.toUpperCase() });
                     }
-                }
+                });
             } else if (selectedTarget.startsWith("GROUP_")) {
-                let targetLabel = selectedTarget.replace("GROUP_", "");
-                let targetCfg = fileConfigs.find(c => c.label === targetLabel);
-                if (targetCfg) {
-                    for (let i = targetCfg.start; i <= targetCfg.end; i++) {
-                        let fileName = `data/${targetCfg.prefix}${i}.json`;
-                        try {
-                            let res = await fetch(fileName);
-                            if (res.ok) {
-                                let jsonData = await res.json();
-                                rawJsonDataArray.push({ sourceName: `${targetCfg.prefix}${i}.json`, data: jsonData, defaultLevel: targetCfg.label });
-                            }
-                        } catch (e) {}
-                    }
+                let targetLvl = selectedTarget.replace("GROUP_", "").toLowerCase();
+                for (let i = 0; i <= 50; i++) {
+                    let numStr = i < 10 ? '0' + i : i;
+                    filesToFetch.push({ name: `${targetLvl}${numStr}.json`, path: `data/${targetLvl}${numStr}.json`, level: targetLvl.toUpperCase() });
                 }
             } else {
+                let lvl = selectedTarget.includes('/') ? selectedTarget.split('/')[1].substring(0, 2).toUpperCase() : 'Bilinmiyor';
+                filesToFetch.push({ name: selectedTarget.split('/').pop(), path: selectedTarget, level: lvl });
+            }
+
+            for (let itemObj of filesToFetch) {
                 try {
-                    let res = await fetch(selectedTarget);
+                    let res = await fetch(itemObj.path);
                     if (res.ok) {
                         let jsonData = await res.json();
-                        let detectedLevel = 'Bilinmiyor';
-                        fileConfigs.forEach(cfg => {
-                            if (selectedTarget.includes(`/${cfg.prefix}`)) detectedLevel = cfg.label;
-                        });
-                        rawJsonDataArray.push({ sourceName: selectedTarget.split('/').pop(), data: jsonData, defaultLevel: detectedLevel });
+                        rawJsonDataArray.push({ sourceName: itemObj.name, data: jsonData, defaultLevel: itemObj.level });
                     }
                 } catch (e) {}
             }
@@ -225,34 +290,69 @@
                 let data = itemObj.data;
                 let jsonFileLevel = (data.level && data.level.trim() !== '') ? data.level.toUpperCase().trim() : itemObj.defaultLevel;
 
-                let list = data.words && Array.isArray(data.words) ? data.words : [];
-                list.forEach(item => {
-                    let wordStr = item.word || '';
-                    if (wordStr) {
-                        let cleanW = wordStr.trim().toLowerCase();
-                        totalCheckedCount++;
+                if (state.task === 'hikaye') {
+                    if (data.story_en && typeof data.story_en === 'string') {
+                        let cleanStory = data.story_en.replace(/[.,\/\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").toLowerCase();
+                        let wordsArr = cleanStory.split(/\s+/);
+                        wordsArr.forEach(w => {
+                            if (w.trim().length > 1) {
+                                totalCheckedCount++;
+                                let cleanW = w.trim();
+                                let finalLevel = jsonFileLevel;
+                                let csvMatched = false;
+                                if (globalCsvDictionary[cleanW]) {
+                                    finalLevel = globalCsvDictionary[cleanW].cefr;
+                                    csvMatched = true;
+                                }
 
-                        let finalLevel = jsonFileLevel;
-                        let csvMatched = false;
-                        if (globalCsvDictionary[cleanW]) {
-                            finalLevel = globalCsvDictionary[cleanW].cefr;
-                            csvMatched = true;
-                        }
-
-                        if (!itemTracking[cleanW]) {
-                            itemTracking[cleanW] = { 
-                                original: wordStr.trim(), 
-                                type: (item.type || '-'), 
-                                turkish: (item.turkish || '-'), 
-                                files: [], 
-                                level: finalLevel,
-                                jsonLevel: jsonFileLevel,
-                                csvMatched: csvMatched
-                            };
-                        }
-                        if (!itemTracking[cleanW].files.includes(fName)) itemTracking[cleanW].files.push(fName);
+                                if (!itemTracking[cleanW]) {
+                                    itemTracking[cleanW] = { 
+                                        original: cleanW, 
+                                        count: 0, 
+                                        files: [], 
+                                        level: finalLevel,
+                                        jsonLevel: jsonFileLevel,
+                                        csvMatched: csvMatched,
+                                        type: '-',
+                                        turkish: globalCsvDictionary[cleanW] ? globalCsvDictionary[cleanW].turkish : '-'
+                                    };
+                                }
+                                itemTracking[cleanW].count++;
+                                if (!itemTracking[cleanW].files.includes(fName)) itemTracking[cleanW].files.push(fName);
+                            }
+                        });
                     }
-                });
+                } else {
+                    let list = data.words && Array.isArray(data.words) ? data.words : [];
+                    list.forEach(item => {
+                        let wordStr = item.word || item.Kelime || '';
+                        if (wordStr) {
+                            let cleanW = wordStr.trim().toLowerCase();
+                            totalCheckedCount++;
+
+                            let finalLevel = jsonFileLevel;
+                            let csvMatched = false;
+                            if (globalCsvDictionary[cleanW]) {
+                                finalLevel = globalCsvDictionary[cleanW].cefr;
+                                csvMatched = true;
+                            }
+
+                            if (!itemTracking[cleanW]) {
+                                itemTracking[cleanW] = { 
+                                    original: wordStr.trim(), 
+                                    type: (item.type || '-').replace(/\s+/g, ' '),
+                                    turkish: (item.turkish || item.Anlam || (globalCsvDictionary[cleanW] ? globalCsvDictionary[cleanW].turkish : '-')).replace(/\s+/g, ' '),
+                                    example_en: (item.example_en || '').replace(/\s+/g, ' '),
+                                    files: [], 
+                                    level: finalLevel,
+                                    jsonLevel: jsonFileLevel,
+                                    csvMatched: csvMatched
+                                };
+                            }
+                            if (!itemTracking[cleanW].files.includes(fName)) itemTracking[cleanW].files.push(fName);
+                        }
+                    });
+                }
             });
 
             statusDiv.innerText = `✅ Analiz tamamlandı! İncelenen Birim: ${totalCheckedCount}.`;
@@ -273,6 +373,8 @@
                     csvMatched: info.csvMatched,
                     type: info.type,
                     turkish: info.turkish,
+                    count: info.count || 0,
+                    example_en: info.example_en || '',
                     filesCount: info.files.length,
                     filesList: info.files.sort().join(', ')
                 });
@@ -323,34 +425,91 @@
         let tableRows = '';
         
         globalTableData.forEach((item, index) => {
-            let fileBadge = `<span class="badge-unique" style="background: #e0f2fe; color: #0369a1; font-weight: bold;">📁 ${item.filesCount} Dosyada Geçiyor</span>`;
             let fileTagsHtml = item.filesList.split(', ').map(f => `<span class="file-list-tag">${f}</span>`).join(' ');
             
             let levelDisplay = item.level;
-            if (item.csvMatched && item.jsonLevel !== item.level) {
-                levelDisplay += ` <span class="badge-diff" title="JSON'da ${item.jsonLevel} yazıyordu, CSV referansı ile düzeltildi!">JSON: ${item.jsonLevel} ⚠️</span>`;
+            if (item.csvMatched && item.jsonLevel && item.jsonLevel !== item.level) {
+                levelDisplay += ` <span class="badge-diff" title="CSV referansı ile güncellendi!">CSV Düzeltmesi ⚠️</span>`;
             }
 
-            tableRows += `<tr data-files="${item.filesList}">
-                <td>${index + 1}</td>
-                <td><strong>${item.original}</strong></td>
-                <td>${levelDisplay}</td>
-                <td><code>${item.type}</code></td>
-                <td>${item.turkish}</td>
-                <td style="text-align: center;">${fileBadge}</td>
-                <td>
-                    <div class="file-tags-wrapper">${fileTagsHtml}</div>
-                    <div class="file-count-info" style="font-size: 11px; color: #64748b; margin-top: 4px; font-weight: 500;">Toplam Dosya: <span>${item.filesCount}</span></div>
-                </td>
-            </tr>`;
+            if (state.task === 'hikaye') {
+                tableRows += `<tr data-files="${item.filesList}">
+                    <td>${index + 1}</td>
+                    <td><strong>${item.original}</strong></td>
+                    <td>${levelDisplay}</td>
+                    <td><strong>${item.count}</strong></td>
+                    <td>
+                        <div class="file-tags-wrapper">${fileTagsHtml}</div>
+                        <div style="font-size: 11px; color: #64748b; margin-top: 4px; font-weight: 500;">Toplam Dosya: <span>${item.filesCount}</span></div>
+                    </td>
+                </tr>`;
+            } else if (state.task === 'kelimeler') {
+                tableRows += `<tr data-files="${item.filesList}">
+                    <td>${index + 1}</td>
+                    <td><strong>${item.original}</strong></td>
+                    <td>${levelDisplay}</td>
+                    <td><code>${item.type}</code></td>
+                    <td>${item.turkish}</td>
+                    <td style="text-align: center;"><span class="badge-unique">${item.filesCount} Dosya</span></td>
+                    <td>
+                        <div class="file-tags-wrapper">${fileTagsHtml}</div>
+                        <div style="font-size: 11px; color: #64748b; margin-top: 4px; font-weight: 500;">Toplam Dosya: <span>${item.filesCount}</span></div>
+                    </td>
+                </tr>`;
+            } else {
+                tableRows += `<tr data-files="${item.filesList}">
+                    <td>${index + 1}</td>
+                    <td><strong>${item.original}</strong></td>
+                    <td>${levelDisplay}</td>
+                    <td>${item.turkish}</td>
+                    <td><em>${item.example_en || 'Örnek yok'}</em></td>
+                    <td>
+                        <div class="file-tags-wrapper">${fileTagsHtml}</div>
+                        <div style="font-size: 11px; color: #64748b; margin-top: 4px; font-weight: 500;">Toplam Dosya: <span>${item.filesCount}</span></div>
+                    </td>
+                </tr>`;
+            }
         });
+
+        let tableHeaderHtml = '';
+        if (state.task === 'hikaye') {
+            tableHeaderHtml = `
+                <tr>
+                    <th style="width:50px;">#</th>
+                    <th class="sortable" onclick="handleSort('original')">Hikaye Kelimesi${getArrow('original')}<br><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                    <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                    <th class="sortable" onclick="handleSort('count')">Frekans${getArrow('count')}</th>
+                    <th>Bulunduğu Dosyalar<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                </tr>`;
+        } else if (state.task === 'kelimeler') {
+            tableHeaderHtml = `
+                <tr>
+                    <th style="width:50px;">#</th>
+                    <th class="sortable" onclick="handleSort('original')">Kelime (Word)${getArrow('original')}<br><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                    <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                    <th class="sortable" onclick="handleSort('type')">Tür (Type)${getArrow('type')}</th>
+                    <th class="sortable" onclick="handleSort('turkish')">Türkçe Anlamı${getArrow('turkish')}</th>
+                    <th style="text-align: center;" class="sortable" onclick="handleSort('filesCount')">Dosya Sayısı${getArrow('filesCount')}</th>
+                    <th>Bulunduğu Dosyalar<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                </tr>`;
+        } else {
+            tableHeaderHtml = `
+                <tr>
+                    <th style="width:50px;">#</th>
+                    <th class="sortable" onclick="handleSort('original')">Kelime${getArrow('original')}<br><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                    <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                    <th class="sortable" onclick="handleSort('turkish')">Türkçe Karşılığı${getArrow('turkish')}</th>
+                    <th>Örnek Cümle</th>
+                    <th>Bulunduğu Dosyalar<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                </tr>`;
+        }
 
         resultArea.innerHTML = `
             <div class="sticky-summary">
-                <h4>📊 Kelime Analiz Özeti (${fileCount} Dosya İncelendi)</h4>
+                <h4>📊 ${state.task.toUpperCase()} Analiz Özeti (${fileCount} Dosya İncelendi)</h4>
                 <div style="display: flex; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; font-size: 13px;">
                     <div style="background: #f3f4f6; padding: 6px 10px; border-radius: 6px;">Toplam Taranan Satır: <strong>${totalCheckedCount}</strong></div>
-                    <div style="background: #eef2f7; padding: 6px 10px; border-radius: 6px;">Benzersiz Kelime: <strong>${globalTableData.length}</strong></div>
+                    <div style="background: #eef2f7; padding: 6px 10px; border-radius: 6px;">Benzersiz Öğe: <strong>${globalTableData.length}</strong></div>
                     <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">A1: <strong>${levelCounts['A1']}</strong></div>
                     <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">A2: <strong>${levelCounts['A2']}</strong></div>
                     <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">B1: <strong>${levelCounts['B1']}</strong></div>
@@ -362,20 +521,7 @@
 
             <div class="table-container">
                 <table id="analysisTable">
-                    <thead>
-                        <tr>
-                            <th style="width:50px;">#</th>
-                            <th class="sortable" onclick="handleSort('original')">Kelime${getArrow('original')}<br><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                            <th class="sortable" onclick="handleSort('level')">Seviye (CSV Referanslı)${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                            <th class="sortable" onclick="handleSort('type')">Tür${getArrow('type')}</th>
-                            <th class="sortable" onclick="handleSort('turkish')">Türkçe Anlamı${getArrow('turkish')}</th>
-                            <th style="text-align: center;" class="sortable" onclick="handleSort('filesCount')">Dosya Sayısı${getArrow('filesCount')}</th>
-                            <th>
-                                Bulunduğu Dosyalar
-                                <br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele (örn: b101)..." onkeyup="filterTable()" onclick="event.stopPropagation()">
-                            </th>
-                        </tr>
-                    </thead>
+                    <thead>${tableHeaderHtml}</thead>
                     <tbody>${tableRows}</tbody>
                 </table>
             </div>
