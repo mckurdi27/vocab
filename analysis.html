@@ -27,7 +27,8 @@
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
         select, input[type="file"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
         select { width: 380px; }
-        .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
+        .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; display: inline-block; }
+        .file-list-tag { background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-size: 11px; display: inline-block; margin: 1px; font-family: monospace; }
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; display: none; }
         .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; }
         
@@ -321,7 +322,8 @@
                     count: info.count || 1,
                     type: info.type || '-',
                     turkish: info.turkish || '-',
-                    filesCount: info.files.length
+                    filesCount: info.files.length,
+                    filesList: info.files.sort().join(', ')
                 });
             }
 
@@ -374,10 +376,12 @@
         
         globalTableData.forEach((item, index) => {
             let fileBadge = `<span class="badge-unique">✔ ${item.filesCount} dosya</span>`;
+            let fileTagsHtml = item.filesList.split(', ').map(f => `<span class="file-list-tag">${f}</span>`).join(' ');
+
             if (state.task === 'hikaye') {
-                tableRows += `<tr><td>${index + 1}</td><td><strong>${item.original}</strong></td><td>${item.level}</td><td><strong>${item.count}</strong></td><td>${fileBadge}</td></tr>`;
+                tableRows += `<tr><td>${index + 1}</td><td><strong>${item.original}</strong></td><td>${item.level}</td><td><strong>${item.count}</strong></td><td>${fileBadge}</td><td>${fileTagsHtml}</td></tr>`;
             } else {
-                tableRows += `<tr><td>${index + 1}</td><td><strong>${item.original}</strong></td><td>${item.level}</td><td><code>${item.type}</code></td><td>${item.turkish}</td><td>${fileBadge}</td></tr>`;
+                tableRows += `<tr><td>${index + 1}</td><td><strong>${item.original}</strong></td><td>${item.level}</td><td><code>${item.type}</code></td><td>${item.turkish}</td><td>${fileBadge}</td><td>${fileTagsHtml}</td></tr>`;
             }
         });
 
@@ -388,6 +392,7 @@
                 <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                 <th class="sortable" onclick="handleSort('count')">Frekans${getArrow('count')}</th>
                 <th class="sortable" onclick="handleSort('filesCount')">Kaynak${getArrow('filesCount')}</th>
+                <th class="sortable" onclick="handleSort('filesList')">Bulunduğu Dosyalar${getArrow('filesList')}<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
             </tr>` : `
             <tr>
                 <th style="width:50px;">#</th>
@@ -395,7 +400,8 @@
                 <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                 <th class="sortable" onclick="handleSort('type')">Tür${getArrow('type')}<br><input type="text" id="f_type" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                 <th class="sortable" onclick="handleSort('turkish')">Türkçe Anlamı${getArrow('turkish')}<br><input type="text" id="f_turkish" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
-                <th class="sortable" onclick="handleSort('filesCount')">Kaynak${getArrow('filesCount')}<br><input type="text" id="f_source" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                <th class="sortable" onclick="handleSort('filesCount')">Kaynak${getArrow('filesCount')}</th>
+                <th class="sortable" onclick="handleSort('filesList')">Bulunduğu Dosyalar${getArrow('filesList')}<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
             </tr>`;
 
         let uniqueKeysCount = globalTableData.length;
@@ -434,7 +440,7 @@
         let fLevel = document.getElementById("f_level") ? document.getElementById("f_level").value.toLowerCase().trim() : "";
         let fType = document.getElementById("f_type") ? document.getElementById("f_type").value.toLowerCase().trim() : "";
         let fTurkish = document.getElementById("f_turkish") ? document.getElementById("f_turkish").value.toLowerCase().trim() : "";
-        let fSource = document.getElementById("f_source") ? document.getElementById("f_source").value.toLowerCase().trim() : "";
+        let fFiles = document.getElementById("f_files") ? document.getElementById("f_files").value.toLowerCase().trim() : "";
 
         for (let i = 0; i < trs.length; i++) {
             let cells = trs[i].cells;
@@ -443,20 +449,22 @@
             if (state.task === 'hikaye') {
                 let wText = cells[1].innerText.toLowerCase();
                 let lText = cells[2].innerText.toLowerCase();
+                let fText = cells[5].innerText.toLowerCase();
                 if (fWord && !wText.includes(fWord)) match = false;
                 if (fLevel && !lText.includes(fLevel)) match = false;
+                if (fFiles && !fText.includes(fFiles)) match = false;
             } else {
                 let wText = cells[1].innerText.toLowerCase();
                 let lText = cells[2].innerText.toLowerCase();
                 let tText = cells[3].innerText.toLowerCase();
                 let trText = cells[4].innerText.toLowerCase();
-                let sText = cells[5].innerText.toLowerCase();
+                let fText = cells[6].innerText.toLowerCase();
 
                 if (fWord && !wText.includes(fWord)) match = false;
                 if (fLevel && !lText.includes(fLevel)) match = false;
                 if (fType && !tText.includes(fType)) match = false;
                 if (fTurkish && !trText.includes(fTurkish)) match = false;
-                if (fSource && !sText.includes(fSource)) match = false;
+                if (fFiles && !fText.includes(fFiles)) match = false;
             }
 
             trs[i].style.display = match ? "" : "none";
