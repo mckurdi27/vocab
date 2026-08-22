@@ -26,7 +26,8 @@
         .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; }
         .csv-checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 5px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
         .csv-checkbox-group label { display: flex; align-items: center; gap: 6px; font-weight: 500; cursor: pointer; font-size: 14px; }
-        .sort-controls { margin-top: 12px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+        .sort-controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: center; }
+        tfoot td { background: #f8fafc; padding: 12px; border-top: 2px solid #cbd5e1; }
     </style>
 </head>
 <body>
@@ -72,7 +73,7 @@
         </div>
 
         <div class="csv-checkbox-group">
-            <label><input type="checkbox" name="csvFile" value="cefr.csv" checked> cefr.csv (Tümü)</label>
+            <label><input type="checkbox" name="csvFile" value="cefr.csv"> cefr.csv (Tümü)</label>
             <label><input type="checkbox" name="csvFile" value="cefra1.csv"> cefr0</label>
             <label><input type="checkbox" name="csvFile" value="cefra1.csv"> cefra1</label>
             <label><input type="checkbox" name="csvFile" value="cefra2.csv"> cefra2</label>
@@ -108,127 +109,19 @@
 a,A1,bir
 about,A1,hakkında / yaklaşık
 above,A1,yukarıda
-action,A1,eylem / hareket
-activity,A1,etkinlik / aktivite
-actor,A1,aktör / erkek oyuncu
-add,A1,eklemek
-address,A1,adres
-afraid,A1,korkmuş / çekinen
-after,A1,sonra
-afternoon,A1,öğleden sonra
-again,A1,tekrar
-age,A1,yaş
-agree,A1,aynı fikirde olmak / katılmak
-air,A1,hava
-airplane,A1,uçak
-airport,A1,havalimanı
-all,A1,tümü / hepsi
-almost,A1,neredeyse
-alone,A1,yalnız
-already,A1,zaten / çoktan
-also,A1,de / da / ayrıca
-always,A1,her zaman
-and,A1,ve
-angry,A1,kızgın / sinirli
-animal,A1,hayvan
-another,A1,başka bir / diğer
-answer,A1,cevap / yanıt
-apple,A1,elma
-April,A1,Nisan
-arm,A1,kol
-around,A1,etrafında / civarında
-arrive,A1,varmak / ulaşmak
-art,A1,sanat
-as,A1,olarak / gibi
-ask,A1,sormak / istemek
-at,A1,de / da
-August,A1,Ağustos
-aunt,A1,teyze / hala
-autumn,A1,sonbahar
-away,A1,uzakta / uzağa
-baby,A1,bebek
-back,A1,arka / sırt
-bad,A1,kötü
-bag,A1,çanta
-ball,A1,top
-banana,A1,muz
-band,A1,grup / bando
-bank,A1,banka
-baseball,A1,beyzbol
-basketball,A1,basketbol
-bath,A1,banyo
-be,A1,olmak
-beach,A1,plaj / kumsal
-bear,A1,ayı
-beautiful,A1,güzel
-because,A1,çünkü
-become,A1,haline gelmek / olmak
-bed,A1,yatak
-bedroom,A1,yatak odası
-bee,A1,arı
-before,A1,önce
-begin,A1,başlamak
-behind,A1,arkasında
-believe,A1,inanmak
-bell,A1,zil / çan
-below,A1,aşağıda
-beside,A1,yanında
-best,A1,en iyi
-better,A1,daha iyi
-between,A1,arasında
-bicycle,A1,bisiklet
-big,A1,büyük
-bike,A1,bisiklet
-bird,A1,kuş
-birthday,A1,doğum günü
-black,A1,siyah / kara
-block,A1,blok / yapı adası
-blue,A1,mavi
-boat,A1,tekne / bot
-body,A1,vücut
-book,A1,kitap
-bookstore,A1,kitabevi
-boring,A1,sıkıcı
-borrow,A1,ödünç almak
-both,A1,her ikisi
-bottle,A1,şişe
-bottom,A1,alt / dip
-bowl,A1,kase
-box,A1,kutu
-boy,A1,erkek çocuk
-brain,A1,beyin
-bread,A1,ekmek
-break,A1,kırmak / ara vermek
-breakfast,A1,kahvaltı
-breathe,A1,nefes almak
-bridge,A1,köprü
-bright,A1,parlak
-bring,A1,getirmek
-brother,A1,erkek kardeş / ağabey
-brown,A1,kahverengi
-brush,A1,fırça
-build,A1,inşa etmek
-building,A1,bina
-bus,A1,otobüs
-business,A1,iş / ticaret
-busy,A1,meşgul / yoğun
-but,A1,fakat / ama
-butter,A1,tereyağı
-button,A1,düğme
-buy,A1,satın almak
-by,A1,tarafından / yanında`
+...`
     };
 
     window.addEventListener('DOMContentLoaded', () => {
         const selectEl = document.getElementById('jsonSelect');
         
         const fileConfigs = [
-            { prefix: 'a', start: 101, end: 150, label: 'A1' },
-            { prefix: 'a2', start: 201, end: 250, label: 'A2' },
-            { prefix: 'b1', start: 101, end: 150, label: 'B1' },
-            { prefix: 'b2', start: 201, end: 250, label: 'B2' },
-            { prefix: 'c1', start: 101, end: 150, label: 'C1' },
-            { prefix: 'c2', start: 201, end: 250, label: 'C2' }
+            { prefix: 'a1', start: 01, end: 50, label: 'a1' },
+            { prefix: 'a2', start: 01, end: 50, label: 'a2' },
+            { prefix: 'b1', start: 01, end: 50, label: 'b1' },
+            { prefix: 'b2', start: 01, end: 50, label: 'b2' },
+            { prefix: 'c1', start: 01, end: 50, label: 'c1' },
+            { prefix: 'c2', start: 01, end: 50, label: 'c2' }
         ];
 
         fileConfigs.forEach(cfg => {
@@ -250,6 +143,7 @@ by,A1,tarafından / yanında`
 
     let state = { source: 'site', task: 'kelimeler' };
     let globalTableData = [];
+    let fileCountToProcess = 1; // Sayaç koruması
 
     function setSource(s, btn) {
         state.source = s;
@@ -387,6 +281,7 @@ by,A1,tarafından / yanında`
                 throw new Error("Seçilen JSON dosyası(arı) bulunamadı veya boş.");
             }
 
+            fileCountToProcess = rawJsonDataArray.length; // Dosya sayısını dinamik olarak güncelliyoruz
             let itemTracking = {};
             let totalCheckedCount = 0;
 
@@ -458,7 +353,7 @@ by,A1,tarafından / yanında`
                 });
             }
 
-            renderTable(globalTableData, totalCheckedCount, rawJsonDataArray.length, levelCounts);
+            renderTable(globalTableData, totalCheckedCount, fileCountToProcess, levelCounts);
 
         } catch (err) {
             statusDiv.innerText = "❌ Hata: " + err.message;
@@ -496,6 +391,7 @@ by,A1,tarafından / yanında`
             </tr>`;
 
         let uniqueKeysCount = dataArray.length;
+        let colSpanNum = (state.task === 'hikaye') ? 5 : 6;
 
         resultArea.innerHTML = `
             <h4>📊 ${state.task.toUpperCase()} Analiz Özeti (${fileCount} Dosya İncelendi)</h4>
@@ -506,17 +402,22 @@ by,A1,tarafından / yanında`
                 <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
             </div>
 
-            <div class="sort-controls">
-                <span style="font-size: 13px; font-weight: bold; color: #475569;">🔤 Sıralama Seçenekleri:</span>
-                <button type="button" onclick="sortTableData('az')" style="padding: 6px 12px; font-size: 12px; background: #e0e7ff; border: 1px solid #c7d2fe; border-radius: 4px;">Kelime (A-Z)</button>
-                <button type="button" onclick="sortTableData('za')" style="padding: 6px 12px; font-size: 12px; background: #e0e7ff; border: 1px solid #c7d2fe; border-radius: 4px;">Kelime (Z-A)</button>
-                <button type="button" onclick="sortTableData('level')" style="padding: 6px 12px; font-size: 12px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px;">Seviyeye Göre</button>
-            </div>
-
             <div style="max-height: 450px; overflow-y: auto; margin-top: 10px;">
                 <table id="analysisTable">
                     <thead>${tableHeaderHtml}</thead>
                     <tbody>${tableRows}</tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="${colSpanNum}" style="text-align: center;">
+                                <div class="sort-controls">
+                                    <span style="font-size: 13px; font-weight: bold; color: #475569;">🔤 Sıralama Seçenekleri:</span>
+                                    <button type="button" onclick="sortTableData('az')" style="padding: 6px 12px; font-size: 12px; background: #e0e7ff; border: 1px solid #c7d2fe; border-radius: 4px;">Kelime (A-Z)</button>
+                                    <button type="button" onclick="sortTableData('za')" style="padding: 6px 12px; font-size: 12px; background: #e0e7ff; border: 1px solid #c7d2fe; border-radius: 4px;">Kelime (Z-A)</button>
+                                    <button type="button" onclick="sortTableData('level')" style="padding: 6px 12px; font-size: 12px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px;">Seviyeye Göre</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         `;
@@ -539,7 +440,7 @@ by,A1,tarafından / yanında`
             else levelCounts['Bilinmiyor']++;
         });
 
-        renderTable(globalTableData, globalTableData.reduce((acc, curr) => acc + curr.count, 0), 1, levelCounts);
+        renderTable(globalTableData, globalTableData.reduce((acc, curr) => acc + curr.count, 0), fileCountToProcess, levelCounts);
     }
 
     function filterTable() {
