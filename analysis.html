@@ -263,50 +263,19 @@
             
             for (let row of rows) {
                 if (!row.trim()) continue;
-                let parts = [];
-                let inQuotes = false;
-                let currentField = '';
+                let parts = row.split(',').map(p => p.trim().replace(/^["']|["']$/g, ""));
                 
-                for (let i = 0; i < row.length; i++) {
-                    let char = row[i];
-                    if (char === '"') {
-                        inQuotes = !inQuotes;
-                    } else if (char === ',' && !inQuotes) {
-                        parts.push(currentField.trim().replace(/^["']|["']$/g, "").replace(/\s+/g, " "));
-                        currentField = '';
-                    } else {
-                        currentField += char;
+                if (parts.length >= 2) {
+                    let level = parts[0].toUpperCase();
+                    let word = parts[1].toLowerCase();
+                    
+                    // Eğer ilk sütun seviye değil de kelime ise (örn: kelime,seviye formatı) tersini kontrol et
+                    if (!/^(A1|A2|B1|B2|C1|C2)$/.test(level) && /^(A1|A2|B1|B2|C1|C2)$/.test(parts[1].toUpperCase())) {
+                        word = parts[0].toLowerCase();
+                        level = parts[1].toUpperCase();
                     }
-                }
-                parts.push(currentField.trim().replace(/^["']|["']$/g, "").replace(/\s+/g, " "));
-                
-                // Akıllı tarama: Satır içindeki parçalardan seviye ve kelimeyi bul
-                let foundLevel = "";
-                let foundWord = "";
 
-                parts.forEach(p => {
-                    let cleanP = p.toUpperCase();
-                    if (/^(A1|A2|B1|B2|C1|C2)$/.test(cleanP)) {
-                        foundLevel = cleanP;
-                    }
-                });
-
-                // Genellikle kelime ilk veya ikinci sütundadır, seviye dışındaki metinleri kelime adayı yapalım
-                for (let p of parts) {
-                    let cleanP = p.toLowerCase();
-                    if (cleanP && !/^(a1|a2|b1|b2|c1|c2)$/.test(cleanP) && cleanP !== "kelime" && cleanP !== "seviye" && cleanP !== "word") {
-                        foundWord = cleanP;
-                        break;
-                    }
-                }
-
-                if (foundWord && foundLevel) {
-                    cefrMap[foundWord] = foundLevel;
-                } else if (parts.length >= 2) {
-                    // Alternatif klasik eşleşme
-                    let level = parts[0].toUpperCase().trim();
-                    let word = parts[1].toLowerCase().trim();
-                    if (word && word !== "kelime" && word !== "seviye") {
+                    if (word && word !== "kelime" && word !== "word") {
                         cefrMap[word] = /^(A1|A2|B1|B2|C1|C2)$/.test(level) ? level : "Bilinmiyor";
                     }
                 }
@@ -373,7 +342,7 @@
 
                 if (state.task === 'hikaye') {
                     if (data.story_en && typeof data.story_en === 'string') {
-                        let cleanStory = data.story_en.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").toLowerCase();
+                        let cleanStory = data.story_en.replace(/[.,\/\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").toLowerCase();
                         let wordsArr = cleanStory.split(/\s+/);
                         
                         wordsArr.forEach(w => {
