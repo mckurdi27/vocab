@@ -209,9 +209,8 @@
         const checkedCsvs = Array.from(document.querySelectorAll('input[name="csvFile"]:checked')).map(cb => cb.value);
         const hasCustomCsv = customCsvContent.trim().length > 0;
 
-        if (checkedCsvs.length === 0 && !hasCustomCsv) {
-            alert("Lütfen en az bir CSV sözlük referansı (veya telefondan özel CSV dosyası) seçin.");
-            return;
+        if (state.task === 'hikaye' && checkedCsvs.length === 0 && !hasCustomCsv) {
+            // Hikaye modunda CSV zorunlu olmasa da uyarı verebiliriz veya geçebiliriz ama koruyalım:
         }
 
         const statusDiv = document.getElementById('status');
@@ -289,6 +288,7 @@
             fileCountToProcess = rawJsonDataArray.length;
             let itemTracking = {};
             let totalCheckedCount = 0;
+            let filesWithoutStory = [];
 
             rawJsonDataArray.forEach(itemObj => {
                 let fName = itemObj.sourceName;
@@ -296,40 +296,44 @@
                 let jsonFileLevel = (data.level && data.level.trim() !== '') ? data.level.toUpperCase().trim() : itemObj.defaultLevel;
 
                 if (state.task === 'hikaye') {
-                    let textToAnalyze = data.story_en && typeof data.story_en === 'string' ? data.story_en : JSON.stringify(data);
-                    
-                    let cleanStory = textToAnalyze.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, " ").toLowerCase();
-                    let wordsArr = cleanStory.split(/\s+/);
-                    
-                    wordsArr.forEach((w, wordIndex) => {
-                        let cleanW = w.trim();
-                        if (cleanW.length > 1 && !/^\d+$/.test(cleanW)) {
-                            totalCheckedCount++;
-                            let finalLevel = jsonFileLevel;
-                            let csvMatched = false;
-                            if (globalCsvDictionary[cleanW]) {
-                                finalLevel = globalCsvDictionary[cleanW].cefr;
-                                csvMatched = true;
-                            }
+                    // Sadece gerçek story_en alanı varsa ve doluysa tara
+                    if (data.story_en && typeof data.story_en === 'string' && data.story_en.trim() !== '') {
+                        let textToAnalyze = data.story_en;
+                        let cleanStory = textToAnalyze.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, " ").toLowerCase();
+                        let wordsArr = cleanStory.split(/\s+/);
+                        
+                        wordsArr.forEach((w, wordIndex) => {
+                            let cleanW = w.trim();
+                            if (cleanW.length > 1 && !/^\d+$/.test(cleanW)) {
+                                totalCheckedCount++;
+                                let finalLevel = jsonFileLevel;
+                                let csvMatched = false;
+                                if (globalCsvDictionary[cleanW]) {
+                                    finalLevel = globalCsvDictionary[cleanW].cefr;
+                                    csvMatched = true;
+                                }
 
-                            if (!itemTracking[cleanW]) {
-                                itemTracking[cleanW] = { 
-                                    original: cleanW, 
-                                    count: 0, 
-                                    files: [], 
-                                    fileOccurrences: [],
-                                    level: finalLevel,
-                                    jsonLevel: jsonFileLevel,
-                                    csvMatched: csvMatched,
-                                    type: '-',
-                                    turkish: globalCsvDictionary[cleanW] ? globalCsvDictionary[cleanW].turkish : '-'
-                                };
+                                if (!itemTracking[cleanW]) {
+                                    itemTracking[cleanW] = { 
+                                        original: cleanW, 
+                                        count: 0, 
+                                        files: [], 
+                                        fileOccurrences: [],
+                                        level: finalLevel,
+                                        jsonLevel: jsonFileLevel,
+                                        csvMatched: csvMatched,
+                                        type: '-',
+                                        turkish: globalCsvDictionary[cleanW] ? globalCsvDictionary[cleanW].turkish : '-'
+                                    };
+                                }
+                                itemTracking[cleanW].count++;
+                                if (!itemTracking[cleanW].files.includes(fName)) itemTracking[cleanW].files.push(fName);
+                                itemTracking[cleanW].fileOccurrences.push({ file: fName, index: wordIndex + 1 });
                             }
-                            itemTracking[cleanW].count++;
-                            if (!itemTracking[cleanW].files.includes(fName)) itemTracking[cleanW].files.push(fName);
-                            itemTracking[cleanW].fileOccurrences.push({ file: fName, index: wordIndex + 1 });
-                        }
-                    });
+                        });
+                    } else {
+                        filesWithoutStory.push(fName);
+                    }
                 } else {
                     let list = data.words && Array.isArray(data.words) ? data.words : [];
                     list.forEach((item, itemIndex) => {
@@ -368,7 +372,13 @@
                 }
             });
 
-            statusDiv.innerText = `✅ Analiz tamamlandı! İncelenen Toplam Birim: ${totalCheckedCount}.`;
+            if (state.task === 'hikaye' && filesWithoutStory.length > 0 && filesWithoutStory.length === rawJsonDataArray.length) {
+                statusDiv.innerText = "⚠️ Seçilen dosyalarda hikaye metni (story_en) bulunamadı!";
+                resultArea.innerHTML = `<div style="padding: 20px; background: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 6px;"><strong>Dikkat:</strong> İncelenen dosyalarda <code>story_en</code> alanı bulunamadığı veya boş olduğu için hikaye analizi yapılamadı.</div>`;
+                return;
+            }
+
+            statusDiv.innerText = `✅ Analiz tamamlandı! İncelenen Toplam Birim: ${totalCheckedCount}.` + (filesWithoutStory.length > 0 ? ` (${filesWithoutStory.length} dosyada story_en yoktu)` : '');
 
             globalTableData = [];
             let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
