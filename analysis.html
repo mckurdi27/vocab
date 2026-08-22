@@ -58,7 +58,7 @@
     <div id="siteInputArea" class="input-box" style="margin-top: 15px; display: flex;">
         <label for="jsonSelect"><strong>Hedef JSON Dosyası / Grubu:</strong></label>
         <select id="jsonSelect">
-            <option value="ALL">📁 Tüm Dosyaları Tara (A1, A2, B1, B2, C1, C2)</option>
+            <option value="ALL">📁 Tüm Dosyaları Tara (Tüm Seviyeler)</option>
         </select>
     </div>
 
@@ -133,6 +133,15 @@
         fileConfigs.forEach(cfg => {
             let optgroup = document.createElement('optgroup');
             optgroup.label = `Seviye ${cfg.label} (${cfg.prefix}${cfg.start}.json - ${cfg.prefix}${cfg.end}.json)`;
+            
+            // Toplu Seçim Seçeneği (Seviyenin tümü)
+            let groupAllOpt = document.createElement('option');
+            groupAllOpt.value = `GROUP_${cfg.label}`;
+            groupAllOpt.textContent = `🌟 Seviye ${cfg.label} Tümünü Seç (${cfg.prefix}${cfg.start}.json - ${cfg.prefix}${cfg.end.json} - 50 Dosya)`;
+            groupAllOpt.style.fontWeight = "bold";
+            groupAllOpt.style.color = "#4f46e5";
+            optgroup.appendChild(groupAllOpt);
+
             for (let i = cfg.start; i <= cfg.end; i++) {
                 let opt = document.createElement('option');
                 opt.value = `data/${cfg.prefix}${i}.json`;
@@ -241,7 +250,7 @@
             const selectedTarget = document.getElementById('jsonSelect').value;
 
             if (selectedTarget === "ALL") {
-                statusDiv.innerText = "data/ klasöründeki tüm seviyeler taranıyor...";
+                statusDiv.innerText = "data/ klasöründeki tüm dosyalar taranıyor...";
                 for (let cfg of fileConfigs) {
                     for (let i = cfg.start; i <= cfg.end; i++) {
                         let fileName = `data/${cfg.prefix}${i}.json`;
@@ -250,6 +259,22 @@
                             if (res.ok) {
                                 let jsonData = await res.json();
                                 rawJsonDataArray.push({ sourceName: `${cfg.prefix}${i}.json`, data: jsonData });
+                            }
+                        } catch (e) {}
+                    }
+                }
+            } else if (selectedTarget.startsWith("GROUP_")) {
+                let targetLabel = selectedTarget.replace("GROUP_", "");
+                let targetCfg = fileConfigs.find(c => c.label === targetLabel);
+                if (targetCfg) {
+                    statusDiv.innerText = `Seviye ${targetLabel} grubundaki 50 dosya taranıyor...`;
+                    for (let i = targetCfg.start; i <= targetCfg.end; i++) {
+                        let fileName = `data/${targetCfg.prefix}${i}.json`;
+                        try {
+                            let res = await fetch(fileName);
+                            if (res.ok) {
+                                let jsonData = await res.json();
+                                rawJsonDataArray.push({ sourceName: `${targetCfg.prefix}${i}.json`, data: jsonData });
                             }
                         } catch (e) {}
                     }
