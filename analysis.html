@@ -41,6 +41,18 @@
         
         .csv-checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 8px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
         .csv-checkbox-group label { display: flex; align-items: center; gap: 6px; font-weight: 500; cursor: pointer; font-size: 13px; }
+
+        .btn-print { background-color: #0f172a; color: white; border: none; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; transition: background 0.2s; }
+        .btn-print:hover { background-color: #334155; }
+
+        /* Yazdırma Sırasında Renklerin Korunması İçin */
+        @media print {
+            body { background: white; padding: 0; color: black; }
+            .header-bar, .section:not(#resultArea), .sort-trigger-btn, .filter-input, .btn-print { display: none !important; }
+            .sticky-summary { position: static; border: none; }
+            .table-container { max-height: none; overflow: visible; border: none; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        }
     </style>
 </head>
 <body>
@@ -98,7 +110,7 @@
     <div id="taskDetails" style="font-size: 13px; color: #555;">Mod: JSON içerisindeki "story_en" hikaye metni kelime bazlı taranır ve frekansları ölçülür.</div>
 </div>
 
-<div class="section">
+<div class="section" id="resultSection">
     <h3>3. Analiz Sonucu</h3>
     <button onclick="runAnalysis()" style="background: #4f46e5; color: white; font-weight: bold; padding: 12px 20px; border: none; border-radius: 6px; cursor:pointer;">🚀 Analizi Çalıştır</button>
     <div id="status" class="status-bar">Sistem hazır.</div>
@@ -574,7 +586,10 @@
 
         resultArea.innerHTML = `
             <div class="sticky-summary">
-                <h4>📊 ${state.task.toUpperCase()} Analiz Özeti (${fileCount} Dosya İncelendi)</h4>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                    <h4 style="margin: 0;">📊 ${state.task.toUpperCase()} Analiz Özeti (${fileCount} Dosya İncelendi)</h4>
+                    <button type="button" class="btn-print" onclick="window.print()">🖨️ Sayfayı Renkli Yazdır / PDF Kaydet</button>
+                </div>
                 <div style="display: flex; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; font-size: 13px; align-items: center;">
                     <div style="background: #f3f4f6; padding: 6px 10px; border-radius: 6px;">Toplam Taranan Birim: <strong>${totalCheckedCount}</strong></div>
                     <div style="background: #eef2f7; padding: 6px 10px; border-radius: 6px;">Benzersiz Kelime: <strong>${globalTableData.length}</strong></div>
