@@ -14,9 +14,9 @@
         .btn-group { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
         button { padding: 10px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; background: #fff; font-weight: 500; }
         .active-btn { background: #27ae60 !important; color: white; border: none; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 0; }
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
-        th { background: #f1f5f9; color: #0f172a; user-select: none; }
+        th { background: #f1f5f9; color: #0f172a; user-select: none; position: sticky; top: 0; z-index: 10; }
         th.sortable:hover { background: #e2e8f0; cursor: pointer; }
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
@@ -287,8 +287,12 @@
                     let level = parts[0].toUpperCase().trim();
                     let word = parts[1].toLowerCase().trim();
                     
-                    if (/^(A1|A2|B1|B2|C1|C2)$/.test(level) && word && word !== "kelime" && word !== "seviye") {
-                        cefrMap[word] = level;
+                    if (word && word !== "kelime" && word !== "seviye") {
+                        if (/^(A1|A2|B1|B2|C1|C2)$/.test(level)) {
+                            cefrMap[word] = level;
+                        } else {
+                            cefrMap[word] = level; 
+                        }
                     }
                 }
             }
@@ -407,13 +411,19 @@
                 let info = itemTracking[cleanW];
                 let level = cefrMap[cleanW] || 'Bilinmiyor';
                 
-                if (levelCounts[level] !== undefined) levelCounts[level]++;
-                else levelCounts['Bilinmiyor']++;
+                let upperLevel = level.toUpperCase();
+                if (levelCounts[upperLevel] !== undefined) {
+                    levelCounts[upperLevel]++;
+                } else if (/^(A1|A2|B1|B2|C1|C2)$/.test(upperLevel)) {
+                    levelCounts[upperLevel] = (levelCounts[upperLevel] || 0) + 1;
+                    level = upperLevel;
+                } else {
+                    levelCounts['Bilinmiyor']++;
+                    level = 'Bilinmiyor';
+                }
 
                 let sortedFiles = info.files.sort();
                 let fileListHtml = sortedFiles.map(f => `<div style="font-size: 11px; padding: 2px 4px; border-bottom: 1px solid #f1f5f9; font-family: monospace;">${f}</div>`).join('');
-                
-                let isDuplicate = info.files.length > 1;
 
                 if (state.task === 'hikaye') {
                     tableRows += `<tr>
@@ -511,7 +521,7 @@
                     <div style="background: #fef3c7; padding: 10px 14px; border-radius: 6px;">Bilinmiyor: <strong>${levelCounts['Bilinmiyor']}</strong></div>
                 </div>
                 <h4>📝 Detaylı Sonuç Tablosu</h4>
-                <div style="max-height: 500px; overflow-y: auto;">
+                <div style="max-height: 500px; overflow-y: auto; position: relative;">
                     <table id="analysisTable">
                         <thead>${tableHeaderHtml}</thead>
                         <tbody id="tableBody">${tableRows}</tbody>
