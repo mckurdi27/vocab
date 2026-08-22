@@ -10,16 +10,16 @@
     </script>
     <!-- Tesseract.js kütüphanesi kamera/fotoğraf OCR taraması için -->
     <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
-    <!-- Mammoth.js kütüphanesi Word (.docx) dosyalarını okumak için eklendi -->
+    <!-- Mammoth.js kütüphanesi Word (.docx) dosyalarını okumak için -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-    <!-- SheetJS (xlsx) kütüphanesi Excel dosyalarını okumak için eklendi -->
+    <!-- SheetJS (xlsx) kütüphanesi Excel dosyalarını okumak için -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
     <style>
         body { font-family: sans-serif; padding: 20px; background: #f9f9f9; color: #1e293b; }
         .header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .header-left { display: flex; align-items: center; gap: 15px; }
-        .btn-home { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background-color: #4f46e5; color: #ffffff; border-radius: 6px; text-decoration: none; font-weight: 500; transition: background-color 0.2s ease; border: none; cursor: pointer; }
+        .btn-home { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background-color: #4f46e5; color: #ffffff; border-radius: 6px; text-decoration: none; font-weight: 500; border: none; cursor: pointer; }
         .btn-home:hover { background-color: #4338ca; }
         .section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         h3 { margin-top: 0; color: #333; }
@@ -34,10 +34,10 @@
         th { background: #f1f5f9; color: #0f172a; user-select: none; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1); vertical-align: top; }
         tfoot td { position: sticky; bottom: 0; z-index: 5; background: #f1f5f9; box-shadow: 0 -2px 2px -1px rgba(0,0,0,0.1); }
         
-        .sort-trigger-btn { display: block; width: 100%; padding: 6px 8px; margin-bottom: 6px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px; font-weight: bold; color: #4f46e5; cursor: pointer; text-align: center; transition: background 0.2s, border-color 0.2s; }
+        .sort-trigger-btn { display: block; width: 100%; padding: 6px 8px; margin-bottom: 6px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 13px; font-weight: bold; color: #4f46e5; cursor: pointer; text-align: center; }
         .sort-trigger-btn:hover { background: #e0e7ff; border-color: #6366f1; }
         
-        .th-inner-box { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px; margin-top: 6px; text-align: center; font-size: 12px; font-weight: bold; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+        .th-inner-box { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px; margin-top: 6px; text-align: center; font-size: 12px; font-weight: bold; color: #0f172a; }
 
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
@@ -49,8 +49,8 @@
         
         .file-list-tag { background: #f1f5f9; color: #334155; padding: 2px 6px; border-radius: 4px; font-size: 11px; display: inline-block; margin: 1px; font-family: monospace; border: 1px solid #e2e8f0; }
         
-        .cell-box-count { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px 10px; margin-bottom: 6px; font-size: 13px; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
-        .cell-box-source { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px 10px; font-size: 13px; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+        .cell-box-count { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px 10px; margin-bottom: 6px; font-size: 13px; color: #0f172a; }
+        .cell-box-source { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px 10px; font-size: 13px; color: #0f172a; }
 
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; }
         .filter-input { width: 90%; padding: 5px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; background: #fff; }
@@ -59,7 +59,7 @@
         .csv-checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 8px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
         .csv-checkbox-group label { display: flex; align-items: center; gap: 6px; font-weight: 500; cursor: pointer; font-size: 13px; }
 
-        .btn-print { background-color: #0f172a; color: white; border: none; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; transition: background 0.2s; }
+        .btn-print { background-color: #0f172a; color: white; border: none; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
         .btn-print:hover { background-color: #334155; }
 
         .source-tabs { display: flex; gap: 10px; margin-bottom: 15px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
@@ -120,14 +120,37 @@
             </div>
             <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 0;">
             <div>
-                <label style="font-weight: bold; font-size: 13px; display: block; margin-bottom: 5px;">B) Çoklu Dosya Yükle (PDF, Word .docx, Excel .xlsx, TXT):</label>
-                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                    <!-- Desteklenen tüm formatlar için çoklu dosya seçimi -->
+                <label style="font-weight: bold; font-size: 13px; display: block; margin-bottom: 5px;">B) Çoklu Dosya Yükle ve Sayfa / Kapsam Ayarı:</label>
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 8px;">
                     <input type="file" id="multiFileInput" accept=".pdf,.docx,.xlsx,.txt" multiple style="font-size: 12px;" onchange="handleUniversalFileUpload(this)">
-                    <label style="font-size: 12px;">PDF Sayfa No: <input type="number" id="pdfPageNumInput" value="1" min="1" style="width: 60px; padding: 4px;"></label>
-                    <button type="button" onclick="processAllLoadedFiles()" style="background: #4f46e5; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; cursor: pointer;">Dosyaları Metne Çevir ve Tara</button>
+                </div>
+                
+                <!-- Yeni Eklenen Kontroller: Sayfa seçimi veya Tamamı, Excel sayfa/sütun kontrolü -->
+                <div style="display: flex; gap: 15px; align-items: center; flex-wrap: row; background: #fff; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px;">
+                    <label style="font-size: 12px; font-weight: bold;">PDF Sayfa Modu:</label>
+                    <select id="pdfScopeMode" style="width: 160px; font-size: 12px;">
+                        <option value="single">Tek Sayfa No Gir</option>
+                        <option value="all">PDF'in Tamamını Tara</option>
+                    </select>
+                    <label style="font-size: 12px;">Sayfa No: <input type="number" id="pdfPageNumInput" value="1" min="1" style="width: 50px; padding: 4px;"></label>
+
+                    <label style="font-size: 12px; font-weight: bold; margin-left: 10px;">Excel Sayfa Modu:</label>
+                    <select id="excelScopeMode" style="width: 180px; font-size: 12px;">
+                        <option value="active">Sadece İlk/Aktif Sayfa (Önerilen)</option>
+                        <option value="all">Excel'deki TÜM Sayfalar</option>
+                    </select>
+                </div>
+
+                <div style="margin-top: 10px; display: flex; gap: 10px; align-items: center;">
+                    <button type="button" onclick="processAllLoadedFiles()" style="background: #4f46e5; color: white; border: none; padding: 8px 14px; border-radius: 4px; font-size: 13px; cursor: pointer; font-weight: bold;">🔄 Dosyaları Metne Çevir ve Önizle</button>
                 </div>
                 <div id="universalFileStatus" style="font-size: 12px; color: #4f46e5; margin-top: 5px; font-weight: bold;"></div>
+            </div>
+
+            <!-- Yeni Eklenen Önizleme Kutusu -->
+            <div style="margin-top: 10px;">
+                <label style="font-weight: bold; font-size: 13px; display: block; margin-bottom: 5px; color: #0369a1;">🔍 Çevrilen Metin Önizlemesi (Analiz Edilmeden Önce Ne Okunduğunu Gör):</label>
+                <textarea id="previewExtractedTextArea" rows="6" style="width: 100%; border: 1px solid #0369a1; border-radius: 4px; padding: 8px; background: #f0f9ff; font-family: monospace; font-size: 12px;" placeholder="Dosyaları işledikten sonra buraya metin düşecek. İsterseniz burada metni doğrudan düzenleyip silebilir, sonra analizi çalıştırabilirsiniz..."></textarea>
             </div>
         </div>
     </div>
@@ -249,14 +272,17 @@
 
     function handleUniversalFileUpload(input) {
         if (input.files && input.files.length > 0) {
-            document.getElementById('universalFileStatus').innerText = `📎 ${input.files.length} dosya seçildi. İşlemek için butona tıklayın.`;
+            document.getElementById('universalFileStatus').innerText = `📎 ${input.files.length} dosya seçildi. Önizleme için 'Dosyaları Metne Çevir ve Önizle' butonuna tıklayın.`;
         }
     }
 
     async function processAllLoadedFiles() {
         const fileInput = document.getElementById('multiFileInput');
         const pageNumInput = document.getElementById('pdfPageNumInput');
+        const pdfScopeMode = document.getElementById('pdfScopeMode').value;
+        const excelScopeMode = document.getElementById('excelScopeMode').value;
         const statusEl = document.getElementById('universalFileStatus');
+        const previewArea = document.getElementById('previewExtractedTextArea');
 
         if (!fileInput.files || fileInput.files.length === 0) {
             alert("Lütfen önce en az bir dosya (PDF, Word, Excel veya TXT) seçin!");
@@ -264,7 +290,7 @@
         }
 
         let targetPageNum = parseInt(pageNumInput.value) || 1;
-        statusEl.innerText = `⏳ Seçilen dosyalar taranıyor ve metne dönüştürülüyor...`;
+        statusEl.innerText = `⏳ Seçilen dosyalar taranıyor...`;
 
         try {
             let combinedTexts = [];
@@ -287,30 +313,52 @@
                     let arrayBuffer = await file.arrayBuffer();
                     let workbook = XLSX.read(arrayBuffer, { type: 'array' });
                     let sheetText = "";
-                    workbook.SheetNames.forEach(sheetName => {
-                        let sheet = workbook.Sheets[sheetName];
-                        sheetText += XLSX.utils.sheet_to_csv(sheet) + "\n";
-                    });
-                    combinedTexts.push(`--- Dosya (Excel): ${fName} ---\n` + sheetText);
+
+                    if (excelScopeMode === 'active') {
+                        // Sadece ilk aktif sayfayı al (Çöpleri ve yan sayfaları engeller)
+                        let firstSheetName = workbook.SheetNames[0];
+                        let sheet = workbook.Sheets[firstSheetName];
+                        sheetText = XLSX.utils.sheet_to_csv(sheet);
+                        combinedTexts.push(`--- Dosya (Excel - Aktif Sayfa: ${firstSheetName}): ${fName} ---\n` + sheetText);
+                    } else {
+                        // Tüm sayfalar
+                        workbook.SheetNames.forEach(sheetName => {
+                            let sheet = workbook.Sheets[sheetName];
+                            sheetText += `[Sayfa: ${sheetName}]\n` + XLSX.utils.sheet_to_csv(sheet) + "\n";
+                        });
+                        combinedTexts.push(`--- Dosya (Excel - Tüm Sayfalar): ${fName} ---\n` + sheetText);
+                    }
                 } 
                 else if (fExt === 'pdf') {
                     let arrayBuffer = await file.arrayBuffer();
                     let loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
                     let pdfDoc = await loadingTask.promise;
 
-                    if (targetPageNum <= pdfDoc.numPages) {
-                        let page = await pdfDoc.getPage(targetPageNum);
-                        let textContent = await page.getTextContent();
-                        let pageText = textContent.items.map(item => item.str).join(' ');
-                        combinedTexts.push(`--- Dosya (PDF): ${fName} (${targetPageNum}. Sayfa) ---\n` + pageText);
+                    if (pdfScopeMode === 'single') {
+                        if (targetPageNum <= pdfDoc.numPages) {
+                            let page = await pdfDoc.getPage(targetPageNum);
+                            let textContent = await page.getTextContent();
+                            let pageText = textContent.items.map(item => item.str).join(' ');
+                            combinedTexts.push(`--- Dosya (PDF): ${fName} (${targetPageNum}. Sayfa) ---\n` + pageText);
+                        } else {
+                            combinedTexts.push(`--- Dosya (PDF): ${fName} (İstenen sayfa bulunamadı, toplam ${pdfDoc.numPages} sayfa) ---`);
+                        }
                     } else {
-                        combinedTexts.push(`--- Dosya (PDF): ${fName} (Bu PDF toplam ${pdfDoc.numPages} sayfa) ---`);
+                        // Tüm PDF sayfaları
+                        let allPdfText = "";
+                        for (let p = 1; p <= pdfDoc.numPages; p++) {
+                            let page = await pdfDoc.getPage(p);
+                            let textContent = await page.getTextContent();
+                            allPdfText += `[Sayfa ${p}]\n` + textContent.items.map(item => item.str).join(' ') + "\n";
+                        }
+                        combinedTexts.push(`--- Dosya (PDF - Tümü): ${fName} ---\n` + allPdfText);
                     }
                 }
             }
 
             state.customExtractedText = combinedTexts.join('\n\n');
-            statusEl.innerText = `✅ Toplam ${fileInput.files.length} dosya başarıyla okundu ve metne dönüştürüldü!`;
+            previewArea.value = state.customExtractedText; // Önizleme kutusuna yansıt
+            statusEl.innerText = `✅ Dosyalar başarıyla metne çevrildi ve aşağıda önizlemeye yüklendi!`;
         } catch (err) {
             statusEl.innerText = "❌ Dosya Okuma Hatası: " + err.message;
         }
@@ -361,6 +409,12 @@
         const statusDiv = document.getElementById('status');
         const resultArea = document.getElementById('resultArea');
         
+        // Önizleme alanındaki güncel metni esas alıyoruz (kullanıcı isterse kutuda elle düzenleme yapabilir)
+        const previewAreaVal = document.getElementById('previewExtractedTextArea').value.trim();
+        if (previewAreaVal) {
+            state.customExtractedText = previewAreaVal;
+        }
+
         statusDiv.innerText = "Analiz çalıştırılıyor...";
         resultArea.innerHTML = "";
         
@@ -402,7 +456,7 @@
                     if (textAreaVal) state.customExtractedText = textAreaVal + "\n" + state.customExtractedText;
                 }
                 if (!state.customExtractedText || state.customExtractedText.trim() === "") {
-                    throw new Error("Taranacak metin bulunamadı! Lütfen önce dosya yükleyip metne çevirin ya da metin alanına bir şeyler yazın.");
+                    throw new Error("Taranacak metin bulunamadı! Lütfen dosya yükleyip önizleme alanını doldurun ya da metin alanına bir şeyler yazın.");
                 }
 
                 fileCountToProcess = 1;
@@ -418,13 +472,13 @@
 
                         if (!itemTracking[cleanW]) {
                             itemTracking[cleanW] = { 
-                                original: cleanW, count: 0, files: ['Yuklenen_Dosya_Girdisi'], fileOccurrences: [],
+                                original: cleanW, count: 0, files: ['Onizleme_Metin_Girdisi'], fileOccurrences: [],
                                 level: finalLevel, jsonLevel: 'Özel', csvMatched: csvMatched,
                                 type: '-', turkish: csvMatched ? globalCsvDictionary[cleanW].turkish : '-'
                             };
                         }
                         itemTracking[cleanW].count++;
-                        itemTracking[cleanW].fileOccurrences.push({ file: 'Yuklenen_Dosya_Girdisi', index: wordIndex + 1 });
+                        itemTracking[cleanW].fileOccurrences.push({ file: 'Onizleme_Metin_Girdisi', index: wordIndex + 1 });
                     }
                 });
             } else {
@@ -572,7 +626,7 @@
                         original: info.original, level: lvl, jsonLevel: info.jsonLevel, csvMatched: info.csvMatched,
                         type: info.type || '-', turkish: info.turkish || '-', count: info.count || 1,
                         example_en: info.example_en || '', filesCount: info.files ? info.files.length : 1,
-                        filesList: info.files ? info.files.sort().join(', ') : 'Yuklenen_Dosya_Girdisi',
+                        filesList: info.files ? info.files.sort().join(', ') : 'Onizleme_Metin_Girdisi',
                         fileOccurrences: info.fileOccurrences || [],
                         occurrences: info.fileOccurrences ? info.fileOccurrences.map(fo => ({ file: fo.file, index: fo.index, turkish: info.turkish, example_en: info.example_en })) : []
                     });
@@ -737,8 +791,9 @@
         });
 
         let tableFooterHtml = '';
+        let totalLevelSumText = `A1:${levelCounts['A1']} | A2:${levelCounts['A2']} | B1:${levelCounts['B1']} | B2:${levelCounts['B2']} | C1:${levelCounts['C1']} | C2:${levelCounts['C2']}`;
+        
         if (state.task === 'cevir') {
-            let totalLevelSumText = `A1:${levelCounts['A1']} | A2:${levelCounts['A2']} | B1:${levelCounts['B1']} | B2:${levelCounts['B2']} | C1:${levelCounts['C1']} | C2:${levelCounts['C2']}`;
             tableFooterHtml = `
                 <tr style="background: #f1f5f9; font-weight: bold; border-top: 2px solid #cbd5e1; font-size: 13px;">
                     <td style="text-align: center;">TOPLAM</td>
@@ -751,7 +806,6 @@
                 </tr>
             `;
         } else {
-            let totalLevelSumText = `A1:${levelCounts['A1']} | A2:${levelCounts['A2']} | B1:${levelCounts['B1']} | B2:${levelCounts['B2']} | C1:${levelCounts['C1']} | C2:${levelCounts['C2']}`;
             tableFooterHtml = `
                 <tr style="background: #f1f5f9; font-weight: bold; border-top: 2px solid #cbd5e1; font-size: 13px;">
                     <td style="text-align: center;">TOPLAM</td>
@@ -821,22 +875,14 @@
                 </tr>`;
         }
 
-        let summaryExtraInfo = "";
-        if (state.task === 'hikaye' || state.task === 'kelimeler') {
-            summaryExtraInfo = `
-                <div style="background: #e0f2fe; padding: 6px 10px; border-radius: 6px;">Toplam Frekans: <strong>${grandTotalFrequencySum}</strong></div>
-                <div style="background: #fef3c7; padding: 6px 10px; border-radius: 6px;">Toplam Tekrar: <strong>${grandTotalOccurrencesSum}</strong> (Mavi: ${totalUniqueBadgesCount} | Kırmızı: ${totalDupBadgesCount})</div>
-            `;
-        } else {
-            summaryExtraInfo = `
-                <div style="background: #fef3c7; padding: 6px 10px; border-radius: 6px;">Toplam Çeviri Detayı: <strong>${grandTotalOccurrencesSum}</strong> (Mavi: ${totalUniqueBadgesCount} | Kırmızı: ${totalDupBadgesCount})</div>
-            `;
-        }
+        let summaryExtraInfo = (state.task === 'hikaye' || state.task === 'kelimeler') ? 
+            `<div style="background: #e0f2fe; padding: 6px 10px; border-radius: 6px;">Toplam Frekans: <strong>${grandTotalFrequencySum}</strong></div>` : 
+            ``;
 
         resultArea.innerHTML = `
             <div class="sticky-summary">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
-                    <h4 style="margin: 0;">📊 ANALİZ ÖZETİ (${fileCount} Kaynak / ${uniqueFilesAllSet.size} Benzersiz Kaynak)</h4>
+                    <h4 style="margin: 0;">📊 ANALİZ ÖZETİ (${fileCount} Kaynak)</h4>
                     <button type="button" class="btn-print" onclick="triggerPrint()">🖨️ Sayfayı Renkli Yazdır / PDF Kaydet</button>
                 </div>
                 <div style="display: flex; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; font-size: 13px; align-items: center;">
@@ -854,7 +900,7 @@
             <div class="table-container">
                 <table id="analysisTable">
                     <thead>${tableHeaderHtml}</thead>
-                    <body>${tableRows}</tbody>
+                    <tbody>${tableRows}</tbody>
                     <tfoot>${tableFooterHtml}</tfoot>
                 </table>
             </div>
