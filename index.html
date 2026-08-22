@@ -148,14 +148,18 @@
         let globalWordMap = {};
         let allDaysFiles = [];
 
-        // 1. Uygulama Başlangıcı
+        // 1. Uygulama Başlangıcı (data/days.json olarak güncellendi)
         async function initApp() {
             try {
-                const response = await fetch('days.json');
+                const response = await fetch('data/days.json');
+                if (!response.ok) throw new Error("days.json bulunamadı");
+                
                 const data = await response.json();
                 
-                // days.json yapınıza göre dosya listesini alıyoruz
-                allDaysFiles = data.files || data; 
+                // Dosya yollarının başında 'data/' olduğundan emin olunuyor
+                allDaysFiles = (data.files || data).map(file => {
+                    return file.startsWith('data/') ? file : `data/${file}`;
+                }); 
 
                 // Arka planda tüm JSON'ları tarayıp global haritayı çıkaralım
                 await buildGlobalWordMap(allDaysFiles);
@@ -170,7 +174,7 @@
             } catch (error) {
                 console.error("Başlangıç hatası:", error);
                 document.getElementById('cardsContainer').innerHTML = 
-                    `<p style="color:red; text-align:center; grid-column:1/-1;">Veriler yüklenemedi. Lütfen days.json dosyanızı kontrol edin.</p>`;
+                    `<p style="color:red; text-align:center; grid-column:1/-1;">Veriler yüklenemedi. Lütfen data/days.json dosyanızı kontrol edin.</p>`;
             }
         }
 
@@ -191,7 +195,7 @@
                         if (!globalWordMap[wordKey]) {
                             globalWordMap[wordKey] = [];
                         }
-                        // Kelimenin geçtiği dosyayı listeye ekle (aynı dosyada birden fazla eklenmesin)
+                        // Kelimenin geçtiği dosyayı listeye ekle
                         if (!globalWordMap[wordKey].includes(file)) {
                             globalWordMap[wordKey].push(file);
                         }
