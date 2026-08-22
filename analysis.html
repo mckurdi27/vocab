@@ -611,10 +611,14 @@
                 let currentOccCount = item.occurrences ? item.occurrences.length : 0;
                 grandTotalOccurrencesSum += currentOccCount;
 
+                let rowUniqueCount = 0;
+                let rowDupCount = 0;
+
                 if (item.occurrences && item.occurrences.length > 0) {
                     duplicateDetailsHtml = item.occurrences.map((occ, i) => {
                         let badgeClass = (i === 0) ? 'badge-unique' : 'badge-dup';
-                        if (i === 0) totalUniqueBadgesCount++; else totalDupBadgesCount++;
+                        if (i === 0) { totalUniqueBadgesCount++; rowUniqueCount++; } 
+                        else { totalDupBadgesCount++; rowDupCount++; }
                         return `<span class="${badgeClass}">${occ.file} (Sıra: ${occ.index})</span>`;
                     }).join(' ');
 
@@ -639,7 +643,7 @@
                     <td>${exampleDisplayList.join('')}</td>
                     <td>
                         <div class="cell-box-count">
-                            <strong style="color: #4f46e5; display: inline-block; margin-bottom: 4px;">📌 ${currentOccCount} Adet</strong><br>
+                            <strong style="color: #4f46e5; display: inline-block; margin-bottom: 4px;">📌 Mavi: ${rowUniqueCount} | Kırmızı: ${rowDupCount} (Toplam: ${currentOccCount})</strong><br>
                             ${duplicateDetailsHtml}
                         </div>
                     </td>
@@ -657,10 +661,14 @@
                 let currentOccCount = item.fileOccurrences ? item.fileOccurrences.length : 0;
                 grandTotalOccurrencesSum += currentOccCount;
 
+                let rowUniqueCount = 0;
+                let rowDupCount = 0;
+
                 if (item.fileOccurrences && item.fileOccurrences.length > 0) {
                     duplicateDetailsHtml = item.fileOccurrences.map((occ, i) => {
                         let badgeClass = (i === 0) ? 'badge-unique' : 'badge-dup';
-                        if (i === 0) totalUniqueBadgesCount++; else totalDupBadgesCount++;
+                        if (i === 0) { totalUniqueBadgesCount++; rowUniqueCount++; } 
+                        else { totalDupBadgesCount++; rowDupCount++; }
                         return `<span class="${badgeClass}">${occ.file} (Sıra: ${occ.index})</span>`;
                     }).join(' ');
                 }
@@ -672,7 +680,7 @@
                     <td><strong>${freqVal}</strong></td>
                     <td>
                         <div class="cell-box-count">
-                            <strong style="color: #4f46e5; display: inline-block; margin-bottom: 4px;">📌 ${currentOccCount} Tekrar</strong><br>
+                            <strong style="color: #4f46e5; display: inline-block; margin-bottom: 4px;">📌 Mavi: ${rowUniqueCount} | Kırmızı: ${rowDupCount} (Toplam: ${currentOccCount})</strong><br>
                             ${duplicateDetailsHtml}
                         </div>
                     </td>
@@ -697,7 +705,7 @@
                     <td>Sözlük Arşivi</td>
                     <td>Örnek Cümleler</td>
                     <td><span style="color: #0369a1;">Mavi: ${totalUniqueBadgesCount}</span> | <span style="color: #dc2626;">Kırmızı: ${totalDupBadgesCount}</span><br><strong>Toplam: ${grandTotalOccurrencesSum}</strong></td>
-                    <td>Benzersiz Kaynak: ${uniqueFilesAllSet.size}</td>
+                    <td>Benzersiz Kaynak: ${uniqueFilesAllSet.size} | Tüm Kaynak Toplamı: ${totalFileSourcesSum}</td>
                 </tr>
             `;
         } else {
@@ -709,7 +717,7 @@
                     <td>${totalLevelSumText}</td>
                     <td>Frekans: ${grandTotalFrequencySum}</td>
                     <td><span style="color: #0369a1;">Mavi: ${totalUniqueBadgesCount}</span> | <span style="color: #dc2626;">Kırmızı: ${totalDupBadgesCount}</span><br><strong>Toplam: ${grandTotalOccurrencesSum}</strong></td>
-                    <td>Benzersiz Kaynak: ${uniqueFilesAllSet.size}</td>
+                    <td>Benzersiz Kaynak: ${uniqueFilesAllSet.size} | Tüm Kaynak Toplamı: ${totalFileSourcesSum}</td>
                 </tr>
             `;
         }
@@ -737,11 +745,11 @@
                     </th>
                     <th>
                         <button type="button" class="sort-trigger-btn" onclick="handleSort('filesCount')">Tekrar Yerleri ${getArrow('filesCount')}</button>
-                        <div class="th-inner-box" style="color: #dc2626;">Toplam: ${grandTotalOccurrencesSum}</div>
+                        <div class="th-inner-box"><span style="color: #0369a1;">Mavi: ${totalUniqueBadgesCount}</span> | <span style="color: #dc2626;">Kırmızı: ${totalDupBadgesCount}</span><br><strong>Toplam: ${grandTotalOccurrencesSum}</strong></div>
                     </th>
                     <th>
                         <button type="button" class="sort-trigger-btn" onclick="handleSort('filesList')">Bulunduğu Kaynak ${getArrow('filesList')}</button>
-                        <div class="th-inner-box" style="color: #0369a1;">Toplam: ${uniqueFilesAllSet.size}</div>
+                        <div class="th-inner-box" style="color: #0369a1;">Benzersiz: ${uniqueFilesAllSet.size}<br>Toplam: ${totalFileSourcesSum}</div>
                     </th>
                 </tr>`;
         } else {
@@ -762,11 +770,11 @@
                     </th>
                     <th>
                         <button type="button" class="sort-trigger-btn" onclick="handleSort('filesCount')">Tekrar Yerleri ${getArrow('filesCount')}</button>
-                        <div class="th-inner-box" style="color: #dc2626;">Toplam: ${grandTotalOccurrencesSum}</div>
+                        <div class="th-inner-box"><span style="color: #0369a1;">Mavi: ${totalUniqueBadgesCount}</span> | <span style="color: #dc2626;">Kırmızı: ${totalDupBadgesCount}</span><br><strong>Toplam: ${grandTotalOccurrencesSum}</strong></div>
                     </th>
                     <th>
                         <button type="button" class="sort-trigger-btn" onclick="handleSort('filesList')">Bulunduğu Kaynak ${getArrow('filesList')}</button>
-                        <div class="th-inner-box" style="color: #0369a1;">Toplam: ${uniqueFilesAllSet.size}</div>
+                        <div class="th-inner-box" style="color: #0369a1;">Benzersiz: ${uniqueFilesAllSet.size}<br>Toplam: ${totalFileSourcesSum}</div>
                     </th>
                 </tr>`;
         }
