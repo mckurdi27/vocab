@@ -1,2487 +1,2447 @@
-a	determiner	A1
-abandon	verb	B1
-able	adjective	B1
-abnormal	adjective	B1
-aboard	adverb	B1
-aborigine	noun	B1
-above	adjective	B1
-absence	noun	B1
-absent	adjective	B1
-absolute	adjective	B1
-absolutely	adverb	B1
-absorb	verb	B1
-abstract	adjective	B1
-abundance	noun	B1
-abundant	adjective	B1
-academic	adjective	B1
-academy	noun	B1
-accent	noun	B1
-acceptance	noun	B1
-access	noun	B1
-accessible	adjective	B1
-accessory	noun	B1
-accidental	adjective	B1
-accidentally	adverb	B1
-accompany	verb	B1
-accomplish	verb	B1
-according to	preposition	B1
-account	verb	B1
-accountant	noun	B1
-accuracy	noun	B1
-accurate	adjective	B1
-accurately	adverb	B1
-accuse	verb	B1
-accustom	verb	B1
-ache	noun	B1
-achievement	noun	B1
-acknowledge	verb	B1
-acknowledgement	noun	B1
-acknowledgment	noun	B1
-acquaintance	noun	B1
-acquire	verb	B1
-act	verb	B1
-active	adjective	B1
-actress	noun	B1
-ad	noun	B1
-adapt	verb	B1
-address	verb	B1
-addressee	noun	B1
-administration	noun	B1
-admiration	noun	B1
-admission	noun	B1
-adopt	verb	B1
-adorable	adjective	B1
-advance	verb	B1
-adverb	noun	B1
-adverbial	adjective	B1
-advert	noun	B1
-advertise	verb	B1
-adviser	noun	B1
-advisor	noun	B1
-aerobics	noun	B1
-affect	verb	B1
-affection	noun	B1
-afford	verb	B1
-after	conjunction	B1
-afterward	adverb	B1
-afterwards	adverb	B1
-agenda	noun	B1
-aggressive	adjective	B1
-agreement	noun	B1
-agricultural	adjective	B1
-agriculture	noun	B1
-aid	noun	B1
-aid	verb	B1
-aim	noun	B1
-air conditioning	noun	B1
-air force	noun	B1
-airline	noun	B1
-alarm	verb	B1
-alcohol	noun	B1
-alcoholic	adjective	B1
-alike	adjective	B1
-alike	adverb	B1
-allergic	adjective	B1
-allowance	noun	B1
-aloud	adverb	B1
-alphabet	noun	B1
-alternative	adjective	B1
-alternative	noun	B1
-altogether	adverb	B1
-amazed	adjective	B1
-amazing	adjective	B1
-ambitious	adjective	B1
-ambulance	noun	B1
-amount	noun	B1
-amusing	adjective	B1
-analyse	verb	B1
-analysis	noun	B1
-analyze	verb	B1
-anger	noun	B1
-angle	noun	B1
-animated	adjective	B1
-animation	noun	B1
-announce	verb	B1
-announcement	noun	B1
-annoyance	noun	B1
-annoyed	adjective	B1
-annual	adjective	B1
-annually	adverb	B1
-ant	noun	B1
-anti	adjective	B1
-antique	noun	B1
-antonym	noun	B1
-anxiety	noun	B1
-anxiously	adverb	B1
-anyhow	adverb	B1
-ape	noun	B1
-apology	noun	B1
-apparent	adjective	B1
-appeal	noun	B1
-appetite	noun	B1
-applaud	verb	B1
-applause	noun	B1
-application	noun	B1
-appoint	verb	B1
-appreciation	noun	B1
-approach	noun	B1
-approval	noun	B1
-approve	verb	B1
-approximately	adverb	B1
-architect	noun	B1
-arise	verb	B1
-arithmetic	noun	B1
-arm	verb	B1
-army	noun	B1
-arrange	verb	B1
-arrangement	noun	B1
-arrest	noun	B1
-arrest	verb	B1
-arrival	noun	B1
-arrow	noun	B1
-artist	noun	B1
-artistic	adjective	B1
-ashamed	adjective	B1
-aside	adverb	B1
-aspect	noun	B1
-aspirin	noun	B1
-assign	verb	B1
-assignment	noun	B1
-assist	verb	B1
-assistance	noun	B1
-assistant	noun	B1
-associate	verb	B1
-assume	verb	B1
-astronomer	noun	B1
-athletic	adjective	B1
-Atlantic	adjective	B1
-atmosphere	noun	B1
-atomic	adjective	B1
-attach	verb	B1
-attachment	noun	B1
-attain	verb	B1
-attempt	verb	B1
-attend	verb	B1
-attract	verb	B1
-attraction	noun	B1
-authority	noun	B1
-auxiliary	adjective	B1
-available	adjective	B1
-avenue	noun	B1
-award	verb	B1
-aware	adjective	B1
-awareness	noun	B1
-awesome	adjective	B1
-awkward	adjective	B1
-babysit	verb	B1
-babysitter	noun	B1
-back	verb	B1
-backache	noun	B1
-backpack	noun	B1
-backpacker	noun	B1
-backpacking	noun	B1
-bacon	noun	B1
-baggage	noun	B1
-baker	noun	B1
-bakery	noun	B1
-balance	noun	B1
-bald	adjective	B1
-bandage	noun	B1
-bang	noun	B1
-bang	verb	B1
-bank account	noun	B1
-bar	verb	B1
-barbecue	verb	B1
-bare	adjective	B1
-barely	adverb	B1
-bark	noun	B1
-barman	noun	B1
-barrel	noun	B1
-base	verb	B1
-basement	noun	B1
-basin	noun	B1
-basis	noun	B1
-bat	verb	B1
-bathe	verb	B1
-battle	noun	B1
-beard	noun	B1
-beast	noun	B1
-beat	verb	B1
-beautifully	adverb	B1
-beaver	noun	B1
-because of	preposition	B1
-bedside	noun	B1
-behalf	noun	B1
-behave	verb	B1
-belief	noun	B1
-beloved	adjective	B1
-beneath	preposition	B1
-benefit	noun	B1
-bent	adjective	B1
-besides	preposition	B1
-bet	verb	B1
-bilingual	adjective	B1
-bill	verb	B1
-bin	noun	B1
-biochemistry	noun	B1
-biography	noun	B1
-biology	noun	B1
-bishop	noun	B1
-bite	verb	B1
-bitter	adjective	B1
-blame	noun	B1
-bleed	verb	B1
-blend	verb	B1
-bless	verb	B1
-blessing	noun	B1
-blind	adjective	B1
-block	verb	B1
-blog	noun	B1
-blogger	noun	B1
-blush	noun	B1
-board	verb	B1
-boast	verb	B1
-bold	adjective	B1
-boldly	adverb	B1
-bomb	noun	B1
-bomb	verb	B1
-bond	noun	B1
-book	verb	B1
-booking	noun	B1
-boom	noun	B1
-boot	noun	B1
-border	noun	B1
-bore	verb	B1
-boredom	noun	B1
-bother	noun	B1
-bounce	verb	B1
-bound	adjective	B1
-bow	noun	B1
-bowl	verb	B1
-boxing	noun	B1
-bracelet	noun	B1
-brainstorming	noun	B1
-branch	verb	B1
-brand-new	adjective	B1
-brass	noun	B1
-bravely	adverb	B1
-breakthrough	noun	B1
-breast	noun	B1
-breath	noun	B1
-breathless	adjective	B1
-breed	verb	B1
-breeding	noun	B1
-brick	noun	B1
-brief	adjective	B1
-briefly	adverb	B1
-brightly	adverb	B1
-broad	adjective	B1
-broadcast	noun	B1
-broccoli	noun	B1
-bronze	noun	B1
-brotherhood	noun	B1
-bubble	noun	B1
-buddy	noun	B1
-builder	noun	B1
-bull	noun	B1
-bullet	noun	B1
-bulletin	noun	B1
-bump	verb	B1
-bunch	noun	B1
-burden	noun	B1
-bureau	noun	B1
-burglar	noun	B1
-burn	verb	B1
-burning	adjective	B1
-burst	verb	B1
-bust	verb	B1
-but	preposition	B1
-butcher	noun	B1
-buyer	noun	B1
-cabbage	noun	B1
-cabin	noun	B1
-cage	noun	B1
-calculate	verb	B1
-calculation	noun	B1
-calculator	noun	B1
-calf	noun	B1
-caller	noun	B1
-calm	adjective	B1
-calmness	noun	B1
-camel	noun	B1
-campsite	noun	B1
-canal	noun	B1
-cancel	verb	B1
-cancer	noun	B1
-candle	noun	B1
-canned	adjective	B1
-canteen	noun	B1
-capable	adjective	B1
-capacity	noun	B1
-capsule	noun	B1
-capture	noun	B1
-capture	verb	B1
-care	verb	B1
-career	noun	B1
-careless	adjective	B1
-carelessly	adverb	B1
-carelessness	noun	B1
-carpet	noun	B1
-carriage	noun	B1
-carton	noun	B1
-cashpoint	noun	B1
-casual	adjective	B1
-categorise	verb	B1
-categorize	verb	B1
-category	noun	B1
-cattle	noun	B1
-caution	noun	B1
-cautious	adjective	B1
-cave	noun	B1
-CD-ROM	noun	B1
-celebrity	noun	B1
-cell	noun	B1
-central	adjective	B1
-central heating	noun	B1
-ceremony	noun	B1
-certainty	noun	B1
-challenging	adjective	B1
-champion	noun	B1
-channel	noun	B1
-chaos	noun	B1
-characterise	verb	B1
-characteristic	noun	B1
-characterize	verb	B1
-charge	noun	B1
-charge	verb	B1
-chariot	noun	B1
-charity	noun	B1
-charm	noun	B1
-chase	noun	B1
-chat	noun	B1
-chat show	noun	B1
-check-in	noun	B1
-check-in counter	noun	B1
-check-in desk	noun	B1
-checkout	noun	B1
-cheerful	adjective	B1
-chemical	noun	B1
-chemist	noun	B1
-chemistry	noun	B1
-cherish	verb	B1
-chest of drawers	noun	B1
-chewing gum	noun	B1
-chief	adjective	B1
-choir	noun	B1
-choke	verb	B1
-Christian	adjective	B1
-chronological	adjective	B1
-chuckle	noun	B1
-circle	verb	B1
-circular	adjective	B1
-circus	noun	B1
-citizenship	noun	B1
-civil	adjective	B1
-civilisation	noun	B1
-civilization	noun	B1
-claim	noun	B1
-classical	adjective	B1
-classify	verb	B1
-clear	verb	B1
-click	noun	B1
-cliff	noun	B1
-climate	noun	B1
-climber	noun	B1
-clinic	noun	B1
-clip	noun	B1
-closely	adverb	B1
-coal	noun	B1
-coast	verb	B1
-coastal	adjective	B1
-cod	noun	B1
-coffin	noun	B1
-collapse	noun	B1
-collar	noun	B1
-columnist	noun	B1
-combination	noun	B1
-combine	verb	B1
-comedian	noun	B1
-comedy	noun	B1
-comet	noun	B1
-comfort	noun	B1
-comma	noun	B1
-command	noun	B1
-comment	noun	B1
-commercial	adjective	B1
-commit	verb	B1
-common sense	noun	B1
-commonly	adverb	B1
-companion	noun	B1
-comparison	noun	B1
-compete	verb	B1
-competitive	adjective	B1
-competitor	noun	B1
-complement	noun	B1
-complete	verb	B1
-completely	adverb	B1
-complex	adjective	B1
-complicate	verb	B1
-complicated	adjective	B1
-compliment	noun	B1
-compose	verb	B1
-composition	noun	B1
-compound	noun	B1
-compromise	noun	B1
-concentration	noun	B1
-concept	noun	B1
-concerned	adjective	B1
-conclude	verb	B1
-conclusion	noun	B1
-conduct	noun	B1
-confidence	noun	B1
-confirm	verb	B1
-confirmation	noun	B1
-conflict	noun	B1
-confusing	adjective	B1
-confusion	noun	B1
-congratulate	verb	B1
-connect	verb	B1
-connection	noun	B1
-connexion	noun	B1
-conquer	verb	B1
-conscious	adjective	B1
-consequently	adverb	B1
-conservation	noun	B1
-conservative	adjective	B1
-considerable	adjective	B1
-consideration	noun	B1
-consonant	noun	B1
-constantly	adverb	B1
-constitute	verb	B1
-constitution	noun	B1
-construct	verb	B1
-construction	noun	B1
-consume	verb	B1
-consumer	noun	B1
-consumption	noun	B1
-contain	verb	B1
-content	noun	B1
-continual	adjective	B1
-continually	adverb	B1
-continuous	adjective	B1
-continuously	adverb	B1
-contrary	adjective	B1
-contribute	verb	B1
-contribution	noun	B1
-control	verb	B1
-controversial	adjective	B1
-convey	verb	B1
-convince	verb	B1
-copyright	noun	B1
-correction	noun	B1
-cotton	noun	B1
-cough	verb	B1
-council	noun	B1
-counseling	noun	B1
-counselling	noun	B1
-count	noun	B1
-counter	verb	B1
-countless	adjective	B1
-county	noun	B1
-courage	noun	B1
-courageous	adjective	B1
-courgette	noun	B1
-craft	noun	B1
-crash	noun	B1
-crash	verb	B1
-creator	noun	B1
-criminal	noun	B1
-crisis	noun	B1
-critic	noun	B1
-critical	adjective	B1
-crop	noun	B1
-crossing	noun	B1
-crossroads	noun	B1
-crow	noun	B1
-cruel	adjective	B1
-crush	noun	B1
-cucumber	noun	B1
-cultivate	verb	B1
-cultural	adjective	B1
-cure	noun	B1
-curiosity	noun	B1
-curious	adjective	B1
-curiously	adverb	B1
-curly	adjective	B1
-currency	noun	B1
-current	adjective	B1
-currently	adverb	B1
-curriculum	noun	B1
-curtain	noun	B1
-curve	noun	B1
-cushion	noun	B1
-customs	noun	B1
-cut	noun	B1
-CV	noun	B1
-cycle	noun	B1
-cycle	verb	B1
-daisy	noun	B1
-damage	noun	B1
-damage	verb	B1
-damaged	adjective	B1
-damp	adjective	B1
-dangerously	adverb	B1
-dare	verb	B1
-darkness	noun	B1
-date	verb	B1
-dating	noun	B1
-daze	noun	B1
-dazzle	noun	B1
-deadline	noun	B1
-deadly	adjective	B1
-deaf	adjective	B1
-deal	verb	B1
-dealer	noun	B1
-debris	noun	B1
-debt	noun	B1
-decision	noun	B1
-declaration	noun	B1
-declare	verb	B1
-decline	noun	B1
-decrease	noun	B1
-decrease	verb	B1
-dedicate	verb	B1
-deed	noun	B1
-defeat	verb	B1
-defence	noun	B1
-defend	verb	B1
-defender	noun	B1
-defense	noun	B1
-deficiency	noun	B1
-define	verb	B1
-definite	adjective	B1
-definite article	noun	B1
-definitely	adverb	B1
-definition	noun	B1
-delay	verb	B1
-delete	verb	B1
-delicate	adjective	B1
-delight	noun	B1
-delighted	adjective	B1
-delightful	adjective	B1
-deliver	verb	B1
-delivery	noun	B1
-demand	noun	B1
-demand	verb	B1
-democracy	noun	B1
-democratic	adjective	B1
-demonstrate	verb	B1
-demonstration	noun	B1
-deny	verb	B1
-depart	verb	B1
-department	noun	B1
-departure	noun	B1
-dependent	adjective	B1
-deposit	noun	B1
-depressed	adjective	B1
-depressing	adjective	B1
-depression	noun	B1
-deprive	verb	B1
-depth	noun	B1
-derive	verb	B1
-deserve	verb	B1
-design	verb	B1
-designer	noun	B1
-desire	noun	B1
-despair	noun	B1
-desperate	adjective	B1
-despite	preposition	B1
-destination	noun	B1
-destruction	noun	B1
-destructive	adjective	B1
-detective	noun	B1
-determination	noun	B1
-determine	verb	B1
-devastate	verb	B1
-devastating	adjective	B1
-development	noun	B1
-device	noun	B1
-devotion	noun	B1
-diagram	noun	B1
-dial	noun	B1
-dial	verb	B1
-dialog	noun	B1
-dialogue	noun	B1
-diameter	noun	B1
-diaper	noun	B1
-differ	verb	B1
-dig	verb	B1
-digital	adjective	B1
-diligence	noun	B1
-diligent	adjective	B1
-dioxide	noun	B1
-direct	verb	B1
-directly	adverb	B1
-dirt	noun	B1
-disability	noun	B1
-disable	verb	B1
-disabled	adjective	B1
-disagreement	noun	B1
-disappoint	verb	B1
-disappointment	noun	B1
-disaster	noun	B1
-disastrous	adjective	B1
-disc	noun	B1
-disc jockey	noun	B1
-discomfort	noun	B1
-discount	noun	B1
-discourage	verb	B1
-discovery	noun	B1
-discrimination	noun	B1
-disease	noun	B1
-disgusting	adjective	B1
-dishwasher	noun	B1
-disk	noun	B1
-disk jockey	noun	B1
-dislike	verb	B1
-display	verb	B1
-dissolve	verb	B1
-distance	noun	B1
-distant	adjective	B1
-distinction	noun	B1
-distinctly	adverb	B1
-distinguish	verb	B1
-distribute	verb	B1
-distribution	noun	B1
-district	noun	B1
-disturbance	noun	B1
-dive	noun	B1
-dive	verb	B1
-diver	noun	B1
-diverse	adjective	B1
-divide	noun	B1
-divine	adjective	B1
-diving	noun	B1
-divorced	adjective	B1
-DJ	noun	B1
-doc	noun	B1
-document	noun	B1
-documentary	noun	B1
-dolphin	noun	B1
-dot	noun	B1
-downstairs	adjective	B1
-downward	adjective	B1
-doze	noun	B1
-dozen	determiner	B1
-dozen	noun	B1
-drag	verb	B1
-dramatic	adjective	B1
-drown	verb	B1
-drunk	adjective	B1
-dude	noun	B1
-dull	adjective	B1
-dump	noun	B1
-dump	verb	B1
-dustbin	noun	B1
-dusty	adjective	B1
-duty	noun	B1
-duty-free	adjective	B1
-duvet	noun	B1
-dynasty	noun	B1
-eager	adjective	B1
-eagerness	noun	B1
-earache	noun	B1
-earnest	adjective	B1
-eastern	adjective	B1
-easygoing	adjective	B1
-easy-going	adjective	B1
-eco	noun	B1
-ecological	adjective	B1
-ecology	noun	B1
-economic	adjective	B1
-economics	noun	B1
-economy	noun	B1
-ecosystem	noun	B1
-ecstasy	noun	B1
-edge	noun	B1
-edition	noun	B1
-educate	verb	B1
-effective	adjective	B1
-efficiency	noun	B1
-efficient	adjective	B1
-either	determiner	B1
-either	pronoun	B1
-elbow	noun	B1
-election	noun	B1
-electrical	adjective	B1
-electricity	noun	B1
-electron	noun	B1
-electronic	adjective	B1
-element	noun	B1
-eliminate	verb	B1
-embarrass	verb	B1
-embarrassed	adjective	B1
-embarrassment	noun	B1
-emerge	verb	B1
-emotion	noun	B1
-emotional	adjective	B1
-emotionally	adverb	B1
-emperor	noun	B1
-emphasis	noun	B1
-emphasise	verb	B1
-emphasize	verb	B1
-empire	noun	B1
-employment	noun	B1
-enable	verb	B1
-enclose	verb	B1
-encounter	noun	B1
-encouragement	noun	B1
-encouraging	adjective	B1
-encyclopaedia	noun	B1
-encyclopedia	noun	B1
-endanger	verb	B1
-endless	adjective	B1
-endure	verb	B1
-enemy	noun	B1
-engage	verb	B1
-engaged	adjective	B1
-engine	noun	B1
-engineering	noun	B1
-Englishman	noun	B1
-enjoyable	adjective	B1
-enjoyment	noun	B1
-enquiry	noun	B1
-enrich	verb	B1
-ensure	verb	B1
-entertain	verb	B1
-entertainer	noun	B1
-enthusiasm	noun	B1
-enthusiast	noun	B1
-enthusiastic	adjective	B1
-entire	adjective	B1
-entirely	adverb	B1
-entry	noun	B1
-environmental	adjective	B1
-environmentalist	noun	B1
-equal	adjective	B1
-equality	noun	B1
-equally	adverb	B1
-equipment	noun	B1
-era	noun	B1
-escape	verb	B1
-essence	noun	B1
-essential	adjective	B1
-establishment	noun	B1
-estimate	verb	B1
-eternal	adjective	B1
-eternity	noun	B1
-even	adjective	B1
-evenly	adverb	B1
-eventually	adverb	B1
-evident	adjective	B1
-exact	adjective	B1
-examination	noun	B1
-examine	verb	B1
-examiner	noun	B1
-excellence	noun	B1
-excess	noun	B1
-exchange	verb	B1
-exchange rate	noun	B1
-excitedly	adverb	B1
-excitement	noun	B1
-exclusive	adjective	B1
-excuse	verb	B1
-exhausted	adjective	B1
-existence	noun	B1
-exit	noun	B1
-exit	verb	B1
-expand	verb	B1
-expense	noun	B1
-experience	verb	B1
-experienced	adjective	B1
-experiment	noun	B1
-exploration	noun	B1
-explosion	noun	B1
-expose	verb	B1
-express	verb	B1
-extend	verb	B1
-extensively	adverb	B1
-extent	noun	B1
-extinct	adjective	B1
-extinction	noun	B1
-extra	noun	B1
-extraordinary	adjective	B1
-extreme	adjective	B1
-extreme sports	noun	B1
-eyesight	noun	B1
-face to face	adverb	B1
-face-to-face	adjective	B1
-facility	noun	B1
-fade	verb	B1
-failure	noun	B1
-faint	adjective	B1
-fair	noun	B1
-faithful	adjective	B1
-fake	adjective	B1
-fall	noun	B1
-fallen	adjective	B1
-fancy	noun	B1
-fancy	verb	B1
-fantasy	noun	B1
-faraway	adjective	B1
-farewell	noun	B1
-farming	noun	B1
-farmland	noun	B1
-farther	adverb	B1
-farthest	adverb	B1
-fascinate	verb	B1
-fashionable	adjective	B1
-fasten	verb	B1
-favorable	adjective	B1
-favourable	adjective	B1
-fax	noun	B1
-fax	verb	B1
-feast	noun	B1
-feed	verb	B1
-fellow	noun	B1
-ferry	noun	B1
-festive	adjective	B1
-fetch	verb	B1
-feverishly	adverb	B1
-few	pronoun	B1
-fifth	noun	B1
-fight	verb	B1
-filling	noun	B1
-film	verb	B1
-film-maker	noun	B1
-filter	noun	B1
-finance	verb	B1
-financial	adjective	B1
-finding	noun	B1
-fine	noun	B1
-finger	noun	B1
-fire station	noun	B1
-firefighter	noun	B1
-firework	noun	B1
-firm	adjective	B1
-firm	noun	B1
-firmly	adverb	B1
-first floor	noun	B1
-first lady	noun	B1
-first-floor	adjective	B1
-fish	verb	B1
-fit	verb	B1
-fitness	noun	B1
-fix	verb	B1
-flash	adjective	B1
-flat	adjective	B1
-flavor	noun	B1
-flavour	noun	B1
-float	verb	B1
-flock	noun	B1
-flood	verb	B1
-flow	noun	B1
-flow	verb	B1
-flu	noun	B1
-fluent	adjective	B1
-fluently	adverb	B1
-flunk	verb	B1
-flute	noun	B1
-fold	noun	B1
-fold	verb	B1
-folk	noun	B1
-fond	adjective	B1
-fondness	noun	B1
-fool	verb	B1
-foolish	adjective	B1
-foot	noun	B1
-forbidden	adjective	B1
-forecast	noun	B1
-forehead	noun	B1
-forgive	verb	B1
-form	verb	B1
-formal	adjective	B1
-formally	adverb	B1
-format	noun	B1
-format	verb	B1
-former	adjective	B1
-formula	noun	B1
-forth	adverb	B1
-fortnight	noun	B1
-fortunate	adjective	B1
-foundation	noun	B1
-fountain	noun	B1
-fragment	noun	B1
-freely	adverb	B1
-freezer	noun	B1
-freezing	adjective	B1
-frequency	noun	B1
-frequent	adjective	B1
-frequently	adverb	B1
-freshman	noun	B1
-friendliness	noun	B1
-fright	noun	B1
-frost	noun	B1
-frozen	adjective	B1
-frustrated	adjective	B1
-frustration	noun	B1
-fry	verb	B1
-frying pan	noun	B1
-fuel	noun	B1
-full stop	noun	B1
-full-time	adjective	B1
-full-time	adverb	B1
-function	noun	B1
-fund	noun	B1
-fund	verb	B1
-funeral	noun	B1
-fur	noun	B1
-furnish	verb	B1
-further	adverb	B1
-furthermore	adverb	B1
-furthest	adverb	B1
-fuss	noun	B1
-future	adjective	B1
-gain	noun	B1
-gain	verb	B1
-gall	noun	B1
-gallon	noun	B1
-gaol	noun	B1
-gap	noun	B1
-gardening	noun	B1
-garment	noun	B1
-gay	adjective	B1
-gee	interjection	B1
-gene	noun	B1
-general	adjective	B1
-general	noun	B1
-generally	adverb	B1
-generate	verb	B1
-generous	adjective	B1
-genetic	adjective	B1
-genetically	adverb	B1
-genetics	noun	B1
-gentleman	noun	B1
-geographical	adjective	B1
-geography	noun	B1
-geology	noun	B1
-gesture	noun	B1
-giant	adjective	B1
-gifted	adjective	B1
-giggle	noun	B1
-ginger	noun	B1
-giraffe	noun	B1
-glance	noun	B1
-glance	verb	B1
-glide	noun	B1
-glimpse	noun	B1
-glint	noun	B1
-global	adjective	B1
-glorious	adjective	B1
-glory	noun	B1
-go	noun	B1
-goalkeeper	noun	B1
-goddess	noun	B1
-golfer	noun	B1
-goodness	interjection	B1
-goods	noun	B1
-gorgeous	adjective	B1
-gorilla	noun	B1
-gossip	noun	B1
-govern	verb	B1
-governor	noun	B1
-gown	noun	B1
-grab	verb	B1
-graceful	adjective	B1
-graduate	noun	B1
-graduation	noun	B1
-grant	noun	B1
-grant	verb	B1
-graph	noun	B1
-graphic	adjective	B1
-graphics	noun	B1
-gratitude	noun	B1
-grave	noun	B1
-gravy	noun	B1
-greenhouse	noun	B1
-greeting	noun	B1
-grill	noun	B1
-grill	verb	B1
-groom	noun	B1
-ground floor	noun	B1
-group	verb	B1
-grouping	noun	B1
-growth	noun	B1
-guarantee	noun	B1
-guess	noun	B1
-guidance	noun	B1
-guide	noun	B1
-guide	verb	B1
-guilt	noun	B1
-guilty	adjective	B1
-guitarist	noun	B1
-gym	noun	B1
-gymnastics	noun	B1
-habitat	noun	B1
-hairdresser	noun	B1
-hairdryer	noun	B1
-half	adverb	B1
-hammer	noun	B1
-handball	noun	B1
-hand-held	adjective	B1
-handkerchief	noun	B1
-handle	verb	B1
-handshake	noun	B1
-handwriting	noun	B1
-handy	adjective	B1
-hang	verb	B1
-hanging	adjective	B1
-harbor	noun	B1
-harbour	noun	B1
-hardship	noun	B1
-hard-working	adjective	B1
-harness	noun	B1
-hasty	adjective	B1
-hatch	noun	B1
-hate	noun	B1
-hatred	noun	B1
-haunt	noun	B1
-haven	noun	B1
-hazard	noun	B1
-headline	noun	B1
-heal	verb	B1
-healing	adjective	B1
-hearing	noun	B1
-heart attack	noun	B1
-hearted	adjective	B1
-hearty	adjective	B1
-heat	verb	B1
-heater	noun	B1
-heaven	noun	B1
-heavenly	adjective	B1
-heel	noun	B1
-height	noun	B1
-helmet	noun	B1
-helpless	adjective	B1
-herd	noun	B1
-hesitate	verb	B1
-hidden	adjective	B1
-highlight	verb	B1
-highly	adverb	B1
-hip	noun	B1
-hire	verb	B1
-historian	noun	B1
-historic	adjective	B1
-historical	adjective	B1
-hit	noun	B1
-HIV	noun	B1
-holy	adjective	B1
-homeless	adjective	B1
-honest	adjective	B1
-honestly	adverb	B1
-honesty	noun	B1
-honeymoon	noun	B1
-hop	noun	B1
-hope	verb	B1
-hopeful	adjective	B1
-hopefully	adverb	B1
-hopeless	adjective	B1
-horizon	noun	B1
-horn	noun	B1
-horrible	adjective	B1
-horrify	verb	B1
-hostel	noun	B1
-household	noun	B1
-housework	noun	B1
-huge	adjective	B1
-human	noun	B1
-humanity	noun	B1
-humid	adjective	B1
-humor	noun	B1
-humorous	adjective	B1
-humour	noun	B1
-hunger	noun	B1
-hunt	noun	B1
-hunt	verb	B1
-hurriedly	adverb	B1
-hurt	adjective	B1
-hut	noun	B1
-ice hockey	noun	B1
-ice skating	noun	B1
-identity	noun	B1
-identity card	noun	B1
-idiom	noun	B1
-idol	noun	B1
-ignore	verb	B1
-illegally	adverb	B1
-illness	noun	B1
-illuminate	verb	B1
-imaginary	adjective	B1
-imitate	verb	B1
-immediate	adjective	B1
-immediately	adverb	B1
-immigrate	verb	B1
-immigration	noun	B1
-impair	verb	B1
-impression	noun	B1
-impressive	adjective	B1
-improper	adjective	B1
-improvement	noun	B1
-incident	noun	B1
-including	preposition	B1
-income	noun	B1
-inconvenient	adjective	B1
-incorrect	adjective	B1
-increase	noun	B1
-increasingly	adverb	B1
-incredible	adjective	B1
-incredibly	adverb	B1
-indefinite article	noun	B1
-independent	adjective	B1
-indirect	adjective	B1
-indirectly	adverb	B1
-individual	adjective	B1
-indoors	adverb	B1
-industrial	adjective	B1
-industry	noun	B1
-inevitable	adjective	B1
-infection	noun	B1
-infinitive	noun	B1
-inform	verb	B1
-informative	adjective	B1
-ingredient	noun	B1
-inhabitant	noun	B1
-inhale	verb	B1
-initial	noun	B1
-initially	adverb	B1
-inject	verb	B1
-injury	noun	B1
-ink	noun	B1
-innermost	adjective	B1
-innocent	adjective	B1
-innovator	noun	B1
-inquiry	noun	B1
-insane	adjective	B1
-inscribe	verb	B1
-inscription	noun	B1
-insight	noun	B1
-insist	verb	B1
-inspection	noun	B1
-inspire	verb	B1
-instal	verb	B1
-install	verb	B1
-instance	noun	B1
-instead of	preposition	B1
-institute	noun	B1
-instruction	noun	B1
-instructor	noun	B1
-insurance	noun	B1
-intend	verb	B1
-intense	adjective	B1
-intensive	adjective	B1
-intention	noun	B1
-intentionally	adverb	B1
-interact	verb	B1
-interaction	noun	B1
-interest	verb	B1
-intermediate	adjective	B1
-intermission	noun	B1
-internal	adjective	B1
-internationally	adverb	B1
-interrupt	verb	B1
-interval	noun	B1
-interview	verb	B1
-interviewee	noun	B1
-introduction	noun	B1
-invasion	noun	B1
-invest	verb	B1
-investigation	noun	B1
-invitation	noun	B1
-involuntarily	adverb	B1
-involve	verb	B1
-involved	adjective	B1
-iron	noun	B1
-iron	verb	B1
-ironing	noun	B1
-irregular	adjective	B1
-irritate	verb	B1
-isle	noun	B1
-isolation	noun	B1
-ivory	noun	B1
-jade	noun	B1
-jail	noun	B1
-jar	noun	B1
-jazz	noun	B1
-jealous	adjective	B1
-jewel	noun	B1
-jog	verb	B1
-jogging	noun	B1
-joint	adjective	B1
-joke	verb	B1
-journal	noun	B1
-journalist	noun	B1
-judge	noun	B1
-judgement	noun	B1
-judgment	noun	B1
-jug	noun	B1
-juicy	adjective	B1
-jumper	noun	B1
-jungle	noun	B1
-justice	noun	B1
-kettle	noun	B1
-keyboard	noun	B1
-kid	verb	B1
-killing	noun	B1
-kindly	adverb	B1
-kindness	noun	B1
-kiss	verb	B1
-kitten	noun	B1
-knit	verb	B1
-knock	verb	B1
-lab	noun	B1
-laboratory	noun	B1
-ladder	noun	B1
-lamb	noun	B1
-land	noun	B1
-landlord	noun	B1
-largely	adverb	B1
-last	adverb	B1
-last	verb	B1
-lasting	adjective	B1
-latecomer	noun	B1
-lately	adverb	B1
-laugh	noun	B1
-laughter	noun	B1
-launch	verb	B1
-lawful	adjective	B1
-lay	verb	B1
-layer	noun	B1
-lead	adjective	B1
-lead	verb	B1
-leadership	noun	B1
-leading	adjective	B1
-league	noun	B1
-lean	adjective	B1
-leap	verb	B1
-least	adverb	B1
-leave	noun	B1
-lecture	noun	B1
-legal	adjective	B1
-legally	adverb	B1
-length	noun	B1
-lessen	verb	B1
-lettuce	noun	B1
-level	adjective	B1
-liar	noun	B1
-liberate	verb	B1
-liberation	noun	B1
-librarian	noun	B1
-lie	noun	B1
-lifeguard	noun	B1
-lifelong	adjective	B1
-lift	noun	B1
-lift	verb	B1
-light	verb	B1
-lighter	noun	B1
-lightly	adverb	B1
-lightning	noun	B1
-like	conjunction	B1
-likeness	noun	B1
-limit	noun	B1
-limit	verb	B1
-limitation	noun	B1
-limited	adjective	B1
-limp	verb	B1
-link	noun	B1
-link	verb	B1
-liquid	adjective	B1
-liquid	noun	B1
-literary	adjective	B1
-literature	noun	B1
-little	determiner	B1
-little	pronoun	B1
-live	adjective	B1
-liver	noun	B1
-loaf	noun	B1
-locate	verb	B1
-location	noun	B1
-lock	verb	B1
-lodge	noun	B1
-log	noun	B1
-logic	noun	B1
-logo	noun	B1
-lorry	noun	B1
-loss	noun	B1
-lottery	noun	B1
-loud	adjective	B1
-loud	adverb	B1
-loudspeaker	noun	B1
-lovingly	adverb	B1
-loyal	adjective	B1
-loyalty	noun	B1
-luggage	noun	B1
-lung	noun	B1
-luxury	noun	B1
-magical	adjective	B1
-magician	noun	B1
-magnificent	adjective	B1
-mail	verb	B1
-mailbox	noun	B1
-main	adjective	B1
-maintain	verb	B1
-maintenance	noun	B1
-majority	noun	B1
-male	adjective	B1
-management	noun	B1
-mankind	noun	B1
-maple	noun	B1
-marble	noun	B1
-march	noun	B1
-march	verb	B1
-marine	adjective	B1
-marked	adjective	B1
-market	verb	B1
-marriage	noun	B1
-mash	verb	B1
-mass	adjective	B1
-massive	adjective	B1
-match	verb	B1
-mathematician	noun	B1
-mathematics	noun	B1
-maximum	adjective	B1
-maximum	noun	B1
-mayor	noun	B1
-meaningful	adjective	B1
-meanwhile	adverb	B1
-measure	noun	B1
-measure	verb	B1
-measurement	noun	B1
-mechanic	noun	B1
-mechanical	adjective	B1
-meditate	verb	B1
-meditation	noun	B1
-Mediterranean	noun	B1
-medium	adjective	B1
-medium	noun	B1
-melt	verb	B1
-membership	noun	B1
-memorable	adjective	B1
-memorise	verb	B1
-memorize	verb	B1
-mend	verb	B1
-mental	adjective	B1
-mentally	adverb	B1
-mention	verb	B1
-merchant	noun	B1
-mere	adjective	B1
-merely	adverb	B1
-mess	noun	B1
-message board	noun	B1
-messy	adjective	B1
-middle-aged	adjective	B1
-mild	adjective	B1
-mile	noun	B1
-mineral	noun	B1
-minimise	verb	B1
-minimize	verb	B1
-minimum	adjective	B1
-minimum	noun	B1
-minor	adjective	B1
-minority	noun	B1
-minus	preposition	B1
-miracle	noun	B1
-mischief	noun	B1
-miserable	adjective	B1
-misery	noun	B1
-mislead	verb	B1
-mission	noun	B1
-misty	adjective	B1
-misunderstanding	noun	B1
-mixing bowl	noun	B1
-modal	noun	B1
-modal verb	noun	B1
-model	adjective	B1
-model	verb	B1
-modem	noun	B1
-moderate	adjective	B1
-modify	verb	B1
-moisture	noun	B1
-molecule	noun	B1
-monitor	noun	B1
-monitor	verb	B1
-monk	noun	B1
-monster	noun	B1
-monthly	adjective	B1
-monthly	adverb	B1
-monument	noun	B1
-moral	noun	B1
-more	adverb	B1
-moreover	adverb	B1
-mosquito	noun	B1
-moss	noun	B1
-motherland	noun	B1
-motionless	adjective	B1
-motivate	verb	B1
-motivation	noun	B1
-motive	noun	B1
-motor	noun	B1
-motorcycle	noun	B1
-motto	noun	B1
-mount	noun	B1
-mountaintop	noun	B1
-mourn	verb	B1
-movement	noun	B1
-mud	noun	B1
-mule	noun	B1
-murder	verb	B1
-murderer	noun	B1
-muscle	noun	B1
-mustard	noun	B1
-mutual	adjective	B1
-myth	noun	B1
-nail	noun	B1
-naked	adjective	B1
-name	verb	B1
-nap	noun	B1
-narrate	verb	B1
-narrative	adjective	B1
-narrow	adjective	B1
-nasty	adjective	B1
-nationalist	noun	B1
-naturally	adverb	B1
-navy blue	adjective	B1
-near	adjective	B1
-near	adverb	B1
-nearby	adjective	B1
-nearby	adverb	B1
-necklace	noun	B1
-nectar	noun	B1
-needle	noun	B1
-negotiate	verb	B1
-negotiation	noun	B1
-neighborhood	noun	B1
-neighbourhood	noun	B1
-nephew	noun	B1
-nervousness	noun	B1
-ness	noun	B1
-net	noun	B1
-network	noun	B1
-neutral	adjective	B1
-nevertheless	adverb	B1
-newborn	adjective	B1
-newcomer	noun	B1
-newly	adverb	B1
-next door	adverb	B1
-next-door	adjective	B1
-nickname	noun	B1
-niece	noun	B1
-nightlife	noun	B1
-nod	noun	B1
-noisily	adverb	B1
-none	pronoun	B1
-nonetheless	adverb	B1
-nonsense	noun	B1
-nor	conjunction	B1
-normally	adverb	B1
-northeast	adjective	B1
-northeast	noun	B1
-northeastern	adjective	B1
-northern	adjective	B1
-northwest	adjective	B1
-northwest	noun	B1
-northwestern	adjective	B1
-notice	verb	B1
-noticeable	adjective	B1
-noticeboard	noun	B1
-notion	noun	B1
-notorious	adjective	B1
-novelist	noun	B1
-nowhere	adverb	B1
-nuclear	adjective	B1
-nucleus	noun	B1
-numerous	adjective	B1
-nurse	verb	B1
-nutrient	noun	B1
-nutrition	noun	B1
-nutritious	adjective	B1
-object	noun	B1
-objection	noun	B1
-objective	noun	B1
-observation	noun	B1
-observe	verb	B1
-obstacle	noun	B1
-obtain	verb	B1
-obvious	adjective	B1
-obviously	adverb	B1
-occasion	noun	B1
-occasion	verb	B1
-occasional	adjective	B1
-occasionally	adverb	B1
-occupy	verb	B1
-occur	verb	B1
-ocean	noun	B1
-off	preposition	B1
-offensive	adjective	B1
-officially	adverb	B1
-oily	adjective	B1
-old-fashioned	adjective	B1
-on to	preposition	B1
-oneself	pronoun	B1
-onstage	adjective	B1
-onto	preposition	B1
-opening	noun	B1
-operation	noun	B1
-opposite	adverb	B1
-opposite	noun	B1
-opposition	noun	B1
-oppress	verb	B1
-oppression	noun	B1
-option	noun	B1
-oral	noun	B1
-orbit	noun	B1
-orchestra	noun	B1
-orderly	adjective	B1
-ordinary	adjective	B1
-organ	noun	B1
-organic	adjective	B1
-organisation	noun	B1
-organism	noun	B1
-organization	noun	B1
-origin	noun	B1
-otherwise	adverb	B1
-ought to	modal auxiliary	B1
-outdoor	adjective	B1
-outdoors	adverb	B1
-outer	adjective	B1
-outlaw	noun	B1
-outline	verb	B1
-out-of-date	adjective	B1
-outstanding	adjective	B1
-outward	adjective	B1
-outweigh	verb	B1
-overcome	verb	B1
-overjoyed	adjective	B1
-overnight	adjective	B1
-overnight	adverb	B1
-overwhelm	verb	B1
-overwhelming	adjective	B1
-overwork	noun	B1
-owe	verb	B1
-owing	adjective	B1
-own	verb	B1
-oxygen	noun	B1
-pace	noun	B1
-package	noun	B1
-packing	noun	B1
-paddle	noun	B1
-paid	adjective	B1
-pain	noun	B1
-painful	adjective	B1
-pale	adjective	B1
-palm	noun	B1
-parachute	noun	B1
-paradise	noun	B1
-paralyse	verb	B1
-paralyze	verb	B1
-parcel	noun	B1
-pardon	verb	B1
-parental	adjective	B1
-parking	noun	B1
-parrot	noun	B1
-partial	adjective	B1
-participant	noun	B1
-participate	verb	B1
-participle	noun	B1
-particularly	adverb	B1
-part-time	adjective	B1
-part-time	adverb	B1
-passion	noun	B1
-passive	adjective	B1
-passport	noun	B1
-password	noun	B1
-past	adjective	B1
-patience	noun	B1
-patient	adjective	B1
-patrol	noun	B1
-pattern	noun	B1
-pause	noun	B1
-pause	verb	B1
-peanut	noun	B1
-peculiar	adjective	B1
-penniless	adjective	B1
-penny	noun	B1
-per	preposition	B1
-per cent	noun	B1
-percent	noun	B1
-performer	noun	B1
-permanent	adjective	B1
-permanently	adverb	B1
-permit	verb	B1
-personally	adverb	B1
-persuade	verb	B1
-persuasive	adjective	B1
-phantom	adjective	B1
-pharmacy	noun	B1
-phenix	noun	B1
-phenomenon	noun	B1
-philosopher	noun	B1
-philosophy	noun	B1
-phoenix	noun	B1
-photocopy	noun	B1
-phrasal verb	noun	B1
-phrase	noun	B1
-physics	noun	B1
-pick	noun	B1
-pie	noun	B1
-piety	noun	B1
-pillow	noun	B1
-pin	verb	B1
-pineapple	noun	B1
-pipe	noun	B1
-pit	noun	B1
-place	verb	B1
-plain	adjective	B1
-plan	verb	B1
-plant	verb	B1
-plastic	noun	B1
-platform	noun	B1
-pleasantly	adverb	B1
-please	verb	B1
-plenty	pronoun	B1
-plug	noun	B1
-plus	conjunction	B1
-pocket money	noun	B1
-poet	noun	B1
-poetry	noun	B1
-poison	noun	B1
-poisonous	adjective	B1
-pole	noun	B1
-policy	noun	B1
-politely	adverb	B1
-politician	noun	B1
-politics	noun	B1
-pollutant	noun	B1
-pond	noun	B1
-popcorn	noun	B1
-pork	noun	B1
-port	noun	B1
-positive	adjective	B1
-positively	adverb	B1
-possess	verb	B1
-possession	noun	B1
-possessive	adjective	B1
-possibility	noun	B1
-postcard	noun	B1
-postman	noun	B1
-pot	noun	B1
-potential	noun	B1
-pottery	noun	B1
-pound	noun	B1
-poverty	noun	B1
-powder	noun	B1
-practical	adjective	B1
-praise	noun	B1
-prayer	noun	B1
-precious	adjective	B1
-preference	noun	B1
-prefix	noun	B1
-pregnant	adjective	B1
-prejudice	noun	B1
-preparation	noun	B1
-prepared	adjective	B1
-preposition	noun	B1
-preschool	adjective	B1
-prescription	noun	B1
-presence	noun	B1
-present	adjective	B1
-presentation	noun	B1
-preservation	noun	B1
-preserve	verb	B1
-president	noun	B1
-press	noun	B1
-press	verb	B1
-previous	adjective	B1
-priest	noun	B1
-primarily	adverb	B1
-primary school	noun	B1
-primitive	adjective	B1
-principle	noun	B1
-print	noun	B1
-prison	noun	B1
-prisoner	noun	B1
-privacy	noun	B1
-prize	noun	B1
-probability	noun	B1
-proceed	verb	B1
-process	noun	B1
-proclaim	verb	B1
-procrastination	noun	B1
-producer	noun	B1
-productive	adjective	B1
-profession	noun	B1
-professor	noun	B1
-program	verb	B1
-programme	verb	B1
-progress	noun	B1
-prohibition	noun	B1
-prominent	adjective	B1
-promise	verb	B1
-promote	verb	B1
-promotion	noun	B1
-pronoun	noun	B1
-proof	noun	B1
-properly	adverb	B1
-property	noun	B1
-proportion	noun	B1
-proposal	noun	B1
-propose	verb	B1
-prosperity	noun	B1
-prosperous	adjective	B1
-protect	verb	B1
-protection	noun	B1
-protective	adjective	B1
-protest	noun	B1
-proud	adjective	B1
-prove	verb	B1
-proverb	noun	B1
-provided	conjunction	B1
-psychological	adjective	B1
-pub	noun	B1
-public	adjective	B1
-public transport	noun	B1
-publicly	adverb	B1
-publisher	noun	B1
-pullover	noun	B1
-pump	noun	B1
-punish	verb	B1
-punishment	noun	B1
-pupil	noun	B1
-puppy	noun	B1
-pure	adjective	B1
-purify	verb	B1
-purse	noun	B1
-push	noun	B1
-puzzle	noun	B1
-quake	noun	B1
-qualified	adjective	B1
-qualify	verb	B1
-quality	adjective	B1
-quantity	noun	B1
-question mark	noun	B1
-questionnaire	noun	B1
-queue	noun	B1
-race	noun	B1
-race	verb	B1
-racial	adjective	B1
-radiation	noun	B1
-rage	noun	B1
-rail	noun	B1
-railroad	noun	B1
-railway	noun	B1
-rainfall	noun	B1
-rainforest	noun	B1
-rank	noun	B1
-rap	verb	B1
-rapid	adjective	B1
-rapidly	adverb	B1
-rare	adjective	B1
-rarely	adverb	B1
-raspberry	noun	B1
-ration	noun	B1
-rational	adjective	B1
-razor	noun	B1
-reach	noun	B1
-react	verb	B1
-realistic	adjective	B1
-reality	noun	B1
-rearrange	verb	B1
-reasonable	adjective	B1
-rebuild	verb	B1
-recall	verb	B1
-reception	noun	B1
-recite	verb	B1
-reclaim	verb	B1
-recognise	verb	B1
-recognize	verb	B1
-recommend	verb	B1
-record	noun	B1
-recording	noun	B1
-recover	verb	B1
-recovery	noun	B1
-recycled	adjective	B1
-recycling	noun	B1
-reduce	verb	B1
-reduction	noun	B1
-reef	noun	B1
-referee	noun	B1
-reflection	noun	B1
-refreshments	noun	B1
-refund	noun	B1
-refusal	noun	B1
-refuse	noun	B1
-refuse	verb	B1
-regain	verb	B1
-regard	verb	B1
-regarding	preposition	B1
-region	noun	B1
-regional	adjective	B1
-register	noun	B1
-register	verb	B1
-registration	noun	B1
-regulation	noun	B1
-reject	verb	B1
-relate	verb	B1
-relation	noun	B1
-relationship	noun	B1
-relative	adjective	B1
-relative	noun	B1
-relatively	adverb	B1
-relaxing	adjective	B1
-release	verb	B1
-reliable	adjective	B1
-religion	noun	B1
-religious	adjective	B1
-rely	verb	B1
-remainder	noun	B1
-remark	verb	B1
-remarkable	adjective	B1
-remedy	noun	B1
-remembrance	noun	B1
-remote control	noun	B1
-remove	verb	B1
-renew	verb	B1
-repay	verb	B1
-repeatedly	adverb	B1
-reply	verb	B1
-report	verb	B1
-representative	noun	B1
-reproduce	verb	B1
-republic	noun	B1
-reputation	noun	B1
-request	verb	B1
-require	verb	B1
-requirement	noun	B1
-rescue	noun	B1
-rescue	verb	B1
-researcher	noun	B1
-resemble	verb	B1
-reservation	noun	B1
-reserve	noun	B1
-reserve	verb	B1
-resident	adjective	B1
-residential	adjective	B1
-resist	verb	B1
-resolve	verb	B1
-resort	noun	B1
-resource	noun	B1
-respect	noun	B1
-respect	verb	B1
-respectable	adjective	B1
-respond	verb	B1
-responsibility	noun	B1
-responsible	adjective	B1
-rest	noun	B1
-rest	verb	B1
-restore	verb	B1
-restrict	verb	B1
-result	verb	B1
-retail	noun	B1
-retain	verb	B1
-retell	verb	B1
-retrospect	noun	B1
-reunification	noun	B1
-reunify	verb	B1
-revise	verb	B1
-revision	noun	B1
-reward	noun	B1
-rewrite	verb	B1
-rid	verb	B1
-riddle	verb	B1
-ridiculous	adjective	B1
-ripe	adjective	B1
-rise	noun	B1
-rise	verb	B1
-risk	noun	B1
-roadside	noun	B1
-robot	noun	B1
-rolling	adjective	B1
-room	verb	B1
-rotten	adjective	B1
-rough	adjective	B1
-round	adjective	B1
-round	noun	B1
-routine	noun	B1
-rubber	noun	B1
-rubbish	noun	B1
-rudely	adverb	B1
-ruin	noun	B1
-runaway	noun	B1
-runway	noun	B1
-rush	verb	B1
-sacred	adjective	B1
-sadness	noun	B1
-safari	noun	B1
-safeguard	noun	B1
-safely	adverb	B1
-safety	noun	B1
-salesman	noun	B1
-salmon	noun	B1
-sand	noun	B1
-sandal	noun	B1
-satellite	noun	B1
-satisfaction	noun	B1
-satisfied	adjective	B1
-saucepan	noun	B1
-saucer	noun	B1
-scan	noun	B1
-scare	verb	B1
-scared	adjective	B1
-scary	adjective	B1
-scatter	verb	B1
-scenic	adjective	B1
-scholar	noun	B1
-scholarship	noun	B1
-schoolmate	noun	B1
-schoolteacher	noun	B1
-science fiction	noun	B1
-scold	verb	B1
-scope	noun	B1
-score	noun	B1
-score	verb	B1
-scratch	noun	B1
-scream	verb	B1
-sculpture	noun	B1
-search	verb	B1
-season	noun	B1
-seawater	noun	B1
-seaweed	noun	B1
-second	adverb	B1
-secondary school	noun	B1
-second-hand	adjective	B1
-second-hand	adverb	B1
-secret	adjective	B1
-secretly	adverb	B1
-secure	adjective	B1
-security	noun	B1
-seize	verb	B1
-select	adjective	B1
-selection	noun	B1
-selfish	adjective	B1
-self-service	adjective	B1
-sensation	noun	B1
-separation	noun	B1
-sequence	noun	B1
-series	noun	B1
-serious	adjective	B1
-server	noun	B1
-service	noun	B1
-service	verb	B1
-session	noun	B1
-setting	noun	B1
-settle	verb	B1
-settlement	noun	B1
-settler	noun	B1
-severe	adjective	B1
-severely	adverb	B1
-sex	noun	B1
-shadow	verb	B1
-shadowy	adjective	B1
-shake	verb	B1
-shallow	adjective	B1
-shame	noun	B1
-shameful	adjective	B1
-shape	verb	B1
-sharp	adjective	B1
-shave	verb	B1
-sheer	adjective	B1
-sheet	noun	B1
-shelter	noun	B1
-sheriff	noun	B1
-shift	verb	B1
-shiny	adjective	B1
-ship	verb	B1
-shiver	verb	B1
-shocked	adjective	B1
-shocking	adjective	B1
-shop	verb	B1
-shopper	noun	B1
-shortage	noun	B1
-shortly	adverb	B1
-shout	verb	B1
-shrimp	noun	B1
-shut	adjective	B1
-sickness	noun	B1
-sidewalk	noun	B1
-sigh	noun	B1
-sign	verb	B1
-signal	noun	B1
-signature	noun	B1
-significance	noun	B1
-signpost	noun	B1
-silent	adjective	B1
-silk	noun	B1
-similarity	noun	B1
-similarly	adverb	B1
-simplify	verb	B1
-simultaneously	adverb	B1
-since	conjunction	B1
-single	noun	B1
-sink	verb	B1
-skate	verb	B1
-skeleton	noun	B1
-ski	verb	B1
-skin	noun	B1
-skyscraper	noun	B1
-slavery	noun	B1
-sleep	noun	B1
-sleeve	noun	B1
-slight	noun	B1
-slightly	adverb	B1
-slip	noun	B1
-slip	verb	B1
-slogan	noun	B1
-slope	noun	B1
-slot	noun	B1
-slow	adverb	B1
-slow	verb	B1
-smell	verb	B1
-smile	verb	B1
-smoker	noun	B1
-sneeze	noun	B1
-snowboard	noun	B1
-snowstorm	noun	B1
-soap opera	noun	B1
-social networking	noun	B1
-socially	adverb	B1
-soil	verb	B1
-solid	adjective	B1
-somehow	adverb	B1
-someplace	adverb	B1
-sometime	adverb	B1
-sometimes	adverb	B1
-soothe	verb	B1
-sophomore	noun	B1
-sore	adjective	B1
-sorrow	noun	B1
-sort	noun	B1
-soul	noun	B1
-sour	adjective	B1
-southeast	adjective	B1
-southeast	noun	B1
-southern	adjective	B1
-southwest	adjective	B1
-southwest	noun	B1
-souvenir	noun	B1
-sparkle	noun	B1
-specialise	verb	B1
-specialist	noun	B1
-specialize	verb	B1
-specially	adverb	B1
-spectacular	adjective	B1
-spectator	noun	B1
-speed	verb	B1
-spelling	noun	B1
-sphere	noun	B1
-spice	noun	B1
-spicy	adjective	B1
-spider	noun	B1
-spinach	noun	B1
-spiral	adjective	B1
-spirit	noun	B1
-spiritual	adjective	B1
-split	noun	B1
-spoil	verb	B1
-sponge	noun	B1
-sponsor	noun	B1
-sports	adjective	B1
-sportsmanship	noun	B1
-stable	adjective	B1
-stall	noun	B1
-standard	noun	B1
-star	verb	B1
-stare	verb	B1
-status	noun	B1
-stay	noun	B1
-steadily	adverb	B1
-steady	adjective	B1
-steam	noun	B1
-steel	noun	B1
-steep	adjective	B1
-stem	verb	B1
-stick	verb	B1
-sticker	noun	B1
-sticky	adjective	B1
-stir	verb	B1
-storage	noun	B1
-stormy	adjective	B1
-storyteller	noun	B1
-strain	noun	B1
-strangely	adverb	B1
-strategic	adjective	B1
-straw	noun	B1
-strawberry	noun	B1
-stream	noun	B1
-stream	verb	B1
-strengthen	verb	B1
-stress	noun	B1
-stressed	adjective	B1
-stressful	adjective	B1
-stretch	verb	B1
-stricken	adjective	B1
-strike	verb	B1
-strip	noun	B1
-stripe	noun	B1
-struggle	noun	B1
-stubborn	adjective	B1
-stuck	adjective	B1
-studio	noun	B1
-stuffed	adjective	B1
-stumble	verb	B1
-stun	verb	B1
-stunning	adjective	B1
-stupid	adjective	B1
-stylish	adjective	B1
-subconscious	adjective	B1
-submarine	noun	B1
-substantial	adjective	B1
-substitute	noun	B1
-suddenly	adverb	B1
-suffer	verb	B1
-sufficient	adjective	B1
-suffix	noun	B1
-suicide	noun	B1
-summarise	verb	B1
-summarize	verb	B1
-summit	noun	B1
-sunbathe	verb	B1
-sundial	noun	B1
-sunrise	noun	B1
-sunset	noun	B1
-superior	adjective	B1
-superstition	noun	B1
-supply	noun	B1
-support	verb	B1
-supporter	noun	B1
-supportive	adjective	B1
-suppose	verb	B1
-supposedly	adverb	B1
-surely	adverb	B1
-surface	noun	B1
-surgeon	noun	B1
-surgery	noun	B1
-surprise	verb	B1
-surprisingly	adverb	B1
-surround	verb	B1
-surrounding	adjective	B1
-survival	noun	B1
-survivor	noun	B1
-suspect	noun	B1
-suspicion	noun	B1
-swarm	noun	B1
-swear	verb	B1
-sweat	noun	B1
-sweatshirt	noun	B1
-swell	verb	B1
-swimmer	noun	B1
-switch	noun	B1
-switch	verb	B1
-swollen	adjective	B1
-sword	noun	B1
-sympathy	noun	B1
-symptom	noun	B1
-syndrome	noun	B1
-systematic	adjective	B1
-tablet	noun	B1
-take	noun	B1
-takeaway	noun	B1
-takeoff	noun	B1
-take-off	noun	B1
-tale	noun	B1
-talented	adjective	B1
-talk	noun	B1
-talkative	adjective	B1
-tank	noun	B1
-tape	verb	B1
-taste	noun	B1
-taste	verb	B1
-tasteless	adjective	B1
-tasty	adjective	B1
-tax	noun	B1
-teaching	noun	B1
-teammate	noun	B1
-teamwork	noun	B1
-tear	verb	B1
-tease	noun	B1
-technique	noun	B1
-technological	adjective	B1
-teen	noun	B1
-telecommunications	noun	B1
-telegram	noun	B1
-teller	noun	B1
-temper	noun	B1
-temporary	adjective	B1
-tempt	verb	B1
-tend	verb	B1
-tendency	noun	B1
-tense	adjective	B1
-tense	noun	B1
-tension	noun	B1
-tent	noun	B1
-term	noun	B1
-terminal	noun	B1
-terribly	adverb	B1
-terrific	adjective	B1
-terrified	adjective	B1
-terror	noun	B1
-terrorism	noun	B1
-terrorist	noun	B1
-thankful	adjective	B1
-theft	noun	B1
-theory	noun	B1
-thirst	verb	B1
-thorough	adjective	B1
-threat	noun	B1
-threatening	adjective	B1
-thriller	noun	B1
-through	adverb	B1
-throughout	preposition	B1
-thumb	noun	B1
-thump	verb	B1
-thunder	noun	B1
-thunderous	adjective	B1
-thus	adverb	B1
-tick	noun	B1
-tick	verb	B1
-tide	noun	B1
-tie	verb	B1
-tighten	verb	B1
-tightly	adverb	B1
-tile	noun	B1
-till	conjunction	B1
-timely	adjective	B1
-tin	noun	B1
-tiny	adjective	B1
-tire	verb	B1
-tiring	adjective	B1
-tissue	noun	B1
-tobacco	noun	B1
-tongue	noun	B1
-toothpaste	noun	B1
-top	adjective	B1
-tornado	noun	B1
-toss	verb	B1
-total	adjective	B1
-total	noun	B1
-totally	adverb	B1
-touch	verb	B1
-tour	verb	B1
-tourism	noun	B1
-tournament	noun	B1
-trace	noun	B1
-tracksuit	noun	B1
-traditionally	adverb	B1
-traffic jam	noun	B1
-tragedy	noun	B1
-tragic	adjective	B1
-trail	noun	B1
-transfer	verb	B1
-transform	verb	B1
-transformation	noun	B1
-transitional	adjective	B1
-translate	verb	B1
-transport	noun	B1
-transportation	noun	B1
-trash	noun	B1
-travel agent	noun	B1
-treat	noun	B1
-treatment	noun	B1
-tremble	verb	B1
-tremendous	adjective	B1
-trend	noun	B1
-trigger	noun	B1
-trim	noun	B1
-triumph	noun	B1
-tropical	adjective	B1
-trouble	verb	B1
-trumpet	noun	B1
-trustworthy	adjective	B1
-tumble	verb	B1
-tuna	noun	B1
-turbulence	noun	B1
-turning	noun	B1
-turtle	noun	B1
-twin	noun	B1
-twist	noun	B1
-twist	verb	B1
-type	verb	B1
-typical	adjective	B1
-typically	adverb	B1
-unable	adjective	B1
-unafraid	adjective	B1
-unbelievable	adjective	B1
-uncertainty	noun	B1
-unclear	adjective	B1
-uncontrollable	adjective	B1
-uncover	verb	B1
-underage	adjective	B1
-undergo	verb	B1
-underline	verb	B1
-underneath	preposition	B1
-underpants	noun	B1
-undo	verb	B1
-undress	verb	B1
-unemployed	adjective	B1
-unemployment	noun	B1
-unexpected	adjective	B1
-unexpectedly	adverb	B1
-unfairly	adverb	B1
-unfit	adjective	B1
-unfold	verb	B1
-unfortunate	adjective	B1
-unfriendly	adjective	B1
-unheard	adjective	B1
-unify	verb	B1
-uninterested	adjective	B1
-uninteresting	adjective	B1
-union	noun	B1
-unique	adjective	B1
-unite	verb	B1
-universe	noun	B1
-unless	conjunction	B1
-unlikely	adjective	B1
-unlucky	adjective	B1
-unpack	verb	B1
-unpredictable	adjective	B1
-unrelated	adjective	B1
-untidy	adjective	B1
-until	conjunction	B1
-unusually	adverb	B1
-unwanted	adjective	B1
-unwell	adjective	B1
-update	verb	B1
-uplifted	adjective	B1
-upload	verb	B1
-upper	adjective	B1
-upstairs	adjective	B1
-upstairs	noun	B1
-up-to-date	adjective	B1
-upward	adjective	B1
-urge	noun	B1
-urgent	adjective	B1
-usage	noun	B1
-used to	modal auxiliary	B1
-useless	adjective	B1
-vacancy	noun	B1
-vague	adjective	B1
-vain	adjective	B1
-valuable	adjective	B1
-van	noun	B1
-variety	noun	B1
-various	adjective	B1
-vary	verb	B1
-vast	adjective	B1
-vegetarian	adjective	B1
-vegetarian	noun	B1
-vehicle	noun	B1
-vein	noun	B1
-vessel	noun	B1
-vet	noun	B1
-via	preposition	B1
-vice	adjective	B1
-vice president	noun	B1
-victim	noun	B1
-victory	noun	B1
-video clip	noun	B1
-view	verb	B1
-viewpoint	noun	B1
-violence	noun	B1
-violently	adverb	B1
-virtual	adjective	B1
-virus	noun	B1
-visa	noun	B1
-visible	adjective	B1
-vision	noun	B1
-visual	adjective	B1
-visually	adverb	B1
-vivid	adjective	B1
-vividly	adverb	B1
-volcano	noun	B1
-volume	noun	B1
-volunteer	verb	B1
-vote	verb	B1
-vowel	noun	B1
-voyage	noun	B1
-waggon	noun	B1
-wagon	noun	B1
-wake	verb	B1
-ward	noun	B1
-wardrobe	noun	B1
-warm	verb	B1
-warmly	adverb	B1
-warmth	noun	B1
-warn	verb	B1
-warning	noun	B1
-warranty	noun	B1
-warrior	noun	B1
-washbowl	noun	B1
-waste	adjective	B1
-waste	noun	B1
-waste	verb	B1
-wasteful	adjective	B1
-waterfall	noun	B1
-wave	verb	B1
-wax	noun	B1
-wax	verb	B1
-weakness	noun	B1
-weapon	noun	B1
-weather forecast	noun	B1
-webcam	noun	B1
-weird	adjective	B1
-welcome	adjective	B1
-well-dressed	adjective	B1
-westward	adverb	B1
-westwards	adverb	B1
-wetland	noun	B1
-whale	noun	B1
-whatever	pronoun	B1
-whenever	adverb	B1
-whenever	conjunction	B1
-wherever	conjunction	B1
-whether	conjunction	B1
-whichever	determiner	B1
-while	noun	B1
-whisper	noun	B1
-whistle	noun	B1
-whoever	pronoun	B1
-whole	noun	B1
-widespread	adjective	B1
-wildlife	noun	B1
-wildly	adverb	B1
-willingness	noun	B1
-windscreen	noun	B1
-windsurfing	noun	B1
-wing	noun	B1
-wire	noun	B1
-wither	verb	B1
-witness	verb	B1
-wizard	adjective	B1
-wonder	noun	B1
-working	adjective	B1
-workout	noun	B1
-workplace	noun	B1
-workshop	noun	B1
-worn	adjective	B1
-worst	noun	B1
-worth	adjective	B1
-worthwhile	adjective	B1
-worthy	adjective	B1
-wound	noun	B1
-wrap	noun	B1
-wrap	verb	B1
-wrapping	noun	B1
-wrist	noun	B1
-wristwatch	noun	B1
-written	adjective	B1
-yell	noun	B1
-yet	conjunction	B1
-yoga	noun	B1
+headword	CEFR
+abandon	B1
+able	B1
+abnormal	B1
+aboard	B1
+aborigine	B1
+above	B1
+absence	B1
+absent	B1
+absolute	B1
+absolutely	B1
+absorb	B1
+abstract	B1
+abundance	B1
+abundant	B1
+academic	B1
+academy	B1
+accent	B1
+acceptance	B1
+access	B1
+accessible	B1
+accessory	B1
+accidental	B1
+accidentally	B1
+accompany	B1
+accomplish	B1
+according to	B1
+account	B1
+accountant	B1
+accuracy	B1
+accurate	B1
+accurately	B1
+accuse	B1
+accustom	B1
+ache	B1
+achievement	B1
+acknowledge	B1
+acknowledgment/acknowledgement	B1
+acquaintance	B1
+acquire	B1
+act	B1
+active	B1
+actress	B1
+ad	B1
+adapt	B1
+address	B1
+addressee	B1
+administration	B1
+admiration	B1
+admission	B1
+adopt	B1
+adorable	B1
+advance	B1
+adverb	B1
+adverbial	B1
+advert	B1
+advertise	B1
+adviser/advisor	B1
+aerobics	B1
+affect	B1
+affection	B1
+afford	B1
+after	B1
+afterward	B1
+afterwards	B1
+agenda	B1
+aggressive	B1
+agreement	B1
+agricultural	B1
+agriculture	B1
+aid	B1
+aid	B1
+aim	B1
+air conditioning	B1
+air force	B1
+airline	B1
+alarm	B1
+alcohol	B1
+alcoholic	B1
+alike	B1
+alike	B1
+allergic	B1
+allowance	B1
+aloud	B1
+alphabet	B1
+alternative	B1
+alternative	B1
+altogether	B1
+amazed	B1
+amazing	B1
+ambitious	B1
+ambulance	B1
+amount	B1
+amusing	B1
+analysis	B1
+analyze/analyse	B1
+anger	B1
+angle	B1
+animated	B1
+animation	B1
+announce	B1
+announcement	B1
+annoyance	B1
+annoyed	B1
+annual	B1
+annually	B1
+ant	B1
+anti	B1
+antique	B1
+antonym	B1
+anxiety	B1
+anxiously	B1
+anyhow	B1
+ape	B1
+apology	B1
+apparent	B1
+appeal	B1
+appetite	B1
+applaud	B1
+applause	B1
+application	B1
+appoint	B1
+appreciation	B1
+approach	B1
+approval	B1
+approve	B1
+approximately	B1
+architect	B1
+arise	B1
+arithmetic	B1
+arm	B1
+army	B1
+arrange	B1
+arrangement	B1
+arrest	B1
+arrest	B1
+arrival	B1
+arrow	B1
+artist	B1
+artistic	B1
+ashamed	B1
+aside	B1
+aspect	B1
+aspirin	B1
+assign	B1
+assignment	B1
+assist	B1
+assistance	B1
+assistant	B1
+associate	B1
+assume	B1
+astronomer	B1
+athletic	B1
+Atlantic	B1
+atmosphere	B1
+atomic	B1
+attach	B1
+attachment	B1
+attain	B1
+attempt	B1
+attend	B1
+attract	B1
+attraction	B1
+authority	B1
+auxiliary	B1
+available	B1
+avenue	B1
+award	B1
+aware	B1
+awareness	B1
+awesome	B1
+awkward	B1
+babysit	B1
+babysitter	B1
+back	B1
+backache	B1
+backpack	B1
+backpacker	B1
+backpacking	B1
+bacon	B1
+baggage	B1
+baker	B1
+bakery	B1
+balance	B1
+bald	B1
+bandage	B1
+bang	B1
+bang	B1
+bank account	B1
+bar	B1
+barbecue	B1
+bare	B1
+barely	B1
+bark	B1
+barman	B1
+barrel	B1
+base	B1
+basement	B1
+basin	B1
+basis	B1
+bat	B1
+bathe	B1
+battle	B1
+beard	B1
+beast	B1
+beat	B1
+beautifully	B1
+beaver	B1
+because of	B1
+bedside	B1
+behalf	B1
+behave	B1
+belief	B1
+beloved	B1
+beneath	B1
+benefit	B1
+bent	B1
+besides	B1
+bet	B1
+bilingual	B1
+bill	B1
+bin	B1
+biochemistry	B1
+biography	B1
+biology	B1
+bishop	B1
+bite	B1
+bitter	B1
+blame	B1
+bleed	B1
+blend	B1
+bless	B1
+blessing	B1
+blind	B1
+block	B1
+blog	B1
+blogger	B1
+blush	B1
+board	B1
+boast	B1
+bold	B1
+boldly	B1
+bomb	B1
+bomb	B1
+bond	B1
+book	B1
+booking	B1
+boom	B1
+boot	B1
+border	B1
+bore	B1
+boredom	B1
+bother	B1
+bounce	B1
+bound	B1
+bow	B1
+bowl	B1
+boxing	B1
+bracelet	B1
+brainstorming	B1
+branch	B1
+brand-new	B1
+brass	B1
+bravely	B1
+breakthrough	B1
+breast	B1
+breath	B1
+breathless	B1
+breed	B1
+breeding	B1
+brick	B1
+brief	B1
+briefly	B1
+brightly	B1
+broad	B1
+broadcast	B1
+broccoli	B1
+bronze	B1
+brotherhood	B1
+bubble	B1
+buddy	B1
+builder	B1
+bull	B1
+bullet	B1
+bulletin	B1
+bump	B1
+bunch	B1
+burden	B1
+bureau	B1
+burglar	B1
+burn	B1
+burning	B1
+burst	B1
+bust	B1
+but	B1
+butcher	B1
+buyer	B1
+cabbage	B1
+cabin	B1
+cage	B1
+calculate	B1
+calculation	B1
+calculator	B1
+calf	B1
+caller	B1
+calm	B1
+calmness	B1
+camel	B1
+campsite	B1
+canal	B1
+cancel	B1
+cancer	B1
+candle	B1
+canned	B1
+canteen	B1
+capable	B1
+capacity	B1
+capsule	B1
+capture	B1
+capture	B1
+care	B1
+career	B1
+careless	B1
+carelessly	B1
+carelessness	B1
+carpet	B1
+carriage	B1
+carton	B1
+cashpoint	B1
+casual	B1
+categorize/categorise	B1
+category	B1
+cattle	B1
+caution	B1
+cautious	B1
+cave	B1
+CD-ROM	B1
+celebrity	B1
+cell	B1
+central	B1
+central heating	B1
+ceremony	B1
+certainty	B1
+challenging	B1
+champion	B1
+channel	B1
+chaos	B1
+characteristic	B1
+characterize/characterise	B1
+charge	B1
+charge	B1
+chariot	B1
+charity	B1
+charm	B1
+chase	B1
+chat	B1
+chat show	B1
+check-in counter/check-in	B1
+check-in desk/check-in	B1
+checkout	B1
+cheerful	B1
+chemical	B1
+chemist	B1
+chemistry	B1
+cherish	B1
+chest of drawers	B1
+chewing gum	B1
+chief	B1
+choir	B1
+choke	B1
+Christian	B1
+chronological	B1
+chuckle	B1
+circle	B1
+circular	B1
+circus	B1
+citizenship	B1
+civil	B1
+civilization/civilisation	B1
+claim	B1
+classical	B1
+classify	B1
+clear	B1
+click	B1
+cliff	B1
+climate	B1
+climber	B1
+clinic	B1
+clip	B1
+closely	B1
+coal	B1
+coast	B1
+coastal	B1
+cod	B1
+coffin	B1
+collapse	B1
+collar	B1
+columnist	B1
+combination	B1
+combine	B1
+comedian	B1
+comedy	B1
+comet	B1
+comfort	B1
+comma	B1
+command	B1
+comment	B1
+commercial	B1
+commit	B1
+common sense	B1
+commonly	B1
+companion	B1
+comparison	B1
+compete	B1
+competitive	B1
+competitor	B1
+complement	B1
+complete	B1
+completely	B1
+complex	B1
+complicate	B1
+complicated	B1
+compliment	B1
+compose	B1
+composition	B1
+compound	B1
+compromise	B1
+concentration	B1
+concept	B1
+concerned	B1
+conclude	B1
+conclusion	B1
+conduct	B1
+confidence	B1
+confirm	B1
+confirmation	B1
+conflict	B1
+confusing	B1
+confusion	B1
+congratulate	B1
+connect	B1
+connection/connexion	B1
+conquer	B1
+conscious	B1
+consequently	B1
+conservation	B1
+conservative	B1
+considerable	B1
+consideration	B1
+consonant	B1
+constantly	B1
+constitute	B1
+constitution	B1
+construct	B1
+construction	B1
+consume	B1
+consumer	B1
+consumption	B1
+contain	B1
+content	B1
+continual	B1
+continually	B1
+continuous	B1
+continuously	B1
+contrary	B1
+contribute	B1
+contribution	B1
+control	B1
+controversial	B1
+convey	B1
+convince	B1
+copyright	B1
+correction	B1
+cotton	B1
+cough	B1
+council	B1
+counseling/counselling	B1
+count	B1
+counter	B1
+countless	B1
+county	B1
+courage	B1
+courageous	B1
+courgette	B1
+craft	B1
+crash	B1
+crash	B1
+creator	B1
+criminal	B1
+crisis	B1
+critic	B1
+critical	B1
+crop	B1
+crossing	B1
+crossroads	B1
+crow	B1
+cruel	B1
+crush	B1
+cucumber	B1
+cultivate	B1
+cultural	B1
+cure	B1
+curiosity	B1
+curious	B1
+curiously	B1
+curly	B1
+currency	B1
+current	B1
+currently	B1
+curriculum	B1
+curtain	B1
+curve	B1
+cushion	B1
+customs	B1
+cut	B1
+CV	B1
+cycle	B1
+cycle	B1
+daisy	B1
+damage	B1
+damage	B1
+damaged	B1
+damp	B1
+dangerously	B1
+dare	B1
+darkness	B1
+date	B1
+dating	B1
+daze	B1
+dazzle	B1
+deadline	B1
+deadly	B1
+deaf	B1
+deal	B1
+dealer	B1
+debris	B1
+debt	B1
+decision	B1
+declaration	B1
+declare	B1
+decline	B1
+decrease	B1
+decrease	B1
+dedicate	B1
+deed	B1
+defeat	B1
+defend	B1
+defender	B1
+defense/defence	B1
+deficiency	B1
+define	B1
+definite	B1
+definite article	B1
+definitely	B1
+definition	B1
+delay	B1
+delete	B1
+delicate	B1
+delight	B1
+delighted	B1
+delightful	B1
+deliver	B1
+delivery	B1
+demand	B1
+demand	B1
+democracy	B1
+democratic	B1
+demonstrate	B1
+demonstration	B1
+deny	B1
+depart	B1
+department	B1
+departure	B1
+dependent	B1
+deposit	B1
+depressed	B1
+depressing	B1
+depression	B1
+deprive	B1
+depth	B1
+derive	B1
+deserve	B1
+design	B1
+designer	B1
+desire	B1
+despair	B1
+desperate	B1
+despite	B1
+destination	B1
+destruction	B1
+destructive	B1
+detective	B1
+determination	B1
+determine	B1
+devastate	B1
+devastating	B1
+development	B1
+device	B1
+devotion	B1
+diagram	B1
+dial	B1
+dial	B1
+dialog/dialogue	B1
+diameter	B1
+diaper	B1
+differ	B1
+dig	B1
+digital	B1
+diligence	B1
+diligent	B1
+dioxide	B1
+direct	B1
+directly	B1
+dirt	B1
+disability	B1
+disable	B1
+disabled	B1
+disagreement	B1
+disappoint	B1
+disappointment	B1
+disaster	B1
+disastrous	B1
+disc jockey/disk jockey	B1
+discomfort	B1
+discount	B1
+discourage	B1
+discovery	B1
+discrimination	B1
+disease	B1
+disgusting	B1
+dishwasher	B1
+disk/disc	B1
+dislike	B1
+display	B1
+dissolve	B1
+distance	B1
+distant	B1
+distinction	B1
+distinctly	B1
+distinguish	B1
+distribute	B1
+distribution	B1
+district	B1
+disturbance	B1
+dive	B1
+dive	B1
+diver	B1
+diverse	B1
+divide	B1
+divine	B1
+diving	B1
+divorced	B1
+DJ	B1
+doc	B1
+document	B1
+documentary	B1
+dolphin	B1
+dot	B1
+downstairs	B1
+downward	B1
+doze	B1
+dozen	B1
+dozen	B1
+drag	B1
+dramatic	B1
+drown	B1
+drunk	B1
+dude	B1
+dull	B1
+dump	B1
+dump	B1
+dustbin	B1
+dusty	B1
+duty	B1
+duty-free	B1
+duvet	B1
+dynasty	B1
+eager	B1
+eagerness	B1
+earache	B1
+earnest	B1
+eastern	B1
+easygoing/easy-going	B1
+eco	B1
+ecological	B1
+ecology	B1
+economic	B1
+economics	B1
+economy	B1
+ecosystem	B1
+ecstasy	B1
+edge	B1
+edition	B1
+educate	B1
+effective	B1
+efficiency	B1
+efficient	B1
+either	B1
+either	B1
+elbow	B1
+election	B1
+electrical	B1
+electricity	B1
+electron	B1
+electronic	B1
+element	B1
+eliminate	B1
+embarrass	B1
+embarrassed	B1
+embarrassment	B1
+emerge	B1
+emotion	B1
+emotional	B1
+emotionally	B1
+emperor	B1
+emphasis	B1
+emphasize/emphasize	B1
+empire	B1
+employment	B1
+enable	B1
+enclose	B1
+encounter	B1
+encouragement	B1
+encouraging	B1
+encyclopedia/encyclopaedia	B1
+endanger	B1
+endless	B1
+endure	B1
+enemy	B1
+engage	B1
+engaged	B1
+engine	B1
+engineering	B1
+Englishman	B1
+enjoyable	B1
+enjoyment	B1
+enrich	B1
+ensure	B1
+entertain	B1
+entertainer	B1
+enthusiasm	B1
+enthusiast	B1
+enthusiastic	B1
+entire	B1
+entirely	B1
+entry	B1
+environmental	B1
+environmentalist	B1
+equal	B1
+equality	B1
+equally	B1
+equipment	B1
+era	B1
+escape	B1
+essence	B1
+essential	B1
+establishment	B1
+estimate	B1
+eternal	B1
+eternity	B1
+even	B1
+evenly	B1
+eventually	B1
+evident	B1
+exact	B1
+examination	B1
+examine	B1
+examiner	B1
+excellence	B1
+excess	B1
+exchange	B1
+exchange rate	B1
+excitedly	B1
+excitement	B1
+exclusive	B1
+excuse	B1
+exhausted	B1
+existence	B1
+exit	B1
+exit	B1
+expand	B1
+expense	B1
+experience	B1
+experienced	B1
+experiment	B1
+exploration	B1
+explosion	B1
+expose	B1
+express	B1
+extend	B1
+extensively	B1
+extent	B1
+extinct	B1
+extinction	B1
+extra	B1
+extraordinary	B1
+extreme	B1
+extreme sports	B1
+eyesight	B1
+face to face	B1
+face-to-face	B1
+facility	B1
+fade	B1
+failure	B1
+faint	B1
+fair	B1
+faithful	B1
+fake	B1
+fall	B1
+fallen	B1
+fancy	B1
+fancy	B1
+fantasy	B1
+faraway	B1
+farewell	B1
+farming	B1
+farmland	B1
+farther	B1
+farthest	B1
+fascinate	B1
+fashionable	B1
+fasten	B1
+favorable/favourable	B1
+fax	B1
+fax	B1
+feast	B1
+feed	B1
+fellow	B1
+ferry	B1
+festive	B1
+fetch	B1
+feverishly	B1
+few	B1
+fifth	B1
+fight	B1
+filling	B1
+film	B1
+film-maker	B1
+filter	B1
+finance	B1
+financial	B1
+finding	B1
+fine	B1
+finger	B1
+fire station	B1
+firefighter	B1
+firework	B1
+firm	B1
+firm	B1
+firmly	B1
+first floor	B1
+first lady	B1
+first-floor	B1
+fish	B1
+fit	B1
+fitness	B1
+fix	B1
+flash	B1
+flat	B1
+flavor/flavour	B1
+float	B1
+flock	B1
+flood	B1
+flow	B1
+flow	B1
+flu	B1
+fluent	B1
+fluently	B1
+flunk	B1
+flute	B1
+fold	B1
+fold	B1
+folk	B1
+fond	B1
+fondness	B1
+fool	B1
+foolish	B1
+foot	B1
+forbidden	B1
+forecast	B1
+forehead	B1
+forgive	B1
+form	B1
+formal	B1
+formally	B1
+format	B1
+format	B1
+former	B1
+formula	B1
+forth	B1
+fortnight	B1
+fortunate	B1
+foundation	B1
+fountain	B1
+fragment	B1
+freely	B1
+freezer	B1
+freezing	B1
+frequency	B1
+frequent	B1
+frequently	B1
+freshman	B1
+friendliness	B1
+fright	B1
+frost	B1
+frozen	B1
+frustrated	B1
+frustration	B1
+fry	B1
+frying pan	B1
+fuel	B1
+full stop	B1
+full-time	B1
+full-time	B1
+function	B1
+fund	B1
+fund	B1
+funeral	B1
+fur	B1
+furnish	B1
+further	B1
+furthermore	B1
+furthest	B1
+fuss	B1
+future	B1
+gain	B1
+gain	B1
+gall	B1
+gallon	B1
+gap	B1
+gardening	B1
+garment	B1
+gay	B1
+gee	B1
+gene	B1
+general	B1
+general	B1
+generally	B1
+generate	B1
+generous	B1
+genetic	B1
+genetically	B1
+genetics	B1
+gentleman	B1
+geographical	B1
+geography	B1
+geology	B1
+gesture	B1
+giant	B1
+gifted	B1
+giggle	B1
+ginger	B1
+giraffe	B1
+glance	B1
+glance	B1
+glide	B1
+glimpse	B1
+glint	B1
+global	B1
+glorious	B1
+glory	B1
+go	B1
+goalkeeper	B1
+goddess	B1
+golfer	B1
+goodness	B1
+goods	B1
+gorgeous	B1
+gorilla	B1
+gossip	B1
+govern	B1
+governor	B1
+gown	B1
+grab	B1
+graceful	B1
+graduate	B1
+graduation	B1
+grant	B1
+grant	B1
+graph	B1
+graphic	B1
+graphics	B1
+gratitude	B1
+grave	B1
+gravy	B1
+greenhouse	B1
+greeting	B1
+grill	B1
+grill	B1
+groom	B1
+ground floor	B1
+group	B1
+grouping	B1
+growth	B1
+guarantee	B1
+guess	B1
+guidance	B1
+guide	B1
+guide	B1
+guilt	B1
+guilty	B1
+guitarist	B1
+gym	B1
+gymnastics	B1
+habitat	B1
+hairdresser	B1
+hairdryer	B1
+half	B1
+hammer	B1
+handball	B1
+hand-held	B1
+handkerchief	B1
+handle	B1
+handshake	B1
+handwriting	B1
+handy	B1
+hang	B1
+hanging	B1
+harbor/harbour	B1
+hardship	B1
+hard-working	B1
+harness	B1
+hasty	B1
+hatch	B1
+hate	B1
+hatred	B1
+haunt	B1
+haven	B1
+hazard	B1
+headline	B1
+heal	B1
+healing	B1
+hearing	B1
+heart attack	B1
+hearted	B1
+hearty	B1
+heat	B1
+heater	B1
+heaven	B1
+heavenly	B1
+heel	B1
+height	B1
+helmet	B1
+helpless	B1
+herd	B1
+hesitate	B1
+hidden	B1
+highlight	B1
+highly	B1
+hip	B1
+hire	B1
+historian	B1
+historic	B1
+historical	B1
+hit	B1
+HIV	B1
+holy	B1
+homeless	B1
+honest	B1
+honestly	B1
+honesty	B1
+honeymoon	B1
+hop	B1
+hope	B1
+hopeful	B1
+hopefully	B1
+hopeless	B1
+horizon	B1
+horn	B1
+horrible	B1
+horrify	B1
+hostel	B1
+household	B1
+housework	B1
+huge	B1
+human	B1
+humanity	B1
+humid	B1
+humor/humour	B1
+humorous	B1
+hunger	B1
+hunt	B1
+hunt	B1
+hurriedly	B1
+hurt	B1
+hut	B1
+ice hockey	B1
+ice skating	B1
+identity	B1
+identity card	B1
+idiom	B1
+idol	B1
+ignore	B1
+illegally	B1
+illness	B1
+illuminate	B1
+imaginary	B1
+imitate	B1
+immediate	B1
+immediately	B1
+immigrate	B1
+immigration	B1
+impair	B1
+impression	B1
+impressive	B1
+improper	B1
+improvement	B1
+incident	B1
+including	B1
+income	B1
+inconvenient	B1
+incorrect	B1
+increase	B1
+increasingly	B1
+incredible	B1
+incredibly	B1
+indefinite article	B1
+independent	B1
+indirect	B1
+indirectly	B1
+individual	B1
+indoors	B1
+industrial	B1
+industry	B1
+inevitable	B1
+infection	B1
+infinitive	B1
+inform	B1
+informative	B1
+ingredient	B1
+inhabitant	B1
+inhale	B1
+initial	B1
+initially	B1
+inject	B1
+injury	B1
+ink	B1
+innermost	B1
+innocent	B1
+innovator	B1
+inquiry/enquiry	B1
+insane	B1
+inscribe	B1
+inscription	B1
+insight	B1
+insist	B1
+inspection	B1
+inspire	B1
+install/instal	B1
+instance	B1
+instead of	B1
+institute	B1
+instruction	B1
+instructor	B1
+insurance	B1
+intend	B1
+intense	B1
+intensive	B1
+intention	B1
+intentionally	B1
+interact	B1
+interaction	B1
+interest	B1
+intermediate	B1
+intermission	B1
+internal	B1
+internationally	B1
+interrupt	B1
+interval	B1
+interview	B1
+interviewee	B1
+introduction	B1
+invasion	B1
+invest	B1
+investigation	B1
+invitation	B1
+involuntarily	B1
+involve	B1
+involved	B1
+iron	B1
+iron	B1
+ironing	B1
+irregular	B1
+irritate	B1
+isle	B1
+isolation	B1
+ivory	B1
+jade	B1
+jail/gaol	B1
+jar	B1
+jazz	B1
+jealous	B1
+jewel	B1
+jog	B1
+jogging	B1
+joint	B1
+joke	B1
+journal	B1
+journalist	B1
+judge	B1
+judgment/judgement	B1
+jug	B1
+juicy	B1
+jumper	B1
+jungle	B1
+justice	B1
+kettle	B1
+keyboard	B1
+kid	B1
+killing	B1
+kindly	B1
+kindness	B1
+kiss	B1
+kitten	B1
+knit	B1
+knock	B1
+lab	B1
+laboratory	B1
+ladder	B1
+lamb	B1
+land	B1
+landlord	B1
+largely	B1
+last	B1
+last	B1
+lasting	B1
+latecomer	B1
+lately	B1
+laugh	B1
+laughter	B1
+launch	B1
+lawful	B1
+lay	B1
+layer	B1
+lead	B1
+lead	B1
+leadership	B1
+leading	B1
+league	B1
+lean	B1
+leap	B1
+least	B1
+leave	B1
+lecture	B1
+legal	B1
+legally	B1
+length	B1
+lessen	B1
+lettuce	B1
+level	B1
+liar	B1
+liberate	B1
+liberation	B1
+librarian	B1
+lie	B1
+lifeguard	B1
+lifelong	B1
+lift	B1
+lift	B1
+light	B1
+lighter	B1
+lightly	B1
+lightning	B1
+like	B1
+likeness	B1
+limit	B1
+limit	B1
+limitation	B1
+limited	B1
+limp	B1
+link	B1
+link	B1
+liquid	B1
+liquid	B1
+literary	B1
+literature	B1
+little	B1
+little	B1
+live	B1
+liver	B1
+loaf	B1
+locate	B1
+location	B1
+lock	B1
+lodge	B1
+log	B1
+logic	B1
+logo	B1
+lorry	B1
+loss	B1
+lottery	B1
+loud	B1
+loud	B1
+loudspeaker	B1
+lovingly	B1
+loyal	B1
+loyalty	B1
+luggage	B1
+lung	B1
+luxury	B1
+magical	B1
+magician	B1
+magnificent	B1
+mail	B1
+mailbox	B1
+main	B1
+maintain	B1
+maintenance	B1
+majority	B1
+male	B1
+management	B1
+mankind	B1
+maple	B1
+marble	B1
+march	B1
+march	B1
+marine	B1
+marked	B1
+market	B1
+marriage	B1
+mash	B1
+mass	B1
+massive	B1
+match	B1
+mathematician	B1
+mathematics	B1
+maximum	B1
+maximum	B1
+mayor	B1
+meaningful	B1
+meanwhile	B1
+measure	B1
+measure	B1
+measurement	B1
+mechanic	B1
+mechanical	B1
+meditate	B1
+meditation	B1
+Mediterranean	B1
+medium	B1
+medium	B1
+melt	B1
+membership	B1
+memorable	B1
+memorize/memorise	B1
+mend	B1
+mental	B1
+mentally	B1
+mention	B1
+merchant	B1
+mere	B1
+merely	B1
+mess	B1
+message board	B1
+messy	B1
+middle-aged	B1
+mild	B1
+mile	B1
+mineral	B1
+minimize/minimise	B1
+minimum	B1
+minimum	B1
+minor	B1
+minority	B1
+minus	B1
+miracle	B1
+mischief	B1
+miserable	B1
+misery	B1
+mislead	B1
+mission	B1
+misty	B1
+misunderstanding	B1
+mixing bowl	B1
+modal verb/modal	B1
+model	B1
+model	B1
+modem	B1
+moderate	B1
+modify	B1
+moisture	B1
+molecule	B1
+monitor	B1
+monitor	B1
+monk	B1
+monster	B1
+monthly	B1
+monthly	B1
+monument	B1
+moral	B1
+more	B1
+moreover	B1
+mosquito	B1
+moss	B1
+motherland	B1
+motionless	B1
+motivate	B1
+motivation	B1
+motive	B1
+motor	B1
+motorcycle	B1
+motto	B1
+mount	B1
+mountaintop	B1
+mourn	B1
+movement	B1
+mud	B1
+mule	B1
+murder	B1
+murderer	B1
+muscle	B1
+mustard	B1
+mutual	B1
+myth	B1
+nail	B1
+naked	B1
+name	B1
+nap	B1
+narrate	B1
+narrative	B1
+narrow	B1
+nasty	B1
+nationalist	B1
+naturally	B1
+navy blue	B1
+near	B1
+near	B1
+nearby	B1
+nearby	B1
+necklace	B1
+nectar	B1
+needle	B1
+negotiate	B1
+negotiation	B1
+neighborhood/neighbourhood	B1
+nephew	B1
+nervousness	B1
+ness	B1
+net	B1
+network	B1
+neutral	B1
+nevertheless	B1
+newborn	B1
+newcomer	B1
+newly	B1
+next door	B1
+next-door	B1
+nickname	B1
+niece	B1
+nightlife	B1
+nod	B1
+noisily	B1
+none	B1
+nonetheless	B1
+nonsense	B1
+nor	B1
+normally	B1
+northeast	B1
+northeast	B1
+northeastern	B1
+northern	B1
+northwest	B1
+northwest	B1
+northwestern	B1
+notice	B1
+noticeable	B1
+noticeboard	B1
+notion	B1
+notorious	B1
+novelist	B1
+nowhere	B1
+nuclear	B1
+nucleus	B1
+numerous	B1
+nurse	B1
+nutrient	B1
+nutrition	B1
+nutritious	B1
+object	B1
+objection	B1
+objective	B1
+observation	B1
+observe	B1
+obstacle	B1
+obtain	B1
+obvious	B1
+obviously	B1
+occasion	B1
+occasion	B1
+occasional	B1
+occasionally	B1
+occupy	B1
+occur	B1
+ocean	B1
+off	B1
+offensive	B1
+officially	B1
+oily	B1
+old-fashioned	B1
+oneself	B1
+onstage	B1
+onto/on to	B1
+opening	B1
+operation	B1
+opposite	B1
+opposite	B1
+opposition	B1
+oppress	B1
+oppression	B1
+option	B1
+oral	B1
+orbit	B1
+orchestra	B1
+orderly	B1
+ordinary	B1
+organ	B1
+organic	B1
+organism	B1
+organization/organisation	B1
+origin	B1
+otherwise	B1
+ought to	B1
+outdoor	B1
+outdoors	B1
+outer	B1
+outlaw	B1
+outline	B1
+out-of-date	B1
+outstanding	B1
+outward	B1
+outweigh	B1
+overcome	B1
+overjoyed	B1
+overnight	B1
+overnight	B1
+overwhelm	B1
+overwhelming	B1
+overwork	B1
+owe	B1
+owing	B1
+own	B1
+oxygen	B1
+pace	B1
+package	B1
+packing	B1
+paddle	B1
+paid	B1
+pain	B1
+painful	B1
+pale	B1
+palm	B1
+parachute	B1
+paradise	B1
+paralyze/paralyse	B1
+parcel	B1
+pardon	B1
+parental	B1
+parking	B1
+parrot	B1
+partial	B1
+participant	B1
+participate	B1
+participle	B1
+particularly	B1
+part-time	B1
+part-time	B1
+passion	B1
+passive	B1
+passport	B1
+password	B1
+past	B1
+patience	B1
+patient	B1
+patrol	B1
+pattern	B1
+pause	B1
+pause	B1
+peanut	B1
+peculiar	B1
+penniless	B1
+penny	B1
+per	B1
+percent/per cent	B1
+performer	B1
+permanent	B1
+permanently	B1
+permit	B1
+personally	B1
+persuade	B1
+persuasive	B1
+phantom	B1
+pharmacy	B1
+phenomenon	B1
+philosopher	B1
+philosophy	B1
+phoenix	B1
+photocopy	B1
+phrasal verb	B1
+phrase	B1
+physics	B1
+pick	B1
+pie	B1
+piety	B1
+pillow	B1
+pin	B1
+pineapple	B1
+pipe	B1
+pit	B1
+place	B1
+plain	B1
+plan	B1
+plant	B1
+plastic	B1
+platform	B1
+pleasantly	B1
+please	B1
+plenty	B1
+plug	B1
+plus	B1
+pocket money	B1
+poet	B1
+poetry	B1
+poison	B1
+poisonous	B1
+pole	B1
+policy	B1
+politely	B1
+politician	B1
+politics	B1
+pollutant	B1
+pond	B1
+popcorn	B1
+pork	B1
+port	B1
+positive	B1
+positively	B1
+possess	B1
+possession	B1
+possessive	B1
+possibility	B1
+postcard	B1
+postman	B1
+pot	B1
+potential	B1
+pottery	B1
+pound	B1
+poverty	B1
+powder	B1
+practical	B1
+praise	B1
+prayer	B1
+precious	B1
+preference	B1
+prefix	B1
+pregnant	B1
+prejudice	B1
+preparation	B1
+prepared	B1
+preposition	B1
+preschool	B1
+prescription	B1
+presence	B1
+present	B1
+presentation	B1
+preservation	B1
+preserve	B1
+president	B1
+press	B1
+press	B1
+previous	B1
+priest	B1
+primarily	B1
+primary school	B1
+primitive	B1
+principle	B1
+print	B1
+prison	B1
+prisoner	B1
+privacy	B1
+prize	B1
+probability	B1
+proceed	B1
+process	B1
+proclaim	B1
+procrastination	B1
+producer	B1
+productive	B1
+profession	B1
+professor	B1
+program/programme	B1
+progress	B1
+prohibition	B1
+prominent	B1
+promise	B1
+promote	B1
+promotion	B1
+pronoun	B1
+proof	B1
+properly	B1
+property	B1
+proportion	B1
+proposal	B1
+propose	B1
+prosperity	B1
+prosperous	B1
+protect	B1
+protection	B1
+protective	B1
+protest	B1
+proud	B1
+prove	B1
+proverb	B1
+provided	B1
+psychological	B1
+pub	B1
+public	B1
+public transport	B1
+publicly	B1
+publisher	B1
+pullover	B1
+pump	B1
+punish	B1
+punishment	B1
+pupil	B1
+puppy	B1
+pure	B1
+purify	B1
+purse	B1
+push	B1
+puzzle	B1
+quake	B1
+qualified	B1
+qualify	B1
+quality	B1
+quantity	B1
+question mark	B1
+questionnaire	B1
+queue	B1
+race	B1
+race	B1
+racial	B1
+radiation	B1
+rage	B1
+rail	B1
+railroad	B1
+railway	B1
+rainfall	B1
+rainforest	B1
+rank	B1
+rap	B1
+rapid	B1
+rapidly	B1
+rare	B1
+rarely	B1
+raspberry	B1
+ration	B1
+rational	B1
+razor	B1
+reach	B1
+react	B1
+realistic	B1
+reality	B1
+rearrange	B1
+reasonable	B1
+rebuild	B1
+recall	B1
+reception	B1
+recite	B1
+reclaim	B1
+recognize/recognise	B1
+recommend	B1
+record	B1
+recording	B1
+recover	B1
+recovery	B1
+recycled	B1
+recycling	B1
+reduce	B1
+reduction	B1
+reef	B1
+referee	B1
+reflection	B1
+refreshments	B1
+refund	B1
+refusal	B1
+refuse	B1
+refuse	B1
+regain	B1
+regard	B1
+regarding	B1
+region	B1
+regional	B1
+register	B1
+register	B1
+registration	B1
+regulation	B1
+reject	B1
+relate	B1
+relation	B1
+relationship	B1
+relative	B1
+relative	B1
+relatively	B1
+relaxing	B1
+release	B1
+reliable	B1
+religion	B1
+religious	B1
+rely	B1
+remainder	B1
+remark	B1
+remarkable	B1
+remedy	B1
+remembrance	B1
+remote control	B1
+remove	B1
+renew	B1
+repay	B1
+repeatedly	B1
+reply	B1
+report	B1
+representative	B1
+reproduce	B1
+republic	B1
+reputation	B1
+request	B1
+require	B1
+requirement	B1
+rescue	B1
+rescue	B1
+researcher	B1
+resemble	B1
+reservation	B1
+reserve	B1
+reserve	B1
+resident	B1
+residential	B1
+resist	B1
+resolve	B1
+resort	B1
+resource	B1
+respect	B1
+respect	B1
+respectable	B1
+respond	B1
+responsibility	B1
+responsible	B1
+rest	B1
+rest	B1
+restore	B1
+restrict	B1
+result	B1
+retail	B1
+retain	B1
+retell	B1
+retrospect	B1
+reunification	B1
+reunify	B1
+revise	B1
+revision	B1
+reward	B1
+rewrite	B1
+rid	B1
+riddle	B1
+ridiculous	B1
+ripe	B1
+rise	B1
+rise	B1
+risk	B1
+roadside	B1
+robot	B1
+rolling	B1
+room	B1
+rotten	B1
+rough	B1
+round	B1
+round	B1
+routine	B1
+rubber	B1
+rubbish	B1
+rudely	B1
+ruin	B1
+runaway	B1
+runway	B1
+rush	B1
+sacred	B1
+sadness	B1
+safari	B1
+safeguard	B1
+safely	B1
+safety	B1
+salesman	B1
+salmon	B1
+sand	B1
+sandal	B1
+satellite	B1
+satisfaction	B1
+satisfied	B1
+saucepan	B1
+saucer	B1
+scan	B1
+scare	B1
+scared	B1
+scary	B1
+scatter	B1
+scenic	B1
+scholar	B1
+scholarship	B1
+schoolmate	B1
+schoolteacher	B1
+science fiction	B1
+scold	B1
+scope	B1
+score	B1
+score	B1
+scratch	B1
+scream	B1
+sculpture	B1
+search	B1
+season	B1
+seawater	B1
+seaweed	B1
+second	B1
+secondary school	B1
+second-hand	B1
+second-hand	B1
+secret	B1
+secretly	B1
+secure	B1
+security	B1
+seize	B1
+select	B1
+selection	B1
+selfish	B1
+self-service	B1
+sensation	B1
+separation	B1
+sequence	B1
+series	B1
+serious	B1
+server	B1
+service	B1
+service	B1
+session	B1
+setting	B1
+settle	B1
+settlement	B1
+settler	B1
+severe	B1
+severely	B1
+sex	B1
+shadow	B1
+shadowy	B1
+shake	B1
+shallow	B1
+shame	B1
+shameful	B1
+shape	B1
+sharp	B1
+shave	B1
+sheer	B1
+sheet	B1
+shelter	B1
+sheriff	B1
+shift	B1
+shiny	B1
+ship	B1
+shiver	B1
+shocked	B1
+shocking	B1
+shop	B1
+shopper	B1
+shortage	B1
+shortly	B1
+shout	B1
+shrimp	B1
+shut	B1
+sickness	B1
+sidewalk	B1
+sigh	B1
+sign	B1
+signal	B1
+signature	B1
+significance	B1
+signpost	B1
+silent	B1
+silk	B1
+similarity	B1
+similarly	B1
+simplify	B1
+simultaneously	B1
+since	B1
+single	B1
+sink	B1
+skate	B1
+skeleton	B1
+ski	B1
+skin	B1
+skyscraper	B1
+slavery	B1
+sleep	B1
+sleeve	B1
+slight	B1
+slightly	B1
+slip	B1
+slip	B1
+slogan	B1
+slope	B1
+slot	B1
+slow	B1
+slow	B1
+smell	B1
+smile	B1
+smoker	B1
+sneeze	B1
+snowboard	B1
+snowstorm	B1
+soap opera	B1
+social networking	B1
+socially	B1
+soil	B1
+solid	B1
+somehow	B1
+someplace	B1
+sometime	B1
+sometimes	B1
+soothe	B1
+sophomore	B1
+sore	B1
+sorrow	B1
+sort	B1
+soul	B1
+sour	B1
+southeast	B1
+southeast	B1
+southern	B1
+southwest	B1
+southwest	B1
+souvenir	B1
+sparkle	B1
+specialist	B1
+specialize/specialise	B1
+specially	B1
+spectacular	B1
+spectator	B1
+speed	B1
+spelling	B1
+sphere	B1
+spice	B1
+spicy	B1
+spider	B1
+spinach	B1
+spiral	B1
+spirit	B1
+spiritual	B1
+split	B1
+spoil	B1
+sponge	B1
+sponsor	B1
+sports	B1
+sportsmanship	B1
+stable	B1
+stall	B1
+standard	B1
+star	B1
+stare	B1
+status	B1
+stay	B1
+steadily	B1
+steady	B1
+steam	B1
+steel	B1
+steep	B1
+stem	B1
+stick	B1
+sticker	B1
+sticky	B1
+stir	B1
+storage	B1
+stormy	B1
+storyteller	B1
+strain	B1
+strangely	B1
+strategic	B1
+straw	B1
+strawberry	B1
+stream	B1
+stream	B1
+strengthen	B1
+stress	B1
+stressed	B1
+stressful	B1
+stretch	B1
+stricken	B1
+strike	B1
+strip	B1
+stripe	B1
+struggle	B1
+stubborn	B1
+stuck	B1
+studio	B1
+stuffed	B1
+stumble	B1
+stun	B1
+stunning	B1
+stupid	B1
+stylish	B1
+subconscious	B1
+submarine	B1
+substantial	B1
+substitute	B1
+suddenly	B1
+suffer	B1
+sufficient	B1
+suffix	B1
+suicide	B1
+summarize/summarise	B1
+summit	B1
+sunbathe	B1
+sundial	B1
+sunrise	B1
+sunset	B1
+superior	B1
+superstition	B1
+supply	B1
+support	B1
+supporter	B1
+supportive	B1
+suppose	B1
+supposedly	B1
+surely	B1
+surface	B1
+surgeon	B1
+surgery	B1
+surprise	B1
+surprisingly	B1
+surround	B1
+surrounding	B1
+survival	B1
+survivor	B1
+suspect	B1
+suspicion	B1
+swarm	B1
+swear	B1
+sweat	B1
+sweatshirt	B1
+swell	B1
+swimmer	B1
+switch	B1
+switch	B1
+swollen	B1
+sword	B1
+sympathy	B1
+symptom	B1
+syndrome	B1
+systematic	B1
+tablet	B1
+take	B1
+takeaway	B1
+takeoff/take-off	B1
+tale	B1
+talented	B1
+talk	B1
+talkative	B1
+tank	B1
+tape	B1
+taste	B1
+taste	B1
+tasteless	B1
+tasty	B1
+tax	B1
+teaching	B1
+teammate	B1
+teamwork	B1
+tear	B1
+tease	B1
+technique	B1
+technological	B1
+teen	B1
+telecommunications	B1
+telegram	B1
+teller	B1
+temper	B1
+temporary	B1
+tempt	B1
+tend	B1
+tendency	B1
+tense	B1
+tense	B1
+tension	B1
+tent	B1
+term	B1
+terminal	B1
+terribly	B1
+terrific	B1
+terrified	B1
+terror	B1
+terrorism	B1
+terrorist	B1
+thankful	B1
+theft	B1
+theory	B1
+thirst	B1
+thorough	B1
+threat	B1
+threatening	B1
+thriller	B1
+through	B1
+throughout	B1
+thumb	B1
+thump	B1
+thunder	B1
+thunderous	B1
+thus	B1
+tick	B1
+tick	B1
+tide	B1
+tie	B1
+tighten	B1
+tightly	B1
+tile	B1
+till	B1
+timely	B1
+tin	B1
+tiny	B1
+tire	B1
+tiring	B1
+tissue	B1
+tobacco	B1
+tongue	B1
+toothpaste	B1
+top	B1
+tornado	B1
+toss	B1
+total	B1
+total	B1
+totally	B1
+touch	B1
+tour	B1
+tourism	B1
+tournament	B1
+trace	B1
+tracksuit	B1
+traditionally	B1
+traffic jam	B1
+tragedy	B1
+tragic	B1
+trail	B1
+transfer	B1
+transform	B1
+transformation	B1
+transitional	B1
+translate	B1
+transport	B1
+transportation	B1
+trash	B1
+travel agent	B1
+treat	B1
+treatment	B1
+tremble	B1
+tremendous	B1
+trend	B1
+trigger	B1
+trim	B1
+triumph	B1
+tropical	B1
+trouble	B1
+trumpet	B1
+trustworthy	B1
+tumble	B1
+tuna	B1
+turbulence	B1
+turning	B1
+turtle	B1
+twin	B1
+twist	B1
+twist	B1
+type	B1
+typical	B1
+typically	B1
+unable	B1
+unafraid	B1
+unbelievable	B1
+uncertainty	B1
+unclear	B1
+uncontrollable	B1
+uncover	B1
+underage	B1
+undergo	B1
+underline	B1
+underneath	B1
+underpants	B1
+undo	B1
+undress	B1
+unemployed	B1
+unemployment	B1
+unexpected	B1
+unexpectedly	B1
+unfairly	B1
+unfit	B1
+unfold	B1
+unfortunate	B1
+unfriendly	B1
+unheard	B1
+unify	B1
+uninterested	B1
+uninteresting	B1
+union	B1
+unique	B1
+unite	B1
+universe	B1
+unless	B1
+unlikely	B1
+unlucky	B1
+unpack	B1
+unpredictable	B1
+unrelated	B1
+untidy	B1
+until	B1
+unusually	B1
+unwanted	B1
+unwell	B1
+update	B1
+uplifted	B1
+upload	B1
+upper	B1
+upstairs	B1
+upstairs	B1
+up-to-date	B1
+upward	B1
+urge	B1
+urgent	B1
+usage	B1
+used to	B1
+useless	B1
+vacancy	B1
+vague	B1
+vain	B1
+valuable	B1
+van	B1
+variety	B1
+various	B1
+vary	B1
+vast	B1
+vegetarian	B1
+vegetarian	B1
+vehicle	B1
+vein	B1
+vessel	B1
+vet	B1
+via	B1
+vice	B1
+vice president	B1
+victim	B1
+victory	B1
+video clip	B1
+view	B1
+viewpoint	B1
+violence	B1
+violently	B1
+virtual	B1
+virus	B1
+visa	B1
+visible	B1
+vision	B1
+visual	B1
+visually	B1
+vivid	B1
+vividly	B1
+volcano	B1
+volume	B1
+volunteer	B1
+vote	B1
+vowel	B1
+voyage	B1
+wagon	B1
+wake	B1
+ward	B1
+wardrobe	B1
+warm	B1
+warmly	B1
+warmth	B1
+warn	B1
+warning	B1
+warranty	B1
+warrior	B1
+washbowl	B1
+waste	B1
+waste	B1
+waste	B1
+wasteful	B1
+waterfall	B1
+wave	B1
+wax	B1
+wax	B1
+weakness	B1
+weapon	B1
+weather forecast	B1
+webcam	B1
+weird	B1
+welcome	B1
+well-dressed	B1
+westward	B1
+wetland	B1
+whale	B1
+whatever	B1
+whenever	B1
+whenever	B1
+wherever	B1
+whether	B1
+whichever	B1
+while	B1
+whisper	B1
+whistle	B1
+whoever	B1
+whole	B1
+widespread	B1
+wildlife	B1
+wildly	B1
+willingness	B1
+windscreen	B1
+windsurfing	B1
+wing	B1
+wire	B1
+wither	B1
+witness	B1
+wizard	B1
+wonder	B1
+working	B1
+workout	B1
+workplace	B1
+workshop	B1
+worn	B1
+worst	B1
+worth	B1
+worthwhile	B1
+worthy	B1
+wound	B1
+wrap	B1
+wrap	B1
+wrapping	B1
+wrist	B1
+wristwatch	B1
+written	B1
+yell	B1
+yet	B1
+yoga	B1
