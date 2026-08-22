@@ -1,4 +1,4 @@
-# 📂 Proje Dosya ve Klasör Yapısı 
+# 📂 Proje Dosya ve Klasör Yapısı .
 
 Projenin kök dizininde bulunan klasörler ve dosyaların genel hiyerarşisi şu şekildedir:
 
