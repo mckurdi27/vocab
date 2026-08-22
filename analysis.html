@@ -104,7 +104,815 @@
 </div>
 
 <script>
-    const embeddedCsvData = {};
+    // Fetch hatası durumunda uygulamanın çökmemesi ve verileri okuyabilmesi için yedek gömülü veri
+    const embeddedCsvData = {
+        "cefra1.csv": `Headword,CEFR,Turkish
+a,A1,bir
+about,A1,hakkında / yaklaşık
+above,A1,yukarıda
+add,A1,eklemek
+address,A1,adres
+after,A1,sonra
+again,A1,tekrar
+age,A1,yaş
+agree,A1,aynı fikirde olmak
+air,A1,hava
+all,A1,tümü / hepsi
+almost,A1,neredeyse
+alone,A1,yalnız
+also,A1,ayrıca
+always,A1,her zaman
+and,A1,ve
+angry,A1,kızgın
+animal,A1,hayvan
+answer,A1,cevap
+any,A1,herhangi bir
+apple,A1,elma
+arrive,A1,varmak
+art,A1,sanat
+ask,A1,sormak
+at,A1,-de / -da
+baby,A1,bebek
+back,A1,arka / geri
+bad,A1,kötü
+bag,A1,çanta
+ball,A1,top
+banana,A1,muz
+bank,A1,banka
+base,A1,temel
+basket,A1,sepet
+bath,A1,banyo
+be,A1,olmak
+beach,A1,plaj
+bear,A1,ayı
+beautiful,A1,güzel
+because,A1,çünkü
+become,A1,olmak
+bed,A1,yatak
+bedroom,A1,yatak odası
+bee,A1,arı
+before,A1,önce
+begin,A1,başlamak
+behind,A1,arkasında
+believe,A1,inanmak
+bell,A1,zil
+below,A1,aşağıda
+beside,A1,yanında
+best,A1,en iyi
+better,A1,daha iyi
+between,A1,arasında
+big,A1,büyük
+bike,A1,bisiklet
+bird,A1,kuş
+birthday,A1,doğum günü
+black,A1,siyah
+block,A1,blok
+blue,A1,mavi
+boat,A1,tekne
+body,A1,vücut
+book,A1,kitap
+both,A1,her ikisi
+bottle,A1,şişe
+box,A1,kutu
+boy,A1,erkek çocuk
+bread,A1,ekmek
+break,A1,kırmak
+breakfast,A1,kahvaltı
+bridge,A1,köprü
+bright,A1,parlak
+bring,A1,getirmek
+brother,A1,erkek kardeş
+brown,A1,kahverengi
+build,A1,inşa etmek
+building,A1,bina
+bus,A1,otobüs
+busy,A1,meşgul
+but,A1,fakat / ama
+buy,A1,satın almak
+by,A1,tarafından
+cake,A1,kek
+call,A1,aramak
+camera,A1,kamera
+camp,A1,kamp
+can,A1,-ebilmek
+cap,A1,şapka
+car,A1,araba
+card,A1,kart
+care,A1,dikkat
+carry,A1,taşımak
+cat,A1,kedi
+catch,A1,yakalamak
+chair,A1,sandalye
+change,A1,değiştirmek
+chicken,A1,tavuk
+child,A1,çocuk
+chocolate,A1,çikolata
+choose,A1,seçmek
+city,A1,şehir
+class,A1,sınıf
+clean,A1,temiz
+clock,A1,saat
+close,A1,kapatmak
+clothes,A1,kıyafetler
+cloud,A1,bulut
+coat,A1,mont
+coffee,A1,kahve
+cold,A1,soğuk
+color,A1,renk
+come,A1,gelmek
+computer,A1,bilgisayar
+cool,A1,serin
+copy,A1,kopya
+corner,A1,köşe
+correct,A1,doğru
+cost,A1,maliyet
+could,A1,-ebilirdi
+country,A1,ülke
+course,A1,kurs
+cousin,A1,kuzen
+cow,A1,inek
+cream,A1,krema
+cry,A1,ağlamak
+cup,A1,fincan
+cut,A1,kesmek
+dad,A1,baba
+dance,A1,dans
+dark,A1,karanlık
+date,A1,tarih
+daughter,A1,kız evlat
+day,A1,gün
+dear,A1,sevgili
+decide,A1,karar vermek
+deep,A1,derin
+desk,A1,çalışma masası
+dictionary,A1,sözlük
+die,A1,ölmek
+different,A1,farklı
+difficult,A1,zor
+dinner,A1,akşam yemeği
+dirty,A1,kirli
+discover,A1,keşfetmek
+do,A1,yapmak
+doctor,A1,doktor
+dog,A1,köpek
+doll,A1,oyuncak bebek
+door,A1,kapı
+down,A1,aşağı
+draw,A1,çizmek
+dream,A1,rüya
+dress,A1,elbise
+drink,A1,içmek
+drive,A1,sürmek
+drop,A1,düşürmek
+dry,A1,kuru
+duck,A1,ördek
+ear,A1,kulak
+early,A1,erken
+earth,A1,dünya
+east,A1,doğu
+easy,A1,kolay
+eat,A1,yemek
+egg,A1,yumurta
+eight,A1,sekiz
+elephant,A1,fil
+eleven,A1,on bir
+email,A1,e-posta
+end,A1,son
+engine,A1,motor
+enjoy,A1,keyif almak
+enter,A1,girmek
+equal,A1,eşit
+evening,A1,akşam
+every,A1,her
+example,A1,örnek
+excited,A1,heyecanlı
+eye,A1,göz
+face,A1,yüz
+fall,A1,düşmek
+family,A1,aile
+famous,A1,ünlü
+far,A1,uzak
+farm,A1,çiftlik
+fast,A1,hızlı
+fat,A1,şişman
+father,A1,baba
+feel,A1,hissetmek
+festival,A1,festival
+few,A1,birkaç
+field,A1,tarla
+fifteen,A1,on beş
+fifty,A1,elli
+fight,A1,kavga
+fill,A1,doldurmak
+film,A1,film
+find,A1,bulmak
+fine,A1,iyi
+finish,A1,bitirmek
+fire,A1,ateş
+first,A1,ilk
+fish,A1,balık
+five,A1,beş
+flat,A1,daire
+floor,A1,zemin
+flower,A1,çiçek
+fly,A1,uçmak
+food,A1,yemek
+foot,A1,ayak
+football,A1,futbol
+for,A1,için
+forest,A1,orman
+forget,A1,unutmak
+fork,A1,çatal
+forty,A1,kırk
+four,A1,dört
+free,A1,özgür
+fresh,A1,taze
+friend,A1,arkadaş
+frog,A1,kurbağa
+from,A1,-den
+fruit,A1,meyve
+full,A1,dolu
+fun,A1,eğlence
+funny,A1,komik
+future,A1,gelecek
+game,A1,oyun
+garden,A1,bahçe
+gate,A1,bahçe kapısı
+get,A1,almak
+girl,A1,kız
+give,A1,vermek
+glass,A1,bardak
+go,A1,gitmek
+goat,A1,keçi
+gold,A1,altın
+good,A1,iyi
+grandfather,A1,büyükbaba
+grandmother,A1,büyükanne
+ grape,A1,üzüm
+grass,A1,çimen
+gray,A1,gri
+great,A1,harika
+green,A1,yeşil
+ground,A1,yer
+group,A1,grup
+grow,A1,büyümek
+guess,A1,tahmin
+guitar,A1,gitar
+hair,A1,saç
+half,A1,yarım
+hall,A1,koridor
+hand,A1,el
+happy,A1,mutlu
+hard,A1,zor
+hat,A1,şapka
+have,A1,sahip olmak
+he,A1,o
+head,A1,kafa
+hear,A1,duymak
+heart,A1,kalp
+heavy,A1,ağır
+hello,A1,merhaba
+help,A1,yardım
+her,A1,onun
+here,A1,burada
+hi,A1,selam
+hide,A1,saklamak
+high,A1,yüksek
+hill,A1,tepe
+him,A1,onu
+his,A1,onun
+history,A1,tarih
+hobby,A1,hobi
+hold,A1,tutmak
+hole,A1,delik
+holiday,A1,tatil
+home,A1,ev
+hope,A1,umut
+horse,A1,at
+hospital,A1,hastane
+hot,A1,sıcak
+hotel,A1,otel
+hour,A1,saat
+house,A1,ev
+how,A1,nasıl
+hungry,A1,aç
+hurry,A1,acele
+hurt,A1,acıtmak
+husband,A1,eş
+ice,A1,buz
+idea,A1,fikir
+if,A1,eğer
+important,A1,önemli
+in,A1,içinde
+inside,A1,içeri
+intelligent,A1,zeki
+interesting,A1,ilginç
+into,A1,içine
+is,A1,dır
+island,A1,ada
+it,A1,o
+jacket,A1,ceket
+job,A1,iş
+join,A1,katılmak
+juice,A1,meyve suyu
+jump,A1,zıplamak
+just,A1,sadece
+keep,A1,tutmak
+key,A1,anahtar
+kill,A1,öldürmek
+kind,A1,tür
+king,A1,kral
+kitchen,A1,mutfak
+kite,A1,uçurtma
+knife,A1,bıçak
+know,A1,bilmek
+lamp,A1,lamba
+language,A1,dil
+large,A1,büyük
+last,A1,son
+late,A1,geç
+laugh,A1,gülmek
+learn,A1,öğrenmek
+leave,A1,ayrılmak
+left,A1,sol
+leg,A1,bacak
+lemon,A1,limon
+lesson,A1,ders
+let,A1,izin vermek
+letter,A1,mektup
+library,A1,kütüphane
+life,A1,hayat
+light,A1,ışık
+like,A1,sevmek
+line,A1,çizgi
+lion,A1,aslan
+list,A1,liste
+listen,A1,dinlemek
+little,A1,küçük
+live,A1,yaşamak
+long,A1,uzun
+look,A1,bakmak
+lose,A1,kaybetmek
+lot,A1,çok
+loud,A1,sesli
+love,A1,sevmek
+low,A1,alçak
+luck,A1,şans
+lunch,A1,öğle yemeği
+machine,A1,makine
+magazine,A1,dergi
+make,A1,yapmak
+man,A1,adam
+many,A1,çok
+map,A1,harita
+market,A1,market
+match,A1,maç
+matter,A1,mesele
+may,A1,mayıs
+me,A1,ben
+meal,A1,öğün
+mean,A1,anlamına gelmek
+meat,A1,et
+meet,A1,buluşmak
+melon,A1,kavun
+message,A1,mesaj
+middle,A1,orta
+milk,A1,süt
+mind,A1,akıl
+minute,A1,dakika
+miss,A1,özlemek
+mister,A1,bay
+mix,A1,karıştırmak
+mom,A1,anne
+moment,A1,an
+money,A1,para
+monkey,A1,maymun
+month,A1,ay
+moon,A1,ay
+morning,A1,sabah
+most,A1,en çok
+mother,A1,anne
+mountain,A1,dağ
+mouse,A1,fare
+mouth,A1,ağız
+move,A1,taşınmak
+movie,A1,film
+much,A1,çok
+music,A1,müzik
+must,A1,zorunda olmak
+my,A1,benim
+name,A1,isim
+near,A1,yakın
+neck,A1,boyun
+need,A1,ihtiyaç
+never,A1,asla
+new,A1,yeni
+news,A1,haber
+newspaper,A1,gazete
+next,A1,sonraki
+nice,A1,güzel
+night,A1,gece
+nine,A1,dokuz
+no,A1,hayır
+noise,A1,gürültü
+noon,A1,öğle
+north,A1,kuzey
+nose,A1,burun
+not,A1,değil
+note,A1,not
+nothing,A1,hiçbir şey
+now,A1,şimdi
+number,A1,sayı
+nurse,A1,hemşire
+object,A1,nesne
+ocean,A1,okyanus
+of,A1,-in
+off,A1,kapalı
+office,A1,ofis
+often,A1,sıklıkla
+old,A1,yaşlı
+on,A1,üstünde
+one,A1,bir
+only,A1,sadece
+open,A1,açık
+or,A1,yada
+orange,A1,portakal
+order,A1,sipariş
+other,A1,diğer
+our,A1,bizim
+out,A1,dışarıda
+outside,A1,dışarıda
+over,A1,üzerinde
+own,A1,kendi
+page,A1,sayfa
+paint,A1,boyamak
+pair,A1,çift
+paper,A1,kağıt
+pardon,A1,pardon
+parents,A1,ebeveyn
+park,A1,park
+part,A1,parça
+party,A1,parti
+pass,A1,geçmek
+past,A1,geçmiş
+path,A1,patika
+pay,A1,ödemek
+pen,A1,kalem
+pencil,A1,kurşun kalem
+people,A1,insanlar
+pepper,A1,biber
+person,A1,kişi
+pet,A1,evcil hayvan
+phone,A1,telefon
+photo,A1,fotoğraf
+piano,A1,piyano
+pick,A1,seçmek
+picture,A1,resim
+piece,A1,parça
+pig,A1,domuz
+pink,A1,pembe
+place,A1,yer
+plan,A1,plan
+plane,A1,uçak
+plant,A1,bitki
+play,A1,oynamak
+player,A1,oyuncu
+please,A1,lütfen
+point,A1,nokta
+police,A1,polis
+pool,A1,havuz
+poor,A1,fakir
+pop,A1,pop
+position,A1,konum
+possible,A1,mümkün
+post,A1,posta
+potato,A1,patates
+practice,A1,pratik
+prefer,A1,tercih etmek
+prepare,A1,hazırlamak
+present,A1,hediye
+pretty,A1,güzel
+price,A1,fiyat
+print,A1,yazdırmak
+prize,A1,ödül
+problem,A1,problem
+program,A1,program
+promise,A1,söz vermek
+protect,A1,korumak
+prove,A1,kanıtlamak
+public,A1,halk
+pull,A1,çekmek
+pupil,A1,öğrenci
+purple,A1,mor
+push,A1,itmek
+put,A1,koymak
+queen,A1,kraliçe
+question,A1,soru
+quick,A1,hızlı
+quiet,A1,sessiz
+race,A1,yarış
+radio,A1,radyo
+rain,A1,yağmur
+raise,A1,kaldırmak
+read,A1,okumak
+ready,A1,hazır
+real,A1,gerçek
+reason,A1,sebep
+receive,A1,almak
+red,A1,kırmızı
+remember,A1,hatırlamak
+repeat,A1,tekrarlamak
+rest,A1,dinlenmek
+restaurant,A1,restoran
+result,A1,sonuç
+return,A1,dönmek
+rice,A1,pirinç
+rich,A1,zengin
+ride,A1,binmek
+right,A1,doğru
+ring,A1,yüzük
+river,A1,nehir
+road,A1,yol
+rock,A1,kaya
+room,A1,oda
+rope,A1,ip
+rose,A1,gül
+round,A1,yuvarlak
+rule,A1,kural
+run,A1,koşmak
+sad,A1,üzgün
+safe,A1,güvenli
+salad,A1,salata
+salt,A1,tuz
+same,A1,aynı
+sand,A1,kum
+save,A1,kurtarmak
+say,A1,söylemek
+school,A1,okul
+science,A1,bilim
+sea,A1,deniz
+seat,A1,koltuk
+second,A1,ikinci
+see,A1,görmek
+seed,A1,tohum
+sell,A1,satmak
+send,A1,göndermek
+sentence,A1,cümle
+serve,A1,servis yapmak
+seven,A1,yedi
+shadow,A1,gölge
+shake,A1,sallamak
+shape,A1,şekil
+share,A1,paylaşmak
+sharp,A1,keskin
+she,A1,o
+sheep,A1,koyun
+sheet,A1,çarşaf
+shelf,A1,raf
+shine,A1,parlamak
+ship,A1,gemi
+shirt,A1,gömlek
+shoe,A1,ayakkabı
+shop,A1,dükkan
+short,A1,kısa
+should,A1,-meli
+shoulder,A1,omuz
+shout,A1,bağırmak
+show,A1,göstermek
+sick,A1,hasta
+side,A1,taraf
+sight,A1,görüş
+sign,A1,işaret
+silence,A1,sessizlik
+silly,A1,aptalca
+silver,A1,gümüş
+similar,A1,benzer
+simple,A1,basit
+since,A1,-den beri
+sing,A1,şarkı söylemek
+single,A1,tek
+sister,A1,kız kardeş
+sit,A1,oturmak
+six,A1,altı
+size,A1,boyut
+skill,A1,yetenek
+skin,A1,cilt
+skirt,A1,etek
+sky,A1,gökyüzü
+sleep,A1,uyumak
+slow,A1,yavaş
+small,A1,küçük
+smell,A1,koklamak
+smile,A1,gülümsemek
+smoke,A1,duman
+snow,A1,kar
+so,A1,bu yüzden
+soap,A1,sabun
+sock,A1,çorap
+soft,A1,yumuşak
+some,A1,bazı
+son,A1,oğul
+song,A1,şarkı
+soon,A1,yakında
+sorry,A1,üzgünüm
+sound,A1,ses
+soup,A1,çorba
+south,A1,güney
+space,A1,uzay
+speak,A1,konuşmak
+special,A1,özel
+speed,A1,hız
+spell,A1,hecelemek
+spend,A1,harcamak
+spoon,A1,kaşık
+sport,A1,spor
+spring,A1,ilkbahar
+square,A1,kare
+stairs,A1,merdiven
+stamp,A1,pul
+stand,A1,durmak
+star,A1,yıldız
+start,A1,başlamak
+station,A1,istasyon
+stay,A1,kalmak
+steal,A1,çalmak
+step,A1,adım
+stick,A1,sopa
+still,A1,hala
+stone,A1,taş
+stop,A1,durmak
+store,A1,mağaza
+storm,A1,fırtına
+story,A1,hikaye
+straight,A1,düz
+strange,A1,garip
+street,A1,sokak
+strong,A1,güçlü
+student,A1,öğrenci
+study,A1,çalışmak
+subject,A1,konu
+success,A1,başarı
+sugar,A1,şeker
+summer,A1,yaz
+sun,A1,güneş
+Sunday,A1,Pazar
+super,A1,süper
+sure,A1,emin
+sweet,A1,tatlı
+swim,A1,yüzmek
+table,A1,masa
+tail,A1,kuyruk
+take,A1,almak
+talk,A1,konuşmak
+tall,A1,uzun
+taste,A1,tatmak
+taxi,A1,taksi
+tea,A1,çay
+teach,A1,öğretmek
+teacher,A1,öğretmen
+team,A1,takım
+telephone,A1,telefon
+television,A1,televizyon
+tell,A1,söylemek
+temperature,A1,sıcaklık
+ten,A1,on
+tennis,A1,tenis
+test,A1,test
+than,A1,-den
+thank,A1,teşekkür etmek
+that,A1,şu
+the,A1,o
+their,A1,onların
+them,A1,onları
+then,A1,o zaman
+there,A1,orada
+these,A1,bunlar
+they,A1,onlar
+thick,A1,kalın
+thin,A1,ince
+thing,A1,şey
+think,A1,düşünmek
+third,A1,üçüncü
+thirteen,A1,on üç
+thirty,A1,otuz
+this,A1,bu
+those,A1,şunlar
+thought,A1,düşünce
+thousand,A1,bin
+three,A1,üç
+through,A1,içinden
+throw,A1,atmak
+ticket,A1,bilet
+tiger,A1,kaplan
+time,A1,zaman
+tired,A1,yorgun
+to,A1,-e
+today,A1,bugün
+together,A1,birlikte
+toilet,A1,tuvalet
+tomato,A1,domates
+tomorrow,A1,yarın
+tongue,A1,dil
+tonight,A1,bu gece
+too,A1,de / çok
+tool,A1,alet
+tooth,A1,diş
+top,A1,zirve
+total,A1,toplam
+touch,A1,dokunmak
+town,A1,kasaba
+toy,A1,oyuncak
+train,A1,tren
+travel,A1,seyahat
+tree,A1,ağaç
+trip,A1,gezi
+trouble,A1,sorun
+trousers,A1,pantolon
+TRUE,A1,doğru
+try,A1,denemek
+Tuesday,A1,Salı
+turn,A1,dönmek
+tv,A1,televizyon
+twelve,A1,on iki
+twenty,A1,yirmi
+twice,A1,iki kez
+two,A1,iki
+umbrella,A1,şemsiye
+uncle,A1,amca
+under,A1,altında
+understand,A1,anlamak
+unit,A1,birim
+until,A1,-e kadar
+up,A1,yukarı
+us,A1,bize
+use,A1,kullanmak
+usual,A1,normal
+vacation,A1,tatil
+vegetable,A1,sebze
+very,A1,çok
+video,A1,video
+village,A1,köy
+visit,A1,ziyaret
+voice,A1,ses
+wait,A1,beklemek
+wake,A1,uyanmak
+walk,A1,yürümek
+wall,A1,duvar
+want,A1,istemek
+warm,A1,ılık
+wash,A1,yıkamak
+watch,A1,izlemek
+water,A1,su
+way,A1,yol
+we,A1,biz
+wear,A1,giymek
+weather,A1,hava
+week,A1,hafta
+weekend,A1,hafta sonu
+welcome,A1,hoş geldiniz
+well,A1,iyi
+west,A1,batı
+what,A1,ne
+wheel,A1,tekerlek
+when,A1,ne zaman
+where,A1,nerede
+which,A1,hangi
+white,A1,beyaz
+who,A1,kim
+why,A1,neden
+wide,A1,geniş
+wife,A1,eş
+wild,A1,vahşi
+will,A1,-ecek
+win,A1,kazanmak
+wind,A1,rüzgar
+window,A1,pencere
+winter,A1,kış
+wire,A1,tel
+wish,A1,dilemek
+with,A1,ile
+woman,A1,kadın
+wonder,A1,merak etmek
+wood,A1,ahşap
+word,A1,kelime
+work,A1,çalışmak
+worker,A1,işçi
+world,A1,dünya
+worry,A1,endişelenmek
+write,A1,yazmak
+writer,A1,yazar
+wrong,A1,yanlış
+year,A1,yıl
+yellow,A1,sarı
+yes,A1,evet
+yesterday,A1,dün
+yet,A1,henüz
+you,A1,sen
+young,A1,genç
+your,A1,senin
+zero,A1,sıfır
+zoo,A1,hayvanat bahçesi`
+    };
 
     const fileConfigs = [
         { prefix: 'a', start: 101, end: 150, label: 'A1' },
@@ -138,7 +946,7 @@
     let state = { source: 'site', task: 'kelimeler' };
     let globalTableData = [];
     let fileCountToProcess = 1;
-    let currentSortOrder = 'asc'; // 'asc' (A-Z) veya 'desc' (Z-A)
+    let currentSortOrder = 'asc';
 
     function setSource(s, btn) {
         state.source = s;
@@ -204,17 +1012,20 @@
         try {
             let combinedCsvText = "";
             for (let fPath of checkedCsvs) {
+                let loaded = false;
                 try {
                     let response = await fetch(fPath);
                     if (response.ok) {
                         let text = await response.text();
                         if (text && text.includes(",")) {
                             combinedCsvText += text + "\n";
-                            continue;
+                            loaded = true;
                         }
                     }
                 } catch(e) {}
-                if (embeddedCsvData[fPath]) {
+                
+                // Eğer sunucudan fetch edilemezse gömülü yedek veriyi kullan
+                if (!loaded && embeddedCsvData[fPath]) {
                     combinedCsvText += embeddedCsvData[fPath] + "\n";
                 }
             }
@@ -288,7 +1099,7 @@
 
                 if (state.task === 'hikaye') {
                     if (data.story_en && typeof data.story_en === 'string') {
-                        let cleanStory = data.story_en.replace(/[.,\/\/$%\^&\*;:{}=\-_`~()?"']/g, "").toLowerCase();
+                        let cleanStory = data.story_en.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").toLowerCase();
                         let wordsArr = cleanStory.split(/\s+/);
                         
                         wordsArr.forEach(w => {
