@@ -76,11 +76,17 @@
     
     <div style="margin-top: 15px;">
         <label><strong>CSV Sözlük Referansı (İstediğiniz kadar seçin):</strong></label>
-        <div style="margin-bottom: 5px; font-size: 12px; color: #64748b;">Tek bir dosya seçebileceğiniz gibi, dilediğiniz kombinasyonu (Örn: A1 ve A2) ya da "Hepsini Seç" diyerek tümünü işaretleyebilirsiniz.</div>
+        <div style="margin-bottom: 5px; font-size: 12px; color: #64748b;">Tek bir dosya seçebileceğiniz gibi, dilediğiniz kombinasyonu seçebilirsiniz.</div>
         
-        <div style="margin-bottom: 8px;">
-            <button type="button" onclick="toggleAllCsv(true)" style="padding: 4px 10px; font-size: 12px; background: #e2e8f0;">Hepsini Seç</button>
-            <button type="button" onclick="toggleAllCsv(false)" style="padding: 4px 10px; font-size: 12px; background: #e2e8f0;">Seçimleri Kaldır</button>
+        <!-- Hepsini Seç, Seçimleri Kaldır ve Yanında Telefondan CSV Seçme Alanı -->
+        <div style="margin-bottom: 8px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <button type="button" onclick="toggleAllCsv(true)" style="padding: 6px 12px; font-size: 12px; background: #e2e8f0;">Hepsini Seç</button>
+            <button type="button" onclick="toggleAllCsv(false)" style="padding: 6px 12px; font-size: 12px; background: #e2e8f0;">Seçimleri Kaldır</button>
+            
+            <label style="display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: normal; background: #f1f5f9; padding: 4px 8px; border-radius: 4px; border: 1px solid #cbd5e1; cursor: pointer;">
+                <span>📁 Telefondan CSV Seç:</span>
+                <input type="file" id="customCsvFile" accept=".csv" style="font-size: 11px;" onchange="handleCustomCsvUpload(this)">
+            </label>
         </div>
 
         <div class="csv-checkbox-group">
@@ -115,6 +121,8 @@
 </div>
 
 <script>
+    let customCsvContent = "";
+
     window.addEventListener('DOMContentLoaded', () => {
         const select = document.getElementById('jsonSelect');
         const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
@@ -168,13 +176,37 @@
         updateCsvSelectionInfo();
     }
 
+    async function handleCustomCsvUpload(input) {
+        if (input.files && input.files[0]) {
+            let file = input.files[0];
+            try {
+                customCsvContent = await file.text();
+                updateCsvSelectionInfo();
+            } catch (err) {
+                alert("Özel CSV dosyası okunamadı: " + err.message);
+            }
+        }
+    }
+
     function updateCsvSelectionInfo() {
         const checkedBoxes = document.querySelectorAll('input[name="csvFile"]:checked');
-        if (checkedBoxes.length === 0) {
+        let selectedFiles = Array.from(checkedBoxes).map(cb => cb.parentNode.textContent.trim());
+        
+        const customFileInput = document.getElementById('customCsvFile');
+        let customFileName = (customFileInput.files && customFileInput.files[0]) ? customFileInput.files[0].name : null;
+
+        let infoText = "";
+        if (selectedFiles.length > 0) {
+            infoText += "Seçilen CSV'ler: " + selectedFiles.join(', ');
+        }
+        if (customFileName) {
+            infoText += (infoText ? " | " : "") + "📁 Özel Yüklenen Dosya: " + customFileName;
+        }
+
+        if (!infoText) {
             document.getElementById('csvSourceDetails').innerText = "Seçilen CSV: Belirtilmedi";
         } else {
-            const selectedFiles = Array.from(checkedBoxes).map(cb => cb.parentNode.textContent.trim());
-            document.getElementById('csvSourceDetails').innerText = "Seçilen CSV'ler: " + selectedFiles.join(', ');
+            document.getElementById('csvSourceDetails').innerText = infoText;
         }
     }
 
@@ -196,15 +228,16 @@
 
     async function runAnalysis() {
         const checkedCsvs = Array.from(document.querySelectorAll('input[name="csvFile"]:checked')).map(cb => cb.value);
+        const hasCustomCsv = customCsvContent.trim().length > 0;
 
-        if (!state.source || !state.task || checkedCsvs.length === 0) {
-            alert("Lütfen kaynak, işlem türü ve en az bir CSV sözlük referansı seçin.");
+        if (!state.source || !state.task || (checkedCsvs.length === 0 && !hasCustomCsv)) {
+            alert("Lütfen kaynak, işlem türü ve en az bir CSV sözlük referansı (veya telefondan özel CSV dosyası) seçin.");
             return;
         }
         
         const statusDiv = document.getElementById('status');
         const resultArea = document.getElementById('resultArea');
-        statusDiv.innerText = "Analiz gerçekleştiriliyor, seçilen sözlük dosyaları birleştiriliyor...";
+        statusDiv.innerText = "Analiz gerçekleştiriliyor, sözlük verileri birleştiriliyor...";
         resultArea.innerHTML = "";
         
         try {
@@ -220,6 +253,10 @@
                 } catch (e) {
                     console.warn(`${fPath} yüklenemedi, atlanıyor.`);
                 }
+            }
+
+            if (hasCustomCsv) {
+                combinedCsvText += customCsvContent + "\n";
             }
 
             if (!combinedCsvText.trim()) throw new Error("Seçilen CSV dosyalarından veri okunamadı.");
@@ -317,7 +354,7 @@
 
                 if (state.task === 'hikaye') {
                     if (data.story_en && typeof data.story_en === 'string') {
-                        let cleanStory = data.story_en.replace(/[.,\/\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").toLowerCase();
+                        let cleanStory = data.story_en.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").toLowerCase();
                         let wordsArr = cleanStory.split(/\s+/);
                         
                         wordsArr.forEach(w => {
@@ -373,17 +410,13 @@
                 if (levelCounts[level] !== undefined) levelCounts[level]++;
                 else levelCounts['Bilinmiyor']++;
 
-                // Dosyaları alfanümerik olarak sıralıyoruz (a101, a102... gibi)
                 let sortedFiles = info.files.sort();
                 let fileListHtml = sortedFiles.map(f => `<div style="font-size: 11px; padding: 2px 4px; border-bottom: 1px solid #f1f5f9; font-family: monospace;">${f}</div>`).join('');
                 
                 let isDuplicate = info.files.length > 1;
-                let fileBadge = isDuplicate 
-                    ? `<span class="badge-duplicate">⚠️ ${info.files.length} Kaynakta</span>`
-                    : `<span class="badge-unique">✔ ${info.files.length} Dosyada</span>`;
 
                 if (state.task === 'hikaye') {
-                    tableRows += `<tr data-files="${info.files.join(', ')}">
+                    tableRows += `<tr>
                         <td>${index++}</td>
                         <td><strong>${info.original}</strong></td>
                         <td>${level}</td>
@@ -396,7 +429,7 @@
                         </td>
                     </tr>`;
                 } else if (state.task === 'kelimeler') {
-                    tableRows += `<tr data-files="${info.files.join(', ')}">
+                    tableRows += `<tr>
                         <td>${index++}</td>
                         <td><strong>${info.original}</strong></td>
                         <td>${level}</td>
@@ -411,7 +444,7 @@
                         </td>
                     </tr>`;
                 } else {
-                    tableRows += `<tr data-files="${info.files.join(', ')}">
+                    tableRows += `<tr>
                         <td>${index++}</td>
                         <td><strong>${info.original}</strong></td>
                         <td>${level}</td>
