@@ -26,6 +26,10 @@
         .badge-unique { background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; display: none; }
         .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; }
+        
+        /* Çoklu seçim kutuları için şık stil */
+        .csv-checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 5px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
+        .csv-checkbox-group label { display: flex; align-items: center; gap: 6px; font-weight: 500; cursor: pointer; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -73,11 +77,25 @@
         <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Metin içeren bir fotoğraf yükleyin.</div>
     </div>
     
-    <div class="input-box" style="margin-top: 15px;">
-        <label><strong>CSV Sözlük Referansı:</strong></label>
-        <div class="btn-group" id="csvSourceGroup" style="margin-bottom:0;">
-            <button onclick="setCsvSource('analiz/cefr.csv', this)">cefr.csv</button>
-            <button onclick="setCsvSource('analiz/cefr_pre.csv', this)">cefr_pre.csv</button>
+    <!-- CSV SÖZLÜK REFERANSI (Çoklu Seçim Kutuları) -->
+    <div style="margin-top: 15px;">
+        <label><strong>CSV Sözlük Referansı (İstediğiniz kadar seçin):</strong></label>
+        <div style="margin-bottom: 5px; font-size: 12px; color: #64748b;">Tek bir dosya seçebileceğiniz gibi, dilediğiniz kombinasyonu (Örn: A1 ve A2) ya da "Hepsini Seç" diyerek tümünü işaretleyebilirsiniz.</div>
+        
+        <div style="margin-bottom: 8px;">
+            <button type="button" onclick="toggleAllCsv(true)" style="padding: 4px 10px; font-size: 12px; background: #e2e8f0;">Hepsini Seç</button>
+            <button type="button" onclick="toggleAllCsv(false)" style="padding: 4px 10px; font-size: 12px; background: #e2e8f0;">Seçimleri Kaldır</button>
+        </div>
+
+        <div class="csv-checkbox-group">
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr.csv"> cefr.csv (Tümü)</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_pre.csv"> cefr_pre.csv</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_a1.csv"> CEFR A1</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_a2.csv"> CEFR A2</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_b1.csv"> CEFR B1</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_b2.csv"> CEFR B2</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_c1.csv"> CEFR C1</label>
+            <label><input type="checkbox" name="csvFile" value="analiz/cefr_c2.csv"> CEFR C2</label>
         </div>
     </div>
     <div id="csvSourceDetails" style="font-size: 13px; color: #666; margin-top: 5px;">Seçilen CSV: Belirtilmedi</div>
@@ -122,9 +140,14 @@
                 select.appendChild(option);
             }
         });
+
+        // Checkbox değişimlerini dinle ve bilgi metnini güncelle
+        document.querySelectorAll('input[name="csvFile"]').forEach(cb => {
+            cb.addEventListener('change', updateCsvSelectionInfo);
+        });
     });
 
-    let state = { source: '', task: '', csvPath: '' };
+    let state = { source: '', task: '' };
     let sortDirections = {};
 
     function setSource(s, btn) {
@@ -145,10 +168,21 @@
         btn.classList.add('active-btn');
     }
 
-    function setCsvSource(path, btn) {
-        state.csvPath = path;
-        document.getElementById('csvSourceDetails').innerText = "Seçilen CSV: " + path;
-        highlightBtn(btn);
+    function toggleAllCsv(select) {
+        document.querySelectorAll('input[name="csvFile"]').forEach(cb => {
+            cb.checked = select;
+        });
+        updateCsvSelectionInfo();
+    }
+
+    function updateCsvSelectionInfo() {
+        const checkedBoxes = document.querySelectorAll('input[name="csvFile"]:checked');
+        if (checkedBoxes.length === 0) {
+            document.getElementById('csvSourceDetails').innerText = "Seçilen CSV: Belirtilmedi";
+        } else {
+            const selectedFiles = Array.from(checkedBoxes).map(cb => cb.parentNode.textContent.trim());
+            document.getElementById('csvSourceDetails').innerText = "Seçilen CSV'ler: " + selectedFiles.join(', ');
+        }
     }
 
     function setTask(t, btn) {
@@ -168,23 +202,38 @@
     }
 
     async function runAnalysis() {
-        if (!state.source || !state.task || !state.csvPath) {
-            alert("Lütfen kaynak, işlem türü ve CSV sözlük kaynağını eksiksiz seçin.");
+        const checkedCsvs = Array.from(document.querySelectorAll('input[name="csvFile"]:checked')).map(cb => cb.value);
+
+        if (!state.source || !state.task || checkedCsvs.length === 0) {
+            alert("Lütfen kaynak, işlem türü ve en az bir CSV sözlük referansı seçin.");
             return;
         }
         
         const statusDiv = document.getElementById('status');
         const resultArea = document.getElementById('resultArea');
-        statusDiv.innerText = "Analiz gerçekleştiriliyor, veriler işleniyor...";
+        statusDiv.innerText = "Analiz gerçekleştiriliyor, seçilen sözlük dosyaları birleştiriliyor...";
         resultArea.innerHTML = "";
         
         try {
-            const csvRes = await fetch(state.csvPath);
-            if (!csvRes.ok) throw new Error(`${state.csvPath} referans dosyası bulunamadı.`);
-            const csvText = await csvRes.text();
+            let combinedCsvText = "";
+
+            // İşaretlenen tüm CSV dosyalarını sırayla indirip içeriğini birleştiriyoruz
+            for (let fPath of checkedCsvs) {
+                try {
+                    const res = await fetch(fPath);
+                    if (res.ok) {
+                        const text = await res.text();
+                        combinedCsvText += text + "\n";
+                    }
+                } catch (e) {
+                    console.warn(`${fPath} yüklenemedi, atlanıyor.`);
+                }
+            }
+
+            if (!combinedCsvText.trim()) throw new Error("Seçilen CSV dosyalarından veri okunamadı.");
             
             const cefrMap = {};
-            const rows = csvText.split(/\r?\n/);
+            const rows = combinedCsvText.split(/\r?\n/);
             
             for (let row of rows) {
                 if (!row.trim()) continue;
