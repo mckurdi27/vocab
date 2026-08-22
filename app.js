@@ -5,7 +5,12 @@ let allDaysFiles = [];
 // 1. Uygulama Başlangıcı
 async function initApp() {
     try {
-        const response = await fetch('data/days.json');
+        let response = await fetch('data/days.json');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP Hata Kodu: ${response.status} (${response.statusText})`);
+        }
+
         const data = await response.json();
         
         // Dosya yollarının başında 'data/' olduğundan emin oluyoruz
@@ -24,10 +29,20 @@ async function initApp() {
             loadDayData(allDaysFiles[0]);
         }
     } catch (error) {
-        console.error("Başlangıç hatası:", error);
+        console.error("Detaylı Başlangıç Hatası:", error);
         const container = document.getElementById('cardsContainer');
         if (container) {
-            container.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">Veriler yüklenemedi. Lütfen data/days.json dosyanızı kontrol edin.</p>`;
+            container.innerHTML = `
+                <div style="color:red; text-align:center; grid-column:1/-1; padding: 20px; background: #fee2e2; border-radius: 8px; border: 1px solid #fecaca;">
+                    <strong>Veriler yüklenemedi!</strong><br>
+                    <small>Hata Detayı: ${error.message}</small><br><br>
+                    <span style="font-size: 0.85rem; color: #374151;">
+                        Kontrol Etmeni Önerdiklerimiz:<br>
+                        1. GitHub deposunda <b>data</b> klasörünün ve içinde <b>days.json</b> dosyasının olduğundan emin ol.<br>
+                        2. Dosya adlarında büyük/küçük harf duyarlılığına dikkat et (örn. Days.json olmasın).<br>
+                        3. GitHub Pages'in son yaptığın değişiklikleri canlıya yansıtması 1-2 dakika sürebilir.
+                    </span>
+                </div>`;
         }
     }
 }
@@ -39,6 +54,8 @@ async function buildGlobalWordMap(files) {
     for (const file of files) {
         try {
             const res = await fetch(file);
+            if (!res.ok) throw new Error(`${file} yüklenemedi`);
+            
             const dayData = await res.json();
             const wordsList = dayData.words || dayData;
 
@@ -54,7 +71,7 @@ async function buildGlobalWordMap(files) {
                 }
             });
         } catch (err) {
-            console.error(`${file} taranamadı:`, err);
+            console.error(err);
         }
     }
 }
@@ -87,6 +104,8 @@ async function loadDayData(file) {
 
     try {
         const res = await fetch(file);
+        if (!res.ok) throw new Error(`${file} yüklenemedi`);
+
         const dayData = await res.json();
         const wordsList = dayData.words || dayData;
 
