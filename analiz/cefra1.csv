@@ -1,1200 +1,1165 @@
-a	determiner	A1
-a.m.	adverb	A1
-A.M.	adverb	A1
-about	adverb	A1
-about	preposition	A1
-above	adverb	A1
-above	preposition	A1
-action	noun	A1
-activity	noun	A1
-actor	noun	A1
-add	verb	A1
-address	noun	A1
-aeroplane	noun	A1
-afraid	adjective	A1
-after	preposition	A1
-afternoon	noun	A1
-again	adverb	A1
-age	noun	A1
-ago	adverb	A1
-agree	verb	A1
-airplane	noun	A1
-airport	noun	A1
-album	noun	A1
-all	determiner	A1
-all	pronoun	A1
-all right	adjective	A1
-all right	adverb	A1
-almost	adverb	A1
-alone	adverb	A1
-along	adverb	A1
-already	adverb	A1
-also	adverb	A1
-always	adverb	A1
-am	adverb	A1
-AM	adverb	A1
-am	be-verb	A1
-an	determiner	A1
-and	conjunction	A1
-angry	adjective	A1
-animal	noun	A1
-another	determiner	A1
-answer	noun	A1
-answer	verb	A1
-any	determiner	A1
-any	pronoun	A1
-anybody	pronoun	A1
-anyone	pronoun	A1
-anything	pronoun	A1
-apple	noun	A1
-April	noun	A1
-apron	noun	A1
-are	be-verb	A1
-arm	noun	A1
-around	preposition	A1
-arrive	verb	A1
-art	noun	A1
-article	noun	A1
-as	preposition	A1
-ask	verb	A1
-at	preposition	A1
-August	noun	A1
-aunt	noun	A1
-autumn	noun	A1
-awake	adjective	A1
-away	adverb	A1
-baby	noun	A1
-back	adverb	A1
-back	noun	A1
-bad	adjective	A1
-bag	noun	A1
-ball	noun	A1
-banana	noun	A1
-band	noun	A1
-bank	noun	A1
-bar	noun	A1
-baseball	noun	A1
-basketball	noun	A1
-bat	noun	A1
-bath	noun	A1
-bathroom	noun	A1
-be	be-verb	A1
-beach	noun	A1
-bean	noun	A1
-bear	noun	A1
-beautiful	adjective	A1
-because	conjunction	A1
-become	verb	A1
-bed	noun	A1
-bedroom	noun	A1
-bee	noun	A1
-beef	noun	A1
-before	adverb	A1
-before	preposition	A1
-begin	verb	A1
-behind	adverb	A1
-behind	preposition	A1
-being	be-verb	A1
-believe	verb	A1
-bell	noun	A1
-below	adverb	A1
-below	preposition	A1
-beside	preposition	A1
-best	adjective	A1
-best	adverb	A1
-better	adjective	A1
-between	preposition	A1
-bicycle	noun	A1
-big	adjective	A1
-bike	noun	A1
-bird	noun	A1
-birth	noun	A1
-birthday	noun	A1
-biscuit	noun	A1
-black	adjective	A1
-black	noun	A1
-blank	adjective	A1
-block	noun	A1
-blow	verb	A1
-blue	adjective	A1
-blue	noun	A1
-board	noun	A1
-boat	noun	A1
-body	noun	A1
-bone	noun	A1
-book	noun	A1
-bookstore	noun	A1
-boring	adjective	A1
-borrow	verb	A1
-both	adverb	A1
-both	determiner	A1
-both	pronoun	A1
-bottle	noun	A1
-bottom	noun	A1
-bowl	noun	A1
-box	noun	A1
-boy	noun	A1
-boyfriend	noun	A1
-brain	noun	A1
-bread	noun	A1
-break	verb	A1
-breakfast	noun	A1
-breathe	verb	A1
-bridge	noun	A1
-bright	adjective	A1
-bring	verb	A1
-broken	adjective	A1
-brother	noun	A1
-brown	adjective	A1
-brush	noun	A1
-brush	verb	A1
-bucket	noun	A1
-build	verb	A1
-building	noun	A1
-burger	noun	A1
-bus	noun	A1
-business	noun	A1
-busy	adjective	A1
-but	conjunction	A1
-butter	noun	A1
-butterfly	noun	A1
-button	noun	A1
-buy	verb	A1
-by	preposition	A1
-bye	noun	A1
-cafe	noun	A1
-caf?	noun	A1
-cake	noun	A1
-call	noun	A1
-camera	noun	A1
-camp	noun	A1
-can	modal auxiliary	A1
-candy	noun	A1
-cap	noun	A1
-car	noun	A1
-card	noun	A1
-care	noun	A1
-careful	adjective	A1
-carefully	adverb	A1
-carry	verb	A1
-cartoon	noun	A1
-case	noun	A1
-cat	noun	A1
-catch	noun	A1
-catch	verb	A1
-CD	noun	A1
-CD player	noun	A1
-celebrate	verb	A1
-celebration	noun	A1
-chair	noun	A1
-change	noun	A1
-change	verb	A1
-character	noun	A1
-check	noun	A1
-cheese	noun	A1
-chicken	noun	A1
-child	noun	A1
-chocolate	noun	A1
-choose	verb	A1
-church	noun	A1
-cinema	noun	A1
-circle	noun	A1
-city	noun	A1
-class	noun	A1
-classmate	noun	A1
-classroom	noun	A1
-clean	adjective	A1
-clean	verb	A1
-clever	adjective	A1
-climb	noun	A1
-clock	noun	A1
-close	adjective	A1
-close	verb	A1
-closed	adjective	A1
-cloth	noun	A1
-clothes	noun	A1
-cloud	noun	A1
-cloudy	adjective	A1
-club	noun	A1
-coach	noun	A1
-coat	noun	A1
-code	noun	A1
-coffee	noun	A1
-coke	noun	A1
-cold	adjective	A1
-cold	noun	A1
-collect	verb	A1
-collection	noun	A1
-college	noun	A1
-color	noun	A1
-color	verb	A1
-colour	noun	A1
-colour	verb	A1
-come	verb	A1
-computer	noun	A1
-concert	noun	A1
-contest	noun	A1
-conversation	noun	A1
-cook	noun	A1
-cook	verb	A1
-cookie	noun	A1
-cool	adjective	A1
-cop	noun	A1
-copy	noun	A1
-corn	noun	A1
-corner	noun	A1
-correct	adjective	A1
-couch	noun	A1
-could	modal auxiliary	A1
-course	noun	A1
-cousin	noun	A1
-cover	noun	A1
-cow	noun	A1
-cream	noun	A1
-credit card	noun	A1
-cry	noun	A1
-culture	noun	A1
-cup	noun	A1
-cut	verb	A1
-cute	adjective	A1
-dad	noun	A1
-daddy	noun	A1
-dance	noun	A1
-dance	verb	A1
-dancing	noun	A1
-dark	adjective	A1
-date	noun	A1
-daughter	noun	A1
-day	noun	A1
-dear	adjective	A1
-December	noun	A1
-delicious	adjective	A1
-describe	verb	A1
-design	noun	A1
-desk	noun	A1
-dictionary	noun	A1
-did	do-verb	A1
-difference	noun	A1
-different	adjective	A1
-difficult	adjective	A1
-dig	noun	A1
-dining room	noun	A1
-dinner	noun	A1
-dirty	adjective	A1
-discuss	verb	A1
-dish	noun	A1
-do	do-verb	A1
-doctor	noun	A1
-does	do-verb	A1
-dog	noun	A1
-doing	do-verb	A1
-doll	noun	A1
-dollar	noun	A1
-door	noun	A1
-down	adverb	A1
-Dr	noun	A1
-Dr.	noun	A1
-drama	noun	A1
-draw	verb	A1
-dream	noun	A1
-dress	noun	A1
-drink	noun	A1
-drink	verb	A1
-drive	noun	A1
-driver	noun	A1
-drop	verb	A1
-drum	noun	A1
-dry	adjective	A1
-due	adjective	A1
-DVD	noun	A1
-each	determiner	A1
-each	pronoun	A1
-each other	pronoun	A1
-ear	noun	A1
-early	adverb	A1
-easy	adjective	A1
-eat	verb	A1
-egg	noun	A1
-eight	number	A1
-eighteen	number	A1
-eighty	number	A1
-either	adverb	A1
-elementary	adjective	A1
-eleven	number	A1
-else	adverb	A1
-email	noun	A1
-e-mail	noun	A1
-E-mail	noun	A1
-end	noun	A1
-engineer	noun	A1
-enjoy	verb	A1
-evening	noun	A1
-event	noun	A1
-every	determiner	A1
-everybody	pronoun	A1
-everyday	adjective	A1
-everyone	pronoun	A1
-everything	pronoun	A1
-everywhere	adverb	A1
-example	noun	A1
-excellent	adjective	A1
-excited	adjective	A1
-exciting	adjective	A1
-excuse	noun	A1
-exercise	verb	A1
-expensive	adjective	A1
-eye	noun	A1
-face	noun	A1
-factory	noun	A1
-fair	adjective	A1
-fairy	noun	A1
-FALSE	adjective	A1
-family	noun	A1
-famous	adjective	A1
-fan	noun	A1
-farm	noun	A1
-farmer	noun	A1
-fast	adjective	A1
-fast	adverb	A1
-fat	adjective	A1
-father	noun	A1
-favorite	adjective	A1
-favorite	noun	A1
-favourite	adjective	A1
-favourite	noun	A1
-February	noun	A1
-feed	noun	A1
-feel	verb	A1
-feeling	noun	A1
-festival	noun	A1
-fever	noun	A1
-field	noun	A1
-fifteen	number	A1
-fifty	number	A1
-fight	noun	A1
-file	noun	A1
-fill	verb	A1
-find	verb	A1
-fine	adjective	A1
-finish	noun	A1
-finish	verb	A1
-fire	noun	A1
-first	adjective	A1
-first	adverb	A1
-fish	noun	A1
-fishing	noun	A1
-five	number	A1
-flag	noun	A1
-flat	noun	A1
-floor	noun	A1
-flower	noun	A1
-fly	noun	A1
-fly	verb	A1
-focus	verb	A1
-foggy	adjective	A1
-following	adjective	A1
-food	noun	A1
-football	noun	A1
-for	preposition	A1
-foreign	adjective	A1
-foreigner	noun	A1
-forget	verb	A1
-form	noun	A1
-forty	number	A1
-four	number	A1
-fourteen	number	A1
-free	adjective	A1
-Friday	noun	A1
-friend	noun	A1
-frog	noun	A1
-from	preposition	A1
-front	adjective	A1
-fruit	noun	A1
-full	adjective	A1
-fun	adjective	A1
-fun	noun	A1
-funny	adjective	A1
-future	noun	A1
-game	noun	A1
-garbage	noun	A1
-garden	noun	A1
-get	verb	A1
-ghost	noun	A1
-gift	noun	A1
-girl	noun	A1
-girlfriend	noun	A1
-give	verb	A1
-glad	adjective	A1
-glass	noun	A1
-glasses	noun	A1
-go	verb	A1
-goal	noun	A1
-gold	adjective	A1
-good	adjective	A1
-good afternoon	interjection	A1
-good morning	interjection	A1
-good night	interjection	A1
-grade	noun	A1
-grammar	noun	A1
-grandfather	noun	A1
-grandma	noun	A1
-grandmother	noun	A1
-grandpa	noun	A1
-grandparent	noun	A1
-grape	noun	A1
-grass	noun	A1
-gray	adjective	A1
-gray	noun	A1
-great	adjective	A1
-green	adjective	A1
-greet	verb	A1
-grey	adjective	A1
-grey	noun	A1
-ground	noun	A1
-group	noun	A1
-grow	verb	A1
-guess	verb	A1
-guest	noun	A1
-guitar	noun	A1
-guy	noun	A1
-habit	noun	A1
-had	have-verb	A1
-hair	noun	A1
-haircut	noun	A1
-half	noun	A1
-hall	noun	A1
-hamburger	noun	A1
-hand	noun	A1
-handsome	adjective	A1
-happen	verb	A1
-happy	adjective	A1
-hard	adjective	A1
-hard	adverb	A1
-has	have-verb	A1
-hat	noun	A1
-have	have-verb	A1
-have to	modal auxiliary	A1
-having	have-verb	A1
-he	pronoun	A1
-head	noun	A1
-headache	noun	A1
-health	noun	A1
-healthy	adjective	A1
-hear	verb	A1
-heart	noun	A1
-heavy	adjective	A1
-hello	noun	A1
-help	verb	A1
-her	determiner	A1
-her	pronoun	A1
-here	adverb	A1
-hers	pronoun	A1
-hi	interjection	A1
-hide	verb	A1
-high	adjective	A1
-hill	noun	A1
-him	pronoun	A1
-his	determiner	A1
-his	pronoun	A1
-history	noun	A1
-hobby	noun	A1
-hold	noun	A1
-hole	noun	A1
-holiday	noun	A1
-home	noun	A1
-hometown	noun	A1
-homework	noun	A1
-hope	noun	A1
-horse	noun	A1
-hospital	noun	A1
-hot	adjective	A1
-hotel	noun	A1
-hour	noun	A1
-house	noun	A1
-how	adverb	A1
-hungry	adjective	A1
-hurry	noun	A1
-hurt	verb	A1
-husband	noun	A1
-I	pronoun	A1
-ice	noun	A1
-ice cream	noun	A1
-idea	noun	A1
-ideal	adjective	A1
-if	conjunction	A1
-imagine	verb	A1
-important	adjective	A1
-in	preposition	A1
-information	noun	A1
-inside	preposition	A1
-interested	adjective	A1
-interesting	adjective	A1
-Internet	noun	A1
-internet	noun	A1
-interview	noun	A1
-interviewer	noun	A1
-into	preposition	A1
-introduce	verb	A1
-is	be-verb	A1
-island	noun	A1
-it	pronoun	A1
-item	noun	A1
-its	determiner	A1
-its	pronoun	A1
-jacket	noun	A1
-January	noun	A1
-jeans	noun	A1
-jet	noun	A1
-jewellery	noun	A1
-jewelry	noun	A1
-job	noun	A1
-join	verb	A1
-judge	verb	A1
-juice	noun	A1
-July	noun	A1
-jump	verb	A1
-June	noun	A1
-just	adverb	A1
-keep	verb	A1
-key	adjective	A1
-key	noun	A1
-kick	noun	A1
-kick	verb	A1
-kid	noun	A1
-kill	verb	A1
-kind	noun	A1
-king	noun	A1
-kiss	noun	A1
-kitchen	noun	A1
-kite	noun	A1
-knee	noun	A1
-knife	noun	A1
-know	verb	A1
-lady	noun	A1
-language	noun	A1
-large	adjective	A1
-last name	noun	A1
-late	adjective	A1
-late	adverb	A1
-later	adverb	A1
-laugh	verb	A1
-lazy	adjective	A1
-leader	noun	A1
-leaf	noun	A1
-learn	verb	A1
-leave	verb	A1
-left	adjective	A1
-leg	noun	A1
-lesson	noun	A1
-let	verb	A1
-letter	noun	A1
-library	noun	A1
-life	noun	A1
-light	adjective	A1
-light	noun	A1
-like	preposition	A1
-like	verb	A1
-lily	noun	A1
-line	noun	A1
-lion	noun	A1
-list	noun	A1
-listen	verb	A1
-little	adjective	A1
-little	adverb	A1
-live	verb	A1
-living	adjective	A1
-living room	noun	A1
-lonely	adjective	A1
-long	adjective	A1
-look	noun	A1
-look	verb	A1
-lot	adverb	A1
-lot	pronoun	A1
-love	noun	A1
-love	verb	A1
-lovely	adjective	A1
-luck	noun	A1
-lucky	adjective	A1
-lunch	noun	A1
-m	be-verb	A1
-machine	noun	A1
-magazine	noun	A1
-mail	noun	A1
-make	verb	A1
-man	noun	A1
-many	determiner	A1
-many	pronoun	A1
-map	noun	A1
-March	noun	A1
-match	noun	A1
-math	noun	A1
-maths	noun	A1
-matter	noun	A1
-may	modal auxiliary	A1
-May	noun	A1
-maybe	adverb	A1
-me	pronoun	A1
-meal	noun	A1
-mean	verb	A1
-meat	noun	A1
-medicine	noun	A1
-meet	verb	A1
-meeting	noun	A1
-memory	noun	A1
-merry	adjective	A1
-message	noun	A1
-middle	adjective	A1
-milk	noun	A1
-mind	noun	A1
-mine	pronoun	A1
-minute	noun	A1
-Miss	noun	A1
-miss	verb	A1
-mobile	noun	A1
-mobile phone	noun	A1
-mom	noun	A1
-moment	noun	A1
-mommie	noun	A1
-mommy	noun	A1
-Monday	noun	A1
-money	noun	A1
-monkey	noun	A1
-month	noun	A1
-moon	noun	A1
-more	determiner	A1
-more	pronoun	A1
-morning	noun	A1
-most	determiner	A1
-mother	noun	A1
-mountain	noun	A1
-mouse	noun	A1
-mouth	noun	A1
-move	noun	A1
-movie	noun	A1
-Mr	noun	A1
-Mr.	noun	A1
-Mrs	noun	A1
-Mrs.	noun	A1
-much	adverb	A1
-much	determiner	A1
-much	pronoun	A1
-mum	noun	A1
-music	noun	A1
-musician	noun	A1
-must	modal auxiliary	A1
-my	determiner	A1
-name	noun	A1
-nationality	noun	A1
-near	preposition	A1
-neck	noun	A1
-need	modal auxiliary	A1
-neighbor	noun	A1
-neighbour	noun	A1
-never	adverb	A1
-new	adjective	A1
-news	noun	A1
-newspaper	noun	A1
-nice	adjective	A1
-night	noun	A1
-nine	number	A1
-nineteen	number	A1
-ninety	number	A1
-no	adverb	A1
-no	determiner	A1
-noise	noun	A1
-nose	noun	A1
-not	adverb	A1
-note	noun	A1
-note	verb	A1
-notebook	noun	A1
-nothing	pronoun	A1
-November	noun	A1
-now	adverb	A1
-number	noun	A1
-nurse	noun	A1
-o'clock	adverb	A1
-October	noun	A1
-of	preposition	A1
-off	adjective	A1
-office	noun	A1
-officer	noun	A1
-often	adverb	A1
-OK	adjective	A1
-OK	adverb	A1
-okay	adjective	A1
-okay	adverb	A1
-old	adjective	A1
-Olympics	noun	A1
-on	preposition	A1
-once	adverb	A1
-one	determiner	A1
-one	number	A1
-only	adjective	A1
-only	adverb	A1
-open	adjective	A1
-open	verb	A1
-opera	noun	A1
-or	conjunction	A1
-orange	adjective	A1
-orange	noun	A1
-order	noun	A1
-other	determiner	A1
-our	determiner	A1
-ours	pronoun	A1
-out	adverb	A1
-outside	adverb	A1
-over	preposition	A1
-own	adjective	A1
-owner	noun	A1
-p.m.	adverb	A1
-P.M.	adverb	A1
-page	noun	A1
-paint	noun	A1
-paint	verb	A1
-painting	noun	A1
-pair	noun	A1
-palace	noun	A1
-pants	noun	A1
-paper	noun	A1
-paragraph	noun	A1
-pardon	noun	A1
-parent	noun	A1
-park	noun	A1
-partner	noun	A1
-party	noun	A1
-past	adverb	A1
-past	preposition	A1
-pay	noun	A1
-pay	verb	A1
-peace	noun	A1
-pen	noun	A1
-pencil	noun	A1
-people	noun	A1
-period	noun	A1
-person	noun	A1
-personal	adjective	A1
-pet	noun	A1
-phone	noun	A1
-phone	verb	A1
-photo	noun	A1
-piano	noun	A1
-pick	verb	A1
-picnic	noun	A1
-picture	noun	A1
-piece	noun	A1
-pig	noun	A1
-pink	adjective	A1
-pizza	noun	A1
-place	noun	A1
-plan	noun	A1
-plane	noun	A1
-play	noun	A1
-play	verb	A1
-player	noun	A1
-please	adverb	A1
-pleasure	noun	A1
-pm	adverb	A1
-PM	adverb	A1
-pocket	noun	A1
-poem	noun	A1
-point	noun	A1
-pollution	noun	A1
-pool	noun	A1
-poor	adjective	A1
-pop	noun	A1
-post	noun	A1
-poster	noun	A1
-potato	noun	A1
-practice	noun	A1
-practice	verb	A1
-practise	verb	A1
-pray	verb	A1
-present	noun	A1
-pretty	adjective	A1
-price	noun	A1
-prince	noun	A1
-princess	noun	A1
-problem	noun	A1
-program	noun	A1
-programme	noun	A1
-purple	noun	A1
-push	verb	A1
-put	verb	A1
-quarter	noun	A1
-question	noun	A1
-quickly	adverb	A1
-quiet	adjective	A1
-rabbit	noun	A1
-radio	noun	A1
-rain	noun	A1
-rain	verb	A1
-rainy	adjective	A1
-rat	noun	A1
-re	be-verb	A1
-read	verb	A1
-reader	noun	A1
-reading	noun	A1
-ready	adjective	A1
-real	adjective	A1
-real	adverb	A1
-really	adverb	A1
-reason	noun	A1
-red	adjective	A1
-remember	verb	A1
-repeat	verb	A1
-reporter	noun	A1
-restaurant	noun	A1
-result	noun	A1
-review	noun	A1
-ribbon	noun	A1
-rice	noun	A1
-rich	adjective	A1
-ride	noun	A1
-ride	verb	A1
-right	adjective	A1
-right	adverb	A1
-ring	verb	A1
-river	noun	A1
-role	noun	A1
-room	noun	A1
-rose	noun	A1
-row	noun	A1
-rude	adjective	A1
-rule	noun	A1
-ruler	noun	A1
-run	noun	A1
-run	verb	A1
-s	be-verb	A1
-sad	adjective	A1
-sailor	noun	A1
-salad	noun	A1
-sale	noun	A1
-same	adjective	A1
-same	adverb	A1
-same	pronoun	A1
-sandwich	noun	A1
-Saturday	noun	A1
-save	verb	A1
-saw	noun	A1
-say	verb	A1
-school	noun	A1
-science	noun	A1
-scientist	noun	A1
-sea	noun	A1
-seat	noun	A1
-second	adjective	A1
-section	noun	A1
-see	verb	A1
-self	noun	A1
-sell	verb	A1
-sentence	noun	A1
-September	noun	A1
-set	verb	A1
-seven	number	A1
-seventeen	number	A1
-seventy	number	A1
-shake	noun	A1
-share	verb	A1
-she	pronoun	A1
-sheep	noun	A1
-shelf	noun	A1
-ship	noun	A1
-shirt	noun	A1
-shoe	noun	A1
-shop	noun	A1
-shopping	noun	A1
-short	adjective	A1
-short	adverb	A1
-should	modal auxiliary	A1
-shoulder	noun	A1
-show	verb	A1
-shower	noun	A1
-shy	adjective	A1
-sick	adjective	A1
-side	noun	A1
-sight	noun	A1
-sign	noun	A1
-sing	verb	A1
-singer	noun	A1
-sir	noun	A1
-sister	noun	A1
-sit	verb	A1
-site	noun	A1
-six	number	A1
-sixteen	number	A1
-sixty	number	A1
-size	noun	A1
-skill	noun	A1
-skirt	noun	A1
-sky	noun	A1
-sleep	verb	A1
-slow	adjective	A1
-small	adjective	A1
-smart	adjective	A1
-smell	noun	A1
-smile	noun	A1
-smith	noun	A1
-smoke	noun	A1
-smoking	noun	A1
-snake	noun	A1
-snow	noun	A1
-snowy	adjective	A1
-so	conjunction	A1
-soccer	noun	A1
-social	adjective	A1
-sofa	noun	A1
-solve	verb	A1
-some	determiner	A1
-some	pronoun	A1
-someone	pronoun	A1
-something	pronoun	A1
-son	noun	A1
-song	noun	A1
-soon	adverb	A1
-sorry	adjective	A1
-soup	noun	A1
-speak	verb	A1
-special	adjective	A1
-speech	noun	A1
-spell	noun	A1
-spend	verb	A1
-sport	noun	A1
-spot	noun	A1
-spring	noun	A1
-spy	noun	A1
-stage	noun	A1
-stand	noun	A1
-star	noun	A1
-start	noun	A1
-start	verb	A1
-station	noun	A1
-stay	verb	A1
-step	verb	A1
-still	adjective	A1
-stone	noun	A1
-stop	noun	A1
-stop	verb	A1
-store	noun	A1
-storey	noun	A1
-story	noun	A1
-straight	adverb	A1
-strange	adjective	A1
-street	noun	A1
-strict	adjective	A1
-strong	adjective	A1
-student	noun	A1
-study	verb	A1
-subject	noun	A1
-subway	noun	A1
-successful	adjective	A1
-sugar	noun	A1
-suggestion	noun	A1
-sum	noun	A1
-summer	noun	A1
-sun	noun	A1
-Sunday	noun	A1
-sunny	adjective	A1
-sunshine	noun	A1
-super	adjective	A1
-supermarket	noun	A1
-sure	adjective	A1
-surf	noun	A1
-surprise	noun	A1
-survey	noun	A1
-sweet	adjective	A1
-swim	noun	A1
-swim	verb	A1
-swimming	noun	A1
-swimming pool	noun	A1
-table	noun	A1
-take	verb	A1
-talk	verb	A1
-tall	adjective	A1
-taxi	noun	A1
-tea	noun	A1
-teach	verb	A1
-teacher	noun	A1
-team	noun	A1
-technology	noun	A1
-tee-shirt	noun	A1
-telephone	noun	A1
-television	noun	A1
-tell	verb	A1
-temple	noun	A1
-ten	number	A1
-tennis	noun	A1
-terrible	adjective	A1
-test	noun	A1
-than	conjunction	A1
-than	preposition	A1
-thank	verb	A1
-thanks	noun	A1
-that	conjunction	A1
-that	determiner	A1
-that	pronoun	A1
-the	determiner	A1
-theater	noun	A1
-theatre	noun	A1
-their	determiner	A1
-them	pronoun	A1
-then	adverb	A1
-there	adverb	A1
-these	determiner	A1
-these	pronoun	A1
-they	pronoun	A1
-thick	adjective	A1
-thin	adjective	A1
-thing	noun	A1
-think	verb	A1
-thirteen	number	A1
-thirty	number	A1
-this	determiner	A1
-this	pronoun	A1
-those	determiner	A1
-those	pronoun	A1
-three	number	A1
-through	preposition	A1
-throw	noun	A1
-Thursday	noun	A1
-ticket	noun	A1
-tiger	noun	A1
-tight	adjective	A1
-time	noun	A1
-tired	adjective	A1
-to	infinitive-to	A1
-to	preposition	A1
-today	adverb	A1
-today	noun	A1
-together	adverb	A1
-toilet	noun	A1
-tomato	noun	A1
-tomorrow	adverb	A1
-tomorrow	noun	A1
-tonight	adverb	A1
-too	adverb	A1
-tool	noun	A1
-tooth	noun	A1
-top	noun	A1
-topic	noun	A1
-touch	noun	A1
-towel	noun	A1
-tower	noun	A1
-town	noun	A1
-toy	noun	A1
-train	noun	A1
-travel	verb	A1
-tree	noun	A1
-trip	noun	A1
-trousers	noun	A1
-truck	noun	A1
-TRUE	adjective	A1
-try	noun	A1
-T-shirt	noun	A1
-tube	noun	A1
-Tuesday	noun	A1
-turkey	noun	A1
-turn	noun	A1
-turn	verb	A1
-TV	noun	A1
-twelve	number	A1
-twenty	number	A1
-two	number	A1
-type	noun	A1
-ugly	adjective	A1
-umbrella	noun	A1
-uncle	noun	A1
-under	preposition	A1
-underline	noun	A1
-until	preposition	A1
-up	preposition	A1
-us	pronoun	A1
-use	verb	A1
-usually	adverb	A1
-vacation	noun	A1
-vase	noun	A1
-vegetable	noun	A1
-very	adverb	A1
-video	noun	A1
-visit	noun	A1
-visit	verb	A1
-volleyball	noun	A1
-vote	noun	A1
-wait	verb	A1
-waiter	noun	A1
-waitress	noun	A1
-wake	noun	A1
-walk	noun	A1
-walk	verb	A1
-wall	noun	A1
-want	verb	A1
-war	noun	A1
-warm	adjective	A1
-was	be-verb	A1
-wash	noun	A1
-wash	verb	A1
-watch	noun	A1
-watch	verb	A1
-water	noun	A1
-way	noun	A1
-we	pronoun	A1
-wear	verb	A1
-weather	noun	A1
-Wednesday	noun	A1
-week	noun	A1
-weekend	noun	A1
-welcome	interjection	A1
-welcome	verb	A1
-well	adjective	A1
-well	adverb	A1
-were	be-verb	A1
-what	determiner	A1
-what	pronoun	A1
-wheel	noun	A1
-when	adverb	A1
-when	conjunction	A1
-where	adverb	A1
-where	conjunction	A1
-which	determiner	A1
-which	pronoun	A1
-white	adjective	A1
-white	noun	A1
-who	pronoun	A1
-whose	determiner	A1
-whose	pronoun	A1
-why	adverb	A1
-wife	noun	A1
-will	modal auxiliary	A1
-win	verb	A1
-wind	noun	A1
-window	noun	A1
-winter	noun	A1
-wish	noun	A1
-with	preposition	A1
-woman	noun	A1
-wonderful	adjective	A1
-word	noun	A1
-work	noun	A1
-work	verb	A1
-worker	noun	A1
-world	noun	A1
-worry	noun	A1
-would	modal auxiliary	A1
-write	verb	A1
-writer	noun	A1
-wrong	adjective	A1
-yard	noun	A1
-year	noun	A1
-yellow	adjective	A1
-yellow	noun	A1
-yes	adverb	A1
-yesterday	adverb	A1
-yet	adverb	A1
-yoghourt	noun	A1
-yoghurt	noun	A1
-yogurt	noun	A1
-you	pronoun	A1
-young	adjective	A1
-your	determiner	A1
-yours	pronoun	A1
-yourself	pronoun	A1
-zoo	noun	A1
+headword	CEFR		
+a	A1		
+a.m./A.M./am/AM	A1		
+about	A1		
+about	A1		
+above	A1		
+above	A1		
+action	A1		
+activity	A1		
+actor	A1		
+add	A1		
+address	A1		
+afraid	A1		
+after	A1		
+afternoon	A1		
+again	A1		
+age	A1		
+ago	A1		
+agree	A1		
+airplane/aeroplane	A1		
+airport	A1		
+album	A1		
+all	A1		
+all	A1		
+all right	A1		
+all right	A1		
+almost	A1		
+alone	A1		
+along	A1		
+already	A1		
+also	A1		
+always	A1		
+am	A1		
+an	A1		
+and	A1		
+angry	A1		
+animal	A1		
+another	A1		
+answer	A1		
+answer	A1		
+any	A1		
+any	A1		
+anybody	A1		
+anyone	A1		
+anything	A1		
+apple	A1		
+April	A1		
+apron	A1		
+are	A1		
+arm	A1		
+around	A1		
+arrive	A1		
+art	A1		
+article	A1		
+as	A1		
+ask	A1		
+at	A1		
+August	A1		
+aunt	A1		
+autumn	A1		
+awake	A1		
+away	A1		
+baby	A1		
+back	A1		
+back	A1		
+bad	A1		
+bag	A1		
+ball	A1		
+banana	A1		
+band	A1		
+bank	A1		
+bar	A1		
+baseball	A1		
+basketball	A1		
+bat	A1		
+bath	A1		
+bathroom	A1		
+be	A1		
+beach	A1		
+bean	A1		
+bear	A1		
+beautiful	A1		
+because	A1		
+become	A1		
+bed	A1		
+bedroom	A1		
+bee	A1		
+beef	A1		
+before	A1		
+before	A1		
+begin	A1		
+behind	A1		
+behind	A1		
+believe	A1		
+bell	A1		
+below	A1		
+below	A1		
+beside	A1		
+best	A1		
+best	A1		
+better	A1		
+between	A1		
+bicycle	A1		
+big	A1		
+bike	A1		
+bird	A1		
+birth	A1		
+birthday	A1		
+biscuit	A1		
+black	A1		
+black	A1		
+blank	A1		
+block	A1		
+blow	A1		
+blue	A1		
+blue	A1		
+board	A1		
+boat	A1		
+body	A1		
+bone	A1		
+book	A1		
+bookstore	A1		
+boring	A1		
+borrow	A1		
+both	A1		
+both	A1		
+both	A1		
+bottle	A1		
+bottom	A1		
+bowl	A1		
+box	A1		
+boy	A1		
+boyfriend	A1		
+brain	A1		
+bread	A1		
+break	A1		
+breakfast	A1		
+breathe	A1		
+bridge	A1		
+bright	A1		
+bring	A1		
+broken	A1		
+brother	A1		
+brown	A1		
+brush	A1		
+brush	A1		
+bucket	A1		
+build	A1		
+building	A1		
+burger	A1		
+bus	A1		
+business	A1		
+busy	A1		
+but	A1		
+butter	A1		
+butterfly	A1		
+button	A1		
+buy	A1		
+by	A1		
+bye	A1		
+cafe/cafÃ©	A1		
+cake	A1		
+call	A1		
+camera	A1		
+camp	A1		
+can	A1		
+candy	A1		
+cap	A1		
+car	A1		
+card	A1		
+care	A1		
+careful	A1		
+carefully	A1		
+carry	A1		
+cartoon	A1		
+case	A1		
+cat	A1		
+catch	A1		
+catch	A1		
+CD	A1		
+CD player	A1		
+celebrate	A1		
+celebration	A1		
+chair	A1		
+change	A1		
+change	A1		
+character	A1		
+check	A1		
+cheese	A1		
+chicken	A1		
+child	A1		
+chocolate	A1		
+choose	A1		
+church	A1		
+cinema	A1		
+circle	A1		
+city	A1		
+class	A1		
+classmate	A1		
+classroom	A1		
+clean	A1		
+clean	A1		
+clever	A1		
+climb	A1		
+clock	A1		
+close	A1		
+close	A1		
+closed	A1		
+cloth	A1		
+clothes	A1		
+cloud	A1		
+cloudy	A1		
+club	A1		
+coach	A1		
+coat	A1		
+code	A1		
+coffee	A1		
+coke	A1		
+cold	A1		
+cold	A1		
+collect	A1		
+collection	A1		
+college	A1		
+color/colour	A1		
+color/colour	A1		
+come	A1		
+computer	A1		
+concert	A1		
+contest	A1		
+conversation	A1		
+cook	A1		
+cook	A1		
+cookie	A1		
+cool	A1		
+cop	A1		
+copy	A1		
+corn	A1		
+corner	A1		
+correct	A1		
+couch	A1		
+could	A1		
+course	A1		
+cousin	A1		
+cover	A1		
+cow	A1		
+cream	A1		
+credit card	A1		
+cry	A1		
+culture	A1		
+cup	A1		
+cut	A1		
+cute	A1		
+dad	A1		
+daddy	A1		
+dance	A1		
+dance	A1		
+dancing	A1		
+dark	A1		
+date	A1		
+daughter	A1		
+day	A1		
+dear	A1		
+December	A1		
+delicious	A1		
+describe	A1		
+design	A1		
+desk	A1		
+dictionary	A1		
+did	A1		
+difference	A1		
+different	A1		
+difficult	A1		
+dig	A1		
+dining room	A1		
+dinner	A1		
+dirty	A1		
+discuss	A1		
+dish	A1		
+do	A1		
+doctor/Dr./Dr	A1		
+does	A1		
+dog	A1		
+doing	A1		
+doll	A1		
+dollar	A1		
+door	A1		
+down	A1		
+drama	A1		
+draw	A1		
+dream	A1		
+dress	A1		
+drink	A1		
+drink	A1		
+drive	A1		
+driver	A1		
+drop	A1		
+drum	A1		
+dry	A1		
+due	A1		
+DVD	A1		
+each	A1		
+each	A1		
+each other	A1		
+ear	A1		
+early	A1		
+easy	A1		
+eat	A1		
+egg	A1		
+eight	A1		
+eighteen	A1		
+eighty	A1		
+either	A1		
+elementary	A1		
+eleven	A1		
+else	A1		
+email/e-mail/E-mail	A1		
+end	A1		
+engineer	A1		
+enjoy	A1		
+evening	A1		
+event	A1		
+every	A1		
+everybody	A1		
+everyday	A1		
+everyone	A1		
+everything	A1		
+everywhere	A1		
+example	A1		
+excellent	A1		
+excited	A1		
+exciting	A1		
+excuse	A1		
+exercise	A1		
+expensive	A1		
+eye	A1		
+face	A1		
+factory	A1		
+fair	A1		
+fairy	A1		
+FALSE	A1		
+family	A1		
+famous	A1		
+fan	A1		
+farm	A1		
+farmer	A1		
+fast	A1		
+fast	A1		
+fat	A1		
+father	A1		
+favorite/favourite	A1		
+favorite/favourite	A1		
+February	A1		
+feed	A1		
+feel	A1		
+feeling	A1		
+festival	A1		
+fever	A1		
+field	A1		
+fifteen	A1		
+fifty	A1		
+fight	A1		
+file	A1		
+fill	A1		
+find	A1		
+fine	A1		
+finish	A1		
+finish	A1		
+fire	A1		
+first	A1		
+first	A1		
+fish	A1		
+fishing	A1		
+five	A1		
+flag	A1		
+flat	A1		
+floor	A1		
+flower	A1		
+fly	A1		
+fly	A1		
+focus	A1		
+foggy	A1		
+following	A1		
+food	A1		
+football	A1		
+for	A1		
+foreign	A1		
+foreigner	A1		
+forget	A1		
+form	A1		
+forty	A1		
+four	A1		
+fourteen	A1		
+free	A1		
+Friday	A1		
+friend	A1		
+frog	A1		
+from	A1		
+front	A1		
+fruit	A1		
+full	A1		
+fun	A1		
+fun	A1		
+funny	A1		
+future	A1		
+game	A1		
+garbage	A1		
+garden	A1		
+get	A1		
+ghost	A1		
+gift	A1		
+girl	A1		
+girlfriend	A1		
+give	A1		
+glad	A1		
+glass	A1		
+glasses	A1		
+go	A1		
+goal	A1		
+gold	A1		
+good	A1		
+good afternoon	A1		
+good morning	A1		
+good night	A1		
+grade	A1		
+grammar	A1		
+grandfather	A1		
+grandma	A1		
+grandmother	A1		
+grandpa	A1		
+grandparent	A1		
+grape	A1		
+grass	A1		
+gray/grey	A1		
+gray/grey	A1		
+great	A1		
+green	A1		
+greet	A1		
+ground	A1		
+group	A1		
+grow	A1		
+guess	A1		
+guest	A1		
+guitar	A1		
+guy	A1		
+habit	A1		
+had	A1		
+hair	A1		
+haircut	A1		
+half	A1		
+hall	A1		
+hamburger	A1		
+hand	A1		
+handsome	A1		
+happen	A1		
+happy	A1		
+hard	A1		
+hard	A1		
+has	A1		
+hat	A1		
+have	A1		
+have to	A1		
+he	A1		
+head	A1		
+headache	A1		
+health	A1		
+healthy	A1		
+hear	A1		
+heart	A1		
+heavy	A1		
+hello	A1		
+help	A1		
+her	A1		
+her	A1		
+here	A1		
+hers	A1		
+hi	A1		
+hide	A1		
+high	A1		
+hill	A1		
+him	A1		
+his	A1		
+his	A1		
+history	A1		
+hobby	A1		
+hold	A1		
+hole	A1		
+holiday	A1		
+home	A1		
+hometown	A1		
+homework	A1		
+hope	A1		
+horse	A1		
+hospital	A1		
+hot	A1		
+hotel	A1		
+hour	A1		
+house	A1		
+how	A1		
+hungry	A1		
+hurry	A1		
+hurt	A1		
+husband	A1		
+I	A1		
+ice	A1		
+ice cream	A1		
+idea	A1		
+ideal	A1		
+if	A1		
+imagine	A1		
+important	A1		
+in	A1		
+information	A1		
+inside	A1		
+interested	A1		
+interesting	A1		
+Internet/internet	A1		
+interview	A1		
+interviewer	A1		
+into	A1		
+introduce	A1		
+is	A1		
+island	A1		
+it	A1		
+item	A1		
+its	A1		
+its	A1		
+jacket	A1		
+January	A1		
+jeans	A1		
+jet	A1		
+jewelry/jewellery	A1		
+job	A1		
+join	A1		
+judge	A1		
+juice	A1		
+July	A1		
+jump	A1		
+June	A1		
+just	A1		
+keep	A1		
+key	A1		
+key	A1		
+kick	A1		
+kick	A1		
+kid	A1		
+kill	A1		
+kind	A1		
+king	A1		
+kiss	A1		
+kitchen	A1		
+kite	A1		
+knee	A1		
+knife	A1		
+know	A1		
+lady	A1		
+language	A1		
+large	A1		
+last name	A1		
+late	A1		
+late	A1		
+later	A1		
+laugh	A1		
+lazy	A1		
+leader	A1		
+leaf	A1		
+learn	A1		
+leave	A1		
+left	A1		
+leg	A1		
+lesson	A1		
+let	A1		
+letter	A1		
+library	A1		
+life	A1		
+light	A1		
+light	A1		
+like	A1		
+like	A1		
+lily	A1		
+line	A1		
+lion	A1		
+list	A1		
+listen	A1		
+little	A1		
+little	A1		
+live	A1		
+living	A1		
+living room	A1		
+lonely	A1		
+long	A1		
+look	A1		
+look	A1		
+lot	A1		
+lot	A1		
+love	A1		
+love	A1		
+lovely	A1		
+luck	A1		
+lucky	A1		
+lunch	A1		
+m	A1		
+machine	A1		
+magazine	A1		
+mail	A1		
+make	A1		
+man	A1		
+many	A1		
+many	A1		
+map	A1		
+March	A1		
+match	A1		
+math/maths	A1		
+matter	A1		
+may	A1		
+May	A1		
+maybe	A1		
+me	A1		
+meal	A1		
+mean	A1		
+meat	A1		
+medicine	A1		
+meet	A1		
+meeting	A1		
+memory	A1		
+merry	A1		
+message	A1		
+middle	A1		
+milk	A1		
+mind	A1		
+mine	A1		
+minute	A1		
+Miss	A1		
+miss	A1		
+mobile	A1		
+mobile phone	A1		
+mom	A1		
+moment	A1		
+mommy/mommie	A1		
+Monday	A1		
+money	A1		
+monkey	A1		
+month	A1		
+moon	A1		
+more	A1		
+more	A1		
+morning	A1		
+most	A1		
+mother	A1		
+mountain	A1		
+mouse	A1		
+mouth	A1		
+move	A1		
+movie	A1		
+Mr./Mr	A1		
+Mrs./Mrs	A1		
+much	A1		
+much	A1		
+much	A1		
+mum	A1		
+music	A1		
+musician	A1		
+must	A1		
+my	A1		
+name	A1		
+nationality	A1		
+near	A1		
+neck	A1		
+need	A1		
+neighbor/neighbour	A1		
+never	A1		
+new	A1		
+news	A1		
+newspaper	A1		
+nice	A1		
+night	A1		
+nine	A1		
+nineteen	A1		
+ninety	A1		
+no	A1		
+no	A1		
+noise	A1		
+nose	A1		
+not	A1		
+note	A1		
+note	A1		
+notebook	A1		
+nothing	A1		
+November	A1		
+now	A1		
+number	A1		
+nurse	A1		
+o'clock	A1		
+October	A1		
+of	A1		
+off	A1		
+office	A1		
+officer	A1		
+often	A1		
+OK/okay	A1		
+OK/okay	A1		
+old	A1		
+Olympics	A1		
+on	A1		
+once	A1		
+one	A1		
+one	A1		
+only	A1		
+only	A1		
+open	A1		
+open	A1		
+opera	A1		
+or	A1		
+orange	A1		
+orange	A1		
+order	A1		
+other	A1		
+our	A1		
+ours	A1		
+out	A1		
+outside	A1		
+over	A1		
+own	A1		
+owner	A1		
+p.m./P.M./pm/PM	A1		
+page	A1		
+paint	A1		
+paint	A1		
+painting	A1		
+pair	A1		
+palace	A1		
+pants	A1		
+paper	A1		
+paragraph	A1		
+pardon	A1		
+parent	A1		
+park	A1		
+partner	A1		
+party	A1		
+past	A1		
+past	A1		
+pay	A1		
+pay	A1		
+peace	A1		
+pen	A1		
+pencil	A1		
+people	A1		
+period	A1		
+person	A1		
+personal	A1		
+pet	A1		
+phone	A1		
+phone	A1		
+photo	A1		
+piano	A1		
+pick	A1		
+picnic	A1		
+picture	A1		
+piece	A1		
+pig	A1		
+pink	A1		
+pizza	A1		
+place	A1		
+plan	A1		
+plane	A1		
+play	A1		
+play	A1		
+player	A1		
+please	A1		
+pleasure	A1		
+pocket	A1		
+poem	A1		
+point	A1		
+pollution	A1		
+pool	A1		
+poor	A1		
+pop	A1		
+post	A1		
+poster	A1		
+potato	A1		
+practice	A1		
+practice/practise	A1		
+pray	A1		
+present	A1		
+pretty	A1		
+price	A1		
+prince	A1		
+princess	A1		
+problem	A1		
+program/programme	A1		
+purple	A1		
+push	A1		
+put	A1		
+quarter	A1		
+question	A1		
+quickly	A1		
+quiet	A1		
+rabbit	A1		
+radio	A1		
+rain	A1		
+rain	A1		
+rainy	A1		
+rat	A1		
+re	A1		
+read	A1		
+reader	A1		
+reading	A1		
+ready	A1		
+real	A1		
+real	A1		
+really	A1		
+reason	A1		
+red	A1		
+remember	A1		
+repeat	A1		
+reporter	A1		
+restaurant	A1		
+result	A1		
+review	A1		
+ribbon	A1		
+rice	A1		
+rich	A1		
+ride	A1		
+ride	A1		
+right	A1		
+right	A1		
+ring	A1		
+river	A1		
+role	A1		
+room	A1		
+rose	A1		
+row	A1		
+rude	A1		
+rule	A1		
+ruler	A1		
+run	A1		
+run	A1		
+s	A1		
+sad	A1		
+sailor	A1		
+salad	A1		
+sale	A1		
+same	A1		
+same	A1		
+same	A1		
+sandwich	A1		
+Saturday	A1		
+save	A1		
+saw	A1		
+say	A1		
+school	A1		
+science	A1		
+scientist	A1		
+sea	A1		
+seat	A1		
+second	A1		
+section	A1		
+see	A1		
+self	A1		
+sell	A1		
+sentence	A1		
+September	A1		
+set	A1		
+seven	A1		
+seventeen	A1		
+seventy	A1		
+shake	A1		
+share	A1		
+she	A1		
+sheep	A1		
+shelf	A1		
+ship	A1		
+shirt	A1		
+shoe	A1		
+shop	A1		
+shopping	A1		
+short	A1		
+short	A1		
+should	A1		
+shoulder	A1		
+show	A1		
+shower	A1		
+shy	A1		
+sick	A1		
+side	A1		
+sight	A1		
+sign	A1		
+sing	A1		
+singer	A1		
+sir	A1		
+sister	A1		
+sit	A1		
+site	A1		
+six	A1		
+sixteen	A1		
+sixty	A1		
+size	A1		
+skill	A1		
+skirt	A1		
+sky	A1		
+sleep	A1		
+slow	A1		
+small	A1		
+smart	A1		
+smell	A1		
+smile	A1		
+smith	A1		
+smoke	A1		
+smoking	A1		
+snake	A1		
+snow	A1		
+snowy	A1		
+so	A1		
+soccer	A1		
+social	A1		
+sofa	A1		
+solve	A1		
+some	A1		
+some	A1		
+someone	A1		
+something	A1		
+son	A1		
+song	A1		
+soon	A1		
+sorry	A1		
+soup	A1		
+speak	A1		
+special	A1		
+speech	A1		
+spell	A1		
+spend	A1		
+sport	A1		
+spot	A1		
+spring	A1		
+spy	A1		
+stage	A1		
+stand	A1		
+star	A1		
+start	A1		
+start	A1		
+station	A1		
+stay	A1		
+step	A1		
+still	A1		
+stone	A1		
+stop	A1		
+stop	A1		
+store	A1		
+story	A1		
+straight	A1		
+strange	A1		
+street	A1		
+strict	A1		
+strong	A1		
+student	A1		
+study	A1		
+subject	A1		
+subway	A1		
+successful	A1		
+sugar	A1		
+suggestion	A1		
+sum	A1		
+summer	A1		
+sun	A1		
+Sunday	A1		
+sunny	A1		
+sunshine	A1		
+super	A1		
+supermarket	A1		
+sure	A1		
+surf	A1		
+surprise	A1		
+survey	A1		
+sweet	A1		
+swim	A1		
+swim	A1		
+swimming	A1		
+swimming pool	A1		
+table	A1		
+take	A1		
+talk	A1		
+tall	A1		
+taxi	A1		
+tea	A1		
+teach	A1		
+teacher	A1		
+team	A1		
+technology	A1		
+telephone	A1		
+television	A1		
+tell	A1		
+temple	A1		
+ten	A1		
+tennis	A1		
+terrible	A1		
+test	A1		
+than	A1		
+than	A1		
+thank	A1		
+thanks	A1		
+that	A1		
+that	A1		
+that	A1		
+the	A1		
+theater/theatre	A1		
+their	A1		
+them	A1		
+then	A1		
+there	A1		
+these	A1		
+these	A1		
+they	A1		
+thick	A1		
+thin	A1		
+thing	A1		
+think	A1		
+thirteen	A1		
+thirty	A1		
+this	A1		
+this	A1		
+those	A1		
+those	A1		
+three	A1		
+through	A1		
+throw	A1		
+Thursday	A1		
+ticket	A1		
+tiger	A1		
+tight	A1		
+time	A1		
+tired	A1		
+to	A1		
+to	A1		
+today	A1		
+today	A1		
+together	A1		
+toilet	A1		
+tomato	A1		
+tomorrow	A1		
+tomorrow	A1		
+tonight	A1		
+too	A1		
+tool	A1		
+tooth	A1		
+top	A1		
+topic	A1		
+touch	A1		
+towel	A1		
+tower	A1		
+town	A1		
+toy	A1		
+train	A1		
+travel	A1		
+tree	A1		
+trip	A1		
+trousers	A1		
+truck	A1		
+TRUE	A1		
+try	A1		
+T-shirt/tee-shirt	A1		
+tube	A1		
+Tuesday	A1		
+turkey	A1		
+turn	A1		
+turn	A1		
+TV	A1		
+twelve	A1		
+twenty	A1		
+two	A1		
+type	A1		
+ugly	A1		
+umbrella	A1		
+uncle	A1		
+under	A1		
+underline	A1		
+until	A1		
+up	A1		
+us	A1		
+use	A1		
+usually	A1		
+vacation	A1		
+vase	A1		
+vegetable	A1		
+very	A1		
+video	A1		
+visit	A1		
+visit	A1		
+volleyball	A1		
+vote	A1		
+wait	A1		
+waiter	A1		
+waitress	A1		
+wake	A1		
+walk	A1		
+walk	A1		
+wall	A1		
+want	A1		
+war	A1		
+warm	A1		
+was	A1		
+wash	A1		
+wash	A1		
+watch	A1		
+watch	A1		
+water	A1		
+way	A1		
+we	A1		
+wear	A1		
+weather	A1		
+Wednesday	A1		
+week	A1		
+weekend	A1		
+welcome	A1		
+welcome	A1		
+well	A1		
+well	A1		
+were	A1		
+what	A1		
+what	A1		
+wheel	A1		
+when	A1		
+when	A1		
+where	A1		
+where	A1		
+which	A1		
+which	A1		
+white	A1		
+white	A1		
+who	A1		
+whose	A1		
+whose	A1		
+why	A1		
+wife	A1		
+will	A1		
+win	A1		
+wind	A1		
+window	A1		
+winter	A1		
+wish	A1		
+with	A1		
+woman	A1		
+wonderful	A1		
+word	A1		
+work	A1		
+work	A1		
+worker	A1		
+world	A1		
+worry	A1		
+would	A1		
+write	A1		
+writer	A1		
+wrong	A1		
+yard	A1		
+year	A1		
+yellow	A1		
+yellow	A1		
+yes	A1		
+yesterday	A1		
+yet	A1		
+yogurt/yoghurt	A1		
+you	A1		
+young	A1		
+your	A1		
+yours	A1		
+yourself	A1		
+zoo	A1		
