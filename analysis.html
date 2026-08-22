@@ -22,7 +22,7 @@
         
         .table-container { max-height: 480px; overflow-y: auto; margin-top: 10px; border: 1px solid #ddd; border-radius: 6px; position: relative; }
         table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; vertical-align: middle; }
         
         th { background: #f1f5f9; color: #0f172a; user-select: none; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1); vertical-align: top; }
         tfoot td { position: sticky; bottom: 0; z-index: 5; background: #f1f5f9; box-shadow: 0 -2px 2px -1px rgba(0,0,0,0.1); }
@@ -39,6 +39,11 @@
         .badge-dup { background: #fee2e2; color: #dc2626; padding: 3px 6px; border-radius: 4px; font-weight: 600; font-size: 11px; display: inline-block; margin: 2px; border: 1px solid #fecaca; }
         
         .file-list-tag { background: #f1f5f9; color: #334155; padding: 2px 6px; border-radius: 4px; font-size: 11px; display: inline-block; margin: 1px; font-family: monospace; border: 1px solid #e2e8f0; }
+        
+        /* Hücre İçi Vurgu Kutuları (Kullanıcının İstediği Kutu Tasarımı) */
+        .cell-box-count { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px 10px; margin-bottom: 6px; font-size: 13px; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+        .cell-box-source { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px 10px; font-size: 13px; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+
         .dynamic-input-container { margin-top: 15px; padding: 12px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; }
         .filter-input { width: 90%; padding: 5px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; background: #fff; }
         .sticky-summary { position: sticky; top: 0; z-index: 20; background: #ffffff; padding: 10px 0; border-bottom: 2px solid #e2e8f0; }
@@ -623,8 +628,18 @@
                     <td>${levelDisplay}</td>
                     <td>${turkishDisplayList.join('')}</td>
                     <td>${exampleDisplayList.join('')}</td>
-                    <td><strong>${currentOccCount} Adet</strong><br>${duplicateDetailsHtml}</td>
-                    <td><div class="file-tags-wrapper">${fileTagsHtml}</div><br><small style="color:#64748b;">(<strong>${currentFileSourceCount}</strong> Kaynak)</small></td>
+                    <td>
+                        <div class="cell-box-count">
+                            <strong style="color: #4f46e5; display: inline-block; margin-bottom: 4px;">📌 ${currentOccCount} Adet</strong><br>
+                            ${duplicateDetailsHtml}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cell-box-source">
+                            <div class="file-tags-wrapper" style="margin-bottom: 4px;">${fileTagsHtml}</div>
+                            <small style="color:#64748b;">(<strong>${currentFileSourceCount}</strong> Kaynak)</small>
+                        </div>
+                    </td>
                 </tr>`;
             } else {
                 let duplicateDetailsHtml = '-';
@@ -646,13 +661,22 @@
                     <td><strong>${item.original}</strong></td>
                     <td>${levelDisplay}</td>
                     <td><strong>${freqVal}</strong></td>
-                    <td><strong>${currentOccCount} Tekrar</strong><br>${duplicateDetailsHtml}</td>
-                    <td><div class="file-tags-wrapper">${fileTagsHtml}</div><br><small style="color:#64748b;">(<strong>${currentFileSourceCount}</strong> Kaynak)</small></td>
+                    <td>
+                        <div class="cell-box-count">
+                            <strong style="color: #4f46e5; display: inline-block; margin-bottom: 4px;">📌 ${currentOccCount} Tekrar</strong><br>
+                            ${duplicateDetailsHtml}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cell-box-source">
+                            <div class="file-tags-wrapper" style="margin-bottom: 4px;">${fileTagsHtml}</div>
+                            <small style="color:#64748b;">(<strong>${currentFileSourceCount}</strong> Kaynak)</small>
+                        </div>
+                    </td>
                 </tr>`;
             }
         });
 
-        // Tablo altı sütun bazlı hizalanmış ayrı toplam satırı (Footer)
         let tableFooterHtml = '';
         if (state.task === 'cevir') {
             let totalLevelSumText = `A1:${levelCounts['A1']} | A2:${levelCounts['A2']} | B1:${levelCounts['B1']} | B2:${levelCounts['B2']} | C1:${levelCounts['C1']} | C2:${levelCounts['C2']}`;
