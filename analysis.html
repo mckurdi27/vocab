@@ -50,7 +50,7 @@
     <div id="siteInputArea" class="input-box" style="margin-top: 15px; display: flex;">
         <label for="jsonSelect"><strong>Hedef JSON Dosyası / Grubu:</strong></label>
         <select id="jsonSelect">
-            <option value="ALL">📁 Tüm Dosyaları Tara (100+ Dosya)</option>
+            <option value="ALL">📁 Tüm Dosyaları Tara (A1, A2, B1, B2, C1, C2)</option>
         </select>
     </div>
 
@@ -72,13 +72,14 @@
         </div>
 
         <div class="csv-checkbox-group">
-            <label><input type="checkbox" name="csvFile" value="cefr.csv"> cefr.csv (Tümü)</label>
-            <label><input type="checkbox" name="csvFile" value="cefra1.csv" checked> CEFR A1</label>
-            <label><input type="checkbox" name="csvFile" value="cefra2.csv"> CEFR A2</label>
-            <label><input type="checkbox" name="csvFile" value="cefrb1.csv"> CEFR B1</label>
-            <label><input type="checkbox" name="csvFile" value="cefrb2.csv"> CEFR B2</label>
-            <label><input type="checkbox" name="csvFile" value="cefrc1.csv"> CEFR C1</label>
-            <label><input type="checkbox" name="csvFile" value="cefrc2.csv"> CEFR C2</label>
+            <label><input type="checkbox" name="csvFile" value="cefr.csv" checked> cefr.csv (Tümü)</label>
+            <label><input type="checkbox" name="csvFile" value="cefra1.csv"> cefr0</label>
+            <label><input type="checkbox" name="csvFile" value="cefra1.csv"> cefra1</label>
+            <label><input type="checkbox" name="csvFile" value="cefra2.csv"> cefra2</label>
+            <label><input type="checkbox" name="csvFile" value="cefrb1.csv"> cefrb1</label>
+            <label><input type="checkbox" name="csvFile" value="cefrb2.csv"> cefrb2</label>
+            <label><input type="checkbox" name="csvFile" value="cefrc1.csv"> cefrc1</label>
+            <label><input type="checkbox" name="csvFile" value="cefrc2.csv"> cefrc2</label>
         </div>
     </div>
     <div id="csvSourceDetails" style="font-size: 13px; color: #666; margin-top: 5px;">Seçilen CSVler: CEFR A1</div>
@@ -221,12 +222,26 @@ by,A1,tarafından / yanında`
     window.addEventListener('DOMContentLoaded', () => {
         const selectEl = document.getElementById('jsonSelect');
         
-        for (let i = 100; i < 150; i++) {
-            let opt = document.createElement('option');
-            opt.value = `data/a${i}.json`;
-            opt.textContent = `data/a${i}.json`;
-            selectEl.appendChild(opt);
-        }
+        const fileConfigs = [
+            { prefix: 'a', start: 101, end: 150, label: 'A1' },
+            { prefix: 'a2', start: 201, end: 250, label: 'A2' },
+            { prefix: 'b1', start: 101, end: 150, label: 'B1' },
+            { prefix: 'b2', start: 201, end: 250, label: 'B2' },
+            { prefix: 'c1', start: 101, end: 150, label: 'C1' },
+            { prefix: 'c2', start: 201, end: 250, label: 'C2' }
+        ];
+
+        fileConfigs.forEach(cfg => {
+            let optgroup = document.createElement('optgroup');
+            optgroup.label = `Seviye ${cfg.label} (${cfg.prefix}${cfg.start}.json - ${cfg.prefix}${cfg.end}.json)`;
+            for (let i = cfg.start; i <= cfg.end; i++) {
+                let opt = document.createElement('option');
+                opt.value = `data/${cfg.prefix}${i}.json`;
+                opt.textContent = `data/${cfg.prefix}${i}.json`;
+                optgroup.appendChild(opt);
+            }
+            selectEl.appendChild(optgroup);
+        });
 
         document.querySelectorAll('input[name="csvFile"]').forEach(cb => {
             cb.addEventListener('change', updateCsvSelectionInfo);
@@ -334,17 +349,28 @@ by,A1,tarafından / yanında`
             let rawJsonDataArray = [];
             const selectedTarget = document.getElementById('jsonSelect').value;
 
+            const fileConfigs = [
+                { prefix: 'a', start: 101, end: 150 },
+                { prefix: 'a2', start: 201, end: 250 },
+                { prefix: 'b1', start: 101, end: 150 },
+                { prefix: 'b2', start: 201, end: 250 },
+                { prefix: 'c1', start: 101, end: 150 },
+                { prefix: 'c2', start: 201, end: 250 }
+            ];
+
             if (selectedTarget === "ALL") {
-                statusDiv.innerText = "data/ klasöründeki dosyalar taranıyor...";
-                for (let i = 100; i < 150; i++) {
-                    let fileName = `data/a${i}.json`;
-                    try {
-                        let res = await fetch(fileName);
-                        if (res.ok) {
-                            let jsonData = await res.json();
-                            rawJsonDataArray.push({ sourceName: `a${i}.json`, data: jsonData });
-                        }
-                    } catch (e) {}
+                statusDiv.innerText = "data/ klasöründeki tüm seviyeler taranıyor...";
+                for (let cfg of fileConfigs) {
+                    for (let i = cfg.start; i <= cfg.end; i++) {
+                        let fileName = `data/${cfg.prefix}${i}.json`;
+                        try {
+                            let res = await fetch(fileName);
+                            if (res.ok) {
+                                let jsonData = await res.json();
+                                rawJsonDataArray.push({ sourceName: `${cfg.prefix}${i}.json`, data: jsonData });
+                            }
+                        } catch (e) {}
+                    }
                 }
             } else {
                 statusDiv.innerText = `${selectedTarget} dosyası taranıyor...`;
