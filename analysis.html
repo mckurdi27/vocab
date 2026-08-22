@@ -17,6 +17,8 @@
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
         th { background: #f1f5f9; color: #0f172a; user-select: none; }
+        th.sortable { cursor: pointer; transition: background 0.2s; }
+        th.sortable:hover { background: #e2e8f0; }
         .status-bar { padding: 10px; border-radius: 4px; margin-top: 10px; background: #eef2f7; }
         .input-box { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
         select, input[type="file"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
@@ -26,8 +28,6 @@
         .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; border-radius: 3px; margin-top: 4px; font-weight: normal; }
         .csv-checkbox-group { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 5px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
         .csv-checkbox-group label { display: flex; align-items: center; gap: 6px; font-weight: 500; cursor: pointer; font-size: 14px; }
-        .sort-controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: center; }
-        tfoot td { background: #f8fafc; padding: 12px; border-top: 2px solid #cbd5e1; }
     </style>
 </head>
 <body>
@@ -75,7 +75,7 @@
         <div class="csv-checkbox-group">
             <label><input type="checkbox" name="csvFile" value="cefr.csv"> cefr.csv (Tümü)</label>
             <label><input type="checkbox" name="csvFile" value="cefra1.csv"> cefr0</label>
-            <label><input type="checkbox" name="csvFile" value="cefra1.csv"> cefra1</label>
+            <label><input type="checkbox" name="csvFile" value="cefra1.csv" checked> cefra1</label>
             <label><input type="checkbox" name="csvFile" value="cefra2.csv"> cefra2</label>
             <label><input type="checkbox" name="csvFile" value="cefrb1.csv"> cefrb1</label>
             <label><input type="checkbox" name="csvFile" value="cefrb2.csv"> cefrb2</label>
@@ -83,7 +83,7 @@
             <label><input type="checkbox" name="csvFile" value="cefrc2.csv"> cefrc2</label>
         </div>
     </div>
-    <div id="csvSourceDetails" style="font-size: 13px; color: #666; margin-top: 5px;">Seçilen CSVler: CEFR A1</div>
+    <div id="csvSourceDetails" style="font-size: 13px; color: #666; margin-top: 5px;">Seçilen CSVler: cefra1</div>
 </div>
 
 <div class="section">
@@ -104,15 +104,8 @@
 </div>
 
 <script>
-    const embeddedCsvData = {
-        "cefra1.csv": `Headword,CEFR,Turkish
-a,A1,bir
-about,A1,hakkında / yaklaşık
-above,A1,yukarıda
-...`
-    };
+    const embeddedCsvData = {};
 
-    // Güncellenmiş dosya yapılandırması (101-150 ve 201-250 aralıkları, 50'şer kademe)
     const fileConfigs = [
         { prefix: 'a', start: 101, end: 150, label: 'A1' },
         { prefix: 'a', start: 201, end: 250, label: 'A2' },
@@ -145,6 +138,7 @@ above,A1,yukarıda
     let state = { source: 'site', task: 'kelimeler' };
     let globalTableData = [];
     let fileCountToProcess = 1;
+    let currentSortOrder = 'asc'; // 'asc' (A-Z) veya 'desc' (Z-A)
 
     function setSource(s, btn) {
         state.source = s;
@@ -231,12 +225,23 @@ above,A1,yukarıda
             const rows = combinedCsvText.split(/\r?\n/);
             for (let row of rows) {
                 if (!row.trim() || row.toLowerCase().includes("headword")) continue;
-                let parts = row.split(',');
-                if (parts.length >= 3) {
-                    let word = parts[0].toLowerCase().trim();
-                    let level = parts[1].toUpperCase().trim();
-                    if (word && level) {
-                        cefrMap[word] = level;
+                
+                let firstComma = row.indexOf(',');
+                let secondComma = row.indexOf(',', firstComma + 1);
+                
+                if (firstComma !== -1 && secondComma !== -1) {
+                    let wordCol = row.substring(0, firstComma).toLowerCase().trim();
+                    let level = row.substring(firstComma + 1, secondComma).toUpperCase().trim();
+                    
+                    if (wordCol && level) {
+                        let subWords = wordCol.split('/');
+                        subWords.forEach(sw => {
+                            let cleanSubW = sw.trim();
+                            if (cleanSubW) {
+                                cefrMap[cleanSubW] = level;
+                            }
+                        });
+                        cefrMap[wordCol] = level;
                     }
                 }
             }
@@ -283,7 +288,7 @@ above,A1,yukarıda
 
                 if (state.task === 'hikaye') {
                     if (data.story_en && typeof data.story_en === 'string') {
-                        let cleanStory = data.story_en.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "").toLowerCase();
+                        let cleanStory = data.story_en.replace(/[.,\/\/$%\^&\*;:{}=\-_`~()?"']/g, "").toLowerCase();
                         let wordsArr = cleanStory.split(/\s+/);
                         
                         wordsArr.forEach(w => {
@@ -345,11 +350,34 @@ above,A1,yukarıda
                 });
             }
 
+            globalTableData.sort((a, b) => a.original.localeCompare(b.original));
+            currentSortOrder = 'asc';
+
             renderTable(globalTableData, totalCheckedCount, fileCountToProcess, levelCounts);
 
         } catch (err) {
             statusDiv.innerText = "❌ Hata: " + err.message;
         }
+    }
+
+    function toggleSortTable() {
+        if (!globalTableData || globalTableData.length === 0) return;
+
+        if (currentSortOrder === 'asc') {
+            globalTableData.sort((a, b) => b.original.localeCompare(a.original));
+            currentSortOrder = 'desc';
+        } else {
+            globalTableData.sort((a, b) => a.original.localeCompare(b.original));
+            currentSortOrder = 'asc';
+        }
+
+        let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
+        globalTableData.forEach(item => {
+            if (levelCounts[item.level] !== undefined) levelCounts[item.level]++;
+            else levelCounts['Bilinmiyor']++;
+        });
+
+        renderTable(globalTableData, globalTableData.reduce((acc, curr) => acc + curr.count, 0), fileCountToProcess, levelCounts);
     }
 
     function renderTable(dataArray, totalCheckedCount, fileCount, levelCounts) {
@@ -365,17 +393,19 @@ above,A1,yukarıda
             }
         });
 
+        let sortIndicator = currentSortOrder === 'asc' ? ' 🔼 (A-Z)' : ' 🔽 (Z-A)';
+
         let tableHeaderHtml = (state.task === 'hikaye') ? `
             <tr>
                 <th style="width:50px;">#</th>
-                <th>Hikaye Kelimesi<br><input type="text" id="f1" class="filter-input" placeholder="Ara..." onkeyup="filterTable()"></th>
+                <th class="sortable" onclick="toggleSortTable()" title="Tıklayarak Sıralamayı Değiştirin">Hikaye Kelimesi${sortIndicator}<br><input type="text" id="f1" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                 <th>CEFR Seviyesi</th>
                 <th>Frekans</th>
                 <th>Kaynak</th>
             </tr>` : `
             <tr>
                 <th style="width:50px;">#</th>
-                <th>Kelime<br><input type="text" id="f1" class="filter-input" placeholder="Ara..." onkeyup="filterTable()"></th>
+                <th class="sortable" onclick="toggleSortTable()" title="Tıklayarak Sıralamayı Değiştirin">Kelime${sortIndicator}<br><input type="text" id="f1" class="filter-input" placeholder="Ara..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                 <th>Seviye</th>
                 <th>Tür</th>
                 <th>Türkçe Anlamı</th>
@@ -383,7 +413,6 @@ above,A1,yukarıda
             </tr>`;
 
         let uniqueKeysCount = dataArray.length;
-        let colSpanNum = (state.task === 'hikaye') ? 5 : 6;
 
         resultArea.innerHTML = `
             <h4>📊 ${state.task.toUpperCase()} Analiz Özeti (${fileCount} Dosya İncelendi)</h4>
@@ -398,41 +427,9 @@ above,A1,yukarıda
                 <table id="analysisTable">
                     <thead>${tableHeaderHtml}</thead>
                     <tbody>${tableRows}</tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="${colSpanNum}" style="text-align: center;">
-                                <div class="sort-controls">
-                                    <span style="font-size: 13px; font-weight: bold; color: #475569;">🔤 Sıralama Seçenekleri:</span>
-                                    <button type="button" onclick="sortTableData('az')" style="padding: 6px 12px; font-size: 12px; background: #e0e7ff; border: 1px solid #c7d2fe; border-radius: 4px;">Kelime (A-Z)</button>
-                                    <button type="button" onclick="sortTableData('za')" style="padding: 6px 12px; font-size: 12px; background: #e0e7ff; border: 1px solid #c7d2fe; border-radius: 4px;">Kelime (Z-A)</button>
-                                    <button type="button" onclick="sortTableData('level')" style="padding: 6px 12px; font-size: 12px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px;">Seviyeye Göre</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         `;
-    }
-
-    function sortTableData(criteria) {
-        if (!globalTableData || globalTableData.length === 0) return;
-
-        if (criteria === 'az') {
-            globalTableData.sort((a, b) => a.original.localeCompare(b.original));
-        } else if (criteria === 'za') {
-            globalTableData.sort((a, b) => b.original.localeCompare(a.original));
-        } else if (criteria === 'level') {
-            globalTableData.sort((a, b) => a.level.localeCompare(b.level));
-        }
-
-        let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
-        globalTableData.forEach(item => {
-            if (levelCounts[item.level] !== undefined) levelCounts[item.level]++;
-            else levelCounts['Bilinmiyor']++;
-        });
-
-        renderTable(globalTableData, globalTableData.reduce((acc, curr) => acc + curr.count, 0), fileCountToProcess, levelCounts);
     }
 
     function filterTable() {
