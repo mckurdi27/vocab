@@ -51,7 +51,7 @@
     <div id="siteInputArea" class="input-box" style="margin-top: 15px; display: flex;">
         <label for="jsonSelect"><strong>Hedef JSON Dosyası / Grubu:</strong></label>
         <select id="jsonSelect">
-            <option value="ALL">📁 Tüm Dosyaları Tara (data/ klasöründeki a100 - a105+)</option>
+            <option value="ALL">📁 Tüm Dosyaları Tara (100+ Dosya)</option>
         </select>
     </div>
 
@@ -98,7 +98,7 @@
 <div class="section">
     <h3>3. Analiz Sonucu</h3>
     <button onclick="runAnalysis()" style="background: #4f46e5; color: white; font-weight: bold; padding: 12px 20px; border: none; border-radius: 6px; cursor:pointer;">🚀 Analizi Çalıştır</button>
-    <div id="status" class="status-bar">Sistem hazır. Tüm 100+ dosya taranmaya hazır.</div>
+    <div id="status" class="status-bar">Sistem hazır. Tüm 100 dosya taranmaya hazır.</div>
     <div id="resultArea" style="margin-top:20px;"></div>
 </div>
 
@@ -285,11 +285,10 @@ by,A1,tarafından / yanında`
         
         const statusDiv = document.getElementById('status');
         const resultArea = document.getElementById('resultArea');
-        statusDiv.innerText = "CSV sözlükleri ve 100+ JSON dosyası taranıyor, lütfen bekleyin...";
+        statusDiv.innerText = "CSV sözlükleri ve 100 dosya taranıyor, lütfen bekleyin...";
         resultArea.innerHTML = "";
         
         try {
-            // 1. CSV Verilerini Topla
             let combinedCsvText = "";
             for (let fPath of checkedCsvs) {
                 try {
@@ -323,31 +322,12 @@ by,A1,tarafından / yanında`
                 }
             }
 
-            // 2. data/ klasöründeki 100+ JSON Dosyasını Otomatik Çek (a100.json den a200.json veya a1.json dan a150.json'a kadar esnek tarama)
             let rawJsonDataArray = [];
             
-            statusDiv.innerText = "data/ klasöründeki JSON dosyaları taranıyor...";
+            statusDiv.innerText = "data/ klasöründeki 100 dosya taranıyor...";
 
-            // a100'den a200'e kadar olan aralığı veya projenizdeki isimlendirmeye göre otomatik dener
-            // Görselinizde a100.json, a101.json ... gördüğümüz için bu aralığı tarıyoruz:
-            for (let i = 100; i <= 200; i++) {
-                let fileName = `data/a${i}.json`;
-                try {
-                    let res = await fetch(fileName);
-                    if (res.ok) {
-                        let jsonData = await res.json();
-                        rawJsonDataArray.push({
-                            sourceName: `a${i}.json`,
-                            data: jsonData
-                        });
-                    }
-                } catch (e) {
-                    // Dosya yoksa veya bittiyse sessizce devam et
-                }
-            }
-
-            // Eğer a100 serisi dışında a1, a2 gibi dosyalar da ihtimal dahilindeyse onları da kontrol edelim:
-            for (let i = 1; i <= 99; i++) {
+            // 0'dan 200'e kadar olan tüm olası dosya isimlerini (a0, a1, ..., a100, a101 ...) kapsayacak şekilde genişletildi
+            for (let i = 0; i <= 200; i++) {
                 let fileName = `data/a${i}.json`;
                 try {
                     let res = await fetch(fileName);
@@ -361,7 +341,6 @@ by,A1,tarafından / yanında`
                 } catch (e) {}
             }
 
-            // Eğer hiç dosya bulunamazsa test amaçlı örnek veri ekle ki hata ekranı vermesin
             if (rawJsonDataArray.length === 0) {
                 rawJsonDataArray.push({
                     sourceName: "ornek_veri.json",
@@ -376,7 +355,6 @@ by,A1,tarafından / yanında`
                 });
             }
 
-            // 3. Verileri İşle ve Tabloya Dök
             let itemTracking = {};
             let totalCheckedCount = 0;
 
@@ -428,7 +406,7 @@ by,A1,tarafından / yanında`
                 }
             });
 
-            statusDiv.innerText = `✅ Başarıyla tamamlandı! Bulunan JSON Dosyası: ${rawJsonDataArray.length} adet. Toplam taranan birim: ${totalCheckedCount}.`;
+            statusDiv.innerText = `✅ Başarıyla tamamlandı! Bulunan Dosya: ${rawJsonDataArray.length} adet. Toplam taranan birim: ${totalCheckedCount}.`;
 
             let tableRows = '';
             let levelCounts = { 'A1': 0, 'A2': 0, 'B1': 0, 'B2': 0, 'C1': 0, 'C2': 0, 'Bilinmiyor': 0 };
