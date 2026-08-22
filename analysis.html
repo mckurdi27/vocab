@@ -452,15 +452,13 @@
                     </td>
                 </tr>`;
             } else if (state.task === 'kelimeler') {
-                // 1 kere geçiyorsa Mavi (badge-unique), birden fazla geçiyorsa Kırmızı (badge-dup)
+                // İlk kayıt Mavi, tekrarlayan diğer kayıtlar Kırmızı
                 let duplicateDetailsHtml = '-';
                 if (item.fileOccurrences && item.fileOccurrences.length > 0) {
-                    let isMultiple = item.fileOccurrences.length > 1;
-                    let badgeClass = isMultiple ? 'badge-dup' : 'badge-unique';
-                    
-                    duplicateDetailsHtml = item.fileOccurrences.map(occ => 
-                        `<span class="${badgeClass}">${occ.file} (Sıra: ${occ.index})</span>`
-                    ).join(' ');
+                    duplicateDetailsHtml = item.fileOccurrences.map((occ, i) => {
+                        let badgeClass = (i === 0) ? 'badge-unique' : 'badge-dup';
+                        return `<span class="${badgeClass}">${occ.file} (Sıra: ${occ.index})</span>`;
+                    }).join(' ');
                 }
 
                 tableRows += `<tr data-files="${item.filesList}">
@@ -534,7 +532,7 @@
                         <button type="button" class="sort-trigger-btn" onclick="handleSort('filesCount')">Dosya Sayısı (Top: ${totalFilesCountSum}) ${getArrow('filesCount')}</button>
                     </th>
                     <th>
-                        <div style="padding: 6px 0; font-weight: bold; font-size: 13px; color: #334155;">Tekrar Ettiği Dosyalar ve Sıraları</div>
+                        <button type="button" class="sort-trigger-btn" onclick="handleSort('fileOccurrences')">Tekrar Ettiği Dosyalar ve Sıraları ${getArrow('fileOccurrences')}</button>
                     </th>
                     <th>
                         <div style="padding: 6px 0; font-weight: bold; font-size: 13px; color: #334155;">Bulunduğu Dosyalar (Top: ${totalFilesOccurrencesSum})</div>
