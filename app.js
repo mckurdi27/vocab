@@ -1,23 +1,18 @@
-// Global Kelime Haritası ve Dosya Listesi
+// Global Kelime Haritası ve Dosya Listesi (Doğrudan klasöründeki dosyalara göre ayarlandı)
 let globalWordMap = {};
-let allDaysFiles = [];
+let allDaysFiles = [
+    'data/a100.json',
+    'data/a101.json',
+    'data/a102.json',
+    'data/a103.json',
+    'data/a104.json',
+    'data/a105.json',
+    'data/a106.json'
+];
 
 // 1. Uygulama Başlangıcı
 async function initApp() {
     try {
-        let response = await fetch('data/days.json');
-        
-        if (!response.ok) {
-            throw new Error(`HTTP Hata Kodu: ${response.status} (${response.statusText})`);
-        }
-
-        const data = await response.json();
-        
-        // Dosya yollarının başında 'data/' olduğundan emin oluyoruz
-        allDaysFiles = (data.files || data).map(file => {
-            return file.startsWith('data/') ? file : `data/${file}`;
-        });
-
         // Arka planda tüm JSON'ları tarayıp global haritayı çıkaralım
         await buildGlobalWordMap(allDaysFiles);
 
@@ -29,19 +24,13 @@ async function initApp() {
             loadDayData(allDaysFiles[0]);
         }
     } catch (error) {
-        console.error("Detaylı Başlangıç Hatası:", error);
+        console.error("Başlangıç hatası:", error);
         const container = document.getElementById('cardsContainer');
         if (container) {
             container.innerHTML = `
-                <div style="color:red; text-align:center; grid-column:1/-1; padding: 20px; background: #fee2e2; border-radius: 8px; border: 1px solid #fecaca;">
+                <div style="color:red; text-align:center; grid-column:1/-1; padding: 20px; background: #fee2e2; border-radius: 8px;">
                     <strong>Veriler yüklenemedi!</strong><br>
-                    <small>Hata Detayı: ${error.message}</small><br><br>
-                    <span style="font-size: 0.85rem; color: #374151;">
-                        Kontrol Etmeni Önerdiklerimiz:<br>
-                        1. GitHub deposunda <b>data</b> klasörünün ve içinde <b>days.json</b> dosyasının olduğundan emin ol.<br>
-                        2. Dosya adlarında büyük/küçük harf duyarlılığına dikkat et (örn. Days.json olmasın).<br>
-                        3. GitHub Pages'in son yaptığın değişiklikleri canlıya yansıtması 1-2 dakika sürebilir.
-                    </span>
+                    <small>Hata: ${error.message}</small>
                 </div>`;
         }
     }
@@ -83,9 +72,12 @@ function renderDaySelector(files) {
     selector.innerHTML = '';
 
     files.forEach((file, index) => {
+        // Dosya adından (örn: a100.json) buton ismi türetelim
+        const fileName = file.split('/').pop().replace('.json', '');
+        
         const btn = document.createElement('button');
         btn.className = `day-btn ${index === 0 ? 'active' : ''}`;
-        btn.textContent = `Gün ${index + 1}`;
+        btn.textContent = `Liste ${fileName.toUpperCase()}`;
         btn.onclick = () => {
             document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
@@ -117,7 +109,7 @@ async function loadDayData(file) {
         });
     } catch (err) {
         console.error(`${file} yüklenemedi:`, err);
-        container.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">Gün verileri yüklenirken hata oluştu.</p>`;
+        container.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">Dosya verileri yüklenirken hata oluştu.</p>`;
     }
 }
 
@@ -126,7 +118,6 @@ function createVocabCard(item, currentFile) {
     const wordKey = (item.word || item.term || "").trim().toLowerCase();
     const appearances = globalWordMap[wordKey] || [];
     
-    // Eğer kelime 1'den fazla dosyada/günde geçiyorsa true olur
     const isDuplicate = appearances.length > 1;
 
     const cardDiv = document.createElement('div');
