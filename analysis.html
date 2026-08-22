@@ -428,6 +428,8 @@
         
         let totalFilesCountSum = 0; 
         let totalFilesOccurrencesSum = 0; 
+        let totalUniqueBadgesCount = 0;
+        let totalDupBadgesCount = 0;
 
         globalTableData.forEach((item, index) => {
             totalFilesCountSum += item.filesCount;
@@ -452,11 +454,13 @@
                     </td>
                 </tr>`;
             } else if (state.task === 'kelimeler') {
-                // İlk kayıt Mavi, tekrarlayan diğer kayıtlar Kırmızı
                 let duplicateDetailsHtml = '-';
                 if (item.fileOccurrences && item.fileOccurrences.length > 0) {
                     duplicateDetailsHtml = item.fileOccurrences.map((occ, i) => {
                         let badgeClass = (i === 0) ? 'badge-unique' : 'badge-dup';
+                        if (badgeClass === 'badge-unique') totalUniqueBadgesCount++;
+                        else totalDupBadgesCount++;
+
                         return `<span class="${badgeClass}">${occ.file} (Sıra: ${occ.index})</span>`;
                     }).join(' ');
                 }
@@ -533,6 +537,10 @@
                     </th>
                     <th>
                         <button type="button" class="sort-trigger-btn" onclick="handleSort('fileOccurrences')">Tekrar Ettiği Dosyalar ve Sıraları ${getArrow('fileOccurrences')}</button>
+                        <div style="font-size: 11px; margin-top: 4px; display: flex; gap: 6px; font-weight: normal; align-items: center;">
+                            <span class="badge-unique">Mavi Toplam: ${totalUniqueBadgesCount}</span>
+                            <span class="badge-dup">Kırmızı Toplam: ${totalDupBadgesCount}</span>
+                        </div>
                     </th>
                     <th>
                         <div style="padding: 6px 0; font-weight: bold; font-size: 13px; color: #334155;">Bulunduğu Dosyalar (Top: ${totalFilesOccurrencesSum})</div>
