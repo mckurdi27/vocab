@@ -281,7 +281,6 @@
                 let jsonFileLevel = (data.level && data.level.trim() !== '') ? data.level.toUpperCase().trim() : itemObj.defaultLevel;
 
                 if (state.task === 'hikaye') {
-                    // Tüm dosya içeriğini metne çevirerek tam tarama yapıyoruz (Eksik kelime kalmasın diye)
                     let textToAnalyze = data.story_en && typeof data.story_en === 'string' ? data.story_en : JSON.stringify(data);
                     
                     let cleanStory = textToAnalyze.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, " ").toLowerCase();
@@ -289,7 +288,6 @@
                     
                     wordsArr.forEach(w => {
                         let cleanW = w.trim();
-                        // 1 karakterden uzun ve sayı olmayan her şeyi al
                         if (cleanW.length > 1 && !/^\d+$/.test(cleanW)) {
                             totalCheckedCount++;
                             let finalLevel = jsonFileLevel;
@@ -417,7 +415,13 @@
         const resultArea = document.getElementById('resultArea');
         let tableRows = '';
         
+        let totalFilesCountSum = 0; // Dosya sayısı sütununun toplamı
+        let totalFilesOccurrencesSum = 0; // Bulunduğu dosyalar listesindeki toplam dosya adedi
+
         globalTableData.forEach((item, index) => {
+            totalFilesCountSum += item.filesCount;
+            totalFilesOccurrencesSum += item.filesCount; // Her satırdaki benzersiz dosya sayısını toplar
+
             let fileTagsHtml = item.filesList.split(', ').map(f => `<span class="file-list-tag">${f}</span>`).join(' ');
             
             let levelDisplay = item.level;
@@ -472,7 +476,7 @@
                     <th class="sortable" onclick="handleSort('original')">Hikaye Kelimesi${getArrow('original')}<br><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                     <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                     <th class="sortable" onclick="handleSort('count')">Frekans${getArrow('count')}</th>
-                    <th>Bulunduğu Dosyalar<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                    <th>Bulunduğu Dosyalar (Toplam: ${totalFilesOccurrencesSum})<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                 </tr>`;
         } else if (state.task === 'kelimeler') {
             tableHeaderHtml = `
@@ -482,8 +486,8 @@
                     <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                     <th class="sortable" onclick="handleSort('type')">Tür (Type)${getArrow('type')}</th>
                     <th class="sortable" onclick="handleSort('turkish')">Türkçe Anlamı${getArrow('turkish')}</th>
-                    <th style="text-align: center;" class="sortable" onclick="handleSort('filesCount')">Dosya Sayısı${getArrow('filesCount')}</th>
-                    <th>Bulunduğu Dosyalar<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                    <th style="text-align: center;" class="sortable" onclick="handleSort('filesCount')">Dosya Sayısı (Top: ${totalFilesCountSum})${getArrow('filesCount')}</th>
+                    <th>Bulunduğu Dosyalar (Toplam: ${totalFilesOccurrencesSum})<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                 </tr>`;
         } else {
             tableHeaderHtml = `
@@ -493,16 +497,18 @@
                     <th class="sortable" onclick="handleSort('level')">Seviye${getArrow('level')}<br><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                     <th class="sortable" onclick="handleSort('turkish')">Türkçe Karşılığı${getArrow('turkish')}</th>
                     <th>Örnek Cümle</th>
-                    <th>Bulunduğu Dosyalar<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
+                    <th>Bulunduğu Dosyalar (Toplam: ${totalFilesOccurrencesSum})<br><input type="text" id="f_files" class="filter-input" placeholder="Dosya filtrele..." onkeyup="filterTable()" onclick="event.stopPropagation()"></th>
                 </tr>`;
         }
 
         resultArea.innerHTML = `
             <div class="sticky-summary">
                 <h4>📊 ${state.task.toUpperCase()} Analiz Özeti (${fileCount} Dosya İncelendi)</h4>
-                <div style="display: flex; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; font-size: 13px;">
+                <div style="display: flex; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; font-size: 13px; align-items: center;">
                     <div style="background: #f3f4f6; padding: 6px 10px; border-radius: 6px;">Toplam Taranan Birim: <strong>${totalCheckedCount}</strong></div>
                     <div style="background: #eef2f7; padding: 6px 10px; border-radius: 6px;">Benzersiz Kelime: <strong>${globalTableData.length}</strong></div>
+                    <div style="background: #e0f2fe; color: #0369a1; padding: 6px 10px; border-radius: 6px;">Toplam Dosya Sayısı: <strong>${totalFilesCountSum}</strong></div>
+                    <div style="background: #dbeafe; color: #1e40af; padding: 6px 10px; border-radius: 6px;">Toplam Dosya Kaydı: <strong>${totalFilesOccurrencesSum}</strong></div>
                     <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">A1: <strong>${levelCounts['A1']}</strong></div>
                     <div style="background: #d1fae5; padding: 6px 10px; border-radius: 6px;">A2: <strong>${levelCounts['A2']}</strong></div>
                     <div style="background: #bfdbfe; padding: 6px 10px; border-radius: 6px;">B1: <strong>${levelCounts['B1']}</strong></div>
