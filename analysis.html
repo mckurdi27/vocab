@@ -577,6 +577,9 @@
         let uniqueFilesAllSet = new Set();
         let totalFileSourcesSum = 0;
 
+        let totalUniqueBadgesCount = 0;
+        let totalDupBadgesCount = 0;
+
         globalTableData.forEach((item, index) => {
             let fileListArray = item.filesList.split(', ').map(f => f.trim()).filter(f => f);
             fileListArray.forEach(f => uniqueFilesAllSet.add(f));
@@ -596,6 +599,7 @@
                 if (item.occurrences && item.occurrences.length > 0) {
                     duplicateDetailsHtml = item.occurrences.map((occ, i) => {
                         let badgeClass = (i === 0) ? 'badge-unique' : 'badge-dup';
+                        if (i === 0) totalUniqueBadgesCount++; else totalDupBadgesCount++;
                         return `<span class="${badgeClass}">${occ.file} (Sıra: ${occ.index})</span>`;
                     }).join(' ');
 
@@ -631,6 +635,7 @@
                 if (item.fileOccurrences && item.fileOccurrences.length > 0) {
                     duplicateDetailsHtml = item.fileOccurrences.map((occ, i) => {
                         let badgeClass = (i === 0) ? 'badge-unique' : 'badge-dup';
+                        if (i === 0) totalUniqueBadgesCount++; else totalDupBadgesCount++;
                         return `<span class="${badgeClass}">${occ.file} (Sıra: ${occ.index})</span>`;
                     }).join(' ');
                 }
@@ -646,37 +651,66 @@
             }
         });
 
-        // Tablo altı toplam satırı eklendi
-        let tableFooterHtml = `
-            <tr style="background: #f1f5f9; font-weight: bold; border-top: 2px solid #cbd5e1;">
-                <td colspan="3" style="text-align: right;">TABLO TOPLAMLARI:</td>
-                <td>${(state.task === 'cevir') ? '-' : grandTotalFrequencySum}</td>
-                <td>${grandTotalOccurrencesSum} Tekrar</td>
-                <td>${totalFileSourcesSum} Kaynak Dağılımı</td>
-            </tr>
-        `;
+        // Tablo altı sütun bazlı hizalanmış toplam satırı
+        let tableFooterHtml = '';
+        if (state.task === 'cevir') {
+            let totalLevelSumText = `A1:${levelCounts['A1']} | A2:${levelCounts['A2']} | B1:${levelCounts['B1']} | B2:${levelCounts['B2']} | C1:${levelCounts['C1']} | C2:${levelCounts['C2']}`;
+            tableFooterHtml = `
+                <tr style="background: #f1f5f9; font-weight: bold; border-top: 2px solid #cbd5e1; font-size: 13px;">
+                    <td colspan="2" style="text-align: right;">SÜTUN TOPLAM / ÖZETİ:</td>
+                    <td>${totalLevelSumText}</td>
+                    <td>Toplam Çeviri Kaydı</td>
+                    <td>Örnek Cümleler Arşivi</td>
+                    <td><span style="color: #0369a1;">Mavi (İlk): ${totalUniqueBadgesCount}</span><br><span style="color: #dc2626;">Kırmızı (Tekrar): ${totalDupBadgesCount}</span><br><strong>Toplam: ${grandTotalOccurrencesSum}</strong></td>
+                    <td>${totalFileSourcesSum} Kaynak Dağılımı</td>
+                </tr>
+            `;
+        } else {
+            let totalLevelSumText = `A1:${levelCounts['A1']} | A2:${levelCounts['A2']} | B1:${levelCounts['B1']} | B2:${levelCounts['B2']} | C1:${levelCounts['C1']} | C2:${levelCounts['C2']}`;
+            tableFooterHtml = `
+                <tr style="background: #f1f5f9; font-weight: bold; border-top: 2px solid #cbd5e1; font-size: 13px;">
+                    <td colspan="2" style="text-align: right;">SÜTUN TOPLAM / ÖZETİ:</td>
+                    <td>${totalLevelSumText}</td>
+                    <td>Frekans Toplamı: ${grandTotalFrequencySum}</td>
+                    <td><span style="color: #0369a1;">Mavi (İlk): ${totalUniqueBadgesCount}</span><br><span style="color: #dc2626;">Kırmızı (Tekrar): ${totalDupBadgesCount}</span><br><strong>Toplam: ${grandTotalOccurrencesSum} Tekrar</strong></td>
+                    <td>Toplam Dosya Kaynağı: ${totalFileSourcesSum}</td>
+                </tr>
+            `;
+        }
 
-        let tableHeaderHtml = `
-            <tr>
-                <th style="width:50px;">#</th>
-                <th><button type="button" class="sort-trigger-btn" onclick="handleSort('original')">Kelime ${getArrow('original')}</button><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()"></th>
-                <th><button type="button" class="sort-trigger-btn" onclick="handleSort('level')">Seviye ${getArrow('level')}</button><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()"></th>
-                <th><button type="button" class="sort-trigger-btn" onclick="handleSort('count')">Frekans / Anlam ${getArrow('count')}</button></th>
-                <th>Detay / Tekrar Yerleri</th>
-                <th>Bulunduğu Kaynak</th>
-            </tr>`;
+        let tableHeaderHtml = '';
+        if (state.task === 'cevir') {
+            tableHeaderHtml = `
+                <tr>
+                    <th style="width:50px;">#</th>
+                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('original')">Kelime ${getArrow('original')}</button><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()"></th>
+                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('level')">Seviye ${getArrow('level')}</button><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()"></th>
+                    <th>Türkçe Karşılığı</th>
+                    <th>Örnek Cümle (İngilizce)</th>
+                    <th>Detay / Tekrar Yerleri (Mavi/Kırmızı)</th>
+                    <th>Bulunduğu Kaynak</th>
+                </tr>`;
+        } else {
+            tableHeaderHtml = `
+                <tr>
+                    <th style="width:50px;">#</th>
+                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('original')">Kelime ${getArrow('original')}</button><input type="text" id="f_word" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()"></th>
+                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('level')">Seviye ${getArrow('level')}</button><input type="text" id="f_level" class="filter-input" placeholder="Filtrele..." onkeyup="filterTable()"></th>
+                    <th><button type="button" class="sort-trigger-btn" onclick="handleSort('count')">Frekans ${getArrow('count')}</button></th>
+                    <th>Detay / Tekrar Yerleri (Mavi/Kırmızı)</th>
+                    <th>Bulunduğu Kaynak</th>
+                </tr>`;
+        }
 
         let summaryExtraInfo = "";
         if (state.task === 'hikaye' || state.task === 'kelimeler') {
             summaryExtraInfo = `
                 <div style="background: #e0f2fe; padding: 6px 10px; border-radius: 6px;">Toplam Frekans: <strong>${grandTotalFrequencySum}</strong></div>
-                <div style="background: #fef3c7; padding: 6px 10px; border-radius: 6px;">Toplam Tekrar: <strong>${grandTotalOccurrencesSum}</strong></div>
-                <div style="background: #f3f4f6; padding: 6px 10px; border-radius: 6px;">Toplam Kaynak Tekrarı: <strong>${totalFileSourcesSum}</strong></div>
+                <div style="background: #fef3c7; padding: 6px 10px; border-radius: 6px;">Toplam Tekrar: <strong>${grandTotalOccurrencesSum}</strong> (Mavi: ${totalUniqueBadgesCount} | Kırmızı: ${totalDupBadgesCount})</div>
             `;
         } else {
             summaryExtraInfo = `
-                <div style="background: #fef3c7; padding: 6px 10px; border-radius: 6px;">Toplam Çeviri / Detay Tekrarı: <strong>${grandTotalOccurrencesSum}</strong></div>
-                <div style="background: #f3f4f6; padding: 6px 10px; border-radius: 6px;">Toplam Kaynak Tekrarı: <strong>${totalFileSourcesSum}</strong></div>
+                <div style="background: #fef3c7; padding: 6px 10px; border-radius: 6px;">Toplam Çeviri Detayı: <strong>${grandTotalOccurrencesSum}</strong> (Mavi: ${totalUniqueBadgesCount} | Kırmızı: ${totalDupBadgesCount})</div>
             `;
         }
 
