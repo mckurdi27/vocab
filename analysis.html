@@ -8,8 +8,12 @@
     <script>
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
     </script>
-    <!-- Tesseract.js kütüphanesi kamera/fotoğraf OCR taraması için eklendi -->
+    <!-- Tesseract.js kütüphanesi kamera/fotoğraf OCR taraması için -->
     <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
+    <!-- Mammoth.js kütüphanesi Word (.docx) dosyalarını okumak için eklendi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <!-- SheetJS (xlsx) kütüphanesi Excel dosyalarını okumak için eklendi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
     <style>
         body { font-family: sans-serif; padding: 20px; background: #f9f9f9; color: #1e293b; }
@@ -88,7 +92,7 @@
     <div class="source-tabs">
         <button type="button" class="source-tab-btn active-source" onclick="switchSourceTab(0, this)">📁 1. JSON Arşiv Seçimi</button>
         <button type="button" class="source-tab-btn" onclick="switchSourceTab(1, this)">📷 2. Kamera / Fotoğraf OCR</button>
-        <button type="button" class="source-tab-btn" onclick="switchSourceTab(2, this)">📋 3. Metin Yapıştır / PDF Tara</button>
+        <button type="button" class="source-tab-btn" onclick="switchSourceTab(2, this)">📋 3. Metin / Tüm Dosyalar (PDF, Word, Excel, TXT)</button>
     </div>
 
     <div class="source-panel active-panel" id="panel-json">
@@ -116,14 +120,14 @@
             </div>
             <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 0;">
             <div>
-                <label style="font-weight: bold; font-size: 13px; display: block; margin-bottom: 5px;">B) PDF Dosyası Seç (Çoklu Seçim Yapabilirsiniz):</label>
+                <label style="font-weight: bold; font-size: 13px; display: block; margin-bottom: 5px;">B) Çoklu Dosya Yükle (PDF, Word .docx, Excel .xlsx, TXT):</label>
                 <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                    <!-- multiple özelliği ile birden fazla PDF dosyası aynı anda seçilebilir -->
-                    <input type="file" id="pdfFileInput" accept=".pdf" multiple style="font-size: 12px;">
-                    <label style="font-size: 12px;">Sayfa No: <input type="number" id="pdfPageNumInput" value="1" min="1" style="width: 60px; padding: 4px;"></label>
-                    <button type="button" onclick="handlePdfPageExtract()" style="background: #4f46e5; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; cursor: pointer;">PDF Sayfasını Metne Çevir</button>
+                    <!-- Desteklenen tüm formatlar için çoklu dosya seçimi -->
+                    <input type="file" id="multiFileInput" accept=".pdf,.docx,.xlsx,.txt" multiple style="font-size: 12px;" onchange="handleUniversalFileUpload(this)">
+                    <label style="font-size: 12px;">PDF Sayfa No: <input type="number" id="pdfPageNumInput" value="1" min="1" style="width: 60px; padding: 4px;"></label>
+                    <button type="button" onclick="processAllLoadedFiles()" style="background: #4f46e5; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; cursor: pointer;">Dosyaları Metne Çevir ve Tara</button>
                 </div>
-                <div id="pdfStatus" style="font-size: 12px; color: #4f46e5; margin-top: 5px; font-weight: bold;"></div>
+                <div id="universalFileStatus" style="font-size: 12px; color: #4f46e5; margin-top: 5px; font-weight: bold;"></div>
             </div>
         </div>
     </div>
@@ -243,42 +247,72 @@
         }
     }
 
-    async function handlePdfPageExtract() {
-        const fileInput = document.getElementById('pdfFileInput');
+    function handleUniversalFileUpload(input) {
+        if (input.files && input.files.length > 0) {
+            document.getElementById('universalFileStatus').innerText = `📎 ${input.files.length} dosya seçildi. İşlemek için butona tıklayın.`;
+        }
+    }
+
+    async function processAllLoadedFiles() {
+        const fileInput = document.getElementById('multiFileInput');
         const pageNumInput = document.getElementById('pdfPageNumInput');
-        const statusEl = document.getElementById('pdfStatus');
+        const statusEl = document.getElementById('universalFileStatus');
 
         if (!fileInput.files || fileInput.files.length === 0) {
-            alert("Lütfen önce en az bir PDF dosyası seçin!");
+            alert("Lütfen önce en az bir dosya (PDF, Word, Excel veya TXT) seçin!");
             return;
         }
 
         let targetPageNum = parseInt(pageNumInput.value) || 1;
-        statusEl.innerText = `⏳ Seçilen PDF'ler okunuyor (${targetPageNum}. sayfa)...`;
+        statusEl.innerText = `⏳ Seçilen dosyalar taranıyor ve metne dönüştürülüyor...`;
 
         try {
             let combinedTexts = [];
-            // Çoklu seçilen tüm PDF dosyalarını döngüye alıp metinlerini birleştiriyoruz
+
             for (let i = 0; i < fileInput.files.length; i++) {
                 let file = fileInput.files[i];
-                let arrayBuffer = await file.arrayBuffer();
-                let loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
-                let pdfDoc = await loadingTask.promise;
+                let fName = file.name;
+                let fExt = fName.split('.').pop().toLowerCase();
 
-                if (targetPageNum <= pdfDoc.numPages) {
-                    let page = await pdfDoc.getPage(targetPageNum);
-                    let textContent = await page.getTextContent();
-                    let pageText = textContent.items.map(item => item.str).join(' ');
-                    combinedTexts.push(`--- Dosya: ${file.name} --- \n` + pageText);
-                } else {
-                    combinedTexts.push(`--- Dosya: ${file.name} (Bu PDF toplam ${pdfDoc.numPages} sayfa, bu sayfada içerik yok) ---`);
+                if (fExt === 'txt') {
+                    let textContent = await file.text();
+                    combinedTexts.push(`--- Dosya (TXT): ${fName} ---\n` + textContent);
+                } 
+                else if (fExt === 'docx') {
+                    let arrayBuffer = await file.arrayBuffer();
+                    let result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+                    combinedTexts.push(`--- Dosya (Word): ${fName} ---\n` + result.value);
+                } 
+                else if (fExt === 'xlsx') {
+                    let arrayBuffer = await file.arrayBuffer();
+                    let workbook = XLSX.read(arrayBuffer, { type: 'array' });
+                    let sheetText = "";
+                    workbook.SheetNames.forEach(sheetName => {
+                        let sheet = workbook.Sheets[sheetName];
+                        sheetText += XLSX.utils.sheet_to_csv(sheet) + "\n";
+                    });
+                    combinedTexts.push(`--- Dosya (Excel): ${fName} ---\n` + sheetText);
+                } 
+                else if (fExt === 'pdf') {
+                    let arrayBuffer = await file.arrayBuffer();
+                    let loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+                    let pdfDoc = await loadingTask.promise;
+
+                    if (targetPageNum <= pdfDoc.numPages) {
+                        let page = await pdfDoc.getPage(targetPageNum);
+                        let textContent = await page.getTextContent();
+                        let pageText = textContent.items.map(item => item.str).join(' ');
+                        combinedTexts.push(`--- Dosya (PDF): ${fName} (${targetPageNum}. Sayfa) ---\n` + pageText);
+                    } else {
+                        combinedTexts.push(`--- Dosya (PDF): ${fName} (Bu PDF toplam ${pdfDoc.numPages} sayfa) ---`);
+                    }
                 }
             }
 
             state.customExtractedText = combinedTexts.join('\n\n');
-            statusEl.innerText = `✅ Toplam ${fileInput.files.length} PDF dosyasının ${targetPageNum}. sayfası başarıyla okundu!`;
+            statusEl.innerText = `✅ Toplam ${fileInput.files.length} dosya başarıyla okundu ve metne dönüştürüldü!`;
         } catch (err) {
-            statusEl.innerText = "❌ PDF Okuma Hatası: " + err.message;
+            statusEl.innerText = "❌ Dosya Okuma Hatası: " + err.message;
         }
     }
 
@@ -368,7 +402,7 @@
                     if (textAreaVal) state.customExtractedText = textAreaVal + "\n" + state.customExtractedText;
                 }
                 if (!state.customExtractedText || state.customExtractedText.trim() === "") {
-                    throw new Error("Taranacak metin bulunamadı! Lütfen önce PDF sayfasını metne çevirin veya metin alanına bir şeyler yazın.");
+                    throw new Error("Taranacak metin bulunamadı! Lütfen önce dosya yükleyip metne çevirin ya da metin alanına bir şeyler yazın.");
                 }
 
                 fileCountToProcess = 1;
@@ -384,13 +418,13 @@
 
                         if (!itemTracking[cleanW]) {
                             itemTracking[cleanW] = { 
-                                original: cleanW, count: 0, files: ['Coklu_PDF_Girdisi'], fileOccurrences: [],
+                                original: cleanW, count: 0, files: ['Yuklenen_Dosya_Girdisi'], fileOccurrences: [],
                                 level: finalLevel, jsonLevel: 'Özel', csvMatched: csvMatched,
                                 type: '-', turkish: csvMatched ? globalCsvDictionary[cleanW].turkish : '-'
                             };
                         }
                         itemTracking[cleanW].count++;
-                        itemTracking[cleanW].fileOccurrences.push({ file: 'Coklu_PDF_Girdisi', index: wordIndex + 1 });
+                        itemTracking[cleanW].fileOccurrences.push({ file: 'Yuklenen_Dosya_Girdisi', index: wordIndex + 1 });
                     }
                 });
             } else {
@@ -538,7 +572,7 @@
                         original: info.original, level: lvl, jsonLevel: info.jsonLevel, csvMatched: info.csvMatched,
                         type: info.type || '-', turkish: info.turkish || '-', count: info.count || 1,
                         example_en: info.example_en || '', filesCount: info.files ? info.files.length : 1,
-                        filesList: info.files ? info.files.sort().join(', ') : 'Coklu_PDF_Girdisi',
+                        filesList: info.files ? info.files.sort().join(', ') : 'Yuklenen_Dosya_Girdisi',
                         fileOccurrences: info.fileOccurrences || [],
                         occurrences: info.fileOccurrences ? info.fileOccurrences.map(fo => ({ file: fo.file, index: fo.index, turkish: info.turkish, example_en: info.example_en })) : []
                     });
@@ -820,7 +854,7 @@
             <div class="table-container">
                 <table id="analysisTable">
                     <thead>${tableHeaderHtml}</thead>
-                    <tbody>${tableRows}</tbody>
+                    <body>${tableRows}</tbody>
                     <tfoot>${tableFooterHtml}</tfoot>
                 </table>
             </div>
