@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Gelişmiş Dil Analiz Paneli</title>
+    <!-- Orijinal stillerinizi korudum -->
     <style>
         body { font-family: sans-serif; padding: 20px; background: #f9f9f9; color: #1e293b; }
         .header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .btn-group { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
-        button { padding: 10px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
+        button { padding: 10px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; background: #fff; font-weight: 500; }
         .active-btn { background: #27ae60 !important; color: white; border: none; }
         .table-container { max-height: 480px; overflow-y: auto; margin-top: 10px; border: 1px solid #ddd; border-radius: 6px; }
-        table { width: 100%; border-collapse: collapse; }
-        th { background: #f1f5f9; position: sticky; top: 0; z-index: 10; padding: 10px; text-align: left; }
-        td { border: 1px solid #ddd; padding: 8px; font-size: 14px; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
+        th { background: #f1f5f9; position: sticky; top: 0; z-index: 10; }
         .badge-diff { background: #fee2e2; color: #991b1b; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
-        .file-list-tag { background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin: 1px; }
+        .file-list-tag { background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-family: monospace; }
         .filter-input { width: 90%; padding: 4px; font-size: 12px; border: 1px solid #cbd5e1; margin-top: 4px; }
+        .sticky-summary { position: sticky; top: 0; z-index: 20; background: #ffffff; padding: 10px 0; border-bottom: 2px solid #e2e8f0; }
     </style>
 </head>
 <body>
@@ -26,31 +28,30 @@
 </div>
 
 <div class="section">
-    <h3>1. Ayarlar</h3>
+    <h3>1. Kaynak Seçimi ve Referans CSV</h3>
     <select id="jsonSelect"><option value="ALL">📁 Tüm Dosyaları Tara</option></select>
-    <div style="margin-top: 15px;">
-        <label><strong>📌 Referans CSV Sözlüğü Yükle:</strong></label>
+    <div style="margin-top: 10px;">
         <input type="file" id="csvFile" accept=".csv">
-        <span id="csvStatus" style="font-size: 12px; color: #666;">(Hazır)</span>
+        <span id="csvStatus">Sistem hazır.</span>
     </div>
 </div>
 
 <div class="section">
-    <h3>2. Analiz</h3>
-    <button onclick="runAnalysis()" style="background: #4f46e5; color: white; padding: 12px 20px; border: none; border-radius: 6px;">🚀 Analizi Çalıştır</button>
+    <h3>2. İşlem Türü</h3>
+    <div class="btn-group">
+        <button class="active-btn">📋 Kelime Listesi Analizi</button>
+    </div>
+    <button onclick="runAnalysis()" style="background: #4f46e5; color: white; padding: 12px 20px; border: none; border-radius: 6px; cursor:pointer;">🚀 Analizi Çalıştır</button>
+    <div id="status" style="margin-top:10px;"></div>
+</div>
+
+<div class="section">
+    <h3>3. Analiz Sonucu</h3>
     <div id="resultArea"></div>
 </div>
 
 <script>
-    const fileConfigs = [
-        { prefix: 'a', start: 101, end: 150, label: 'A1' },
-        { prefix: 'a', start: 201, end: 250, label: 'A2' },
-        { prefix: 'b', start: 101, end: 150, label: 'B1' },
-        { prefix: 'b', start: 201, end: 250, label: 'B2' },
-        { prefix: 'c', start: 101, end: 150, label: 'C1' },
-        { prefix: 'c', start: 201, end: 250, label: 'C2' }
-    ];
-
+    const fileConfigs = [{ prefix: 'a', start: 101, end: 150, label: 'A1' }, { prefix: 'a', start: 201, end: 250, label: 'A2' }, { prefix: 'b', start: 101, end: 150, label: 'B1' }, { prefix: 'b', start: 201, end: 250, label: 'B2' }, { prefix: 'c', start: 101, end: 150, label: 'C1' }, { prefix: 'c', start: 201, end: 250, label: 'C2' }];
     let globalCsvDictionary = {};
     let globalTableData = [];
 
@@ -65,12 +66,12 @@
                     globalCsvDictionary[parts[0].trim().toLowerCase()] = { cefr: parts[1].trim().toUpperCase(), turkish: parts.slice(2).join(',').trim() };
                 }
             });
-            document.getElementById('csvStatus').innerText = "✅ CSV Başarıyla yüklendi.";
+            document.getElementById('csvStatus').innerText = "✅ CSV Yüklendi.";
         };
         reader.readAsText(e.target.files[0], 'UTF-8');
     });
 
-    // Başlangıçta Dropdown'u Doldur
+    // Dropdown doldurma
     const selectEl = document.getElementById('jsonSelect');
     fileConfigs.forEach(cfg => {
         let optgroup = document.createElement('optgroup');
@@ -85,52 +86,34 @@
     });
 
     async function runAnalysis() {
-        const resultArea = document.getElementById('resultArea');
-        resultArea.innerHTML = "Analiz ediliyor...";
-        
         let itemTracking = {};
-        // Örnek: "ALL" seçilirse tüm dosyaları döner
         for (let cfg of fileConfigs) {
             for (let i = cfg.start; i <= cfg.end; i++) {
                 try {
                     let res = await fetch(`data/${cfg.prefix}${i}.json`);
                     if (!res.ok) continue;
-                    let data = await res.json();
-                    
-                    data.words.forEach(item => {
-                        let cleanW = item.word.toLowerCase().trim();
-                        let csvEntry = globalCsvDictionary[cleanW];
-                        
-                        if (!itemTracking[cleanW]) {
-                            itemTracking[cleanW] = {
-                                word: item.word,
-                                level: csvEntry ? csvEntry.cefr : cfg.label,
-                                originalJsonLevel: cfg.label,
-                                csvMatched: !!csvEntry,
-                                turkish: csvEntry ? csvEntry.turkish : item.turkish,
-                                files: [`${cfg.prefix}${i}.json`]
-                            };
-                        } else {
-                            itemTracking[cleanW].files.push(`${cfg.prefix}${i}.json`);
+                    let json = await res.json();
+                    json.words.forEach(item => {
+                        let w = item.word.toLowerCase().trim();
+                        let csv = globalCsvDictionary[w];
+                        if (!itemTracking[w]) {
+                            itemTracking[w] = { word: item.word, level: csv ? csv.cefr : cfg.label, jsonLevel: cfg.label, turkish: csv ? csv.turkish : item.turkish, files: [] };
                         }
+                        itemTracking[w].files.push(`${cfg.prefix}${i}.json`);
                     });
                 } catch(e) {}
             }
         }
-        
         globalTableData = Object.values(itemTracking);
         renderTable();
     }
 
     function renderTable() {
-        let rows = globalTableData.map((item, index) => `
-            <tr>
-                <td>${index + 1}</td>
+        let rows = globalTableData.map((item, idx) => `
+            <tr data-files="${item.files.join(',')}">
+                <td>${idx+1}</td>
                 <td><strong>${item.word}</strong></td>
-                <td>
-                    ${item.level} 
-                    ${(item.csvMatched && item.level !== item.originalJsonLevel) ? `<span class="badge-diff">JSON: ${item.originalJsonLevel}⚠️</span>` : ''}
-                </td>
+                <td>${item.level} ${item.level !== item.jsonLevel ? `<span class="badge-diff">JSON: ${item.jsonLevel}⚠️</span>` : ''}</td>
                 <td>${item.turkish}</td>
                 <td>${item.files.map(f => `<span class="file-list-tag">${f}</span>`).join(' ')}</td>
             </tr>
@@ -138,10 +121,8 @@
 
         document.getElementById('resultArea').innerHTML = `
             <div class="table-container">
-                <table>
-                    <thead>
-                        <tr><th>#</th><th>Kelime</th><th>Seviye</th><th>Türkçe</th><th>Dosyalar</th></tr>
-                    </thead>
+                <table id="analysisTable">
+                    <thead><tr><th>#</th><th>Kelime</th><th>Seviye</th><th>Türkçe</th><th>Dosyalar</th></tr></thead>
                     <tbody>${rows}</tbody>
                 </table>
             </div>
