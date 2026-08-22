@@ -112,17 +112,18 @@ above,A1,yukarıda
 ...`
     };
 
+    // Güncellenmiş dosya yapılandırması (101-150 ve 201-250 aralıkları, 50'şer kademe)
+    const fileConfigs = [
+        { prefix: 'a', start: 101, end: 150, label: 'A1' },
+        { prefix: 'a', start: 201, end: 250, label: 'A2' },
+        { prefix: 'b', start: 101, end: 150, label: 'B1' },
+        { prefix: 'b', start: 201, end: 250, label: 'B2' },
+        { prefix: 'c', start: 101, end: 150, label: 'C1' },
+        { prefix: 'c', start: 201, end: 250, label: 'C2' }
+    ];
+
     window.addEventListener('DOMContentLoaded', () => {
         const selectEl = document.getElementById('jsonSelect');
-        
-        const fileConfigs = [
-            { prefix: 'a1', start: 01, end: 50, label: 'a1' },
-            { prefix: 'a2', start: 01, end: 50, label: 'a2' },
-            { prefix: 'b1', start: 01, end: 50, label: 'b1' },
-            { prefix: 'b2', start: 01, end: 50, label: 'b2' },
-            { prefix: 'c1', start: 01, end: 50, label: 'c1' },
-            { prefix: 'c2', start: 01, end: 50, label: 'c2' }
-        ];
 
         fileConfigs.forEach(cfg => {
             let optgroup = document.createElement('optgroup');
@@ -143,7 +144,7 @@ above,A1,yukarıda
 
     let state = { source: 'site', task: 'kelimeler' };
     let globalTableData = [];
-    let fileCountToProcess = 1; // Sayaç koruması
+    let fileCountToProcess = 1;
 
     function setSource(s, btn) {
         state.source = s;
@@ -243,15 +244,6 @@ above,A1,yukarıda
             let rawJsonDataArray = [];
             const selectedTarget = document.getElementById('jsonSelect').value;
 
-            const fileConfigs = [
-                { prefix: 'a1', start: 01, end: 50 },
-                { prefix: 'a2', start: 01, end: 50 },
-                { prefix: 'b1', start: 01, end: 50 },
-                { prefix: 'b2', start: 01, end: 50 },
-                { prefix: 'c1', start: 01, end: 50 },
-                { prefix: 'c2', start: 01, end: 50 }
-            ];
-
             if (selectedTarget === "ALL") {
                 statusDiv.innerText = "data/ klasöründeki tüm seviyeler taranıyor...";
                 for (let cfg of fileConfigs) {
@@ -281,7 +273,7 @@ above,A1,yukarıda
                 throw new Error("Seçilen JSON dosyası(arı) bulunamadı veya boş.");
             }
 
-            fileCountToProcess = rawJsonDataArray.length; // Dosya sayısını dinamik olarak güncelliyoruz
+            fileCountToProcess = rawJsonDataArray.length;
             let itemTracking = {};
             let totalCheckedCount = 0;
 
