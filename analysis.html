@@ -88,14 +88,14 @@
         </div>
 
         <div class="csv-checkbox-group">
-            <label><input type="checkbox" name="csvFile" value="analiz/cefr.csv"> cefr.csv (Tümü)</label>
-            <label><input type="checkbox" name="csvFile" value="analiz/cefr_pre.csv"> cefr_pre.csv</label>
-            <label><input type="checkbox" name="csvFile" value="analiz/cefr_a1.csv"> CEFR A1</label>
-            <label><input type="checkbox" name="csvFile" value="analiz/cefr_a2.csv"> CEFR A2</label>
-            <label><input type="checkbox" name="csvFile" value="analiz/cefr_b1.csv"> CEFR B1</label>
-            <label><input type="checkbox" name="csvFile" value="analiz/cefr_b2.csv"> CEFR B2</label>
-            <label><input type="checkbox" name="csvFile" value="analiz/cefr_c1.csv"> CEFR C1</label>
-            <label><input type="checkbox" name="csvFile" value="analiz/cefr_c2.csv"> CEFR C2</label>
+            <label><input type="checkbox" name="csvFile" value="cefr.csv"> cefr.csv (Tümü)</label>
+            <label><input type="checkbox" name="csvFile" value="cefr_pre.csv"> cefr_pre.csv</label>
+            <label><input type="checkbox" name="csvFile" value="cefra1.csv"> CEFR A1</label>
+            <label><input type="checkbox" name="csvFile" value="cefra2.csv"> CEFR A2</label>
+            <label><input type="checkbox" name="csvFile" value="cefrb1.csv"> CEFR B1</label>
+            <label><input type="checkbox" name="csvFile" value="cefrb2.csv"> CEFR B2</label>
+            <label><input type="checkbox" name="csvFile" value="cefrc1.csv"> CEFR C1</label>
+            <label><input type="checkbox" name="csvFile" value="cefrc2.csv"> CEFR C2</label>
         </div>
     </div>
     <div id="csvSourceDetails" style="font-size: 13px; color: #666; margin-top: 5px;">Seçilen CSV: Belirtilmedi</div>
@@ -141,7 +141,6 @@
             }
         });
 
-        // Checkbox değişimlerini dinle ve bilgi metnini güncelle
         document.querySelectorAll('input[name="csvFile"]').forEach(cb => {
             cb.addEventListener('change', updateCsvSelectionInfo);
         });
@@ -217,7 +216,6 @@
         try {
             let combinedCsvText = "";
 
-            // İşaretlenen tüm CSV dosyalarını sırayla indirip içeriğini birleştiriyoruz
             for (let fPath of checkedCsvs) {
                 try {
                     const res = await fetch(fPath);
@@ -236,7 +234,7 @@
             const rows = combinedCsvText.split(/\r?\n/);
             
             for (let row of rows) {
-                if (!row.trim()) continue;
+                if (!row.trim() || row.includes("Headword")) continue;
                 let parts = [];
                 let inQuotes = false;
                 let currentField = '';
