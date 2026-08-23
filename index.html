@@ -293,35 +293,7 @@
                             }
                         }
 
-                        card.className = cardClass;
-
-                        card.innerHTML = `
-                            <div class="card-top-row">
-                                <div class="word-main-info">
-                                    <span class="word-title">${wordText}</span>
-                                    ${statusIconHtml}
-                                </div>
-                                <span class="word-badge">${badgeText}</span>
-                            </div>
-                            <div class="word-translation">${translationText}</div>
-                            
-                            ${exampleEn ? `<div class="sentence-box"><b>EN:</b> ${exampleEn}</div>` : ''}
-                            ${exampleTr ? `<div class="sentence-box"><b>TR:</b> ${exampleTr}</div>` : ''}
-
-                            ${relatedVerbs ? `
-                            <div class="related-verbs">
-                                <b>İlişkili Fiiller:</b> ${Array.isArray(relatedVerbs) ? relatedVerbs.join(', ') : relatedVerbs}
-                            </div>` : ''}
-                        `;
-                        contentDiv.appendChild(card);
-                    });
-                } else {
-                    contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu dosyada kelime bulunamadı.</p>';
-                }
-            } catch (err) {
-                contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#94a3b8;">Veriler yüklenirken bir hata oluştu.</p>';
-            }
-        }
+                        
 
     </script>
 </body>
