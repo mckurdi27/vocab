@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     generateDayOptions();
 });
 
-// Seviye seçildiğinde dosya listesini oluşturan fonksiyon
+// Seviye seçildiğinde Tümü ve 100-150 arası dosya listesini oluşturan fonksiyon
 function generateDayOptions() {
     const level = document.getElementById('levelSelect').value;
     const daySelect = document.getElementById('daySelect');
@@ -12,14 +12,18 @@ function generateDayOptions() {
     
     daySelect.innerHTML = ""; 
     
-    let maxFiles = 51; 
+    // Tümü seçeneği
+    const allOpt = document.createElement('option');
+    allOpt.value = 'all';
+    allOpt.innerHTML = 'Tümü';
+    daySelect.appendChild(allOpt);
     
-    for(let i = 1; i <= maxFiles; i++) {
-        const num = i.toString().padStart(2, '0');
-        const fileName = `${level}${num}`;
+    // 100'den 150'ye kadar olan dosyalar (Dosya kelimesi olmadan)
+    for(let i = 100; i <= 150; i++) {
+        const fileName = `${level}${i}`; // Örn: a1100, a1101 ... a1150
         const opt = document.createElement('option');
         opt.value = fileName;
-        opt.innerHTML = `${level.toUpperCase()} - ${i}. Dosya (${fileName})`;
+        opt.innerHTML = `${level.toUpperCase()} - ${i} (${fileName})`;
         daySelect.appendChild(opt);
     }
     loadData();
