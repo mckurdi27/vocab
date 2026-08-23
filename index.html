@@ -6,7 +6,7 @@
     <title>Kelime ve Soru Bankası</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Ana Konteyner ve Genel Düzen[span_1](start_span)[span_1](end_span) */
+        /* Ana Konteyner ve Genel Düzen */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #f8fafc;
@@ -16,12 +16,12 @@
         }
 
         .container {
-            max-width: 1150px;
+            max-width: 1000px;
             margin: 20px auto;
             padding: 0 15px;
         }
 
-        /* Üst Kontrol Paneli - Modern ve Uyumlu Tasarım[span_2](start_span)[span_2](end_span) */
+        /* Üst Kontrol Paneli - Modern ve Uyumlu Tasarım */
         .header {
             background: #ffffff;
             border: 1px solid #e2e8f0;
@@ -49,7 +49,7 @@
         .analysis-btn {
             background-color: #2563eb;
             color: white;
-            padding: 8px 14px;
+            padding: 8px 16px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
@@ -66,13 +66,6 @@
             transform: translateY(-1px);
         }
 
-        .analysis-btn-custom {
-            background-color: #0f766e;
-        }
-        .analysis-btn-custom:hover {
-            background-color: #115e59;
-        }
-
         .selectors-wrapper {
             display: flex;
             align-items: center;
@@ -80,7 +73,7 @@
             flex-wrap: wrap;
         }
 
-        /* Seçim Kutuları[span_3](start_span)[span_3](end_span) */
+        /* Seçim Kutuları - Butonlarla Birebir Aynı ve Belirgin Çerçeve */
         .selectors-wrapper select {
             background-color: #eff6ff;
             border: 1px solid #bfdbfe;
@@ -101,7 +94,7 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
 
-        /* Navigasyon Butonları[span_4](start_span)[span_4](end_span) */
+        /* Navigasyon Butonları */
         .nav-arrow-btn {
             background-color: #eff6ff;
             border: 1px solid #bfdbfe;
@@ -118,131 +111,18 @@
             background-color: #dbeafe;
             border-color: #93c5fd;
         }
-
-        /* Sahne Banner Alanı[span_5](start_span)[span_5](end_span) */
-        .scene-banner {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: white;
-            border-radius: 12px;
-            padding: 18px 22px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
-        }
-
-        .scene-banner h3 {
-            margin: 0 0 6px 0;
-            font-size: 1.25rem;
-        }
-
-        .scene-meta {
-            font-size: 13px;
-            opacity: 0.9;
-        }
-
-        /* Kelime Kartları Grid Yapısı[span_6](start_span)[span_6](end_span) */
-        .word-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 15px;
-        }
-
-        .vocab-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            position: relative;
-            border: 1px solid #e2e8f0;
-            transition: transform 0.2s;
-        }
-
-        .vocab-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Tekrar Durumlarına Göre Arka Plan Renkleri */
-        .vocab-card.repeat-first {
-            background-color: #fdf4ff; /* 🌸 Çiçek: Tekrarlı ama ilk kez kullanıldığı dosya */
-            border-color: #f5d0fe;
-        }
-
-        .vocab-card.repeat-later {
-            background-color: #fffbeb; /* 🔥 Alev: Daha önce de başka dosyada kullanılmıştı */
-            border-color: #fde68a;
-        }
-
-        .card-top-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 4px;
-        }
-
-        .word-main-info {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .word-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #b91c1c;
-        }
-
-        .status-icon {
-            font-size: 1rem;
-            margin-left: 4px;
-            cursor: help;
-        }
-
-        .word-badge {
-            background-color: #fef3c7;
-            color: #92400e;
-            font-size: 10px;
-            font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 4px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .word-translation {
-            color: #1e293b;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-            font-weight: bold;
-        }
-
-        .sentence-box {
-            background: #f8fafc;
-            border-radius: 6px;
-            padding: 8px 10px;
-            margin-bottom: 6px;
-            font-size: 13px;
-            border: 1px solid #f1f5f9;
-        }
-
-        .related-verbs {
-            font-size: 12px;
-            color: #64748b;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 8px;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Üst Seçim ve Kontrol Paneli[span_7](start_span)[span_7](end_span) -->
+        <!-- Üst Seçim ve Kontrol Paneli -->
         <header class="header">
             <div class="header-top">
                 <h2>Kelime Çalışma Paneli</h2>
 
                 <div class="selectors-wrapper">
-                    <!-- Seviye ve Dosya Seçimleri Yan Yana[span_8](start_span)[span_8](end_span) -->
+                    <!-- Seviye ve Dosya Seçimleri Yan Yana -->
                     <select id="levelSelect" onchange="generateDayOptions()">
                         <option value="a1">A1 Seviyesi</option>
                         <option value="a2">A2 Seviyesi</option>
@@ -254,238 +134,44 @@
 
                     <select id="daySelect" onchange="loadData()"></select>
 
-                    <!-- Önceki ve Sonraki Butonları Yan Yana[span_9](start_span)[span_9](end_span) -->
+                    <!-- Önceki ve Sonraki Butonları Yan Yana -->
                     <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
                     <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
 
-                    <!-- İki Analiz Sayfasına Yönlendiren Butonlar -->
-                    <a href="analiz.html" class="analysis-btn analysis-btn-custom">📊 Mükerrer Analiz</a>
-                    <a href="analysis.html" class="analysis-btn">📈 Genel Analiz</a>
+                    <!-- Analiz Sayfasına Yönlendiren Buton -->
+                    <a href="analysis.html" class="analysis-btn">📊 Analiz Sayfası</a>
                 </div>
             </div>
         </header>
 
-        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı[span_10](start_span)[span_10](end_span) -->
+        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı (Kelimelerin Üstünde) -->
         <div id="sceneBanner" class="scene-banner">
             <h3>Yükleniyor...</h3>
         </div>
 
-        <!-- İçerik Alanı[span_11](start_span)[span_11](end_span) -->
+        <!-- İçerik Alanı -->
         <main id="content" class="word-grid">
             <p>Veriler yükleniyor...</p>
         </main>
     </div>
 
+    <script src="app.js"></script>
     <script>
-        let fileIndexMap = {};
-        let globalWordFileMap = {};
-
-        window.addEventListener('DOMContentLoaded', () => {
-            initFileIndices();
-            generateDayOptions();
-        });
-
-        function getAllPossibleFiles() {
-            let files = [];
-            ['a', 'b', 'c'].forEach(letter => {
-                for (let i = 0; i <= 50; i++) {
-                    files.push(`data/${letter}${100 + i}.json`);
-                }
-                for (let i = 0; i <= 50; i++) {
-                    files.push(`data/${letter}${200 + i}.json`);
-                }
-            });
-            return files;
-        }
-
-        function initFileIndices() {
-            const allFiles = getAllPossibleFiles();
-            allFiles.forEach((f, idx) => {
-                fileIndexMap[f] = idx;
-            });
-        }
-
-        // Tüm dosyaları tarayıp kelimelerin kronolojik sıralamasını çıkaran fonksiyon
-        async function buildGlobalWordMap() {
-            const files = getAllPossibleFiles();
-            globalWordFileMap = {};
-
-            for (const file of files) {
-                try {
-                    const res = await fetch(file);
-                    if (!res.ok) continue;
-                    const data = await res.json();
-                    const words = data.words || data.vocabulary || data;
-
-                    if (Array.isArray(words)) {
-                        words.forEach(item => {
-                            const wordKey = (item.word || item.term || "").trim();
-                            if (!wordKey) return;
-                            const lowerKey = wordKey.toLowerCase();
-                            
-                            if (!globalWordFileMap[lowerKey]) {
-                                globalWordFileMap[lowerKey] = [];
-                            }
-                            if (!globalWordFileMap[lowerKey].includes(file)) {
-                                globalWordFileMap[lowerKey].push(file);
-                            }
-                        });
-                    }
-                } catch (err) {}
-            }
-
-            // Dosya listesini kronolojik sıraya göre düzenle
-            Object.keys(globalWordFileMap).forEach(key => {
-                globalWordFileMap[key].sort((a, b) => {
-                    return (fileIndexMap[a] || 0) - (fileIndexMap[b] || 0);
-                });
-            });
-        }
-
-        // Seviye değişiminde dosya seçeneklerini yenile[span_12](start_span)[span_12](end_span)
-        function generateDayOptions() {
-            const level = document.getElementById('levelSelect').value;
-            let prefix = 'a';
-            let baseNum = 100;
-
-            if (level === 'a1') { prefix = 'a'; baseNum = 100; }
-            else if (level === 'a2') { prefix = 'a'; baseNum = 200; }
-            else if (level === 'b1') { prefix = 'b'; baseNum = 100; }
-            else if (level === 'b2') { prefix = 'b'; baseNum = 200; }
-            else if (level === 'c1') { prefix = 'c'; baseNum = 100; }
-            else if (level === 'c2') { prefix = 'c'; baseNum = 200; }
-
-            const select = document.getElementById('daySelect');
-            select.innerHTML = '';
-            
-            for (let i = 0; i <= 50; i++) {
-                const filePath = `data/${prefix}${baseNum + i}.json`;
-                const fileName = `${prefix}${baseNum + i}`.toUpperCase();
-                const option = document.createElement('option');
-                option.value = filePath;
-                option.textContent = `${level.toUpperCase()} - Dosya ${baseNum + i} (${fileName.toLowerCase()})`;
-                select.appendChild(option);
-            }
-
-            if (Object.keys(globalWordFileMap).length === 0) {
-                document.getElementById('content').innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#2563eb;">Kelime veri tabanı analiz ediliyor, lütfen bekleyin...</p>';
-                buildGlobalWordMap().then(() => {
-                    loadData();
-                });
-            } else {
-                loadData();
-            }
-        }
-
-        // Dosya listesinde bir sonraki öğeye geçiş[span_13](start_span)[span_13](end_span)
+        // Dosya listesinde bir sonraki öğeye geçiş
         function nextFile() {
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex < select.options.length - 1) {
                 select.selectedIndex++;
-                loadData(); 
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
         }
 
-        // Dosya listesinde bir önceki öğeye geçiş[span_14](start_span)[span_14](end_span)
+        // Dosya listesinde bir önceki öğeye geçiş
         function prevFile() {
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex > 0) {
                 select.selectedIndex--;
-                loadData(); 
-            }
-        }
-
-        // Veriyi ve kelimeleri yükleyip 3 aşamalı ikon mantığını işleme
-        async function loadData() {
-            const select = document.getElementById('daySelect');
-            if (!select || !select.value) return;
-            const file = select.value;
-            const contentDiv = document.getElementById('content');
-            const bannerDiv = document.getElementById('sceneBanner');
-
-            contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b;">Yükleniyor...</p>';
-
-            try {
-                const res = await fetch(file);
-                if (!res.ok) {
-                    contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#94a3b8;">Bu dosya henüz oluşturulmamış.</p>';
-                    bannerDiv.innerHTML = '<h3>Dosya Bulunamadı</h3><div class="scene-meta">Toplam Kelime: 0</div>';
-                    return;
-                }
-
-                const data = await res.json();
-                const levelVal = document.getElementById('levelSelect').value.toUpperCase();
-                const fileNameStr = file.split('/').pop().replace('.json', '').toUpperCase();
-                const wordsList = data.words || data.vocabulary || data;
-
-                bannerDiv.innerHTML = `
-                    <h3>${data.sceneTitle || data.title || `Sahne / Dosya: ${fileNameStr}`}</h3>
-                    <div class="scene-meta">SEVİYE: ${levelVal} | Toplam Kelime: ${Array.isArray(wordsList) ? wordsList.length : 0}</div>
-                `;
-
-                contentDiv.innerHTML = '';
-
-                if (Array.isArray(wordsList) && wordsList.length > 0) {
-                    wordsList.forEach(item => {
-                        const wordText = item.word || item.term || '';
-                        const translationText = item.translation || item.meaning || '';
-                        const badgeText = item.type || item.badge || 'VERB';
-                        const exampleEn = item.enExample || item.exampleEn || '';
-                        const exampleTr = item.trExample || item.exampleTr || '';
-                        const relatedVerbs = item.relatedVerbs || item.iliski || '';
-
-                        const lowerKey = wordText.trim().toLowerCase();
-                        const fileList = globalWordFileMap[lowerKey] || [file];
-                        const count = fileList.length;
-
-                        const card = document.createElement('div');
-                        let statusIconHtml = '';
-                        let cardClass = 'vocab-card';
-
-                        // 3 Aşamalı İkon ve Sınıf Mantığı
-                        if (count === 1) {
-                            // 🌟 Yıldız: Mükerrer değil, sadece bu dosyada bir defa geçmiş.
-                            statusIconHtml = '<span class="status-icon" title="Benzersiz Kelime (Sadece bu dosyada var)">🌟</span>';
-                        } else {
-                            const firstFile = fileList[0];
-                            if (firstFile === file) {
-                                // 🌸 Çiçek: Tekrarlı ama ilk defa bu dosyada kullanılmış (İleride tekrar edecek).
-                                cardClass += ' repeat-first';
-                                statusIconHtml = `<span class="status-icon" title="Tekrarlı Kelime - İlk defa bu dosyada kullanıldı (${count} dosyada geçecek)">🌸</span>`;
-                            } else {
-                                // 🔥 Alev: Tekrarlı ve bundan önce de başka dosyalarda kullanılmıştı.
-                                cardClass += ' repeat-later';
-                                statusIconHtml = `<span class="status-icon" title="Tekrarlı Kelime - Daha önce de kullanılmıştı (${count} dosyada geçiyor)">🔥</span>`;
-                            }
-                        }
-
-                        card.className = cardClass;
-
-                        card.innerHTML = `
-                            <div class="card-top-row">
-                                <div class="word-main-info">
-                                    <span class="word-title">${wordText}</span>
-                                    ${statusIconHtml}
-                                </div>
-                                <span class="word-badge">${badgeText}</span>
-                            </div>
-                            <div class="word-translation">${translationText}</div>
-                            
-                            ${exampleEn ? `<div class="sentence-box"><b>EN:</b> ${exampleEn}</div>` : ''}
-                            ${exampleTr ? `<div class="sentence-box"><b>TR:</b> ${exampleTr}</div>` : ''}
-
-                            ${relatedVerbs ? `
-                            <div class="related-verbs">
-                                <b>İlişkili Fiiller:</b> ${Array.isArray(relatedVerbs) ? relatedVerbs.join(', ') : relatedVerbs}
-                            </div>` : ''}
-                        `;
-                        contentDiv.appendChild(card);
-                    });
-                } else {
-                    contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu dosyada kelime bulunamadı.</p>';
-                }
-            } catch (err) {
-                contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#94a3b8;">Veriler yüklenirken bir hata oluştu.</p>';
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
         }
     </script>
