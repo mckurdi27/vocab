@@ -1,344 +1,189 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelime ve Soru Bankası</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Ana Konteyner ve Genel Düzen */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-
-        /* Üst Kontrol Paneli */
-        .header {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 16px 20px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-            margin-bottom: 24px;
-        }
-
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .header-top h2 {
-            margin: 0;
-            font-size: 1.25rem;
-            color: #0f172a;
-            font-weight: 700;
-        }
-
-        /* Tüm Butonlar Mavi Tasarım Dilinde Sabitlendi */
-        .analysis-btn {
-            background-color: #2563eb;
-            color: white;
-            padding: 8px 16px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .analysis-btn:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-1px);
-        }
-
-        .selectors-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .selectors-wrapper select {
-            background-color: #eff6ff;
-            border: 1px solid #bfdbfe;
-            color: #1d4ed8;
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            outline: none;
-            cursor: pointer;
-        }
-
-        .selectors-wrapper select:hover, 
-        .selectors-wrapper select:focus {
-            background-color: #dbeafe;
-            border-color: #93c5fd;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-        }
-
-        .nav-arrow-btn {
-            background-color: #eff6ff;
-            border: 1px solid #bfdbfe;
-            color: #1d4ed8;
-            padding: 8px 14px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-
-        .nav-arrow-btn:hover {
-            background-color: #dbeafe;
-            border-color: #93c5fd;
-        }
-
-        /* Kelime Grid ve Kart Tasarımları */
-        .word-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-        }
-
-        .word-card {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 16px;
-            position: relative;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: all 0.2s ease;
-        }
-
-        /* 1. Özgün/Benzersiz Kelime -> Yeşil Tema */
-        .word-card.unique-word {
-            background-color: #f0fdf4;
-            border-color: #bbf7d0;
-            border-left: 4px solid #22c55e;
-        }
-
-        /* 2. Tekrarlı - İlk Geçiş -> Mavi Tema */
-        .word-card.repeat-first {
-            background-color: #f8fafc;
-            border-left: 4px solid #2563eb;
-        }
-
-        /* 3. Tekrarlı - Sonraki Geçişler (2, 3...) -> Kırmızı Tema */
-        .word-card.repeat-later {
-            background-color: #fef2f2;
-            border-color: #fecaca;
-            border-left: 4px solid #ef4444;
-        }
-
-        .status-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 6px;
-        }
-
-        .word-card.unique-word .status-badge { background: #dcfce7; color: #166534; }
-        .word-card.repeat-first .status-badge { background: #dbeafe; color: #1e40af; }
-        .word-card.repeat-later .status-badge { background: #fee2e2; color: #991b1b; }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <!-- Üst Seçim ve Kontrol Paneli -->
-        <header class="header">
-            <div class="header-top">
-                <h2>Kelime Çalışma Paneli</h2>
-
-                <div class="selectors-wrapper">
-                    <!-- Seviye ve Dosya Seçimleri -->
-                    <select id="levelSelect" onchange="generateDayOptions()">
-                        <option value="a1">A1 Seviyesi</option>
-                        <option value="a2">A2 Seviyesi</option>
-                        <option value="b1">B1 Seviyesi</option>
-                        <option value="b2">B2 Seviyesi</option>
-                        <option value="c1">C1 Seviyesi</option>
-                        <option value="c2">C2 Seviyesi</option>
-                    </select>
-
-                    <select id="daySelect" onchange="loadData()"></select>
-
-                    <!-- Önceki ve Sonraki Butonları -->
-                    <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
-                    <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
-
-                    <!-- Tüm Butonlar Mavi Tasarıma Sabitlendi -->
-                    <a href="index.html" class="analysis-btn">🏠 Ana Sayfa</a>
-                    <a href="analiz.html" class="analysis-btn">📊 Mükerrer Analiz</a>
-                    <a href="analysis.html" class="analysis-btn">📈 Genel Analiz</a>
-                </div>
-            </div>
-        </header>
-
-        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı -->
-        <div id="sceneBanner" class="scene-banner">
-            <h3>Yükleniyor...</h3>
-        </div>
-
-        <!-- İçerik Alanı -->
-        <main id="content" class="word-grid">
-            <p>Veriler yükleniyor...</p>
-        </main>
-    </div>
-
-    <script src="app.js"></script>
-    <script>
-        let globalWordFileMap = {};
-        const fileIndexMap = {}; 
-
-        function nextFile() {
-            const select = document.getElementById('daySelect');
-            if (select && select.selectedIndex < select.options.length - 1) {
-                select.selectedIndex++;
-                loadData();
+<script src="app.js"></script>
+<script>
+    let globalWordFileMap = {};
+    
+    // Projenizdeki dosya adlandırma standardına göre olası tüm dosyaları listeleyen fonksiyon.
+    // Örnek olarak a101, a102... veya a1_day1 gibi yapıları buraya ekleyebilirsiniz.
+    function getAllPossibleFiles() {
+        let files = [];
+        // Örnek seviyeler ve dosya numaraları (Kendi dosya yapınıza göre burayı çoğaltabilirsiniz)
+        const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
+        
+        // Eğer dosyalarınız a101.json, a102.json şeklinde gidiyorsa:
+        // Her seviye için ilgili dosya yollarını üretiyoruz
+        levels.forEach(lvl => {
+            // Örneğin her seviye için 1'den 50'ye kadar dosya olduğunu varsayalım (veya kendi liste mantığınız)
+            for (let i = 1; i <= 50; i++) {
+                // Dosya adınızın formatı neyse burayı ona göre ayarlayın (Örn: `${lvl}${i}.json` veya `json/${lvl}_day${i}.json`)
+                files.push(`${lvl}${i}.json`);
             }
-        }
+        });
+        
+        return files;
+    }
 
-        function prevFile() {
-            const select = document.getElementById('daySelect');
-            if (select && select.selectedIndex > 0) {
-                select.selectedIndex--;
-                loadData();
-            }
-        }
+    // Seviye seçildiğinde ilgili gün/dosya seçeneklerini dolduran fonksiyon
+    function generateDayOptions() {
+        const levelSelect = document.getElementById('levelSelect');
+        const daySelect = document.getElementById('daySelect');
+        if (!levelSelect || !daySelect) return;
 
-        async function buildGlobalWordMap() {
-            const files = typeof getAllPossibleFiles === 'function' ? getAllPossibleFiles() : [];
-            globalWordFileMap = {};
+        const selectedLevel = levelSelect.value.toLowerCase();
+        daySelect.innerHTML = '';
 
-            for (const file of files) {
-                try {
-                    const res = await fetch(file);
-                    if (!res.ok) continue;
-                    const data = await res.json();
-                    const words = data.words || data.vocabulary || data;
+        // O seviyeye ait dosyaları filtrele (Örn: a1 ile başlayanlar)
+        const allFiles = getAllPossibleFiles();
+        const levelFiles = allFiles.filter(file => file.toLowerCase().includes(selectedLevel));
 
-                    if (Array.isArray(words)) {
-                        words.forEach(item => {
-                            const wordKey = (item.word || item.term || "").trim();
-                            if (!wordKey) return;
-                            const lowerKey = wordKey.toLowerCase();
-                            
-                            if (!globalWordFileMap[lowerKey]) {
-                                globalWordFileMap[lowerKey] = [];
-                            }
-                            if (!globalWordFileMap[lowerKey].includes(file)) {
-                                globalWordFileMap[lowerKey].push(file);
-                            }
-                        });
-                    }
-                } catch (err) {}
-            }
-
-            Object.keys(globalWordFileMap).forEach(key => {
-                globalWordFileMap[key].sort((a, b) => {
-                    return (fileIndexMap[a] || 0) - (fileIndexMap[b] || 0);
-                });
+        if (levelFiles.length === 0) {
+            // Eğer otomatik liste boş kalırsa yedek bir seçenek ekle
+            const opt = document.createElement('option');
+            opt.value = `${selectedLevel}101.json`;
+            opt.textContent = `${selectedLevel.toUpperCase()} - 101. Dosya`;
+            daySelect.appendChild(opt);
+        } else {
+            levelFiles.forEach((file, index) => {
+                const opt = document.createElement('option');
+                opt.value = file;
+                // Dosya adından görünen isim türetme (Örn: a101.json -> A101)
+                const fileNameClean = file.split('/').pop().replace('.json', '').toUpperCase();
+                opt.textContent = `Sahne / Dosya: ${fileNameClean}`;
+                daySelect.appendChild(opt);
             });
         }
 
-        // Veriyi ve kelimelerin 3 aşamalı renk / sayım mantığını işleme
-        async function loadData() {
-            const select = document.getElementById('daySelect');
-            if (!select || !select.value) return;
-            const file = select.value;
-            const contentDiv = document.getElementById('content');
-            const bannerDiv = document.getElementById('sceneBanner');
+        // Seçim yapıldıktan sonra verileri yükle
+        loadData();
+    }
 
-            contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b;">Yükleniyor...</p>';
+    // Dosya listesinde bir sonraki öğeye geçiş
+    function nextFile() {
+        const select = document.getElementById('daySelect');
+        if (select && select.selectedIndex < select.options.length - 1) {
+            select.selectedIndex++;
+            loadData();
+        }
+    }
 
+    // Dosya listesinde bir önceki öğeye geçiş
+    function prevFile() {
+        const select = document.getElementById('daySelect');
+        if (select && select.selectedIndex > 0) {
+            select.selectedIndex--;
+            loadData();
+        }
+    }
+
+    // Tüm dosyaları tarayıp kelimelerin kronolojik sıralamasını çıkaran haritalama fonksiyonu
+    async function buildGlobalWordMap() {
+        const files = getAllPossibleFiles();
+        globalWordFileMap = {};
+
+        for (const file of files) {
             try {
                 const res = await fetch(file);
-                if (!res.ok) {
-                    contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#94a3b8;">Bu dosya henüz oluşturulmamış.</p>';
-                    bannerDiv.innerHTML = '<h3>Dosya Bulunamadı</h3><div class="scene-meta">Toplam Kelime: 0</div>';
-                    return;
-                }
-
+                if (!res.ok) continue;
                 const data = await res.json();
-                const fileNameStr = file.split('/').pop().replace('.json', '').toUpperCase();
-                const wordsList = data.words || data.vocabulary || data;
+                const words = data.words || data.vocabulary || data;
 
-                if (Object.keys(globalWordFileMap).length === 0 && typeof getAllPossibleFiles === 'function') {
-                    await buildGlobalWordMap();
-                }
-
-                let htmlContent = '';
-
-                if (Array.isArray(wordsList)) {
-                    wordsList.forEach(item => {
+                if (Array.isArray(words)) {
+                    words.forEach(item => {
                         const wordKey = (item.word || item.term || "").trim();
+                        if (!wordKey) return;
                         const lowerKey = wordKey.toLowerCase();
-                        const fileList = globalWordFileMap[lowerKey] || [file];
-                        const count = fileList.length;
-
-                        let cardClass = 'word-card';
-                        let badgeHtml = '';
-
-                        if (count === 1) {
-                            // 1. Özgün Kelime -> Yeşil
-                            cardClass += ' unique-word';
-                            badgeHtml = '<span class="status-badge">Özgün</span>';
-                        } else {
-                            // Kelimenin bu listede kaçıncı sırada geçtiğini buluyoruz (1 tabanlı indeks)
-                            const occurrenceIndex = fileList.indexOf(file) + 1;
-
-                            if (occurrenceIndex === 1) {
-                                // 2. Tekrarlı ama İlk Geçiş -> Mavi
-                                cardClass += ' repeat-first';
-                                badgeHtml = '<span class="status-badge">İlk Geçiş</span>';
-                            } else {
-                                // 3. Sonraki Geçişler (2, 3, 4...) -> Kırmızı ve Sayı Belirtmeli
-                                cardClass += ' repeat-later';
-                                badgeHtml = `<span class="status-badge">${occurrenceIndex}. Geçiş</span>`;
-                            }
+                        
+                        if (!globalWordFileMap[lowerKey]) {
+                            globalWordFileMap[lowerKey] = [];
                         }
-
-                        htmlContent += `
-                            <div class="${cardClass}">
-                                ${badgeHtml}
-                                <strong>${item.word || item.term}</strong>
-                                <p style="margin: 8px 0 0 0; color: #64748b; font-size: 0.9rem;">${item.meaning || item.definition || ''}</p>
-                            </div>
-                        `;
+                        if (!globalWordFileMap[lowerKey].includes(file)) {
+                            globalWordFileMap[lowerKey].push(file);
+                        }
                     });
                 }
-
-                contentDiv.innerHTML = htmlContent;
-                if (bannerDiv) {
-                    bannerDiv.innerHTML = `<h3>${fileNameStr} Seviye Kelimeleri</h3><div class="scene-meta">Toplam Kelime: ${wordsList.length}</div>`;
-                }
-
-            } catch (err) {
-                contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#ef4444;">Veriler yüklenirken hata oluştu.</p>';
-            }
+            } catch (err) {}
         }
-    </script>
-</body>
-</html>
+    }
+
+    // Veriyi ve kelimelerin 3 aşamalı renk / sayım mantığını işleyip ekrana basan fonksiyon
+    async function loadData() {
+        const select = document.getElementById('daySelect');
+        if (!select || !select.value) return;
+        const file = select.value;
+        const contentDiv = document.getElementById('content');
+        const bannerDiv = document.getElementById('sceneBanner');
+
+        contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b;">Yükleniyor...</p>';
+
+        try {
+            const res = await fetch(file);
+            if (!res.ok) {
+                contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#94a3b8;">Bu dosya henüz oluşturulmamış.</p>';
+                if (bannerDiv) bannerDiv.innerHTML = '<h3>Dosya Bulunamadı</h3><div class="scene-meta">Toplam Kelime: 0</div>';
+                return;
+            }
+
+            const data = await res.json();
+            const fileNameStr = file.split('/').pop().replace('.json', '').toUpperCase();
+            const wordsList = data.words || data.vocabulary || data;
+
+            // Global harita boşsa arka planda oluştur
+            if (Object.keys(globalWordFileMap).length === 0) {
+                await buildGlobalWordMap();
+            }
+
+            let htmlContent = '';
+
+            if (Array.isArray(wordsList)) {
+                wordsList.forEach(item => {
+                    const wordKey = (item.word || item.term || "").trim();
+                    const lowerKey = wordKey.toLowerCase();
+                    const fileList = globalWordFileMap[lowerKey] || [file];
+                    const count = fileList.length;
+
+                    let cardClass = 'word-card';
+                    let badgeHtml = '';
+
+                    if (count === 1) {
+                        // 1. Özgün Kelime -> Yeşil Tema
+                        cardClass += ' unique-word';
+                        badgeHtml = '<span class="status-badge">Özgün</span>';
+                    } else {
+                        // Kelimenin bu listede kaçıncı defa geçtiğini buluyoruz (1 tabanlı indeks)
+                        const occurrenceIndex = fileList.indexOf(file) + 1;
+
+                        if (occurrenceIndex === 1) {
+                            // 2. Tekrarlı ama İlk Geçiş -> Mavi Tema
+                            cardClass += ' repeat-first';
+                            badgeHtml = '<span class="status-badge">İlk Geçiş</span>';
+                        } else {
+                            // 3. Sonraki Geçişler (2, 3, 4...) -> Kırmızı Tema ve Kaçıncı Geçiş Olduğu
+                            cardClass += ' repeat-later';
+                            badgeHtml = `<span class="status-badge">${occurrenceIndex}. Geçiş</span>`;
+                        }
+                    }
+
+                    htmlContent += `
+                        <div class="${cardClass}">
+                            ${badgeHtml}
+                            <strong>${item.word || item.term}</strong>
+                            <p style="margin: 8px 0 0 0; color: #64748b; font-size: 0.9rem;">${item.meaning || item.definition || ''}</p>
+                        </div>
+                    `;
+                });
+            }
+
+            contentDiv.innerHTML = htmlContent;
+            if (bannerDiv) {
+                bannerDiv.innerHTML = `<h3>Sahne / Dosya: ${fileNameStr}</h3><div class="scene-meta">Toplam Kelime: ${wordsList.length}</div>`;
+            }
+
+        } catch (err) {
+            contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#ef4444;">Veriler yüklenirken hata oluştu.</p>';
+        }
+    }
+
+    // Sayfa ilk açıldığında seçenekleri otomatik oluştur
+    window.onload = function() {
+        generateDayOptions();
+    };
+</script>
