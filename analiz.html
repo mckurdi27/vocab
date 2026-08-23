@@ -150,9 +150,10 @@
             background-color: #22c55e;
         }
 
+        /* 1. Geçiş: Yumuşak mavi arka plan tonu */
         .vocab-card.is-first-repeat {
             border-color: var(--primary-color) !important;
-            background-color: #f8fafc;
+            background-color: #eff6ff;
         }
         .vocab-card.is-first-repeat .card-badge {
             background-color: var(--primary-color);
@@ -292,16 +293,14 @@
                     const wordsList = dayData.words || dayData.vocabulary || dayData;
 
                     if (Array.isArray(wordsList)) {
-                        wordsList.forEach(item => {
+                        wordsList.forEach((item, index) => {
                             const wordKey = (item.word || item.term || "").trim().toLowerCase();
                             if (!wordKey) return;
 
                             if (!globalWordMap[wordKey]) {
                                 globalWordMap[wordKey] = [];
                             }
-                            if (!globalWordMap[wordKey].includes(file)) {
-                                globalWordMap[wordKey].push(file);
-                            }
+                            globalWordMap[wordKey].push({ file: file, index: index });
                         });
                     }
                 } catch (err) {}
@@ -392,8 +391,8 @@
                 container.innerHTML = '';
 
                 if (Array.isArray(wordsList) && wordsList.length > 0) {
-                    wordsList.forEach(item => {
-                        const card = createVocabCard(item, file);
+                    wordsList.forEach((item, index) => {
+                        const card = createVocabCard(item, file, index);
                         container.appendChild(card);
                     });
                 } else {
@@ -404,7 +403,7 @@
             }
         }
 
-        function createVocabCard(item, currentFile) {
+        function createVocabCard(item, currentFile, itemIndex) {
             const wordKey = (item.word || item.term || "").trim().toLowerCase();
             const appearances = globalWordMap[wordKey] || [];
             const count = appearances.length;
@@ -419,7 +418,8 @@
                 cardClass = 'is-unique';
                 badgeText = 'Özgün';
             } else {
-                const occurrenceIndex = appearances.indexOf(currentFile) + 1;
+                const occurrenceObjIndex = appearances.findIndex(app => app.file === currentFile && app.index === itemIndex);
+                const occurrenceIndex = occurrenceObjIndex !== -1 ? occurrenceObjIndex + 1 : 1;
 
                 if (occurrenceIndex === 1) {
                     cardClass = 'is-first-repeat';
@@ -435,13 +435,14 @@
 
             const wordText = item.word || item.term || '';
             const translationText = item.translation || item.meaning || '';
+            const uniqueFiles = [...new Set(appearances.map(app => app.file))];
 
             cardDiv.innerHTML = `
                 <div class="card-badge">${badgeText}</div>
                 <div class="word-title">${wordText}</div>
                 <div class="word-translation">${translationText}</div>
                 <div class="word-meta">
-                    ${isAnalyzed ? `Geçtiği Dosyalar (${count}): ${appearances.map(f => f.split('/').pop().replace('.json','')).join(', ')}` : 'Analiz bekleniyor...'}
+                    ${isAnalyzed ? `Geçtiği Dosyalar (${uniqueFiles.length}): ${uniqueFiles.map(f => f.split('/').pop().replace('.json','')).join(', ')}` : 'Analiz bekleniyor...'}
                 </div>
             `;
 
