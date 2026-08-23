@@ -73,7 +73,7 @@
             flex-wrap: wrap;
         }
 
-        /* Seçim Kutuları */
+        /* Seçim Kutuları - Butonlarla Birebir Aynı ve Belirgin Çerçeve */
         .selectors-wrapper select {
             background-color: #eff6ff;
             border: 1px solid #bfdbfe;
@@ -122,7 +122,7 @@
                 <h2>Kelime Çalışma Paneli</h2>
 
                 <div class="selectors-wrapper">
-                    <!-- Seviye ve Dosya Seçimleri -->
+                    <!-- Seviye ve Dosya Seçimleri Yan Yana -->
                     <select id="levelSelect" onchange="generateDayOptions()">
                         <option value="a1">A1 Seviyesi</option>
                         <option value="a2">A2 Seviyesi</option>
@@ -134,17 +134,18 @@
 
                     <select id="daySelect" onchange="loadData()"></select>
 
-                    <!-- Önceki ve Sonraki Butonları -->
+                    <!-- Önceki ve Sonraki Butonları Yan Yana -->
                     <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
                     <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
 
-                    <!-- Analiz Sayfasına Yönlendiren Buton -->
-                    <a href="analysis.html" class="analysis-btn">📊 Analiz Sayfası</a>
+                    <!-- Analiz Butonları (T Analiz ve V Analiz) -->
+                    <a href="analiz.html" class="analysis-btn" title="Mükerrer Kelime Analizi">📊 T Analiz</a>
+                    <a href="analysis.html" class="analysis-btn" style="background-color: #0d9488;" title="Diğer Analiz Sayfası">📊 V Analiz</a>
                 </div>
             </div>
         </header>
 
-        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı -->
+        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı (Kelimelerin Üstünde) -->
         <div id="sceneBanner" class="scene-banner">
             <h3>Yükleniyor...</h3>
         </div>
@@ -157,24 +158,23 @@
 
     <script src="app.js"></script>
     <script>
+        // Dosya listesinde bir sonraki öğeye geçiş
         function nextFile() {
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex < select.options.length - 1) {
                 select.selectedIndex++;
-                loadData();
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
         }
 
+        // Dosya listesinde bir önceki öğeye geçiş
         function prevFile() {
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex > 0) {
                 select.selectedIndex--;
-                loadData();
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
         }
     </script>
 </body>
 </html>
-
-
-
