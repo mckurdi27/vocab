@@ -1,143 +1,93 @@
-// Global Kelime Haritası ve Dosya Listesi (Doğrudan klasöründeki dosyalara göre ayarlandı)
-let globalWordMap = {};
-let allDaysFiles = [
-    'data/a100.json',
-    'data/a101.json',
-    'data/a102.json',
-    'data/a103.json',
-    'data/a104.json',
-    'data/a105.json',
-    'data/a106.json'
-];
+// Seviyelere göre dosya listelerini tanımlayalım
+const datasetMap = {
+    "a1": ["data/a100.json", "data/a101.json", "data/a102.json", "data/a103.json", "data/a104.json", "data/a105.json", "data/a106.json"],
+    "a2": [], // Eğer varsa ekleyebilirsin
+    "b1": [],
+    "b2": [],
+    "c1": [],
+    "c2": []
+};
 
-// 1. Uygulama Başlangıcı
-async function initApp() {
-    try {
-        // Arka planda tüm JSON'ları tarayıp global haritayı çıkaralım
-        await buildGlobalWordMap(allDaysFiles);
+// Sayfa yüklendiğinde ilk seviyenin seçeneklerini oluştur
+document.addEventListener("DOMContentLoaded", () => {
+    generateDayOptions();
+});
 
-        // Arayüze gün butonlarını basalım
-        renderDaySelector(allDaysFiles);
+// Seviye değiştiğinde gün/dosya seçeneklerini güncelle
+function generateDayOptions() {
+    const levelSelect = document.getElementById("levelSelect");
+    const daySelect = document.getElementById("daySelect");
+    
+    if (!levelSelect || !daySelect) return;
 
-        // İlk günü otomatik yükle
-        if (allDaysFiles.length > 0) {
-            loadDayData(allDaysFiles[0]);
-        }
-    } catch (error) {
-        console.error("Başlangıç hatası:", error);
-        const container = document.getElementById('cardsContainer');
-        if (container) {
-            container.innerHTML = `
-                <div style="color:red; text-align:center; grid-column:1/-1; padding: 20px; background: #fee2e2; border-radius: 8px;">
-                    <strong>Veriler yüklenemedi!</strong><br>
-                    <small>Hata: ${error.message}</small>
-                </div>`;
-        }
+    const selectedLevel = levelSelect.value;
+    const files = datasetMap[selectedLevel] || [];
+
+    daySelect.innerHTML = "";
+
+    if (files.length === 0) {
+        daySelect.innerHTML = `<option value="">Bu seviyede dosya yok</option>`;
+        document.getElementById("content").innerHTML = `<p style="text-align:center; color:#64748b; grid-column: 1/-1;">Bu seviyeye ait veri bulunamadı.</p>`;
+        document.getElementById("sceneBanner").innerHTML = `<h3>Veri Yok</h3>`;
+        return;
     }
-}
-
-// 2. Global Kelime Haritasını Oluşturan Fonksiyon
-async function buildGlobalWordMap(files) {
-    globalWordMap = {};
-
-    for (const file of files) {
-        try {
-            const res = await fetch(file);
-            if (!res.ok) throw new Error(`${file} yüklenemedi`);
-            
-            const dayData = await res.json();
-            const wordsList = dayData.words || dayData;
-
-            wordsList.forEach(item => {
-                const wordKey = (item.word || item.term || "").trim().toLowerCase();
-                if (!wordKey) return;
-
-                if (!globalWordMap[wordKey]) {
-                    globalWordMap[wordKey] = [];
-                }
-                if (!globalWordMap[wordKey].includes(file)) {
-                    globalWordMap[wordKey].push(file);
-                }
-            });
-        } catch (err) {
-            console.error(err);
-        }
-    }
-}
-
-// 3. Gün Seçim Butonlarını Oluşturma
-function renderDaySelector(files) {
-    const selector = document.getElementById('daySelector');
-    if (!selector) return;
-    selector.innerHTML = '';
 
     files.forEach((file, index) => {
-        // Dosya adından (örn: a100.json) buton ismi türetelim
-        const fileName = file.split('/').pop().replace('.json', '');
-        
-        const btn = document.createElement('button');
-        btn.className = `day-btn ${index === 0 ? 'active' : ''}`;
-        btn.textContent = `Liste ${fileName.toUpperCase()}`;
-        btn.onclick = () => {
-            document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            loadDayData(file);
-        };
-        selector.appendChild(btn);
+        const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
+        const option = document.createElement("option");
+        option.value = file;
+        option.textContent = `Liste ${fileName}`;
+        daySelect.appendChild(option);
     });
+
+    loadData();
 }
 
-// 4. Seçilen Günün Verilerini Yükleme
-async function loadDayData(file) {
-    const container = document.getElementById('cardsContainer');
-    if (!container) return;
-    
-    container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#6b7280;">Yükleniyor...</p>';
+// Seçilen JSON dosyasını yükle ve ekrana bas
+async function loadData() {
+    const daySelect = document.getElementById("daySelect");
+    const contentDiv = document.getElementById("content");
+    const sceneBanner = document.getElementById("sceneBanner");
+
+    if (!daySelect || !daySelect.value) return;
+
+    const filePath = daySelect.value;
+    contentDiv.innerHTML = `<p style="text-align:center; color:#64748b; grid-column: 1/-1;">Yükleniyor...</p>`;
 
     try {
-        const res = await fetch(file);
-        if (!res.ok) throw new Error(`${file} yüklenemedi`);
+        const response = await fetch(filePath);
+        if (!response.ok) throw new Error("Dosya yüklenemedi");
 
-        const dayData = await res.json();
-        const wordsList = dayData.words || dayData;
+        const data = await response.json();
+        
+        // Başlık veya tema bilgisini güncelle (varsa)
+        if (sceneBanner) {
+            sceneBanner.innerHTML = `<h3>${data.title || filePath.split('/').pop().toUpperCase()}</h3>`;
+        }
 
-        container.innerHTML = '';
+        contentDiv.innerHTML = "";
+        const wordsList = data.words || data;
+
+        if (!Array.isArray(wordsList)) {
+            throw new Error("Geçersiz veri formatı");
+        }
 
         wordsList.forEach(item => {
-            const card = createVocabCard(item, file);
-            container.appendChild(card);
+            const card = document.createElement("div");
+            card.className = "word-card"; // style.css'deki kart sınıfın
+            
+            const word = item.word || item.term || "";
+            const translation = item.translation || item.meaning || "";
+
+            card.innerHTML = `
+                <div style="font-size: 1.1rem; font-weight: bold; color: #0f172a; margin-bottom: 6px;">${word}</div>
+                <div style="color: #475569; font-size: 0.95rem;">${translation}</div>
+            `;
+            contentDiv.appendChild(card);
         });
-    } catch (err) {
-        console.error(`${file} yüklenemedi:`, err);
-        container.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">Dosya verileri yüklenirken hata oluştu.</p>`;
+
+    } catch (error) {
+        console.error(error);
+        contentDiv.innerHTML = `<p style="color: red; text-align: center; grid-column: 1/-1;">Veriler yüklenirken bir hata oluştu.</p>`;
     }
 }
-
-// 5. Kart Oluşturucu ve Mükerrer (Duplicate) Kontrolü
-function createVocabCard(item, currentFile) {
-    const wordKey = (item.word || item.term || "").trim().toLowerCase();
-    const appearances = globalWordMap[wordKey] || [];
-    
-    const isDuplicate = appearances.length > 1;
-
-    const cardDiv = document.createElement('div');
-    cardDiv.className = `vocab-card ${isDuplicate ? 'is-duplicate' : ''}`;
-
-    const wordText = item.word || item.term || '';
-    const translationText = item.translation || item.meaning || '';
-
-    cardDiv.innerHTML = `
-        <div class="word-title">${wordText}</div>
-        <div class="word-translation">${translationText}</div>
-        <div class="word-meta">
-            Geçtiği Dosyalar: ${appearances.length > 0 ? appearances.join(', ') : currentFile}
-        </div>
-    `;
-
-    return cardDiv;
-}
-
-// Sayfa yüklendiğinde uygulamayı başlat
-document.addEventListener('DOMContentLoaded', () => {
-    initApp();
-});
