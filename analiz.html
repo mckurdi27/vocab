@@ -19,7 +19,7 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 20px;
+            padding: 15px;
         }
 
         .container {
@@ -27,35 +27,50 @@
             margin: 0 auto;
         }
 
+        /* Ana Sayfa ile Birebir Uyumlu Üst Panel (Header) */
         header {
             background: var(--card-bg);
             border-radius: 12px;
-            padding: 20px;
+            padding: 15px 20px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
-        .header-title h1 {
-            margin: 0 0 5px 0;
-            font-size: 1.35rem;
-            color: #111827;
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
-        .header-title p {
-            color: #6b7280;
-            margin: 0;
-            font-size: 0.9rem;
+        /* Ana sayfadaki açılır menü (select) ve buton stilleri */
+        .app-select, .app-btn {
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #374151;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .app-select:hover, .app-btn:hover {
+            border-color: var(--primary-color);
         }
 
         .home-btn {
-            background-color: var(--primary-color);
+            background-color: #059669; /* Ana sayfadaki renk tonu */
             color: white;
-            padding: 10px 18px;
+            padding: 8px 14px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
@@ -63,48 +78,26 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+            box-shadow: 0 2px 4px rgba(5, 150, 105, 0.2);
             transition: background 0.2s, transform 0.2s;
         }
 
         .home-btn:hover {
-            background-color: #4338ca;
+            background-color: #047857;
             transform: translateY(-1px);
         }
 
-        .day-selector {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 25px;
-        }
-
-        .day-btn {
-            padding: 8px 16px;
-            border: none;
-            background-color: #e5e7eb;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .day-btn.active, .day-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
+        /* Kart Izgarası ve Tasarımı */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 15px;
         }
 
         .vocab-card {
             background: var(--card-bg);
             border-radius: 12px;
-            padding: 20px;
+            padding: 18px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             position: relative;
             transition: transform 0.2s, box-shadow 0.2s;
@@ -136,16 +129,16 @@
         }
 
         .word-title {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: #111827;
         }
 
         .word-translation {
             color: #4b5563;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
         }
 
         .word-meta {
@@ -153,29 +146,34 @@
             color: #9ca3af;
             border-top: 1px solid #e5e7eb;
             padding-top: 8px;
-            margin-top: 12px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="header-title">
-                <h1>Kelime Öğrenme Asistanı</h1>
-                <p>Mükerrer Kelime Takip ve Analiz Sistemi</p>
+            <div class="header-left">
+                <!-- Ana sayfadaki gibi şık açılır dosya/liste seçici -->
+                <select id="fileSelect" class="app-select" onchange="onFileSelectChange(this.value)">
+                    <!-- Dinamik olarak doldurulacak -->
+                </select>
+                <button class="app-btn" onclick="navigateFile(-1)">◀ Önceki</button>
+                <button class="app-btn" onclick="navigateFile(1)">Sonraki ▶</button>
             </div>
-            <a href="index.html" class="home-btn">🏠 Ana Sayfa</a>
+            <div>
+                <a href="index.html" class="home-btn">🏠 Ana Sayfa</a>
+            </div>
         </header>
 
-        <div id="daySelector" class="day-selector"></div>
         <div id="cardsContainer" class="cards-grid"></div>
     </div>
 
     <script>
         let globalWordMap = {};
         let allDaysFiles = [];
+        let currentIndex = 0;
 
-        // Varsayılan dosya listesi (days.json okunamazsa veya yoksa doğrudan burayı kullanır)
         const defaultFiles = [
             'data/a100.json',
             'data/a101.json',
@@ -188,7 +186,6 @@
 
         async function initApp() {
             try {
-                // Önce days.json okunmaya çalışılır
                 const manifestRes = await fetch('data/days.json');
                 if (manifestRes.ok) {
                     const manifest = await manifestRes.json();
@@ -200,7 +197,6 @@
                     throw new Error("days.json bulunamadı");
                 }
             } catch (error) {
-                console.log("days.json yüklenemedi, varsayılan dosya listesi kullanılıyor.");
                 allDaysFiles = defaultFiles;
             }
 
@@ -210,15 +206,16 @@
 
             try {
                 await buildGlobalWordMap(allDaysFiles);
-                renderDaySelector(allDaysFiles);
+                populateFileDropdown(allDaysFiles);
 
                 if (allDaysFiles.length > 0) {
+                    currentIndex = 0;
                     loadDayData(allDaysFiles[0]);
                 }
             } catch (error) {
                 console.error("Başlangıç hatası:", error);
                 document.getElementById('cardsContainer').innerHTML = 
-                    `<p style="color:red; text-align:center; grid-column:1/-1;">Veriler yüklenemedi. Lütfen dosya yollarını ve JSON dosyalarını kontrol edin.</p>`;
+                    `<p style="color:red; text-align:center; grid-column:1/-1;">Veriler yüklenemedi.</p>`;
             }
         }
 
@@ -228,7 +225,7 @@
             for (const file of files) {
                 try {
                     const res = await fetch(file);
-                    if (!res.ok) continue; // Hatalı dosya varsa atla, sistemi durdurma
+                    if (!res.ok) continue;
                     
                     const dayData = await res.json();
                     const wordsList = dayData.words || dayData.vocabulary || dayData;
@@ -247,27 +244,37 @@
                         });
                     }
                 } catch (err) {
-                    console.error(`${file} okunurken hata:`, err);
+                    console.error(err);
                 }
             }
         }
 
-        function renderDaySelector(files) {
-            const selector = document.getElementById('daySelector');
-            selector.innerHTML = '';
+        function populateFileDropdown(files) {
+            const select = document.getElementById('fileSelect');
+            select.innerHTML = '';
 
             files.forEach((file, index) => {
-                const fileName = file.split('/').pop().replace('.json', '');
-                const btn = document.createElement('button');
-                btn.className = `day-btn ${index === 0 ? 'active' : ''}`;
-                btn.textContent = `Liste ${fileName.toUpperCase()}`;
-                btn.onclick = () => {
-                    document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    loadDayData(file);
-                };
-                selector.appendChild(btn);
+                const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
+                const option = document.createElement('option');
+                option.value = file;
+                option.textContent = `Dosya / Liste: ${fileName}`;
+                select.appendChild(option);
             });
+        }
+
+        function onFileSelectChange(file) {
+            currentIndex = allDaysFiles.indexOf(file);
+            loadDayData(file);
+        }
+
+        function navigateFile(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = allDaysFiles.length - 1;
+            if (currentIndex >= allDaysFiles.length) currentIndex = 0;
+
+            const targetFile = allDaysFiles[currentIndex];
+            document.getElementById('fileSelect').value = targetFile;
+            loadDayData(targetFile);
         }
 
         async function loadDayData(file) {
@@ -289,11 +296,10 @@
                         container.appendChild(card);
                     });
                 } else {
-                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#6b7280;">Bu dosyada kelime listesi bulunamadı.</p>`;
+                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#6b7280;">Bu dosyada kelime bulunamadı.</p>`;
                 }
             } catch (err) {
-                console.error(`${file} yüklenemedi:`, err);
-                container.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">Dosya verileri yüklenirken hata oluştu.</p>`;
+                container.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">Veri yüklenirken hata oluştu.</p>`;
             }
         }
 
