@@ -1,867 +1,410 @@
 {
-  "level": "A1",
+  "level": "A0",
   "scene_id": 1,
-  "scene_title": "Daily Routine and Greetings",{
-  "level": "A1",
-  "scene_id": 1,
-  "scene_title": "Daily Routine and Greetings",
+  "scene_title": "Basic Parts of Speech and Sentence Elements",
   "total_words_in_scene": 50,
-  "story_en": "Every morning, John can wake up early, open his window, and watch outside. He likes to start his day well, so he wants to buy fresh milk. He needs to pay for it, walk to the bus stop, and run when he is late. He will try to catch the bus, travel to the office, and arrive on time. At work, he will use his computer, read emails, write notes, and study the new project. His manager will bring a file, give him instructions, and take his report. John knows what to do and will finish the task. During the day, he might speak with Tom, listen to music, think about new ideas, and find good solutions. He will call his friend, ask a question, and answer quickly. Sometimes he likes to play outside, visit family, and stay late. When he is hungry, he will eat delicious food and live a happy life. After a busy day, he will leave the office, return home, travel back, stop working, close his door, and sleep well at night. ",
-  "story_tr": " Her sabah John erkenden uyanabilir, penceresini açabilir ve dışarıyı izleyebilir. Gününü iyi başlatmayı sever, bu yüzden taze süt satın almak ister. Bunun için ödeme yapması, otobüs durağına yürümesi ve geç kaldığında koşması gerekir. Otobüsü yakalamaya çalışacak, ofise seyahat edecek ve zamanında varacak. İş yerinde bilgisayarını kullanacak, e-postaları okuyacak, notlar yazacak ve yeni projeyi çalışacak. Yöneticisi bir dosya getirecek, ona talimatlar verecek ve raporunu alacak. John ne yapacağını bilir ve görevi bitirecek. Gün boyunca Tom ile konuşabilir, müzik dinleyebilir, yeni fikirler düşünebilir ve iyi çözümler bulabilir. Arkadaşını arayacak, bir soru soracak ve hızlıca cevap verecek. Bazen dışarıda oynamayı, ailesini ziyaret etmeyi ve geç kalmayı sever. Acıktığında lezzetli yemekler yiyecek ve mutlu bir yaşam sürecek. Yoğun bir günden sonra ofisten ayrılacak, eve dönecek, geri seyahat edecek, çalışmayı durduracak, kapısını kapatacak ve geceleri iyi uyuyacak. ",
+  "story_en": "Wow! I am a student, and you are a good friend. Here, we learn English because it is a new book. We read at home now.",
+  "story_tr": "Vay canına! Ben bir öğrenciyim ve sen iyi bir arkadaşsın. Burada İngilizce öğreniyoruz çünkü bu yeni bir kitap. Şimdi evde okuyoruz.",
   "words": [
     {
-      "word": "meet",
-      "type": "verb",
-      "turkish": "Tanışmak, buluşmak",
-      "example_en": "Nice to meet you.",
-      "example_tr": "Tanıştığımıza memnun oldum.",
-      "related_verbs": ["introduce", "greet", "talk", "speak", "say", "know", "see"]
+      "word": "noun",
+      "type": "grammar category / part of speech",
+      "turkish": "İsim / Ad (Varlıkların, kişilerin veya nesnelerin adıdır, örn: student, book)",
+      "example_en": "I am a student and this is a book.",
+      "example_tr": "Ben bir öğrenciyim ve bu bir kitaptır.",
+      "related_verbs": ["read", "write", "study", "learn"]
     },
     {
-      "word": "live",
-      "type": "verb",
-      "turkish": "Yaşamak, ikamet etmek",
-      "example_en": "I live in a small town.",
-      "example_tr": "Küçük bir kasabada yaşıyorum.",
-      "related_verbs": ["reside", "stay", "inhabit", "move", "grow"]
+      "word": "verb",
+      "type": "grammar category / part of speech",
+      "turkish": "Fiil / Eylem (Cümlede iş, oluş, hareket veya durum bildiren sözcüktür, örn: go, read)",
+      "example_en": "We learn English every day.",
+      "example_tr": "Her gün İngilizce öğreniyoruz.",
+      "related_verbs": ["do", "make", "run", "walk"]
     },
     {
-      "word": "work",
-      "type": "verb",
-      "turkish": "Çalışmak",
-      "example_en": "She works in an office.",
-      "example_tr": "O, bir ofiste çalışıyor.",
-      "related_verbs": ["labor", "toil", "employ", "manage", "earn"]
+      "word": "adjective",
+      "type": "grammar category / part of speech",
+      "turkish": "Sıfat / Ön Ad (İsimleri niteleyen, onların renk, boyut veya durumunu bildiren sözcüktür, örn: good, big)",
+      "example_en": "This is a new and good book.",
+      "example_tr": "Bu yeni ve iyi bir kitap.",
+      "related_verbs": ["like", "love", "prefer"]
     },
     {
-      "word": "study",
-      "type": "verb",
-      "turkish": "Ders çalışmak",
-      "example_en": "We study English every day.",
-      "example_tr": "Her gün İngilizce çalışıyoruz.",
-      "related_verbs": ["learn", "read", "practice", "write", "review"]
+      "word": "adverb",
+      "type": "grammar category / part of speech",
+      "turkish": "Zarf / Belirteç (Fiilleri, sıfatları veya diğer zarfları niteleyen; zaman, yer veya durum bildiren sözcüktür, örn: fast, here, now)",
+      "example_en": "I am studying here now.",
+      "example_tr": "Şimdi burada ders çalışıyorum.",
+      "related_verbs": ["work", "stay", "live"]
     },
     {
-      "word": "start",
-      "type": "verb",
-      "turkish": "Başlamak",
-      "example_en": "Classes start at nine o'clock.",
-      "example_tr": "Dersler saat dokuzda başlar.",
-      "related_verbs": ["begin", "open", "initiate", "launch", "set"]
+      "word": "pronoun",
+      "type": "grammar category / part of speech",
+      "turkish": "Zamir / Adıl (İsimlerin yerini tutan sözcüktür, örn: I, you, he, she)",
+      "example_en": "You are a friend and she is a teacher.",
+      "example_tr": "Sen bir arkadaşsın ve o bir öğretmen.",
+      "related_verbs": ["be", "have", "know"]
     },
     {
-      "word": "wake",
-      "type": "verb",
-      "turkish": "Uyanmak",
-      "example_en": "I wake up early in the morning.",
-      "example_tr": "Sabahları erken uyanırım.",
-      "related_verbs": ["rise", "get", "arouse", "stir", "open"]
+      "word": "preposition",
+      "type": "grammar category / part of speech",
+      "turkish": "Edat / İlgeç (Kelimeler arasında yer, yön, zaman ilişkisi kuran sözcüktür, örn: in, on, at, to)",
+      "example_en": "The book is on the table at home.",
+      "example_tr": "Kitap evde masanın üzerindedir.",
+      "related_verbs": ["put", "sit", "stand"]
     },
     {
-      "word": "get",
+      "word": "conjunction",
+      "type": "grammar category / part of speech",
+      "turkish": "Bağlaç (Kelimeleri veya cümleleri birbirine bağlayan sözcüktür, örn: and, but, because)",
+      "example_en": "I am happy because you are here.",
+      "example_tr": "Mutluyum çünkü buradasın.",
+      "related_verbs": ["connect", "join", "add"]
+    },
+    {
+      "word": "exclamation",
+      "type": "grammar category / part of speech",
+      "turkish": "Ünlem (Ani duyguları, şaşkınlığı veya seslenmeleri bildiren sözcüktür, örn: oh, wow, hey)",
+      "example_en": "Wow, this is a big house!",
+      "example_tr": "Vay canına, bu büyük bir ev!",
+      "related_verbs": ["shout", "surpise", "react"]
+    },
+    {
+      "word": "I",
+      "type": "pronoun",
+      "turkish": "Ben (Özne zamiri)",
+      "example_en": "I am a student.",
+      "example_tr": "Ben bir öğrenciyim.",
+      "related_verbs": ["be", "have", "do"]
+    },
+    {
+      "word": "you",
+      "type": "pronoun",
+      "turkish": "Sen / Siz (Özne zamiri)",
+      "example_en": "You are a good friend.",
+      "example_tr": "Sen iyi bir arkadaşsın.",
+      "related_verbs": ["are", "know", "see"]
+    },
+    {
+      "word": "he",
+      "type": "pronoun",
+      "turkish": "O - erkek (Özne zamiri)",
+      "example_en": "He is a teacher.",
+      "example_tr": "O bir öğretmen.",
+      "related_verbs": ["is", "work", "read"]
+    },
+    {
+      "word": "she",
+      "type": "pronoun",
+      "turkish": "O - kadın (Özne zamiri)",
+      "example_en": "She likes milk.",
+      "example_tr": "O süt sever.",
+      "related_verbs": ["is", "like", "want"]
+    },
+    {
+      "word": "student",
+      "type": "noun",
+      "turkish": "Öğrenci (İsim)",
+      "example_en": "I am a student.",
+      "example_tr": "Ben bir öğrenciyim.",
+      "related_verbs": ["study", "learn", "read"]
+    },
+    {
+      "word": "teacher",
+      "type": "noun",
+      "turkish": "Öğretmen (İsim)",
+      "example_en": "The teacher helps us.",
+      "example_tr": "Öğretmen bize yardım eder.",
+      "related_verbs": ["teach", "help", "speak"]
+    },
+    {
+      "word": "book",
+      "type": "noun",
+      "turkish": "Kitap (İsim)",
+      "example_en": "This is a new book.",
+      "example_tr": "Bu yeni bir kitap.",
+      "related_verbs": ["read", "buy", "open"]
+    },
+    {
+      "word": "school",
+      "type": "noun",
+      "turkish": "Okul (İsim)",
+      "example_en": "We go to school.",
+      "example_tr": "Okula gideriz.",
+      "related_verbs": ["go", "walk", "study"]
+    },
+    {
+      "word": "home",
+      "type": "noun",
+      "turkish": "Ev (İsim)",
+      "example_en": "I am at home.",
+      "example_tr": "Evdeyim.",
+      "related_verbs": ["stay", "live", "sleep"]
+    },
+    {
+      "word": "friend",
+      "type": "noun",
+      "turkish": "Arkadaş (İsim)",
+      "example_en": "You are my friend.",
+      "example_tr": "Sen benim arkadaşımsın.",
+      "related_verbs": ["meet", "talk", "play"]
+    },
+    {
+      "word": "water",
+      "type": "noun",
+      "turkish": "Su (İsim)",
+      "example_en": "I want some water.",
+      "example_tr": "Biraz su istiyorum.",
+      "related_verbs": ["drink", "want", "buy"]
+    },
+    {
+      "word": "food",
+      "type": "noun",
+      "turkish": "Yemek (İsim)",
+      "example_en": "The food is good.",
+      "example_tr": "Yemek güzel.",
+      "related_verbs": ["eat", "cook", "buy"]
+    },
+    {
+      "word": "car",
+      "type": "noun",
+      "turkish": "Araba (İsim)",
+      "example_en": "He has a red car.",
+      "example_tr": "Onun kırmızı bir arabası var.",
+      "related_verbs": ["drive", "stop", "buy"]
+    },
+    {
+      "word": "dog",
+      "type": "noun",
+      "turkish": "Köpek (İsim)",
+      "example_en": "The dog runs fast.",
+      "example_tr": "Köpek hızlı koşar.",
+      "related_verbs": ["run", "bark", "play"]
+    },
+    {
+      "word": "am",
       "type": "verb",
-      "turkish": "Almak, elde etmek, varmak",
-      "example_en": "She gets ready for school.",
-      "example_tr": "Okul için hazırlanıyor.",
-      "related_verbs": ["obtain", "acquire", "receive", "fetch", "gain"]
+      "turkish": "Olmak (I için yardımcı fiil)",
+      "example_en": "I am happy.",
+      "example_tr": "Mutluyum.",
+      "related_verbs": ["be", "exist"]
+    },
+    {
+      "word": "is",
+      "type": "verb",
+      "turkish": "Olmak (He/She/It için yardımcı fiil)",
+      "example_en": "It is cold.",
+      "example_tr": "Hava soğuk.",
+      "related_verbs": ["be", "remain"]
+    },
+    {
+      "word": "are",
+      "type": "verb",
+      "turkish": "Olmak (You/We/They için yardımcı fiil)",
+      "example_en": "We are ready.",
+      "example_tr": "Hazırız.",
+      "related_verbs": ["be", "stand"]
     },
     {
       "word": "have",
       "type": "verb",
-      "turkish": "Sahip olmak, yemek",
-      "example_en": "We have breakfast together.",
-      "example_tr": "Birlikte kahvaltı yapıyoruz.",
-      "related_verbs": ["possess", "own", "hold", "contain", "experience"]
+      "turkish": "Sahip olmak (Fiil)",
+      "example_en": "I have a pen.",
+      "example_tr": "Bir kalemim var.",
+      "related_verbs": ["possess", "get", "take"]
+    },
+    {
+      "word": "do",
+      "type": "verb",
+      "turkish": "Yapmak (Fiil)",
+      "example_en": "Do your homework.",
+      "example_tr": "Ödevini yap.",
+      "related_verbs": ["make", "finish", "complete"]
     },
     {
       "word": "go",
       "type": "verb",
-      "turkish": "Gitmek",
-      "example_en": "He goes to work by bus.",
-      "example_tr": "İşe otobüsle gider.",
-      "related_verbs": ["move", "travel", "proceed", "walk", "run"]
+      "turkish": "Gitmek (Fiil)",
+      "example_en": "Let's go home.",
+      "example_tr": "Hadi eve gidelim.",
+      "related_verbs": ["walk", "run", "travel"]
     },
     {
-      "word": "arrive",
+      "word": "come",
       "type": "verb",
-      "turkish": "Varmak, ulaşmak",
-      "example_en": "They arrive at the office on time.",
-      "example_tr": "Ofise zamanında varırlar.",
-      "related_verbs": ["reach", "come", "get", "approach", "enter"]
+      "turkish": "Gelmek (Fiil)",
+      "example_en": "Come here, please.",
+      "example_tr": "Lütfen buraya gel.",
+      "related_verbs": ["arrive", "return", "enter"]
     },
     {
-      "word": "finish",
+      "word": "see",
       "type": "verb",
-      "turkish": "Bitirmek",
-      "example_en": "I finish my work at five.",
-      "example_tr": "İşimi saat beşte bitiririm.",
-      "related_verbs": ["complete", "end", "conclude", "terminate", "stop"]
+      "turkish": "Görmek (Fiil)",
+      "example_en": "I see a bird.",
+      "example_tr": "Bir kuş görüyorum.",
+      "related_verbs": ["look", "watch", "observe"]
     },
     {
-      "word": "return",
+      "word": "look",
       "type": "verb",
-      "turkish": "Dönmek",
-      "example_en": "She returns home in the evening.",
-      "example_tr": "Akşam eve döner.",
-      "related_verbs": ["come", "go", "revert", "reply", "give"]
+      "turkish": "Bakmak (Fiil)",
+      "example_en": "Look at the board.",
+      "example_tr": "Tahtaya bak.",
+      "related_verbs": ["see", "watch", "stare"]
     },
     {
-      "word": "eat",
+      "word": "make",
       "type": "verb",
-      "turkish": "Yemek yemek",
-      "example_en": "We eat dinner at seven.",
-      "example_tr": "Akşam yemeğini saat yedi yeriz.",
-      "related_verbs": ["dine", "consume", "swallow", "taste", "feed"]
+      "turkish": "Yapmak, oluşturmak (Fiil)",
+      "example_en": "Make a sentence.",
+      "example_tr": "Bir cümle kur.",
+      "related_verbs": ["do", "create", "build"]
     },
     {
-      "word": "watch",
-      "type": "verb",
-      "turkish": "İzlemek",
-      "example_en": "He watches television at night.",
-      "example_tr": "Gece televizyon izler.",
-      "related_verbs": ["see", "look", "observe", "view", "stare"]
+      "word": "good",
+      "type": "adjective",
+      "turkish": "İyi (Sıfat)",
+      "example_en": "This is a good book.",
+      "example_tr": "Bu iyi bir kitap.",
+      "related_verbs": ["like", "love", "enjoy"]
     },
     {
-      "word": "sleep",
-      "type": "verb",
-      "turkish": "Uyumak",
-      "example_en": "Children sleep eight hours a night.",
-      "example_tr": "Çocuklar gecede sekiz saat uyur.",
-      "related_verbs": ["rest", "doze", "dream", "nap", "slumber"]
+      "word": "bad",
+      "type": "adjective",
+      "turkish": "Kötü (Sıfat)",
+      "example_en": "It is a bad day.",
+      "example_tr": "Kötü bir gün.",
+      "related_verbs": ["dislike", "hate", "stop"]
     },
     {
-      "word": "speak",
-      "type": "verb",
-      "turkish": "Konuşmak",
-      "example_en": "Can you speak slowly, please?",
-      "example_tr": "Yavaş konuşabilir misiniz lütfen?",
-      "related_verbs": ["talk", "say", "tell", "express", "communicate"]
+      "word": "big",
+      "type": "adjective",
+      "turkish": "Büyük (Sıfat)",
+      "example_en": "He has a big house.",
+      "example_tr": "Onun büyük bir evi var.",
+      "related_verbs": ["grow", "expand"]
     },
     {
-      "word": "listen",
-      "type": "verb",
-      "turkish": "Dinlemek",
-      "example_en": "I listen to the radio.",
-      "example_tr": "Radyo dinlerim.",
-      "related_verbs": ["hear", "attend", "pay", "concentrate", "mind"]
+      "word": "small",
+      "type": "adjective",
+      "turkish": "Küçük (Sıfat)",
+      "example_en": "I live in a small town.",
+      "example_tr": "Küçük bir kasabada yaşıyorum.",
+      "related_verbs": ["shrink", "reduce"]
     },
     {
-      "word": "read",
-      "type": "verb",
-      "turkish": "Okumak",
-      "example_en": "She reads a newspaper every morning.",
-      "example_tr": "Her sabah gazete okur.",
-      "related_verbs": ["scan", "review", "study", "look", "peruse"]
+      "word": "new",
+      "type": "adjective",
+      "turkish": "Yeni (Sıfat)",
+      "example_en": "I have a new bag.",
+      "example_tr": "Yeni bir çantam var.",
+      "related_verbs": ["buy", "start", "open"]
     },
     {
-      "word": "write",
-      "type": "verb",
-      "turkish": "Yazmak",
-      "example_en": "Write your address here.",
-      "example_tr": "Adresinizi buraya yazın.",
-      "related_verbs": ["jot", "record", "type", "draft", "compose"]
+      "word": "happy",
+      "type": "adjective",
+      "turkish": "Mutlu (Sıfat)",
+      "example_en": "We are happy today.",
+      "example_tr": "Bugün mutluyuz.",
+      "related_verbs": ["smile", "laugh", "enjoy"]
     },
     {
-      "word": "open",
-      "type": "verb",
-      "turkish": "Açmak",
-      "example_en": "Open the door for me.",
-      "example_tr": "Benim için kapıyı aç.",
-      "related_verbs": ["unlock", "unfold", "reveal", "spread", "start"]
+      "word": "here",
+      "type": "adverb",
+      "turkish": "Burada (Yer zarfı)",
+      "example_en": "Come here.",
+      "example_tr": "Buraya gel.",
+      "related_verbs": ["stay", "wait", "stand"]
     },
     {
-      "word": "close",
-      "type": "verb",
-      "turkish": "Kapatmak",
-      "example_en": "Close the window, it is cold.",
-      "example_tr": "Pencereyi kapat, hava soğuk.",
-      "related_verbs": ["shut", "lock", "seal", "end", "finish"]
+      "word": "there",
+      "type": "adverb",
+      "turkish": "Orada (Yer zarfı)",
+      "example_en": "The book is there.",
+      "example_tr": "Kitap orada.",
+      "related_verbs": ["go", "put", "sit"]
     },
     {
-      "word": "buy",
-      "type": "verb",
-      "turkish": "Satın almak",
-      "example_en": "I need to buy some milk.",
-      "example_tr": "Biraz süt satın almam gerekiyor.",
-      "related_verbs": ["purchase", "get", "acquire", "pay", "order"]
+      "word": "now",
+      "type": "adverb",
+      "turkish": "Şimdi (Zaman zarfı)",
+      "example_en": "I am studying now.",
+      "example_tr": "Şimdi ders çalışıyorum.",
+      "related_verbs": ["start", "begin", "do"]
     },
     {
-      "word": "pay",
-      "type": "verb",
-      "turkish": "Ödemek",
-      "example_en": "How much do I pay?",
-      "example_tr": "Ne kadar ödeyeceğim?",
-      "related_verbs": ["settle", "spend", "compensate", "give", "repay"]
+      "word": "fast",
+      "type": "adverb",
+      "turkish": "Hızlıca (Durum zarfı)",
+      "example_en": "He runs fast.",
+      "example_tr": "O hızlı koşar.",
+      "related_verbs": ["run", "drive", "move"]
     },
     {
-      "word": "walk",
-      "type": "verb",
-      "turkish": "Yürümek",
-      "example_en": "We walk in the park.",
-      "example_tr": "Parkta yürürüz.",
-      "related_verbs": ["stroll", "hike", "step", "march", "roam"]
+      "word": "in",
+      "type": "preposition",
+      "turkish": "İçinde (Edat)",
+      "example_en": "I am in the room.",
+      "example_tr": "Odadayım.",
+      "related_verbs": ["stay", "live", "sit"]
     },
     {
-      "word": "run",
-      "type": "verb",
-      "turkish": "Koşmak",
-      "example_en": "Dogs like to run fast.",
-      "example_tr": "Köpekler hızlı koşmayı sever.",
-      "related_verbs": ["jog", "sprint", "dash", "race", "operate"]
+      "word": "on",
+      "type": "preposition",
+      "turkish": "Üstünde (Edat)",
+      "example_en": "The book is on the table.",
+      "example_tr": "Kitap masanın üstünde.",
+      "related_verbs": ["put", "lie", "sit"]
     },
     {
-      "word": "play",
-      "type": "verb",
-      "turkish": "Oynamak",
-      "example_en": "Boys play football outside.",
-      "example_tr": "Çocuklar dışarıda futbol oynuyor.",
-      "related_verbs": ["sport", "act", "perform", "gamble", "fun"]
+      "word": "at",
+      "type": "preposition",
+      "turkish": "-de / -da (Edat)",
+      "example_en": "I am at home.",
+      "example_tr": "Evdeyim.",
+      "related_verbs": ["look", "arrive", "stay"]
     },
     {
-      "word": "help",
-      "type": "verb",
-      "turkish": "Yardım etmek",
-      "example_en": "Can you help me with this?",
-      "example_tr": "Bunda bana yardım edebilir misin?",
-      "related_verbs": ["assist", "aid", "support", "serve", "benefit"]
+      "word": "to",
+      "type": "preposition",
+      "turkish": "-e / -a (Yönelme edatı)",
+      "example_en": "Go to school.",
+      "example_tr": "Okula git.",
+      "related_verbs": ["go", "walk", "listen"]
     },
     {
-      "word": "like",
-      "type": "verb",
-      "turkish": "Beğenmek, sevmek",
-      "example_en": "I like coffee with milk.",
-      "example_tr": "Sütlü kahveyi severim.",
-      "related_verbs": ["love", "enjoy", "prefer", "fancy", "appreciate"]
+      "word": "and",
+      "type": "conjunction",
+      "turkish": "Ve (Bağlaç)",
+      "example_en": "You and I are friends.",
+      "example_tr": "Sen ve ben arkadaşız.",
+      "related_verbs": ["join", "connect", "add"]
     },
     {
-      "word": "love",
-      "type": "verb",
-      "turkish": "Çok sevmek",
-      "example_en": "She loves her family.",
-      "example_tr": "Ailesini çok seviyor.",
-      "related_verbs": ["adore", "cherish", "care", "value", "treasure"]
+      "word": "but",
+      "type": "conjunction",
+      "turkish": "Ama / Fakat (Bağlaç)",
+      "example_en": "I want to go, but I can't.",
+      "example_tr": "Gitmek istiyorum ama gidemem.",
+      "related_verbs": ["stop", "change", "differ"]
     },
     {
-      "word": "want",
-      "type": "verb",
-      "turkish": "İstemek",
-      "example_en": "I want an apple.",
-      "example_tr": "Bir elma istiyorum.",
-      "related_verbs": ["desire", "wish", "need", "prefer", "request"]
+      "word": "because",
+      "type": "conjunction",
+      "turkish": "Çünkü (Bağlaç)",
+      "example_en": "I am happy because you are here.",
+      "example_tr": "Mutluyum çünkü buradasın.",
+      "related_verbs": ["explain", "reason", "cause"]
     },
     {
-      "word": "need",
-      "type": "verb",
-      "turkish": "İhtiyacı olmak",
-      "example_en": "We need more time.",
-      "example_tr": "Daha fazla zamana ihtiyacımız var.",
-      "related_verbs": ["require", "must", "lack", "demand", "necessitate"]
-    },
-    {
-      "word": "know",
-      "type": "verb",
-      "turkish": "Bilmek, tanımak",
-      "example_en": "I know the answer.",
-      "example_tr": "Cevabı biliyorum.",
-      "related_verbs": ["understand", "recognize", "realize", "learn", "perceive"]
-    },
-    {
-      "word": "think",
-      "type": "verb",
-      "turkish": "Düşünmek",
-      "example_en": "What do you think about this?",
-      "example_tr": "Bu konuda ne düşünüyorsun?",
-      "related_verbs": ["believe", "consider", "suppose", "guess", "imagine"]
-    },
-    {
-      "word": "try",
-      "type": "verb",
-      "turkish": "Denemek, çabalamak",
-      "example_en": "Try your best.",
-      "example_tr": "Elimden gelenin en iyisini dene.",
-      "related_verbs": ["attempt", "test", "effort", "strive", "endeavor"]
-    },
-    {
-      "word": "use",
-      "type": "verb",
-      "turkish": "Kullanmak",
-      "example_en": "We use computers at work.",
-      "example_tr": "İşte bilgisayar kullanıyoruz.",
-      "related_verbs": ["utilize", "operate", "apply", "employ", "handle"]
-    },
-    {
-      "word": "find",
-      "type": "verb",
-      "turkish": "Bulmak",
-      "example_en": "I can find my keys easily.",
-      "example_tr": "Anahtarlarımı kolayca bulabilirim.",
-      "related_verbs": ["discover", "locate", "detect", "spot", "uncover"]
-    },
-    {
-      "word": "give",
-      "type": "verb",
-      "turkish": "Vermek",
-      "example_en": "Give me that book, please.",
-      "example_tr": "Lütfen bana o kitabı ver.",
-      "related_verbs": ["hand", "offer", "provide", "grant", "donate"]
-    },
-    {
-      "word": "take",
-      "type": "verb",
-      "turkish": "Almak, götürmek",
-      "example_en": "Take your umbrella with you.",
-      "example_tr": "Şemsiyeni yanına al.",
-      "related_verbs": ["grab", "carry", "accept", "receive", "capture"]
-    },
-    {
-      "word": "bring",
-      "type": "verb",
-      "turkish": "Getirmek",
-      "example_en": "Please bring some water.",
-      "example_tr": "Lütfen biraz su getir.",
-      "related_verbs": ["fetch", "carry", "deliver", "convey", "bear"]
-    },
-    {
-      "word": "show",
-      "type": "verb",
-      "turkish": "Göstermek",
-      "example_en": "Show me your new photo.",
-      "example_tr": "Bana yeni fotoğrafını göster.",
-      "related_verbs": ["display", "exhibit", "reveal", "demonstrate", "point"]
-    },
-    {
-      "word": "tell",
-      "type": "verb",
-      "turkish": "Anlatmak, söylemek",
-      "example_en": "Tell me a story.",
-      "example_tr": "Bana bir hikaye anlat.",
-      "related_verbs": ["say", "speak", "inform", "explain", "recount"]
-    },
-    {
-      "word": "ask",
-      "type": "verb",
-      "turkish": "Sormak, istemek",
-      "example_en": "Ask a question to the teacher.",
-      "example_tr": "Öğretmene bir soru sor.",
-      "related_verbs": ["question", "inquire", "request", "beg", "query"]
-    },
-    {
-      "word": "answer",
-      "type": "verb",
-      "turkish": "Cevaplamak",
-      "example_en": "Answer the phone, please.",
-      "example_tr": "Lütfen telefona cevap ver.",
-      "related_verbs": ["reply", "respond", "react", "solve", "fulfill"]
-    },
-    {
-      "word": "call",
-      "type": "verb",
-      "turkish": "Aramak, seslenmek",
-      "example_en": "I will call you tonight.",
-      "example_tr": "Seni akşam arayacağım.",
-      "related_verbs": ["phone", "ring", "contact", "shout", "name"]
-    },
-    {
-      "word": "meet",
-      "type": "verb",
-      "turkish": "Buluşmak",
-      "example_en": "Let's meet at the cafe.",
-      "example_tr": "kafede buluşalım.",
-      "related_verbs": ["gather", "assemble", "join", "encounter", "unite"]
-    },
-    {
-      "word": "travel",
-      "type": "verb",
-      "turkish": "Seyahat etmek",
-      "example_en": "They travel every summer.",
-      "example_tr": "Her yaz seyahat ederler.",
-      "related_verbs": ["tour", "journey", "trip", "visit", "explore"]
-    },
-    {
-      "word": "visit",
-      "type": "verb",
-      "turkish": "Ziyaret etmek",
-      "example_en": "We visit our grandparents.",
-      "example_tr": "Büyükannemizi ve büyükbabamızı ziyaret ederiz.",
-      "related_verbs": ["see", "call", "attend", "frequent", "inspect"]
-    },
-    {
-      "word": "stay",
-      "type": "verb",
-      "turkish": "Kalmak",
-      "example_en": "Stay here until I return.",
-      "example_tr": "Ben dönene kadar burada kal.",
-      "related_verbs": ["remain", "wait", "dwell", "reside", "keep"]
-    },
-    {
-      "word": "leave",
-      "type": "verb",
-      "turkish": "Ayrılmak",
-      "example_en": "The train leaves at eight.",
-      "example_tr": "Tren saat sekizde hareket ediyor.",
-      "related_verbs": ["depart", "exit", "quit", "abandon", "forget"]
-    },
-    {
-      "word": "stop",
-      "type": "verb",
-      "turkish": "Durmak",
-      "example_en": "Stop at the red light.",
-      "example_tr": "Kırmızı ışıkta dur.",
-      "related_verbs": ["halt", "pause", "cease", "discontinue", "block"]
+      "word": "wow",
+      "type": "exclamation",
+      "turkish": "Vay canına (Ünlem)",
+      "example_en": "Wow, this is great!",
+      "example_tr": "Vay canına, bu harika!",
+      "related_verbs": ["surprise", "amaze", "react"]
     }
   ]
 }
-  "total_words_in_scene": 50,
-  "story_en": "Every morning, John can wake up early, open his window, and watch outside. He likes to start his day well, so he wants to buy fresh milk. He needs to pay for it, walk to the bus stop, and run when he is late. He will try to catch the bus, travel to the office, and arrive on time. At work, he will use his computer, read emails, write notes, and study the new project. His manager will bring a file, give him instructions, and take his report. John knows what to do and will finish the task. During the day, he might speak with Tom, listen to music, think about new ideas, and find good solutions. He will call his friend, ask a question, and answer quickly. Sometimes he likes to play outside, visit family, and stay late. When he is hungry, he will eat delicious food and live a happy life. After a busy day, he will leave the office, return home, travel back, stop working, close his door, and sleep well at night. ",
-  "story_tr": " Her sabah John erkenden uyanabilir, penceresini açabilir ve dışarıyı izleyebilir. Gününü iyi başlatmayı sever, bu yüzden taze süt satın almak ister. Bunun için ödeme yapması, otobüs durağına yürümesi ve geç kaldığında koşması gerekir. Otobüsü yakalamaya çalışacak, ofise seyahat edecek ve zamanında varacak. İş yerinde bilgisayarını kullanacak, e-postaları okuyacak, notlar yazacak ve yeni projeyi çalışacak. Yöneticisi bir dosya getirecek, ona talimatlar verecek ve raporunu alacak. John ne yapacağını bilir ve görevi bitirecek. Gün boyunca Tom ile konuşabilir, müzik dinleyebilir, yeni fikirler düşünebilir ve iyi çözümler bulabilir. Arkadaşını arayacak, bir soru soracak ve hızlıca cevap verecek. Bazen dışarıda oynamayı, ailesini ziyaret etmeyi ve geç kalmayı sever. Acıktığında lezzetli yemekler yiyecek ve mutlu bir yaşam sürecek. Yoğun bir günden sonra ofisten ayrılacak, eve dönecek, geri seyahat edecek, çalışmayı durduracak, kapısını kapatacak ve geceleri iyi uyuyacak. ",
-  "words": [
-    {
-      "word": "meet",
-      "type": "verb",
-      "turkish": "Tanışmak, buluşmak",
-      "example_en": "Nice to meet you.",
-      "example_tr": "Tanıştığımıza memnun oldum.",
-      "related_verbs": ["introduce", "greet", "talk", "speak", "say", "know", "see"]
-    },
-    {
-      "word": "live",
-      "type": "verb",
-      "turkish": "Yaşamak, ikamet etmek",
-      "example_en": "I live in a small town.",
-      "example_tr": "Küçük bir kasabada yaşıyorum.",
-      "related_verbs": ["reside", "stay", "inhabit", "move", "grow"]
-    },
-    {
-      "word": "work",
-      "type": "verb",
-      "turkish": "Çalışmak",
-      "example_en": "She works in an office.",
-      "example_tr": "O, bir ofiste çalışıyor.",
-      "related_verbs": ["labor", "toil", "employ", "manage", "earn"]
-    },
-    {
-      "word": "study",
-      "type": "verb",
-      "turkish": "Ders çalışmak",
-      "example_en": "We study English every day.",
-      "example_tr": "Her gün İngilizce çalışıyoruz.",
-      "related_verbs": ["learn", "read", "practice", "write", "review"]
-    },
-    {
-      "word": "start",
-      "type": "verb",
-      "turkish": "Başlamak",
-      "example_en": "Classes start at nine o'clock.",
-      "example_tr": "Dersler saat dokuzda başlar.",
-      "related_verbs": ["begin", "open", "initiate", "launch", "set"]
-    },
-    {
-      "word": "wake",
-      "type": "verb",
-      "turkish": "Uyanmak",
-      "example_en": "I wake up early in the morning.",
-      "example_tr": "Sabahları erken uyanırım.",
-      "related_verbs": ["rise", "get", "arouse", "stir", "open"]
-    },
-    {
-      "word": "get",
-      "type": "verb",
-      "turkish": "Almak, elde etmek, varmak",
-      "example_en": "She gets ready for school.",
-      "example_tr": "Okul için hazırlanıyor.",
-      "related_verbs": ["obtain", "acquire", "receive", "fetch", "gain"]
-    },
-    {
-      "word": "have",
-      "type": "verb",
-      "turkish": "Sahip olmak, yemek",
-      "example_en": "We have breakfast together.",
-      "example_tr": "Birlikte kahvaltı yapıyoruz.",
-      "related_verbs": ["possess", "own", "hold", "contain", "experience"]
-    },
-    {
-      "word": "go",
-      "type": "verb",
-      "turkish": "Gitmek",
-      "example_en": "He goes to work by bus.",
-      "example_tr": "İşe otobüsle gider.",
-      "related_verbs": ["move", "travel", "proceed", "walk", "run"]
-    },
-    {
-      "word": "arrive",
-      "type": "verb",
-      "turkish": "Varmak, ulaşmak",
-      "example_en": "They arrive at the office on time.",
-      "example_tr": "Ofise zamanında varırlar.",
-      "related_verbs": ["reach", "come", "get", "approach", "enter"]
-    },
-    {
-      "word": "finish",
-      "type": "verb",
-      "turkish": "Bitirmek",
-      "example_en": "I finish my work at five.",
-      "example_tr": "İşimi saat beşte bitiririm.",
-      "related_verbs": ["complete", "end", "conclude", "terminate", "stop"]
-    },
-    {
-      "word": "return",
-      "type": "verb",
-      "turkish": "Dönmek",
-      "example_en": "She returns home in the evening.",
-      "example_tr": "Akşam eve döner.",
-      "related_verbs": ["come", "go", "revert", "reply", "give"]
-    },
-    {
-      "word": "eat",
-      "type": "verb",
-      "turkish": "Yemek yemek",
-      "example_en": "We eat dinner at seven.",
-      "example_tr": "Akşam yemeğini saat yedi yeriz.",
-      "related_verbs": ["dine", "consume", "swallow", "taste", "feed"]
-    },
-    {
-      "word": "watch",
-      "type": "verb",
-      "turkish": "İzlemek",
-      "example_en": "He watches television at night.",
-      "example_tr": "Gece televizyon izler.",
-      "related_verbs": ["see", "look", "observe", "view", "stare"]
-    },
-    {
-      "word": "sleep",
-      "type": "verb",
-      "turkish": "Uyumak",
-      "example_en": "Children sleep eight hours a night.",
-      "example_tr": "Çocuklar gecede sekiz saat uyur.",
-      "related_verbs": ["rest", "doze", "dream", "nap", "slumber"]
-    },
-    {
-      "word": "speak",
-      "type": "verb",
-      "turkish": "Konuşmak",
-      "example_en": "Can you speak slowly, please?",
-      "example_tr": "Yavaş konuşabilir misiniz lütfen?",
-      "related_verbs": ["talk", "say", "tell", "express", "communicate"]
-    },
-    {
-      "word": "listen",
-      "type": "verb",
-      "turkish": "Dinlemek",
-      "example_en": "I listen to the radio.",
-      "example_tr": "Radyo dinlerim.",
-      "related_verbs": ["hear", "attend", "pay", "concentrate", "mind"]
-    },
-    {
-      "word": "read",
-      "type": "verb",
-      "turkish": "Okumak",
-      "example_en": "She reads a newspaper every morning.",
-      "example_tr": "Her sabah gazete okur.",
-      "related_verbs": ["scan", "review", "study", "look", "peruse"]
-    },
-    {
-      "word": "write",
-      "type": "verb",
-      "turkish": "Yazmak",
-      "example_en": "Write your address here.",
-      "example_tr": "Adresinizi buraya yazın.",
-      "related_verbs": ["jot", "record", "type", "draft", "compose"]
-    },
-    {
-      "word": "open",
-      "type": "verb",
-      "turkish": "Açmak",
-      "example_en": "Open the door for me.",
-      "example_tr": "Benim için kapıyı aç.",
-      "related_verbs": ["unlock", "unfold", "reveal", "spread", "start"]
-    },
-    {
-      "word": "close",
-      "type": "verb",
-      "turkish": "Kapatmak",
-      "example_en": "Close the window, it is cold.",
-      "example_tr": "Pencereyi kapat, hava soğuk.",
-      "related_verbs": ["shut", "lock", "seal", "end", "finish"]
-    },
-    {
-      "word": "buy",
-      "type": "verb",
-      "turkish": "Satın almak",
-      "example_en": "I need to buy some milk.",
-      "example_tr": "Biraz süt satın almam gerekiyor.",
-      "related_verbs": ["purchase", "get", "acquire", "pay", "order"]
-    },
-    {
-      "word": "pay",
-      "type": "verb",
-      "turkish": "Ödemek",
-      "example_en": "How much do I pay?",
-      "example_tr": "Ne kadar ödeyeceğim?",
-      "related_verbs": ["settle", "spend", "compensate", "give", "repay"]
-    },
-    {
-      "word": "walk",
-      "type": "verb",
-      "turkish": "Yürümek",
-      "example_en": "We walk in the park.",
-      "example_tr": "Parkta yürürüz.",
-      "related_verbs": ["stroll", "hike", "step", "march", "roam"]
-    },
-    {
-      "word": "run",
-      "type": "verb",
-      "turkish": "Koşmak",
-      "example_en": "Dogs like to run fast.",
-      "example_tr": "Köpekler hızlı koşmayı sever.",
-      "related_verbs": ["jog", "sprint", "dash", "race", "operate"]
-    },
-    {
-      "word": "play",
-      "type": "verb",
-      "turkish": "Oynamak",
-      "example_en": "Boys play football outside.",
-      "example_tr": "Çocuklar dışarıda futbol oynuyor.",
-      "related_verbs": ["sport", "act", "perform", "gamble", "fun"]
-    },
-    {
-      "word": "help",
-      "type": "verb",
-      "turkish": "Yardım etmek",
-      "example_en": "Can you help me with this?",
-      "example_tr": "Bunda bana yardım edebilir misin?",
-      "related_verbs": ["assist", "aid", "support", "serve", "benefit"]
-    },
-    {
-      "word": "like",
-      "type": "verb",
-      "turkish": "Beğenmek, sevmek",
-      "example_en": "I like coffee with milk.",
-      "example_tr": "Sütlü kahveyi severim.",
-      "related_verbs": ["love", "enjoy", "prefer", "fancy", "appreciate"]
-    },
-    {
-      "word": "love",
-      "type": "verb",
-      "turkish": "Çok sevmek",
-      "example_en": "She loves her family.",
-      "example_tr": "Ailesini çok seviyor.",
-      "related_verbs": ["adore", "cherish", "care", "value", "treasure"]
-    },
-    {
-      "word": "want",
-      "type": "verb",
-      "turkish": "İstemek",
-      "example_en": "I want an apple.",
-      "example_tr": "Bir elma istiyorum.",
-      "related_verbs": ["desire", "wish", "need", "prefer", "request"]
-    },
-    {
-      "word": "need",
-      "type": "verb",
-      "turkish": "İhtiyacı olmak",
-      "example_en": "We need more time.",
-      "example_tr": "Daha fazla zamana ihtiyacımız var.",
-      "related_verbs": ["require", "must", "lack", "demand", "necessitate"]
-    },
-    {
-      "word": "know",
-      "type": "verb",
-      "turkish": "Bilmek, tanımak",
-      "example_en": "I know the answer.",
-      "example_tr": "Cevabı biliyorum.",
-      "related_verbs": ["understand", "recognize", "realize", "learn", "perceive"]
-    },
-    {
-      "word": "think",
-      "type": "verb",
-      "turkish": "Düşünmek",
-      "example_en": "What do you think about this?",
-      "example_tr": "Bu konuda ne düşünüyorsun?",
-      "related_verbs": ["believe", "consider", "suppose", "guess", "imagine"]
-    },
-    {
-      "word": "try",
-      "type": "verb",
-      "turkish": "Denemek, çabalamak",
-      "example_en": "Try your best.",
-      "example_tr": "Elimden gelenin en iyisini dene.",
-      "related_verbs": ["attempt", "test", "effort", "strive", "endeavor"]
-    },
-    {
-      "word": "use",
-      "type": "verb",
-      "turkish": "Kullanmak",
-      "example_en": "We use computers at work.",
-      "example_tr": "İşte bilgisayar kullanıyoruz.",
-      "related_verbs": ["utilize", "operate", "apply", "employ", "handle"]
-    },
-    {
-      "word": "find",
-      "type": "verb",
-      "turkish": "Bulmak",
-      "example_en": "I can find my keys easily.",
-      "example_tr": "Anahtarlarımı kolayca bulabilirim.",
-      "related_verbs": ["discover", "locate", "detect", "spot", "uncover"]
-    },
-    {
-      "word": "give",
-      "type": "verb",
-      "turkish": "Vermek",
-      "example_en": "Give me that book, please.",
-      "example_tr": "Lütfen bana o kitabı ver.",
-      "related_verbs": ["hand", "offer", "provide", "grant", "donate"]
-    },
-    {
-      "word": "take",
-      "type": "verb",
-      "turkish": "Almak, götürmek",
-      "example_en": "Take your umbrella with you.",
-      "example_tr": "Şemsiyeni yanına al.",
-      "related_verbs": ["grab", "carry", "accept", "receive", "capture"]
-    },
-    {
-      "word": "bring",
-      "type": "verb",
-      "turkish": "Getirmek",
-      "example_en": "Please bring some water.",
-      "example_tr": "Lütfen biraz su getir.",
-      "related_verbs": ["fetch", "carry", "deliver", "convey", "bear"]
-    },
-    {
-      "word": "show",
-      "type": "verb",
-      "turkish": "Göstermek",
-      "example_en": "Show me your new photo.",
-      "example_tr": "Bana yeni fotoğrafını göster.",
-      "related_verbs": ["display", "exhibit", "reveal", "demonstrate", "point"]
-    },
-    {
-      "word": "tell",
-      "type": "verb",
-      "turkish": "Anlatmak, söylemek",
-      "example_en": "Tell me a story.",
-      "example_tr": "Bana bir hikaye anlat.",
-      "related_verbs": ["say", "speak", "inform", "explain", "recount"]
-    },
-    {
-      "word": "ask",
-      "type": "verb",
-      "turkish": "Sormak, istemek",
-      "example_en": "Ask a question to the teacher.",
-      "example_tr": "Öğretmene bir soru sor.",
-      "related_verbs": ["question", "inquire", "request", "beg", "query"]
-    },
-    {
-      "word": "answer",
-      "type": "verb",
-      "turkish": "Cevaplamak",
-      "example_en": "Answer the phone, please.",
-      "example_tr": "Lütfen telefona cevap ver.",
-      "related_verbs": ["reply", "respond", "react", "solve", "fulfill"]
-    },
-    {
-      "word": "call",
-      "type": "verb",
-      "turkish": "Aramak, seslenmek",
-      "example_en": "I will call you tonight.",
-      "example_tr": "Seni akşam arayacağım.",
-      "related_verbs": ["phone", "ring", "contact", "shout", "name"]
-    },
-    {
-      "word": "meet",
-      "type": "verb",
-      "turkish": "Buluşmak",
-      "example_en": "Let's meet at the cafe.",
-      "example_tr": "kafede buluşalım.",
-      "related_verbs": ["gather", "assemble", "join", "encounter", "unite"]
-    },
-    {
-      "word": "travel",
-      "type": "verb",
-      "turkish": "Seyahat etmek",
-      "example_en": "They travel every summer.",
-      "example_tr": "Her yaz seyahat ederler.",
-      "related_verbs": ["tour", "journey", "trip", "visit", "explore"]
-    },
-    {
-      "word": "visit",
-      "type": "verb",
-      "turkish": "Ziyaret etmek",
-      "example_en": "We visit our grandparents.",
-      "example_tr": "Büyükannemizi ve büyükbabamızı ziyaret ederiz.",
-      "related_verbs": ["see", "call", "attend", "frequent", "inspect"]
-    },
-    {
-      "word": "stay",
-      "type": "verb",
-      "turkish": "Kalmak",
-      "example_en": "Stay here until I return.",
-      "example_tr": "Ben dönene kadar burada kal.",
-      "related_verbs": ["remain", "wait", "dwell", "reside", "keep"]
-    },
-    {
-      "word": "leave",
-      "type": "verb",
-      "turkish": "Ayrılmak",
-      "example_en": "The train leaves at eight.",
-      "example_tr": "Tren saat sekizde hareket ediyor.",
-      "related_verbs": ["depart", "exit", "quit", "abandon", "forget"]
-    },
-    {
-      "word": "stop",
-      "type": "verb",
-      "turkish": "Durmak",
-      "example_en": "Stop at the red light.",
-      "example_tr": "Kırmızı ışıkta dur.",
-      "related_verbs": ["halt", "pause", "cease", "discontinue", "block"]
-    
-}
-  {
-    "word": "master sentence analysis",
-    "type": "complex sentence with all elements",
-    "turkish": "Tüm öğeleri (özne, yüklem, fiil, nesne, dolaylı tümleç ve zarf tümleçleri) içeren en uzun örnek cümle analizi",
-    "example_en": "Yesterday morning, the experienced English teacher enthusiastically explained complex grammar rules to her attentive students in the crowded classroom.",
-    "example_tr": "Dün sabah, deneyimli İngilizce öğretmeni, kalabalık sınıfta dikkatli öğrencilerine karmaşık dilbilgisi kurallarını coşkuyla açıkladı.",
-    "related_verbs": ["explain", "teach", "learn", "understand", "study", "listen", "practice"]
-  },
-  {
-    "word": "subject",
-    "type": "sentence element",
-    "turkish": "Özne (The experienced English teacher)",
-    "example_en": "Yesterday morning, the experienced English teacher enthusiastically explained complex grammar rules to her attentive students in the crowded classroom.",
-    "example_tr": "Dün sabah, deneyimli İngilizce öğretmeni, kalabalık sınıfta dikkatli öğrencilerine karmaşık dilbilgisi kurallarını coşkuyla açıkladı.",
-    "related_verbs": ["lead", "guide", "act", "perform", "execute"]
-  },
-  {
-    "word": "verb / predicate",
-    "type": "sentence element",
-    "turkish": "Yüklem / Fiil (Explained)",
-    "example_en": "Yesterday morning, the experienced English teacher enthusiastically explained complex grammar rules to her attentive students in the crowded classroom.",
-    "example_tr": "Dün sabah, deneyimli İngilizce öğretmeni, kalabalık sınıfta dikkatli öğrencilerine karmaşık dilbilgisi kurallarını coşkuyla açıkladı.",
-    "related_verbs": ["explain", "express", "state", "clarify", "present"]
-  },
-  {
-    "word": "direct object",
-    "type": "sentence element",
-    "turkish": "Nesne (Complex grammar rules)",
-    "example_en": "Yesterday morning, the experienced English teacher enthusiastically explained complex grammar rules to her attentive students in the crowded classroom.",
-    "example_tr": "Dün sabah, deneyimli İngilizce öğretmeni, kalabalık sınıfta dikkatli öğrencilerine karmaşık dilbilgisi kurallarını coşkuyla açıkladı.",
-    "related_verbs": ["target", "receive", "comprehend", "absorb", "master"]
-  },
-  {
-    "word": "indirect object",
-    "type": "sentence element",
-    "turkish": "Dolaylı Tümleç (To her attentive students)",
-    "example_en": "Yesterday morning, the experienced English teacher enthusiastically explained complex grammar rules to her attentive students in the crowded classroom.",
-    "example_tr": "Dün sabah, deneyimli İngilizce öğretmeni, kalabalık sınıfta dikkatli öğrencilerine karmaşık dilbilgisi kurallarını coşkuyla açıkladı.",
-    "related_verbs": ["listen", "attend", "receive", "engage", "participate"]
-  },
-  {
-    "word": "adverbial",
-    "type": "sentence element",
-    "turkish": "Zarf Tümleçleri (Yesterday morning, enthusiastically, in the crowded classroom)",
-    "example_en": "Yesterday morning, the experienced English teacher enthusiastically explained complex grammar rules to her attentive students in the crowded classroom.",
-    "example_tr": "Dün sabah, deneyimli İngilizce öğretmeni, kalabalık sınıfta dikkatli öğrencilerine karmaşık dilbilgisi kurallarını coşkuyla açıkladı.",
-    "related_verbs": ["modify", "circumscribe", "enhance", "qualify", "specify"]
-  }
-]
