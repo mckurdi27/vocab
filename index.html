@@ -21,7 +21,7 @@
             padding: 0 15px;
         }
 
-        /* Üst Kontrol Paneli - Modern e Uyumlu Tasarım */
+        /* Üst Kontrol Paneli - Modern ve Uyumlu Tasarım */
         .header {
             background: #ffffff;
             border: 1px solid #e2e8f0;
@@ -158,7 +158,7 @@
 
     <script src="app.js"></script>
     <script>
-        // Analiz sayfasıyla uyumlu 0'dan 50'ye (100 - 150) dosya listesini oluşturan fonksiyon
+        // Analiz sayfasıyla birebir aynı dosya oluşturma ve sıralama mantığı
         function generateDayOptions() {
             const levelSelect = document.getElementById('levelSelect').value;
             const daySelect = document.getElementById('daySelect');
@@ -176,7 +176,7 @@
                 
                 const option = document.createElement('option');
                 option.value = `data/${fileName}.json`;
-                option.textContent = `${levelSelect.toUpperCase()} - ${i}. Dosya (${fileName})`;
+                option.textContent = `Dosya: ${fileName.toUpperCase()}`;
                 daySelect.appendChild(option);
             }
             if (typeof loadData === 'function') {
