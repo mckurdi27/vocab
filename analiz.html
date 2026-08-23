@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelime Mükerrer Analizi - Tüm Seviyeler</title>
+    <title>Kelime ve Soru Bankası - Mükerrer Analizi</title>
     <style>
         :root {
             --primary-color: #2563eb;
@@ -26,7 +26,7 @@
             margin: 0 auto;
         }
 
-        /* Üst Header Alanı (Ana Sayfa ile Birebir Mavi Konsept) */
+        /* Orijinal Header Alanı (Ana Sayfa ile Birebir Aynı Kontroller) */
         header {
             background: var(--card-bg);
             border-radius: 12px;
@@ -76,7 +76,7 @@
             color: var(--primary-color);
         }
 
-        /* Ana Sayfa Dönüş ve Çalıştır Butonları - Tamamen Mavi Ton */
+        /* Mavi Tonlu Butonlar */
         .action-btn {
             background-color: var(--primary-color);
             color: white;
@@ -168,14 +168,27 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header: Mavi Tonlu Ana Sayfa Butonu ve Kontroller -->
+        <!-- Header: Orijinal Seçimler, İleri-Geri Butonları ve Mavi Ana Sayfa Butonu -->
         <header>
             <div class="header-left">
-                <span class="panel-title">Mükerrer Kelime Analizi</span>
-                <select id="scopeSelect" class="app-select">
-                    <option value="all">Tüm Dosyalar (A, B, C Seviyeleri)</option>
+                <span class="panel-title">Mükerrer Analiz Paneli</span>
+                
+                <select id="levelSelect" class="app-select" onchange="onLevelChange()">
+                    <option value="all">Tüm Kelimeler / Tüm Seviyeler</option>
+                    <option value="a1">A1 Seviyesi</option>
+                    <option value="a2">A2 Seviyesi</option>
+                    <option value="b1">B1 Seviyesi</option>
+                    <option value="b2">B2 Seviyesi</option>
+                    <option value="c1">C1 Seviyesi</option>
+                    <option value="c2">C2 Seviyesi</option>
                 </select>
-                <button id="runBtn" class="action-btn" onclick="runAnalysis()">🔍 Analizi Çalıştır</button>
+
+                <select id="fileSelect" class="app-select"></select>
+
+                <button id="prevBtn" class="app-btn" onclick="navigateFile(-1)">◀ Önceki</button>
+                <button id="nextBtn" class="app-btn" onclick="navigateFile(1)">Sonraki ▶</button>
+
+                <button class="action-btn" onclick="runAnalysis()">🔍 Analizi Çalıştır</button>
             </div>
 
             <div class="header-right">
@@ -185,8 +198,8 @@
 
         <!-- Bilgi Banner -->
         <div class="info-banner">
-            <h2>Mükerrer Tarama Paneli</h2>
-            <p>Birden fazla dosyada mükerrer (tekrar eden) geçen kelimeleri tespit edin ve hangi dosyalarda yer aldıklarını listeleyin.</p>
+            <h2>Mükerrer Kelime Tarama</h2>
+            <p>Seçtiğiniz kapsama göre kelimelerin hangi dosyalarda tekrar ettiğini detaylıca inceleyin.</p>
         </div>
 
         <!-- Sonuçlar Tablosu -->
@@ -198,6 +211,13 @@
     </div>
 
     <script>
+        let currentFileList = [];
+        let currentFileIndex = 0;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            updateFileList();
+        });
+
         function getAllPossibleFiles() {
             let files = [];
             ['a', 'b', 'c'].forEach(letter => {
@@ -211,14 +231,81 @@
             return files;
         }
 
+        function updateFileList() {
+            const level = document.getElementById('levelSelect').value;
+            const select = document.getElementById('fileSelect');
+            select.innerHTML = '';
+
+            if (level === 'all') {
+                const option = document.createElement('option');
+                option.value = 'all';
+                option.textContent = 'Tüm Dosyalar Taranacak';
+                select.appendChild(option);
+                select.disabled = true;
+                return;
+            }
+
+            select.disabled = false;
+            let prefix = 'a';
+            let baseNum = 100;
+
+            if (level === 'a1') { prefix = 'a'; baseNum = 100; }
+            else if (level === 'a2') { prefix = 'a'; baseNum = 200; }
+            else if (level === 'b1') { prefix = 'b'; baseNum = 100; }
+            else if (level === 'b2') { prefix = 'b'; baseNum = 200; }
+            else if (level === 'c1') { prefix = 'c'; baseNum = 100; }
+            else if (level === 'c2') { prefix = 'c'; baseNum = 200; }
+
+            currentFileList = [];
+            for (let i = 0; i <= 50; i++) {
+                currentFileList.push(`data/${prefix}${baseNum + i}.json`);
+            }
+
+            currentFileList.forEach((file) => {
+                const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
+                const option = document.createElement('option');
+                option.value = file;
+                option.textContent = `Dosya (${fileName.toLowerCase()})`;
+                select.appendChild(option);
+            });
+
+            currentFileIndex = 0;
+        }
+
+        function onLevelChange() {
+            updateFileList();
+        }
+
+        function navigateFile(direction) {
+            const select = document.getElementById('fileSelect');
+            if (select.disabled || currentFileList.length === 0) return;
+
+            currentFileIndex += direction;
+            if (currentFileIndex < 0) currentFileIndex = currentFileList.length - 1;
+            if (currentFileIndex >= currentFileList.length) currentFileIndex = 0;
+
+            select.selectedIndex = currentFileIndex;
+        }
+
         async function runAnalysis() {
             const container = document.getElementById('resultsContainer');
-            container.innerHTML = '<p style="color: #2563eb; text-align:center; font-weight: 500;">Tüm dosyalar taranıyor, lütfen bekleyin...</p>';
+            container.innerHTML = '<p style="color: #2563eb; text-align:center; font-weight: 500;">Dosyalar taranıyor, lütfen bekleyin...</p>';
 
-            const files = getAllPossibleFiles();
+            const level = document.getElementById('levelSelect').value;
+            const selectedFile = document.getElementById('fileSelect').value;
+
+            let filesToScan = [];
+            if (level === 'all') {
+                filesToScan = getAllPossibleFiles();
+            } else if (selectedFile) {
+                filesToScan = [selectedFile];
+            } else {
+                filesToScan = currentFileList;
+            }
+
             let globalWordMap = {};
 
-            for (const file of files) {
+            for (const file of filesToScan) {
                 try {
                     const res = await fetch(file);
                     if (!res.ok) continue;
@@ -244,21 +331,24 @@
                 } catch (err) {}
             }
 
-            // Sadece birden fazla dosyada geçenleri filtrele (mükerrer olanlar)
-            const duplicates = Object.values(globalWordMap).filter(item => item.files.length > 1);
+            // Sadece birden fazla dosyada geçenler (veya seçilen tek dosya modundakiler)
+            let duplicates = Object.values(globalWordMap);
+            if (level === 'all') {
+                duplicates = duplicates.filter(item => item.files.length > 1);
+            }
 
             if (duplicates.length === 0) {
-                container.innerHTML = '<p style="text-align:center; color:#64748b;">Mükerrer kelime bulunamadı.</p>';
+                container.innerHTML = '<p style="text-align:center; color:#64748b;">Kriterlere uygun kelime bulunamadı.</p>';
                 return;
             }
 
             let html = `
-                <p style="font-weight: 600; color: #334155; margin-bottom: 15px;">Toplam <b>${duplicates.length}</b> adet mükerrer kelime tespit edildi.</p>
+                <p style="font-weight: 600; color: #334155; margin-bottom: 15px;">Toplam <b>${duplicates.length}</b> adet kelime listelendi.</p>
                 <table>
                     <thead>
                         <tr>
                             <th>Kelime</th>
-                            <th>Geçtiği Dosyalar ve Sahne Sayısı</th>
+                            <th>Geçtiği Dosyalar</th>
                         </tr>
                     </thead>
                     <tbody>
