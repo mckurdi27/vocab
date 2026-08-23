@@ -26,7 +26,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -121,25 +121,120 @@
             border: 1px solid #bfdbfe;
         }
 
+        /* Ana Düzen: Sol tarafta 3 sütunlu kart alanı, sağ tarafta 4. sütun detay paneli */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 20px;
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 4. Sütun: Geniş Detay ve Görsel Paneli */
+        .detail-sidebar {
+            position: sticky;
+            top: 20px;
+            background: var(--card-bg);
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .detail-image-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f1f5f9;
+            margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detail-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .detail-placeholder-text {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .detail-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+            text-transform: capitalize;
+        }
+
+        .detail-translation {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .detail-meta-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.85rem;
+            color: #475569;
+            line-height: 1.5;
         }
 
         .vocab-card {
             background: var(--card-bg);
             border-radius: 12px;
-            padding: 18px;
+            padding: 15px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             position: relative;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
             border: 1px solid #e2e8f0;
+            cursor: pointer;
         }
 
         .vocab-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-color);
+        }
+
+        .vocab-card.active-card {
+            border-color: var(--primary-color) !important;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
         }
 
         .vocab-card.is-unique {
@@ -150,7 +245,6 @@
             background-color: #22c55e;
         }
 
-        /* 1. Geçiş: Yumuşak mavi arka plan tonu */
         .vocab-card.is-first-repeat {
             border-color: var(--primary-color) !important;
             background-color: #eff6ff;
@@ -169,35 +263,35 @@
 
         .card-badge {
             position: absolute;
-            top: 12px;
-            right: 12px;
+            top: 10px;
+            right: 10px;
             color: white;
-            font-size: 10px;
-            padding: 3px 8px;
+            font-size: 9px;
+            padding: 3px 6px;
             border-radius: 4px;
             font-weight: bold;
             letter-spacing: 0.5px;
         }
 
         .word-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             color: #0f172a;
         }
 
         .word-translation {
             color: #475569;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
         }
 
         .word-meta {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #64748b;
             border-top: 1px solid #f1f5f9;
-            padding-top: 8px;
-            margin-top: 10px;
+            padding-top: 6px;
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -207,7 +301,7 @@
             <div class="header-left">
                 <!-- Grup / Seviye Seçimi -->
                 <select id="groupSelect" class="app-select" onchange="onGroupChange()">
-                    <option value="all">Tüm</option>
+                    <option value="all">Tümü</option>
                     <option value="a1">A1</option>
                     <option value="a2">A2</option>
                     <option value="b1">B1</option>
@@ -234,7 +328,22 @@
             <button class="action-btn" onclick="startGlobalAnalysis()">✨ Analizi Başlat</button>
         </div>
 
-        <div id="cardsContainer" class="cards-grid"></div>
+        <!-- Ana Düzen Kapsayıcısı (Sol: Kelime Kartları, Sağ: 4. Sütun Detay Paneli) -->
+        <div class="main-layout">
+            <div id="cardsContainer" class="cards-grid"></div>
+
+            <!-- Dördüncü Sütun: Geniş Detay ve Görsel Paneli -->
+            <div class="detail-sidebar" id="detailSidebar">
+                <div class="detail-image-container" id="detailImageContainer">
+                    <div class="detail-placeholder-text">Görsel yükleniyor...</div>
+                </div>
+                <div class="detail-title" id="detailTitle">Kelime Seçin</div>
+                <div class="detail-translation" id="detailTranslation">Detay görmek için soldaki kartlardan birine tıklayın.</div>
+                <div class="detail-meta-box" id="detailMetaBox">
+                    Kelime ile ilgili arama sonuçları, açıklamalar ve dosya geçiş detayları bu alanda görüntülenecektir.
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -300,7 +409,7 @@
                             if (!globalWordMap[wordKey]) {
                                 globalWordMap[wordKey] = [];
                             }
-                            globalWordMap[wordKey].push({ file: file, index: index });
+                            globalWordMap[wordKey].push({ file: file, index: index, item: item });
                         });
                     }
                 } catch (err) {}
@@ -395,6 +504,11 @@
                         const card = createVocabCard(item, file, index);
                         container.appendChild(card);
                     });
+                    
+                    // Otomatik olarak ilk kelimeyi seç ve detay panelinde göster
+                    if (wordsList[0]) {
+                        showWordDetail(wordsList[0], file, index=0);
+                    }
                 } else {
                     container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu dosyada kelime bulunamadı.</p>`;
                 }
@@ -432,6 +546,12 @@
 
             const cardDiv = document.createElement('div');
             cardDiv.className = `vocab-card ${cardClass}`;
+            cardDiv.onclick = () => {
+                // Aktif kart vurgusunu güncelle
+                document.querySelectorAll('.vocab-card').forEach(c => c.classList.remove('active-card'));
+                cardDiv.classList.add('active-card');
+                showWordDetail(item, currentFile, itemIndex);
+            };
 
             const wordText = item.word || item.term || '';
             const translationText = item.translation || item.meaning || '';
@@ -447,6 +567,69 @@
             `;
 
             return cardDiv;
+        }
+
+        // Kelime detayını ve görselini 4. Sütun (Detay Paneli) üzerinde gösteren fonksiyon
+        async function showWordDetail(item, currentFile, itemIndex) {
+            const wordText = item.word || item.term || '';
+            const translationText = item.translation || item.meaning || '';
+            const exampleText = item.example || item.sentence || '';
+            const trExampleText = item.exampleTr || item.translationExample || '';
+            const relWords = item.relatedWords || item.synonyms || '';
+
+            document.getElementById('detailTitle').textContent = wordText;
+            document.getElementById('detailTranslation').textContent = translationText;
+
+            const imageContainer = document.getElementById('detailImageContainer');
+            imageContainer.innerHTML = `<div class="detail-placeholder-text">Görsel aranıyor...</div>`;
+
+            // Görsel çekme işlemi (Unsplash Source veya Wikimedia/Wikipedia API)
+            try {
+                // Wikimedia Commons API üzerinden ilgili kelimeye ait görsel arama
+                const wikiRes = await fetch(`https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(wordText)}&gsrlimit=1&prop=imageinfo&iiprop=url&format=json&origin=*`);
+                const wikiData = await wikiRes.json();
+                
+                let imageUrl = '';
+                if (wikiData.query && wikiData.query.pages) {
+                    const pages = wikiData.query.pages;
+                    const pageId = Object.keys(pages)[0];
+                    if (pages[pageId].imageinfo && pages[pageId].imageinfo[0]) {
+                        imageUrl = pages[pageId].imageinfo[0].url;
+                    }
+                }
+
+                if (!imageUrl) {
+                    // Fallback olarak Unsplash Source görseli
+                    imageUrl = `https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80`;
+                }
+
+                imageContainer.innerHTML = `<img src="${imageUrl}" alt="${wordText}" onerror="this.src='https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80'">`;
+            } catch (err) {
+                imageContainer.innerHTML = `<img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80" alt="${wordText}">`;
+            }
+
+            const wordKey = wordText.trim().toLowerCase();
+            const appearances = globalWordMap[wordKey] || [];
+            const uniqueFiles = [...new Set(appearances.map(app => app.file))];
+
+            let metaHtml = `<b>Anlamı / Açıklama:</b> ${translationText}<br>`;
+            if (exampleText) {
+                metaHtml += `<br><b>Örnek (EN):</b> ${exampleText}<br>`;
+            }
+            if (trExampleText) {
+                metaHtml += `<b>Örnek (TR):</b> ${trExampleText}<br>`;
+            }
+            if (relWords) {
+                metaHtml += `<br><b>İlişkili Kelimeler:</b> ${typeof relWords === 'string' ? relWords : relWords.join(', ')}<br>`;
+            }
+            if (isAnalyzed) {
+                metaHtml += `<br><b>Geçtiği Toplam Dosya Sayısı:</b> ${uniqueFiles.length}<br>`;
+                metaHtml += `<b>Dosyalar:</b> ${uniqueFiles.map(f => f.split('/').pop().replace('.json','')).join(', ')}`;
+            } else {
+                metaHtml += `<br><span style="color:#2563eb;">Mükerrer analiz için üst bardan "Analizi Başlat" butonuna tıklayınız.</span>`;
+            }
+
+            document.getElementById('detailMetaBox').innerHTML = metaHtml;
         }
 
         initApp();
