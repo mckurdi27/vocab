@@ -16,7 +16,7 @@
         }
 
         .container {
-            max-width: 1050px;
+            max-width: 1000px;
             margin: 20px auto;
             padding: 0 15px;
         }
@@ -44,6 +44,26 @@
             font-size: 1.25rem;
             color: #0f172a;
             font-weight: 700;
+        }
+
+        .analysis-btn {
+            background-color: #2563eb;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .analysis-btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
         }
 
         .selectors-wrapper {
@@ -91,37 +111,6 @@
             background-color: #dbeafe;
             border-color: #93c5fd;
         }
-
-        /* Analiz Butonları Tasarımı */
-        .analysis-btn {
-            background-color: #2563eb;
-            color: white;
-            padding: 8px 14px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .analysis-btn:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-1px);
-        }
-
-        /* Yeni Mükerrer Analiz Butonu (Farklı ton ile ayırt edilebilir) */
-        .duplicate-btn {
-            background-color: #4f46e5;
-            box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
-        }
-
-        .duplicate-btn:hover {
-            background-color: #4338ca;
-        }
     </style>
 </head>
 <body>
@@ -149,16 +138,13 @@
                     <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
                     <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
 
-                    <!-- Birinci Analiz Sayfası (Eski) -->
-                    <a href="analysis.html" class="analysis-btn">📊 Eski Analiz</a>
-
-                    <!-- İkinci Analiz Sayfası (Yeni Mükerrer Kelime Takip Aracı) -->
-                    <a href="analiz.html" class="analysis-btn duplicate-btn">🔍 Mükerrer Analiz</a>
+                    <!-- Analiz Sayfasına Yönlendiren Buton -->
+                    <a href="analysis.html" class="analysis-btn">📊 Analiz Sayfası</a>
                 </div>
             </div>
         </header>
 
-        <!-- JSON Bilgilerinin Gösterileceği Başlık Alanı -->
+        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı -->
         <div id="sceneBanner" class="scene-banner">
             <h3>Yükleniyor...</h3>
         </div>
@@ -171,21 +157,19 @@
 
     <script src="app.js"></script>
     <script>
-        // Dosya listesinde bir sonraki öğeye geçiş[span_2](start_span)[span_2](end_span)
         function nextFile() {
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex < select.options.length - 1) {
                 select.selectedIndex++;
-                loadData(); 
+                loadData();
             }
         }
 
-        // Dosya listesinde bir önceki öğeye geçiş[span_3](start_span)[span_3](end_span)
         function prevFile() {
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex > 0) {
                 select.selectedIndex--;
-                loadData(); 
+                loadData();
             }
         }
     </script>
