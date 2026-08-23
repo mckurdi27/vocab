@@ -1,98 +1,59 @@
-[
+[{
+  "level": "0",
+  "scene_id": 0,
+  "scene_title": "part of speech",
+  "total_words_in_scene": 50,
+  "story_en": " ",
+  "story_tr": " ",
+  "words": [
+  
+  [
+  {
+    "word": "master sentence analysis",
+    "type": "complex sentence with all elements",
+    "turkish": "Tüm öğeleri (özne, yüklem, fiil, nesne, dolaylı tümleç ve zarf tümleçleri) içeren en uzun örnek cümle analizi",
+    "example_en": "Yesterday morning, the experienced English teacher enthusiastically explained complex grammar rules to her attentive students in the crowded classroom.",
+    "example_tr": "Dün sabah, deneyimli İngilizce öğretmeni, kalabalık sınıfta dikkatli öğrencilerine karmaşık dilbilgisi kurallarını coşkuyla açıkladı.",
+    "related_verbs": ["explain", "teach", "learn", "understand", "study", "listen", "practice"]
+  },
   {
     "word": "subject",
     "type": "sentence element",
-    "turkish": "Özne",
-    "example_en": "The cat sleeps on the sofa.",
-    "example_tr": "Kedi kanepede uyur.",
-    "related_verbs": ["do", "perform", "act", "execute", "undertake"]
+    "turkish": "Özne (The experienced English teacher)",
+    "example_en": "Yesterday morning, the experienced English teacher enthusiastically explained complex grammar rules to her attentive students in the crowded classroom.",
+    "example_tr": "Dün sabah, deneyimli İngilizce öğretmeni, kalabalık sınıfta dikkatli öğrencilerine karmaşık dilbilgisi kurallarını coşkuyla açıkladı.",
+    "related_verbs": ["lead", "guide", "act", "perform", "execute"]
   },
   {
-    "word": "predicate",
+    "word": "verb / predicate",
     "type": "sentence element",
-    "turkish": "Yüklem",
-    "example_en": "Birds fly in the sky.",
-    "example_tr": "Kuşlar gökyüzünde uçar.",
-    "related_verbs": ["state", "declare", "express", "affirm", "assert"]
+    "turkish": "Yüklem / Fiil (Explained)",
+    "example_en": "Yesterday morning, the experienced English teacher enthusiastically explained complex grammar rules to her attentive students in the crowded classroom.",
+    "example_tr": "Dün sabah, deneyimli İngilizce öğretmeni, kalabalık sınıfta dikkatli öğrencilerine karmaşık dilbilgisi kurallarını coşkuyla açıkladı.",
+    "related_verbs": ["explain", "express", "state", "clarify", "present"]
   },
   {
-    "word": "object",
+    "word": "direct object",
     "type": "sentence element",
-    "turkish": "Nesne",
-    "example_en": "She eats an apple.",
-    "example_tr": "O, bir elma yer.",
-    "related_verbs": ["receive", "accept", "undergo", "target", "affect"]
+    "turkish": "Nesne (Complex grammar rules)",
+    "example_en": "Yesterday morning, the experienced English teacher enthusiastically explained complex grammar rules to her attentive students in the crowded classroom.",
+    "example_tr": "Dün sabah, deneyimli İngilizce öğretmeni, kalabalık sınıfta dikkatli öğrencilerine karmaşık dilbilgisi kurallarını coşkuyla açıkladı.",
+    "related_verbs": ["target", "receive", "comprehend", "absorb", "master"]
   },
   {
     "word": "indirect object",
     "type": "sentence element",
-    "turkish": "Dolaylı Tümleç (Yer Tamlayıcısı)",
-    "example_en": "He goes to school every day.",
-    "example_tr": "O, her gün okula gider.",
-    "related_verbs": ["direct", "steer", "route", "transfer", "send"]
+    "turkish": "Dolaylı Tümleç (To her attentive students)",
+    "example_en": "Yesterday morning, the experienced English teacher enthusiastically explained complex grammar rules to her attentive students in the crowded classroom.",
+    "example_tr": "Dün sabah, deneyimli İngilizce öğretmeni, kalabalık sınıfta dikkatli öğrencilerine karmaşık dilbilgisi kurallarını coşkuyla açıkladı.",
+    "related_verbs": ["listen", "attend", "receive", "engage", "participate"]
   },
   {
     "word": "adverbial",
     "type": "sentence element",
-    "turkish": "Zarf Tümleci",
-    "example_en": "They arrived late.",
-    "example_tr": "Onlar geç vardılar.",
-    "related_verbs": ["modify", "qualify", "circumscribe", "limit", "specify"]
-  },
-  {
-    "word": "noun",
-    "type": "part of speech",
-    "turkish": "İsim",
-    "example_en": "Honesty is the best policy.",
-    "example_tr": "Dürüstlük en iyi politikadır.",
-    "related_verbs": ["name", "identify", "designate", "label", "classify"]
-  },
-  {
-    "word": "pronoun",
-    "type": "part of speech",
-    "turkish": "Zamir",
-    "example_en": "They are playing football.",
-    "example_tr": "Onlar futbol oynuyorlar.",
-    "related_verbs": ["substitute", "replace", "represent", "stand", "swap"]
-  },
-  {
-    "word": "verb",
-    "type": "part of speech",
-    "turkish": "Fiil",
-    "example_en": "Children run in the garden.",
-    "example_tr": "Çocuklar bahçede koşar.",
-    "related_verbs": ["action", "perform", "execute", "operate", "function"]
-  },
-  {
-    "word": "adjective",
-    "type": "part of speech",
-    "turkish": "Sıfat",
-    "example_en": "It is a sunny day.",
-    "example_tr": "Güneşli bir gün.",
-    "related_verbs": ["describe", "modify", "qualify", "characterize", "enhance"]
-  },
-  {
-    "word": "adverb",
-    "type": "part of speech",
-    "turkish": "Zarf",
-    "example_en": "He spoke quietly.",
-    "example_tr": "O, sessizce konuştu.",
-    "related_verbs": ["modify", "intensify", "enhance", "qualify", "alter"]
-  },
-  {
-    "word": "preposition",
-    "type": "part of speech",
-    "turkish": "Edat",
-    "example_en": "The book is on the table.",
-    "example_tr": "Kitap masanın üzerindedir.",
-    "related_verbs": ["connect", "relate", "link", "position", "locate"]
-  },
-  {
-    "word": "conjunction",
-    "type": "part of speech",
-    "turkish": "Bağlaç",
-    "example_en": "I like tea and coffee.",
-    "example_tr": "Çay ve kahveyi severim.",
-    "related_verbs": ["connect", "join", "combine", "unite", "link"]
+    "turkish": "Zarf Tümleçleri (Yesterday morning, enthusiastically, in the crowded classroom)",
+    "example_en": "Yesterday morning, the experienced English teacher enthusiastically explained complex grammar rules to her attentive students in the crowded classroom.",
+    "example_tr": "Dün sabah, deneyimli İngilizce öğretmeni, kalabalık sınıfta dikkatli öğrencilerine karmaşık dilbilgisi kurallarını coşkuyla açıkladı.",
+    "related_verbs": ["modify", "circumscribe", "enhance", "qualify", "specify"]
   }
 ]
