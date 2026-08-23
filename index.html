@@ -71,7 +71,6 @@
             gap: 20px;
         }
 
-        /* Standart Kelime Kartı Stili */
         .vocab-card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -87,13 +86,11 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
-        /* Tekrarlanan Kelime (Duplicate) Stilleri */
         .vocab-card.is-duplicate {
             border-color: var(--duplicate-border) !important;
             background-color: var(--duplicate-bg);
         }
 
-        /* Sağ Üst Köşedeki Uyarı Rozeti */
         .vocab-card.is-duplicate::after {
             content: "Tekrarlanan";
             position: absolute;
@@ -137,52 +134,47 @@
             <p>Günler Arası Mükerrer Kelime Takip Sistemi</p>
         </header>
 
-        <!-- Günler buraya buton olarak gelecek -->
         <div id="daySelector" class="day-selector"></div>
-
-        <!-- Kelime kartları buraya basılacak -->
         <div id="cardsContainer" class="cards-grid"></div>
     </div>
 
     <script>
         let globalWordMap = {};
-        let allDaysFiles = [];
+        
+        // Doğrudan data klasöründeki JSON dosyalarınız
+        let allDaysFiles = [
+            'data/a100.json',
+            'data/a101.json',
+            'data/a102.json',
+            'data/a103.json',
+            'data/a104.json',
+            'data/a105.json',
+            'data/a106.json'
+        ];
 
-        // 1. Uygulama Başlangıcı (data/days.json olarak ayarlandı)
         async function initApp() {
             try {
-                const response = await fetch('data/days.json');
-                const data = await response.json();
-                
-                // Dosya yollarının başında 'data/' olduğundan emin olunuyor
-                allDaysFiles = (data.files || data).map(file => {
-                    return file.startsWith('data/') ? file : `data/${file}`;
-                }); 
-
-                // Arka planda tüm JSON'ları tarayıp global haritayı çıkaralım
                 await buildGlobalWordMap(allDaysFiles);
-
-                // Arayüze gün butonlarını basalım
                 renderDaySelector(allDaysFiles);
 
-                // İlk günü otomatik yükle
                 if (allDaysFiles.length > 0) {
                     loadDayData(allDaysFiles[0]);
                 }
             } catch (error) {
                 console.error("Başlangıç hatası:", error);
                 document.getElementById('cardsContainer').innerHTML = 
-                    `<p style="color:red; text-align:center; grid-column:1/-1;">Veriler yüklenemedi. Lütfen data/days.json dosyanızı kontrol edin.</p>`;
+                    `<p style="color:red; text-align:center; grid-column:1/-1;">Veriler yüklenemedi. Lütfen dosya yollarını kontrol edin.</p>`;
             }
         }
 
-        // 2. Global Kelime Haritasını Oluşturan Fonksiyon
         async function buildGlobalWordMap(files) {
             globalWordMap = {};
 
             for (const file of files) {
                 try {
                     const res = await fetch(file);
+                    if (!res.ok) throw new Error(`${file} yüklenemedi`);
+                    
                     const dayData = await res.json();
                     const wordsList = dayData.words || dayData;
 
@@ -193,26 +185,25 @@
                         if (!globalWordMap[wordKey]) {
                             globalWordMap[wordKey] = [];
                         }
-                        // Kelimenin geçtiği dosyayı listeye ekle (aynı dosyada birden fazla eklenmesin)
                         if (!globalWordMap[wordKey].includes(file)) {
                             globalWordMap[wordKey].push(file);
                         }
                     });
                 } catch (err) {
-                    console.error(`${file} taranamadı:`, err);
+                    console.error(err);
                 }
             }
         }
 
-        // 3. Gün Seçim Butonlarını Oluşturma
         function renderDaySelector(files) {
             const selector = document.getElementById('daySelector');
             selector.innerHTML = '';
 
             files.forEach((file, index) => {
+                const fileName = file.split('/').pop().replace('.json', '');
                 const btn = document.createElement('button');
                 btn.className = `day-btn ${index === 0 ? 'active' : ''}`;
-                btn.textContent = `Gün ${index + 1}`;
+                btn.textContent = `Liste ${fileName.toUpperCase()}`;
                 btn.onclick = () => {
                     document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
@@ -222,13 +213,14 @@
             });
         }
 
-        // 4. Seçilen Günün Verilerini Yükleme
         async function loadDayData(file) {
             const container = document.getElementById('cardsContainer');
             container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#6b7280;">Yükleniyor...</p>';
 
             try {
                 const res = await fetch(file);
+                if (!res.ok) throw new Error(`${file} yüklenemedi`);
+
                 const dayData = await res.json();
                 const wordsList = dayData.words || dayData;
 
@@ -240,16 +232,13 @@
                 });
             } catch (err) {
                 console.error(`${file} yüklenemedi:`, err);
-                container.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">Gün verileri yüklenirken hata oluştu.</p>`;
+                container.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">Dosya verileri yüklenirken hata oluştu.</p>`;
             }
         }
 
-        // 5. Kart Oluşturucu ve Mükerrer (Duplicate) Kontrolü
         function createVocabCard(item, currentFile) {
             const wordKey = (item.word || item.term || "").trim().toLowerCase();
             const appearances = globalWordMap[wordKey] || [];
-            
-            // Eğer kelime 1'den fazla dosyada/günde geçiyorsa true olur
             const isDuplicate = appearances.length > 1;
 
             const cardDiv = document.createElement('div');
@@ -269,7 +258,6 @@
             return cardDiv;
         }
 
-        // Uygulamayı başlat
         initApp();
     </script>
 </body>
