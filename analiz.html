@@ -96,6 +96,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .cards-grid {
@@ -165,7 +167,7 @@
         <header>
             <div class="header-left">
                 <select id="fileSelect" class="app-select" onchange="onFileSelectChange(this.value)">
-                    <option value="">Dosyalar taranıyor...</option>
+                    <option value="">Dosyalar yükleniyor...</option>
                 </select>
                 <button class="app-btn" onclick="navigateFile(-1)">◀ Önceki</button>
                 <button class="app-btn" onclick="navigateFile(1)">Sonraki ▶</button>
@@ -176,7 +178,7 @@
         </header>
 
         <div id="infoBar" class="info-bar">
-            <span>Sistem klasörleri tarıyor, lütfen bekleyin...</span>
+            <span>Sistem hazırlanıyor...</span>
         </div>
 
         <div id="cardsContainer" class="cards-grid"></div>
@@ -189,49 +191,19 @@
 
         async function initApp() {
             try {
-                // Olası dosya adlarını ve aralıklarını otomatik üretiyoruz (a101-a150, a201-a250, b101-b150, b201-b250, c101-c150, c201-c250 ve 1-50 arası)
-                const prefixes = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
-                const potentialFiles = [];
-
-                prefixes.forEach(p => {
-                    for (let i = 101; i <= 150; i++) potentialFiles.push(`data/${p}${i}.json`);
-                    for (let i = 201; i <= 250; i++) potentialFiles.push(`data/${p}${i}.json`);
-                    for (let i = 1; i <= 50; i++) potentialFiles.push(`data/${p}${i}.json`);
+                // A1, A2, B1, B2, C1, C2 seviyelerindeki olası dosya aralıklarını tanımlıyoruz
+                allDaysFiles = [];
+                const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
+                
+                levels.forEach(lvl => {
+                    for (let i = 101; i <= 150; i++) allDaysFiles.push(`data/${lvl}${i}.json`);
+                    for (let i = 201; i <= 250; i++) allDaysFiles.push(`data/${lvl}${i}.json`);
                 });
 
-                document.getElementById('infoBar').innerHTML = `<span>Sunucudaki dosyalar kontrol ediliyor...</span>`;
-
-                // Gerçekten var olan dosyaları tespit ediyoruz (Fetch ile test)
-                allDaysFiles = [];
-                for (const file of potentialFiles) {
-                    try {
-                        const res = await fetch(file, { method: 'HEAD' });
-                        if (res.ok) {
-                            allDaysFiles.push(file);
-                        }
-                    } catch (e) {
-                        // Dosya yoksa geç
-                    }
-                }
-
-                // Eğer HEAD isteği desteklenmiyorsa doğrudan okumayı deneriz
-                if (allDaysFiles.length === 0) {
-                    for (const file of potentialFiles) {
-                        try {
-                            const res = await fetch(file);
-                            if (res.ok) {
-                                allDaysFiles.push(file);
-                            }
-                        } catch (e) {}
-                    }
-                }
-
-                if (allDaysFiles.length === 0) {
-                    throw new Error("Hiçbir JSON dosyası bulunamadı.");
-                }
+                populateFileDropdown(allDaysFiles);
+                document.getElementById('infoBar').innerHTML = `<span>Mükerrer kelime analizi yapılıyor...</span>`;
 
                 await buildGlobalWordMap(allDaysFiles);
-                populateFileDropdown(allDaysFiles);
 
                 if (allDaysFiles.length > 0) {
                     currentIndex = 0;
@@ -239,20 +211,20 @@
                 }
             } catch (error) {
                 console.error("Başlangıç hatası:", error);
-                document.getElementById('infoBar').innerHTML = `<span style="color:red;">Dosyalar taranamadı.</span>`;
-                document.getElementById('cardsContainer').innerHTML = 
-                    `<p style="color:red; text-align:center; grid-column:1/-1;">data klasöründe JSON dosyaları bulunamadı veya erişilemedi.</p>`;
+                document.getElementById('infoBar').innerHTML = `<span style="color:red;">Yükleme sırasında hata oluştu.</span>`;
             }
         }
 
         async function buildGlobalWordMap(files) {
             globalWordMap = {};
+            let validFilesCount = 0;
 
             for (const file of files) {
                 try {
                     const res = await fetch(file);
-                    if (!res.ok) continue;
+                    if (!res.ok) continue; // Klasörde olmayan dosyaları anında atlar
                     
+                    validFilesCount++;
                     const dayData = await res.json();
                     const wordsList = dayData.words || dayData.vocabulary || dayData;
 
@@ -270,13 +242,13 @@
                         });
                     }
                 } catch (err) {
-                    console.error(`${file} okunamadı:`, err);
+                    // Bulunamayan dosyaları sessizce geç
                 }
             }
 
             document.getElementById('infoBar').innerHTML = `
-                <span>📁 Bulunan Aktif Dosya: <b>${files.length}</b></span>
-                <span>✅ Mükerrer Analiz Hazır</span>
+                <span>📁 Okunan Aktif Dosya: <b>${validFilesCount}</b></span>
+                <span>✅ Analiz Tamamlandı</span>
             `;
         }
 
@@ -288,7 +260,7 @@
                 const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
                 const option = document.createElement('option');
                 option.value = file;
-                option.textContent = `Liste / Sahne: ${fileName}`;
+                option.textContent = `Sahne / Dosya: ${fileName}`;
                 select.appendChild(option);
             });
         }
@@ -314,7 +286,10 @@
 
             try {
                 const res = await fetch(file);
-                if (!res.ok) throw new Error(`${file} yüklenemedi`);
+                if (!res.ok) {
+                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#9ca3af; padding: 20px;">Bu dosya henüz oluşturulmamış veya boş.</p>`;
+                    return;
+                }
 
                 const dayData = await res.json();
                 const wordsList = dayData.words || dayData.vocabulary || dayData;
@@ -330,7 +305,7 @@
                     container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#6b7280;">Bu dosyada kelime bulunamadı.</p>`;
                 }
             } catch (err) {
-                container.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">Veri yüklenirken hata oluştu.</p>`;
+                container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#9ca3af; padding: 20px;">Bu dosya henüz oluşturulmamış.</p>`;
             }
         }
 
