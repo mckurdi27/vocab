@@ -198,15 +198,13 @@
         async function initApp() {
             try {
                 allDaysFiles = [];
-                // Doğru dosya yapısı: Harf + Seviye(1 veya 2) + Grup Numarası (01-50)
-                // Örn: a101, a150, a201, a250, b101, vb.
                 const levelsConfig = [
-                    { letter: 'a', level: 1 }, // a101 - a150
-                    { letter: 'a', level: 2 }, // a201 - a250
-                    { letter: 'b', level: 1 }, // b101 - b150
-                    { letter: 'b', level: 2 }, // b201 - b250
-                    { letter: 'c', level: 1 }, // c101 - c150
-                    { letter: 'c', level: 2 }  // c201 - c250
+                    { letter: 'a', level: 1 },
+                    { letter: 'a', level: 2 },
+                    { letter: 'b', level: 1 },
+                    { letter: 'b', level: 2 },
+                    { letter: 'c', level: 1 },
+                    { letter: 'c', level: 2 }
                 ];
 
                 levelsConfig.forEach(cfg => {
@@ -329,7 +327,11 @@
         function createVocabCard(item, currentFile) {
             const wordKey = (item.word || item.term || "").trim().toLowerCase();
             const appearances = globalWordMap[wordKey] || [];
-            const isDuplicate = appearances.length > 1;
+            
+            // DÜZELTME: Kelimenin ilk geçtiği dosya appearances[0]'dır. 
+            // Eğer şu an baktığımız dosya kelimenin ilk geçtiği dosyaysa, bu kelime burada ilk defa geçiyordur (Kırmızı OLMAMALI).
+            // Ancak kelime daha önce başka bir dosyada geçmişse, bu dosyadaki tekrarı kırmızı olmalıdır.
+            const isDuplicate = appearances.length > 1 && appearances[0] !== currentFile;
 
             const cardDiv = document.createElement('div');
             cardDiv.className = `vocab-card ${isDuplicate ? 'is-duplicate' : ''}`;
