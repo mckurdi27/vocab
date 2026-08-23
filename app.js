@@ -18,10 +18,10 @@ function generateDayOptions() {
     allOpt.innerHTML = 'Tümü';
     daySelect.appendChild(allOpt);
     
-    // 1'den 50'ye kadar olan dosyalar (Format: A1 A101, parantez ve dosya kelimesi yok)
+    // 1'den 50'ye kadar olan dosyalar (Örn: A1 A101)
     for(let i = 1; i <= 50; i++) {
-        const num = i.toString().padStart(2, '0');
-        const fileName = `${level}${num}`; // Örn: a101, a102 ... a150
+        const num = i < 10 ? '0' + i : i;
+        const fileName = `${level}${num}`; // a101, a102 ... a150 (Fazladan 1 yok)
         const opt = document.createElement('option');
         opt.value = fileName;
         opt.innerHTML = `${level.toUpperCase()} ${fileName.toUpperCase()}`;
@@ -68,7 +68,7 @@ function highlightStoryWordsTr(text, wordsArray) {
     return highlightedText;
 }
 
-// Verileri ve Hikayeleri Yükleme Fonksiyonu (Tümü ve Tekli Dosya Desteği)
+// Verileri ve Hikayeleri Yükleme Fonksiyonu
 async function loadData() {
     const daySelect = document.getElementById('daySelect');
     if (!daySelect) return;
@@ -90,9 +90,9 @@ async function loadData() {
         let combinedStoryTr = "";
 
         if (fileName === 'all') {
-            // Tümü seçildiyse 1'den 50'ye kadar olan dosyaları tarayıp birleştir
+            // Tümü seçildiyse 1'den 50'ye kadar olan dosyaları sırayla tara
             for (let i = 1; i <= 50; i++) {
-                const num = i.toString().padStart(2, '0');
+                const num = i < 10 ? '0' + i : i;
                 try {
                     const res = await fetch(`data/${level}${num}.json`);
                     if (res.ok) {
@@ -103,7 +103,7 @@ async function loadData() {
                         if (data.story_tr) combinedStoryTr += data.story_tr + "\n\n";
                     }
                 } catch (err) {
-                    // Bulunamayan ara dosyaları sessizce geç
+                    // Bulunamayan dosyaları atla
                 }
             }
 
@@ -135,7 +135,7 @@ async function loadData() {
             }
 
         } else {
-            // Tek bir dosya seçildiyse (Örn: a101)
+            // Tek dosya seçildiyse
             const filePath = `data/${fileName}.json`;
             const res = await fetch(filePath);
             
