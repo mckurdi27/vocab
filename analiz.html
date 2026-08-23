@@ -70,6 +70,21 @@
             color: var(--primary-color);
         }
 
+        .action-btn {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: #059669;
+        }
+
         .home-btn {
             background-color: var(--primary-color);
             color: white;
@@ -217,7 +232,8 @@
         </header>
 
         <div id="infoBar" class="info-bar">
-            <span>Sistem hazırlanıyor...</span>
+            <span>Dosya seçildi. Mükerrer renk analizi için analizi başlatabilirsiniz.</span>
+            <button class="action-btn" onclick="startGlobalAnalysis()">✨ Analizi Başlat</button>
         </div>
 
         <div id="cardsContainer" class="cards-grid"></div>
@@ -228,6 +244,7 @@
         let allDaysFiles = [];
         let filteredFiles = [];
         let currentIndex = 0;
+        let isAnalyzed = false;
 
         async function initApp() {
             try {
@@ -242,7 +259,7 @@
                 ];
 
                 levelsConfig.forEach(cfg => {
-                    for (let i = 1; i <= 50; i++) {
+                    for (let i = 0; i <= 50; i++) {
                         let groupNum = i < 10 ? '0' + i : '' + i;
                         let fileNum = cfg.level === 1 ? '1' + groupNum : '2' + groupNum;
                         allDaysFiles.push(`data/${cfg.letter}${fileNum}.json`);
@@ -251,25 +268,25 @@
 
                 filteredFiles = [...allDaysFiles];
                 updateFileDropdown(filteredFiles);
-                document.getElementById('infoBar').innerHTML = `<span>Mükerrer kelime analizi yapılıyor...</span>`;
 
-                await buildGlobalWordMap(allDaysFiles);
-
+                // Sayfa açıldığında doğrudan ilk dosyayı anında yükle
                 if (filteredFiles.length > 0) {
                     currentIndex = 0;
                     loadDayData(filteredFiles[0]);
                 }
             } catch (error) {
                 console.error("Başlangıç hatası:", error);
-                document.getElementById('infoBar').innerHTML = `<span style="color:red;">Yükleme sırasında hata oluştu.</span>`;
             }
         }
 
-        async function buildGlobalWordMap(files) {
+        async function startGlobalAnalysis() {
+            const infoBar = document.getElementById('infoBar');
+            infoBar.innerHTML = `<span>⏳ Tüm dosyalar taranıyor, lütfen bekleyin...</span>`;
+            
             globalWordMap = {};
             let validFilesCount = 0;
 
-            for (const file of files) {
+            for (const file of allDaysFiles) {
                 try {
                     const res = await fetch(file);
                     if (!res.ok) continue; 
@@ -294,10 +311,16 @@
                 } catch (err) {}
             }
 
-            document.getElementById('infoBar').innerHTML = `
-                <span>📁 Okunan Aktif Dosya: <b>${validFilesCount}</b></span>
-                <span>✨ Mükerrer Analiz Tamamlandı</span>
+            isAnalyzed = true;
+            infoBar.innerHTML = `
+                <span>📁 Taranan Dosya: <b>${validFilesCount}</b></span>
+                <span style="color:#059669; font-weight:bold;">✨ Mükerrer Analiz Tamamlandı</span>
             `;
+
+            // Analiz bitince mevcut sayfayı güncellenmiş renklerle tekrar çiz
+            if (filteredFiles.length > 0) {
+                loadDayData(filteredFiles[currentIndex]);
+            }
         }
 
         function updateFileDropdown(files) {
@@ -319,14 +342,13 @@
             if (group === 'all') {
                 filteredFiles = [...allDaysFiles];
             } else {
-                // Seçilen gruba göre filtrele (örn: a1 için data/a1... json dosyaları)
                 let targetLetter = group.charAt(0);
                 let levelNum = group.charAt(1);
                 
                 filteredFiles = allDaysFiles.filter(file => {
-                    const fileName = file.split('/').pop(); // örn: a101.json
+                    const fileName = file.split('/').pop(); 
                     const isLetterMatch = fileName.startsWith(targetLetter);
-                    const fileCode = fileName.replace('.json', ''); // örn: a101
+                    const fileCode = fileName.replace('.json', ''); 
                     const isLevelMatch = levelNum === '1' ? fileCode[1] === '1' : fileCode[1] === '2';
                     return isLetterMatch && isLevelMatch;
                 });
@@ -365,7 +387,7 @@
             try {
                 const res = await fetch(file);
                 if (!res.ok) {
-                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#94a3b8; padding: 20px;">Bu dosya henüz oluşturulmamış veya boş.</p>`;
+                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#94a3b8; padding: 20px;">Bu dosya henüz oluşturulmamış veya boş.</p>';
                     return;
                 }
 
@@ -395,7 +417,11 @@
             let cardClass = '';
             let badgeText = '';
 
-            if (count === 1) {
+            // Eğer analiz yapılmadıysa varsayılan görünüm
+            if (!isAnalyzed || count === 0) {
+                cardClass = '';
+                badgeText = 'Normal';
+            } else if (count === 1) {
                 cardClass = 'is-unique';
                 badgeText = 'Özgün';
             } else {
@@ -421,7 +447,7 @@
                 <div class="word-title">${wordText}</div>
                 <div class="word-translation">${translationText}</div>
                 <div class="word-meta">
-                    Geçtiği Dosyalar (${count}): ${appearances.map(f => f.split('/').pop().replace('.json','')).join(', ')}
+                    ${isAnalyzed ? `Geçtiği Dosyalar (${count}): ${appearances.map(f => f.split('/').pop().replace('.json','')).join(', ')}` : 'Analiz bekleniyor...'}
                 </div>
             `;
 
