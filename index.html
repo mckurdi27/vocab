@@ -26,7 +26,7 @@
             margin: 0 auto;
         }
 
-        /* Orijinal Header Alanı */
+        /* Header Alanı */
         header {
             background: var(--card-bg);
             border-radius: 12px;
@@ -105,7 +105,7 @@
             background-color: #115e59;
         }
 
-        /* Mavi Seviye / Sahne Banner Alanı */
+        /* Sahne Banner Alanı */
         .scene-banner {
             background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: white;
@@ -171,7 +171,7 @@
             padding-bottom: 8px;
         }
 
-        /* Kelime Kartları Grid Yapısı (Orijinal) */
+        /* Kelime Kartları Grid Yapısı */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -204,7 +204,6 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            flex-wrap: wrap;
         }
 
         .word-title {
@@ -278,27 +277,11 @@
         .related-verbs b {
             color: #475569;
         }
-
-        /* Minik, narin ve kutunun içine tam oturan yanıp sönen ampul */
-        @keyframes pulseGlow {
-            0% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 1px rgba(234, 179, 8, 0.5)); }
-            50% { transform: scale(1.15); opacity: 0.8; filter: drop-shadow(0 0 4px rgba(234, 179, 8, 0.8)); }
-            100% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 1px rgba(234, 179, 8, 0.5)); }
-        }
-
-        .duplicate-bulb {
-            display: inline-block;
-            animation: pulseGlow 1.5s infinite ease-in-out;
-            cursor: pointer;
-            font-size: 0.9rem; /* Başlık yazısıyla uyumlu küçük boyut */
-            margin-left: 3px;
-            vertical-align: baseline;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Orijinal Header -->
+        <!-- Header -->
         <header>
             <div class="header-left">
                 <span class="panel-title">Kelime Çalışma Paneli</span>
@@ -322,7 +305,7 @@
             </div>
         </header>
 
-        <!-- Mavi Seviye / Sahne Banner Alanı -->
+        <!-- Sahne Banner Alanı -->
         <div class="scene-banner">
             <div id="sceneLevelText" class="scene-level">SEVİYE: A1</div>
             <div id="sceneTitleText" class="scene-title">Sahne Yükleniyor...</div>
@@ -341,59 +324,17 @@
             </div>
         </div>
 
-        <!-- Orijinal Kelime Kartları Alanı -->
+        <!-- Kelime Kartları Alanı -->
         <div id="cardsContainer" class="cards-grid"></div>
     </div>
 
     <script>
-        let globalWordMap = {};
         let currentFileList = [];
         let currentFileIndex = 0;
 
-        function getAllPossibleFiles() {
-            let files = [];
-            ['a', 'b', 'c'].forEach(letter => {
-                for (let i = 0; i <= 50; i++) {
-                    files.push(`data/${letter}${100 + i}.json`);
-                }
-                for (let i = 0; i <= 50; i++) {
-                    files.push(`data/${letter}${200 + i}.json`);
-                }
-            });
-            return files;
-        }
-
-        window.addEventListener('DOMContentLoaded', async () => {
-            await buildGlobalWordMap();
+        window.addEventListener('DOMContentLoaded', () => {
             updateFileList();
         });
-
-        async function buildGlobalWordMap() {
-            const files = getAllPossibleFiles();
-            globalWordMap = {};
-
-            for (const file of files) {
-                try {
-                    const res = await fetch(file);
-                    if (!res.ok) continue;
-                    const data = await res.json();
-                    const words = data.words || data.vocabulary || data;
-
-                    if (Array.isArray(words)) {
-                        words.forEach(item => {
-                            const wordKey = (item.word || item.term || "").trim().toLowerCase();
-                            if (!wordKey) return;
-                            if (!globalWordMap[wordKey]) {
-                                globalWordMap[wordKey] = [];
-                            }
-                            if (!globalWordMap[wordKey].includes(file)) {
-                                globalWordMap[wordKey].push(file);
-                            }
-                        });
-                    }
-                } catch (err) {}
-            }
-        }
 
         function updateFileList() {
             const level = document.getElementById('levelSelect').value;
@@ -478,10 +419,6 @@
 
                 if (Array.isArray(wordsList) && wordsList.length > 0) {
                     wordsList.forEach(item => {
-                        const wordKey = (item.word || item.term || "").trim().toLowerCase();
-                        const appearances = globalWordMap[wordKey] || [];
-                        const isDuplicate = appearances.length > 1;
-
                         const card = document.createElement('div');
                         card.className = 'vocab-card';
 
@@ -492,17 +429,11 @@
                         const exampleTr = item.trExample || item.exampleTr || '';
                         const relatedVerbs = item.relatedVerbs || item.iliski || '';
 
-                        // Ampul simgesi kelimenin içinde, başlığın hemen yanında narin bir şekilde yer alır
-                        const bulbHtml = isDuplicate 
-                            ? `<span class="duplicate-bulb" title="Bu kelime ${appearances.length} farklı dosyada geçiyor: ${appearances.map(f => f.split('/').pop().replace('.json','')).join(', ')}">💡</span>` 
-                            : '';
-
                         card.innerHTML = `
                             <div class="card-top-row">
                                 <div class="word-main-info">
                                     <span class="audio-icon" title="Seslendir">🔊</span>
                                     <span class="word-title">${wordText}</span>
-                                    ${bulbHtml}
                                 </div>
                                 <span class="word-badge">${badgeText}</span>
                             </div>
