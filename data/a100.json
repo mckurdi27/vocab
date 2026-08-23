@@ -1,410 +1,106 @@
 {
   "level": "A0",
   "scene_id": 1,
-  "scene_title": "Basic Parts of Speech and Sentence Elements",
-  "total_words_in_scene": 50,
-  "story_en": "Wow! I am a student, and you are a good friend. Here, we learn English because it is a new book. We read at home now.",
-  "story_tr": "Vay canına! Ben bir öğrenciyim ve sen iyi bir arkadaşsın. Burada İngilizce öğreniyoruz çünkü bu yeni bir kitap. Şimdi evde okuyoruz.",
+  "scene_title": "Core Grammar Categories and Sentence Elements",
+  "total_elements": 12,
+  "story_en": "Every sentence needs a subject, a verb, and structural elements categorized by parts of speech.",
+  "story_tr": "Her cümlenin bir özneye, bir fiile ve kelime türlerine göre sınıflandırılmış yapısal ögelere ihtiyacı vardır.",
   "words": [
     {
-      "word": "noun",
-      "type": "grammar category / part of speech",
-      "turkish": "İsim / Ad (Varlıkların, kişilerin veya nesnelerin adıdır, örn: student, book)",
-      "example_en": "I am a student and this is a book.",
-      "example_tr": "Ben bir öğrenciyim ve bu bir kitaptır.",
-      "related_verbs": ["read", "write", "study", "learn"]
+      "word": "subject",
+      "type": "sentence element",
+      "turkish": "Özne (Cümlede işi yapan veya hakkında konuşulan temel öge)",
+      "example_en": "The student reads a book.",
+      "example_tr": "Öğrenci kitap okur.",
+      "related_terms": ["pronoun", "noun"]
     },
     {
       "word": "verb",
-      "type": "grammar category / part of speech",
-      "turkish": "Fiil / Eylem (Cümlede iş, oluş, hareket veya durum bildiren sözcüktür, örn: go, read)",
-      "example_en": "We learn English every day.",
-      "example_tr": "Her gün İngilizce öğreniyoruz.",
-      "related_verbs": ["do", "make", "run", "walk"]
+      "type": "sentence element / predicate",
+      "turkish": "Yüklem / Fiil (Cümlenin eylem, oluş veya durum bildiren çekirdek ögesi)",
+      "example_en": "She runs fast.",
+      "example_tr": "O hızlı koşar.",
+      "related_terms": ["action", "state", "auxiliary"]
     },
     {
-      "word": "adjective",
-      "type": "grammar category / part of speech",
-      "turkish": "Sıfat / Ön Ad (İsimleri niteleyen, onların renk, boyut veya durumunu bildiren sözcüktür, örn: good, big)",
-      "example_en": "This is a new and good book.",
-      "example_tr": "Bu yeni ve iyi bir kitap.",
-      "related_verbs": ["like", "love", "prefer"]
+      "word": "object",
+      "type": "sentence element",
+      "turkish": "Nesne (Fiilden etkilenen, eylemin yöneldiği öge)",
+      "example_en": "I eat an apple.",
+      "example_tr": "Bir elma yerim.",
+      "related_terms": ["direct object", "indirect object"]
     },
     {
-      "word": "adverb",
-      "type": "grammar category / part of speech",
-      "turkish": "Zarf / Belirteç (Fiilleri, sıfatları veya diğer zarfları niteleyen; zaman, yer veya durum bildiren sözcüktür, örn: fast, here, now)",
-      "example_en": "I am studying here now.",
-      "example_tr": "Şimdi burada ders çalışıyorum.",
-      "related_verbs": ["work", "stay", "live"]
+      "word": "complement",
+      "type": "sentence element",
+      "turkish": "Tamamlayıcı / İsim Cümlesi Tümleci (Özneyi veya nesneyi açıklayan, tamamlayan öge)",
+      "example_en": "You are happy.",
+      "example_tr": "Mutlusun.",
+      "related_terms": ["adjective", "noun"]
+    },
+    {
+      "word": "adverbial",
+      "type": "sentence element",
+      "turkish": "Zarf Tümleci / Yer-Zaman Belirteci (Eylemin nasıl, nerede, ne zaman yapıldığını bildiren öge)",
+      "example_en": "We study here now.",
+      "example_tr": "Şimdi burada ders çalışıyoruz.",
+      "related_terms": ["adverb", "prepositional phrase"]
+    },
+    {
+      "word": "noun",
+      "type": "part of speech",
+      "turkish": "İsim / Ad (Varlıkların, kişilerin ve kavramların adı)",
+      "example_en": "School, book, student",
+      "example_tr": "Okul, kitap, öğrenci",
+      "related_terms": ["pronoun", "subject"]
     },
     {
       "word": "pronoun",
-      "type": "grammar category / part of speech",
-      "turkish": "Zamir / Adıl (İsimlerin yerini tutan sözcüktür, örn: I, you, he, she)",
-      "example_en": "You are a friend and she is a teacher.",
-      "example_tr": "Sen bir arkadaşsın ve o bir öğretmen.",
-      "related_verbs": ["be", "have", "know"]
+      "type": "part of speech",
+      "turkish": "Zamir / Adıl (İsmin yerini tutan sözcük türü)",
+      "example_en": "He, she, it, they",
+      "example_tr": "O, onlar",
+      "related_terms": ["noun", "subject"]
+    },
+    {
+      "word": "adjective",
+      "type": "part of speech",
+      "turkish": "Sıfat / Ön Ad (İsimleri niteleyen sözcük türü)",
+      "example_en": "Good, big, new",
+      "example_tr": "İyi, büyük, yeni",
+      "related_terms": ["noun", "complement"]
+    },
+    {
+      "word": "adverb",
+      "type": "part of speech",
+      "turkish": "Zarf / Belirteç (Fiili veya sıfatı niteleyen sözcük türü)",
+      "example_en": "Fast, now, here",
+      "example_tr": "Hızlıca, şimdi, burada",
+      "related_terms": ["adverbial", "verb"]
     },
     {
       "word": "preposition",
-      "type": "grammar category / part of speech",
-      "turkish": "Edat / İlgeç (Kelimeler arasında yer, yön, zaman ilişkisi kuran sözcüktür, örn: in, on, at, to)",
-      "example_en": "The book is on the table at home.",
-      "example_tr": "Kitap evde masanın üzerindedir.",
-      "related_verbs": ["put", "sit", "stand"]
+      "type": "part of speech",
+      "turkish": "Edat / İlgeç (Yer, yön ve zaman ilişkisi kuran sözcük türü)",
+      "example_en": "In, on, at, to",
+      "example_tr": "İçinde, üstünde, -de",
+      "related_terms": ["adverbial"]
     },
     {
       "word": "conjunction",
-      "type": "grammar category / part of speech",
-      "turkish": "Bağlaç (Kelimeleri veya cümleleri birbirine bağlayan sözcüktür, örn: and, but, because)",
-      "example_en": "I am happy because you are here.",
-      "example_tr": "Mutluyum çünkü buradasın.",
-      "related_verbs": ["connect", "join", "add"]
+      "type": "part of speech",
+      "turkish": "Bağlaç (Kelimeleri veya cümleleri birbirine bağlayan sözcük türü)",
+      "example_en": "And, but, because",
+      "example_tr": "Ve, ama, çünkü",
+      "related_terms": ["clause connector"]
     },
     {
       "word": "exclamation",
-      "type": "grammar category / part of speech",
-      "turkish": "Ünlem (Ani duyguları, şaşkınlığı veya seslenmeleri bildiren sözcüktür, örn: oh, wow, hey)",
-      "example_en": "Wow, this is a big house!",
-      "example_tr": "Vay canına, bu büyük bir ev!",
-      "related_verbs": ["shout", "surpise", "react"]
-    },
-    {
-      "word": "I",
-      "type": "pronoun",
-      "turkish": "Ben (Özne zamiri)",
-      "example_en": "I am a student.",
-      "example_tr": "Ben bir öğrenciyim.",
-      "related_verbs": ["be", "have", "do"]
-    },
-    {
-      "word": "you",
-      "type": "pronoun",
-      "turkish": "Sen / Siz (Özne zamiri)",
-      "example_en": "You are a good friend.",
-      "example_tr": "Sen iyi bir arkadaşsın.",
-      "related_verbs": ["are", "know", "see"]
-    },
-    {
-      "word": "he",
-      "type": "pronoun",
-      "turkish": "O - erkek (Özne zamiri)",
-      "example_en": "He is a teacher.",
-      "example_tr": "O bir öğretmen.",
-      "related_verbs": ["is", "work", "read"]
-    },
-    {
-      "word": "she",
-      "type": "pronoun",
-      "turkish": "O - kadın (Özne zamiri)",
-      "example_en": "She likes milk.",
-      "example_tr": "O süt sever.",
-      "related_verbs": ["is", "like", "want"]
-    },
-    {
-      "word": "student",
-      "type": "noun",
-      "turkish": "Öğrenci (İsim)",
-      "example_en": "I am a student.",
-      "example_tr": "Ben bir öğrenciyim.",
-      "related_verbs": ["study", "learn", "read"]
-    },
-    {
-      "word": "teacher",
-      "type": "noun",
-      "turkish": "Öğretmen (İsim)",
-      "example_en": "The teacher helps us.",
-      "example_tr": "Öğretmen bize yardım eder.",
-      "related_verbs": ["teach", "help", "speak"]
-    },
-    {
-      "word": "book",
-      "type": "noun",
-      "turkish": "Kitap (İsim)",
-      "example_en": "This is a new book.",
-      "example_tr": "Bu yeni bir kitap.",
-      "related_verbs": ["read", "buy", "open"]
-    },
-    {
-      "word": "school",
-      "type": "noun",
-      "turkish": "Okul (İsim)",
-      "example_en": "We go to school.",
-      "example_tr": "Okula gideriz.",
-      "related_verbs": ["go", "walk", "study"]
-    },
-    {
-      "word": "home",
-      "type": "noun",
-      "turkish": "Ev (İsim)",
-      "example_en": "I am at home.",
-      "example_tr": "Evdeyim.",
-      "related_verbs": ["stay", "live", "sleep"]
-    },
-    {
-      "word": "friend",
-      "type": "noun",
-      "turkish": "Arkadaş (İsim)",
-      "example_en": "You are my friend.",
-      "example_tr": "Sen benim arkadaşımsın.",
-      "related_verbs": ["meet", "talk", "play"]
-    },
-    {
-      "word": "water",
-      "type": "noun",
-      "turkish": "Su (İsim)",
-      "example_en": "I want some water.",
-      "example_tr": "Biraz su istiyorum.",
-      "related_verbs": ["drink", "want", "buy"]
-    },
-    {
-      "word": "food",
-      "type": "noun",
-      "turkish": "Yemek (İsim)",
-      "example_en": "The food is good.",
-      "example_tr": "Yemek güzel.",
-      "related_verbs": ["eat", "cook", "buy"]
-    },
-    {
-      "word": "car",
-      "type": "noun",
-      "turkish": "Araba (İsim)",
-      "example_en": "He has a red car.",
-      "example_tr": "Onun kırmızı bir arabası var.",
-      "related_verbs": ["drive", "stop", "buy"]
-    },
-    {
-      "word": "dog",
-      "type": "noun",
-      "turkish": "Köpek (İsim)",
-      "example_en": "The dog runs fast.",
-      "example_tr": "Köpek hızlı koşar.",
-      "related_verbs": ["run", "bark", "play"]
-    },
-    {
-      "word": "am",
-      "type": "verb",
-      "turkish": "Olmak (I için yardımcı fiil)",
-      "example_en": "I am happy.",
-      "example_tr": "Mutluyum.",
-      "related_verbs": ["be", "exist"]
-    },
-    {
-      "word": "is",
-      "type": "verb",
-      "turkish": "Olmak (He/She/It için yardımcı fiil)",
-      "example_en": "It is cold.",
-      "example_tr": "Hava soğuk.",
-      "related_verbs": ["be", "remain"]
-    },
-    {
-      "word": "are",
-      "type": "verb",
-      "turkish": "Olmak (You/We/They için yardımcı fiil)",
-      "example_en": "We are ready.",
-      "example_tr": "Hazırız.",
-      "related_verbs": ["be", "stand"]
-    },
-    {
-      "word": "have",
-      "type": "verb",
-      "turkish": "Sahip olmak (Fiil)",
-      "example_en": "I have a pen.",
-      "example_tr": "Bir kalemim var.",
-      "related_verbs": ["possess", "get", "take"]
-    },
-    {
-      "word": "do",
-      "type": "verb",
-      "turkish": "Yapmak (Fiil)",
-      "example_en": "Do your homework.",
-      "example_tr": "Ödevini yap.",
-      "related_verbs": ["make", "finish", "complete"]
-    },
-    {
-      "word": "go",
-      "type": "verb",
-      "turkish": "Gitmek (Fiil)",
-      "example_en": "Let's go home.",
-      "example_tr": "Hadi eve gidelim.",
-      "related_verbs": ["walk", "run", "travel"]
-    },
-    {
-      "word": "come",
-      "type": "verb",
-      "turkish": "Gelmek (Fiil)",
-      "example_en": "Come here, please.",
-      "example_tr": "Lütfen buraya gel.",
-      "related_verbs": ["arrive", "return", "enter"]
-    },
-    {
-      "word": "see",
-      "type": "verb",
-      "turkish": "Görmek (Fiil)",
-      "example_en": "I see a bird.",
-      "example_tr": "Bir kuş görüyorum.",
-      "related_verbs": ["look", "watch", "observe"]
-    },
-    {
-      "word": "look",
-      "type": "verb",
-      "turkish": "Bakmak (Fiil)",
-      "example_en": "Look at the board.",
-      "example_tr": "Tahtaya bak.",
-      "related_verbs": ["see", "watch", "stare"]
-    },
-    {
-      "word": "make",
-      "type": "verb",
-      "turkish": "Yapmak, oluşturmak (Fiil)",
-      "example_en": "Make a sentence.",
-      "example_tr": "Bir cümle kur.",
-      "related_verbs": ["do", "create", "build"]
-    },
-    {
-      "word": "good",
-      "type": "adjective",
-      "turkish": "İyi (Sıfat)",
-      "example_en": "This is a good book.",
-      "example_tr": "Bu iyi bir kitap.",
-      "related_verbs": ["like", "love", "enjoy"]
-    },
-    {
-      "word": "bad",
-      "type": "adjective",
-      "turkish": "Kötü (Sıfat)",
-      "example_en": "It is a bad day.",
-      "example_tr": "Kötü bir gün.",
-      "related_verbs": ["dislike", "hate", "stop"]
-    },
-    {
-      "word": "big",
-      "type": "adjective",
-      "turkish": "Büyük (Sıfat)",
-      "example_en": "He has a big house.",
-      "example_tr": "Onun büyük bir evi var.",
-      "related_verbs": ["grow", "expand"]
-    },
-    {
-      "word": "small",
-      "type": "adjective",
-      "turkish": "Küçük (Sıfat)",
-      "example_en": "I live in a small town.",
-      "example_tr": "Küçük bir kasabada yaşıyorum.",
-      "related_verbs": ["shrink", "reduce"]
-    },
-    {
-      "word": "new",
-      "type": "adjective",
-      "turkish": "Yeni (Sıfat)",
-      "example_en": "I have a new bag.",
-      "example_tr": "Yeni bir çantam var.",
-      "related_verbs": ["buy", "start", "open"]
-    },
-    {
-      "word": "happy",
-      "type": "adjective",
-      "turkish": "Mutlu (Sıfat)",
-      "example_en": "We are happy today.",
-      "example_tr": "Bugün mutluyuz.",
-      "related_verbs": ["smile", "laugh", "enjoy"]
-    },
-    {
-      "word": "here",
-      "type": "adverb",
-      "turkish": "Burada (Yer zarfı)",
-      "example_en": "Come here.",
-      "example_tr": "Buraya gel.",
-      "related_verbs": ["stay", "wait", "stand"]
-    },
-    {
-      "word": "there",
-      "type": "adverb",
-      "turkish": "Orada (Yer zarfı)",
-      "example_en": "The book is there.",
-      "example_tr": "Kitap orada.",
-      "related_verbs": ["go", "put", "sit"]
-    },
-    {
-      "word": "now",
-      "type": "adverb",
-      "turkish": "Şimdi (Zaman zarfı)",
-      "example_en": "I am studying now.",
-      "example_tr": "Şimdi ders çalışıyorum.",
-      "related_verbs": ["start", "begin", "do"]
-    },
-    {
-      "word": "fast",
-      "type": "adverb",
-      "turkish": "Hızlıca (Durum zarfı)",
-      "example_en": "He runs fast.",
-      "example_tr": "O hızlı koşar.",
-      "related_verbs": ["run", "drive", "move"]
-    },
-    {
-      "word": "in",
-      "type": "preposition",
-      "turkish": "İçinde (Edat)",
-      "example_en": "I am in the room.",
-      "example_tr": "Odadayım.",
-      "related_verbs": ["stay", "live", "sit"]
-    },
-    {
-      "word": "on",
-      "type": "preposition",
-      "turkish": "Üstünde (Edat)",
-      "example_en": "The book is on the table.",
-      "example_tr": "Kitap masanın üstünde.",
-      "related_verbs": ["put", "lie", "sit"]
-    },
-    {
-      "word": "at",
-      "type": "preposition",
-      "turkish": "-de / -da (Edat)",
-      "example_en": "I am at home.",
-      "example_tr": "Evdeyim.",
-      "related_verbs": ["look", "arrive", "stay"]
-    },
-    {
-      "word": "to",
-      "type": "preposition",
-      "turkish": "-e / -a (Yönelme edatı)",
-      "example_en": "Go to school.",
-      "example_tr": "Okula git.",
-      "related_verbs": ["go", "walk", "listen"]
-    },
-    {
-      "word": "and",
-      "type": "conjunction",
-      "turkish": "Ve (Bağlaç)",
-      "example_en": "You and I are friends.",
-      "example_tr": "Sen ve ben arkadaşız.",
-      "related_verbs": ["join", "connect", "add"]
-    },
-    {
-      "word": "but",
-      "type": "conjunction",
-      "turkish": "Ama / Fakat (Bağlaç)",
-      "example_en": "I want to go, but I can't.",
-      "example_tr": "Gitmek istiyorum ama gidemem.",
-      "related_verbs": ["stop", "change", "differ"]
-    },
-    {
-      "word": "because",
-      "type": "conjunction",
-      "turkish": "Çünkü (Bağlaç)",
-      "example_en": "I am happy because you are here.",
-      "example_tr": "Mutluyum çünkü buradasın.",
-      "related_verbs": ["explain", "reason", "cause"]
-    },
-    {
-      "word": "wow",
-      "type": "exclamation",
-      "turkish": "Vay canına (Ünlem)",
-      "example_en": "Wow, this is great!",
-      "example_tr": "Vay canına, bu harika!",
-      "related_verbs": ["surprise", "amaze", "react"]
+      "type": "part of speech",
+      "turkish": "Ünlem (Ani duygu bildiren sözcük türü)",
+      "example_en": "Wow, oh, ouch",
+      "example_tr": "Vay canına, ah",
+      "related_terms": ["interjection"]
     }
   ]
 }
