@@ -21,7 +21,7 @@
             padding: 0 15px;
         }
 
-        /* Üst Kontrol Paneli - Modern ve Uyumlu Tasarım */
+        /* Üst Kontrol Paneli - Modern e Uyumlu Tasarım */
         .header {
             background: #ffffff;
             border: 1px solid #e2e8f0;
@@ -158,7 +158,7 @@
 
     <script src="app.js"></script>
     <script>
-        // 100'den 150'ye kadar 50'şerli dosya listesini oluşturan fonksiyon
+        // Analiz sayfasıyla uyumlu 0'dan 50'ye (100 - 150) dosya listesini oluşturan fonksiyon
         function generateDayOptions() {
             const levelSelect = document.getElementById('levelSelect').value;
             const daySelect = document.getElementById('daySelect');
@@ -169,11 +169,11 @@
             let letter = levelSelect.charAt(0);
             let levelNum = levelSelect.charAt(1);
 
-            let start = levelNum === '1' ? 100 : 200;
-            let end = start + 50;
-
-            for (let i = start; i <= end; i++) {
-                let fileName = `${letter}${i}`;
+            for (let i = 0; i <= 50; i++) {
+                let groupNum = i < 10 ? '0' + i : '' + i;
+                let fileNum = levelNum === '1' ? '1' + groupNum : '2' + groupNum;
+                let fileName = `${letter}${fileNum}`;
+                
                 const option = document.createElement('option');
                 option.value = `data/${fileName}.json`;
                 option.textContent = `${levelSelect.toUpperCase()} - ${i}. Dosya (${fileName})`;
