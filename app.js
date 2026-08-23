@@ -67,12 +67,13 @@ function highlightStoryWordsTr(text, wordsArray) {
     return highlightedText;
 }
 
-// Verileri ve Hikayeleri Yükleme Fonksiyonu
+// Verileri ve Hikayeleri Yükleme Fonksiyonu (Tümü ve Tekli Dosya Desteği)
 async function loadData() {
     const daySelect = document.getElementById('daySelect');
     if (!daySelect) return;
     
     const fileName = daySelect.value;
+    const level = document.getElementById('levelSelect').value;
     const content = document.getElementById('content');
     const sceneBanner = document.getElementById('sceneBanner');
     
@@ -83,45 +84,96 @@ async function loadData() {
     if (sceneBanner) sceneBanner.innerHTML = `<h3>Yükleniyor...</h3>`;
 
     try {
-        const filePath = `data/${fileName}.json`;
-        const res = await fetch(filePath);
-        
-        if (!res.ok) {
-            throw new Error(`Dosya bulunamadı (${filePath})`);
-        }
-        
-        const data = await res.json();
-        currentSceneWords = Array.isArray(data) ? data : (data.words || []);
-        
-        if (sceneBanner) {
-            sceneBanner.innerHTML = `
-                <div class="banner-level">Seviye: ${data.level || document.getElementById('levelSelect').value.toUpperCase()}</div>
-                <div class="banner-title">${data.scene_title || fileName.toUpperCase()}</div>
-                <div class="banner-count">Toplam Kelime: ${currentSceneWords.length}</div>
-            `;
-        }
-        
-        if (data.story_en && content) {
-            const processedStoryEn = highlightStoryWordsEn(data.story_en, currentSceneWords);
-            const processedStoryTr = highlightStoryWordsTr(data.story_tr, currentSceneWords);
+        currentSceneWords = [];
+        let combinedStoryEn = "";
+        let combinedStoryTr = "";
+
+        if (fileName === 'all') {
+            // Tümü seçildiyse 100'den 150'ye kadar olan dosyaları tarayıp birleştir
+            for (let i = 100; i <= 150; i++) {
+                try {
+                    const res = await fetch(`data/${level}${i}.json`);
+                    if (res.ok) {
+                        const data = await res.json();
+                        const words = Array.isArray(data) ? data : (data.words || []);
+                        currentSceneWords = currentSceneWords.concat(words);
+                        if (data.story_en) combinedStoryEn += data.story_en + "\n\n";
+                        if (data.story_tr) combinedStoryTr += data.story_tr + "\n\n";
+                    }
+                } catch (err) {
+                    // Bulunamayan ara dosyaları sessizce geç
+                }
+            }
+
+            if (sceneBanner) {
+                sceneBanner.innerHTML = `
+                    <div class="banner-level">Seviye: ${level.toUpperCase()}</div>
+                    <div class="banner-title">Tüm Dosyalar (100 - 150)</div>
+                    <div class="banner-count">Toplam Kelime: ${currentSceneWords.length}</div>
+                `;
+            }
+
+            if (combinedStoryEn && content) {
+                const processedStoryEn = highlightStoryWordsEn(combinedStoryEn, currentSceneWords);
+                const processedStoryTr = highlightStoryWordsTr(combinedStoryTr, currentSceneWords);
+                
+                const storyHTML = document.createElement('div');
+                storyHTML.className = 'story-container';
+                storyHTML.innerHTML = `
+                    <div class="story-box-en">
+                        <span class="story-title">English Story (Tümü)</span>
+                        <p>${processedStoryEn}</p>
+                    </div>
+                    <div class="story-box-tr">
+                        <span class="story-title">Türkçe Hikaye (Tümü)</span>
+                        <p>${processedStoryTr}</p>
+                    </div>
+                `;
+                sceneBanner.insertAdjacentElement('afterend', storyHTML);
+            }
+
+        } else {
+            // Tek bir dosya seçildiyse (Örn: a1100)
+            const filePath = `data/${fileName}.json`;
+            const res = await fetch(filePath);
             
-            const storyHTML = document.createElement('div');
-            storyHTML.className = 'story-container';
-            storyHTML.innerHTML = `
-                <div class="story-box-en">
-                    <span class="story-title">English Story</span>
-                    <p>${processedStoryEn}</p>
-                </div>
-                <div class="story-box-tr">
-                    <span class="story-title">Türkçe Hikaye</span>
-                    <p>${processedStoryTr}</p>
-                </div>
-            `;
-            sceneBanner.insertAdjacentElement('afterend', storyHTML);
+            if (!res.ok) {
+                throw new Error(`Dosya bulunamadı (${filePath})`);
+            }
+            
+            const data = await res.json();
+            currentSceneWords = Array.isArray(data) ? data : (data.words || []);
+            
+            if (sceneBanner) {
+                sceneBanner.innerHTML = `
+                    <div class="banner-level">Seviye: ${data.level || level.toUpperCase()}</div>
+                    <div class="banner-title">${data.scene_title || fileName.toUpperCase()}</div>
+                    <div class="banner-count">Toplam Kelime: ${currentSceneWords.length}</div>
+                `;
+            }
+            
+            if (data.story_en && content) {
+                const processedStoryEn = highlightStoryWordsEn(data.story_en, currentSceneWords);
+                const processedStoryTr = highlightStoryWordsTr(data.story_tr, currentSceneWords);
+                
+                const storyHTML = document.createElement('div');
+                storyHTML.className = 'story-container';
+                storyHTML.innerHTML = `
+                    <div class="story-box-en">
+                        <span class="story-title">English Story</span>
+                        <p>${processedStoryEn}</p>
+                    </div>
+                    <div class="story-box-tr">
+                        <span class="story-title">Türkçe Hikaye</span>
+                        <p>${processedStoryTr}</p>
+                    </div>
+                `;
+                sceneBanner.insertAdjacentElement('afterend', storyHTML);
+            }
         }
         
         if (currentSceneWords.length === 0) {
-            if (content) content.innerHTML = "<p style='color: #e67e22; font-weight: bold;'>Bu dosya mevcut ancak içerisinde kelime bulunmuyor.</p>";
+            if (content) content.innerHTML = "<p style='color: #e67e22; font-weight: bold;'>Bu seçimde görüntülenecek kelime bulunmuyor.</p>";
             return;
         }
         
