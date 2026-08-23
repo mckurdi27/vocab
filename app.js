@@ -1,4 +1,4 @@
-let currentSceneWords = []; // Sahne kelimelerini hafızada tutmak için dizi
+let currentSceneWords = []; // Sahne kelimelerini hafızada tutmak için
 
 document.addEventListener("DOMContentLoaded", () => {
     generateDayOptions();
@@ -149,7 +149,7 @@ async function loadData() {
             </div>
         `).join('');
 
-        // Sayfa yüklendiğinde ilk kelimenin detayını sağ panele otomatik getir
+        // Sayfa yüklendiğinde ilk kelimenin detayını internetten otomatik getir
         if (currentSceneWords.length > 0) {
             showWordDetail(currentSceneWords[0]);
         }
@@ -165,7 +165,7 @@ async function loadData() {
     }
 }
 
-// Kart seçildiğinde aktif sınıfını değiştirme ve detay gösterme fonksiyonu
+// Kart seçildiğinde aktif sınıfını değiştirme ve detay gösterme
 function selectCard(cardElement, index) {
     document.querySelectorAll('.card').forEach(c => c.classList.remove('active-card'));
     cardElement.classList.add('active-card');
@@ -174,36 +174,44 @@ function selectCard(cardElement, index) {
     }
 }
 
-// Sağ taraftaki 4. Sütun detay panelini dolduran ve görsel çeken fonksiyon
+// Sağ taraftaki 4. Sütun detay panelini dolduran ve internetten (Wikipedia + Dinamik Görsel) veri çeken fonksiyon
 async function showWordDetail(w) {
     document.getElementById('detailTitle').textContent = w.word || '';
     document.getElementById('detailTranslation').textContent = w.turkish || '';
 
     const imageContainer = document.getElementById('detailImageContainer');
-    imageContainer.innerHTML = `<div class="detail-placeholder-text">Görsel aranıyor...</div>`;
+    const metaBox = document.getElementById('detailMetaBox');
+    
+    imageContainer.innerHTML = `<div class="detail-placeholder-text">İnternetten görsel aranıyor...</div>`;
+    metaBox.innerHTML = `İnternetten ek bilgiler taranıyor...`;
+
+    let imageUrl = '';
+    let wikiExtract = '';
 
     try {
-        const wikiRes = await fetch(`https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(w.word)}&gsrlimit=1&prop=imageinfo&iiprop=url&format=json&origin=*`);
-        const wikiData = await wikiRes.json();
-        
-        let imageUrl = '';
-        if (wikiData.query && wikiData.query.pages) {
-            const pages = wikiData.query.pages;
-            const pageId = Object.keys(pages)[0];
-            if (pages[pageId].imageinfo && pages[pageId].imageinfo[0]) {
-                imageUrl = pages[pageId].imageinfo[0].url;
+        // Wikipedia REST API üzerinden kelimeyi arıyoruz (Görsel ve açıklama için)
+        const wikiRes = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(w.word)}`);
+        if (wikiRes.ok) {
+            const wikiData = await wikiRes.json();
+            if (wikiData.thumbnail && wikiData.thumbnail.source) {
+                imageUrl = wikiData.thumbnail.source;
+            }
+            if (wikiData.extract) {
+                wikiExtract = wikiData.extract;
             }
         }
-
-        if (!imageUrl) {
-            imageUrl = `https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80`;
-        }
-
-        imageContainer.innerHTML = `<img src="${imageUrl}" alt="${w.word}" onerror="this.src='https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80'">`;
-    } catch (err) {
-        imageContainer.innerHTML = `<img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80" alt="${w.word}">`;
+    } catch (e) {
+        console.log("Wiki API bağlantı hatası:", e);
     }
 
+    // Eğer Wikipedia özel görsel dönmezse, kelime adını aratarak dinamik güncel görsel çekiyoruz
+    if (!imageUrl) {
+        imageUrl = `https://loremflickr.com/600/400/${encodeURIComponent(w.word)}`;
+    }
+
+    imageContainer.innerHTML = `<img src="${imageUrl}" alt="${w.word}" onerror="this.src='https://loremflickr.com/600/400/abstract'">`;
+
+    // Detay kutusunu yerel bilgiler ve internetten gelen Wikipedia tanımıyla güncelliyoruz
     let metaHtml = `<b>Tür:</b> ${w.type || '-'}<br>`;
     if (w.example_en) {
         metaHtml += `<br><b>Örnek (EN):</b> ${w.example_en}<br>`;
@@ -212,7 +220,15 @@ async function showWordDetail(w) {
         metaHtml += `<b>Örnek (TR):</b> ${w.example_tr}<br>`;
     }
     if (w.related_verbs && w.related_verbs.length > 0) {
-        metaHtml += `<br><b>İlişkili Fiiller:</b> ${w.related_verbs.join(', ')}`;
+        metaHtml += `<br><b>İlişkili Fiiller:</b> ${w.related_verbs.join(', ')}<br>`;
+    }
+
+    if (wikiExtract) {
+        metaHtml += `<hr style="border:0; border-top:1px solid #e2e8f0; margin:10px 0;">`;
+        metaHtml += `<b style="color:#2563eb;">İnternet Açıklaması (Wiki):</b> <span style="font-style:italic; color:#475569;">${wikiExtract}</span>`;
+    } else {
+        metaHtml += `<hr style="border:0; border-top:1px solid #e2e8f0; margin:10px 0;">`;
+        metaHtml += `<span style="color:#94a3b8; font-size:0.8rem;">Bu kelime için ek internet açıklaması bulunamadı.</span>`;
     }
 
     document.getElementById('detailMetaBox').innerHTML = metaHtml;
