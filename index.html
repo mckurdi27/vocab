@@ -122,22 +122,21 @@
                 <h2>Kelime Çalışma Paneli</h2>
 
                 <div class="selectors-wrapper">
-                    <!-- Seviye ve Kod Seçimleri Yan Yana -->
+                    <!-- Seviye ve Dosya Seçimleri Yan Yana -->
                     <select id="levelSelect" onchange="generateDayOptions()">
-                        <option value="all">Tümü</option>
-                        <option value="A1">A1</option>
-                        <option value="A2">A2</option>
-                        <option value="B1">B1</option>
-                        <option value="B2">B2</option>
-                        <option value="C1">C1</option>
-                        <option value="C2">C2</option>
+                        <option value="a1">A1 Seviyesi</option>
+                        <option value="a2">A2 Seviyesi</option>
+                        <option value="b1">B1 Seviyesi</option>
+                        <option value="b2">B2 Seviyesi</option>
+                        <option value="c1">C1 Seviyesi</option>
+                        <option value="c2">C2 Seviyesi</option>
                     </select>
 
                     <select id="daySelect" onchange="loadData()"></select>
 
-                    <!-- Önceki and Sonraki Butonları Yan Yana -->
-                    <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki">⬅️ Önceki</button>
-                    <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki">Sonraki ➡️</button>
+                    <!-- Önceki ve Sonraki Butonları Yan Yana -->
+                    <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
+                    <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
 
                     <!-- Analiz Sayfasına Yönlendiren Buton -->
                     <a href="analysis.html" class="analysis-btn">📊 Kelime Analizi</a>
@@ -159,67 +158,23 @@
 
     <script src="app.js"></script>
     <script>
-        // Seviye seçildiğinde alt kodları dinamik oluşturan fonksiyon
-        function generateDayOptions() {
-            const levelSelect = document.getElementById('levelSelect').value;
-            const daySelect = document.getElementById('daySelect');
-            daySelect.innerHTML = '';
-
-            if (levelSelect === 'all') {
-                const opt = document.createElement('option');
-                opt.value = 'all';
-                opt.textContent = 'Tüm Kayıtlar';
-                daySelect.appendChild(opt);
-                if (typeof loadData === 'function') loadData();
-                return;
-            }
-
-            let prefix = levelSelect.toUpperCase();
-            let start = 100;
-            let end = 150;
-
-            // Her seviye için yüzlük aralıklar (A1: 100-150, A2: 200-250 vb.)
-            if (prefix === 'A1') { start = 100; end = 150; }
-            else if (prefix === 'A2') { start = 200; end = 250; }
-            else if (prefix === 'B1') { start = 300; end = 350; }
-            else if (prefix === 'B2') { start = 400; end = 450; }
-            else if (prefix === 'C1') { start = 500; end = 550; }
-            else if (prefix === 'C2') { start = 600; end = 650; }
-
-            for (let i = start; i <= end; i++) {
-                const option = document.createElement('option');
-                option.value = prefix.toLowerCase() + i;
-                option.textContent = prefix + i; // "Dosya" kelimesi yok, doğrudan A100, A101...
-                daySelect.appendChild(option);
-            }
-
-            if (typeof loadData === 'function') {
-                loadData();
-            }
-        }
-
-        // Sayfa yüklendiğinde varsayılan olarak ilk seçenekleri oluştur
-        window.onload = function() {
-            generateDayOptions();
-        };
-
-        // Listede bir sonraki öğeye geçiş
+        // Dosya listesinde bir sonraki öğeye geçiş
         function nextFile() {
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex < select.options.length - 1) {
                 select.selectedIndex++;
-                if (typeof loadData === 'function') loadData();
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
         }
 
-        // Listede bir önceki öğeye geçiş
+        // Dosya listesinde bir önceki öğeye geçiş
         function prevFile() {
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex > 0) {
                 select.selectedIndex--;
-                if (typeof loadData === 'function') loadData();
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
         }
     </script>
 </body>
-</html>
+</html> Eee, şimdi söylediğimiz bu bantı verdiğim bu dosyaya düzelterek tam kopya ver.
