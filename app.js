@@ -8,11 +8,11 @@ function generateDayOptions() {
     daySelect.innerHTML = ""; 
     
     let maxFiles = 50; 
-    if (level === 'a1') maxFiles = 31;
-    else if (level === 'a2') maxFiles = 11;
+    if (level === 'a1') maxFiles = 51;
+    else if (level === 'a2') maxFiles = 51;
     else if (level === 'b1') maxFiles = 51;
-    else if (level === 'b2') maxFiles = 11;
-    else if (level === 'c1') maxFiles = 11;
+    else if (level === 'b2') maxFiles = 51;
+    else if (level === 'c1') maxFiles = 51;
     
     for(let i = 1; i <= maxFiles; i++) {
         const num = i.toString().padStart(2, '0');
