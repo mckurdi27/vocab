@@ -1,29 +1,9 @@
-Document.addEventListener("DOMContentLoaded", () => {
-    generateDayOptions();
-});
+let currentSceneWords = []; // Sahne kelimelerini hafızada tutmak için
 
-function generateDayOptions() {
-    const level = document.getElementById('levelSelect').value;
-    const daySelect = document.getElementById('daySelect');
-    daySelect.innerHTML = ""; 
-    
-    let maxFiles = 50; 
-    if (level === 'a1') maxFiles = 51;
-    else if (level === 'a2') maxFiles = 51;
-    else if (level === 'b1') maxFiles = 51;
-    else if (level === 'b2') maxFiles = 51;
-    else if (level === 'c1') maxFiles = 51;
-    
-    for(let i = 1; i <= maxFiles; i++) {
-        const num = i.toString().padStart(2, '0');
-        const fileName = `${level}${num}`;
-        const opt = document.createElement('option');
-        opt.value = fileName;
-        opt.innerHTML = `${level.toUpperCase()} - ${i}. Dosya (${fileName})`;
-        daySelect.appendChild(opt);
-    }
+document.addEventListener("DOMContentLoaded", () => {
+    // Sayfa yüklendiğinde mevcut seçili dosyayı yükle
     loadData();
-}
+});
 
 // İngilizce hikaye için kelimeyi kırmızı vurgulayan fonksiyon
 function highlightStoryWordsEn(text, wordsArray) {
@@ -45,19 +25,14 @@ function highlightStoryWordsTr(text, wordsArray) {
     if (!text || !wordsArray) return text;
     let highlightedText = text;
     
-    // Uzun kelimelerin önce eşleşmesi için sıralama
     const sortedWords = [...wordsArray].sort((a, b) => b.turkish.length - a.turkish.length);
 
     sortedWords.forEach(w => {
         if (w.turkish) {
-            // Türkçe anlamdaki ilk kelimeyi al (Örn: "Tanışmak, buluşmak" -> "Tanışmak")
             let primaryTr = w.turkish.split(',')[0].trim();
-            
-            // Eğer fiil -mak/-mek ile bitiyorsa, kök kısmını da yakalayabilmek için esnek bir kalıp oluşturalım
             let rootTr = primaryTr.replace(/(mek|mak)$/i, '');
             
             if (rootTr.length > 2) {
-                // Kökü içeren kelimeleri yakala (Örn: başla...)
                 const regex = new RegExp(`\\b(${rootTr}[a-üçğışö]*)\\b`, 'gi');
                 highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
             } else {
@@ -71,15 +46,18 @@ function highlightStoryWordsTr(text, wordsArray) {
 }
 
 async function loadData() {
-    const fileName = document.getElementById('daySelect').value;
+    const daySelect = document.getElementById('daySelect');
+    // Eğer daySelect yoksa veya değeri boşsa varsayılan olarak all veya ilk değeri al
+    const fileName = daySelect ? daySelect.value : 'all';
+    
     const content = document.getElementById('content');
     const sceneBanner = document.getElementById('sceneBanner');
     
     const oldStoryContainer = document.querySelector('.story-container');
     if (oldStoryContainer) oldStoryContainer.remove();
 
-    content.innerHTML = "<p>Veriler yükleniyor...</p>";
-    sceneBanner.innerHTML = `<div class="banner-title">Yükleniyor...</div>`;
+    if (content) content.innerHTML = "<p>Veriler yükleniyor...</p>";
+    if (sceneBanner) sceneBanner.innerHTML = `<div class="banner-title">Yükleniyor...</div>`;
 
     try {
         const filePath = `data/${fileName}.json`;
@@ -90,16 +68,20 @@ async function loadData() {
         }
         
         const data = await res.json();
+        // Gelen veri dizi mi yoksa nesne içindeki words mü kontrol edelim (eski ve yeni yapı uyumu için)
+        currentSceneWords = Array.isArray(data) ? data : (data.words || []);
         
-        sceneBanner.innerHTML = `
-            <div class="banner-level">Seviye: ${data.level || '-'}</div>
-            <div class="banner-title">Sahne ${data.scene_id || '-'}: ${data.scene_title || ''}</div>
-            <div class="banner-count">Toplam Kelime: ${data.total_words_in_scene || (data.words ? data.words.length : 0)}</div>
-        `;
+        if (sceneBanner) {
+            sceneBanner.innerHTML = `
+                <div class="banner-level">Seviye: ${data.level || 'Genel'}</div>
+                <div class="banner-title">${data.scene_title || fileName.toUpperCase()}</div>
+                <div class="banner-count">Toplam Kelime: ${currentSceneWords.length}</div>
+            `;
+        }
         
-        if (data.story_en) {
-            const processedStoryEn = highlightStoryWordsEn(data.story_en, data.words);
-            const processedStoryTr = highlightStoryWordsTr(data.story_tr, data.words);
+        if (data.story_en && content) {
+            const processedStoryEn = highlightStoryWordsEn(data.story_en, currentSceneWords);
+            const processedStoryTr = highlightStoryWordsTr(data.story_tr, currentSceneWords);
             
             const storyHTML = document.createElement('div');
             storyHTML.className = 'story-container';
@@ -116,50 +98,131 @@ async function loadData() {
             sceneBanner.insertAdjacentElement('afterend', storyHTML);
         }
         
-        if (!data.words || data.words.length === 0) {
-            content.innerHTML = "<p style='color: #e67e22; font-weight: bold;'>Bu dosya mevcut ancak içerisinde henüz kelime eklenmemiş.</p>";
+        if (currentSceneWords.length === 0 && content) {
+            content.innerHTML = "<p style='color: #e67e22; font-weight: bold;'>Bu dosya mevcut ancak içerisinde kelime bulunmuyor.</p>";
             return;
         }
         
-        content.innerHTML = data.words.map(w => `
-            <div class="card">
-                <div class="word-row">
-                    <div class="word-box">
-                        <span class="en-word">${w.word}</span>
-                        <button class="sound-btn" onclick="speakText('${w.word}', 'en-US')" title="İngilizce Seslendir">🔊</button>
+        if (content) {
+            content.innerHTML = currentSceneWords.map((w, index) => `
+                <div class="card ${index === 0 ? 'active-card' : ''}" onclick="selectCard(this, ${index})">
+                    <div class="word-row">
+                        <div class="word-box">
+                            <span class="en-word">${w.word || ''}</span>
+                            <button class="sound-btn" onclick="event.stopPropagation(); speakText('${w.word || ''}', 'en-US')" title="İngilizce Seslendir">🔊</button>
+                        </div>
+                        <span class="type">${w.type || ''}</span>
                     </div>
-                    <span class="type">${w.type}</span>
-                </div>
-                
-                <div class="tr-row">
-                    <span class="tr">${w.turkish}</span>
-                    <button class="sound-btn" onclick="speakText('${w.turkish}', 'tr-TR')" title="Türkçe Seslendir">🔊</button>
-                </div>
+                    
+                    <div class="tr-row">
+                        <span class="tr">${w.turkish || ''}</span>
+                        <button class="sound-btn" onclick="event.stopPropagation(); speakText('${w.turkish || ''}', 'tr-TR')" title="Türkçe Seslendir">🔊</button>
+                    </div>
 
-                <div class="example">
-                    <div class="example-line">
-                        <p><strong>EN:</strong> <span class="en-sentence">${w.example_en}</span></p>
-                        <button class="sound-btn" onclick="speakText('${w.example_en}', 'en-US')" title="İngilizce Cümleyi Seslendir">🔊</button>
+                    <div class="example">
+                        <div class="example-line">
+                            <p><strong>EN:</strong> <span class="en-sentence">${w.example_en || ''}</span></p>
+                            <button class="sound-btn" onclick="event.stopPropagation(); speakText('${w.example_en || ''}', 'en-US')" title="İngilizce Cümleyi Seslendir">🔊</button>
+                        </div>
+                        <div class="example-line">
+                            <p><strong>TR:</strong> <span class="tr-sentence">${w.example_tr || ''}</span></p>
+                            <button class="sound-btn" onclick="event.stopPropagation(); speakText('${w.example_tr || ''}', 'tr-TR')" title="Türkçe Cümleyi Seslendir">🔊</button>
+                        </div>
                     </div>
-                    <div class="example-line">
-                        <p><strong>TR:</strong> <span class="tr-sentence">${w.example_tr}</span></p>
-                        <button class="sound-btn" onclick="speakText('${w.example_tr}', 'tr-TR')" title="Türkçe Cümleyi Seslendir">🔊</button>
-                    </div>
-                </div>
 
-                <div class="related"><strong>İlişkili Fiiller:</strong> ${w.related_verbs ? w.related_verbs.join(', ') : ''}</div>
-            </div>
-        `).join('');
+                    <div class="related"><strong>İlişkili Fiiller:</strong> ${w.related_verbs ? w.related_verbs.join(', ') : ''}</div>
+                </div>
+            `).join('');
+        }
+
+        // Sayfa yüklendiğinde ilk kelimenin detayını sağ panele otomatik getir
+        if (currentSceneWords.length > 0) {
+            showWordDetail(currentSceneWords[0]);
+        }
 
     } catch (e) {
-        sceneBanner.innerHTML = `<div class="banner-title" style="color: #ffcccc;">Dosya Bulunamadı</div>`;
-        content.innerHTML = `
-            <div style="background: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #e74c3c; grid-column: 1 / -1;">
-                <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Seçilen JSON dosyası sunucuda (GitHub'da) mevcut değil veya yüklenmemiş.</p>
-                <p style='color: #555; margin: 0; font-size: 0.9em;'>Aranan dosya yolu: <code>data/${fileName}.json</code></p>
-                <p style='color: #777; margin: 5px 0 0 0; font-size: 0.85em;'>Lütfen dosya adının küçük harfle yazıldığından ve <code>data</code> klasörünün içinde olduğundan emin olun.</p>
-            </div>
-        `;
+        if (sceneBanner) sceneBanner.innerHTML = `<div class="banner-title" style="color: #ffcccc;">Dosya Bulunamadı</div>`;
+        if (content) {
+            content.innerHTML = `
+                <div style="background: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #e74c3c; grid-column: 1 / -1;">
+                    <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Seçilen JSON dosyası sunucuda (GitHub'da) mevcut değil veya yüklenmemiş.</p>
+                    <p style='color: #555; margin: 0; font-size: 0.9em;'>Aranan dosya yolu: <code>data/${fileName}.json</code></p>
+                    <p style='color: #555; margin: 5px 0 0 0; font-size: 0.85em;'>Lütfen dosya adının GitHub'daki <code>data</code> klasöründe olduğundan emin ol.</p>
+                </div>
+            `;
+        }
+    }
+}
+
+// Kart seçildiğinde aktif sınıfını değiştirme ve detay gösterme
+function selectCard(cardElement, index) {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active-card'));
+    cardElement.classList.add('active-card');
+    if (currentSceneWords[index]) {
+        showWordDetail(currentSceneWords[index]);
+    }
+}
+
+// Sağ taraftaki 4. Sütun detay panelini dolduran ve internetten (Wikipedia + Dinamik Görsel) veri çeken fonksiyon
+async function showWordDetail(w) {
+    const titleEl = document.getElementById('detailTitle');
+    const transEl = document.getElementById('detailTranslation');
+    const imageContainer = document.getElementById('detailImageContainer');
+    const metaBox = document.getElementById('detailMetaBox');
+
+    if (titleEl) titleEl.textContent = w.word || '';
+    if (transEl) transEl.textContent = w.turkish || '';
+
+    if (imageContainer) imageContainer.innerHTML = `<div class="detail-placeholder-text">İnternetten görsel aranıyor...</div>`;
+    if (metaBox) metaBox.innerHTML = `İnternetten ek bilgiler taranıyor...`;
+
+    let imageUrl = '';
+    let wikiExtract = '';
+
+    try {
+        const wikiRes = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(w.word)}`);
+        if (wikiRes.ok) {
+            const wikiData = await wikiRes.json();
+            if (wikiData.thumbnail && wikiData.thumbnail.source) {
+                imageUrl = wikiData.thumbnail.source;
+            }
+            if (wikiData.extract) {
+                wikiExtract = wikiData.extract;
+            }
+        }
+    } catch (e) {
+        console.log("Wiki API bağlantı hatası:", e);
+    }
+
+    if (!imageUrl) {
+        imageUrl = `https://loremflickr.com/600/400/${encodeURIComponent(w.word)}`;
+    }
+
+    if (imageContainer) {
+        imageContainer.innerHTML = `<img src="${imageUrl}" alt="${w.word || ''}" onerror="this.src='https://loremflickr.com/600/400/abstract'">`;
+    }
+
+    let metaHtml = `<b>Tür:</b> ${w.type || '-'}<br>`;
+    if (w.example_en) {
+        metaHtml += `<br><b>Örnek (EN):</b> ${w.example_en}<br>`;
+    }
+    if (w.example_tr) {
+        metaHtml += `<b>Örnek (TR):</b> ${w.example_tr}<br>`;
+    }
+    if (w.related_verbs && w.related_verbs.length > 0) {
+        metaHtml += `<br><b>İlişkili Fiiller:</b> ${w.related_verbs.join(', ')}<br>`;
+    }
+
+    if (wikiExtract) {
+        metaHtml += `<hr style="border:0; border-top:1px solid #e2e8f0; margin:10px 0;">`;
+        metaHtml += `<b style="color:#2563eb;">İnternet Açıklaması (Wiki):</b> <span style="font-style:italic; color:#475569;">${wikiExtract}</span>`;
+    } else {
+        metaHtml += `<hr style="border:0; border-top:1px solid #e2e8f0; margin:10px 0;">`;
+        metaHtml += `<span style="color:#94a3b8; font-size:0.8rem;">Bu kelime için ek internet açıklaması bulunamadı.</span>`;
+    }
+
+    if (metaBox) {
+        metaBox.innerHTML = metaHtml;
     }
 }
 
