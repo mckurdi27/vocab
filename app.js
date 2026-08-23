@@ -1,6 +1,6 @@
-let currentSceneWords = []; // Sahne kelimelerini hafızada tutmak için
+let currentSceneWords = []; // Sahne kelimelerini hafızada tutmak için dizi
 
-Document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     generateDayOptions();
 });
 
@@ -87,7 +87,7 @@ async function loadData() {
         }
         
         const data = await res.json();
-        currentSceneWords = data.words || []; // Kelimeleri diziye aktar
+        currentSceneWords = data.words || []; // Verileri diziye aktarıyoruz
         
         sceneBanner.innerHTML = `
             <div class="banner-level">Seviye: ${data.level || '-'}</div>
@@ -119,7 +119,6 @@ async function loadData() {
             return;
         }
         
-        // Kartları oluştururken indeks numarası ile tıklama olayı ekliyoruz
         content.innerHTML = currentSceneWords.map((w, index) => `
             <div class="card ${index === 0 ? 'active-card' : ''}" onclick="selectCard(this, ${index})">
                 <div class="word-row">
@@ -166,7 +165,7 @@ async function loadData() {
     }
 }
 
-// Kart seçildiğinde aktif sınıfını değiştirme ve detay gösterme
+// Kart seçildiğinde aktif sınıfını değiştirme ve detay gösterme fonksiyonu
 function selectCard(cardElement, index) {
     document.querySelectorAll('.card').forEach(c => c.classList.remove('active-card'));
     cardElement.classList.add('active-card');
@@ -175,7 +174,7 @@ function selectCard(cardElement, index) {
     }
 }
 
-// Sağ taraftaki 4. Sütun detay panelini dolduran ve Wikimedia görseli çeken fonksiyon
+// Sağ taraftaki 4. Sütun detay panelini dolduran ve görsel çeken fonksiyon
 async function showWordDetail(w) {
     document.getElementById('detailTitle').textContent = w.word || '';
     document.getElementById('detailTranslation').textContent = w.turkish || '';
