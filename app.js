@@ -27,26 +27,31 @@ function generateDayOptions() {
     const selectedLevel = levelSelect.value;
     daySelect.innerHTML = ""; 
     
-    // Sağdaki menü için "Tümü" seçeneği
+    // Sağdaki menüye "Tümü" seçeneğini ekle (Grup/Bütün arama için)
     const allOpt = document.createElement('option');
     allOpt.value = 'all';
     allOpt.innerHTML = 'Tümü';
     daySelect.appendChild(allOpt);
     
-    if (selectedLevel === 'all') {
-        loadData();
-        return;
+    let prefix = 'a';
+    let displayLevel = 'A1';
+    
+    if (selectedLevel !== 'all' && selectedLevel) {
+        prefix = selectedLevel.charAt(0).toLowerCase();
+        displayLevel = selectedLevel.toUpperCase();
     }
     
-    // 1'den 50'ye kadar olan dosyalar (Örn: A1 A101)
-    for(let i = 1; i <= 50; i++) {
-        const num = i.toString().padStart(2, '0');
-        const fileName = `${selectedLevel}${num}`;
+    // 101'den 150'ye kadar olan dosyaları ekle
+    for(let i = 101; i <= 150; i++) {
+        const fileName = `${prefix}${i}`; // Örn: a101, a102 ... a150
         const opt = document.createElement('option');
         opt.value = fileName;
-        opt.innerHTML = `${selectedLevel.toUpperCase()} ${fileName.toUpperCase()}`;
+        opt.innerHTML = `${displayLevel} ${fileName.toUpperCase()}`; // Örn: A1 A101
         daySelect.appendChild(opt);
     }
+    
+    // Sayfa ilk açıldığında direkt A101 (index 1) ile başlasın
+    daySelect.selectedIndex = 1;
     loadData();
 }
 
@@ -111,13 +116,13 @@ async function loadData() {
         let combinedStoryTr = "";
 
         if (fileName === 'all') {
-            // Tümü seçildiyse 1'den 50'ye kadar olan dosyaları tarayıp birleştir
-            const prefix = selectedLevel === 'all' ? 'a1' : selectedLevel;
+            // "Tümü" seçildiyse ASLA all.json aramaz. 
+            // 101'den 150'ye kadar olan tüm dosyaları tek tek bulup bellekte birleştirir.
+            let prefix = selectedLevel === 'all' ? 'a' : selectedLevel.charAt(0).toLowerCase();
 
-            for (let i = 1; i <= 50; i++) {
-                const num = i.toString().padStart(2, '0');
+            for (let i = 101; i <= 150; i++) {
                 try {
-                    const res = await fetch(`data/${prefix}${num}.json`);
+                    const res = await fetch(`data/${prefix}${i}.json`);
                     if (res.ok) {
                         const data = await res.json();
                         const words = Array.isArray(data) ? data : (data.words || []);
@@ -133,7 +138,7 @@ async function loadData() {
             if (sceneBanner) {
                 sceneBanner.innerHTML = `
                     <div class="banner-level">Seviye: ${prefix.toUpperCase()}</div>
-                    <div class="banner-title">Tüm Dosyalar (1 - 50)</div>
+                    <div class="banner-title">Tüm Dosyalar (101 - 150)</div>
                     <div class="banner-count">Toplam Kelime: ${currentSceneWords.length}</div>
                 `;
             }
@@ -158,10 +163,7 @@ async function loadData() {
             }
 
         } else {
-            // ASLA all.json aramaması için güvenlik kontrolü:
-            if (fileName === 'all') return;
-
-            // Tek dosya seçildiyse
+            // Tek dosya seçildiyse (Örn: a101)
             const filePath = `data/${fileName}.json`;
             const res = await fetch(filePath);
             
