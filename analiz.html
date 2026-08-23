@@ -162,7 +162,7 @@
         <header>
             <div class="header-title">
                 <h1>Kelime Öğrenme Asistanı</h1>
-                <p>Orijinal Sistem Dosyaları Mükerrer Kelime Takibi</p>
+                <p>Mükerrer Kelime Takip ve Analiz Sistemi</p>
             </div>
             <a href="index.html" class="home-btn">🏠 Ana Sayfa</a>
         </header>
@@ -175,22 +175,40 @@
         let globalWordMap = {};
         let allDaysFiles = [];
 
+        // Varsayılan dosya listesi (days.json okunamazsa veya yoksa doğrudan burayı kullanır)
+        const defaultFiles = [
+            'data/a100.json',
+            'data/a101.json',
+            'data/a102.json',
+            'data/a103.json',
+            'data/a104.json',
+            'data/a105.json',
+            'data/a106.json'
+        ];
+
         async function initApp() {
             try {
-                // Orijinal projenizin ana veri/gün yapısını okuyan yapı (days.json veya dinamik liste uyumlu)
+                // Önce days.json okunmaya çalışılır
                 const manifestRes = await fetch('data/days.json');
-                if (!manifestRes.ok) throw new Error("days.json yüklenemedi");
-                
-                const manifest = await manifestRes.json();
-                
-                // Orijinal sistemdeki dosya yollarını otomatik alıyoruz
-                allDaysFiles = manifest.files || manifest.days || manifest;
-                
-                if (!Array.isArray(allDaysFiles)) {
-                    // Eğer doğrudan dizi formatındaysa
-                    allDaysFiles = Object.values(manifest).flat();
+                if (manifestRes.ok) {
+                    const manifest = await manifestRes.json();
+                    allDaysFiles = manifest.files || manifest.days || manifest;
+                    if (!Array.isArray(allDaysFiles)) {
+                        allDaysFiles = Object.values(manifest).flat();
+                    }
+                } else {
+                    throw new Error("days.json bulunamadı");
                 }
+            } catch (error) {
+                console.log("days.json yüklenemedi, varsayılan dosya listesi kullanılıyor.");
+                allDaysFiles = defaultFiles;
+            }
 
+            if (!allDaysFiles || allDaysFiles.length === 0) {
+                allDaysFiles = defaultFiles;
+            }
+
+            try {
                 await buildGlobalWordMap(allDaysFiles);
                 renderDaySelector(allDaysFiles);
 
@@ -200,7 +218,7 @@
             } catch (error) {
                 console.error("Başlangıç hatası:", error);
                 document.getElementById('cardsContainer').innerHTML = 
-                    `<p style="color:red; text-align:center; grid-column:1/-1;">Orijinal veri dosyaları (days.json) yüklenemedi. Lütfen dosya yollarını kontrol edin.</p>`;
+                    `<p style="color:red; text-align:center; grid-column:1/-1;">Veriler yüklenemedi. Lütfen dosya yollarını ve JSON dosyalarını kontrol edin.</p>`;
             }
         }
 
@@ -210,7 +228,7 @@
             for (const file of files) {
                 try {
                     const res = await fetch(file);
-                    if (!res.ok) throw new Error(`${file} yüklenemedi`);
+                    if (!res.ok) continue; // Hatalı dosya varsa atla, sistemi durdurma
                     
                     const dayData = await res.json();
                     const wordsList = dayData.words || dayData.vocabulary || dayData;
@@ -229,7 +247,7 @@
                         });
                     }
                 } catch (err) {
-                    console.error(err);
+                    console.error(`${file} okunurken hata:`, err);
                 }
             }
         }
@@ -265,7 +283,7 @@
 
                 container.innerHTML = '';
 
-                if (Array.isArray(wordsList)) {
+                if (Array.isArray(wordsList) && wordsList.length > 0) {
                     wordsList.forEach(item => {
                         const card = createVocabCard(item, file);
                         container.appendChild(card);
