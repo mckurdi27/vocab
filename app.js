@@ -18,12 +18,12 @@ function generateDayOptions() {
     allOpt.innerHTML = 'Tümü';
     daySelect.appendChild(allOpt);
     
-    // 100'den 150'ye kadar olan dosyalar (Dosya kelimesi olmadan)
+    // 100'den 150'ye kadar olan dosyalar (Parantez ve Dosya kelimesi yok, örn: A1 - A101)
     for(let i = 100; i <= 150; i++) {
         const fileName = `${level}${i}`; // Örn: a1100, a1101 ... a1150
         const opt = document.createElement('option');
         opt.value = fileName;
-        opt.innerHTML = `${level.toUpperCase()} - ${i} (${fileName})`;
+        opt.innerHTML = `${level.toUpperCase()} - ${level.toUpperCase()}${i}`;
         daySelect.appendChild(opt);
     }
     loadData();
@@ -199,7 +199,7 @@ async function loadData() {
                             <button class="sound-btn" onclick="event.stopPropagation(); speakText('${w.example_en || ''}', 'en-US')" title="İngilizce Cümleyi Seslendir">🔊</button>
                         </div>
                         <div class="example-line">
-                            <p><strong>TR:</strong> <span class="tr-sentence">${w.example_tr || ''}</span></p>
+                            <p><strong>TR:</strong> <span class="tr-sentence">${w.example_tr || ` `}</span></p>
                             <button class="sound-btn" onclick="event.stopPropagation(); speakText('${w.example_tr || ''}', 'tr-TR')" title="Türkçe Cümleyi Seslendir">🔊</button>
                         </div>
                     </div>
