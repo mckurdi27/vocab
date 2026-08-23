@@ -3,515 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelime Mükerrer Analizi - Tüm Seviyeler</title>
+    <title>Kelime ve Soru Bankası</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --primary-color: #2563eb;
-            --primary-hover: #1d4ed8;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-color: #1e293b;
-            --duplicate-border: #ef4444;
-            --duplicate-bg: #fef2f2;
-            --first-dup-border: #2563eb;
-            --first-dup-bg: #eff6ff;
-            --info-bg: #eff6ff;
-            --info-text: #1e40af;
-        }
-        
+        /* Ana Konteyner ve Genel Düzen */
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
             margin: 0;
-            padding: 15px;
+            padding: 0;
         }
 
         .container {
-            max-width: 1150px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
 
-        header {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 15px 20px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        /* Üst Kontrol Paneli */
+        .header {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            margin-bottom: 24px;
+        }
+
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #e2e8f0;
+            gap: 12px;
         }
 
-        .header-left, .header-right {
+        .header-top h2 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        /* Tüm Butonlar Mavi Tasarım Dilinde Sabitlendi */
+        .analysis-btn {
+            background-color: #2563eb;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .analysis-btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .selectors-wrapper {
             display: flex;
             align-items: center;
             gap: 10px;
             flex-wrap: wrap;
         }
 
-        .app-select, .app-btn {
-            background-color: #ffffff;
-            border: 1px solid #cbd5e1;
-            color: #334155;
-            padding: 9px 14px;
+        .selectors-wrapper select {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
+            padding: 8px 14px;
             border-radius: 8px;
-            font-weight: 500;
-            font-size: 14px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
             outline: none;
             cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            height: 38px;
-            box-sizing: border-box;
         }
 
-        .app-select:hover, .app-btn:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
+        .selectors-wrapper select:hover, 
+        .selectors-wrapper select:focus {
+            background-color: #dbeafe;
+            border-color: #93c5fd;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
 
-        .run-btn {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0 16px;
-            border-radius: 8px;
-            border: none;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            height: 38px;
-            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .run-btn:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-1px);
-        }
-
-        .home-btn {
-            background-color: #0f172a;
-            color: white;
-            padding: 0 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            height: 38px;
-            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.2);
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .home-btn:hover {
-            background-color: #1e293b;
-            transform: translateY(-1px);
-        }
-
-        .info-bar {
-            background: var(--info-bg);
-            color: var(--info-text);
-            padding: 12px 18px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
+        .nav-arrow-btn {
+            background-color: #eff6ff;
             border: 1px solid #bfdbfe;
+            color: #1d4ed8;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
         }
 
-        .cards-grid {
+        .nav-arrow-btn:hover {
+            background-color: #dbeafe;
+            border-color: #93c5fd;
+        }
+
+        /* Kelime Grid ve Kart Tasarımları */
+        .word-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 15px;
         }
 
-        .vocab-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 18px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            position: relative;
-            transition: transform 0.2s, box-shadow 0.2s;
+        .word-card {
+            background: #fff;
             border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            position: relative;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
         }
 
-        .vocab-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        /* 1. Özgün/Benzersiz Kelime -> Yeşil Tema */
+        .word-card.unique-word {
+            background-color: #f0fdf4;
+            border-color: #bbf7d0;
+            border-left: 4px solid #22c55e;
         }
 
-        .vocab-card.is-first-duplicate {
-            border-color: var(--first-dup-border) !important;
-            background-color: var(--first-dup-bg);
+        /* 2. Tekrarlı - İlk Geçiş -> Mavi Tema */
+        .word-card.repeat-first {
+            background-color: #f8fafc;
+            border-left: 4px solid #2563eb;
         }
 
-        .vocab-card.is-first-duplicate::after {
-            content: "İlk Geçiş";
+        /* 3. Tekrarlı - Sonraki Geçişler (2, 3...) -> Kırmızı Tema */
+        .word-card.repeat-later {
+            background-color: #fef2f2;
+            border-color: #fecaca;
+            border-left: 4px solid #ef4444;
+        }
+
+        .status-badge {
             position: absolute;
             top: 12px;
             right: 12px;
-            background-color: var(--first-dup-border);
-            color: white;
-            font-size: 10px;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-        }
-
-        .vocab-card.is-duplicate {
-            border-color: var(--duplicate-border) !important;
-            background-color: var(--duplicate-bg);
-        }
-
-        .vocab-card.is-duplicate::after {
-            content: "Tekrarlanan";
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background-color: var(--duplicate-border);
-            color: white;
-            font-size: 10px;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-        }
-
-        .word-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 6px;
-            color: #0f172a;
-        }
-
-        .word-translation {
-            color: #475569;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        .word-meta {
             font-size: 0.75rem;
-            color: #64748b;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 8px;
-            margin-top: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
         }
 
-        .hidden {
-            display: none !important;
-        }
+        .word-card.unique-word .status-badge { background: #dcfce7; color: #166534; }
+        .word-card.repeat-first .status-badge { background: #dbeafe; color: #1e40af; }
+        .word-card.repeat-later .status-badge { background: #fee2e2; color: #991b1b; }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <header>
-            <div class="header-left">
-                <!-- Ana Kapsam Menüsü -->
-                <select id="scopeSelect" class="app-select" onchange="onScopeChange(this.value)">
-                    <option value="tumu">🌐 Tüm Dosyalar</option>
-                    <option value="a1">📁 A1 (100 - 150)</option>
-                    <option value="a2">📁 A2 (200 - 250)</option>
-                    <option value="b1">📁 B1 (100 - 150)</option>
-                    <option value="b2">📁 B2 (200 - 250)</option>
-                    <option value="c1">📁 C1 (100 - 150)</option>
-                    <option value="c2">📁 C2 (200 - 250)</option>
-                    <option value="tek">📄 Tek Bir Dosya Seç</option>
-                </select>
+        <!-- Üst Seçim ve Kontrol Paneli -->
+        <header class="header">
+            <div class="header-top">
+                <h2>Kelime Çalışma Paneli</h2>
 
-                <!-- Spesifik Tek Dosya Seçim Menüsü -->
-                <select id="specificFileSelect" class="app-select hidden"></select>
+                <div class="selectors-wrapper">
+                    <!-- Seviye ve Dosya Seçimleri -->
+                    <select id="levelSelect" onchange="generateDayOptions()">
+                        <option value="a1">A1 Seviyesi</option>
+                        <option value="a2">A2 Seviyesi</option>
+                        <option value="b1">B1 Seviyesi</option>
+                        <option value="b2">B2 Seviyesi</option>
+                        <option value="c1">C1 Seviyesi</option>
+                        <option value="c2">C2 Seviyesi</option>
+                    </select>
 
-                <button class="run-btn" onclick="startAnalysis()">🚀 Analizi Çalıştır</button>
-            </div>
+                    <select id="daySelect" onchange="loadData()"></select>
 
-            <div class="header-right">
-                <!-- Analiz Sonrası Dosya Gezinme ve Ana Sayfa -->
-                <select id="fileSelect" class="app-select hidden" onchange="onFileSelectChange(this.value)"></select>
-                <button id="prevBtn" class="app-btn hidden" onclick="navigateFile(-1)">◀ Önceki</button>
-                <button id="nextBtn" class="app-btn hidden" onclick="navigateFile(1)">Sonraki ▶</button>
-                <a href="index.html" class="home-btn">🏠 Ana Sayfa</a>
+                    <!-- Önceki ve Sonraki Butonları -->
+                    <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
+                    <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
+
+                    <!-- Tüm Butonlar Mavi Tasarıma Sabitlendi -->
+                    <a href="index.html" class="analysis-btn">🏠 Ana Sayfa</a>
+                    <a href="analiz.html" class="analysis-btn">📊 Mükerrer Analiz</a>
+                    <a href="analysis.html" class="analysis-btn">📈 Genel Analiz</a>
+                </div>
             </div>
         </header>
 
-        <div id="infoBar" class="info-bar">
-            <span>İstediğiniz kapsamı seçip <b>"Analizi Çalıştır"</b> butonuna tıklayın.</span>
+        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı -->
+        <div id="sceneBanner" class="scene-banner">
+            <h3>Yükleniyor...</h3>
         </div>
 
-        <div id="cardsContainer" class="cards-grid"></div>
+        <!-- İçerik Alanı -->
+        <main id="content" class="word-grid">
+            <p>Veriler yükleniyor...</p>
+        </main>
     </div>
 
+    <script src="app.js"></script>
     <script>
-        let globalWordMap = {};
-        let cardStatusMap = {};
-        let activeFiles = [];
-        let currentIndex = 0;
+        let globalWordFileMap = {};
+        const fileIndexMap = {}; 
 
-        window.addEventListener('DOMContentLoaded', () => {
-            populateSpecificFileDropdown();
-        });
-
-        function getAllPossibleFiles() {
-            let files = [];
-            ['a', 'b', 'c'].forEach(letter => {
-                for (let i = 0; i <= 50; i++) {
-                    files.push(`data/${letter}${100 + i}.json`);
-                }
-                for (let i = 0; i <= 50; i++) {
-                    files.push(`data/${letter}${200 + i}.json`);
-                }
-            });
-            return files;
-        }
-
-        function getFilesForGroup(letter, level) {
-            let files = [];
-            let base = (level === 1) ? 100 : 200;
-            for (let i = 0; i <= 50; i++) {
-                files.push(`data/${letter}${base + i}.json`);
-            }
-            return files;
-        }
-
-        function populateSpecificFileDropdown() {
-            const select = document.getElementById('specificFileSelect');
-            select.innerHTML = '';
-            const allFiles = getAllPossibleFiles();
-            allFiles.forEach(file => {
-                const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
-                const option = document.createElement('option');
-                option.value = file;
-                option.textContent = `Dosya: ${fileName}`;
-                select.appendChild(option);
-            });
-        }
-
-        function onScopeChange(val) {
-            const specificSelect = document.getElementById('specificFileSelect');
-            if (val === 'tek') {
-                specificSelect.classList.remove('hidden');
-            } else {
-                specificSelect.classList.add('hidden');
+        function nextFile() {
+            const select = document.getElementById('daySelect');
+            if (select && select.selectedIndex < select.options.length - 1) {
+                select.selectedIndex++;
+                loadData();
             }
         }
 
-        async function startAnalysis() {
-            const scopeVal = document.getElementById('scopeSelect').value;
-            const allFiles = getAllPossibleFiles();
-            
-            if (scopeVal === 'tek') {
-                const selectedFile = document.getElementById('specificFileSelect').value;
-                // Tek dosya seçildiğinde de tüm dosyaları activeFiles yapıyoruz ki ilerleme (Önceki/Sonraki) çalışabilsin
-                activeFiles = allFiles;
-                currentIndex = activeFiles.indexOf(selectedFile);
-                if (currentIndex === -1) currentIndex = 0;
-            } else if (scopeVal === 'tumu') {
-                activeFiles = allFiles;
-                currentIndex = 0;
-            } else if (scopeVal === 'a1') {
-                activeFiles = getFilesForGroup('a', 1);
-                currentIndex = 0;
-            } else if (scopeVal === 'a2') {
-                activeFiles = getFilesForGroup('a', 2);
-                currentIndex = 0;
-            } else if (scopeVal === 'b1') {
-                activeFiles = getFilesForGroup('b', 1);
-                currentIndex = 0;
-            } else if (scopeVal === 'b2') {
-                activeFiles = getFilesForGroup('b', 2);
-                currentIndex = 0;
-            } else if (scopeVal === 'c1') {
-                activeFiles = getFilesForGroup('c', 1);
-                currentIndex = 0;
-            } else if (scopeVal === 'c2') {
-                activeFiles = getFilesForGroup('c', 2);
-                currentIndex = 0;
-            }
-
-            document.getElementById('infoBar').innerHTML = `<span>Analiz yapılıyor, lütfen bekleyin...</span>`;
-            document.getElementById('cardsContainer').innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b; padding: 20px;">Veriler taranıyor...</p>';
-
-            await buildGlobalWordMap(allFiles);
-
-            if (activeFiles.length > 0) {
-                // Eğer grup seçildiyse ilgili grubun listesi, tek seçildiyse tüm liste dropdown'a dolar ancak seçilen dosya öne gelir
-                populateFileDropdown(scopeVal === 'tek' ? allFiles : activeFiles);
-                
-                document.getElementById('fileSelect').classList.remove('hidden');
-                document.getElementById('prevBtn').classList.remove('hidden');
-                document.getElementById('nextBtn').classList.remove('hidden');
-
-                const targetFile = activeFiles[currentIndex];
-                document.getElementById('fileSelect').value = targetFile;
-                loadDayData(targetFile);
-            } else {
-                document.getElementById('cardsContainer').innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b; padding: 20px;">Dosya bulunamadı.</p>';
+        function prevFile() {
+            const select = document.getElementById('daySelect');
+            if (select && select.selectedIndex > 0) {
+                select.selectedIndex--;
+                loadData();
             }
         }
 
-        async function buildGlobalWordMap(files) {
-            globalWordMap = {};
-            cardStatusMap = {};
-            let wordOccurrenceLists = {};
-            let validFilesCount = 0;
+        async function buildGlobalWordMap() {
+            const files = typeof getAllPossibleFiles === 'function' ? getAllPossibleFiles() : [];
+            globalWordFileMap = {};
 
             for (const file of files) {
                 try {
                     const res = await fetch(file);
-                    if (!res.ok) continue; 
-                    
-                    validFilesCount++;
-                    const dayData = await res.json();
-                    const wordsList = dayData.words || dayData.vocabulary || dayData;
+                    if (!res.ok) continue;
+                    const data = await res.json();
+                    const words = data.words || data.vocabulary || data;
 
-                    if (Array.isArray(wordsList)) {
-                        wordsList.forEach((item, index) => {
-                            const wordKey = (item.word || item.term || "").trim().toLowerCase();
+                    if (Array.isArray(words)) {
+                        words.forEach(item => {
+                            const wordKey = (item.word || item.term || "").trim();
                             if (!wordKey) return;
-
-                            if (!globalWordMap[wordKey]) {
-                                globalWordMap[wordKey] = [];
+                            const lowerKey = wordKey.toLowerCase();
+                            
+                            if (!globalWordFileMap[lowerKey]) {
+                                globalWordFileMap[lowerKey] = [];
                             }
-                            if (!globalWordMap[wordKey].includes(file)) {
-                                globalWordMap[wordKey].push(file);
+                            if (!globalWordFileMap[lowerKey].includes(file)) {
+                                globalWordFileMap[lowerKey].push(file);
                             }
-
-                            if (!wordOccurrenceLists[wordKey]) {
-                                wordOccurrenceLists[wordKey] = [];
-                            }
-                            wordOccurrenceLists[wordKey].push({ file, index });
                         });
                     }
-                } catch (err) {
-                    // Bulunamayan dosyaları geç
-                }
+                } catch (err) {}
             }
 
-            for (const wordKey in wordOccurrenceLists) {
-                const list = wordOccurrenceLists[wordKey];
-                const total = list.length;
-                list.forEach((occ, occurrenceIndex) => {
-                    const uniqueKey = `${occ.file}_${occ.index}`;
-                    cardStatusMap[uniqueKey] = {
-                        total: total,
-                        occurrenceIndex: occurrenceIndex
-                    };
+            Object.keys(globalWordFileMap).forEach(key => {
+                globalWordFileMap[key].sort((a, b) => {
+                    return (fileIndexMap[a] || 0) - (fileIndexMap[b] || 0);
                 });
-            }
-
-            document.getElementById('infoBar').innerHTML = `
-                <span>📁 Sistemde Taranan Toplam Dosya: <b>${validFilesCount}</b></span>
-                <span>✨ Mükerrer Analiz Tamamlandı</span>
-            `;
-        }
-
-        function populateFileDropdown(files) {
-            const select = document.getElementById('fileSelect');
-            select.innerHTML = '';
-
-            files.forEach((file) => {
-                const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
-                const option = document.createElement('option');
-                option.value = file;
-                option.textContent = `Sahne / Dosya: ${fileName}`;
-                select.appendChild(option);
             });
         }
 
-        function onFileSelectChange(file) {
-            currentIndex = activeFiles.indexOf(file);
-            loadDayData(file);
-        }
+        // Veriyi ve kelimelerin 3 aşamalı renk / sayım mantığını işleme
+        async function loadData() {
+            const select = document.getElementById('daySelect');
+            if (!select || !select.value) return;
+            const file = select.value;
+            const contentDiv = document.getElementById('content');
+            const bannerDiv = document.getElementById('sceneBanner');
 
-        function navigateFile(direction) {
-            currentIndex += direction;
-            if (currentIndex < 0) currentIndex = activeFiles.length - 1;
-            if (currentIndex >= activeFiles.length) currentIndex = 0;
-
-            const targetFile = activeFiles[currentIndex];
-            document.getElementById('fileSelect').value = targetFile;
-            loadDayData(targetFile);
-        }
-
-        async function loadDayData(file) {
-            const container = document.getElementById('cardsContainer');
-            container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b; padding: 20px;">Kelimeler yükleniyor...</p>';
+            contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b;">Yükleniyor...</p>';
 
             try {
                 const res = await fetch(file);
                 if (!res.ok) {
-                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#94a3b8; padding: 20px;">Bu dosya henüz oluşturulmamış veya boş.</p>`;
+                    contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#94a3b8;">Bu dosya henüz oluşturulmamış.</p>';
+                    bannerDiv.innerHTML = '<h3>Dosya Bulunamadı</h3><div class="scene-meta">Toplam Kelime: 0</div>';
                     return;
                 }
 
-                const dayData = await res.json();
-                const wordsList = dayData.words || dayData.vocabulary || dayData;
+                const data = await res.json();
+                const fileNameStr = file.split('/').pop().replace('.json', '').toUpperCase();
+                const wordsList = data.words || data.vocabulary || data;
 
-                container.innerHTML = '';
+                if (Object.keys(globalWordFileMap).length === 0 && typeof getAllPossibleFiles === 'function') {
+                    await buildGlobalWordMap();
+                }
 
-                if (Array.isArray(wordsList) && wordsList.length > 0) {
-                    wordsList.forEach((item, index) => {
-                        const uniqueKey = `${file}_${index}`;
-                        const status = cardStatusMap[uniqueKey] || { total: 1, occurrenceIndex: 0 };
-                        const card = createVocabCard(item, file, status);
-                        container.appendChild(card);
+                let htmlContent = '';
+
+                if (Array.isArray(wordsList)) {
+                    wordsList.forEach(item => {
+                        const wordKey = (item.word || item.term || "").trim();
+                        const lowerKey = wordKey.toLowerCase();
+                        const fileList = globalWordFileMap[lowerKey] || [file];
+                        const count = fileList.length;
+
+                        let cardClass = 'word-card';
+                        let badgeHtml = '';
+
+                        if (count === 1) {
+                            // 1. Özgün Kelime -> Yeşil
+                            cardClass += ' unique-word';
+                            badgeHtml = '<span class="status-badge">Özgün</span>';
+                        } else {
+                            // Kelimenin bu listede kaçıncı sırada geçtiğini buluyoruz (1 tabanlı indeks)
+                            const occurrenceIndex = fileList.indexOf(file) + 1;
+
+                            if (occurrenceIndex === 1) {
+                                // 2. Tekrarlı ama İlk Geçiş -> Mavi
+                                cardClass += ' repeat-first';
+                                badgeHtml = '<span class="status-badge">İlk Geçiş</span>';
+                            } else {
+                                // 3. Sonraki Geçişler (2, 3, 4...) -> Kırmızı ve Sayı Belirtmeli
+                                cardClass += ' repeat-later';
+                                badgeHtml = `<span class="status-badge">${occurrenceIndex}. Geçiş</span>`;
+                            }
+                        }
+
+                        htmlContent += `
+                            <div class="${cardClass}">
+                                ${badgeHtml}
+                                <strong>${item.word || item.term}</strong>
+                                <p style="margin: 8px 0 0 0; color: #64748b; font-size: 0.9rem;">${item.meaning || item.definition || ''}</p>
+                            </div>
+                        `;
                     });
-                } else {
-                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu dosyada kelime bulunamadı.</p>`;
                 }
+
+                contentDiv.innerHTML = htmlContent;
+                if (bannerDiv) {
+                    bannerDiv.innerHTML = `<h3>${fileNameStr} Seviye Kelimeleri</h3><div class="scene-meta">Toplam Kelime: ${wordsList.length}</div>`;
+                }
+
             } catch (err) {
-                container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#94a3b8; padding: 20px;">Bu dosya henüz oluşturulmamış.</p>`;
+                contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#ef4444;">Veriler yüklenirken hata oluştu.</p>';
             }
-        }
-
-        function createVocabCard(item, currentFile, status) {
-            const wordKey = (item.word || item.term || "").trim().toLowerCase();
-            const appearances = globalWordMap[wordKey] || [];
-            
-            let cardClass = '';
-            
-            if (status.total > 1) {
-                if (status.occurrenceIndex === 0) {
-                    cardClass = 'is-first-duplicate'; // Mavi (İlk Geçiş)
-                } else {
-                    cardClass = 'is-duplicate'; // Kırmızı (Tekrarlanan)
-                }
-            } else {
-                cardClass = ''; // Beyaz (Tekil)
-            }
-
-            const cardDiv = document.createElement('div');
-            cardDiv.className = `vocab-card ${cardClass}`;
-
-            const wordText = item.word || item.term || '';
-            const translationText = item.translation || item.meaning || '';
-
-            cardDiv.innerHTML = `
-                <div class="word-title">${wordText}</div>
-                <div class="word-translation">${translationText}</div>
-                <div class="word-meta">
-                    Geçtiği Dosyalar (${appearances.length}): ${appearances.map(f => f.split('/').pop().replace('.json','')).join(', ')}
-                </div>
-            `;
-
-            return cardDiv;
         }
     </script>
 </body>
