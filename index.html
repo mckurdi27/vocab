@@ -158,42 +158,12 @@
 
     <script src="app.js"></script>
     <script>
-        // Analiz sayfasıyla birebir aynı dosya oluşturma ve sıralama mantığı
-        function generateDayOptions() {
-            const levelSelect = document.getElementById('levelSelect').value;
-            const daySelect = document.getElementById('daySelect');
-            if (!daySelect) return;
-            
-            daySelect.innerHTML = '';
-
-            let letter = levelSelect.charAt(0);
-            let levelNum = levelSelect.charAt(1);
-
-            for (let i = 0; i <= 50; i++) {
-                let groupNum = i < 10 ? '0' + i : '' + i;
-                let fileNum = levelNum === '1' ? '1' + groupNum : '2' + groupNum;
-                let fileName = `${letter}${fileNum}`;
-                
-                const option = document.createElement('option');
-                option.value = `data/${fileName}.json`;
-                option.textContent = `Dosya: ${fileName.toUpperCase()}`;
-                daySelect.appendChild(option);
-            }
-            if (typeof loadData === 'function') {
-                loadData();
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            generateDayOptions();
-        });
-
         // Dosya listesinde bir sonraki öğeye geçiş
         function nextFile() {
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex < select.options.length - 1) {
                 select.selectedIndex++;
-                if (typeof loadData === 'function') loadData();
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
         }
 
@@ -202,7 +172,7 @@
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex > 0) {
                 select.selectedIndex--;
-                if (typeof loadData === 'function') loadData();
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
         }
     </script>
