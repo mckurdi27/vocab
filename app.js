@@ -1,7 +1,7 @@
 // Seviyelere göre dosya listelerini tanımlayalım
 const datasetMap = {
     "a1": ["data/a100.json", "data/a101.json", "data/a102.json", "data/a103.json", "data/a104.json", "data/a105.json", "data/a106.json"],
-    "a2": [], // Eğer varsa ekleyebilirsin
+    "a2": [],
     "b1": [],
     "b2": [],
     "c1": [],
@@ -27,12 +27,14 @@ function generateDayOptions() {
 
     if (files.length === 0) {
         daySelect.innerHTML = `<option value="">Bu seviyede dosya yok</option>`;
-        document.getElementById("content").innerHTML = `<p style="text-align:center; color:#64748b; grid-column: 1/-1;">Bu seviyeye ait veri bulunamadı.</p>`;
-        document.getElementById("sceneBanner").innerHTML = `<h3>Veri Yok</h3>`;
+        document.getElementById("content").innerHTML = `<p style="text-align:center; color:red; grid-column: 1/-1;">Bu seviyeye ait dosya tanımlanmamış!</p>`;
+        if (document.getElementById("sceneBanner")) {
+            document.getElementById("sceneBanner").innerHTML = `<h3>Seviye Boş</h3>`;
+        }
         return;
     }
 
-    files.forEach((file, index) => {
+    files.forEach((file) => {
         const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
         const option = document.createElement("option");
         option.value = file;
@@ -52,15 +54,16 @@ async function loadData() {
     if (!daySelect || !daySelect.value) return;
 
     const filePath = daySelect.value;
-    contentDiv.innerHTML = `<p style="text-align:center; color:#64748b; grid-column: 1/-1;">Yükleniyor...</p>`;
+    contentDiv.innerHTML = `<p style="text-align:center; color:#64748b; grid-column: 1/-1;">Yükleniyor: ${filePath}...</p>`;
 
     try {
         const response = await fetch(filePath);
-        if (!response.ok) throw new Error("Dosya yüklenemedi");
+        if (!response.ok) {
+            throw new Error(`HTTP Hata Kodu: ${response.status} (${filePath} bulunamadı)`);
+        }
 
         const data = await response.json();
         
-        // Başlık veya tema bilgisini güncelle (varsa)
         if (sceneBanner) {
             sceneBanner.innerHTML = `<h3>${data.title || filePath.split('/').pop().toUpperCase()}</h3>`;
         }
@@ -69,12 +72,16 @@ async function loadData() {
         const wordsList = data.words || data;
 
         if (!Array.isArray(wordsList)) {
-            throw new Error("Geçersiz veri formatı");
+            throw new Error("JSON formatı dizi (array) veya 'words' içermiyor!");
         }
 
         wordsList.forEach(item => {
             const card = document.createElement("div");
-            card.className = "word-card"; // style.css'deki kart sınıfın
+            card.style.background = "#ffffff";
+            card.style.borderRadius = "12px";
+            card.style.padding = "20px";
+            card.style.boxShadow = "0 4px 6px -1px rgba(0, 0, 0, 0.05)";
+            card.style.border = "1px solid #e2e8f0";
             
             const word = item.word || item.term || "";
             const translation = item.translation || item.meaning || "";
@@ -88,6 +95,10 @@ async function loadData() {
 
     } catch (error) {
         console.error(error);
-        contentDiv.innerHTML = `<p style="color: red; text-align: center; grid-column: 1/-1;">Veriler yüklenirken bir hata oluştu.</p>`;
+        contentDiv.innerHTML = `
+            <div style="color: red; text-align: center; grid-column: 1/-1; background: #fee2e2; padding: 15px; border-radius: 8px;">
+                <strong>Dosya Okunamadı!</strong><br>
+                <small>${error.message}</small>
+            </div>`;
     }
 }
