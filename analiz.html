@@ -27,7 +27,6 @@
             margin: 0 auto;
         }
 
-        /* Üst Panel (Header) */
         header {
             background: var(--card-bg);
             border-radius: 12px;
@@ -86,7 +85,6 @@
             transform: translateY(-1px);
         }
 
-        /* Bilgi Alanı / İstatistik */
         .info-bar {
             background: #e0e7ff;
             color: #3730a3;
@@ -100,7 +98,6 @@
             align-items: center;
         }
 
-        /* Kart Izgarası */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -168,7 +165,7 @@
         <header>
             <div class="header-left">
                 <select id="fileSelect" class="app-select" onchange="onFileSelectChange(this.value)">
-                    <option value="">Dosyalar Yükleniyor...</option>
+                    <option value="">Dosyalar taranıyor...</option>
                 </select>
                 <button class="app-btn" onclick="navigateFile(-1)">◀ Önceki</button>
                 <button class="app-btn" onclick="navigateFile(1)">Sonraki ▶</button>
@@ -179,7 +176,7 @@
         </header>
 
         <div id="infoBar" class="info-bar">
-            <span>Sistem taranıyor, lütfen bekleyin...</span>
+            <span>Sistem klasörleri tarıyor, lütfen bekleyin...</span>
         </div>
 
         <div id="cardsContainer" class="cards-grid"></div>
@@ -192,37 +189,46 @@
 
         async function initApp() {
             try {
-                // Ana sisteminizin kullandığı days.json manifest dosyasını okuyoruz
-                const manifestRes = await fetch('data/days.json');
-                if (!manifestRes.ok) throw new Error("days.json bulunamadı");
-                
-                const manifest = await manifestRes.json();
-                
-                // Manifest yapısı ister düz dizi, ister seviyelere göre nesne (A1, A2 vb.) olsun hepsini tek bir listeye topluyoruz
-                if (Array.isArray(manifest)) {
-                    allDaysFiles = manifest;
-                } else if (typeof manifest === 'object' && manifest !== null) {
-                    allDaysFiles = [];
-                    Object.values(manifest).forEach(val => {
-                        if (Array.isArray(val)) {
-                            allDaysFiles.push(...val);
-                        } else if (typeof val === 'object' && val !== null) {
-                            Object.values(val.files || val.days || val).forEach(subVal => {
-                                if (typeof subVal === 'string') allDaysFiles.push(subVal);
-                            });
+                // Olası dosya adlarını ve aralıklarını otomatik üretiyoruz (a101-a150, a201-a250, b101-b150, b201-b250, c101-c150, c201-c250 ve 1-50 arası)
+                const prefixes = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
+                const potentialFiles = [];
+
+                prefixes.forEach(p => {
+                    for (let i = 101; i <= 150; i++) potentialFiles.push(`data/${p}${i}.json`);
+                    for (let i = 201; i <= 250; i++) potentialFiles.push(`data/${p}${i}.json`);
+                    for (let i = 1; i <= 50; i++) potentialFiles.push(`data/${p}${i}.json`);
+                });
+
+                document.getElementById('infoBar').innerHTML = `<span>Sunucudaki dosyalar kontrol ediliyor...</span>`;
+
+                // Gerçekten var olan dosyaları tespit ediyoruz (Fetch ile test)
+                allDaysFiles = [];
+                for (const file of potentialFiles) {
+                    try {
+                        const res = await fetch(file, { method: 'HEAD' });
+                        if (res.ok) {
+                            allDaysFiles.push(file);
                         }
-                    });
-                    // Eğer nesne doğrudan dosya listeleri içeriyorsa
-                    if (allDaysFiles.length === 0) {
-                        allDaysFiles = Object.values(manifest).flat();
+                    } catch (e) {
+                        // Dosya yoksa geç
                     }
                 }
 
-                if (!allDaysFiles || allDaysFiles.length === 0) {
-                    throw new Error("Dosya listesi boş");
+                // Eğer HEAD isteği desteklenmiyorsa doğrudan okumayı deneriz
+                if (allDaysFiles.length === 0) {
+                    for (const file of potentialFiles) {
+                        try {
+                            const res = await fetch(file);
+                            if (res.ok) {
+                                allDaysFiles.push(file);
+                            }
+                        } catch (e) {}
+                    }
                 }
 
-                document.getElementById('infoBar').innerHTML = `<span>Toplam ${allDaysFiles.length} dosya taranıyor...</span>`;
+                if (allDaysFiles.length === 0) {
+                    throw new Error("Hiçbir JSON dosyası bulunamadı.");
+                }
 
                 await buildGlobalWordMap(allDaysFiles);
                 populateFileDropdown(allDaysFiles);
@@ -233,15 +239,14 @@
                 }
             } catch (error) {
                 console.error("Başlangıç hatası:", error);
-                document.getElementById('infoBar').innerHTML = `<span style="color:red;">Dosya listesi (days.json) okunamadı.</span>`;
+                document.getElementById('infoBar').innerHTML = `<span style="color:red;">Dosyalar taranamadı.</span>`;
                 document.getElementById('cardsContainer').innerHTML = 
-                    `<p style="color:red; text-align:center; grid-column:1/-1;">Veriler yüklenemedi. Lütfen ana dizindeki yapılandırmayı kontrol edin.</p>`;
+                    `<p style="color:red; text-align:center; grid-column:1/-1;">data klasöründe JSON dosyaları bulunamadı veya erişilemedi.</p>`;
             }
         }
 
         async function buildGlobalWordMap(files) {
             globalWordMap = {};
-            let totalWordsCount = 0;
 
             for (const file of files) {
                 try {
@@ -256,7 +261,6 @@
                             const wordKey = (item.word || item.term || "").trim().toLowerCase();
                             if (!wordKey) return;
 
-                            totalWordsCount++;
                             if (!globalWordMap[wordKey]) {
                                 globalWordMap[wordKey] = [];
                             }
@@ -266,13 +270,13 @@
                         });
                     }
                 } catch (err) {
-                    console.error(`${file} taranamadı:`, err);
+                    console.error(`${file} okunamadı:`, err);
                 }
             }
 
             document.getElementById('infoBar').innerHTML = `
-                <span>📁 Toplam Dosya: <b>${files.length}</b></span>
-                <span>🔍 Toplam Kelime Taraması Tamamlandı</span>
+                <span>📁 Bulunan Aktif Dosya: <b>${files.length}</b></span>
+                <span>✅ Mükerrer Analiz Hazır</span>
             `;
         }
 
@@ -280,7 +284,7 @@
             const select = document.getElementById('fileSelect');
             select.innerHTML = '';
 
-            files.forEach((file, index) => {
+            files.forEach((file) => {
                 const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
                 const option = document.createElement('option');
                 option.value = file;
