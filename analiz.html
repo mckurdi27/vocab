@@ -127,17 +127,37 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
         }
 
+        /* 1. YEŞİL: Özgün (Benzersiz) Kelime */
+        .vocab-card.is-unique {
+            border-color: #22c55e !important;
+            background-color: #f0fdf4;
+        }
+        .vocab-card.is-unique .card-badge {
+            background-color: #22c55e;
+        }
+
+        /* 2. MAVI: Tekrarlanıyor ama İlk Geçiş */
+        .vocab-card.is-first-repeat {
+            border-color: var(--primary-color) !important;
+            background-color: #f8fafc;
+        }
+        .vocab-card.is-first-repeat .card-badge {
+            background-color: var(--primary-color);
+        }
+
+        /* 3. KIRMIZI: 2. Geçiş, 3. Geçiş... (Sonraki Tekrarlar) */
         .vocab-card.is-duplicate {
             border-color: var(--duplicate-border) !important;
             background-color: var(--duplicate-bg);
         }
+        .vocab-card.is-duplicate .card-badge {
+            background-color: var(--duplicate-border);
+        }
 
-        .vocab-card.is-duplicate::after {
-            content: "Tekrarlanan";
+        .card-badge {
             position: absolute;
             top: 12px;
             right: 12px;
-            background-color: var(--duplicate-border);
             color: white;
             font-size: 10px;
             padding: 3px 8px;
@@ -327,23 +347,42 @@
         function createVocabCard(item, currentFile) {
             const wordKey = (item.word || item.term || "").trim().toLowerCase();
             const appearances = globalWordMap[wordKey] || [];
+            const count = appearances.length;
             
-            // DÜZELTME: Kelimenin ilk geçtiği dosya appearances[0]'dır. 
-            // Eğer şu an baktığımız dosya kelimenin ilk geçtiği dosyaysa, bu kelime burada ilk defa geçiyordur (Kırmızı OLMAMALI).
-            // Ancak kelime daha önce başka bir dosyada geçmişse, bu dosyadaki tekrarı kırmızı olmalıdır.
-            const isDuplicate = appearances.length > 1 && appearances[0] !== currentFile;
+            let cardClass = '';
+            let badgeText = '';
+
+            if (count === 1) {
+                // 1. YEŞİL: Özgün kelime (Sadece bu dosyada var)
+                cardClass = 'is-unique';
+                badgeText = 'Özgün';
+            } else {
+                // Kelimenin bu dosyada kaçıncı sırada geçtiğini buluyoruz (1 tabanlı)
+                const occurrenceIndex = appearances.indexOf(currentFile) + 1;
+
+                if (occurrenceIndex === 1) {
+                    // 2. MAVI: Tekrarlanıyor ama ilk defa bu dosyada geçiyor
+                    cardClass = 'is-first-repeat';
+                    badgeText = '1. Geçiş';
+                } else {
+                    // 3. KIRMIZI: Tekrarlanıyor ve sonraki geçişler (2. Geçiş, 3. Geçiş...)
+                    cardClass = 'is-duplicate';
+                    badgeText = `${occurrenceIndex}. Geçiş`;
+                }
+            }
 
             const cardDiv = document.createElement('div');
-            cardDiv.className = `vocab-card ${isDuplicate ? 'is-duplicate' : ''}`;
+            cardDiv.className = `vocab-card ${cardClass}`;
 
             const wordText = item.word || item.term || '';
             const translationText = item.translation || item.meaning || '';
 
             cardDiv.innerHTML = `
+                <div class="card-badge">${badgeText}</div>
                 <div class="word-title">${wordText}</div>
                 <div class="word-translation">${translationText}</div>
                 <div class="word-meta">
-                    Geçtiği Dosyalar (${appearances.length}): ${appearances.map(f => f.split('/').pop().replace('.json','')).join(', ')}
+                    Geçtiği Dosyalar (${count}): ${appearances.map(f => f.split('/').pop().replace('.json','')).join(', ')}
                 </div>
             `;
 
