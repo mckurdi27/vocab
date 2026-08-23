@@ -158,12 +158,43 @@
 
     <script src="app.js"></script>
     <script>
+        // 100'den 150'ye kadar (0'dan 50'ye) 50'şerli dosya listesini oluşturan fonksiyon
+        function generateDayOptions() {
+            const levelSelect = document.getElementById('levelSelect').value;
+            const daySelect = document.getElementById('daySelect');
+            if (!daySelect) return;
+            
+            daySelect.innerHTML = '';
+
+            let letter = levelSelect.charAt(0);
+            let levelNum = levelSelect.charAt(1);
+
+            for (let i = 0; i <= 50; i++) {
+                let groupNum = i < 10 ? '0' + i : '' + i;
+                let fileNum = levelNum === '1' ? '1' + groupNum : '2' + groupNum;
+                let fileName = `${letter}${fileNum}`;
+                
+                const option = document.createElement('option');
+                option.value = `data/${fileName}.json`;
+                option.textContent = `${levelSelect.toUpperCase()} - ${i}. Dosya (${fileName})`;
+                daySelect.appendChild(option);
+            }
+            if (typeof loadData === 'function') {
+                loadData();
+            }
+        }
+
+        // Sayfa yüklendiğinde seçenekleri başlat
+        window.addEventListener('DOMContentLoaded', () => {
+            generateDayOptions();
+        });
+
         // Dosya listesinde bir sonraki öğeye geçiş
         function nextFile() {
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex < select.options.length - 1) {
                 select.selectedIndex++;
-                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
+                if (typeof loadData === 'function') loadData();
             }
         }
 
@@ -172,7 +203,7 @@
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex > 0) {
                 select.selectedIndex--;
-                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
+                if (typeof loadData === 'function') loadData();
             }
         }
     </script>
