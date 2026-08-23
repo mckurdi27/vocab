@@ -73,7 +73,7 @@
             flex-wrap: wrap;
         }
 
-        /* Seçim Kutuları - Butonlarla Birebir Aynı ve Belirgin Çerçeve */
+        /* Seçim Kutuları - Analiz Sayfası ile Birebir Uyumlu */
         .selectors-wrapper select {
             background-color: #eff6ff;
             border: 1px solid #bfdbfe;
@@ -122,8 +122,9 @@
                 <h2>Kelime Çalışma Paneli</h2>
 
                 <div class="selectors-wrapper">
-                    <!-- Seviye ve Dosya Seçimleri Yan Yana -->
-                    <select id="levelSelect" onchange="generateDayOptions()">
+                    <!-- Analiz Sayfasıyla Aynı Grup / Seviye Seçimi ("Tüm" Seçeneği Eklendi) -->
+                    <select id="groupSelect" onchange="onGroupChange()">
+                        <option value="all">Tüm</option>
                         <option value="a1">A1</option>
                         <option value="a2">A2</option>
                         <option value="b1">B1</option>
@@ -132,20 +133,21 @@
                         <option value="c2">C2</option>
                     </select>
 
-                    <select id="daySelect" onchange="loadData()"></select>
+                    <!-- Dosya Seçimi -->
+                    <select id="fileSelect" onchange="onFileSelectChange(this.value)"></select>
 
-                    <!-- Önceki ve Sonraki Butonları Yan Yana -->
-                    <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
-                    <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
+                    <!-- Önceki ve Sonraki Butonları (Global Havuz Mantığına Uyarlandı) -->
+                    <button type="button" class="nav-arrow-btn" onclick="navigateFile(-1)" title="Önceki Dosya">⬅️ Önceki</button>
+                    <button type="button" class="nav-arrow-btn" onclick="navigateFile(1)" title="Sonraki Dosya">Sonraki ➡️</button>
 
-                    <!-- Analiz Sayfasına Yönlendiren Buton -->
+                    <!-- Analiz Sayfalarına Yönlendiren Butonlar -->
                     <a href="analysis.html" class="analysis-btn">📊 Kelime Analizi</a>
                     <a href="analiz.html" class="analysis-btn">📈 Tekrar Analizi</a>
                 </div>
             </div>
         </header>
 
-        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı (Kelimelerin Üstünde) -->
+        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı -->
         <div id="sceneBanner" class="scene-banner">
             <h3>Yükleniyor...</h3>
         </div>
@@ -158,23 +160,113 @@
 
     <script src="app.js"></script>
     <script>
-        // Dosya listesinde bir sonraki öğeye geçiş
-        function nextFile() {
-            const select = document.getElementById('daySelect');
-            if (select && select.selectedIndex < select.options.length - 1) {
-                select.selectedIndex++;
-                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
+        let allDaysFiles = [];
+        let filteredFiles = [];
+        let currentIndex = 0;
+
+        // Sayfa açıldığında analiz sayfasındaki gibi tüm dosya havuzunu oluşturuyoruz
+        function initIndexApp() {
+            allDaysFiles = [];
+            const levelsConfig = [
+                { letter: 'a', level: 1 },
+                { letter: 'a', level: 2 },
+                { letter: 'b', level: 1 },
+                { letter: 'b', level: 2 },
+                { letter: 'c', level: 1 },
+                { letter: 'c', level: 2 }
+            ];
+
+            levelsConfig.forEach(cfg => {
+                for (let i = 0; i <= 50; i++) {
+                    let groupNum = i < 10 ? '0' + i : '' + i;
+                    let fileNum = cfg.level === 1 ? '1' + groupNum : '2' + groupNum;
+                    allDaysFiles.push(`data/${cfg.letter}${fileNum}.json`);
+                }
+            });
+
+            filteredFiles = [...allDaysFiles];
+            updateFileDropdown(filteredFiles);
+
+            if (filteredFiles.length > 0) {
+                currentIndex = 0;
+                loadDataForFile(filteredFiles[0]);
             }
         }
 
-        // Dosya listesinde bir önceki öğeye geçiş
-        function prevFile() {
-            const select = document.getElementById('daySelect');
-            if (select && select.selectedIndex > 0) {
-                select.selectedIndex--;
-                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
+        function updateFileDropdown(files) {
+            const select = document.getElementById('fileSelect');
+            select.innerHTML = '';
+
+            files.forEach((file) => {
+                const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
+                const option = document.createElement('option');
+                option.value = file;
+                option.textContent = `Dosya: ${fileName}`;
+                select.appendChild(option);
+            });
+        }
+
+        function onGroupChange() {
+            const group = document.getElementById('groupSelect').value;
+            
+            if (group === 'all') {
+                filteredFiles = [...allDaysFiles];
+            } else {
+                let targetLetter = group.charAt(0);
+                let levelNum = group.charAt(1);
+                
+                filteredFiles = allDaysFiles.filter(file => {
+                    const fileName = file.split('/').pop(); 
+                    const isLetterMatch = fileName.startsWith(targetLetter);
+                    const fileCode = fileName.replace('.json', ''); 
+                    const isLevelMatch = levelNum === '1' ? fileCode[1] === '1' : fileCode[1] === '2';
+                    return isLetterMatch && isLevelMatch;
+                });
+            }
+
+            updateFileDropdown(filteredFiles);
+            if (filteredFiles.length > 0) {
+                currentIndex = 0;
+                loadDataForFile(filteredFiles[0]);
+            } else {
+                document.getElementById('content').innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu grupta dosya bulunamadı.</p>`;
             }
         }
+
+        function onFileSelectChange(file) {
+            if (!file) return;
+            currentIndex = filteredFiles.indexOf(file);
+            loadDataForFile(file);
+        }
+
+        function navigateFile(direction) {
+            if (filteredFiles.length === 0) return;
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = filteredFiles.length - 1;
+            if (currentIndex >= filteredFiles.length) currentIndex = 0;
+
+            const targetFile = filteredFiles[currentIndex];
+            document.getElementById('fileSelect').value = targetFile;
+            loadDataForFile(targetFile);
+        }
+
+        // app.js içindeki veri yükleme fonksiyonunuzu tetikleyen köprü fonksiyon
+        function loadDataForFile(filePath) {
+            // Eğer app.js içinde özel bir fonksiyonunuz varsa (Örn: loadSpecificFile(filePath)), onu burada çağırabilirsiniz.
+            // Örnek standart uygulama:
+            if (typeof loadData === 'function' && window.currentFilePath !== filePath) {
+                window.currentFilePath = filePath;
+                // app.js dosyanız seçili input değerini okuyorsa onu güncelliyoruz:
+                const fileSelect = document.getElementById('fileSelect');
+                if(fileSelect) fileSelect.value = filePath;
+                loadData();
+            }
+        }
+
+        // Sayfa yüklendiğinde başlat
+        window.addEventListener('DOMContentLoaded', () => {
+            initIndexApp();
+        });
     </script>
 </body>
 </html>
