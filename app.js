@@ -1,7 +1,6 @@
 let currentSceneWords = []; // Sahne kelimelerini hafızada tutmak için
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Sayfa yüklendiğinde mevcut seçili dosyayı yükle
     loadData();
 });
 
@@ -47,8 +46,12 @@ function highlightStoryWordsTr(text, wordsArray) {
 
 async function loadData() {
     const daySelect = document.getElementById('daySelect');
-    // Eğer daySelect yoksa veya değeri boşsa varsayılan olarak all veya ilk değeri al
-    const fileName = daySelect ? daySelect.value : 'all';
+    let fileName = daySelect ? daySelect.value : 'a101';
+    
+    // Eğer menüde 'all' seçilmişse veya boşsa, hata vermemesi için varsayılan bir dosyaya yönlendiriyoruz
+    if (!fileName || fileName === 'all') {
+        fileName = 'a101'; 
+    }
     
     const content = document.getElementById('content');
     const sceneBanner = document.getElementById('sceneBanner');
@@ -68,7 +71,6 @@ async function loadData() {
         }
         
         const data = await res.json();
-        // Gelen veri dizi mi yoksa nesne içindeki words mü kontrol edelim (eski ve yeni yapı uyumu için)
         currentSceneWords = Array.isArray(data) ? data : (data.words || []);
         
         if (sceneBanner) {
@@ -135,7 +137,6 @@ async function loadData() {
             `).join('');
         }
 
-        // Sayfa yüklendiğinde ilk kelimenin detayını sağ panele otomatik getir
         if (currentSceneWords.length > 0) {
             showWordDetail(currentSceneWords[0]);
         }
@@ -145,16 +146,14 @@ async function loadData() {
         if (content) {
             content.innerHTML = `
                 <div style="background: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #e74c3c; grid-column: 1 / -1;">
-                    <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Seçilen JSON dosyası sunucuda (GitHub'da) mevcut değil veya yüklenmemiş.</p>
+                    <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Seçilen JSON dosyası sunucuda (GitHub'da) mevcut değil.</p>
                     <p style='color: #555; margin: 0; font-size: 0.9em;'>Aranan dosya yolu: <code>data/${fileName}.json</code></p>
-                    <p style='color: #555; margin: 5px 0 0 0; font-size: 0.85em;'>Lütfen dosya adının GitHub'daki <code>data</code> klasöründe olduğundan emin ol.</p>
                 </div>
             `;
         }
     }
 }
 
-// Kart seçildiğinde aktif sınıfını değiştirme ve detay gösterme
 function selectCard(cardElement, index) {
     document.querySelectorAll('.card').forEach(c => c.classList.remove('active-card'));
     cardElement.classList.add('active-card');
@@ -163,7 +162,6 @@ function selectCard(cardElement, index) {
     }
 }
 
-// Sağ taraftaki 4. Sütun detay panelini dolduran ve internetten (Wikipedia + Dinamik Görsel) veri çeken fonksiyon
 async function showWordDetail(w) {
     const titleEl = document.getElementById('detailTitle');
     const transEl = document.getElementById('detailTranslation');
