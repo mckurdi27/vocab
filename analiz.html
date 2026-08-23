@@ -197,21 +197,23 @@
 
         async function initApp() {
             try {
-                // Doğru dosya adlandırma kuralı: a101 - a150, a201 - a250, b101 - b150, vb.
                 allDaysFiles = [];
+                // Doğru dosya yapısı: Harf + Seviye(1 veya 2) + Grup Numarası (01-50)
+                // Örn: a101, a150, a201, a250, b101, vb.
                 const levelsConfig = [
-                    { prefix: 'a1', start: 1, end: 50, offset: 101 },
-                    { prefix: 'a2', start: 1, end: 50, offset: 201 },
-                    { prefix: 'b1', start: 1, end: 50, offset: 101 },
-                    { prefix: 'b2', start: 1, end: 50, offset: 201 },
-                    { prefix: 'c1', start: 1, end: 50, offset: 101 },
-                    { prefix: 'c2', start: 1, end: 50, offset: 201 }
+                    { letter: 'a', level: 1 }, // a101 - a150
+                    { letter: 'a', level: 2 }, // a201 - a250
+                    { letter: 'b', level: 1 }, // b101 - b150
+                    { letter: 'b', level: 2 }, // b201 - b250
+                    { letter: 'c', level: 1 }, // c101 - c150
+                    { letter: 'c', level: 2 }  // c201 - c250
                 ];
 
                 levelsConfig.forEach(cfg => {
-                    for (let i = 0; i < cfg.end; i++) {
-                        let fileNum = cfg.offset + i;
-                        allDaysFiles.push(`data/${cfg.prefix}${fileNum}.json`);
+                    for (let i = 1; i <= 50; i++) {
+                        let groupNum = i < 10 ? '0' + i : '' + i;
+                        let fileNum = cfg.level === 1 ? '1' + groupNum : '2' + groupNum;
+                        allDaysFiles.push(`data/${cfg.letter}${fileNum}.json`);
                     }
                 });
 
@@ -237,7 +239,7 @@
             for (const file of files) {
                 try {
                     const res = await fetch(file);
-                    if (!res.ok) continue; // Oluşturulmamış dosyaları sessizce atlar
+                    if (!res.ok) continue; 
                     
                     validFilesCount++;
                     const dayData = await res.json();
