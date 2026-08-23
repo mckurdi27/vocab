@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelime ve Soru Bankası</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ana Konteyner ve Genel Düzen */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Üst Kontrol Paneli - Modern ve Uyumlu Tasarım */
+        .header {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            margin-bottom: 24px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .header-top h2 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .selectors-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Seçim Kutuları */
+        .selectors-wrapper select {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .selectors-wrapper select:hover, 
+        .selectors-wrapper select:focus {
+            background-color: #dbeafe;
+            border-color: #93c5fd;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        /* Navigasyon Butonları */
+        .nav-arrow-btn {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-arrow-btn:hover {
+            background-color: #dbeafe;
+            border-color: #93c5fd;
+        }
+
+        /* Analiz Butonları Tasarımı */
+        .analysis-btn {
+            background-color: #2563eb;
+            color: white;
+            padding: 8px 14px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .analysis-btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        /* Yeni Mükerrer Analiz Butonu (Farklı ton ile ayırt edilebilir) */
+        .duplicate-btn {
+            background-color: #4f46e5;
+            box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+        }
+
+        .duplicate-btn:hover {
+            background-color: #4338ca;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Üst Seçim ve Kontrol Paneli -->
+        <header class="header">
+            <div class="header-top">
+                <h2>Kelime Çalışma Paneli</h2>
+
+                <div class="selectors-wrapper">
+                    <!-- Seviye ve Dosya Seçimleri -->
+                    <select id="levelSelect" onchange="generateDayOptions()">
+                        <option value="a1">A1 Seviyesi</option>
+                        <option value="a2">A2 Seviyesi</option>
+                        <option value="b1">B1 Seviyesi</option>
+                        <option value="b2">B2 Seviyesi</option>
+                        <option value="c1">C1 Seviyesi</option>
+                        <option value="c2">C2 Seviyesi</option>
+                    </select>
+
+                    <select id="daySelect" onchange="loadData()"></select>
+
+                    <!-- Önceki ve Sonraki Butonları -->
+                    <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
+                    <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
+
+                    <!-- Birinci Analiz Sayfası (Eski) -->
+                    <a href="analysis.html" class="analysis-btn">📊 Eski Analiz</a>
+
+                    <!-- İkinci Analiz Sayfası (Yeni Mükerrer Kelime Takip Aracı) -->
+                    <a href="analiz.html" class="analysis-btn duplicate-btn">🔍 Mükerrer Analiz</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- JSON Bilgilerinin Gösterileceği Başlık Alanı -->
+        <div id="sceneBanner" class="scene-banner">
+            <h3>Yükleniyor...</h3>
+        </div>
+
+        <!-- İçerik Alanı -->
+        <main id="content" class="word-grid">
+            <p>Veriler yükleniyor...</p>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Dosya listesinde bir sonraki öğeye geçiş[span_2](start_span)[span_2](end_span)
+        function nextFile() {
+            const select = document.getElementById('daySelect');
+            if (select && select.selectedIndex < select.options.length - 1) {
+                select.selectedIndex++;
+                loadData(); 
+            }
+        }
+
+        // Dosya listesinde bir önceki öğeye geçiş[span_3](start_span)[span_3](end_span)
+        function prevFile() {
+            const select = document.getElementById('daySelect');
+            if (select && select.selectedIndex > 0) {
+                select.selectedIndex--;
+                loadData(); 
+            }
+        }
+    </script>
+</body>
+</html>
