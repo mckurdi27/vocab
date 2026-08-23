@@ -252,30 +252,6 @@
                 const fileNameStr = file.split('/').pop().replace('.json', '').toUpperCase();
                 const wordsList = data.words || data.vocabulary || data;
 
-                bannerDiv.innerHTML = `
-                    <h3>${data.sceneTitle || data.title || `Sahne / Dosya: ${fileNameStr}`}</h3>
-                    <div class="scene-meta">SEVİYE: ${levelVal} | Toplam Kelime: ${Array.isArray(wordsList) ? wordsList.length : 0}</div>
-                `;
-
-                contentDiv.innerHTML = '';
-
-                if (Array.isArray(wordsList) && wordsList.length > 0) {
-                    wordsList.forEach(item => {
-                        const wordText = item.word || item.term || '';
-                        const translationText = item.translation || item.meaning || '';
-                        const badgeText = item.type || item.badge || 'VERB';
-                        const exampleEn = item.enExample || item.exampleEn || '';
-                        const exampleTr = item.trExample || item.exampleTr || '';
-                        const relatedVerbs = item.relatedVerbs || item.iliski || '';
-
-                        const lowerKey = wordText.trim().toLowerCase();
-                        const fileList = globalWordFileMap[lowerKey] || [file];
-                        const count = fileList.length;
-
-                        const card = document.createElement('div');
-                        let statusIconHtml = '';
-                        let cardClass = 'vocab-card';
-
                         // 3 Aşamalı İkon ve Sınıf Mantığı
                         if (count === 1) {
                             // 🌟 Yıldız: Mükerrer değil, sadece bu dosyada bir defa geçmiş.
