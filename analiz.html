@@ -47,7 +47,7 @@
         .header-left {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
@@ -192,9 +192,22 @@
     <div class="container">
         <header>
             <div class="header-left">
-                <select id="fileSelect" class="app-select" onchange="onFileSelectChange(this.value)">
-                    <option value="">Dosyalar yükleniyor...</option>
+                <!-- Grup / Seviye Seçimi -->
+                <select id="groupSelect" class="app-select" onchange="onGroupChange()">
+                    <option value="all">Tüm</option>
+                    <option value="a1">A1</option>
+                    <option value="a2">A2</option>
+                    <option value="b1">B1</option>
+                    <option value="b2">B2</option>
+                    <option value="c1">C1</option>
+                    <option value="c2">C2</option>
                 </select>
+
+                <!-- Tek Dosya Seçimi -->
+                <select id="fileSelect" class="app-select" onchange="onFileSelectChange(this.value)">
+                    <option value="">Dosya Seç (Tek)</option>
+                </select>
+
                 <button class="app-btn" onclick="navigateFile(-1)">◀ Önceki</button>
                 <button class="app-btn" onclick="navigateFile(1)">Sonraki ▶</button>
             </div>
@@ -213,6 +226,7 @@
     <script>
         let globalWordMap = {};
         let allDaysFiles = [];
+        let filteredFiles = [];
         let currentIndex = 0;
 
         async function initApp() {
@@ -235,14 +249,15 @@
                     }
                 });
 
-                populateFileDropdown(allDaysFiles);
+                filteredFiles = [...allDaysFiles];
+                updateFileDropdown(filteredFiles);
                 document.getElementById('infoBar').innerHTML = `<span>Mükerrer kelime analizi yapılıyor...</span>`;
 
                 await buildGlobalWordMap(allDaysFiles);
 
-                if (allDaysFiles.length > 0) {
+                if (filteredFiles.length > 0) {
                     currentIndex = 0;
-                    loadDayData(allDaysFiles[0]);
+                    loadDayData(filteredFiles[0]);
                 }
             } catch (error) {
                 console.error("Başlangıç hatası:", error);
@@ -276,9 +291,7 @@
                             }
                         });
                     }
-                } catch (err) {
-                    // Bulunamayan dosyaları sessizce geç
-                }
+                } catch (err) {}
             }
 
             document.getElementById('infoBar').innerHTML = `
@@ -287,7 +300,7 @@
             `;
         }
 
-        function populateFileDropdown(files) {
+        function updateFileDropdown(files) {
             const select = document.getElementById('fileSelect');
             select.innerHTML = '';
 
@@ -295,22 +308,52 @@
                 const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
                 const option = document.createElement('option');
                 option.value = file;
-                option.textContent = `Sahne / Dosya: ${fileName}`;
+                option.textContent = `Dosya: ${fileName}`;
                 select.appendChild(option);
             });
         }
 
+        function onGroupChange() {
+            const group = document.getElementById('groupSelect').value;
+            
+            if (group === 'all') {
+                filteredFiles = [...allDaysFiles];
+            } else {
+                // Seçilen gruba göre filtrele (örn: a1 için data/a1... json dosyaları)
+                let targetLetter = group.charAt(0);
+                let levelNum = group.charAt(1);
+                
+                filteredFiles = allDaysFiles.filter(file => {
+                    const fileName = file.split('/').pop(); // örn: a101.json
+                    const isLetterMatch = fileName.startsWith(targetLetter);
+                    const fileCode = fileName.replace('.json', ''); // örn: a101
+                    const isLevelMatch = levelNum === '1' ? fileCode[1] === '1' : fileCode[1] === '2';
+                    return isLetterMatch && isLevelMatch;
+                });
+            }
+
+            updateFileDropdown(filteredFiles);
+            if (filteredFiles.length > 0) {
+                currentIndex = 0;
+                loadDayData(filteredFiles[0]);
+            } else {
+                document.getElementById('cardsContainer').innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu grupta dosya bulunamadı.</p>`;
+            }
+        }
+
         function onFileSelectChange(file) {
-            currentIndex = allDaysFiles.indexOf(file);
+            if (!file) return;
+            currentIndex = filteredFiles.indexOf(file);
             loadDayData(file);
         }
 
         function navigateFile(direction) {
+            if (filteredFiles.length === 0) return;
             currentIndex += direction;
-            if (currentIndex < 0) currentIndex = allDaysFiles.length - 1;
-            if (currentIndex >= allDaysFiles.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = filteredFiles.length - 1;
+            if (currentIndex >= filteredFiles.length) currentIndex = 0;
 
-            const targetFile = allDaysFiles[currentIndex];
+            const targetFile = filteredFiles[currentIndex];
             document.getElementById('fileSelect').value = targetFile;
             loadDayData(targetFile);
         }
@@ -353,19 +396,15 @@
             let badgeText = '';
 
             if (count === 1) {
-                // 1. YEŞİL: Özgün kelime (Sadece bu dosyada var)
                 cardClass = 'is-unique';
                 badgeText = 'Özgün';
             } else {
-                // Kelimenin bu dosyada kaçıncı sırada geçtiğini buluyoruz (1 tabanlı)
                 const occurrenceIndex = appearances.indexOf(currentFile) + 1;
 
                 if (occurrenceIndex === 1) {
-                    // 2. MAVI: Tekrarlanıyor ama ilk defa bu dosyada geçiyor
                     cardClass = 'is-first-repeat';
                     badgeText = '1. Geçiş';
                 } else {
-                    // 3. KIRMIZI: Tekrarlanıyor ve sonraki geçişler (2. Geçiş, 3. Geçiş...)
                     cardClass = 'is-duplicate';
                     badgeText = `${occurrenceIndex}. Geçiş`;
                 }
