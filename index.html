@@ -3,472 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelime ve Soru Bankası - Ana Sayfa</title>
+    <title>Kelime ve Soru Bankası</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --primary-color: #2563eb;
-            --primary-hover: #1d4ed8;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-color: #1e293b;
-        }
-        
+        /* Ana Konteyner ve Genel Düzen */
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
             margin: 0;
-            padding: 15px;
+            padding: 0;
         }
 
         .container {
-            max-width: 1150px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
 
-        /* Header Alanı */
-        header {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 12px 18px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        /* Üst Kontrol Paneli - Modern ve Uyumlu Tasarım */
+        .header {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            margin-bottom: 24px;
+        }
+
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #e2e8f0;
         }
 
-        .header-left, .header-right {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
+        .header-top h2 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #0f172a;
+            font-weight: 700;
         }
 
-        .panel-title {
-            font-weight: bold;
-            font-size: 15px;
-            color: #1e293b;
-            margin-right: 5px;
-        }
-
-        .app-select, .app-btn {
-            background-color: #ffffff;
-            border: 1px solid #cbd5e1;
-            color: #334155;
-            padding: 7px 12px;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 13px;
-            outline: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            height: 36px;
-            box-sizing: border-box;
-        }
-
-        .app-select:hover, .app-btn:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .action-btn {
-            background-color: var(--primary-color);
+        .analysis-btn {
+            background-color: #2563eb;
             color: white;
-            padding: 0 14px;
-            border-radius: 8px;
+            padding: 8px 16px;
             text-decoration: none;
+            border-radius: 8px;
             font-weight: 600;
             font-size: 13px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 6px;
-            height: 36px;
-            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
-            transition: background 0.2s, transform 0.2s;
+            gap: 5px;
         }
 
-        .action-btn:hover {
-            background-color: var(--primary-hover);
+        .analysis-btn:hover {
+            background-color: #1d4ed8;
             transform: translateY(-1px);
         }
 
-        .analysis-btn-custom {
-            background-color: #0f766e;
-        }
-        .analysis-btn-custom:hover {
-            background-color: #115e59;
-        }
-
-        /* Sahne Banner Alanı */
-        .scene-banner {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: white;
-            border-radius: 10px;
-            padding: 15px 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        .selectors-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
-        .scene-level {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.9;
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-
-        .scene-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-
-        .scene-meta {
-            font-size: 13px;
-            opacity: 0.9;
-        }
-
-        /* Hikaye Bölümü */
-        .story-section {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .story-section {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .story-box {
-            background: #f8fafc;
-            padding: 15px;
+        /* Seçim Kutuları - Butonlarla Birebir Aynı ve Belirgin Çerçeve */
+        .selectors-wrapper select {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
+            padding: 8px 14px;
             border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        .story-box h3 {
-            margin-top: 0;
-            color: #1e293b;
-            font-size: 15px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 8px;
-        }
-
-        /* Kelime Kartları Grid Yapısı */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 15px;
-        }
-
-        .vocab-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            position: relative;
-            border: 1px solid #e2e8f0;
-            transition: transform 0.2s;
-        }
-
-        .vocab-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
-        }
-
-        .card-top-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 4px;
-        }
-
-        .word-main-info {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .word-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #b91c1c;
-        }
-
-        .audio-icon, .copy-icon {
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            outline: none;
             cursor: pointer;
-            font-size: 14px;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-        }
-        .audio-icon:hover, .copy-icon:hover {
-            opacity: 1;
         }
 
-        .word-badge {
-            background-color: #fef3c7;
-            color: #92400e;
-            font-size: 10px;
-            font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 4px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+        .selectors-wrapper select:hover, 
+        .selectors-wrapper select:focus {
+            background-color: #dbeafe;
+            border-color: #93c5fd;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
 
-        .word-translation {
-            color: #1e293b;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-            font-weight: bold;
+        /* Navigasyon Butonları */
+        .nav-arrow-btn {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
         }
 
-        .sentence-box {
-            background: #f8fafc;
-            border-radius: 6px;
-            padding: 8px 10px;
-            margin-bottom: 6px;
-            font-size: 13px;
-            border: 1px solid #f1f5f9;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .sentence-content {
-            color: #334155;
-        }
-
-        .sentence-content b {
-            color: #0f172a;
-        }
-
-        .sentence-actions {
-            display: flex;
-            gap: 6px;
-            margin-left: 8px;
-        }
-
-        .related-verbs {
-            font-size: 12px;
-            color: #64748b;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 8px;
-            margin-top: 10px;
-        }
-
-        .related-verbs b {
-            color: #475569;
+        .nav-arrow-btn:hover {
+            background-color: #dbeafe;
+            border-color: #93c5fd;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="header-left">
-                <span class="panel-title">Kelime Çalışma Paneli</span>
-                <select id="levelSelect" class="app-select" onchange="onLevelChange()">
-                    <option value="a1">A1 Seviyesi</option>
-                    <option value="a2">A2 Seviyesi</option>
-                    <option value="b1">B1 Seviyesi</option>
-                    <option value="b2">B2 Seviyesi</option>
-                    <option value="c1">C1 Seviyesi</option>
-                    <option value="c2">C2 Seviyesi</option>
-                </select>
+        <!-- Üst Seçim ve Kontrol Paneli -->
+        <header class="header">
+            <div class="header-top">
+                <h2>Kelime Çalışma Paneli</h2>
 
-                <select id="fileSelect" class="app-select" onchange="onFileChange(this.value)"></select>
+                <div class="selectors-wrapper">
+                    <!-- Seviye ve Dosya Seçimleri Yan Yana -->
+                    <select id="levelSelect" onchange="generateDayOptions()">
+                        <option value="a1">A1 Seviyesi</option>
+                        <option value="a2">A2 Seviyesi</option>
+                        <option value="b1">B1 Seviyesi</option>
+                        <option value="b2">B2 Seviyesi</option>
+                        <option value="c1">C1 Seviyesi</option>
+                        <option value="c2">C2 Seviyesi</option>
+                    </select>
 
-                <button id="prevBtn" class="app-btn" onclick="navigateFile(-1)">◀ Önceki</button>
-                <button id="nextBtn" class="app-btn" onclick="navigateFile(1)">Sonraki ▶</button>
-            </div>
+                    <select id="daySelect" onchange="loadData()"></select>
 
-            <div class="header-right">
-                <a href="analiz.html" class="action-btn analysis-btn-custom">📊 Mükerrer Analiz</a>
+                    <!-- Önceki ve Sonraki Butonları Yan Yana -->
+                    <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
+                    <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
+
+                    <!-- Analiz Sayfasına Yönlendiren Buton -->
+                    <a href="analysis.html" class="analysis-btn">📊 Analiz Sayfası</a>
+                </div>
             </div>
         </header>
 
-        <!-- Sahne Banner Alanı -->
-        <div class="scene-banner">
-            <div id="sceneLevelText" class="scene-level">SEVİYE: A1</div>
-            <div id="sceneTitleText" class="scene-title">Sahne Yükleniyor...</div>
-            <div id="sceneMetaText" class="scene-meta">Toplam Kelime: 0</div>
+        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı (Kelimelerin Üstünde) -->
+        <div id="sceneBanner" class="scene-banner">
+            <h3>Yükleniyor...</h3>
         </div>
 
-        <!-- Hikaye Bölümü -->
-        <div class="story-section">
-            <div class="story-box">
-                <h3>English Story</h3>
-                <p id="englishStoryText">Yükleniyor...</p>
-            </div>
-            <div class="story-box">
-                <h3>Türkçe Hikaye</h3>
-                <p id="turkishStoryText">Yükleniyor...</p>
-            </div>
-        </div>
-
-        <!-- Kelime Kartları Alanı -->
-        <div id="cardsContainer" class="cards-grid"></div>
+        <!-- İçerik Alanı -->
+        <main id="content" class="word-grid">
+            <p>Veriler yükleniyor...</p>
+        </main>
     </div>
 
+    <script src="app.js"></script>
     <script>
-        let currentFileList = [];
-        let currentFileIndex = 0;
-
-        window.addEventListener('DOMContentLoaded', () => {
-            updateFileList();
-        });
-
-        function updateFileList() {
-            const level = document.getElementById('levelSelect').value;
-            let prefix = 'a';
-            let baseNum = 100;
-
-            if (level === 'a1') { prefix = 'a'; baseNum = 100; }
-            else if (level === 'a2') { prefix = 'a'; baseNum = 200; }
-            else if (level === 'b1') { prefix = 'b'; baseNum = 100; }
-            else if (level === 'b2') { prefix = 'b'; baseNum = 200; }
-            else if (level === 'c1') { prefix = 'c'; baseNum = 100; }
-            else if (level === 'c2') { prefix = 'c'; baseNum = 200; }
-
-            currentFileList = [];
-            for (let i = 0; i <= 50; i++) {
-                currentFileList.push(`data/${prefix}${baseNum + i}.json`);
+        // Dosya listesinde bir sonraki öğeye geçiş
+        function nextFile() {
+            const select = document.getElementById('daySelect');
+            if (select && select.selectedIndex < select.options.length - 1) {
+                select.selectedIndex++;
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
-
-            const select = document.getElementById('fileSelect');
-            select.innerHTML = '';
-            currentFileList.forEach((file) => {
-                const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
-                const option = document.createElement('option');
-                option.value = file;
-                option.textContent = `A1 - ${fileName.toLowerCase().replace('a','Dosya ')} (${fileName.toLowerCase()})`;
-                select.appendChild(option);
-            });
-
-            currentFileIndex = 0;
-            loadCurrentFile();
         }
 
-        function onLevelChange() {
-            updateFileList();
-        }
-
-        function onFileChange(file) {
-            currentFileIndex = currentFileList.indexOf(file);
-            loadCurrentFile();
-        }
-
-        function navigateFile(direction) {
-            currentFileIndex += direction;
-            if (currentFileIndex < 0) currentFileIndex = currentFileList.length - 1;
-            if (currentFileIndex >= currentFileList.length) currentFileIndex = 0;
-
-            const targetFile = currentFileList[currentFileIndex];
-            document.getElementById('fileSelect').value = targetFile;
-            loadCurrentFile();
-        }
-
-        async function loadCurrentFile() {
-            const file = currentFileList[currentFileIndex];
-            const container = document.getElementById('cardsContainer');
-            container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b;">Yükleniyor...</p>';
-
-            try {
-                const res = await fetch(file);
-                if (!res.ok) {
-                    container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#94a3b8;">Bu dosya henüz oluşturulmamış.</p>';
-                    document.getElementById('sceneTitleText').textContent = 'Dosya Bulunamadı';
-                    document.getElementById('sceneMetaText').textContent = 'Toplam Kelime: 0';
-                    document.getElementById('englishStoryText').textContent = '-';
-                    document.getElementById('turkishStoryText').textContent = '-';
-                    return;
-                }
-
-                const data = await res.json();
-                const levelVal = document.getElementById('levelSelect').value.toUpperCase();
-                const fileNameStr = file.split('/').pop().replace('.json', '').toUpperCase();
-
-                const wordsList = data.words || data.vocabulary || data;
-
-                document.getElementById('sceneLevelText').textContent = `SEVİYE: ${levelVal}`;
-                document.getElementById('sceneTitleText').textContent = data.sceneTitle || data.title || `Sahne / Dosya: ${fileNameStr}`;
-                document.getElementById('sceneMetaText').textContent = `Toplam Kelime: ${Array.isArray(wordsList) ? wordsList.length : 0}`;
-
-                document.getElementById('englishStoryText').textContent = data.englishStory || data.storyEn || 'Hikaye bulunamadı.';
-                document.getElementById('turkishStoryText').textContent = data.turkishStory || data.storyTr || 'Çeviri bulunamadı.';
-
-                container.innerHTML = '';
-
-                if (Array.isArray(wordsList) && wordsList.length > 0) {
-                    wordsList.forEach(item => {
-                        const card = document.createElement('div');
-                        card.className = 'vocab-card';
-
-                        const wordText = item.word || item.term || '';
-                        const translationText = item.translation || item.meaning || '';
-                        const badgeText = item.type || item.badge || 'VERB';
-                        const exampleEn = item.enExample || item.exampleEn || '';
-                        const exampleTr = item.trExample || item.exampleTr || '';
-                        const relatedVerbs = item.relatedVerbs || item.iliski || '';
-
-                        card.innerHTML = `
-                            <div class="card-top-row">
-                                <div class="word-main-info">
-                                    <span class="audio-icon" title="Seslendir">🔊</span>
-                                    <span class="word-title">${wordText}</span>
-                                </div>
-                                <span class="word-badge">${badgeText}</span>
-                            </div>
-                            <div class="word-translation">${translationText}</div>
-                            
-                            ${exampleEn ? `
-                            <div class="sentence-box">
-                                <div class="sentence-content"><b>EN:</b> ${exampleEn}</div>
-                                <div class="sentence-actions">
-                                    <span class="audio-icon">🔊</span>
-                                    <span class="copy-icon" title="Kopyala">📋</span>
-                                </div>
-                            </div>` : ''}
-
-                            ${exampleTr ? `
-                            <div class="sentence-box">
-                                <div class="sentence-content"><b>TR:</b> ${exampleTr}</div>
-                                <div class="sentence-actions">
-                                    <span class="audio-icon">🔊</span>
-                                    <span class="copy-icon" title="Kopyala">📋</span>
-                                </div>
-                            </div>` : ''}
-
-                            ${relatedVerbs ? `
-                            <div class="related-verbs">
-                                <b>İlişkili Fiiller:</b> ${Array.isArray(relatedVerbs) ? relatedVerbs.join(', ') : relatedVerbs}
-                            </div>` : ''}
-                        `;
-                        container.appendChild(card);
-                    });
-                } else {
-                    container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu dosyada kelime bulunamadı.</p>';
-                }
-            } catch (err) {
-                container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#94a3b8;">Veriler yüklenirken bir hata oluştu.</p>';
+        // Dosya listesinde bir önceki öğeye geçiş
+        function prevFile() {
+            const select = document.getElementById('daySelect');
+            if (select && select.selectedIndex > 0) {
+                select.selectedIndex--;
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
         }
     </script>
