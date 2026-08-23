@@ -26,7 +26,7 @@
             margin: 0 auto;
         }
 
-        /* Header Alanı */
+        /* Header Alanı - Orijinal Şablon */
         header {
             background: var(--card-bg);
             border-radius: 12px;
@@ -193,6 +193,17 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
         }
 
+        /* Tekrar durumlarına göre hafif arka plan tonları */
+        .vocab-card.repeat-first {
+            background-color: #fdf4ff; /* Hafif pembe/morumsu (Tekrarlı ama ilk kez kullanılıyor) */
+            border-color: #f5d0fe;
+        }
+
+        .vocab-card.repeat-later {
+            background-color: #fffbeb; /* Hafif sarımsı (Daha önce kullanılmıştı) */
+            border-color: #fde68a;
+        }
+
         .card-top-row {
             display: flex;
             justify-content: space-between;
@@ -210,6 +221,12 @@
             font-size: 1.2rem;
             font-weight: bold;
             color: #b91c1c;
+        }
+
+        .status-icon {
+            font-size: 1rem;
+            margin-left: 4px;
+            cursor: help;
         }
 
         .audio-icon, .copy-icon {
@@ -281,7 +298,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
+        <!-- Header - Orijinal -->
         <header>
             <div class="header-left">
                 <span class="panel-title">Kelime Çalışma Paneli</span>
@@ -305,14 +322,14 @@
             </div>
         </header>
 
-        <!-- Sahne Banner Alanı -->
+        <!-- Sahne Banner Alanı - Orijinal -->
         <div class="scene-banner">
             <div id="sceneLevelText" class="scene-level">SEVİYE: A1</div>
             <div id="sceneTitleText" class="scene-title">Sahne Yükleniyor...</div>
             <div id="sceneMetaText" class="scene-meta">Toplam Kelime: 0</div>
         </div>
 
-        <!-- Hikaye Bölümü -->
+        <!-- Hikaye Bölümü - Orijinal -->
         <div class="story-section">
             <div class="story-box">
                 <h3>English Story</h3>
@@ -324,17 +341,77 @@
             </div>
         </div>
 
-        <!-- Kelime Kartları Alanı -->
+        <!-- Kelime Kartları Alanı - Orijinal -->
         <div id="cardsContainer" class="cards-grid"></div>
     </div>
 
     <script>
         let currentFileList = [];
         let currentFileIndex = 0;
+        let globalWordFileMap = {}; 
+        let fileIndexMap = {}; // Dosyaların kronolojik sırasını tutmak için
 
         window.addEventListener('DOMContentLoaded', () => {
+            initFileIndices();
             updateFileList();
         });
+
+        function getAllPossibleFiles() {
+            let files = [];
+            ['a', 'b', 'c'].forEach(letter => {
+                for (let i = 0; i <= 50; i++) {
+                    files.push(`data/${letter}${100 + i}.json`);
+                }
+                for (let i = 0; i <= 50; i++) {
+                    files.push(`data/${letter}${200 + i}.json`);
+                }
+            });
+            return files;
+        }
+
+        function initFileIndices() {
+            const allFiles = getAllPossibleFiles();
+            allFiles.forEach((f, idx) => {
+                fileIndexMap[f] = idx;
+            });
+        }
+
+        // Tüm dosyaları tarayıp kelimelerin hangi dosyalarda geçtiğini sırasıyla kaydeden harita
+        async function buildGlobalWordMap() {
+            const files = getAllPossibleFiles();
+            globalWordFileMap = {};
+
+            for (const file of files) {
+                try {
+                    const res = await fetch(file);
+                    if (!res.ok) continue;
+                    const data = await res.json();
+                    const words = data.words || data.vocabulary || data;
+
+                    if (Array.isArray(words)) {
+                        words.forEach(item => {
+                            const wordKey = (item.word || item.term || "").trim();
+                            if (!wordKey) return;
+                            const lowerKey = wordKey.toLowerCase();
+                            
+                            if (!globalWordFileMap[lowerKey]) {
+                                globalWordFileMap[lowerKey] = [];
+                            }
+                            if (!globalWordFileMap[lowerKey].includes(file)) {
+                                globalWordFileMap[lowerKey].push(file);
+                            }
+                        });
+                    }
+                } catch (err) {}
+            }
+
+            // Kelimenin geçtiği dosya listesini kronolojik sıraya göre sıralayalım
+            Object.keys(globalWordFileMap).forEach(key => {
+                globalWordFileMap[key].sort((a, b) => {
+                    return (fileIndexMap[a] || 0) - (fileIndexMap[b] || 0);
+                });
+            });
+        }
 
         function updateFileList() {
             const level = document.getElementById('levelSelect').value;
@@ -359,12 +436,22 @@
                 const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
                 const option = document.createElement('option');
                 option.value = file;
-                option.textContent = `A1 - ${fileName.toLowerCase().replace('a','Dosya ')} (${fileName.toLowerCase()})`;
+                const levelUpper = level.toUpperCase();
+                option.textContent = `${levelUpper} - ${fileName.toLowerCase().replace(prefix,'Dosya ')} (${fileName.toLowerCase()})`;
                 select.appendChild(option);
             });
 
             currentFileIndex = 0;
-            loadCurrentFile();
+
+            if (Object.keys(globalWordFileMap).length === 0) {
+                const container = document.getElementById('cardsContainer');
+                container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#2563eb;">Kelime veri tabanı analiz ediliyor, lütfen bekleyin...</p>';
+                buildGlobalWordMap().then(() => {
+                    loadCurrentFile();
+                });
+            } else {
+                loadCurrentFile();
+            }
         }
 
         function onLevelChange() {
@@ -419,9 +506,6 @@
 
                 if (Array.isArray(wordsList) && wordsList.length > 0) {
                     wordsList.forEach(item => {
-                        const card = document.createElement('div');
-                        card.className = 'vocab-card';
-
                         const wordText = item.word || item.term || '';
                         const translationText = item.translation || item.meaning || '';
                         const badgeText = item.type || item.badge || 'VERB';
@@ -429,11 +513,39 @@
                         const exampleTr = item.trExample || item.exampleTr || '';
                         const relatedVerbs = item.relatedVerbs || item.iliski || '';
 
+                        const lowerKey = wordText.trim().toLowerCase();
+                        const fileList = globalWordFileMap[lowerKey] || [file];
+                        const count = fileList.length;
+
+                        const card = document.createElement('div');
+                        let statusIconHtml = '';
+                        let cardClass = 'vocab-card';
+
+                        if (count === 1) {
+                            // 1. Yıldız: Mükerrer değil, sadece bu dosyada bir defa geçmiş.
+                            statusIconHtml = '<span class="status-icon" title="Benzersiz Kelime (Sadece bu dosyada var)">🌟</span>';
+                        } else {
+                            // Mükerrer bir kelime. İlk geçtiği dosya bu mu?
+                            const firstFile = fileList[0];
+                            if (firstFile === file) {
+                                // 2. Çiçek: Tekrarlı ama bu ilk defa kullanılmış (bu dosyada başlıyor, ileride tekrar edecek).
+                                cardClass += ' repeat-first';
+                                statusIconHtml = `<span class="status-icon" title="Tekrarlı Kelime - İlk defa bu dosyada kullanıldı (${count} dosyada geçecek)">🌸</span>`;
+                            } else {
+                                // 3. Alev: Tekrarlı ve bundan önce de başka dosyalarda kullanılmıştı.
+                                cardClass += ' repeat-later';
+                                statusIconHtml = `<span class="status-icon" title="Tekrarlı Kelime - Daha önce de kullanılmıştı (${count} dosyada geçiyor)">🔥</span>`;
+                            }
+                        }
+
+                        card.className = cardClass;
+
                         card.innerHTML = `
                             <div class="card-top-row">
                                 <div class="word-main-info">
                                     <span class="audio-icon" title="Seslendir">🔊</span>
                                     <span class="word-title">${wordText}</span>
+                                    ${statusIconHtml}
                                 </div>
                                 <span class="word-badge">${badgeText}</span>
                             </div>
