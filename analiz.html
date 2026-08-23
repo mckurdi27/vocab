@@ -28,7 +28,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: 0 auto;
         }
 
@@ -41,12 +41,12 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 15px;
             margin-bottom: 20px;
             border: 1px solid #e2e8f0;
         }
 
-        .header-left {
+        .header-left, .header-right {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -57,7 +57,7 @@
             background-color: #ffffff;
             border: 1px solid #cbd5e1;
             color: #334155;
-            padding: 8px 12px;
+            padding: 9px 14px;
             border-radius: 8px;
             font-weight: 500;
             font-size: 14px;
@@ -65,6 +65,8 @@
             cursor: pointer;
             transition: all 0.2s;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            height: 38px;
+            box-sizing: border-box;
         }
 
         .app-select:hover, .app-btn:hover {
@@ -73,9 +75,9 @@
         }
 
         .run-btn {
-            background-color: #16a34a;
+            background-color: var(--primary-color);
             color: white;
-            padding: 8px 16px;
+            padding: 0 16px;
             border-radius: 8px;
             border: none;
             font-weight: 600;
@@ -83,33 +85,37 @@
             cursor: pointer;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
-            box-shadow: 0 2px 4px rgba(22, 163, 74, 0.2);
+            height: 38px;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
             transition: background 0.2s, transform 0.2s;
         }
 
         .run-btn:hover {
-            background-color: #15803d;
+            background-color: var(--primary-hover);
             transform: translateY(-1px);
         }
 
         .home-btn {
-            background-color: var(--primary-color);
+            background-color: #0f172a;
             color: white;
-            padding: 8px 16px;
+            padding: 0 16px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
-            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+            height: 38px;
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.2);
             transition: background 0.2s, transform 0.2s;
         }
 
         .home-btn:hover {
-            background-color: var(--primary-hover);
+            background-color: #1e293b;
             transform: translateY(-1px);
         }
 
@@ -218,7 +224,7 @@
     <div class="container">
         <header>
             <div class="header-left">
-                <!-- Ana Kapsam Menüsü (Tüm, Gruplar ve Tek Dosya) -->
+                <!-- Ana Kapsam Menüsü -->
                 <select id="scopeSelect" class="app-select" onchange="onScopeChange(this.value)">
                     <option value="tumu">🌐 Tüm Dosyalar</option>
                     <option value="a1">📁 A1 Grubu (100 - 150)</option>
@@ -230,17 +236,17 @@
                     <option value="tek">📄 Tek Bir Dosya Seç</option>
                 </select>
 
-                <!-- Spesifik Tek Dosya Seçim Menüsü (Yalnızca 'Tek Bir Dosya Seç' seçildiğinde görünür) -->
+                <!-- Spesifik Tek Dosya Seçim Menüsü -->
                 <select id="specificFileSelect" class="app-select hidden"></select>
 
                 <button class="run-btn" onclick="startAnalysis()">🚀 Analizi Çalıştır</button>
+            </div>
 
-                <!-- Analiz Sonrası Dosya Gezinme Menüsü -->
+            <div class="header-right">
+                <!-- Analiz Sonrası Dosya Gezinme ve Ana Sayfa -->
                 <select id="fileSelect" class="app-select hidden" onchange="onFileSelectChange(this.value)"></select>
                 <button id="prevBtn" class="app-btn hidden" onclick="navigateFile(-1)">◀ Önceki</button>
                 <button id="nextBtn" class="app-btn hidden" onclick="navigateFile(1)">Sonraki ▶</button>
-            </div>
-            <div>
                 <a href="index.html" class="home-btn">🏠 Ana Sayfa</a>
             </div>
         </header>
@@ -308,40 +314,53 @@
 
         async function startAnalysis() {
             const scopeVal = document.getElementById('scopeSelect').value;
+            const allFiles = getAllPossibleFiles();
             
             if (scopeVal === 'tek') {
                 const selectedFile = document.getElementById('specificFileSelect').value;
-                activeFiles = [selectedFile];
+                // Tek dosya seçildiğinde de tüm dosyaları activeFiles yapıyoruz ki ilerleme (Önceki/Sonraki) çalışabilsin
+                activeFiles = allFiles;
+                currentIndex = activeFiles.indexOf(selectedFile);
+                if (currentIndex === -1) currentIndex = 0;
             } else if (scopeVal === 'tumu') {
-                activeFiles = getAllPossibleFiles();
+                activeFiles = allFiles;
+                currentIndex = 0;
             } else if (scopeVal === 'a1') {
                 activeFiles = getFilesForGroup('a', 1);
+                currentIndex = 0;
             } else if (scopeVal === 'a2') {
                 activeFiles = getFilesForGroup('a', 2);
+                currentIndex = 0;
             } else if (scopeVal === 'b1') {
                 activeFiles = getFilesForGroup('b', 1);
+                currentIndex = 0;
             } else if (scopeVal === 'b2') {
                 activeFiles = getFilesForGroup('b', 2);
+                currentIndex = 0;
             } else if (scopeVal === 'c1') {
                 activeFiles = getFilesForGroup('c', 1);
+                currentIndex = 0;
             } else if (scopeVal === 'c2') {
                 activeFiles = getFilesForGroup('c', 2);
+                currentIndex = 0;
             }
 
             document.getElementById('infoBar').innerHTML = `<span>Analiz yapılıyor, lütfen bekleyin...</span>`;
             document.getElementById('cardsContainer').innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b; padding: 20px;">Veriler taranıyor...</p>';
 
-            await buildGlobalWordMap(getAllPossibleFiles());
+            await buildGlobalWordMap(allFiles);
 
             if (activeFiles.length > 0) {
-                populateFileDropdown(activeFiles);
+                // Eğer grup seçildiyse ilgili grubun listesi, tek seçildiyse tüm liste dropdown'a dolar ancak seçilen dosya öne gelir
+                populateFileDropdown(scopeVal === 'tek' ? allFiles : activeFiles);
                 
                 document.getElementById('fileSelect').classList.remove('hidden');
                 document.getElementById('prevBtn').classList.remove('hidden');
                 document.getElementById('nextBtn').classList.remove('hidden');
 
-                currentIndex = 0;
-                loadDayData(activeFiles[0]);
+                const targetFile = activeFiles[currentIndex];
+                document.getElementById('fileSelect').value = targetFile;
+                loadDayData(targetFile);
             } else {
                 document.getElementById('cardsContainer').innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b; padding: 20px;">Dosya bulunamadı.</p>';
             }
