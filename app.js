@@ -8,10 +8,16 @@ const datasetMap = {
     "c2": []
 };
 
-// Sayfa yüklendiğinde ilk seviyenin seçeneklerini oluştur
-document.addEventListener("DOMContentLoaded", () => {
+// Sayfanın yüklenme durumunu kontrol edip anında başlatalım
+function initApp() {
     generateDayOptions();
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp(); // Sayfa zaten yüklendiyse direkt çalıştır
+}
 
 // Seviye değiştiğinde gün/dosya seçeneklerini güncelle
 function generateDayOptions() {
@@ -54,7 +60,7 @@ async function loadData() {
     if (!daySelect || !daySelect.value) return;
 
     const filePath = daySelect.value;
-    contentDiv.innerHTML = `<p style="text-align:center; color:#64748b; grid-column: 1/-1;">Yükleniyor: ${filePath}...</p>`;
+    contentDiv.innerHTML = `<p style="text-align:center; color:#64748b; grid-column: 1/-1;">Yükleniyor...</p>`;
 
     try {
         const response = await fetch(filePath);
@@ -77,11 +83,7 @@ async function loadData() {
 
         wordsList.forEach(item => {
             const card = document.createElement("div");
-            card.style.background = "#ffffff";
-            card.style.borderRadius = "12px";
-            card.style.padding = "20px";
-            card.style.boxShadow = "0 4px 6px -1px rgba(0, 0, 0, 0.05)";
-            card.style.border = "1px solid #e2e8f0";
+            card.className = "vocab-card"; // style.css uyumlu kart sınıfı
             
             const word = item.word || item.term || "";
             const translation = item.translation || item.meaning || "";
