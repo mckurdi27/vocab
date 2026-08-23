@@ -6,12 +6,15 @@
     <title>Kelime Mükerrer Analizi - Tüm Seviyeler</title>
     <style>
         :root {
-            --primary-color: #4f46e5;
-            --bg-color: #f3f4f6;
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
             --card-bg: #ffffff;
-            --text-color: #1f2937;
-            --duplicate-border: #e74c3c;
-            --duplicate-bg: #fdf2f2;
+            --text-color: #1e293b;
+            --duplicate-border: #ef4444;
+            --duplicate-bg: #fef2f2;
+            --info-bg: #eff6ff;
+            --info-text: #1e40af;
         }
         
         body {
@@ -38,6 +41,7 @@
             flex-wrap: wrap;
             gap: 12px;
             margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
         }
 
         .header-left {
@@ -49,8 +53,8 @@
 
         .app-select, .app-btn {
             background-color: #ffffff;
-            border: 1px solid #d1d5db;
-            color: #374151;
+            border: 1px solid #cbd5e1;
+            color: #334155;
             padding: 8px 12px;
             border-radius: 8px;
             font-weight: 500;
@@ -63,12 +67,13 @@
 
         .app-select:hover, .app-btn:hover {
             border-color: var(--primary-color);
+            color: var(--primary-color);
         }
 
         .home-btn {
-            background-color: #059669;
+            background-color: var(--primary-color);
             color: white;
-            padding: 8px 14px;
+            padding: 8px 16px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
@@ -76,19 +81,19 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 2px 4px rgba(5, 150, 105, 0.2);
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
             transition: background 0.2s, transform 0.2s;
         }
 
         .home-btn:hover {
-            background-color: #047857;
+            background-color: var(--primary-hover);
             transform: translateY(-1px);
         }
 
         .info-bar {
-            background: #e0e7ff;
-            color: #3730a3;
-            padding: 10px 15px;
+            background: var(--info-bg);
+            color: var(--info-text);
+            padding: 12px 18px;
             border-radius: 8px;
             margin-bottom: 20px;
             font-size: 14px;
@@ -98,6 +103,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 8px;
+            border: 1px solid #bfdbfe;
         }
 
         .cards-grid {
@@ -113,12 +119,12 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             position: relative;
             transition: transform 0.2s, box-shadow 0.2s;
-            border: 2px solid transparent;
+            border: 1px solid #e2e8f0;
         }
 
         .vocab-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
         }
 
         .vocab-card.is-duplicate {
@@ -144,19 +150,19 @@
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 6px;
-            color: #111827;
+            color: #0f172a;
         }
 
         .word-translation {
-            color: #4b5563;
+            color: #475569;
             margin-bottom: 10px;
             font-size: 0.9rem;
         }
 
         .word-meta {
             font-size: 0.75rem;
-            color: #9ca3af;
-            border-top: 1px solid #e5e7eb;
+            color: #64748b;
+            border-top: 1px solid #f1f5f9;
             padding-top: 8px;
             margin-top: 10px;
         }
@@ -191,13 +197,22 @@
 
         async function initApp() {
             try {
-                // A1, A2, B1, B2, C1, C2 seviyelerindeki olası dosya aralıklarını tanımlıyoruz
+                // Doğru dosya adlandırma kuralı: a101 - a150, a201 - a250, b101 - b150, vb.
                 allDaysFiles = [];
-                const levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
-                
-                levels.forEach(lvl => {
-                    for (let i = 101; i <= 150; i++) allDaysFiles.push(`data/${lvl}${i}.json`);
-                    for (let i = 201; i <= 250; i++) allDaysFiles.push(`data/${lvl}${i}.json`);
+                const levelsConfig = [
+                    { prefix: 'a1', start: 1, end: 50, offset: 101 },
+                    { prefix: 'a2', start: 1, end: 50, offset: 201 },
+                    { prefix: 'b1', start: 1, end: 50, offset: 101 },
+                    { prefix: 'b2', start: 1, end: 50, offset: 201 },
+                    { prefix: 'c1', start: 1, end: 50, offset: 101 },
+                    { prefix: 'c2', start: 1, end: 50, offset: 201 }
+                ];
+
+                levelsConfig.forEach(cfg => {
+                    for (let i = 0; i < cfg.end; i++) {
+                        let fileNum = cfg.offset + i;
+                        allDaysFiles.push(`data/${cfg.prefix}${fileNum}.json`);
+                    }
                 });
 
                 populateFileDropdown(allDaysFiles);
@@ -222,7 +237,7 @@
             for (const file of files) {
                 try {
                     const res = await fetch(file);
-                    if (!res.ok) continue; // Klasörde olmayan dosyaları anında atlar
+                    if (!res.ok) continue; // Oluşturulmamış dosyaları sessizce atlar
                     
                     validFilesCount++;
                     const dayData = await res.json();
@@ -248,7 +263,7 @@
 
             document.getElementById('infoBar').innerHTML = `
                 <span>📁 Okunan Aktif Dosya: <b>${validFilesCount}</b></span>
-                <span>✅ Analiz Tamamlandı</span>
+                <span>✨ Mükerrer Analiz Tamamlandı</span>
             `;
         }
 
@@ -282,12 +297,12 @@
 
         async function loadDayData(file) {
             const container = document.getElementById('cardsContainer');
-            container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#6b7280; padding: 20px;">Kelimeler yükleniyor...</p>';
+            container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b; padding: 20px;">Kelimeler yükleniyor...</p>';
 
             try {
                 const res = await fetch(file);
                 if (!res.ok) {
-                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#9ca3af; padding: 20px;">Bu dosya henüz oluşturulmamış veya boş.</p>`;
+                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#94a3b8; padding: 20px;">Bu dosya henüz oluşturulmamış veya boş.</p>`;
                     return;
                 }
 
@@ -302,10 +317,10 @@
                         container.appendChild(card);
                     });
                 } else {
-                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#6b7280;">Bu dosyada kelime bulunamadı.</p>`;
+                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu dosyada kelime bulunamadı.</p>`;
                 }
             } catch (err) {
-                container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#9ca3af; padding: 20px;">Bu dosya henüz oluşturulmamış.</p>`;
+                container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#94a3b8; padding: 20px;">Bu dosya henüz oluşturulmamış.</p>`;
             }
         }
 
