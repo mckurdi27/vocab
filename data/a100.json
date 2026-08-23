@@ -1,59 +1,98 @@
-{
-  "level": "A1",
-  "scene_id": 1,
-  "scene_title": "Daily Routine and Greetings",
-  "total_words_in_scene": 50,
-  "story_en": "Every morning, John can wake up early...",
-  "story_tr": "Her sabah John erkenden uyanabilir...",
-  "words": [
-    {
-      "word": "start",
-      "type": "verb",
-      "turkish": "Başlamak",
-      "example_en": "Classes start at nine o'clock.",
-      "example_tr": "Dersler saat dokuzda başlar.",
-      "related_verbs": ["begin", "open", "initiate", "launch", "set"]
-    },
-    {
-      "word": "help",
-      "type": "verb",
-      "turkish": "Yardım etmek",
-      "example_en": "Can you help me with this?",
-      "example_tr": "Bunda bana yardım edebilir misin?",
-      "related_verbs": ["assist", "aid", "support", "serve", "benefit"]
-    },
-    {
-      "word": "stop",
-      "type": "verb",
-      "turkish": "Durmak",
-      "example_en": "Stop at the red light.",
-      "example_tr": "Kırmızı ışıkta dur.",
-      "related_verbs": ["halt", "pause", "cease", "discontinue", "block"]
-    }
-      ],
-  "questions": [
-    {
-      "id": 1,
-      "question": "What does John do every morning?",
-      "options": [
-        "He sleeps all day.",
-        "He wakes up early and opens his window.",
-        "He drives a car to another city.",
-        "He works at night."
-      ],
-      "answer": "He wakes up early and opens his window."
-    },
-    {
-      "id": 2,
-      "question": "Which verb means 'satın almak' in the text?",
-      "options": [
-        "sell",
-        "buy",
-        "borrow",
-        "pay"
-      ],
-      "answer": "buy"
-    }
-  ]
-}
-
+[
+  {
+    "word": "subject",
+    "type": "sentence element",
+    "turkish": "Özne",
+    "example_en": "The cat sleeps on the sofa.",
+    "example_tr": "Kedi kanepede uyur.",
+    "related_verbs": ["do", "perform", "act", "execute", "undertake"]
+  },
+  {
+    "word": "predicate",
+    "type": "sentence element",
+    "turkish": "Yüklem",
+    "example_en": "Birds fly in the sky.",
+    "example_tr": "Kuşlar gökyüzünde uçar.",
+    "related_verbs": ["state", "declare", "express", "affirm", "assert"]
+  },
+  {
+    "word": "object",
+    "type": "sentence element",
+    "turkish": "Nesne",
+    "example_en": "She eats an apple.",
+    "example_tr": "O, bir elma yer.",
+    "related_verbs": ["receive", "accept", "undergo", "target", "affect"]
+  },
+  {
+    "word": "indirect object",
+    "type": "sentence element",
+    "turkish": "Dolaylı Tümleç (Yer Tamlayıcısı)",
+    "example_en": "He goes to school every day.",
+    "example_tr": "O, her gün okula gider.",
+    "related_verbs": ["direct", "steer", "route", "transfer", "send"]
+  },
+  {
+    "word": "adverbial",
+    "type": "sentence element",
+    "turkish": "Zarf Tümleci",
+    "example_en": "They arrived late.",
+    "example_tr": "Onlar geç vardılar.",
+    "related_verbs": ["modify", "qualify", "circumscribe", "limit", "specify"]
+  },
+  {
+    "word": "noun",
+    "type": "part of speech",
+    "turkish": "İsim",
+    "example_en": "Honesty is the best policy.",
+    "example_tr": "Dürüstlük en iyi politikadır.",
+    "related_verbs": ["name", "identify", "designate", "label", "classify"]
+  },
+  {
+    "word": "pronoun",
+    "type": "part of speech",
+    "turkish": "Zamir",
+    "example_en": "They are playing football.",
+    "example_tr": "Onlar futbol oynuyorlar.",
+    "related_verbs": ["substitute", "replace", "represent", "stand", "swap"]
+  },
+  {
+    "word": "verb",
+    "type": "part of speech",
+    "turkish": "Fiil",
+    "example_en": "Children run in the garden.",
+    "example_tr": "Çocuklar bahçede koşar.",
+    "related_verbs": ["action", "perform", "execute", "operate", "function"]
+  },
+  {
+    "word": "adjective",
+    "type": "part of speech",
+    "turkish": "Sıfat",
+    "example_en": "It is a sunny day.",
+    "example_tr": "Güneşli bir gün.",
+    "related_verbs": ["describe", "modify", "qualify", "characterize", "enhance"]
+  },
+  {
+    "word": "adverb",
+    "type": "part of speech",
+    "turkish": "Zarf",
+    "example_en": "He spoke quietly.",
+    "example_tr": "O, sessizce konuştu.",
+    "related_verbs": ["modify", "intensify", "enhance", "qualify", "alter"]
+  },
+  {
+    "word": "preposition",
+    "type": "part of speech",
+    "turkish": "Edat",
+    "example_en": "The book is on the table.",
+    "example_tr": "Kitap masanın üzerindedir.",
+    "related_verbs": ["connect", "relate", "link", "position", "locate"]
+  },
+  {
+    "word": "conjunction",
+    "type": "part of speech",
+    "turkish": "Bağlaç",
+    "example_en": "I like tea and coffee.",
+    "example_tr": "Çay ve kahveyi severim.",
+    "related_verbs": ["connect", "join", "combine", "unite", "link"]
+  }
+]
