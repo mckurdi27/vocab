@@ -18,7 +18,7 @@ function initLevelSelect() {
     }
 }
 
-// 2. Seviye seçildiğinde dosya listesini oluşturan fonksiyon
+// 2. Seviye seçildiğinde gün listesini oluşturan fonksiyon (Tümü yok, 100 - 150 arası)
 function generateDayOptions() {
     const levelSelect = document.getElementById('levelSelect');
     const daySelect = document.getElementById('daySelect');
@@ -26,12 +26,6 @@ function generateDayOptions() {
     
     const selectedLevel = levelSelect.value;
     daySelect.innerHTML = ""; 
-    
-    // Sağdaki menüye "Tümü" seçeneğini ekle (Grup/Bütün arama için)
-    const allOpt = document.createElement('option');
-    allOpt.value = 'all';
-    allOpt.innerHTML = 'Tümü';
-    daySelect.appendChild(allOpt);
     
     let prefix = 'a';
     let displayLevel = 'A1';
@@ -41,17 +35,17 @@ function generateDayOptions() {
         displayLevel = selectedLevel.toUpperCase();
     }
     
-    // 101'den 150'ye kadar olan dosyaları ekle
-    for(let i = 101; i <= 150; i++) {
-        const fileName = `${prefix}${i}`; // Örn: a101, a102 ... a150
+    // 100'den 150'ye kadar olan dosyalar (100 dahil, 51 dosya)
+    for(let i = 100; i <= 150; i++) {
+        const fileName = `${prefix}${i}`; // Örn: a100, a101 ... a150
         const opt = document.createElement('option');
         opt.value = fileName;
-        opt.innerHTML = `${displayLevel} ${fileName.toUpperCase()}`; // Örn: A1 A101
+        opt.innerHTML = `${displayLevel} ${fileName.toUpperCase()}`; // Örn: A1 A100
         daySelect.appendChild(opt);
     }
     
-    // Sayfa ilk açıldığında direkt A101 (index 1) ile başlasın
-    daySelect.selectedIndex = 1;
+    // Sayfa açıldığında ilk dosya (100) otomatik seçilsin
+    daySelect.selectedIndex = 0;
     loadData();
 }
 
@@ -115,14 +109,14 @@ async function loadData() {
         let combinedStoryEn = "";
         let combinedStoryTr = "";
 
-        if (fileName === 'all') {
-            // "Tümü" seçildiyse ASLA all.json aramaz. 
-            // 101'den 150'ye kadar olan tüm dosyaları tek tek bulup bellekte birleştirir.
-            let prefix = selectedLevel === 'all' ? 'a' : selectedLevel.charAt(0).toLowerCase();
+        if (selectedLevel === 'all') {
+            // Üst menüde "Tümü" seçildiyse all.json aranmaz, tüm seviyelerdeki bu dosya numarası toplanır
+            const prefixes = ['a', 'b', 'c']; // Seviye harfleri
+            const fileNum = fileName.replace(/[^0-9]/g, ''); // Örn: 100
 
-            for (let i = 101; i <= 150; i++) {
+            for (const p of prefixes) {
                 try {
-                    const res = await fetch(`data/${prefix}${i}.json`);
+                    const res = await fetch(`data/${p}${fileNum}.json`);
                     if (res.ok) {
                         const data = await res.json();
                         const words = Array.isArray(data) ? data : (data.words || []);
@@ -131,14 +125,14 @@ async function loadData() {
                         if (data.story_tr) combinedStoryTr += data.story_tr + "\n\n";
                     }
                 } catch (err) {
-                    // Bulunamayan dosyaları atla
+                    // Bulunamayanları atla
                 }
             }
 
             if (sceneBanner) {
                 sceneBanner.innerHTML = `
-                    <div class="banner-level">Seviye: ${prefix.toUpperCase()}</div>
-                    <div class="banner-title">Tüm Dosyalar (101 - 150)</div>
+                    <div class="banner-level">Seviye: TÜMÜ</div>
+                    <div class="banner-title">Dosya: ${fileName.toUpperCase()} (Tüm Seviyeler)</div>
                     <div class="banner-count">Toplam Kelime: ${currentSceneWords.length}</div>
                 `;
             }
@@ -163,7 +157,7 @@ async function loadData() {
             }
 
         } else {
-            // Tek dosya seçildiyse (Örn: a101)
+            // Tek dosya seçildiyse doğrudan o dosyayı yükler (Örn: data/a100.json)
             const filePath = `data/${fileName}.json`;
             const res = await fetch(filePath);
             
