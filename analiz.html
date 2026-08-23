@@ -142,7 +142,6 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
         }
 
-        /* 1. YEŞİL: Özgün (Benzersiz) Kelime */
         .vocab-card.is-unique {
             border-color: #22c55e !important;
             background-color: #f0fdf4;
@@ -151,7 +150,6 @@
             background-color: #22c55e;
         }
 
-        /* 2. MAVI: Tekrarlanıyor ama İlk Geçiş */
         .vocab-card.is-first-repeat {
             border-color: var(--primary-color) !important;
             background-color: #f8fafc;
@@ -160,7 +158,6 @@
             background-color: var(--primary-color);
         }
 
-        /* 3. KIRMIZI: 2. Geçiş, 3. Geçiş... (Sonraki Tekrarlar) */
         .vocab-card.is-duplicate {
             border-color: var(--duplicate-border) !important;
             background-color: var(--duplicate-bg);
@@ -220,7 +217,7 @@
 
                 <!-- Tek Dosya Seçimi -->
                 <select id="fileSelect" class="app-select" onchange="onFileSelectChange(this.value)">
-                    <option value="">Dosya Seç (Tek)</option>
+                    <option value="" disabled selected>Tek</option>
                 </select>
 
                 <button class="app-btn" onclick="navigateFile(-1)">◀ Önceki</button>
@@ -269,7 +266,6 @@
                 filteredFiles = [...allDaysFiles];
                 updateFileDropdown(filteredFiles);
 
-                // Sayfa açıldığında doğrudan ilk dosyayı anında yükle
                 if (filteredFiles.length > 0) {
                     currentIndex = 0;
                     loadDayData(filteredFiles[0]);
@@ -313,11 +309,10 @@
 
             isAnalyzed = true;
             infoBar.innerHTML = `
-                <span>📁 Taranan Dosya: <b>${validFilesCount}</b></span>
-                <span style="color:#059669; font-weight:bold;">✨ Mükerrer Analiz Tamamlandı</span>
+                <span>📁 Taranan Dosya: <b>${validFilesCount}</b> — <span style="color:#059669; font-weight:bold;">Mükerrer Analiz Tamamlandı</span></span>
+                <button class="action-btn" onclick="startGlobalAnalysis()">✨ Tekrar Başlat</button>
             `;
 
-            // Analiz bitince mevcut sayfayı güncellenmiş renklerle tekrar çiz
             if (filteredFiles.length > 0) {
                 loadDayData(filteredFiles[currentIndex]);
             }
@@ -325,7 +320,7 @@
 
         function updateFileDropdown(files) {
             const select = document.getElementById('fileSelect');
-            select.innerHTML = '';
+            select.innerHTML = '<option value="" disabled selected>Tek</option>';
 
             files.forEach((file) => {
                 const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
@@ -387,7 +382,7 @@
             try {
                 const res = await fetch(file);
                 if (!res.ok) {
-                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#94a3b8; padding: 20px;">Bu dosya henüz oluşturulmamış veya boş.</p>';
+                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#94a3b8; padding: 20px;">Bu dosya henüz oluşturulmamış veya boş.</p>`;
                     return;
                 }
 
@@ -417,7 +412,6 @@
             let cardClass = '';
             let badgeText = '';
 
-            // Eğer analiz yapılmadıysa varsayılan görünüm
             if (!isAnalyzed || count === 0) {
                 cardClass = '';
                 badgeText = 'Normal';
