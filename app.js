@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     generateDayOptions();
 });
 
-// Seviye seçildiğinde Tümü ve 100-150 arası dosya listesini oluşturan fonksiyon
+// Seviye seçildiğinde Tümü ve 1-50 arası dosya listesini oluşturan fonksiyon
 function generateDayOptions() {
     const level = document.getElementById('levelSelect').value;
     const daySelect = document.getElementById('daySelect');
@@ -18,12 +18,13 @@ function generateDayOptions() {
     allOpt.innerHTML = 'Tümü';
     daySelect.appendChild(allOpt);
     
-    // 100'den 150'ye kadar olan dosyalar (Parantez ve Dosya kelimesi yok, örn: A1 - A101)
-    for(let i = 100; i <= 150; i++) {
-        const fileName = `${level}${i}`; // Örn: a1100, a1101 ... a1150
+    // 1'den 50'ye kadar olan dosyalar (Format: A1 A101, parantez ve dosya kelimesi yok)
+    for(let i = 1; i <= 50; i++) {
+        const num = i.toString().padStart(2, '0');
+        const fileName = `${level}${num}`; // Örn: a101, a102 ... a150
         const opt = document.createElement('option');
         opt.value = fileName;
-        opt.innerHTML = `${level.toUpperCase()} - ${level.toUpperCase()}${i}`;
+        opt.innerHTML = `${level.toUpperCase()} ${fileName.toUpperCase()}`;
         daySelect.appendChild(opt);
     }
     loadData();
@@ -89,10 +90,11 @@ async function loadData() {
         let combinedStoryTr = "";
 
         if (fileName === 'all') {
-            // Tümü seçildiyse 100'den 150'ye kadar olan dosyaları tarayıp birleştir
-            for (let i = 100; i <= 150; i++) {
+            // Tümü seçildiyse 1'den 50'ye kadar olan dosyaları tarayıp birleştir
+            for (let i = 1; i <= 50; i++) {
+                const num = i.toString().padStart(2, '0');
                 try {
-                    const res = await fetch(`data/${level}${i}.json`);
+                    const res = await fetch(`data/${level}${num}.json`);
                     if (res.ok) {
                         const data = await res.json();
                         const words = Array.isArray(data) ? data : (data.words || []);
@@ -108,7 +110,7 @@ async function loadData() {
             if (sceneBanner) {
                 sceneBanner.innerHTML = `
                     <div class="banner-level">Seviye: ${level.toUpperCase()}</div>
-                    <div class="banner-title">Tüm Dosyalar (100 - 150)</div>
+                    <div class="banner-title">Tüm Dosyalar (1 - 50)</div>
                     <div class="banner-count">Toplam Kelime: ${currentSceneWords.length}</div>
                 `;
             }
@@ -133,7 +135,7 @@ async function loadData() {
             }
 
         } else {
-            // Tek bir dosya seçildiyse (Örn: a1100)
+            // Tek bir dosya seçildiyse (Örn: a101)
             const filePath = `data/${fileName}.json`;
             const res = await fetch(filePath);
             
@@ -199,7 +201,7 @@ async function loadData() {
                             <button class="sound-btn" onclick="event.stopPropagation(); speakText('${w.example_en || ''}', 'en-US')" title="İngilizce Cümleyi Seslendir">🔊</button>
                         </div>
                         <div class="example-line">
-                            <p><strong>TR:</strong> <span class="tr-sentence">${w.example_tr || ` `}</span></p>
+                            <p><strong>TR:</strong> <span class="tr-sentence">${w.example_tr || ''}</span></p>
                             <button class="sound-btn" onclick="event.stopPropagation(); speakText('${w.example_tr || ''}', 'tr-TR')" title="Türkçe Cümleyi Seslendir">🔊</button>
                         </div>
                     </div>
