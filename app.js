@@ -3,6 +3,22 @@ let currentSceneWords = [];
 document.addEventListener("DOMContentLoaded", () => {
     initLevelSelect();
     generateDayOptions();
+    
+    // Panel değişimlerini dinleyen olaylar
+    const levelSelect = document.getElementById('levelSelect');
+    const daySelect = document.getElementById('daySelect');
+    
+    if (levelSelect) {
+        levelSelect.addEventListener('change', () => {
+            generateDayOptions();
+        });
+    }
+    
+    if (daySelect) {
+        daySelect.addEventListener('change', () => {
+            loadData();
+        });
+    }
 });
 
 // 1. Üst Seviye menüsüne "Tümü" seçeneğini ekleyen fonksiyon
@@ -18,7 +34,7 @@ function initLevelSelect() {
     }
 }
 
-// 2. Gün/Dosya listesini oluşturan fonksiyon (Başta Tümü yok, A1 100'den C2 250'ye kadar tam uyumlu sıralama)
+// 2. Dosya listesini tam istenen aralıklarda oluşturan fonksiyon
 function generateDayOptions() {
     const levelSelect = document.getElementById('levelSelect');
     const daySelect = document.getElementById('daySelect');
@@ -27,38 +43,42 @@ function generateDayOptions() {
     const selectedLevel = levelSelect.value;
     daySelect.innerHTML = ""; 
     
-    // Eğer birinci panelde "Tümü" seçiliyse tüm seviyeler sırayla işlenir
-    const levelsToProcess = selectedLevel === 'all' 
-        ? ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'] 
-        : [selectedLevel];
-        
-    levelsToProcess.forEach(lvl => {
-        const displayLevel = lvl.toUpperCase(); 
-        const letter = lvl.charAt(0); 
-        const levelNum = lvl.charAt(1); 
-        
-        // C2 seviyesi 250'ye kadar, diğer seviyeler 150'ye kadar gider
-        let start = 100;
-        let end = (lvl === 'c2') ? 250 : 150;
-        
-        for (let i = start; i <= end; i++) {
-            // Dosya adı çakışmasını ve 404 hatalarını önleyen kusursuz eşleme
-            const suffix = i.toString().substring(1); // Örn: 100 -> '00', 150 -> '50', 250 -> '50' vb.
-            let fileName = `${letter}${levelNum}${suffix}`;
-            
-            // Eğer C2 için 250'ye gidiliyorsa özel dosya adı formatı
-            if (lvl === 'c2' && i === 250) {
-                fileName = `c2250`; 
-            }
-            
+    let groupsToProcess = [];
+    
+    if (selectedLevel === 'all') {
+        groupsToProcess = [
+            { letter: 'a', start: 100, end: 150 },
+            { letter: 'a', start: 200, end: 250 },
+            { letter: 'b', start: 100, end: 150 },
+            { letter: 'b', start: 200, end: 250 },
+            { letter: 'c', start: 100, end: 150 },
+            { letter: 'c', start: 200, end: 250 }
+        ];
+    } else if (selectedLevel === 'a1') {
+        groupsToProcess = [{ letter: 'a', start: 100, end: 150 }];
+    } else if (selectedLevel === 'a2') {
+        groupsToProcess = [{ letter: 'a', start: 200, end: 250 }];
+    } else if (selectedLevel === 'b1') {
+        groupsToProcess = [{ letter: 'b', start: 100, end: 150 }];
+    } else if (selectedLevel === 'b2') {
+        groupsToProcess = [{ letter: 'b', start: 200, end: 250 }];
+    } else if (selectedLevel === 'c1') {
+        groupsToProcess = [{ letter: 'c', start: 100, end: 150 }];
+    } else if (selectedLevel === 'c2') {
+        groupsToProcess = [{ letter: 'c', start: 200, end: 250 }];
+    }
+    
+    groupsToProcess.forEach(g => {
+        for (let i = g.start; i <= g.end; i++) {
+            const fileName = `${g.letter}${i}`; // Örn: a100, a200, b100, c250
             const opt = document.createElement('option');
             opt.value = fileName;
-            opt.innerHTML = `${displayLevel} ${i}`; // Örn: A1 100, C2 250
+            opt.innerHTML = fileName.toUpperCase(); // Örn: A100, A200, C250
             daySelect.appendChild(opt);
         }
     });
     
-    // Sayfa açıldığında ilk dosya otomatik seçilsin
+    // Sayfa açıldığında veya filtre değiştiğinde ilk dosya otomatik seçilsin
     daySelect.selectedIndex = 0;
     loadData();
 }
@@ -103,11 +123,12 @@ function highlightStoryWordsTr(text, wordsArray) {
 
 // Verileri ve Hikayeleri Yükleme Fonksiyonu
 async function loadData() {
-    const levelSelect = document.getElementById('levelSelect');
     const daySelect = document.getElementById('daySelect');
-    if (!daySelect || !levelSelect) return;
+    if (!daySelect) return;
     
     const fileName = daySelect.value;
+    if (!fileName) return;
+
     const content = document.getElementById('content');
     const sceneBanner = document.getElementById('sceneBanner');
     
@@ -120,7 +141,7 @@ async function loadData() {
     try {
         currentSceneWords = [];
         
-        // Doğrudan seçilen JSON dosyasını yükler
+        // Doğrudan seçilen JSON dosyasını yükler (örn: data/a100.json, data/a200.json vb.)
         const filePath = `data/${fileName}.json`;
         const res = await fetch(filePath);
         
@@ -131,7 +152,15 @@ async function loadData() {
         const data = await res.json();
         currentSceneWords = Array.isArray(data) ? data : (data.words || []);
         
-        const detectedLevel = fileName.substring(0, 2).toUpperCase();
+        // Dosya adına göre seviye tespiti
+        let detectedLevel = '';
+        if (fileName.startsWith('a1')) detectedLevel = 'A1';
+        else if (fileName.startsWith('a2')) detectedLevel = 'A2';
+        else if (fileName.startsWith('b1')) detectedLevel = 'B1';
+        else if (fileName.startsWith('b2')) detectedLevel = 'B2';
+        else if (fileName.startsWith('c1')) detectedLevel = 'C1';
+        else if (fileName.startsWith('c2')) detectedLevel = 'C2';
+        else detectedLevel = fileName.substring(0, 1).toUpperCase();
 
         if (sceneBanner) {
             sceneBanner.innerHTML = `
