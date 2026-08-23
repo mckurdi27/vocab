@@ -175,6 +175,154 @@
                 loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
         }
+
+        
+
+
+
+                    <!-- İki Analiz Sayfasına Yönlendiren Butonlar -->
+                    <a href="analiz.html" class="analysis-btn analysis-btn-custom">📊 Mükerrer Analiz</a>
+                    <a href="analysis.html" class="analysis-btn">📈 Genel Analiz</a>
+                </div>
+            </div>
+        </header>
+
+        
+
+   
+
+        // Tüm dosyaları tarayıp kelimelerin kronolojik sıralamasını çıkaran fonksiyon
+        async function buildGlobalWordMap() {
+            const files = getAllPossibleFiles();
+            globalWordFileMap = {};
+
+            for (const file of files) {
+                try {
+                    const res = await fetch(file);
+                    if (!res.ok) continue;
+                    const data = await res.json();
+                    const words = data.words || data.vocabulary || data;
+
+                    if (Array.isArray(words)) {
+                        words.forEach(item => {
+                            const wordKey = (item.word || item.term || "").trim();
+                            if (!wordKey) return;
+                            const lowerKey = wordKey.toLowerCase();
+                            
+                            if (!globalWordFileMap[lowerKey]) {
+                                globalWordFileMap[lowerKey] = [];
+                            }
+                            if (!globalWordFileMap[lowerKey].includes(file)) {
+                                globalWordFileMap[lowerKey].push(file);
+                            }
+                        });
+                    }
+                } catch (err) {}
+            }
+
+
+            // Dosya listesini kronolojik sıraya göre düzenle
+            Object.keys(globalWordFileMap).forEach(key => {
+                globalWordFileMap[key].sort((a, b) => {
+                    return (fileIndexMap[a] || 0) - (fileIndexMap[b] || 0);
+                });
+            });
+        }
+
+        // Veriyi ve kelimeleri yükleyip 3 aşamalı ikon mantığını işleme
+        async function loadData() {
+            const select = document.getElementById('daySelect');
+            if (!select || !select.value) return;
+            const file = select.value;
+            const contentDiv = document.getElementById('content');
+            const bannerDiv = document.getElementById('sceneBanner');
+
+            contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b;">Yükleniyor...</p>';
+
+            try {
+                const res = await fetch(file);
+                if (!res.ok) {
+                    contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#94a3b8;">Bu dosya henüz oluşturulmamış.</p>';
+                    bannerDiv.innerHTML = '<h3>Dosya Bulunamadı</h3><div class="scene-meta">Toplam Kelime: 0</div>';
+                    return;
+                }
+
+                const data = await res.json();
+                const levelVal = document.getElementById('levelSelect').value.toUpperCase();
+                const fileNameStr = file.split('/').pop().replace('.json', '').toUpperCase();
+                const wordsList = data.words || data.vocabulary || data;
+
+                bannerDiv.innerHTML = `
+                    <h3>${data.sceneTitle || data.title || `Sahne / Dosya: ${fileNameStr}`}</h3>
+                    <div class="scene-meta">SEVİYE: ${levelVal} | Toplam Kelime: ${Array.isArray(wordsList) ? wordsList.length : 0}</div>
+                `;
+
+                contentDiv.innerHTML = '';
+
+                if (Array.isArray(wordsList) && wordsList.length > 0) {
+                    wordsList.forEach(item => {
+                        const wordText = item.word || item.term || '';
+                        const translationText = item.translation || item.meaning || '';
+                        const badgeText = item.type || item.badge || 'VERB';
+                        const exampleEn = item.enExample || item.exampleEn || '';
+                        const exampleTr = item.trExample || item.exampleTr || '';
+                        const relatedVerbs = item.relatedVerbs || item.iliski || '';
+
+                        const lowerKey = wordText.trim().toLowerCase();
+                        const fileList = globalWordFileMap[lowerKey] || [file];
+                        const count = fileList.length;
+
+                        const card = document.createElement('div');
+                        let statusIconHtml = '';
+                        let cardClass = 'vocab-card';
+
+                        // 3 Aşamalı İkon ve Sınıf Mantığı
+                        if (count === 1) {
+                            // 🌟 Yıldız: Mükerrer değil, sadece bu dosyada bir defa geçmiş.
+                            statusIconHtml = '<span class="status-icon" title="Benzersiz Kelime (Sadece bu dosyada var)">🌟</span>';
+                        } else {
+                            const firstFile = fileList[0];
+                            if (firstFile === file) {
+                                // 🌸 Çiçek: Tekrarlı ama ilk defa bu dosyada kullanılmış (İleride tekrar edecek).
+                                cardClass += ' repeat-first';
+                                statusIconHtml = `<span class="status-icon" title="Tekrarlı Kelime - İlk defa bu dosyada kullanıldı (${count} dosyada geçecek)">🌸</span>`;
+                            } else {
+                                // 🔥 Alev: Tekrarlı ve bundan önce de başka dosyalarda kullanılmıştı.
+                                cardClass += ' repeat-later';
+                                statusIconHtml = `<span class="status-icon" title="Tekrarlı Kelime - Daha önce de kullanılmıştı (${count} dosyada geçiyor)">🔥</span>`;
+                            }
+                        }
+
+                        card.className = cardClass;
+
+                        card.innerHTML = `
+                            <div class="card-top-row">
+                                <div class="word-main-info">
+                                    <span class="word-title">${wordText}</span>
+                                    ${statusIconHtml}
+                                </div>
+                                <span class="word-badge">${badgeText}</span>
+                            </div>
+                            <div class="word-translation">${translationText}</div>
+                            
+                            ${exampleEn ? `<div class="sentence-box"><b>EN:</b> ${exampleEn}</div>` : ''}
+                            ${exampleTr ? `<div class="sentence-box"><b>TR:</b> ${exampleTr}</div>` : ''}
+
+                            ${relatedVerbs ? `
+                            <div class="related-verbs">
+                                <b>İlişkili Fiiller:</b> ${Array.isArray(relatedVerbs) ? relatedVerbs.join(', ') : relatedVerbs}
+                            </div>` : ''}
+                        `;
+                        contentDiv.appendChild(card);
+                    });
+                } else {
+                    contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu dosyada kelime bulunamadı.</p>';
+                }
+            } catch (err) {
+                contentDiv.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#94a3b8;">Veriler yüklenirken bir hata oluştu.</p>';
+            }
+        }
+
     </script>
 </body>
 </html>
