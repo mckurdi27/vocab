@@ -13,6 +13,8 @@
             --text-color: #1e293b;
             --duplicate-border: #ef4444;
             --duplicate-bg: #fef2f2;
+            --first-dup-border: #2563eb;
+            --first-dup-bg: #eff6ff;
             --info-bg: #eff6ff;
             --info-text: #1e40af;
         }
@@ -127,6 +129,27 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
         }
 
+        /* İlk geçiş (mavi) */
+        .vocab-card.is-first-duplicate {
+            border-color: var(--first-dup-border) !important;
+            background-color: var(--first-dup-bg);
+        }
+
+        .vocab-card.is-first-duplicate::after {
+            content: "İlk Geçiş";
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: var(--first-dup-border);
+            color: white;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        /* İkinci ve sonrakiler (kırmızı) */
         .vocab-card.is-duplicate {
             border-color: var(--duplicate-border) !important;
             background-color: var(--duplicate-bg);
@@ -192,6 +215,7 @@
 
     <script>
         let globalWordMap = {};
+        let cardStatusMap = {};
         let allDaysFiles = [];
         let currentIndex = 0;
 
@@ -232,6 +256,8 @@
 
         async function buildGlobalWordMap(files) {
             globalWordMap = {};
+            cardStatusMap = {};
+            let wordOccurrenceLists = {};
             let validFilesCount = 0;
 
             for (const file of files) {
@@ -244,21 +270,41 @@
                     const wordsList = dayData.words || dayData.vocabulary || dayData;
 
                     if (Array.isArray(wordsList)) {
-                        wordsList.forEach(item => {
+                        wordsList.forEach((item, index) => {
                             const wordKey = (item.word || item.term || "").trim().toLowerCase();
                             if (!wordKey) return;
 
+                            // Dosya listesi takibi
                             if (!globalWordMap[wordKey]) {
                                 globalWordMap[wordKey] = [];
                             }
                             if (!globalWordMap[wordKey].includes(file)) {
                                 globalWordMap[wordKey].push(file);
                             }
+
+                            // Kronolojik sırayla her bir kelime geçişini kaydet (aynı dosya içindeki tekrarlar dahil)
+                            if (!wordOccurrenceLists[wordKey]) {
+                                wordOccurrenceLists[wordKey] = [];
+                            }
+                            wordOccurrenceLists[wordKey].push({ file, index });
                         });
                     }
                 } catch (err) {
-                    // Bulunamayan dosyaları sessizce geç
+                    // Bulunamayan dosyaları geç
                 }
+            }
+
+            // Her bir kelime kartının sistemdeki sıra numarasını belirle
+            for (const wordKey in wordOccurrenceLists) {
+                const list = wordOccurrenceLists[wordKey];
+                const total = list.length;
+                list.forEach((occ, occurrenceIndex) => {
+                    const uniqueKey = `${occ.file}_${occ.index}`;
+                    cardStatusMap[uniqueKey] = {
+                        total: total,
+                        occurrenceIndex: occurrenceIndex
+                    };
+                });
             }
 
             document.getElementById('infoBar').innerHTML = `
@@ -312,8 +358,10 @@
                 container.innerHTML = '';
 
                 if (Array.isArray(wordsList) && wordsList.length > 0) {
-                    wordsList.forEach(item => {
-                        const card = createVocabCard(item, file);
+                    wordsList.forEach((item, index) => {
+                        const uniqueKey = `${file}_${index}`;
+                        const status = cardStatusMap[uniqueKey] || { total: 1, occurrenceIndex: 0 };
+                        const card = createVocabCard(item, file, status);
                         container.appendChild(card);
                     });
                 } else {
@@ -324,17 +372,27 @@
             }
         }
 
-        function createVocabCard(item, currentFile) {
+        function createVocabCard(item, currentFile, status) {
             const wordKey = (item.word || item.term || "").trim().toLowerCase();
             const appearances = globalWordMap[wordKey] || [];
             
-            // DÜZELTME: Kelimenin ilk geçtiği dosya appearances[0]'dır. 
-            // Eğer şu an baktığımız dosya kelimenin ilk geçtiği dosyaysa, bu kelime burada ilk defa geçiyordur (Kırmızı OLMAMALI).
-            // Ancak kelime daha önce başka bir dosyada geçmişse, bu dosyadaki tekrarı kırmızı olmalıdır.
-            const isDuplicate = appearances.length > 1 && appearances[0] !== currentFile;
+            let cardClass = '';
+            
+            if (status.total > 1) {
+                if (status.occurrenceIndex === 0) {
+                    // Tekrarlı bir kelimenin ilk geçişi -> Mavi
+                    cardClass = 'is-first-duplicate';
+                } else {
+                    // İkinci ve sonraki geçişleri -> Kırmızı
+                    cardClass = 'is-duplicate';
+                }
+            } else {
+                // Mükerrer olmayan (tekil) kelime -> Beyaz kalır
+                cardClass = '';
+            }
 
             const cardDiv = document.createElement('div');
-            cardDiv.className = `vocab-card ${isDuplicate ? 'is-duplicate' : ''}`;
+            cardDiv.className = `vocab-card ${cardClass}`;
 
             const wordText = item.word || item.term || '';
             const translationText = item.translation || item.meaning || '';
