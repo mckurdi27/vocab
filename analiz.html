@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelime Mükerrer Analizi</title>
+    <title>Kelime Mükerrer Analizi - Tüm Seviyeler</title>
     <style>
         :root {
             --primary-color: #4f46e5;
@@ -23,11 +23,11 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        /* Ana Sayfa ile Birebir Uyumlu Üst Panel (Header) */
+        /* Üst Panel (Header) */
         header {
             background: var(--card-bg);
             border-radius: 12px;
@@ -48,7 +48,6 @@
             flex-wrap: wrap;
         }
 
-        /* Ana sayfadaki açılır menü (select) ve buton stilleri */
         .app-select, .app-btn {
             background-color: #ffffff;
             border: 1px solid #d1d5db;
@@ -68,7 +67,7 @@
         }
 
         .home-btn {
-            background-color: #059669; /* Ana sayfadaki renk tonu */
+            background-color: #059669;
             color: white;
             padding: 8px 14px;
             border-radius: 8px;
@@ -87,7 +86,21 @@
             transform: translateY(-1px);
         }
 
-        /* Kart Izgarası ve Tasarımı */
+        /* Bilgi Alanı / İstatistik */
+        .info-bar {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Kart Izgarası */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -154,9 +167,8 @@
     <div class="container">
         <header>
             <div class="header-left">
-                <!-- Ana sayfadaki gibi şık açılır dosya/liste seçici -->
                 <select id="fileSelect" class="app-select" onchange="onFileSelectChange(this.value)">
-                    <!-- Dinamik olarak doldurulacak -->
+                    <option value="">Dosyalar Yükleniyor...</option>
                 </select>
                 <button class="app-btn" onclick="navigateFile(-1)">◀ Önceki</button>
                 <button class="app-btn" onclick="navigateFile(1)">Sonraki ▶</button>
@@ -166,6 +178,10 @@
             </div>
         </header>
 
+        <div id="infoBar" class="info-bar">
+            <span>Sistem taranıyor, lütfen bekleyin...</span>
+        </div>
+
         <div id="cardsContainer" class="cards-grid"></div>
     </div>
 
@@ -174,37 +190,40 @@
         let allDaysFiles = [];
         let currentIndex = 0;
 
-        const defaultFiles = [
-            'data/a100.json',
-            'data/a101.json',
-            'data/a102.json',
-            'data/a103.json',
-            'data/a104.json',
-            'data/a105.json',
-            'data/a106.json'
-        ];
-
         async function initApp() {
             try {
+                // Ana sisteminizin kullandığı days.json manifest dosyasını okuyoruz
                 const manifestRes = await fetch('data/days.json');
-                if (manifestRes.ok) {
-                    const manifest = await manifestRes.json();
-                    allDaysFiles = manifest.files || manifest.days || manifest;
-                    if (!Array.isArray(allDaysFiles)) {
+                if (!manifestRes.ok) throw new Error("days.json bulunamadı");
+                
+                const manifest = await manifestRes.json();
+                
+                // Manifest yapısı ister düz dizi, ister seviyelere göre nesne (A1, A2 vb.) olsun hepsini tek bir listeye topluyoruz
+                if (Array.isArray(manifest)) {
+                    allDaysFiles = manifest;
+                } else if (typeof manifest === 'object' && manifest !== null) {
+                    allDaysFiles = [];
+                    Object.values(manifest).forEach(val => {
+                        if (Array.isArray(val)) {
+                            allDaysFiles.push(...val);
+                        } else if (typeof val === 'object' && val !== null) {
+                            Object.values(val.files || val.days || val).forEach(subVal => {
+                                if (typeof subVal === 'string') allDaysFiles.push(subVal);
+                            });
+                        }
+                    });
+                    // Eğer nesne doğrudan dosya listeleri içeriyorsa
+                    if (allDaysFiles.length === 0) {
                         allDaysFiles = Object.values(manifest).flat();
                     }
-                } else {
-                    throw new Error("days.json bulunamadı");
                 }
-            } catch (error) {
-                allDaysFiles = defaultFiles;
-            }
 
-            if (!allDaysFiles || allDaysFiles.length === 0) {
-                allDaysFiles = defaultFiles;
-            }
+                if (!allDaysFiles || allDaysFiles.length === 0) {
+                    throw new Error("Dosya listesi boş");
+                }
 
-            try {
+                document.getElementById('infoBar').innerHTML = `<span>Toplam ${allDaysFiles.length} dosya taranıyor...</span>`;
+
                 await buildGlobalWordMap(allDaysFiles);
                 populateFileDropdown(allDaysFiles);
 
@@ -214,13 +233,15 @@
                 }
             } catch (error) {
                 console.error("Başlangıç hatası:", error);
+                document.getElementById('infoBar').innerHTML = `<span style="color:red;">Dosya listesi (days.json) okunamadı.</span>`;
                 document.getElementById('cardsContainer').innerHTML = 
-                    `<p style="color:red; text-align:center; grid-column:1/-1;">Veriler yüklenemedi.</p>`;
+                    `<p style="color:red; text-align:center; grid-column:1/-1;">Veriler yüklenemedi. Lütfen ana dizindeki yapılandırmayı kontrol edin.</p>`;
             }
         }
 
         async function buildGlobalWordMap(files) {
             globalWordMap = {};
+            let totalWordsCount = 0;
 
             for (const file of files) {
                 try {
@@ -235,6 +256,7 @@
                             const wordKey = (item.word || item.term || "").trim().toLowerCase();
                             if (!wordKey) return;
 
+                            totalWordsCount++;
                             if (!globalWordMap[wordKey]) {
                                 globalWordMap[wordKey] = [];
                             }
@@ -244,9 +266,14 @@
                         });
                     }
                 } catch (err) {
-                    console.error(err);
+                    console.error(`${file} taranamadı:`, err);
                 }
             }
+
+            document.getElementById('infoBar').innerHTML = `
+                <span>📁 Toplam Dosya: <b>${files.length}</b></span>
+                <span>🔍 Toplam Kelime Taraması Tamamlandı</span>
+            `;
         }
 
         function populateFileDropdown(files) {
@@ -257,7 +284,7 @@
                 const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
                 const option = document.createElement('option');
                 option.value = file;
-                option.textContent = `Dosya / Liste: ${fileName}`;
+                option.textContent = `Liste / Sahne: ${fileName}`;
                 select.appendChild(option);
             });
         }
@@ -279,7 +306,7 @@
 
         async function loadDayData(file) {
             const container = document.getElementById('cardsContainer');
-            container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#6b7280;">Yükleniyor...</p>';
+            container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#6b7280; padding: 20px;">Kelimeler yükleniyor...</p>';
 
             try {
                 const res = await fetch(file);
@@ -318,7 +345,7 @@
                 <div class="word-title">${wordText}</div>
                 <div class="word-translation">${translationText}</div>
                 <div class="word-meta">
-                    Geçtiği Dosyalar: ${appearances.length > 0 ? appearances.join(', ') : currentFile}
+                    Geçtiği Dosyalar (${appearances.length}): ${appearances.map(f => f.split('/').pop().replace('.json','')).join(', ')}
                 </div>
             `;
 
