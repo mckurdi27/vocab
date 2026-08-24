@@ -1,32 +1,67 @@
 document.addEventListener("DOMContentLoaded", () => {
+    initLevelSelect();
     generateDayOptions();
 });
 
+function initLevelSelect() {
+    const levelSelect = document.getElementById('levelSelect');
+    if (!levelSelect) return;
+    
+    // En başta "Tümü" seçeneğinin ve tüm seviyelerin olduğundan emin oluyoruz
+    if (![...levelSelect.options].some(opt => opt.value === 'all')) {
+        const allOpt = document.createElement('option');
+        allOpt.value = 'all';
+        allOpt.innerHTML = 'Tümü';
+        levelSelect.insertBefore(allOpt, levelSelect.firstChild);
+    }
+}
+
 function generateDayOptions() {
-    const level = document.getElementById('levelSelect').value;
+    const levelSelect = document.getElementById('levelSelect');
     const daySelect = document.getElementById('daySelect');
+    if (!levelSelect || !daySelect) return;
+    
+    const level = levelSelect.value;
     daySelect.innerHTML = ""; 
     
-    let letter = 'a';
-    let startNum = 100;
-    let maxFiles = 50; 
-
-    // Seviyelere göre harf, başlangıç dosyası (örn: 100 veya 200) ve dosya adedi ayarı
-    if (level === 'a1') { letter = 'a'; startNum = 100; maxFiles = 31; }
-    else if (level === 'a2') { letter = 'a'; startNum = 200; maxFiles = 11; }
-    else if (level === 'b1') { letter = 'b'; startNum = 100; maxFiles = 51; }
-    else if (level === 'b2') { letter = 'b'; startNum = 200; maxFiles = 11; }
-    else if (level === 'c1') { letter = 'c'; startNum = 100; maxFiles = 11; }
+    let groupsToProcess = [];
     
-    // Döngüyü 0'dan başlatarak a100, a101 gibi gerçek dosya adlarını sırayla oluşturuyoruz
-    for(let i = 0; i < maxFiles; i++) {
-        const fileNum = startNum + i;
-        const fileName = `${letter}${fileNum}`;
-        const opt = document.createElement('option');
-        opt.value = fileName;
-        opt.innerHTML = `${level.toUpperCase()} - ${i + 1}. Dosya (${fileName})`;
-        daySelect.appendChild(opt);
+    // Seçilen seviyeye göre harf, 00'dan (100 veya 200) başlayan aralıklar
+    if (level === 'all') {
+        groupsToProcess = [
+            { letter: 'a', start: 100, end: 130 },
+            { letter: 'a', start: 200, end: 210 },
+            { letter: 'b', start: 100, end: 150 },
+            { letter: 'b', start: 200, end: 210 },
+            { letter: 'c', start: 100, end: 110 },
+            { letter: 'c', start: 200, end: 210 }
+        ];
+    } else {
+        let letter = level.charAt(0); // a, b, c
+        let startNum = level.includes('2') || level === 'a2' || level === 'b2' || level === 'c2' ? 200 : 100;
+        let maxFiles = 31;
+        
+        if (level === 'a1') { letter = 'a'; startNum = 100; maxFiles = 31; }
+        else if (level === 'a2') { letter = 'a'; startNum = 200; maxFiles = 11; }
+        else if (level === 'b1') { letter = 'b'; startNum = 100; maxFiles = 51; }
+        else if (level === 'b2') { letter = 'b'; startNum = 200; maxFiles = 11; }
+        else if (level === 'c1') { letter = 'c'; startNum = 100; maxFiles = 11; }
+        else if (level === 'c2') { letter = 'c'; startNum = 200; maxFiles = 11; }
+        
+        groupsToProcess = [{ letter: letter, start: startNum, end: startNum + maxFiles - 1 }];
     }
+    
+    groupsToProcess.forEach(g => {
+        for (let i = g.start; i <= g.end; i++) {
+            const fileName = `${g.letter}${i}`;
+            const opt = document.createElement('option');
+            opt.value = fileName;
+            opt.innerHTML = `${fileName.toUpperCase()}`;
+            daySelect.appendChild(opt);
+        }
+    });
+    
+    daySelect.selectedIndex = 0;
     loadData();
 }
 
@@ -69,15 +104,18 @@ function highlightStoryWordsTr(text, wordsArray) {
 }
 
 async function loadData() {
-    const fileName = document.getElementById('daySelect').value;
+    const daySelect = document.getElementById('daySelect');
+    if (!daySelect || !daySelect.value) return;
+    
+    const fileName = daySelect.value;
     const content = document.getElementById('content');
     const sceneBanner = document.getElementById('sceneBanner');
     
     const oldStoryContainer = document.querySelector('.story-container');
     if (oldStoryContainer) oldStoryContainer.remove();
 
-    content.innerHTML = "<p>Veriler yükleniyor...</p>";
-    sceneBanner.innerHTML = `<div class="banner-title">Yükleniyor...</div>`;
+    if (content) content.innerHTML = "<p>Veriler yükleniyor...</p>";
+    if (sceneBanner) sceneBanner.innerHTML = `<div class="banner-title">Yükleniyor...</div>`;
 
     try {
         const filePath = `data/${fileName}.json`;
@@ -88,16 +126,19 @@ async function loadData() {
         }
         
         const data = await res.json();
+        const wordsList = Array.isArray(data) ? data : (data.words || []);
         
-        sceneBanner.innerHTML = `
-            <div class="banner-level">Seviye: ${data.level || '-'}</div>
-            <div class="banner-title">Sahne ${data.scene_id || '-'}: ${data.scene_title || ''}</div>
-            <div class="banner-count">Toplam Kelime: ${data.total_words_in_scene || (data.words ? data.words.length : 0)}</div>
-        `;
+        if (sceneBanner) {
+            sceneBanner.innerHTML = `
+                <div class="banner-level">Seviye: ${data.level || fileName.substring(0,2).toUpperCase()}</div>
+                <div class="banner-title">Sahne: ${data.scene_title || fileName.toUpperCase()}</div>
+                <div class="banner-count">Toplam Kelime: ${wordsList.length}</div>
+            `;
+        }
         
-        if (data.story_en) {
-            const processedStoryEn = highlightStoryWordsEn(data.story_en, data.words);
-            const processedStoryTr = highlightStoryWordsTr(data.story_tr, data.words);
+        if (data.story_en && content) {
+            const processedStoryEn = highlightStoryWordsEn(data.story_en, wordsList);
+            const processedStoryTr = highlightStoryWordsTr(data.story_tr, wordsList);
             
             const storyHTML = document.createElement('div');
             storyHTML.className = 'story-container';
@@ -114,49 +155,53 @@ async function loadData() {
             sceneBanner.insertAdjacentElement('afterend', storyHTML);
         }
         
-        if (!data.words || data.words.length === 0) {
-            content.innerHTML = "<p style='color: #e67e22; font-weight: bold;'>Bu dosya mevcut ancak içerisinde henüz kelime eklenmemiş.</p>";
+        if (wordsList.length === 0) {
+            if (content) content.innerHTML = "<p style='color: #e67e22; font-weight: bold;'>Bu dosya mevcut ancak içerisinde henüz kelime eklenmemiş.</p>";
             return;
         }
         
-        content.innerHTML = data.words.map(w => `
-            <div class="card">
-                <div class="word-row">
-                    <div class="word-box">
-                        <span class="en-word">${w.word}</span>
-                        <button class="sound-btn" onclick="speakText('${w.word}', 'en-US')" title="İngilizce Seslendir">🔊</button>
+        if (content) {
+            content.innerHTML = wordsList.map(w => `
+                <div class="card">
+                    <div class="word-row">
+                        <div class="word-box">
+                            <span class="en-word">${w.word || ''}</span>
+                            <button class="sound-btn" onclick="speakText('${w.word || ''}', 'en-US')" title="İngilizce Seslendir">🔊</button>
+                        </div>
+                        <span class="type">${w.type || ''}</span>
                     </div>
-                    <span class="type">${w.type}</span>
-                </div>
-                
-                <div class="tr-row">
-                    <span class="tr">${w.turkish}</span>
-                    <button class="sound-btn" onclick="speakText('${w.turkish}', 'tr-TR')" title="Türkçe Seslendir">🔊</button>
-                </div>
+                    
+                    <div class="tr-row">
+                        <span class="tr">${w.turkish || ''}</span>
+                        <button class="sound-btn" onclick="speakText('${w.turkish || ''}', 'tr-TR')" title="Türkçe Seslendir">🔊</button>
+                    </div>
 
-                <div class="example">
-                    <div class="example-line">
-                        <p><strong>EN:</strong> <span class="en-sentence">${w.example_en}</span></p>
-                        <button class="sound-btn" onclick="speakText('${w.example_en}', 'en-US')" title="İngilizce Cümleyi Seslendir">🔊</button>
+                    <div class="example">
+                        <div class="example-line">
+                            <p><strong>EN:</strong> <span class="en-sentence">${w.example_en || ''}</span></p>
+                            <button class="sound-btn" onclick="speakText('${w.example_en || ''}', 'en-US')" title="İngilizce Cümleyi Seslendir">🔊</button>
+                        </div>
+                        <div class="example-line">
+                            <p><strong>TR:</strong> <span class="tr-sentence">${w.example_tr || ''}</span></p>
+                            <button class="sound-btn" onclick="speakText('${w.example_tr || ''}', 'tr-TR')" title="Türkçe Cümleyi Seslendir">🔊</button>
+                        </div>
                     </div>
-                    <div class="example-line">
-                        <p><strong>TR:</strong> <span class="tr-sentence">${w.example_tr}</span></p>
-                        <button class="sound-btn" onclick="speakText('${w.example_tr}', 'tr-TR')" title="Türkçe Cümleyi Seslendir">🔊</button>
-                    </div>
-                </div>
 
-                <div class="related"><strong>İlişkili Fiiller:</strong> ${w.related_verbs ? w.related_verbs.join(', ') : ''}</div>
-            </div>
-        `).join('');
+                    <div class="related"><strong>İlişkili Fiiller:</strong> ${w.related_verbs ? w.related_verbs.join(', ') : ''}</div>
+                </div>
+            `).join('');
+        }
 
     } catch (e) {
-        sceneBanner.innerHTML = `<div class="banner-title" style="color: #ffcccc;">Dosya Bulunamadı</div>`;
-        content.innerHTML = `
-            <div style="background: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #e74c3c; grid-column: 1 / -1;">
-                <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Seçilen JSON dosyası sunucuda mevcut değil.</p>
-                <p style='color: #555; margin: 0; font-size: 0.9em;'>Aranan dosya yolu: <code>data/${fileName}.json</code></p>
-            </div>
-        `;
+        if (sceneBanner) sceneBanner.innerHTML = `<div class="banner-title" style="color: #ffcccc;">Dosya Bulunamadı</div>`;
+        if (content) {
+            content.innerHTML = `
+                <div style="background: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #e74c3c; grid-column: 1 / -1;">
+                    <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Seçilen JSON dosyası sunucuda mevcut değil.</p>
+                    <p style='color: #555; margin: 0; font-size: 0.9em;'>Aranan dosya yolu: <code>data/${fileName}.json</code></p>
+                </div>
+            `;
+        }
     }
 }
 
