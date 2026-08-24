@@ -122,9 +122,8 @@
                 <h2>Kelime Çalışma Paneli</h2>
 
                 <div class="selectors-wrapper">
-                    <!-- Seviye ve Dosya Seçimleri Yan Yana ("Tümü" eklendi) -->
+                    <!-- Seviye ve Dosya Seçimleri Yan Yana -->
                     <select id="levelSelect" onchange="generateDayOptions()">
-                        <option value="all">Tümü</option>
                         <option value="a1">A1 Seviyesi</option>
                         <option value="a2">A2 Seviyesi</option>
                         <option value="b1">B1 Seviyesi</option>
@@ -140,7 +139,7 @@
                     <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
 
                     <!-- Analiz Sayfasına Yönlendiren Buton -->
-                    <a href="analiz.html" class="analysis-btn">📊 Kelime Analizi</a>
+                    <a href="analysis.html" class="analysis-btn">📊 Kelime Analizi</a>
                     <a href="analiz.html" class="analysis-btn">📈 Tekrar Analizi</a>
                 </div>
             </div>
@@ -157,7 +156,6 @@
         </main>
     </div>
 
-    <!-- Orijinal app.js bağlantısı korunuyor -->
     <script src="app.js"></script>
     <script>
         // Dosya listesinde bir sonraki öğeye geçiş
@@ -165,7 +163,7 @@
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex < select.options.length - 1) {
                 select.selectedIndex++;
-                loadData(); 
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
         }
 
@@ -174,24 +172,9 @@
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex > 0) {
                 select.selectedIndex--;
-                loadData(); 
+                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
             }
         }
-
-        // Menüdeki "Dosya" yazısını kaldıran temizleyici
-        document.addEventListener("DOMContentLoaded", () => {
-            const daySelect = document.getElementById('daySelect');
-            if (daySelect) {
-                const observer = new MutationObserver(() => {
-                    Array.from(daySelect.options).forEach(opt => {
-                        if (opt.text.includes("Dosya")) {
-                            opt.text = opt.text.replace(/Dosya[:\s]*/gi, '');
-                        }
-                    });
-                });
-                observer.observe(daySelect, { childList: true, subtree: true });
-            }
-        });
     </script>
 </body>
 </html>
