@@ -190,15 +190,19 @@
             padding: 10px;
         }
 
-        /* ÇOK DİLLİ ÇEVİRİ KUTULARI (İKİNCİ RESİM STİLİ) */
+        /* ÇOK DİLLİ ÇEVİRİ KUTULARI (2. RESİM FORMATI) */
         .multi-lang-container {
             display: flex;
             flex-direction: column;
             gap: 8px;
             margin-bottom: 15px;
-            max-height: 250px;
+            max-height: 280px;
             overflow-y: auto;
             padding-right: 4px;
+            border: 1px solid #f1f5f9;
+            padding: 8px;
+            border-radius: 8px;
+            background: #fafafa;
         }
 
         .lang-card {
@@ -220,8 +224,9 @@
         }
 
         .lang-card-body {
-            color: #475569;
-            font-size: 0.8rem;
+            color: #334155;
+            font-size: 0.82rem;
+            word-break: break-word;
         }
 
         .detail-title {
@@ -387,16 +392,15 @@
             <div id="cardsContainer" class="cards-grid"></div>
 
             <div class="detail-sidebar" id="detailSidebar">
-                <!-- 1. GÖRSEL KUTUSU -->
+                <!-- 1. RESİM -->
                 <div class="detail-image-container" id="detailImageContainer">
                     <div class="detail-placeholder-text">Görsel yükleniyor...</div>
                 </div>
 
-                <!-- 2. ÇOK DİLLİ ÇEVİRİ KUTULARI (RESİM ALTI) -->
-                <div id="multiLangContainer" class="multi-lang-container">
-                    <div style="font-size:0.8rem; color:#94a3b8; text-align:center; padding: 10px;">Çok dilli çeviriler yükleniyor...</div>
-                </div>
+                <!-- 2. RESMİN ALTINDAKİ ÇOK DİLLİ ÇEVİRİ PANELİ -->
+                <div id="multiLangContainer" class="multi-lang-container"></div>
 
+                <!-- 3. KELİME DETAYLARI -->
                 <div class="detail-title">
                     <span id="detailTitle">Kelime Seçin</span>
                     <button id="detailTitleAudio" class="audio-btn" style="display:none;" onclick="speakText(currentSelectedWord)">🔊 Oku</button>
@@ -404,7 +408,7 @@
                 <div class="detail-translation" id="detailTranslation">Detay görmek için soldaki kartlardan birine tıklayın.</div>
                 
                 <div class="detail-meta-box" id="detailMetaBox">
-                    Kelime ile ilgili detaylar ve dosya bilgileri burada görünecektir.
+                    Kelime ile ilgili detaylar burada görünecektir.
                 </div>
             </div>
         </div>
@@ -444,8 +448,6 @@
                 utterance.lang = 'en-US';
                 utterance.rate = 0.9;
                 window.speechSynthesis.speak(utterance);
-            } else {
-                alert("Tarayıcınız seslendirme özelliğini desteklemiyor.");
             }
         }
 
@@ -663,48 +665,56 @@
             return cardDiv;
         }
 
-        // ÇOK DİLLİ DİNAMİK ÇEVİRİLERİ ÇEKME FONKSİYONU
-        async function loadMultiLangTranslations(word, sentence) {
+        // DİNAMİK PARALEL ÇEVİRİ İŞLEMİ
+        function renderMultiLangPanel(word, sentence, turkishTranslation, trSentence) {
             const container = document.getElementById('multiLangContainer');
-            container.innerHTML = `<div style="font-size:0.8rem; color:#64748b; text-align:center; padding: 8px;">🌐 Çeviriler yükleniyor...</div>`;
+            container.innerHTML = '';
 
-            let htmlContent = '';
+            // Paneli anında doldur
+            TARGET_LANGS.forEach(lang => {
+                const card = document.createElement('div');
+                card.className = 'lang-card';
+                if (lang.rtl) card.setAttribute('dir', 'rtl');
+                card.id = `lang-card-${lang.code}`;
 
-            for (let lang of TARGET_LANGS) {
-                let translatedWord = word;
-                let translatedSentence = sentence || '';
+                let defaultWord = (lang.code === 'en') ? word : (lang.code === 'tr' ? (turkishTranslation || word) : '...');
+                let defaultSentence = (lang.code === 'en') ? sentence : (lang.code === 'tr' ? (trSentence || sentence) : '...');
 
-                if (lang.code !== 'en') {
-                    try {
-                        let resWord = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|${lang.code}`);
-                        let dataWord = await resWord.json();
-                        if (dataWord && dataWord.responseData && dataWord.responseData.translatedText) {
-                            translatedWord = dataWord.responseData.translatedText;
-                        }
-
-                        if (sentence) {
-                            let resSent = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(sentence)}&langpair=en|${lang.code}`);
-                            let dataSent = await resSent.json();
-                            if (dataSent && dataSent.responseData && dataSent.responseData.translatedText) {
-                                translatedSentence = dataSent.responseData.translatedText;
-                            }
-                        }
-                    } catch (e) {
-                        // Çeviri başarısız olursa orijinal kelimeyi göster
-                    }
-                }
-
-                const dirAttr = lang.rtl ? 'dir="rtl"' : '';
-                htmlContent += `
-                    <div class="lang-card" ${dirAttr}>
-                        <div class="lang-card-header">${lang.flag} ${lang.name}</div>
-                        <div class="lang-card-body"><b>1.</b> ${translatedWord}</div>
-                        ${translatedSentence ? `<div class="lang-card-body" style="margin-top:2px; font-style:italic; color:#64748b;">1. ${translatedSentence}</div>` : ''}
-                    </div>
+                card.innerHTML = `
+                    <div class="lang-card-header">${lang.flag} ${lang.name}</div>
+                    <div class="lang-card-body" id="lang-word-${lang.code}"><b>1.</b> ${defaultWord}</div>
+                    ${sentence ? `<div class="lang-card-body" id="lang-sent-${lang.code}" style="margin-top:2px; font-style:italic; color:#64748b;">1. ${defaultSentence}</div>` : ''}
                 `;
-            }
+                container.appendChild(card);
+            });
 
-            container.innerHTML = htmlContent;
+            // Arka planda dilleri tek tek paralel çevir (Kilitleme yapmaz)
+            TARGET_LANGS.forEach(async (lang) => {
+                if (lang.code === 'en') return;
+                if (lang.code === 'tr' && turkishTranslation) return;
+
+                try {
+                    // Kelime Çevirisi
+                    const resWord = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|${lang.code}`);
+                    const dataWord = await resWord.json();
+                    if (dataWord && dataWord.responseData && dataWord.responseData.translatedText) {
+                        const wordElem = document.getElementById(`lang-word-${lang.code}`);
+                        if (wordElem) wordElem.innerHTML = `<b>1.</b> ${dataWord.responseData.translatedText}`;
+                    }
+
+                    // Cümle Çevirisi
+                    if (sentence && !(lang.code === 'tr' && trSentence)) {
+                        const resSent = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(sentence)}&langpair=en|${lang.code}`);
+                        const dataSent = await resSent.json();
+                        if (dataSent && dataSent.responseData && dataSent.responseData.translatedText) {
+                            const sentElem = document.getElementById(`lang-sent-${lang.code}`);
+                            if (sentElem) sentElem.innerHTML = `1. ${dataSent.responseData.translatedText}`;
+                        }
+                    }
+                } catch (e) {
+                    console.warn(`${lang.name} çevirisi alınamadı`);
+                }
+            });
         }
 
         function showWordDetail(item, currentFile, itemIndex, totalCount) {
@@ -757,8 +767,8 @@
             const exampleText = item.example_en || item.example || item.sentence || '';
             const trExampleText = item.example_tr || item.exampleTr || item.translationExample || '';
 
-            // RESİM ALTI ÇOK DİLLİ ÇEVİRİLERİ TETİKLE
-            loadMultiLangTranslations(wordText, exampleText);
+            // PANELİ ANINDA ÇAĞIR
+            renderMultiLangPanel(wordText, exampleText, translationText, trExampleText);
 
             const appearances = globalWordMap[wordKey] || [];
             const uniqueFiles = [...new Set(appearances.map(app => app.file))];
