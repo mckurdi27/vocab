@@ -6,7 +6,6 @@
     <title>Kelime ve Soru Bankası</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Ana Konteyner ve Genel Düzen */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #f8fafc;
@@ -21,7 +20,6 @@
             padding: 0 15px;
         }
 
-        /* Üst Kontrol Paneli - Modern ve Uyumlu Tasarım */
         .header {
             background: #ffffff;
             border: 1px solid #e2e8f0;
@@ -73,7 +71,6 @@
             flex-wrap: wrap;
         }
 
-        /* Seçim Kutuları - Butonlarla Birebir Aynı ve Belirgin Çerçeve */
         .selectors-wrapper select {
             background-color: #eff6ff;
             border: 1px solid #bfdbfe;
@@ -94,7 +91,6 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
 
-        /* Navigasyon Butonları */
         .nav-arrow-btn {
             background-color: #eff6ff;
             border: 1px solid #bfdbfe;
@@ -116,41 +112,36 @@
 <body>
 
     <div class="container">
-        <!-- Üst Seçim ve Kontrol Paneli -->
         <header class="header">
             <div class="header-top">
                 <h2>Kelime Çalışma Paneli</h2>
 
                 <div class="selectors-wrapper">
-                    <!-- Seviye ve Dosya Seçimleri Yan Yana -->
+                    <!-- Yüzlü Serilerle Uyumlu Seviye/Grup Seçimi -->
                     <select id="levelSelect" onchange="generateDayOptions()">
-                        <option value="a1">A1 Seviyesi</option>
-                        <option value="a2">A2 Seviyesi</option>
-                        <option value="b1">B1 Seviyesi</option>
-                        <option value="b2">B2 Seviyesi</option>
-                        <option value="c1">C1 Seviyesi</option>
-                        <option value="c2">C2 Seviyesi</option>
+                        <option value="all">Tümü</option>
+                        <option value="a100">A100 (A1 - 1. Seri)</option>
+                        <option value="a200">A200 (A2 - 2. Seri)</option>
+                        <option value="b100">B100 (B1 - 1. Seri)</option>
+                        <option value="b200">B200 (B2 - 2. Seri)</option>
+                        <option value="c100">C100 (C1 - 1. Seri)</option>
+                        <option value="c200">C200 (C2 - 2. Seri)</option>
                     </select>
 
                     <select id="daySelect" onchange="loadData()"></select>
 
-                    <!-- Önceki ve Sonraki Butonları Yan Yana -->
                     <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
                     <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
 
-                    <!-- Analiz Sayfasına Yönlendiren Buton -->
-                    <a href="analysis.html" class="analysis-btn">📊 Kelime Analizi</a>
-                    <a href="analiz.html" class="analysis-btn">📈 Tekrar Analizi</a>
+                    <a href="analiz.html" class="analysis-btn">📊 Kelime Analizi</a>
                 </div>
             </div>
         </header>
 
-        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı (Kelimelerin Üstünde) -->
         <div id="sceneBanner" class="scene-banner">
             <h3>Yükleniyor...</h3>
         </div>
 
-        <!-- İçerik Alanı -->
         <main id="content" class="word-grid">
             <p>Veriler yükleniyor...</p>
         </main>
@@ -158,21 +149,19 @@
 
     <script src="app.js"></script>
     <script>
-        // Dosya listesinde bir sonraki öğeye geçiş
         function nextFile() {
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex < select.options.length - 1) {
                 select.selectedIndex++;
-                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
+                loadData();
             }
         }
 
-        // Dosya listesinde bir önceki öğeye geçiş
         function prevFile() {
             const select = document.getElementById('daySelect');
             if (select && select.selectedIndex > 0) {
                 select.selectedIndex--;
-                loadData(); // app.js içindeki veri yükleme fonksiyonunu tetikler
+                loadData();
             }
         }
     </script>
