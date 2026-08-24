@@ -123,7 +123,7 @@
 
         .main-layout {
             display: grid;
-            grid-template-columns: 1fr 420px;
+            grid-template-columns: 1fr 440px;
             gap: 20px;
             align-items: start;
         }
@@ -166,7 +166,7 @@
 
         .detail-image-container {
             width: 100%;
-            height: 200px;
+            height: 190px;
             border-radius: 10px;
             overflow: hidden;
             background-color: #f1f5f9;
@@ -190,16 +190,53 @@
             padding: 10px;
         }
 
+        /* ÇOK DİLLİ ÇEVİRİ KUTULARI (İKİNCİ RESİM STİLİ) */
+        .multi-lang-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+            max-height: 250px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .lang-card {
+            background: #fdfbf7;
+            border: 1px solid #e7e2d5;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        .lang-card-header {
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-card-body {
+            color: #475569;
+            font-size: 0.8rem;
+        }
+
         .detail-title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #0f172a;
             margin-bottom: 4px;
             text-transform: capitalize;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .detail-translation {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--primary-color);
             font-weight: 600;
             margin-bottom: 12px;
@@ -215,8 +252,24 @@
             line-height: 1.6;
         }
 
-        .detail-meta-box b {
-            color: #1e293b;
+        .audio-btn {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #2563eb;
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .audio-btn:hover {
+            background: #2563eb;
+            color: white;
         }
 
         .vocab-card {
@@ -334,11 +387,22 @@
             <div id="cardsContainer" class="cards-grid"></div>
 
             <div class="detail-sidebar" id="detailSidebar">
+                <!-- 1. GÖRSEL KUTUSU -->
                 <div class="detail-image-container" id="detailImageContainer">
                     <div class="detail-placeholder-text">Görsel yükleniyor...</div>
                 </div>
-                <div class="detail-title" id="detailTitle">Kelime Seçin</div>
+
+                <!-- 2. ÇOK DİLLİ ÇEVİRİ KUTULARI (RESİM ALTI) -->
+                <div id="multiLangContainer" class="multi-lang-container">
+                    <div style="font-size:0.8rem; color:#94a3b8; text-align:center; padding: 10px;">Çok dilli çeviriler yükleniyor...</div>
+                </div>
+
+                <div class="detail-title">
+                    <span id="detailTitle">Kelime Seçin</span>
+                    <button id="detailTitleAudio" class="audio-btn" style="display:none;" onclick="speakText(currentSelectedWord)">🔊 Oku</button>
+                </div>
                 <div class="detail-translation" id="detailTranslation">Detay görmek için soldaki kartlardan birine tıklayın.</div>
+                
                 <div class="detail-meta-box" id="detailMetaBox">
                     Kelime ile ilgili detaylar ve dosya bilgileri burada görünecektir.
                 </div>
@@ -352,6 +416,38 @@
         let filteredFiles = [];
         let currentIndex = 0;
         let isAnalyzed = false;
+        let currentSelectedWord = "";
+
+        const TARGET_LANGS = [
+            { code: 'en', flag: '🇬🇧', name: 'English' },
+            { code: 'tr', flag: '🇹🇷', name: 'Türkçe' },
+            { code: 'de', flag: '🇩🇪', name: 'Deutsch' },
+            { code: 'nl', flag: '🇳🇱', name: 'Nederlands' },
+            { code: 'fr', flag: '🇫🇷', name: 'Français' },
+            { code: 'ru', flag: '🇷🇺', name: 'Русский' },
+            { code: 'ku', flag: '🏴', name: 'Kurdî' },
+            { code: 'ar', flag: '🇸🇦', name: 'العربية', rtl: true },
+            { code: 'es', flag: '🇪🇸', name: 'Español' },
+            { code: 'it', flag: '🇮🇹', name: 'Italiano' },
+            { code: 'pt', flag: '🇵🇹', name: 'Português' },
+            { code: 'ko', flag: '🇰🇷', name: '한국어' },
+            { code: 'ja', flag: '🇯🇵', name: '日本語' },
+            { code: 'zh', flag: '🇨🇳', name: '中文' },
+            { code: 'vi', flag: '🇻🇳', name: 'Tiếng Việt' }
+        ];
+
+        function speakText(text) {
+            if (!text) return;
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Tarayıcınız seslendirme özelliğini desteklemiyor.");
+            }
+        }
 
         async function initApp() {
             try {
@@ -501,12 +597,12 @@
 
                 if (Array.isArray(wordsList) && wordsList.length > 0) {
                     wordsList.forEach((item, index) => {
-                        const card = createVocabCard(item, file, index);
+                        const card = createVocabCard(item, file, index, wordsList.length);
                         container.appendChild(card);
                     });
                     
                     if (wordsList[0]) {
-                        showWordDetail(wordsList[0], file, 0);
+                        showWordDetail(wordsList[0], file, 0, wordsList.length);
                     }
                 } else {
                     container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu dosyada kelime bulunamadı.</p>`;
@@ -516,7 +612,7 @@
             }
         }
 
-        function createVocabCard(item, currentFile, itemIndex) {
+        function createVocabCard(item, currentFile, itemIndex, totalCount) {
             const wordKey = (item.word || item.term || "").trim().toLowerCase();
             const appearances = globalWordMap[wordKey] || [];
             const count = appearances.length;
@@ -548,7 +644,7 @@
             cardDiv.onclick = () => {
                 document.querySelectorAll('.vocab-card').forEach(c => c.classList.remove('active-card'));
                 cardDiv.classList.add('active-card');
-                showWordDetail(item, currentFile, itemIndex);
+                showWordDetail(item, currentFile, itemIndex, totalCount);
             };
 
             const wordText = item.word || item.term || '';
@@ -567,13 +663,58 @@
             return cardDiv;
         }
 
-        function showWordDetail(item, currentFile, itemIndex) {
+        // ÇOK DİLLİ DİNAMİK ÇEVİRİLERİ ÇEKME FONKSİYONU
+        async function loadMultiLangTranslations(word, sentence) {
+            const container = document.getElementById('multiLangContainer');
+            container.innerHTML = `<div style="font-size:0.8rem; color:#64748b; text-align:center; padding: 8px;">🌐 Çeviriler yükleniyor...</div>`;
+
+            let htmlContent = '';
+
+            for (let lang of TARGET_LANGS) {
+                let translatedWord = word;
+                let translatedSentence = sentence || '';
+
+                if (lang.code !== 'en') {
+                    try {
+                        let resWord = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|${lang.code}`);
+                        let dataWord = await resWord.json();
+                        if (dataWord && dataWord.responseData && dataWord.responseData.translatedText) {
+                            translatedWord = dataWord.responseData.translatedText;
+                        }
+
+                        if (sentence) {
+                            let resSent = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(sentence)}&langpair=en|${lang.code}`);
+                            let dataSent = await resSent.json();
+                            if (dataSent && dataSent.responseData && dataSent.responseData.translatedText) {
+                                translatedSentence = dataSent.responseData.translatedText;
+                            }
+                        }
+                    } catch (e) {
+                        // Çeviri başarısız olursa orijinal kelimeyi göster
+                    }
+                }
+
+                const dirAttr = lang.rtl ? 'dir="rtl"' : '';
+                htmlContent += `
+                    <div class="lang-card" ${dirAttr}>
+                        <div class="lang-card-header">${lang.flag} ${lang.name}</div>
+                        <div class="lang-card-body"><b>1.</b> ${translatedWord}</div>
+                        ${translatedSentence ? `<div class="lang-card-body" style="margin-top:2px; font-style:italic; color:#64748b;">1. ${translatedSentence}</div>` : ''}
+                    </div>
+                `;
+            }
+
+            container.innerHTML = htmlContent;
+        }
+
+        function showWordDetail(item, currentFile, itemIndex, totalCount) {
             const wordText = (item.word || item.term || '').trim();
             const wordKey = wordText.toLowerCase();
+            currentSelectedWord = wordText;
+
             const translationText = item.translation || item.meaning || item.turkish || '';
             const wordType = item.type || item.partOfSpeech || 'noun';
             
-            // CEFR Seviyesi Çıkarımı
             let cefrLevel = item.level || item.cefr || '';
             if (!cefrLevel && currentFile) {
                 const fileName = currentFile.split('/').pop().replace('.json', '').toLowerCase();
@@ -586,9 +727,10 @@
             const collocatedVerbs = item.verbs || item.collocations || item.usableVerbs || item.relatedVerbs || [];
 
             document.getElementById('detailTitle').textContent = wordText;
+            document.getElementById('detailTitleAudio').style.display = 'inline-flex';
             document.getElementById('detailTranslation').textContent = `${translationText} (${wordType})`;
 
-            // WIKIPEDIA REST API İLE BİREBİR GERÇEK/ISABETLİ RESİM ÇEKME
+            // WIKIPEDIA GÖRSELİ
             const imageContainer = document.getElementById('detailImageContainer');
             imageContainer.innerHTML = `<div class="detail-placeholder-text">🖼️ Görsel yükleniyor...</div>`;
 
@@ -612,19 +754,25 @@
                     });
             }
 
-            const appearances = globalWordMap[wordKey] || [];
-            const uniqueFiles = [...new Set(appearances.map(app => app.file))];
-
             const exampleText = item.example_en || item.example || item.sentence || '';
             const trExampleText = item.example_tr || item.exampleTr || item.translationExample || '';
 
+            // RESİM ALTI ÇOK DİLLİ ÇEVİRİLERİ TETİKLE
+            loadMultiLangTranslations(wordText, exampleText);
+
+            const appearances = globalWordMap[wordKey] || [];
+            const uniqueFiles = [...new Set(appearances.map(app => app.file))];
+
             let metaHtml = `<b>Kelime & Tür:</b> ${wordText} <i>(${wordType})</i><br>`;
+            metaHtml += `<b>Kelime Sırası:</b> <span style="background:#f1f5f9; padding:2px 6px; border-radius:4px; font-weight:bold;">${itemIndex + 1} / ${totalCount || 10}</span><br>`;
             metaHtml += `<b>Kategori / Grup:</b> ${category}<br>`;
             metaHtml += `<b>CEFR Seviyesi:</b> <span style="background:#e0e7ff; color:#3730a3; padding:2px 6px; border-radius:4px; font-weight:bold; font-size:11px;">${cefrLevel}</span><br>`;
             metaHtml += `<b>Türkçe Anlamı:</b> ${translationText}<br>`;
 
             if (exampleText) {
-                metaHtml += `<br><b>Örnek Cümle (EN):</b> <i>"${exampleText}"</i><br>`;
+                const escapedSentence = exampleText.replace(/'/g, "\\'");
+                metaHtml += `<br><b>Örnek Cümle (EN):</b> <i>"${exampleText}"</i> `;
+                metaHtml += `<button class="audio-btn" onclick="speakText('${escapedSentence}')">🔊 Dinle</button><br>`;
             }
             if (trExampleText) {
                 metaHtml += `<b>Örnek Çeviri (TR):</b> <i>"${trExampleText}"</i><br>`;
@@ -644,12 +792,11 @@
             }
 
             metaHtml += `<div id="apiExtraData" style="margin-top:10px; padding-top:8px; border-top:1px dashed #cbd5e1; font-size:0.85rem; color:#475569;">
-                <i>⏳ Ses ve sözlük verileri yükleniyor...</i>
+                <i>⏳ Ek sözlük verileri yükleniyor...</i>
             </div>`;
 
             document.getElementById('detailMetaBox').innerHTML = metaHtml;
 
-            // CANLI SÖZLÜK VE SES VERİSİ
             if (wordKey) {
                 fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(wordKey)}`)
                     .then(res => res.ok ? res.json() : null)
@@ -660,20 +807,10 @@
                         if (data && data[0]) {
                             const entry = data[0];
                             let apiContent = '';
-
-                            let audioUrl = '';
-                            if (entry.phonetics) {
-                                const aObj = entry.phonetics.find(p => p.audio && p.audio.trim() !== '');
-                                if (aObj) audioUrl = aObj.audio;
-                            }
                             const phoneticText = entry.phonetic || (entry.phonetics && entry.phonetics[0] ? entry.phonetics[0].text : '');
 
-                            if (phoneticText || audioUrl) {
-                                apiContent += `<b>Okunuş / Ses:</b> ${phoneticText || ''} `;
-                                if (audioUrl) {
-                                    apiContent += `<button onclick="new Audio('${audioUrl}').play()" style="padding:2px 6px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#fff;">🔊 Dinle</button>`;
-                                }
-                                apiContent += `<br>`;
+                            if (phoneticText) {
+                                apiContent += `<b>Fonetik Okunuş:</b> ${phoneticText}<br>`;
                             }
 
                             let synonyms = [], antonyms = [];
