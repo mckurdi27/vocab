@@ -7,15 +7,7 @@ function initLevelSelect() {
     const levelSelect = document.getElementById('levelSelect');
     if (!levelSelect) return;
     
-    // En başta "Tümü" seçeneğinin olduğundan emin oluyoruz
-    if (![...levelSelect.options].some(opt => opt.value === 'all')) {
-        const allOpt = document.createElement('option');
-        allOpt.value = 'all';
-        allOpt.innerHTML = 'Tümü';
-        levelSelect.insertBefore(allOpt, levelSelect.firstChild);
-    }
-    
-    // Sayfa ilk açıldığında varsayılan olarak "Tümü" seçili gelsin
+    // Varsayılan olarak "Tümü" seçili gelsin
     if (!levelSelect.value) {
         levelSelect.value = 'all';
     }
@@ -45,7 +37,6 @@ function generateDayOptions() {
         let startNum = 100;
         let maxFiles = 51;
         
-        // Hem kısa adlar (a1, a2...) hem de analiz sayfasındaki yüzlü grup adları (a100, a200...) destekleniyor
         if (level === 'a1' || level === 'a100') { letter = 'a'; startNum = 100; maxFiles = 51; }
         else if (level === 'a2' || level === 'a200') { letter = 'a'; startNum = 200; maxFiles = 51; }
         else if (level === 'b1' || level === 'b100') { letter = 'b'; startNum = 100; maxFiles = 51; }
@@ -58,7 +49,7 @@ function generateDayOptions() {
     
     groupsToProcess.forEach(g => {
         for (let i = g.start; i <= g.end; i++) {
-            const fileName = `${g.letter}${i}`; // Örn: a100, a200, b100...
+            const fileName = `${g.letter}${i}`; 
             const opt = document.createElement('option');
             opt.value = fileName;
             opt.innerHTML = `${fileName.toUpperCase()}`;
