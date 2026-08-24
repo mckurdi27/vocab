@@ -3,22 +3,6 @@ let currentSceneWords = [];
 document.addEventListener("DOMContentLoaded", () => {
     initLevelSelect();
     generateDayOptions();
-    
-    // Panel değişimlerini dinleyen olaylar
-    const levelSelect = document.getElementById('levelSelect');
-    const daySelect = document.getElementById('daySelect');
-    
-    if (levelSelect) {
-        levelSelect.addEventListener('change', () => {
-            generateDayOptions();
-        });
-    }
-    
-    if (daySelect) {
-        daySelect.addEventListener('change', () => {
-            loadData();
-        });
-    }
 });
 
 // 1. Üst Seviye menüsüne "Tümü" seçeneğini ekleyen fonksiyon
