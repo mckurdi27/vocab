@@ -4,36 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelime ve Soru Bankası</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --primary-color: #2563eb;
-            --primary-hover: #1d4ed8;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-color: #1e293b;
-            --border-color: #e2e8f0;
-        }
-
+        /* Ana Konteyner ve Genel Düzen */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: #f8fafc;
+            color: #1e293b;
             margin: 0;
-            padding: 15px;
+            padding: 0;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
 
-        header {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
+        /* Üst Kontrol Paneli - Modern ve Uyumlu Tasarım */
+        .header {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 16px;
             padding: 16px 20px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
             margin-bottom: 24px;
+        }
+
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,10 +39,31 @@
             gap: 12px;
         }
 
-        h2 {
+        .header-top h2 {
             margin: 0;
             font-size: 1.25rem;
             color: #0f172a;
+            font-weight: 700;
+        }
+
+        .analysis-btn {
+            background-color: #2563eb;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .analysis-btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
         }
 
         .selectors-wrapper {
@@ -54,7 +73,8 @@
             flex-wrap: wrap;
         }
 
-        .app-select, .nav-arrow-btn, .analysis-btn {
+        /* Seçim Kutuları - Butonlarla Birebir Aynı ve Belirgin Çerçeve */
+        .selectors-wrapper select {
             background-color: #eff6ff;
             border: 1px solid #bfdbfe;
             color: #1d4ed8;
@@ -62,258 +82,115 @@
             border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 600;
+            transition: all 0.2s ease;
             outline: none;
             cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
         }
 
-        .app-select:hover, .nav-arrow-btn:hover {
+        .selectors-wrapper select:hover, 
+        .selectors-wrapper select:focus {
             background-color: #dbeafe;
             border-color: #93c5fd;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
 
-        .analysis-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            font-size: 13px;
-            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
-        }
-
-        .analysis-btn:hover {
-            background-color: var(--primary-hover);
-        }
-
-        /* Kelime Kartları Izgarası */
-        .word-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-        }
-
-        .vocab-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .vocab-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.08);
-            border-color: var(--primary-color);
-        }
-
-        .word-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #0f172a;
-            margin-bottom: 6px;
-        }
-
-        .word-translation {
-            color: #475569;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-
-        .word-meta {
-            font-size: 0.75rem;
-            color: #64748b;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 8px;
-            margin-top: 8px;
-        }
-
-        .scene-banner {
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            padding: 15px 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
+        /* Navigasyon Butonları */
+        .nav-arrow-btn {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
             font-weight: 600;
-            color: #1e293b;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-arrow-btn:hover {
+            background-color: #dbeafe;
+            border-color: #93c5fd;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header>
-            <h2>Kelime Çalışma Paneli</h2>
+        <!-- Üst Seçim ve Kontrol Paneli -->
+        <header class="header">
+            <div class="header-top">
+                <h2>Kelime Çalışma Paneli</h2>
 
-            <div class="selectors-wrapper">
-                <!-- Seviye Seçimi -->
-                <select id="levelSelect" class="app-select" onchange="onLevelChange()">
-                    <option value="a1">A1 Seviyesi</option>
-                    <option value="a2">A2 Seviyesi</option>
-                    <option value="b1">B1 Seviyesi</option>
-                    <option value="b2">B2 Seviyesi</option>
-                    <option value="c1">C1 Seviyesi</option>
-                    <option value="c2">C2 Seviyesi</option>
-                </select>
+                <div class="selectors-wrapper">
+                    <!-- Seviye Seçimi ("Tümü" eklendi) -->
+                    <select id="levelSelect" onchange="generateDayOptions()">
+                        <option value="all">Tümü</option>
+                        <option value="a1">A1 Seviyesi</option>
+                        <option value="a2">A2 Seviyesi</option>
+                        <option value="b1">B1 Seviyesi</option>
+                        <option value="b2">B2 Seviyesi</option>
+                        <option value="c1">C1 Seviyesi</option>
+                        <option value="c2">C2 Seviyesi</option>
+                    </select>
 
-                <!-- Dosya Seçimi -->
-                <select id="daySelect" class="app-select" onchange="onFileSelectChange()"></select>
+                    <select id="daySelect" onchange="loadData()"></select>
 
-                <!-- Navigasyon Butonları -->
-                <button type="button" class="nav-arrow-btn" onclick="navigateFile(-1)">⬅️ Önceki</button>
-                <button type="button" class="nav-arrow-btn" onclick="navigateFile(1)">Sonraki ➡️</button>
+                    <!-- Önceki ve Sonraki Butonları Yan Yana -->
+                    <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
+                    <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
 
-                <!-- Analiz Sayfası Bağlantıları -->
-                <a href="analiz.html" class="analysis-btn">📊 Kelime Analizi</a>
+                    <!-- Analiz Sayfasına Yönlendiren Buton -->
+                    <a href="analiz.html" class="analysis-btn">📊 Kelime Analizi</a>
+                    <a href="analiz.html" class="analysis-btn">📈 Tekrar Analizi</a>
+                </div>
             </div>
         </header>
 
+        <!-- JSON Bilgilerinin Gösterileceği Büyük Başlık Alanı (Kelimelerin Üstünde) -->
         <div id="sceneBanner" class="scene-banner">
             <h3>Yükleniyor...</h3>
         </div>
 
+        <!-- İçerik Alanı -->
         <main id="content" class="word-grid">
-            <p style="text-align:center; color:#64748b; grid-column: 1/-1;">Veriler yükleniyor...</p>
+            <p>Veriler yükleniyor...</p>
         </main>
     </div>
 
+    <script src="app.js"></script>
     <script>
-        let allDaysFiles = [];
-        let filteredFiles = [];
-        let currentIndex = 0;
-
-        function initApp() {
-            allDaysFiles = [];
-            const levelsConfig = [
-                { letter: 'a', level: 1 },
-                { letter: 'a', level: 2 },
-                { letter: 'b', level: 1 },
-                { letter: 'b', level: 2 },
-                { letter: 'c', level: 1 },
-                { letter: 'c', level: 2 }
-            ];
-
-            levelsConfig.forEach(cfg => {
-                for (let i = 0; i <= 50; i++) {
-                    let groupNum = i < 10 ? '0' + i : '' + i;
-                    let fileNum = cfg.level === 1 ? '1' + groupNum : '2' + groupNum;
-                    allDaysFiles.push(`data/${cfg.letter}${fileNum}.json`);
-                }
-            });
-
-            onLevelChange();
-        }
-
-        function onLevelChange() {
-            const selectedLevel = document.getElementById('levelSelect').value; // örn: 'a1', 'c2'
-            let targetLetter = selectedLevel.charAt(0);
-            let levelNum = selectedLevel.charAt(1);
-
-            filteredFiles = allDaysFiles.filter(file => {
-                const fileName = file.split('/').pop();
-                const isLetterMatch = fileName.startsWith(targetLetter);
-                const fileCode = fileName.replace('.json', '');
-                const isLevelMatch = levelNum === '1' ? fileCode[1] === '1' : fileCode[1] === '2';
-                return isLetterMatch && isLevelMatch;
-            });
-
-            updateFileDropdown();
-            if (filteredFiles.length > 0) {
-                currentIndex = 0;
-                loadData(filteredFiles[0]);
+        // Dosya listesinde bir sonraki öğeye geçiş
+        function nextFile() {
+            const select = document.getElementById('daySelect');
+            if (select && select.selectedIndex < select.options.length - 1) {
+                select.selectedIndex++;
+                loadData(); 
             }
         }
 
-        function updateFileDropdown() {
+        // Dosya listesinde bir önceki öğeye geçiş
+        function prevFile() {
             const select = document.getElementById('daySelect');
-            select.innerHTML = '';
-
-            filteredFiles.forEach((file) => {
-                const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
-                const option = document.createElement('option');
-                option.value = file;
-                option.textContent = `Dosya: ${fileName}`;
-                select.appendChild(option);
-            });
+            if (select && select.selectedIndex > 0) {
+                select.selectedIndex--;
+                loadData(); 
+            }
         }
 
-        function onFileSelectChange() {
-            const select = document.getElementById('daySelect');
-            const selectedFile = select.value;
-            currentIndex = filteredFiles.indexOf(selectedFile);
-            loadData(selectedFile);
-        }
-
-        function navigateFile(direction) {
-            if (filteredFiles.length === 0) return;
-            currentIndex += direction;
-            if (currentIndex < 0) currentIndex = filteredFiles.length - 1;
-            if (currentIndex >= filteredFiles.length) currentIndex = 0;
-
-            const select = document.getElementById('daySelect');
-            select.selectedIndex = currentIndex;
-            loadData(filteredFiles[currentIndex]);
-        }
-
-        async function loadData(filePath) {
-            const container = document.getElementById('content');
-            const sceneBanner = document.getElementById('sceneBanner');
-
-            container.innerHTML = `<p style="text-align:center; color:#64748b; grid-column: 1/-1; padding: 20px;">Dosya yükleniyor...</p>`;
-            sceneBanner.innerHTML = `<h3>Yükleniyor...</h3>`;
-
-            try {
-                const response = await fetch(filePath);
-                
-                // Dosya sunucuda yoksa veya hata döndürürse sistemi durdurmadan şık uyarı ver
-                if (!response.ok) {
-                    container.innerHTML = `
-                        <div style="grid-column: 1/-1; text-align: center; padding: 40px; background: #fff; border-radius: 12px; border: 1px solid #fee2e2;">
-                            <h3 style="color: #ef4444; margin-bottom: 8px;">⚠️ Dosya Bulunamadı</h3>
-                            <p style="color: #64748b; font-size: 0.9rem;">Seçilen dosya (<code>${filePath}</code>) sunucuda mevcut değil veya henüz yüklenmemiş.</p>
-                        </div>`;
-                    sceneBanner.innerHTML = `<h3>⚠️ Dosya Mevcut Değil</h3>`;
-                    return;
-                }
-
-                const dayData = await response.json();
-                const wordsList = dayData.words || dayData.vocabulary || dayData;
-                const fileNameUpper = filePath.split('/').pop().replace('.json', '').toUpperCase();
-
-                sceneBanner.innerHTML = `<h3>Seçilen Dosya: ${fileNameUpper}</h3>`;
-                container.innerHTML = '';
-
-                if (Array.isArray(wordsList) && wordsList.length > 0) {
-                    wordsList.forEach(item => {
-                        const word = item.word || item.term || '';
-                        const translation = item.translation || item.meaning || '';
-                        const example = item.example || item.sentence || '';
-
-                        const card = document.createElement('div');
-                        card.className = 'vocab-card';
-                        card.innerHTML = `
-                            <div class="word-title">${word}</div>
-                            <div class="word-translation">${translation}</div>
-                            ${example ? `<div class="word-meta"><b>Örnek:</b> ${example}</div>` : ''}
-                        `;
-                        container.appendChild(card);
+        // app.js tarafından doldurulan dosya seçim menüsündeki "Dosya" ibaresini otomatik temizler
+        document.addEventListener("DOMContentLoaded", () => {
+            const daySelect = document.getElementById('daySelect');
+            if (daySelect) {
+                const observer = new MutationObserver(() => {
+                    Array.from(daySelect.options).forEach(opt => {
+                        if (opt.text.includes("Dosya")) {
+                            opt.text = opt.text.replace(/Dosya[:\s]*/gi, '');
+                        }
                     });
-                } else {
-                    container.innerHTML = `<p style="text-align:center; color:#64748b; grid-column: 1/-1;">Bu dosyada kelime bulunamadı.</p>`;
-                }
-
-            } catch (error) {
-                console.error("Yükleme hatası:", error);
-                container.innerHTML = `<p style="text-align:center; color:#ef4444; grid-column: 1/-1;">Dosya okunurken bir hata oluştu.</p>`;
-                sceneBanner.innerHTML = `<h3>Hata Oluştu</h3>`;
+                });
+                observer.observe(daySelect, { childList: true, subtree: true });
             }
-        }
-
-        // Sayfa açıldığında başlat
-        initApp();
+        });
     </script>
 </body>
 </html>
