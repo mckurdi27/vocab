@@ -1,0 +1,106 @@
+{
+  "level": "A0",
+  "scene_id": 1,
+  "scene_title": "Core Grammar Categories and Sentence Elements",
+  "total_elements": 12,
+  "story_en": "Every sentence needs a subject, a verb, and structural elements categorized by parts of speech.",
+  "story_tr": "Her cümlenin bir özneye, bir fiile ve kelime türlerine göre sınıflandırılmış yapısal ögelere ihtiyacı vardır.",
+  "words": [
+    {
+      "word": "subject",
+      "type": "sentence element",
+      "turkish": "Özne (Cümlede işi yapan veya hakkında konuşulan temel öge)",
+      "example_en": "The student reads a book.",
+      "example_tr": "Öğrenci kitap okur.",
+      "related_terms": ["pronoun", "noun"]
+    },
+    {
+      "word": "verb",
+      "type": "sentence element / predicate",
+      "turkish": "Yüklem / Fiil (Cümlenin eylem, oluş veya durum bildiren çekirdek ögesi)",
+      "example_en": "She runs fast.",
+      "example_tr": "O hızlı koşar.",
+      "related_terms": ["action", "state", "auxiliary"]
+    },
+    {
+      "word": "object",
+      "type": "sentence element",
+      "turkish": "Nesne (Fiilden etkilenen, eylemin yöneldiği öge)",
+      "example_en": "I eat an apple.",
+      "example_tr": "Bir elma yerim.",
+      "related_terms": ["direct object", "indirect object"]
+    },
+    {
+      "word": "complement",
+      "type": "sentence element",
+      "turkish": "Tamamlayıcı / İsim Cümlesi Tümleci (Özneyi veya nesneyi açıklayan, tamamlayan öge)",
+      "example_en": "You are happy.",
+      "example_tr": "Mutlusun.",
+      "related_terms": ["adjective", "noun"]
+    },
+    {
+      "word": "adverbial",
+      "type": "sentence element",
+      "turkish": "Zarf Tümleci / Yer-Zaman Belirteci (Eylemin nasıl, nerede, ne zaman yapıldığını bildiren öge)",
+      "example_en": "We study here now.",
+      "example_tr": "Şimdi burada ders çalışıyoruz.",
+      "related_terms": ["adverb", "prepositional phrase"]
+    },
+    {
+      "word": "noun",
+      "type": "part of speech",
+      "turkish": "İsim / Ad (Varlıkların, kişilerin ve kavramların adı)",
+      "example_en": "School, book, student",
+      "example_tr": "Okul, kitap, öğrenci",
+      "related_terms": ["pronoun", "subject"]
+    },
+    {
+      "word": "pronoun",
+      "type": "part of speech",
+      "turkish": "Zamir / Adıl (İsmin yerini tutan sözcük türü)",
+      "example_en": "He, she, it, they",
+      "example_tr": "O, onlar",
+      "related_terms": ["noun", "subject"]
+    },
+    {
+      "word": "adjective",
+      "type": "part of speech",
+      "turkish": "Sıfat / Ön Ad (İsimleri niteleyen sözcük türü)",
+      "example_en": "Good, big, new",
+      "example_tr": "İyi, büyük, yeni",
+      "related_terms": ["noun", "complement"]
+    },
+    {
+      "word": "adverb",
+      "type": "part of speech",
+      "turkish": "Zarf / Belirteç (Fiili veya sıfatı niteleyen sözcük türü)",
+      "example_en": "Fast, now, here",
+      "example_tr": "Hızlıca, şimdi, burada",
+      "related_terms": ["adverbial", "verb"]
+    },
+    {
+      "word": "preposition",
+      "type": "part of speech",
+      "turkish": "Edat / İlgeç (Yer, yön ve zaman ilişkisi kuran sözcük türü)",
+      "example_en": "In, on, at, to",
+      "example_tr": "İçinde, üstünde, -de",
+      "related_terms": ["adverbial"]
+    },
+    {
+      "word": "conjunction",
+      "type": "part of speech",
+      "turkish": "Bağlaç (Kelimeleri veya cümleleri birbirine bağlayan sözcük türü)",
+      "example_en": "And, but, because",
+      "example_tr": "Ve, ama, çünkü",
+      "related_terms": ["clause connector"]
+    },
+    {
+      "word": "exclamation",
+      "type": "part of speech",
+      "turkish": "Ünlem (Ani duygu bildiren sözcük türü)",
+      "example_en": "Wow, oh, ouch",
+      "example_tr": "Vay canına, ah",
+      "related_terms": ["interjection"]
+    }
+  ]
+}
