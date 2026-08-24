@@ -11,24 +11,25 @@ function generateDayOptions() {
     let startNum = 100;
     let maxFiles = 50; 
 
-    if (level === 'a1') { letter = 'a'; startNum = 100; maxFiles = 51; }
-    else if (level === 'a2') { letter = 'a'; startNum = 200; maxFiles = 51; }
+    // Seviyelere göre harf, başlangıç dosyası (örn: 100 veya 200) ve dosya adedi ayarı
+    if (level === 'a1') { letter = 'a'; startNum = 100; maxFiles = 31; }
+    else if (level === 'a2') { letter = 'a'; startNum = 200; maxFiles = 11; }
     else if (level === 'b1') { letter = 'b'; startNum = 100; maxFiles = 51; }
-    else if (level === 'b2') { letter = 'b'; startNum = 200; maxFiles = 51; }
-    else if (level === 'c1') { letter = 'c'; startNum = 100; maxFiles = 51; }
+    else if (level === 'b2') { letter = 'b'; startNum = 200; maxFiles = 11; }
+    else if (level === 'c1') { letter = 'c'; startNum = 100; maxFiles = 11; }
     
-    for(let i = 1; i <= maxFiles; i++) {
-        const fileNum = startNum + (i - 1);
+    // Döngüyü 0'dan başlatarak a100, a101 gibi gerçek dosya adlarını sırayla oluşturuyoruz
+    for(let i = 0; i < maxFiles; i++) {
+        const fileNum = startNum + i;
         const fileName = `${letter}${fileNum}`;
         const opt = document.createElement('option');
         opt.value = fileName;
-        opt.innerHTML = `${level.toUpperCase()} - ${i}. Dosya (${fileName})`;
+        opt.innerHTML = `${level.toUpperCase()} - ${i + 1}. Dosya (${fileName})`;
         daySelect.appendChild(opt);
     }
     loadData();
 }
 
-// İngilizce hikaye için kelimeyi kırmızı vurgulayan fonksiyon
 function highlightStoryWordsEn(text, wordsArray) {
     if (!text || !wordsArray) return text;
     let highlightedText = text;
@@ -43,7 +44,6 @@ function highlightStoryWordsEn(text, wordsArray) {
     return highlightedText;
 }
 
-// Türkçe hikaye için ek almış kelimeleri bile yakalayıp mavi yapan fonksiyon
 function highlightStoryWordsTr(text, wordsArray) {
     if (!text || !wordsArray) return text;
     let highlightedText = text;
