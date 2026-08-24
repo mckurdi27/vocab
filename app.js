@@ -39,12 +39,17 @@ function generateDayOptions() {
         let letter = 'a';
         let startNum = 100;
         
-        if (level.includes('a2') || level.includes('200')) { letter = 'a'; startNum = 200; }
-        else if (level.includes('b1')) { letter = 'b'; startNum = 100; }
-        else if (level.includes('b2') || level.includes('200')) { letter = 'b'; startNum = 200; }
-        else if (level.includes('c1')) { letter = 'c'; startNum = 100; }
-        else if (level.includes('c2') || level.includes('200')) { letter = 'c'; startNum = 200; }
-        else { letter = level.charAt(0); startNum = level.includes('200') ? 200 : 100; }
+        // HATA DÜZELTİLDİ: Kesin ve doğru eşleşme sıralaması
+        if (level.startsWith('c2') || level.includes('c200')) { letter = 'c'; startNum = 200; }
+        else if (level.startsWith('c1') || level.includes('c100')) { letter = 'c'; startNum = 100; }
+        else if (level.startsWith('b2') || level.includes('b200')) { letter = 'b'; startNum = 200; }
+        else if (level.startsWith('b1') || level.includes('b100')) { letter = 'b'; startNum = 100; }
+        else if (level.startsWith('a2') || level.includes('a200')) { letter = 'a'; startNum = 200; }
+        else if (level.startsWith('a1') || level.includes('a100')) { letter = 'a'; startNum = 100; }
+        else {
+            letter = level.charAt(0).toLowerCase();
+            startNum = level.includes('200') ? 200 : 100;
+        }
         
         groupsToProcess = [{ letter: letter, start: startNum, end: startNum + 99 }];
     }
@@ -63,7 +68,6 @@ function generateDayOptions() {
     loadData();
 }
 
-// Düzenli ifade özel karakterlerini kaçış karakteriyle güvenli hale getiren yardımcı fonksiyon
 function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -74,12 +78,12 @@ function highlightStoryWordsEn(text, wordsArray) {
     const sortedWords = [...wordsArray].sort((a, b) => b.word.length - a.word.length);
 
     sortedWords.forEach(w => {
-        try {
-            const escapedWord = escapeRegExp(w.word);
-            const regex = new RegExp(`\\b(${escapedWord})\\b`, 'gi');
-            highlightedText = highlightedText.replace(regex, `<span class="highlight-word-en">$1</span>`);
-        } catch (err) {
-            // Hatalı kelime regex'ini atla
+        if (w.word) {
+            try {
+                const escapedWord = escapeRegExp(w.word);
+                const regex = new RegExp(`\\b(${escapedWord})\\b`, 'gi');
+                highlightedText = highlightedText.replace(regex, `<span class="highlight-word-en">$1</span>`);
+            } catch (err) {}
         }
     });
 
@@ -94,20 +98,21 @@ function highlightStoryWordsTr(text, wordsArray) {
     sortedWords.forEach(w => {
         if (w.turkish) {
             try {
-                let primaryTr = w.turkish.split(',')[0].trim();
-                let rootTr = primaryTr.replace(/(mek|mak)$/i, '');
+                // Parantezleri ve özel karakterleri temizleyerek regex çökmesini tamamen önlüyoruz
+                let cleanTr = w.turkish.split(',')[0].split('/')[0].replace(/\(.*?\)/g, '').trim();
+                let rootTr = cleanTr.replace(/(mek|mak)$/i, '').trim();
                 
                 if (rootTr.length > 2) {
                     const escapedRoot = escapeRegExp(rootTr);
                     const regex = new RegExp(`\\b(${escapedRoot}[a-üçğışö]*)\\b`, 'gi');
                     highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
-                } else {
-                    const escapedPrimary = escapeRegExp(primaryTr);
+                } else if (cleanTr.length > 0) {
+                    const escapedPrimary = escapeRegExp(cleanTr);
                     const regex = new RegExp(`\\b(${escapedPrimary})\\b`, 'gi');
                     highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
                 }
             } catch (err) {
-                // Parantez veya özel karakter içeren çevirilerin çökmesini engeller
+                // Hatalı eşleşmelerin sistemi durdurmasını engeller
             }
         }
     });
