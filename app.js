@@ -29,29 +29,25 @@ function generateDayOptions() {
     
     let groupsToProcess = [];
     
-    // Yeni ekleyeceğin dosyaların da okunabilmesi için aralıkları genişlettik (100-199 ve 200-299)
+    // Tüm yeni dosyaların ve yüzlük serilerin (100-299 arası) sorunsuz listelenmesi için aralıklar genişletildi
     if (level === 'all') {
         groupsToProcess = [
-            { letter: 'a', start: 100, end: 199 },
-            { letter: 'a', start: 200, end: 299 },
-            { letter: 'b', start: 100, end: 199 },
-            { letter: 'b', start: 200, end: 299 },
-            { letter: 'c', start: 100, end: 199 },
-            { letter: 'c', start: 200, end: 299 }
+            { letter: 'a', start: 100, end: 299 },
+            { letter: 'b', start: 100, end: 299 },
+            { letter: 'c', start: 100, end: 299 }
         ];
     } else {
         let letter = 'a';
         let startNum = 100;
-        let maxFiles = 100; // Genişletildi
         
-        if (level === 'a1' || level === 'a100') { letter = 'a'; startNum = 100; maxFiles = 100; }
-        else if (level === 'a2' || level === 'a200') { letter = 'a'; startNum = 200; maxFiles = 100; }
-        else if (level === 'b1' || level === 'b100') { letter = 'b'; startNum = 100; maxFiles = 100; }
-        else if (level === 'b2' || level === 'b200') { letter = 'b'; startNum = 200; maxFiles = 100; }
-        else if (level === 'c1' || level === 'c100') { letter = 'c'; startNum = 100; maxFiles = 100; }
-        else if (level === 'c2' || level === 'c200') { letter = 'c'; startNum = 200; maxFiles = 100; }
+        if (level.includes('a2') || level.includes('200')) { letter = 'a'; startNum = 200; }
+        else if (level.includes('b1')) { letter = 'b'; startNum = 100; }
+        else if (level.includes('b2') || level.includes('200')) { letter = 'b'; startNum = 200; }
+        else if (level.includes('c1')) { letter = 'c'; startNum = 100; }
+        else if (level.includes('c2') || level.includes('200')) { letter = 'c'; startNum = 200; }
+        else { letter = level.charAt(0); startNum = level.includes('200') ? 200 : 100; }
         
-        groupsToProcess = [{ letter: letter, start: startNum, end: startNum + maxFiles - 1 }];
+        groupsToProcess = [{ letter: letter, start: startNum, end: startNum + 99 }];
     }
     
     groupsToProcess.forEach(g => {
@@ -123,10 +119,16 @@ async function loadData() {
         const res = await fetch(filePath);
         
         if (!res.ok) {
-            throw new Error(`Dosya bulunamadı (${filePath})`);
+            throw new Error(`Dosya sunucuda bulunamadı (${fileName}.json). Dosya adını veya klasörünü kontrol edin.`);
         }
         
-        const data = await res.json();
+        let data;
+        try {
+            data = await res.json();
+        } catch (jsonErr) {
+            throw new Error(`JSON Yazım Hatası (${fileName}.json): Dosya içeriğinde süslü parantez {}, tırnak "" veya virgül , hatası var!`);
+        }
+        
         const wordsList = Array.isArray(data) ? data : (data.words || []);
         
         if (sceneBanner) {
@@ -194,16 +196,12 @@ async function loadData() {
         }
 
     } catch (e) {
-        // Hata durumunu konsola yazdırıyoruz ki JSON dosyasındaki olası bozuklukları hemen görebilesin
-        console.error("JSON Okuma Hatası:", e);
-        
-        if (sceneBanner) sceneBanner.innerHTML = `<div class="banner-title" style="color: #ffcccc;">Dosya Okunamadı veya Bulunamadı</div>`;
+        if (sceneBanner) sceneBanner.innerHTML = `<div class="banner-title" style="color: #ffcccc;">Hata Oluştu</div>`;
         if (content) {
             content.innerHTML = `
                 <div style="background: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #e74c3c; grid-column: 1 / -1;">
-                    <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Seçilen JSON dosyası sunucuda yok veya içeriğinde JSON yazım hatası (virgül/süslü parantez eksikliği) var.</p>
-                    <p style='color: #555; margin: 0; font-size: 0.9em;'>Aranan dosya yolu: <code>data/${fileName}.json</code></p>
-                    <p style='color: #555; margin: 5px 0 0 0; font-size: 0.85em;'>Detay için tarayıcı konsoluna (F12) bakabilirsiniz.</p>
+                    <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Dosya Okunamadı!</p>
+                    <p style='color: #333; margin: 0; font-size: 0.95em;'>${e.message}</p>
                 </div>
             `;
         }
