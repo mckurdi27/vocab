@@ -10,12 +10,12 @@ vocab/
                         3600.csv 4444.csv 5555.csv
                         cefra1.json 
 ├── data/               # JSON veri dosyalarının bulunduğu klasör
-                        a100.json a102.json a103.json ... a150.json
-                        a200.json ... a250.json
-                        b100.json ... b150.json
-                        b200.json ... b250.json
-                        c100.json ... c150.json
-                        c200.json ... c250.json
+                        a1100.json a1102.json a1103.json ... a1150.json
+                        a2200.json ......................... a2250.json
+                        b1300.json ......................... b3150.json
+                        b2400.json ......................... b4150.json
+                        c1500.json ......................... c5150.json
+                        c2600.json ......................... c6150.json
 ├── PDF/                # PDF dokümanlarının saklandığı klasör
 
 ├── analiz.html         # Analiz arayüzü / ekranı
