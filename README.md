@@ -9,12 +9,12 @@ vocab/
                         cefra1.csv cefra2.csv cefrb1.csv cefrb2.csv cefrc1.csv cefrc2.csv.     
                         cefra1.json
 ├── data/               # JSON veri dosyalarının bulunduğu klasör
-                        a101.json a102.json a103.json ... a150.json
-                        a201.json ... a250.json
-                        b101.json ... b150.json
-                        b201.json ... b250.json
-                        c101.json ... c150.json
-                        c201.json ... c250.json
+                        a100.json a102.json a103.json ... a150.json
+                        a200.json ... a250.json
+                        b100.json ... b150.json
+                        b200.json ... b250.json
+                        c100.json ... c150.json
+                        c200.json ... c250.json
 ├── PDF/                # PDF dokümanlarının saklandığı klasör
 
 ├── analiz.html         # Analiz arayüzü / ekranı
