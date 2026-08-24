@@ -505,7 +505,6 @@
                         container.appendChild(card);
                     });
                     
-                    // Otomatik olarak ilk kelimeyi seç ve detay panelinde göster
                     if (wordsList[0]) {
                         showWordDetail(wordsList[0], file, 0);
                     }
@@ -553,7 +552,7 @@
             };
 
             const wordText = item.word || item.term || '';
-            const translationText = item.translation || item.meaning || '';
+            const translationText = item.translation || item.meaning || item.turkish || '';
             const uniqueFiles = [...new Set(appearances.map(app => app.file))];
 
             cardDiv.innerHTML = `
@@ -568,40 +567,23 @@
             return cardDiv;
         }
 
-        async function showWordDetail(item, currentFile, itemIndex) {
+        // Tıklanan kelimeye özel görsel ve detayları gösteren fonksiyon
+        function showWordDetail(item, currentFile, itemIndex) {
             const wordText = item.word || item.term || '';
-            const translationText = item.translation || item.meaning || '';
-            const exampleText = item.example || item.sentence || '';
-            const trExampleText = item.exampleTr || item.translationExample || '';
+            const translationText = item.translation || item.meaning || item.turkish || '';
+            const exampleText = item.example || item.sentence || item.example_en || '';
+            const trExampleText = item.exampleTr || item.translationExample || item.example_tr || '';
             const relWords = item.relatedWords || item.synonyms || '';
 
             document.getElementById('detailTitle').textContent = wordText;
             document.getElementById('detailTranslation').textContent = translationText;
 
             const imageContainer = document.getElementById('detailImageContainer');
-            imageContainer.innerHTML = `<div class="detail-placeholder-text">Görsel aranıyor...</div>`;
-
-            try {
-                const wikiRes = await fetch(`https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(wordText)}&gsrlimit=1&prop=imageinfo&iiprop=url&format=json&origin=*`);
-                const wikiData = await wikiRes.json();
-                
-                let imageUrl = '';
-                if (wikiData.query && wikiData.query.pages) {
-                    const pages = wikiData.query.pages;
-                    const pageId = Object.keys(pages)[0];
-                    if (pages[pageId].imageinfo && pages[pageId].imageinfo[0]) {
-                        imageUrl = pages[pageId].imageinfo[0].url;
-                    }
-                }
-
-                if (!imageUrl) {
-                    imageUrl = `https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80`;
-                }
-
-                imageContainer.innerHTML = `<img src="${imageUrl}" alt="${wordText}" onerror="this.src='https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80'">`;
-            } catch (err) {
-                imageContainer.innerHTML = `<img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80" alt="${wordText}">`;
-            }
+            
+            // Kelimeye özel dinamik görsel URL'si (LoremFlickr kelime araması yapar)
+            const imageUrl = `https://loremflickr.com/600/400/${encodeURIComponent(wordText)}`;
+            
+            imageContainer.innerHTML = `<img src="${imageUrl}" alt="${wordText}" onerror="this.src='https://picsum.photos/seed/${encodeURIComponent(wordText)}/600/400'">`;
 
             const wordKey = wordText.trim().toLowerCase();
             const appearances = globalWordMap[wordKey] || [];
@@ -609,7 +591,7 @@
 
             let metaHtml = `<b>Anlamı / Açıklama:</b> ${translationText}<br>`;
             if (exampleText) {
-                metaHtml += `<br><b>Örnek (EN):</b> ${exampleText}<br>`;
+                metaHtml += `<br><b>Örnek Cümle:</b> ${exampleText}<br>`;
             }
             if (trExampleText) {
                 metaHtml += `<b>Örnek (TR):</b> ${trExampleText}<br>`;
