@@ -1,21 +1,149 @@
 document.addEventListener("DOMContentLoaded", () => {
     initLevelSelect();
     generateDayOptions();
+    initJumpInput();
 });
 
 function initLevelSelect() {
     const levelSelect = document.getElementById('levelSelect');
     if (!levelSelect) return;
     
-    if (![...levelSelect.options].some(opt => opt.value === 'all')) {
-        const allOpt = document.createElement('option');
-        allOpt.value = 'all';
-        allOpt.innerHTML = 'Tümü';
-        levelSelect.insertBefore(allOpt, levelSelect.firstChild);
+    const currentValue = levelSelect.value;
+    
+    // Sadece istenen temiz seçenekler bırakıldı
+    levelSelect.innerHTML = `
+        <option value="all">Tümü</option>
+        <option value="a1">A1</option>
+        <option value="a2">A2</option>
+        <option value="b1">B1</option>
+        <option value="b2">B2</option>
+        <option value="c1">C1</option>
+        <option value="c2">C2</option>
+    `;
+    
+    if (currentValue && [...levelSelect.options].some(opt => opt.value === currentValue)) {
+        levelSelect.value = currentValue;
+    } else {
+        levelSelect.value = 'all';
+    }
+}
+
+function initJumpInput() {
+    if (document.getElementById('fileJumpInput')) return;
+    
+    const buttons = document.querySelectorAll('button');
+    let prevBtn = null, nextBtn = null;
+    
+    buttons.forEach(btn => {
+        if (btn.textContent.includes('Önceki')) {
+            prevBtn = btn;
+            if (!btn.onclick) btn.onclick = prevDay;
+        }
+        if (btn.textContent.includes('Sonraki')) {
+            nextBtn = btn;
+            if (!btn.onclick) btn.onclick = nextDay;
+        }
+    });
+    
+    if (prevBtn && nextBtn) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.id = 'fileJumpInput';
+        input.placeholder = 'örn: a123';
+        input.title = 'Gitmek istediğiniz dosya adını yazıp Enter\'a basın';
+        input.style.width = '70px';
+        input.style.textAlign = 'center';
+        input.style.padding = '4px 6px';
+        input.style.marginLeft = '5px';
+        input.style.marginRight = '5px';
+        input.style.border = '1px solid #b0c4de';
+        input.style.borderRadius = '4px';
+        input.style.fontSize = '14px';
+        input.style.backgroundColor = '#fff';
+        
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                jumpToFile(input.value.trim());
+                input.blur();
+            }
+        });
+        
+        prevBtn.parentNode.insertBefore(input, nextBtn);
+    }
+}
+
+function prevDay() {
+    const daySelect = document.getElementById('daySelect');
+    if (!daySelect) return;
+    if (daySelect.selectedIndex > 0) {
+        daySelect.selectedIndex--;
+        loadData();
+    }
+}
+
+function nextDay() {
+    const daySelect = document.getElementById('daySelect');
+    if (!daySelect) return;
+    if (daySelect.selectedIndex < daySelect.options.length - 1) {
+        daySelect.selectedIndex++;
+        loadData();
+    }
+}
+
+function jumpToFile(query) {
+    if (!query) return;
+    query = query.toLowerCase().replace(/\s+/g, '');
+    
+    let letter = 'a';
+    let numStr = query;
+    
+    const match = query.match(/^([a-c])(\d+)$/);
+    if (match) {
+        letter = match[1];
+        numStr = match[2];
+    } else {
+        const daySelect = document.getElementById('daySelect');
+        if (daySelect && daySelect.value) {
+            letter = daySelect.value.charAt(0);
+        }
     }
     
-    if (!levelSelect.value) {
-        levelSelect.value = 'all';
+    const num = parseInt(numStr, 10);
+    if (isNaN(num)) {
+        alert("Geçersiz format! Örn: a100 veya 123 yazın.");
+        return;
+    }
+    
+    const fileName = `${letter}${num}`;
+    let targetLevel = 'all';
+    
+    if (letter === 'a') targetLevel = num < 200 ? 'a1' : 'a2';
+    else if (letter === 'b') targetLevel = num < 200 ? 'b1' : 'b2';
+    else if (letter === 'c') targetLevel = num < 200 ? 'c1' : 'c2';
+    
+    const levelSelect = document.getElementById('levelSelect');
+    const daySelect = document.getElementById('daySelect');
+    
+    if (levelSelect) {
+        levelSelect.value = targetLevel;
+        generateDayOptions();
+    }
+    
+    if (daySelect) {
+        const optionExists = [...daySelect.options].some(opt => opt.value === fileName);
+        if (optionExists) {
+            daySelect.value = fileName;
+            loadData();
+        } else {
+            if (levelSelect) {
+                levelSelect.value = 'all';
+                generateDayOptions();
+                daySelect.value = fileName;
+                loadData();
+            } else {
+                alert(`Dosya bulunamadı: ${fileName}`);
+            }
+        }
     }
 }
 
@@ -36,21 +164,8 @@ function generateDayOptions() {
             { letter: 'c', start: 100, end: 299 }
         ];
     } else {
-        let letter = 'a';
-        let startNum = 100;
-        
-        // HATA DÜZELTİLDİ: Kesin ve doğru eşleşme sıralaması
-        if (level.startsWith('c2') || level.includes('c200')) { letter = 'c'; startNum = 200; }
-        else if (level.startsWith('c1') || level.includes('c100')) { letter = 'c'; startNum = 100; }
-        else if (level.startsWith('b2') || level.includes('b200')) { letter = 'b'; startNum = 200; }
-        else if (level.startsWith('b1') || level.includes('b100')) { letter = 'b'; startNum = 100; }
-        else if (level.startsWith('a2') || level.includes('a200')) { letter = 'a'; startNum = 200; }
-        else if (level.startsWith('a1') || level.includes('a100')) { letter = 'a'; startNum = 100; }
-        else {
-            letter = level.charAt(0).toLowerCase();
-            startNum = level.includes('200') ? 200 : 100;
-        }
-        
+        let letter = level.charAt(0);
+        let startNum = level.endsWith('2') ? 200 : 100;
         groupsToProcess = [{ letter: letter, start: startNum, end: startNum + 99 }];
     }
     
@@ -98,7 +213,6 @@ function highlightStoryWordsTr(text, wordsArray) {
     sortedWords.forEach(w => {
         if (w.turkish) {
             try {
-                // Parantezleri ve özel karakterleri temizleyerek regex çökmesini tamamen önlüyoruz
                 let cleanTr = w.turkish.split(',')[0].split('/')[0].replace(/\(.*?\)/g, '').trim();
                 let rootTr = cleanTr.replace(/(mek|mak)$/i, '').trim();
                 
@@ -111,9 +225,7 @@ function highlightStoryWordsTr(text, wordsArray) {
                     const regex = new RegExp(`\\b(${escapedPrimary})\\b`, 'gi');
                     highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
                 }
-            } catch (err) {
-                // Hatalı eşleşmelerin sistemi durdurmasını engeller
-            }
+            } catch (err) {}
         }
     });
 
