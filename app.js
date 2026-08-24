@@ -7,7 +7,13 @@ function initLevelSelect() {
     const levelSelect = document.getElementById('levelSelect');
     if (!levelSelect) return;
     
-    // Varsayılan olarak "Tümü" seçili gelsin
+    if (![...levelSelect.options].some(opt => opt.value === 'all')) {
+        const allOpt = document.createElement('option');
+        allOpt.value = 'all';
+        allOpt.innerHTML = 'Tümü';
+        levelSelect.insertBefore(allOpt, levelSelect.firstChild);
+    }
+    
     if (!levelSelect.value) {
         levelSelect.value = 'all';
     }
@@ -23,26 +29,27 @@ function generateDayOptions() {
     
     let groupsToProcess = [];
     
+    // Yeni ekleyeceğin dosyaların da okunabilmesi için aralıkları genişlettik (100-199 ve 200-299)
     if (level === 'all') {
         groupsToProcess = [
-            { letter: 'a', start: 100, end: 150 },
-            { letter: 'a', start: 200, end: 250 },
-            { letter: 'b', start: 100, end: 150 },
-            { letter: 'b', start: 200, end: 250 },
-            { letter: 'c', start: 100, end: 150 },
-            { letter: 'c', start: 200, end: 250 }
+            { letter: 'a', start: 100, end: 199 },
+            { letter: 'a', start: 200, end: 299 },
+            { letter: 'b', start: 100, end: 199 },
+            { letter: 'b', start: 200, end: 299 },
+            { letter: 'c', start: 100, end: 199 },
+            { letter: 'c', start: 200, end: 299 }
         ];
     } else {
         let letter = 'a';
         let startNum = 100;
-        let maxFiles = 51;
+        let maxFiles = 100; // Genişletildi
         
-        if (level === 'a1' || level === 'a100') { letter = 'a'; startNum = 100; maxFiles = 51; }
-        else if (level === 'a2' || level === 'a200') { letter = 'a'; startNum = 200; maxFiles = 51; }
-        else if (level === 'b1' || level === 'b100') { letter = 'b'; startNum = 100; maxFiles = 51; }
-        else if (level === 'b2' || level === 'b200') { letter = 'b'; startNum = 200; maxFiles = 51; }
-        else if (level === 'c1' || level === 'c100') { letter = 'c'; startNum = 100; maxFiles = 51; }
-        else if (level === 'c2' || level === 'c200') { letter = 'c'; startNum = 200; maxFiles = 51; }
+        if (level === 'a1' || level === 'a100') { letter = 'a'; startNum = 100; maxFiles = 100; }
+        else if (level === 'a2' || level === 'a200') { letter = 'a'; startNum = 200; maxFiles = 100; }
+        else if (level === 'b1' || level === 'b100') { letter = 'b'; startNum = 100; maxFiles = 100; }
+        else if (level === 'b2' || level === 'b200') { letter = 'b'; startNum = 200; maxFiles = 100; }
+        else if (level === 'c1' || level === 'c100') { letter = 'c'; startNum = 100; maxFiles = 100; }
+        else if (level === 'c2' || level === 'c200') { letter = 'c'; startNum = 200; maxFiles = 100; }
         
         groupsToProcess = [{ letter: letter, start: startNum, end: startNum + maxFiles - 1 }];
     }
@@ -64,7 +71,6 @@ function generateDayOptions() {
 function highlightStoryWordsEn(text, wordsArray) {
     if (!text || !wordsArray) return text;
     let highlightedText = text;
-    
     const sortedWords = [...wordsArray].sort((a, b) => b.word.length - a.word.length);
 
     sortedWords.forEach(w => {
@@ -78,7 +84,6 @@ function highlightStoryWordsEn(text, wordsArray) {
 function highlightStoryWordsTr(text, wordsArray) {
     if (!text || !wordsArray) return text;
     let highlightedText = text;
-    
     const sortedWords = [...wordsArray].sort((a, b) => b.turkish.length - a.turkish.length);
 
     sortedWords.forEach(w => {
@@ -189,12 +194,16 @@ async function loadData() {
         }
 
     } catch (e) {
-        if (sceneBanner) sceneBanner.innerHTML = `<div class="banner-title" style="color: #ffcccc;">Dosya Bulunamadı</div>`;
+        // Hata durumunu konsola yazdırıyoruz ki JSON dosyasındaki olası bozuklukları hemen görebilesin
+        console.error("JSON Okuma Hatası:", e);
+        
+        if (sceneBanner) sceneBanner.innerHTML = `<div class="banner-title" style="color: #ffcccc;">Dosya Okunamadı veya Bulunamadı</div>`;
         if (content) {
             content.innerHTML = `
                 <div style="background: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #e74c3c; grid-column: 1 / -1;">
-                    <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Seçilen JSON dosyası sunucuda mevcut değil.</p>
+                    <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Seçilen JSON dosyası sunucuda yok veya içeriğinde JSON yazım hatası (virgül/süslü parantez eksikliği) var.</p>
                     <p style='color: #555; margin: 0; font-size: 0.9em;'>Aranan dosya yolu: <code>data/${fileName}.json</code></p>
+                    <p style='color: #555; margin: 5px 0 0 0; font-size: 0.85em;'>Detay için tarayıcı konsoluna (F12) bakabilirsiniz.</p>
                 </div>
             `;
         }
