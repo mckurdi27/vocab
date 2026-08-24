@@ -7,13 +7,16 @@ function initLevelSelect() {
     const levelSelect = document.getElementById('levelSelect');
     if (!levelSelect) return;
     
-    // En başta "Tümü" seçeneğinin ve tüm seviyelerin olduğundan emin oluyoruz
+    // En başta "Tümü" seçeneğinin olduğundan emin oluyoruz
     if (![...levelSelect.options].some(opt => opt.value === 'all')) {
         const allOpt = document.createElement('option');
         allOpt.value = 'all';
         allOpt.innerHTML = 'Tümü';
         levelSelect.insertBefore(allOpt, levelSelect.firstChild);
     }
+    
+    // Sayfa ilk açıldığında varsayılan olarak "Tümü" seçili gelsin
+    levelSelect.value = 'all';
 }
 
 function generateDayOptions() {
@@ -26,7 +29,6 @@ function generateDayOptions() {
     
     let groupsToProcess = [];
     
-    // Seçilen seviyeye göre harf, 00'dan (100 veya 200) başlayan aralıklar
     if (level === 'all') {
         groupsToProcess = [
             { letter: 'a', start: 100, end: 150 },
@@ -37,11 +39,11 @@ function generateDayOptions() {
             { letter: 'c', start: 200, end: 250 }
         ];
     } else {
-        let letter = level.charAt(0); // a, b, c
-        let startNum = level.includes('2') || level === 'a2' || level === 'b2' || level === 'c2' ? 200 : 100;
+        let letter = 'a';
+        let startNum = 100;
         let maxFiles = 31;
         
-        if (level === 'a1') { letter = 'a'; startNum = 100; maxFiles = 51; }
+        if (level === 'a1') { letter = 'a1'; startNum = 100; maxFiles = 51; }
         else if (level === 'a2') { letter = 'a'; startNum = 200; maxFiles = 51; }
         else if (level === 'b1') { letter = 'b'; startNum = 100; maxFiles = 51; }
         else if (level === 'b2') { letter = 'b'; startNum = 200; maxFiles = 51; }
