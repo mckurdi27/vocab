@@ -122,7 +122,7 @@
                 <h2>Kelime Çalışma Paneli</h2>
 
                 <div class="selectors-wrapper">
-                    <!-- Seviye Seçimi ("Tümü" eklendi) -->
+                    <!-- Seviye ve Dosya Seçimleri Yan Yana ("Tümü" eklendi) -->
                     <select id="levelSelect" onchange="generateDayOptions()">
                         <option value="all">Tümü</option>
                         <option value="a1">A1 Seviyesi</option>
@@ -157,6 +157,7 @@
         </main>
     </div>
 
+    <!-- Orijinal app.js bağlantısı korunuyor -->
     <script src="app.js"></script>
     <script>
         // Dosya listesinde bir sonraki öğeye geçiş
@@ -177,7 +178,7 @@
             }
         }
 
-        // app.js tarafından doldurulan dosya seçim menüsündeki "Dosya" ibaresini otomatik temizler
+        // Menüdeki "Dosya" yazısını kaldıran temizleyici
         document.addEventListener("DOMContentLoaded", () => {
             const daySelect = document.getElementById('daySelect');
             if (daySelect) {
