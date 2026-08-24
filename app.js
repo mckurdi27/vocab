@@ -16,7 +16,9 @@ function initLevelSelect() {
     }
     
     // Sayfa ilk açıldığında varsayılan olarak "Tümü" seçili gelsin
-    levelSelect.value = 'all';
+    if (!levelSelect.value) {
+        levelSelect.value = 'all';
+    }
 }
 
 function generateDayOptions() {
@@ -43,20 +45,20 @@ function generateDayOptions() {
         let startNum = 100;
         let maxFiles = 51;
         
-        // HATA DÜZELTİLDİ: Harf ve başlangıç numaraları birbirinden ayrıldı
-        if (level === 'a1') { letter = 'a'; startNum = 100; maxFiles = 51; }
-        else if (level === 'a2') { letter = 'a'; startNum = 200; maxFiles = 51; }
-        else if (level === 'b1') { letter = 'b'; startNum = 100; maxFiles = 51; }
-        else if (level === 'b2') { letter = 'b'; startNum = 200; maxFiles = 51; }
-        else if (level === 'c1') { letter = 'c'; startNum = 100; maxFiles = 51; }
-        else if (level === 'c2') { letter = 'c'; startNum = 200; maxFiles = 51; }
+        // Hem kısa adlar (a1, a2...) hem de analiz sayfasındaki yüzlü grup adları (a100, a200...) destekleniyor
+        if (level === 'a1' || level === 'a100') { letter = 'a'; startNum = 100; maxFiles = 51; }
+        else if (level === 'a2' || level === 'a200') { letter = 'a'; startNum = 200; maxFiles = 51; }
+        else if (level === 'b1' || level === 'b100') { letter = 'b'; startNum = 100; maxFiles = 51; }
+        else if (level === 'b2' || level === 'b200') { letter = 'b'; startNum = 200; maxFiles = 51; }
+        else if (level === 'c1' || level === 'c100') { letter = 'c'; startNum = 100; maxFiles = 51; }
+        else if (level === 'c2' || level === 'c200') { letter = 'c'; startNum = 200; maxFiles = 51; }
         
         groupsToProcess = [{ letter: letter, start: startNum, end: startNum + maxFiles - 1 }];
     }
     
     groupsToProcess.forEach(g => {
         for (let i = g.start; i <= g.end; i++) {
-            const fileName = `${g.letter}${i}`; // Örn: a + 100 = a100
+            const fileName = `${g.letter}${i}`; // Örn: a100, a200, b100...
             const opt = document.createElement('option');
             opt.value = fileName;
             opt.innerHTML = `${fileName.toUpperCase()}`;
