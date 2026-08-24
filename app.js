@@ -29,24 +29,24 @@ function generateDayOptions() {
     // Seçilen seviyeye göre harf, 00'dan (100 veya 200) başlayan aralıklar
     if (level === 'all') {
         groupsToProcess = [
-            { letter: 'a', start: 100, end: 130 },
-            { letter: 'a', start: 200, end: 210 },
+            { letter: 'a', start: 100, end: 150 },
+            { letter: 'a', start: 200, end: 250 },
             { letter: 'b', start: 100, end: 150 },
-            { letter: 'b', start: 200, end: 210 },
-            { letter: 'c', start: 100, end: 110 },
-            { letter: 'c', start: 200, end: 210 }
+            { letter: 'b', start: 200, end: 250 },
+            { letter: 'c', start: 100, end: 150 },
+            { letter: 'c', start: 200, end: 250 }
         ];
     } else {
         let letter = level.charAt(0); // a, b, c
         let startNum = level.includes('2') || level === 'a2' || level === 'b2' || level === 'c2' ? 200 : 100;
         let maxFiles = 31;
         
-        if (level === 'a1') { letter = 'a'; startNum = 100; maxFiles = 31; }
-        else if (level === 'a2') { letter = 'a'; startNum = 200; maxFiles = 11; }
+        if (level === 'a1') { letter = 'a'; startNum = 100; maxFiles = 51; }
+        else if (level === 'a2') { letter = 'a'; startNum = 200; maxFiles = 51; }
         else if (level === 'b1') { letter = 'b'; startNum = 100; maxFiles = 51; }
-        else if (level === 'b2') { letter = 'b'; startNum = 200; maxFiles = 11; }
-        else if (level === 'c1') { letter = 'c'; startNum = 100; maxFiles = 11; }
-        else if (level === 'c2') { letter = 'c'; startNum = 200; maxFiles = 11; }
+        else if (level === 'b2') { letter = 'b'; startNum = 200; maxFiles = 51; }
+        else if (level === 'c1') { letter = 'c'; startNum = 100; maxFiles = 51; }
+        else if (level === 'c2') { letter = 'c'; startNum = 200; maxFiles = 51; }
         
         groupsToProcess = [{ letter: letter, start: startNum, end: startNum + maxFiles - 1 }];
     }
