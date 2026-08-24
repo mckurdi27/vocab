@@ -29,7 +29,6 @@ function generateDayOptions() {
     
     let groupsToProcess = [];
     
-    // Tüm yeni dosyaların ve yüzlük serilerin (100-299 arası) sorunsuz listelenmesi için aralıklar genişletildi
     if (level === 'all') {
         groupsToProcess = [
             { letter: 'a', start: 100, end: 299 },
@@ -64,14 +63,24 @@ function generateDayOptions() {
     loadData();
 }
 
+// Düzenli ifade özel karakterlerini kaçış karakteriyle güvenli hale getiren yardımcı fonksiyon
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function highlightStoryWordsEn(text, wordsArray) {
     if (!text || !wordsArray) return text;
     let highlightedText = text;
     const sortedWords = [...wordsArray].sort((a, b) => b.word.length - a.word.length);
 
     sortedWords.forEach(w => {
-        const regex = new RegExp(`\\b(${w.word})\\b`, 'gi');
-        highlightedText = highlightedText.replace(regex, `<span class="highlight-word-en">$1</span>`);
+        try {
+            const escapedWord = escapeRegExp(w.word);
+            const regex = new RegExp(`\\b(${escapedWord})\\b`, 'gi');
+            highlightedText = highlightedText.replace(regex, `<span class="highlight-word-en">$1</span>`);
+        } catch (err) {
+            // Hatalı kelime regex'ini atla
+        }
     });
 
     return highlightedText;
@@ -84,15 +93,21 @@ function highlightStoryWordsTr(text, wordsArray) {
 
     sortedWords.forEach(w => {
         if (w.turkish) {
-            let primaryTr = w.turkish.split(',')[0].trim();
-            let rootTr = primaryTr.replace(/(mek|mak)$/i, '');
-            
-            if (rootTr.length > 2) {
-                const regex = new RegExp(`\\b(${rootTr}[a-üçğışö]*)\\b`, 'gi');
-                highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
-            } else {
-                const regex = new RegExp(`\\b(${primaryTr})\\b`, 'gi');
-                highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
+            try {
+                let primaryTr = w.turkish.split(',')[0].trim();
+                let rootTr = primaryTr.replace(/(mek|mak)$/i, '');
+                
+                if (rootTr.length > 2) {
+                    const escapedRoot = escapeRegExp(rootTr);
+                    const regex = new RegExp(`\\b(${escapedRoot}[a-üçğışö]*)\\b`, 'gi');
+                    highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
+                } else {
+                    const escapedPrimary = escapeRegExp(primaryTr);
+                    const regex = new RegExp(`\\b(${escapedPrimary})\\b`, 'gi');
+                    highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
+                }
+            } catch (err) {
+                // Parantez veya özel karakter içeren çevirilerin çökmesini engeller
             }
         }
     });
@@ -119,14 +134,14 @@ async function loadData() {
         const res = await fetch(filePath);
         
         if (!res.ok) {
-            throw new Error(`Dosya sunucuda bulunamadı (${fileName}.json). Dosya adını veya klasörünü kontrol edin.`);
+            throw new Error(`Dosya sunucuda bulunamadı (${fileName}.json).`);
         }
         
         let data;
         try {
             data = await res.json();
         } catch (jsonErr) {
-            throw new Error(`JSON Yazım Hatası (${fileName}.json): Dosya içeriğinde süslü parantez {}, tırnak "" veya virgül , hatası var!`);
+            throw new Error(`JSON Yazım Hatası (${fileName}.json): Süslü parantez veya virgül hatası var!`);
         }
         
         const wordsList = Array.isArray(data) ? data : (data.words || []);
