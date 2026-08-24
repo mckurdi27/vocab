@@ -124,7 +124,7 @@
         /* Ana Düzen: Sol tarafta 3 sütunlu kart alanı, sağ tarafta 4. sütun detay paneli */
         .main-layout {
             display: grid;
-            grid-template-columns: 1fr 400px;
+            grid-template-columns: 1fr 420px;
             gap: 20px;
             align-items: start;
         }
@@ -162,11 +162,13 @@
             border-radius: 16px;
             padding: 20px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
         }
 
         .detail-image-container {
             width: 100%;
-            height: 200px;
+            height: 190px;
             border-radius: 10px;
             overflow: hidden;
             background-color: #f1f5f9;
@@ -191,28 +193,32 @@
         }
 
         .detail-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: #0f172a;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             text-transform: capitalize;
         }
 
         .detail-translation {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--primary-color);
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .detail-meta-box {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 8px;
-            padding: 12px;
+            padding: 14px;
             font-size: 0.85rem;
-            color: #475569;
-            line-height: 1.5;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .detail-meta-box b {
+            color: #1e293b;
         }
 
         .vocab-card {
@@ -439,6 +445,10 @@
             });
         }
 
+        function onGroupGroupChange() {
+            // alias
+        }
+
         function onGroupChange() {
             const group = document.getElementById('groupSelect').value;
             
@@ -567,43 +577,65 @@
             return cardDiv;
         }
 
-        // Tıklanan kelimeye özel görsel ve detayları gösteren fonksiyon
+        // Tıklanan kelimeye özel görsel, detaylı açıklamalar ve kullanılabilir fiiller/kolokasyonlar
         function showWordDetail(item, currentFile, itemIndex) {
             const wordText = item.word || item.term || '';
             const translationText = item.translation || item.meaning || item.turkish || '';
+            const wordType = item.type || item.partOfSpeech || 'Kelime';
             const exampleText = item.example || item.sentence || item.example_en || '';
             const trExampleText = item.exampleTr || item.translationExample || item.example_tr || '';
-            const relWords = item.relatedWords || item.synonyms || '';
+            
+            // Kullanılabilir fiiller, kolokasyonlar veya ilişkili kelimeler
+            const collocatedVerbs = item.verbs || item.collocations || item.usableVerbs || item.relatedVerbs || [];
+            const relWords = item.relatedWords || item.synonyms || item.related || [];
 
             document.getElementById('detailTitle').textContent = wordText;
-            document.getElementById('detailTranslation').textContent = translationText;
+            document.getElementById('detailTranslation').textContent = `${translationText} (${wordType})`;
 
             const imageContainer = document.getElementById('detailImageContainer');
             
-            // Kelimeye özel dinamik görsel URL'si (LoremFlickr kelime araması yapar)
-            const imageUrl = `https://loremflickr.com/600/400/${encodeURIComponent(wordText)}`;
-            
-            imageContainer.innerHTML = `<img src="${imageUrl}" alt="${wordText}" onerror="this.src='https://picsum.photos/seed/${encodeURIComponent(wordText)}/600/400'">`;
+            // Karışık / alakasız görselleri engellemek için kelimeye özgü kararlı seed tabanlı Picsum veya özel görsel havuzu
+            const imageUrl = `https://picsum.photos/seed/${encodeURIComponent(wordText.toLowerCase())}/600/400`;
+            imageContainer.innerHTML = `<img src="${imageUrl}" alt="${wordText}" onerror="this.src='https://picsum.photos/600/400?blur=2'">`;
 
             const wordKey = wordText.trim().toLowerCase();
             const appearances = globalWordMap[wordKey] || [];
             const uniqueFiles = [...new Set(appearances.map(app => app.file))];
 
-            let metaHtml = `<b>Anlamı / Açıklama:</b> ${translationText}<br>`;
+            // Detay kutusunu zengin içerikle dolduruyoruz ("Altta yazı yok" sorunu giderildi)
+            let metaHtml = `<b>Türkçe Anlamı:</b> ${translationText}<br>`;
+            metaHtml += `<b>Kelime Türü:</b> ${wordType}<br>`;
+
             if (exampleText) {
-                metaHtml += `<br><b>Örnek Cümle:</b> ${exampleText}<br>`;
+                metaHtml += `<br><b>Örnek Cümle (EN):</b> <i>"${exampleText}"</i><br>`;
             }
             if (trExampleText) {
-                metaHtml += `<b>Örnek (TR):</b> ${trExampleText}<br>`;
+                metaHtml += `<b>Örnek Çeviri (TR):</b> <i>"${trExampleText}"</i><br>`;
             }
-            if (relWords) {
-                metaHtml += `<br><b>İlişkili Kelimeler:</b> ${typeof relWords === 'string' ? relWords : relWords.join(', ')}<br>`;
+
+            // Kullanılabilir Fiiller / Kolokasyonlar Bölümü
+            if (Array.isArray(collocatedVerbs) && collocatedVerbs.length > 0) {
+                metaHtml += `<br><b>Kullanılabilir / İlgili Fiiller:</b><br><ul style="margin: 4px 0 4px 18px; padding: 0;">`;
+                collocatedVerbs.forEach(v => {
+                    metaHtml += `<li>${v}</li>`;
+                });
+                metaHtml += `</ul>`;
+            } else if (typeof collocatedVerbs === 'string' && collocatedVerbs.trim() !== '') {
+                metaHtml += `<br><b>Kullanılabilir Fiiller:</b> ${collocatedVerbs}<br>`;
             }
+
+            // İlişkili Kelimeler Bölümü
+            if (Array.isArray(relWords) && relWords.length > 0) {
+                metaHtml += `<br><b>İlişkili Kelimeler / Eş Anlamlılar:</b> ${relWords.join(', ')}<br>`;
+            } else if (typeof relWords === 'string' && relWords.trim() !== '') {
+                metaHtml += `<br><b>İlişkili Kelimeler:</b> ${relWords}<br>`;
+            }
+
             if (isAnalyzed) {
                 metaHtml += `<br><b>Geçtiği Toplam Dosya Sayısı:</b> ${uniqueFiles.length}<br>`;
-                metaHtml += `<b>Dosyalar:</b> ${uniqueFiles.map(f => f.split('/').pop().replace('.json','')).join(', ')}`;
+                metaHtml += `<b>Geçtiği Dosyalar:</b> ${uniqueFiles.map(f => f.split('/').pop().replace('.json','')).join(', ')}`;
             } else {
-                metaHtml += `<br><span style="color:#2563eb;">Mükerrer analiz için üst bardan "Analizi Başlat" butonuna tıklayınız.</span>`;
+                metaHtml += `<br><span style="color:#2563eb;">ℹ️ Mükerrer analiz için üst bardan "Analizi Başlat" butonuna tıklayınız.</span>`;
             }
 
             document.getElementById('detailMetaBox').innerHTML = metaHtml;
