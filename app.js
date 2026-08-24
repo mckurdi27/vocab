@@ -41,7 +41,7 @@ function generateDayOptions() {
     } else {
         let letter = 'a';
         let startNum = 100;
-        let maxFiles = 31;
+        let maxFiles = 51;
         
         if (level === 'a1') { letter = 'a1'; startNum = 100; maxFiles = 51; }
         else if (level === 'a2') { letter = 'a'; startNum = 200; maxFiles = 51; }
