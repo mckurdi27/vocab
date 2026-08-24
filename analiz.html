@@ -190,45 +190,6 @@
             padding: 10px;
         }
 
-        /* ÇOK DİLLİ ÇEVİRİ KUTULARI (2. RESİM FORMATI) */
-        .multi-lang-container {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 15px;
-            max-height: 280px;
-            overflow-y: auto;
-            padding-right: 4px;
-            border: 1px solid #f1f5f9;
-            padding: 8px;
-            border-radius: 8px;
-            background: #fafafa;
-        }
-
-        .lang-card {
-            background: #fdfbf7;
-            border: 1px solid #e7e2d5;
-            border-radius: 8px;
-            padding: 8px 12px;
-            font-size: 0.85rem;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-        }
-
-        .lang-card-header {
-            font-weight: bold;
-            color: #1e293b;
-            margin-bottom: 2px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .lang-card-body {
-            color: #334155;
-            font-size: 0.82rem;
-            word-break: break-word;
-        }
-
         .detail-title {
             font-size: 1.3rem;
             font-weight: 700;
@@ -255,6 +216,60 @@
             font-size: 0.85rem;
             color: #334155;
             line-height: 1.6;
+        }
+
+        /* DETAY PANELİNİN EN ALTINA EKLENEN HARİCİ ÇEVİRİ KUTUSU */
+        .multi-lang-section {
+            margin-top: 15px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 12px;
+        }
+
+        .multi-lang-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .multi-lang-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 8px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .lang-card {
+            background: #fdfbf7;
+            border: 1px solid #e7e2d5;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        .lang-card-header {
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-card-body {
+            color: #334155;
+            font-size: 0.82rem;
+            word-break: break-word;
         }
 
         .audio-btn {
@@ -392,23 +407,27 @@
             <div id="cardsContainer" class="cards-grid"></div>
 
             <div class="detail-sidebar" id="detailSidebar">
-                <!-- 1. RESİM -->
+                <!-- 1. GÖRSEL -->
                 <div class="detail-image-container" id="detailImageContainer">
                     <div class="detail-placeholder-text">Görsel yükleniyor...</div>
                 </div>
 
-                <!-- 2. RESMİN ALTINDAKİ ÇOK DİLLİ ÇEVİRİ PANELİ -->
-                <div id="multiLangContainer" class="multi-lang-container"></div>
-
-                <!-- 3. KELİME DETAYLARI -->
+                <!-- 2. KELİME BAŞLIĞI VEYA ANLAMI -->
                 <div class="detail-title">
                     <span id="detailTitle">Kelime Seçin</span>
                     <button id="detailTitleAudio" class="audio-btn" style="display:none;" onclick="speakText(currentSelectedWord)">🔊 Oku</button>
                 </div>
                 <div class="detail-translation" id="detailTranslation">Detay görmek için soldaki kartlardan birine tıklayın.</div>
                 
+                <!-- 3. KELİME DETAYLARI, BİLGİLERİ VE API VERİLERİ (FONETİK, EŞ ANLAMLILAR VB.) -->
                 <div class="detail-meta-box" id="detailMetaBox">
                     Kelime ile ilgili detaylar burada görünecektir.
+                </div>
+
+                <!-- 4. EN ALTA EKLENEN AŞAĞI DOĞRU HARİCİ DİLLER KUTUSU -->
+                <div class="multi-lang-section">
+                    <div class="multi-lang-title">🌐 Diğer Dillerdeki Karşılıkları</div>
+                    <div id="multiLangContainer" class="multi-lang-container"></div>
                 </div>
             </div>
         </div>
@@ -665,17 +684,15 @@
             return cardDiv;
         }
 
-        // DİNAMİK PARALEL ÇEVİRİ İŞLEMİ
+        // EN ALTTA YER ALAN ÇOK DİLLİ ÇEVİRİ PANELİ
         function renderMultiLangPanel(word, sentence, turkishTranslation, trSentence) {
             const container = document.getElementById('multiLangContainer');
             container.innerHTML = '';
 
-            // Paneli anında doldur
             TARGET_LANGS.forEach(lang => {
                 const card = document.createElement('div');
                 card.className = 'lang-card';
                 if (lang.rtl) card.setAttribute('dir', 'rtl');
-                card.id = `lang-card-${lang.code}`;
 
                 let defaultWord = (lang.code === 'en') ? word : (lang.code === 'tr' ? (turkishTranslation || word) : '...');
                 let defaultSentence = (lang.code === 'en') ? sentence : (lang.code === 'tr' ? (trSentence || sentence) : '...');
@@ -688,13 +705,12 @@
                 container.appendChild(card);
             });
 
-            // Arka planda dilleri tek tek paralel çevir (Kilitleme yapmaz)
+            // Arka planda dilleri tek tek paralel çevir
             TARGET_LANGS.forEach(async (lang) => {
                 if (lang.code === 'en') return;
                 if (lang.code === 'tr' && turkishTranslation) return;
 
                 try {
-                    // Kelime Çevirisi
                     const resWord = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|${lang.code}`);
                     const dataWord = await resWord.json();
                     if (dataWord && dataWord.responseData && dataWord.responseData.translatedText) {
@@ -702,7 +718,6 @@
                         if (wordElem) wordElem.innerHTML = `<b>1.</b> ${dataWord.responseData.translatedText}`;
                     }
 
-                    // Cümle Çevirisi
                     if (sentence && !(lang.code === 'tr' && trSentence)) {
                         const resSent = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(sentence)}&langpair=en|${lang.code}`);
                         const dataSent = await resSent.json();
@@ -767,7 +782,7 @@
             const exampleText = item.example_en || item.example || item.sentence || '';
             const trExampleText = item.example_tr || item.exampleTr || item.translationExample || '';
 
-            // PANELİ ANINDA ÇAĞIR
+            // PANELİ EN ALTTTAKİ KUTU İÇİN ÇAĞIR
             renderMultiLangPanel(wordText, exampleText, translationText, trExampleText);
 
             const appearances = globalWordMap[wordKey] || [];
