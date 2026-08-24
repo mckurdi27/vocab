@@ -3,167 +3,696 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelime ve Soru Bankası</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Kelime Mükerrer Analizi - Tüm Seviyeler</title>
     <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --duplicate-border: #ef4444;
+            --duplicate-bg: #fef2f2;
+            --info-bg: #eff6ff;
+            --info-text: #1e40af;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
-            padding: 0;
+            padding: 15px;
         }
 
         .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 15px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .header {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 16px 20px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-            margin-bottom: 24px;
-        }
-
-        .header-top {
+        header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
         }
 
-        .header-top h2 {
-            margin: 0;
-            font-size: 1.25rem;
-            color: #0f172a;
-            font-weight: 700;
-        }
-
-        .analysis-btn {
-            background-color: #2563eb;
-            color: white;
-            padding: 8px 16px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .analysis-btn:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-1px);
-        }
-
-        .selectors-wrapper {
+        .header-left {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
-        .selectors-wrapper select {
-            background-color: #eff6ff;
-            border: 1px solid #bfdbfe;
-            color: #1d4ed8;
-            padding: 8px 14px;
+        .app-select, .app-btn {
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            padding: 8px 12px;
             border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 14px;
             outline: none;
             cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
-        .selectors-wrapper select:hover, 
-        .selectors-wrapper select:focus {
-            background-color: #dbeafe;
-            border-color: #93c5fd;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        .app-select:hover, .app-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
         }
 
-        .nav-arrow-btn {
-            background-color: #eff6ff;
-            border: 1px solid #bfdbfe;
-            color: #1d4ed8;
-            padding: 8px 14px;
-            border-radius: 8px;
-            cursor: pointer;
+        .action-btn {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
+            cursor: pointer;
+            transition: background 0.2s;
         }
 
-        .nav-arrow-btn:hover {
-            background-color: #dbeafe;
-            border-color: #93c5fd;
+        .action-btn:hover {
+            background-color: #059669;
+        }
+
+        .home-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .home-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .info-bar {
+            background: var(--info-bg);
+            color: var(--info-text);
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            border: 1px solid #bfdbfe;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 20px;
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .detail-sidebar {
+            position: sticky;
+            top: 20px;
+            background: var(--card-bg);
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+
+        .detail-image-container {
+            width: 100%;
+            height: 190px;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f1f5f9;
+            margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detail-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .detail-placeholder-text {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .detail-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 4px;
+            text-transform: capitalize;
+        }
+
+        .detail-translation {
+            font-size: 1.05rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .detail-meta-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 0.85rem;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .detail-meta-box b {
+            color: #1e293b;
+        }
+
+        .vocab-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+        }
+
+        .vocab-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-color);
+        }
+
+        .vocab-card.active-card {
+            border-color: var(--primary-color) !important;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        .vocab-card.is-unique {
+            border-color: #22c55e !important;
+            background-color: #f0fdf4;
+        }
+        .vocab-card.is-unique .card-badge {
+            background-color: #22c55e;
+        }
+
+        .vocab-card.is-first-repeat {
+            border-color: var(--primary-color) !important;
+            background-color: #eff6ff;
+        }
+        .vocab-card.is-first-repeat .card-badge {
+            background-color: var(--primary-color);
+        }
+
+        .vocab-card.is-duplicate {
+            border-color: var(--duplicate-border) !important;
+            background-color: var(--duplicate-bg);
+        }
+        .vocab-card.is-duplicate .card-badge {
+            background-color: var(--duplicate-border);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 9px;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .word-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #0f172a;
+        }
+
+        .word-translation {
+            color: #475569;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+
+        .word-meta {
+            font-size: 0.7rem;
+            color: #64748b;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 6px;
+            margin-top: 8px;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <header class="header">
-            <div class="header-top">
-                <h2>Kelime Çalışma Paneli</h2>
+        <header>
+            <div class="header-left">
+                <select id="groupSelect" class="app-select" onchange="onGroupChange()">
+                    <option value="all">Tümü</option>
+                    <option value="a1">A1</option>
+                    <option value="a2">A2</option>
+                    <option value="b1">B1</option>
+                    <option value="b2">B2</option>
+                    <option value="c1">C1</option>
+                    <option value="c2">C2</option>
+                </select>
 
-                <div class="selectors-wrapper">
-                    <!-- Yeni Seri Numaralandırma Düzeni -->
-                    <select id="levelSelect" onchange="generateDayOptions()">
-                        <option value="all">Tümü</option>
-                        <option value="a100">A100 (A1 - 1. Seri)</option>
-                        <option value="a200">A200 (A2 - 2. Seri)</option>
-                        <option value="b300">B300 (B1 - 3. Seri)</option>
-                        <option value="b400">B400 (B2 - 4. Seri)</option>
-                        <option value="c500">C500 (C1 - 5. Seri)</option>
-                        <option value="c600">C600 (C2 - 6. Seri)</option>
-                    </select>
+                <select id="fileSelect" class="app-select" onchange="onFileSelectChange(this.value)">
+                    <option value="" disabled selected>Tek</option>
+                </select>
 
-                    <select id="daySelect" onchange="loadData()"></select>
-
-                    <button type="button" class="nav-arrow-btn" onclick="prevFile()" title="Önceki Dosya">⬅️ Önceki</button>
-                    <button type="button" class="nav-arrow-btn" onclick="nextFile()" title="Sonraki Dosya">Sonraki ➡️</button>
-
-                    <a href="analiz.html" class="analysis-btn">📊 Kelime Analizi</a>
-                </div>
+                <button class="app-btn" onclick="navigateFile(-1)">◀ Önceki</button>
+                <button class="app-btn" onclick="navigateFile(1)">Sonraki ▶</button>
+            </div>
+            <div>
+                <a href="index.html" class="home-btn">🏠 Ana Sayfa</a>
             </div>
         </header>
 
-        <div id="sceneBanner" class="scene-banner">
-            <h3>Yükleniyor...</h3>
+        <div id="infoBar" class="info-bar">
+            <span>Dosya seçildi. Mükerrer renk analizi için analizi başlatabilirsiniz.</span>
+            <button class="action-btn" onclick="startGlobalAnalysis()">✨ Analizi Başlat</button>
         </div>
 
-        <main id="content" class="word-grid">
-            <p>Veriler yükleniyor...</p>
-        </main>
+        <div class="main-layout">
+            <div id="cardsContainer" class="cards-grid"></div>
+
+            <div class="detail-sidebar" id="detailSidebar">
+                <div class="detail-image-container" id="detailImageContainer">
+                    <div class="detail-placeholder-text">Görsel yükleniyor...</div>
+                </div>
+                <div class="detail-title" id="detailTitle">Kelime Seçin</div>
+                <div class="detail-translation" id="detailTranslation">Detay görmek için soldaki kartlardan birine tıklayın.</div>
+                <div class="detail-meta-box" id="detailMetaBox">
+                    Kelime ile ilgili arama sonuçları, açıklamalar ve dosya geçiş detayları bu alanda görüntülenecektir.
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="app.js"></script>
     <script>
-        function nextFile() {
-            const select = document.getElementById('daySelect');
-            if (select && select.selectedIndex < select.options.length - 1) {
-                select.selectedIndex++;
-                loadData();
+        let globalWordMap = {};
+        let allDaysFiles = [];
+        let filteredFiles = [];
+        let currentIndex = 0;
+        let isAnalyzed = false;
+
+        async function initApp() {
+            try {
+                allDaysFiles = [];
+                const levelsConfig = [
+                    { letter: 'a', level: 1 },
+                    { letter: 'a', level: 2 },
+                    { letter: 'b', level: 1 },
+                    { letter: 'b', level: 2 },
+                    { letter: 'c', level: 1 },
+                    { letter: 'c', level: 2 }
+                ];
+
+                levelsConfig.forEach(cfg => {
+                    for (let i = 0; i <= 50; i++) {
+                        let groupNum = i < 10 ? '0' + i : '' + i;
+                        let fileNum = cfg.level === 1 ? '1' + groupNum : '2' + groupNum;
+                        allDaysFiles.push(`data/${cfg.letter}${fileNum}.json`);
+                    }
+                });
+
+                filteredFiles = [...allDaysFiles];
+                updateFileDropdown(filteredFiles);
+
+                if (filteredFiles.length > 0) {
+                    currentIndex = 0;
+                    loadDayData(filteredFiles[0]);
+                }
+            } catch (error) {
+                console.error("Başlangıç hatası:", error);
             }
         }
 
-        function prevFile() {
-            const select = document.getElementById('daySelect');
-            if (select && select.selectedIndex > 0) {
-                select.selectedIndex--;
-                loadData();
+        async function startGlobalAnalysis() {
+            const infoBar = document.getElementById('infoBar');
+            infoBar.innerHTML = `<span>⏳ Tüm dosyalar taranıyor, lütfen bekleyin...</span>`;
+            
+            globalWordMap = {};
+            let validFilesCount = 0;
+
+            for (const file of allDaysFiles) {
+                try {
+                    const res = await fetch(file);
+                    if (!res.ok) continue; 
+                    
+                    validFilesCount++;
+                    const dayData = await res.json();
+                    const wordsList = dayData.words || dayData.vocabulary || dayData;
+
+                    if (Array.isArray(wordsList)) {
+                        wordsList.forEach((item, index) => {
+                            const wordKey = (item.word || item.term || "").trim().toLowerCase();
+                            if (!wordKey) return;
+
+                            if (!globalWordMap[wordKey]) {
+                                globalWordMap[wordKey] = [];
+                            }
+                            globalWordMap[wordKey].push({ file: file, index: index, item: item });
+                        });
+                    }
+                } catch (err) {}
+            }
+
+            isAnalyzed = true;
+            infoBar.innerHTML = `
+                <span>📁 Taranan Dosya: <b>${validFilesCount}</b> — <span style="color:#059669; font-weight:bold;">Mükerrer Analiz Tamamlandı</span></span>
+                <button class="action-btn" onclick="startGlobalAnalysis()">✨ Tekrar Başlat</button>
+            `;
+
+            if (filteredFiles.length > 0) {
+                loadDayData(filteredFiles[currentIndex]);
             }
         }
+
+        function updateFileDropdown(files) {
+            const select = document.getElementById('fileSelect');
+            select.innerHTML = '<option value="" disabled selected>Tek</option>';
+
+            files.forEach((file) => {
+                const fileName = file.split('/').pop().replace('.json', '').toUpperCase();
+                const option = document.createElement('option');
+                option.value = file;
+                option.textContent = `Dosya: ${fileName}`;
+                select.appendChild(option);
+            });
+        }
+
+        function onGroupChange() {
+            const group = document.getElementById('groupSelect').value;
+            
+            if (group === 'all') {
+                filteredFiles = [...allDaysFiles];
+            } else {
+                let targetLetter = group.charAt(0);
+                let levelNum = group.charAt(1);
+                
+                filteredFiles = allDaysFiles.filter(file => {
+                    const fileName = file.split('/').pop(); 
+                    const isLetterMatch = fileName.startsWith(targetLetter);
+                    const fileCode = fileName.replace('.json', ''); 
+                    const isLevelMatch = levelNum === '1' ? fileCode[1] === '1' : fileCode[1] === '2';
+                    return isLetterMatch && isLevelMatch;
+                });
+            }
+
+            updateFileDropdown(filteredFiles);
+            if (filteredFiles.length > 0) {
+                currentIndex = 0;
+                loadDayData(filteredFiles[0]);
+            } else {
+                document.getElementById('cardsContainer').innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu grupta dosya bulunamadı.</p>`;
+            }
+        }
+
+        function onFileSelectChange(file) {
+            if (!file) return;
+            currentIndex = filteredFiles.indexOf(file);
+            loadDayData(file);
+        }
+
+        function navigateFile(direction) {
+            if (filteredFiles.length === 0) return;
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = filteredFiles.length - 1;
+            if (currentIndex >= filteredFiles.length) currentIndex = 0;
+
+            const targetFile = filteredFiles[currentIndex];
+            document.getElementById('fileSelect').value = targetFile;
+            loadDayData(targetFile);
+        }
+
+        async function loadDayData(file) {
+            const container = document.getElementById('cardsContainer');
+            container.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:#64748b; padding: 20px;">Kelimeler yükleniyor...</p>';
+
+            try {
+                const res = await fetch(file);
+                if (!res.ok) {
+                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#94a3b8; padding: 20px;">Bu dosya henüz oluşturulmamış veya boş.</p>`;
+                    return;
+                }
+
+                const dayData = await res.json();
+                const wordsList = dayData.words || dayData.vocabulary || dayData;
+
+                container.innerHTML = '';
+
+                if (Array.isArray(wordsList) && wordsList.length > 0) {
+                    wordsList.forEach((item, index) => {
+                        const card = createVocabCard(item, file, index);
+                        container.appendChild(card);
+                    });
+                    
+                    if (wordsList[0]) {
+                        showWordDetail(wordsList[0], file, 0);
+                    }
+                } else {
+                    container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu dosyada kelime bulunamadı.</p>`;
+                }
+            } catch (err) {
+                container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#94a3b8; padding: 20px;">Bu dosya henüz oluşturulmamış.</p>`;
+            }
+        }
+
+        function createVocabCard(item, currentFile, itemIndex) {
+            const wordKey = (item.word || item.term || "").trim().toLowerCase();
+            const appearances = globalWordMap[wordKey] || [];
+            const count = appearances.length;
+            
+            let cardClass = '';
+            let badgeText = '';
+
+            if (!isAnalyzed || count === 0) {
+                cardClass = '';
+                badgeText = 'Normal';
+            } else if (count === 1) {
+                cardClass = 'is-unique';
+                badgeText = 'Özgün';
+            } else {
+                const occurrenceObjIndex = appearances.findIndex(app => app.file === currentFile && app.index === itemIndex);
+                const occurrenceIndex = occurrenceObjIndex !== -1 ? occurrenceObjIndex + 1 : 1;
+
+                if (occurrenceIndex === 1) {
+                    cardClass = 'is-first-repeat';
+                    badgeText = '1. Geçiş';
+                } else {
+                    cardClass = 'is-duplicate';
+                    badgeText = `${occurrenceIndex}. Geçiş`;
+                }
+            }
+
+            const cardDiv = document.createElement('div');
+            cardDiv.className = `vocab-card ${cardClass}`;
+            cardDiv.onclick = () => {
+                document.querySelectorAll('.vocab-card').forEach(c => c.classList.remove('active-card'));
+                cardDiv.classList.add('active-card');
+                showWordDetail(item, currentFile, itemIndex);
+            };
+
+            const wordText = item.word || item.term || '';
+            const translationText = item.translation || item.meaning || item.turkish || '';
+            const uniqueFiles = [...new Set(appearances.map(app => app.file))];
+
+            cardDiv.innerHTML = `
+                <div class="card-badge">${badgeText}</div>
+                <div class="word-title">${wordText}</div>
+                <div class="word-translation">${translationText}</div>
+                <div class="word-meta">
+                    ${isAnalyzed ? `Geçtiği Dosyalar (${uniqueFiles.length}): ${uniqueFiles.map(f => f.split('/').pop().replace('.json','')).join(', ')}` : 'Analiz bekleniyor...'}
+                </div>
+            `;
+
+            return cardDiv;
+        }
+
+        function showWordDetail(item, currentFile, itemIndex) {
+            const wordText = item.word || item.term || '';
+            const translationText = item.translation || item.meaning || item.turkish || '';
+            const wordType = item.type || item.partOfSpeech || 'Kelime';
+            
+            const exampleText = item.example_en || item.example || item.sentence || '';
+            const trExampleText = item.example_tr || item.exampleTr || item.translationExample || '';
+            
+            const collocatedVerbs = item.verbs || item.collocations || item.usableVerbs || item.relatedVerbs || [];
+            const relWords = item.relatedWords || item.synonyms || item.related || [];
+
+            document.getElementById('detailTitle').textContent = wordText;
+            document.getElementById('detailTranslation').textContent = `${translationText} (${wordType})`;
+
+            const imageContainer = document.getElementById('detailImageContainer');
+            const imageUrl = `https://loremflickr.com/600/400/${encodeURIComponent(wordText.toLowerCase())}`;
+            imageContainer.innerHTML = `<img src="${imageUrl}" alt="${wordText}" onerror="this.src='https://via.placeholder.com/600/400?text=${encodeURIComponent(wordText)}'">`;
+
+            const wordKey = wordText.trim().toLowerCase();
+            const appearances = globalWordMap[wordKey] || [];
+            const uniqueFiles = [...new Set(appearances.map(app => app.file))];
+
+            let metaHtml = `<b>Türkçe Anlamı:</b> ${translationText}<br>`;
+            metaHtml += `<b>Kelime Türü:</b> ${wordType}<br>`;
+
+            if (exampleText) {
+                metaHtml += `<br><b>Örnek Cümle (EN):</b> <i>"${exampleText}"</i><br>`;
+            }
+            if (trExampleText) {
+                metaHtml += `<b>Örnek Çeviri (TR):</b> <i>"${trExampleText}"</i><br>`;
+            }
+
+            if (Array.isArray(collocatedVerbs) && collocatedVerbs.length > 0) {
+                metaHtml += `<br><b>Kullanılabilir / İlgili Fiiller:</b><br><ul style="margin: 4px 0 4px 18px; padding: 0;">`;
+                collocatedVerbs.forEach(v => {
+                    metaHtml += `<li>${v}</li>`;
+                });
+                metaHtml += `</ul>`;
+            } else if (typeof collocatedVerbs === 'string' && collocatedVerbs.trim() !== '') {
+                metaHtml += `<br><b>Kullanılabilir Fiiller:</b> ${collocatedVerbs}<br>`;
+            }
+
+            if (Array.isArray(relWords) && relWords.length > 0) {
+                metaHtml += `<br><b>İlişkili Kelimeler / Yerler:</b> ${relWords.join(', ')}<br>`;
+            } else if (typeof relWords === 'string' && relWords.trim() !== '') {
+                metaHtml += `<br><b>İlişkili Kelimeler:</b> ${relWords}<br>`;
+            }
+
+            if (isAnalyzed) {
+                metaHtml += `<br><b>Geçtiği Toplam Dosya Sayısı:</b> ${uniqueFiles.length}<br>`;
+                metaHtml += `<b>Geçtiği Dosyalar:</b> ${uniqueFiles.map(f => f.split('/').pop().replace('.json','')).join(', ')}`;
+            } else {
+                metaHtml += `<br><span style="color:#2563eb;">ℹ️ Mükerrer analiz için üst bardan "Analizi Başlat" butonuna tıklayınız.</span>`;
+            }
+
+            document.getElementById('detailMetaBox').innerHTML = metaHtml;
+
+            // CANLI İNTERNET VERİSİ (Arka planda yüklenir, yerel JSON verisini bozmaz)
+            if (wordKey) {
+                fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(wordKey)}`)
+                    .then(res => res.ok ? res.json() : null)
+                    .then(data => {
+                        if (data && data[0]) {
+                            let apiHtml = '';
+                            const entry = data[0];
+
+                            let audioUrl = '';
+                            if (entry.phonetics) {
+                                const aObj = entry.phonetics.find(p => p.audio && p.audio.trim() !== '');
+                                if (aObj) audioUrl = aObj.audio;
+                            }
+
+                            if (entry.phonetic || audioUrl) {
+                                apiHtml += `<br><b>Okunuş / Ses:</b> ${entry.phonetic || ''} `;
+                                if (audioUrl) {
+                                    apiHtml += `<button onclick="new Audio('${audioUrl}').play()" style="padding:2px 6px; font-size:11px; cursor:pointer; border-radius:4px; border:1px solid #cbd5e1; background:#fff;">🔊 Dinle</button>`;
+                                }
+                                apiHtml += `<br>`;
+                            }
+
+                            let synonyms = [], antonyms = [], examples = [];
+                            if (entry.meanings) {
+                                entry.meanings.forEach(m => {
+                                    if (m.synonyms) synonyms.push(...m.synonyms);
+                                    if (m.antonyms) antonyms.push(...m.antonyms);
+                                    if (m.definitions) {
+                                        m.definitions.forEach(d => {
+                                            if (d.example) examples.push(d.example);
+                                            if (d.synonyms) synonyms.push(...d.synonyms);
+                                            if (d.antonyms) antonyms.push(...d.antonyms);
+                                        });
+                                    }
+                                });
+                            }
+
+                            synonyms = [...new Set(synonyms)].slice(0, 4);
+                            antonyms = [...new Set(antonyms)].slice(0, 4);
+                            examples = [...new Set(examples)].slice(0, 2);
+
+                            if (examples.length > 0) {
+                                apiHtml += `<b>Canlı Örnek Cümleler:</b><ul style="margin:2px 0 4px 18px; padding:0;">`;
+                                examples.forEach(ex => apiHtml += `<li><i>"${ex}"</i></li>`);
+                                apiHtml += `</ul>`;
+                            }
+                            if (synonyms.length > 0) {
+                                apiHtml += `<b>Eş Anlamlılar:</b> ${synonyms.join(', ')}<br>`;
+                            }
+                            if (antonyms.length > 0) {
+                                apiHtml += `<b>Zıt Anlamlılar:</b> ${antonyms.join(', ')}<br>`;
+                            }
+
+                            if (apiHtml) {
+                                const extraDiv = document.createElement('div');
+                                extraDiv.style.marginTop = '10px';
+                                extraDiv.style.paddingTop = '8px';
+                                extraDiv.style.borderTop = '1px dashed #cbd5e1';
+                                extraDiv.innerHTML = apiHtml;
+                                document.getElementById('detailMetaBox').appendChild(extraDiv);
+                            }
+                        }
+                    })
+                    .catch(err => console.warn("Sözlük verisi eklenemedi:", err));
+            }
+        }
+
+        initApp();
     </script>
 </body>
 </html>
