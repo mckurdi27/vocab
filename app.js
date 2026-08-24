@@ -7,16 +7,19 @@ function generateDayOptions() {
     const daySelect = document.getElementById('daySelect');
     daySelect.innerHTML = ""; 
     
+    let letter = 'a';
+    let startNum = 100;
     let maxFiles = 50; 
-    if (level === 'a1') maxFiles = 31;
-    else if (level === 'a2') maxFiles = 11;
-    else if (level === 'b1') maxFiles = 51;
-    else if (level === 'b2') maxFiles = 11;
-    else if (level === 'c1') maxFiles = 11;
+
+    if (level === 'a1') { letter = 'a'; startNum = 100; maxFiles = 51; }
+    else if (level === 'a2') { letter = 'a'; startNum = 200; maxFiles = 51; }
+    else if (level === 'b1') { letter = 'b'; startNum = 100; maxFiles = 51; }
+    else if (level === 'b2') { letter = 'b'; startNum = 200; maxFiles = 51; }
+    else if (level === 'c1') { letter = 'c'; startNum = 100; maxFiles = 51; }
     
     for(let i = 1; i <= maxFiles; i++) {
-        const num = i.toString().padStart(2, '0');
-        const fileName = `${level}${num}`;
+        const fileNum = startNum + (i - 1);
+        const fileName = `${letter}${fileNum}`;
         const opt = document.createElement('option');
         opt.value = fileName;
         opt.innerHTML = `${level.toUpperCase()} - ${i}. Dosya (${fileName})`;
@@ -25,6 +28,7 @@ function generateDayOptions() {
     loadData();
 }
 
+// İngilizce hikaye için kelimeyi kırmızı vurgulayan fonksiyon
 function highlightStoryWordsEn(text, wordsArray) {
     if (!text || !wordsArray) return text;
     let highlightedText = text;
@@ -39,6 +43,7 @@ function highlightStoryWordsEn(text, wordsArray) {
     return highlightedText;
 }
 
+// Türkçe hikaye için ek almış kelimeleri bile yakalayıp mavi yapan fonksiyon
 function highlightStoryWordsTr(text, wordsArray) {
     if (!text || !wordsArray) return text;
     let highlightedText = text;
