@@ -328,7 +328,7 @@
             <button class="action-btn" onclick="startGlobalAnalysis()">✨ Analizi Başlat</button>
         </div>
 
-        <!-- Ana Düzen Kapsayıcısı (Sol: Kelime Kartları, Sağ: 4. Sütun Detay Paneli) -->
+        <!-- Ana Düzen Kapsayıcısı (Sol: Kelime Kartları 3 Sütun, Sağ: 4. Sütun Detay Paneli) -->
         <div class="main-layout">
             <div id="cardsContainer" class="cards-grid"></div>
 
@@ -507,7 +507,7 @@
                     
                     // Otomatik olarak ilk kelimeyi seç ve detay panelinde göster
                     if (wordsList[0]) {
-                        showWordDetail(wordsList[0], file, index=0);
+                        showWordDetail(wordsList[0], file, 0);
                     }
                 } else {
                     container.innerHTML = `<p style="text-align:center; grid-column:1/-1; color:#64748b;">Bu dosyada kelime bulunamadı.</p>`;
@@ -547,7 +547,6 @@
             const cardDiv = document.createElement('div');
             cardDiv.className = `vocab-card ${cardClass}`;
             cardDiv.onclick = () => {
-                // Aktif kart vurgusunu güncelle
                 document.querySelectorAll('.vocab-card').forEach(c => c.classList.remove('active-card'));
                 cardDiv.classList.add('active-card');
                 showWordDetail(item, currentFile, itemIndex);
@@ -569,7 +568,6 @@
             return cardDiv;
         }
 
-        // Kelime detayını ve görselini 4. Sütun (Detay Paneli) üzerinde gösteren fonksiyon
         async function showWordDetail(item, currentFile, itemIndex) {
             const wordText = item.word || item.term || '';
             const translationText = item.translation || item.meaning || '';
@@ -583,9 +581,7 @@
             const imageContainer = document.getElementById('detailImageContainer');
             imageContainer.innerHTML = `<div class="detail-placeholder-text">Görsel aranıyor...</div>`;
 
-            // Görsel çekme işlemi (Unsplash Source veya Wikimedia/Wikipedia API)
             try {
-                // Wikimedia Commons API üzerinden ilgili kelimeye ait görsel arama
                 const wikiRes = await fetch(`https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(wordText)}&gsrlimit=1&prop=imageinfo&iiprop=url&format=json&origin=*`);
                 const wikiData = await wikiRes.json();
                 
@@ -599,7 +595,6 @@
                 }
 
                 if (!imageUrl) {
-                    // Fallback olarak Unsplash Source görseli
                     imageUrl = `https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80`;
                 }
 
