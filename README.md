@@ -6,8 +6,9 @@ Projenin kök dizininde bulunan klasörler ve dosyaların genel hiyerarşisi şu
 
 vocab/
 ├── analiz/             # Analiz işlemlerine ait alt dosyalar
-                        cefra1.csv cefra2.csv cefrb1.csv cefrb2.csv cefrc1.csv cefrc2.csv.     
-                        cefra1.json
+                        cefr0.csv cefra1.csv cefra2.csv cefrb1.csv cefrb2.csv cefrc1.csv cefrc2.csv.
+                        3600.csv 4444.csv 5555.csv
+                        cefra1.json 
 ├── data/               # JSON veri dosyalarının bulunduğu klasör
                         a100.json a102.json a103.json ... a150.json
                         a200.json ... a250.json
