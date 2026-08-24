@@ -1,68 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-    initLevelSelect();
     generateDayOptions();
 });
 
-function initLevelSelect() {
-    const levelSelect = document.getElementById('levelSelect');
-    if (!levelSelect) return;
-    
-    if (![...levelSelect.options].some(opt => opt.value === 'all')) {
-        const allOpt = document.createElement('option');
-        allOpt.value = 'all';
-        allOpt.innerHTML = 'Tümü';
-        levelSelect.insertBefore(allOpt, levelSelect.firstChild);
-    }
-}
-
 function generateDayOptions() {
-    const levelSelect = document.getElementById('levelSelect');
+    const level = document.getElementById('levelSelect').value;
     const daySelect = document.getElementById('daySelect');
-    if (!levelSelect || !daySelect) return;
-    
-    const level = levelSelect.value;
     daySelect.innerHTML = ""; 
     
-    let groupsToProcess = [];
+    let maxFiles = 50; 
+    if (level === 'a1') maxFiles = 31;
+    else if (level === 'a2') maxFiles = 11;
+    else if (level === 'b1') maxFiles = 51;
+    else if (level === 'b2') maxFiles = 11;
+    else if (level === 'c1') maxFiles = 11;
     
-    if (level === 'all') {
-        groupsToProcess = [
-            { letter: 'a', start: 100, end: 150 },
-            { letter: 'a', start: 200, end: 250 },
-            { letter: 'b', start: 100, end: 150 },
-            { letter: 'b', start: 200, end: 250 },
-            { letter: 'c', start: 100, end: 150 },
-            { letter: 'c', start: 200, end: 250 }
-        ];
-    } else if (level === 'a1') {
-        groupsToProcess = [{ letter: 'a', start: 100, end: 150 }];
-    } else if (level === 'a2') {
-        groupsToProcess = [{ letter: 'a', start: 200, end: 250 }];
-    } else if (level === 'b1') {
-        groupsToProcess = [{ letter: 'b', start: 100, end: 150 }];
-    } else if (level === 'b2') {
-        groupsToProcess = [{ letter: 'b', start: 200, end: 250 }];
-    } else if (level === 'c1') {
-        groupsToProcess = [{ letter: 'c', start: 100, end: 150 }];
-    } else if (level === 'c2') {
-        groupsToProcess = [{ letter: 'c', start: 200, end: 250 }];
+    for(let i = 1; i <= maxFiles; i++) {
+        const num = i.toString().padStart(2, '0');
+        const fileName = `${level}${num}`;
+        const opt = document.createElement('option');
+        opt.value = fileName;
+        opt.innerHTML = `${level.toUpperCase()} - ${i}. Dosya (${fileName})`;
+        daySelect.appendChild(opt);
     }
-    
-    groupsToProcess.forEach(g => {
-        for (let i = g.start; i <= g.end; i++) {
-            const fileName = `${g.letter}${i}`;
-            const opt = document.createElement('option');
-            opt.value = fileName;
-            opt.innerHTML = fileName.toUpperCase();
-            daySelect.appendChild(opt);
-        }
-    });
-    
-    daySelect.selectedIndex = 0;
     loadData();
 }
 
-// İngilizce hikaye için kelimeyi kırmızı vurgulayan fonksiyon
 function highlightStoryWordsEn(text, wordsArray) {
     if (!text || !wordsArray) return text;
     let highlightedText = text;
@@ -77,24 +39,18 @@ function highlightStoryWordsEn(text, wordsArray) {
     return highlightedText;
 }
 
-// Türkçe hikaye için ek almış kelimeleri bile yakalayıp mavi yapan fonksiyon
 function highlightStoryWordsTr(text, wordsArray) {
     if (!text || !wordsArray) return text;
     let highlightedText = text;
     
-    // Uzun kelimelerin önce eşleşmesi için sıralama
     const sortedWords = [...wordsArray].sort((a, b) => b.turkish.length - a.turkish.length);
 
     sortedWords.forEach(w => {
         if (w.turkish) {
-            // Türkçe anlamdaki ilk kelimeyi al (Örn: "Tanışmak, buluşmak" -> "Tanışmak")
             let primaryTr = w.turkish.split(',')[0].trim();
-            
-            // Eğer fiil -mak/-mek ile bitiyorsa, kök kısmını da yakalayabilmek için esnek bir kalıp oluşturalım
             let rootTr = primaryTr.replace(/(mek|mak)$/i, '');
             
             if (rootTr.length > 2) {
-                // Kökü içeren kelimeleri yakala (Örn: başla...)
                 const regex = new RegExp(`\\b(${rootTr}[a-üçğışö]*)\\b`, 'gi');
                 highlightedText = highlightedText.replace(regex, `<span class="highlight-word-tr">$1</span>`);
             } else {
@@ -108,9 +64,7 @@ function highlightStoryWordsTr(text, wordsArray) {
 }
 
 async function loadData() {
-    const daySelect = document.getElementById('daySelect');
-    if (!daySelect) return;
-    const fileName = daySelect.value;
+    const fileName = document.getElementById('daySelect').value;
     const content = document.getElementById('content');
     const sceneBanner = document.getElementById('sceneBanner');
     
@@ -129,17 +83,16 @@ async function loadData() {
         }
         
         const data = await res.json();
-        const wordsList = Array.isArray(data) ? data : (data.words || []);
         
         sceneBanner.innerHTML = `
-            <div class="banner-level">Seviye: ${data.level || fileName.substring(0,2).toUpperCase()}</div>
-            <div class="banner-title">${data.scene_title || fileName.toUpperCase()}</div>
-            <div class="banner-count">Toplam Kelime: ${wordsList.length}</div>
+            <div class="banner-level">Seviye: ${data.level || '-'}</div>
+            <div class="banner-title">Sahne ${data.scene_id || '-'}: ${data.scene_title || ''}</div>
+            <div class="banner-count">Toplam Kelime: ${data.total_words_in_scene || (data.words ? data.words.length : 0)}</div>
         `;
         
         if (data.story_en) {
-            const processedStoryEn = highlightStoryWordsEn(data.story_en, wordsList);
-            const processedStoryTr = highlightStoryWordsTr(data.story_tr, wordsList);
+            const processedStoryEn = highlightStoryWordsEn(data.story_en, data.words);
+            const processedStoryTr = highlightStoryWordsTr(data.story_tr, data.words);
             
             const storyHTML = document.createElement('div');
             storyHTML.className = 'story-container';
@@ -156,34 +109,34 @@ async function loadData() {
             sceneBanner.insertAdjacentElement('afterend', storyHTML);
         }
         
-        if (wordsList.length === 0) {
+        if (!data.words || data.words.length === 0) {
             content.innerHTML = "<p style='color: #e67e22; font-weight: bold;'>Bu dosya mevcut ancak içerisinde henüz kelime eklenmemiş.</p>";
             return;
         }
         
-        content.innerHTML = wordsList.map(w => `
+        content.innerHTML = data.words.map(w => `
             <div class="card">
                 <div class="word-row">
                     <div class="word-box">
-                        <span class="en-word">${w.word || ''}</span>
-                        <button class="sound-btn" onclick="speakText('${w.word || ''}', 'en-US')" title="İngilizce Seslendir">🔊</button>
+                        <span class="en-word">${w.word}</span>
+                        <button class="sound-btn" onclick="speakText('${w.word}', 'en-US')" title="İngilizce Seslendir">🔊</button>
                     </div>
-                    <span class="type">${w.type || ''}</span>
+                    <span class="type">${w.type}</span>
                 </div>
                 
                 <div class="tr-row">
-                    <span class="tr">${w.turkish || ''}</span>
-                    <button class="sound-btn" onclick="speakText('${w.turkish || ''}', 'tr-TR')" title="Türkçe Seslendir">🔊</button>
+                    <span class="tr">${w.turkish}</span>
+                    <button class="sound-btn" onclick="speakText('${w.turkish}', 'tr-TR')" title="Türkçe Seslendir">🔊</button>
                 </div>
 
                 <div class="example">
                     <div class="example-line">
-                        <p><strong>EN:</strong> <span class="en-sentence">${w.example_en || ''}</span></p>
-                        <button class="sound-btn" onclick="speakText('${w.example_en || ''}', 'en-US')" title="İngilizce Cümleyi Seslendir">🔊</button>
+                        <p><strong>EN:</strong> <span class="en-sentence">${w.example_en}</span></p>
+                        <button class="sound-btn" onclick="speakText('${w.example_en}', 'en-US')" title="İngilizce Cümleyi Seslendir">🔊</button>
                     </div>
                     <div class="example-line">
-                        <p><strong>TR:</strong> <span class="tr-sentence">${w.example_tr || ''}</span></p>
-                        <button class="sound-btn" onclick="speakText('${w.example_tr || ''}', 'tr-TR')" title="Türkçe Cümleyi Seslendir">🔊</button>
+                        <p><strong>TR:</strong> <span class="tr-sentence">${w.example_tr}</span></p>
+                        <button class="sound-btn" onclick="speakText('${w.example_tr}', 'tr-TR')" title="Türkçe Cümleyi Seslendir">🔊</button>
                     </div>
                 </div>
 
@@ -195,7 +148,7 @@ async function loadData() {
         sceneBanner.innerHTML = `<div class="banner-title" style="color: #ffcccc;">Dosya Bulunamadı</div>`;
         content.innerHTML = `
             <div style="background: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #e74c3c; grid-column: 1 / -1;">
-                <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Seçilen JSON dosyası sunucuda (GitHub'da) mevcut değil veya yüklenmemiş.</p>
+                <p style='color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;'>⚠️ Seçilen JSON dosyası sunucuda mevcut değil.</p>
                 <p style='color: #555; margin: 0; font-size: 0.9em;'>Aranan dosya yolu: <code>data/${fileName}.json</code></p>
             </div>
         `;
