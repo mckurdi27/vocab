@@ -121,7 +121,6 @@
             border: 1px solid #bfdbfe;
         }
 
-        /* Ana Düzen: Sol tarafta 3 sütunlu kart alanı, sağ tarafta 4. sütun detay paneli */
         .main-layout {
             display: grid;
             grid-template-columns: 1fr 420px;
@@ -153,7 +152,6 @@
             }
         }
 
-        /* 4. Sütun: Geniş Detay ve Görsel Paneli */
         .detail-sidebar {
             position: sticky;
             top: 20px;
@@ -305,7 +303,6 @@
     <div class="container">
         <header>
             <div class="header-left">
-                <!-- Grup / Seviye Seçimi -->
                 <select id="groupSelect" class="app-select" onchange="onGroupChange()">
                     <option value="all">Tümü</option>
                     <option value="a1">A1</option>
@@ -316,7 +313,6 @@
                     <option value="c2">C2</option>
                 </select>
 
-                <!-- Tek Dosya Seçimi -->
                 <select id="fileSelect" class="app-select" onchange="onFileSelectChange(this.value)">
                     <option value="" disabled selected>Tek</option>
                 </select>
@@ -334,11 +330,9 @@
             <button class="action-btn" onclick="startGlobalAnalysis()">✨ Analizi Başlat</button>
         </div>
 
-        <!-- Ana Düzen Kapsayıcısı (Sol: Kelime Kartları 3 Sütun, Sağ: 4. Sütun Detay Paneli) -->
         <div class="main-layout">
             <div id="cardsContainer" class="cards-grid"></div>
 
-            <!-- Dördüncü Sütun: Geniş Detay ve Görsel Paneli -->
             <div class="detail-sidebar" id="detailSidebar">
                 <div class="detail-image-container" id="detailImageContainer">
                     <div class="detail-placeholder-text">Görsel yükleniyor...</div>
@@ -443,10 +437,6 @@
                 option.textContent = `Dosya: ${fileName}`;
                 select.appendChild(option);
             });
-        }
-
-        function onGroupGroupChange() {
-            // alias
         }
 
         function onGroupChange() {
@@ -577,15 +567,15 @@
             return cardDiv;
         }
 
-        // Tıklanan kelimeye özel görsel, detaylı açıklamalar ve kullanılabilir fiiller/kolokasyonlar
         function showWordDetail(item, currentFile, itemIndex) {
             const wordText = item.word || item.term || '';
             const translationText = item.translation || item.meaning || item.turkish || '';
             const wordType = item.type || item.partOfSpeech || 'Kelime';
-            const exampleText = item.example || item.sentence || item.example_en || '';
-            const trExampleText = item.exampleTr || item.translationExample || item.example_tr || '';
             
-            // Kullanılabilir fiiller, kolokasyonlar veya ilişkili kelimeler
+            // JSON içindeki örnek cümle alanlarını dinamik olarak çekiyoruz
+            const exampleText = item.example_en || item.example || item.sentence || '';
+            const trExampleText = item.example_tr || item.exampleTr || item.translationExample || '';
+            
             const collocatedVerbs = item.verbs || item.collocations || item.usableVerbs || item.relatedVerbs || [];
             const relWords = item.relatedWords || item.synonyms || item.related || [];
 
@@ -594,15 +584,14 @@
 
             const imageContainer = document.getElementById('detailImageContainer');
             
-            // Karışık / alakasız görselleri engellemek için kelimeye özgü kararlı seed tabanlı Picsum veya özel görsel havuzu
-            const imageUrl = `https://picsum.photos/seed/${encodeURIComponent(wordText.toLowerCase())}/600/400`;
-            imageContainer.innerHTML = `<img src="${imageUrl}" alt="${wordText}" onerror="this.src='https://picsum.photos/600/400?blur=2'">`;
+            // DÜZELTME: Rastgele seed yerine kelimeyi doğrudan arayan LoremFlickr servisi kullanıldı ("bread" -> ekmek resmi çıkar)
+            const imageUrl = `https://loremflickr.com/600/400/${encodeURIComponent(wordText.toLowerCase())}`;
+            imageContainer.innerHTML = `<img src="${imageUrl}" alt="${wordText}" onerror="this.src='https://via.placeholder.com/600/400?text=${encodeURIComponent(wordText)}'">`;
 
             const wordKey = wordText.trim().toLowerCase();
             const appearances = globalWordMap[wordKey] || [];
             const uniqueFiles = [...new Set(appearances.map(app => app.file))];
 
-            // Detay kutusunu zengin içerikle dolduruyoruz ("Altta yazı yok" sorunu giderildi)
             let metaHtml = `<b>Türkçe Anlamı:</b> ${translationText}<br>`;
             metaHtml += `<b>Kelime Türü:</b> ${wordType}<br>`;
 
@@ -613,7 +602,6 @@
                 metaHtml += `<b>Örnek Çeviri (TR):</b> <i>"${trExampleText}"</i><br>`;
             }
 
-            // Kullanılabilir Fiiller / Kolokasyonlar Bölümü
             if (Array.isArray(collocatedVerbs) && collocatedVerbs.length > 0) {
                 metaHtml += `<br><b>Kullanılabilir / İlgili Fiiller:</b><br><ul style="margin: 4px 0 4px 18px; padding: 0;">`;
                 collocatedVerbs.forEach(v => {
@@ -624,9 +612,8 @@
                 metaHtml += `<br><b>Kullanılabilir Fiiller:</b> ${collocatedVerbs}<br>`;
             }
 
-            // İlişkili Kelimeler Bölümü
             if (Array.isArray(relWords) && relWords.length > 0) {
-                metaHtml += `<br><b>İlişkili Kelimeler / Eş Anlamlılar:</b> ${relWords.join(', ')}<br>`;
+                metaHtml += `<br><b>İlişkili Kelimeler / Yerler:</b> ${relWords.join(', ')}<br>`;
             } else if (typeof relWords === 'string' && relWords.trim() !== '') {
                 metaHtml += `<br><b>İlişkili Kelimeler:</b> ${relWords}<br>`;
             }
