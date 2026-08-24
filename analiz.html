@@ -121,6 +121,59 @@
             border: 1px solid #bfdbfe;
         }
 
+        /* TAM GENİŞLİK ÇOK DİLLİ ÇEVİRİ PANELİ */
+        .multi-lang-section {
+            background: var(--card-bg);
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .multi-lang-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .multi-lang-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            /* Kaydırma kaldırıldı, tüm kutular ekranda açılır */
+            max-height: none;
+            overflow: visible;
+        }
+
+        .lang-card {
+            background: #fdfbf7;
+            border: 1px solid #e7e2d5;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        .lang-card-header {
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-card-body {
+            color: #334155;
+            font-size: 0.82rem;
+            word-break: break-word;
+        }
+
         .main-layout {
             display: grid;
             grid-template-columns: 1fr 440px;
@@ -216,59 +269,6 @@
             font-size: 0.85rem;
             color: #334155;
             line-height: 1.6;
-        }
-
-        .multi-lang-section {
-            margin-top: 15px;
-            border-top: 2px solid #e2e8f0;
-            padding-top: 12px;
-        }
-
-        .multi-lang-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .multi-lang-container {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            max-height: 280px;
-            overflow-y: auto;
-            padding: 8px;
-            border: 1px solid #cbd5e1;
-            border-radius: 10px;
-            background: #ffffff;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
-        }
-
-        .lang-card {
-            background: #fdfbf7;
-            border: 1px solid #e7e2d5;
-            border-radius: 8px;
-            padding: 8px 12px;
-            font-size: 0.85rem;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-        }
-
-        .lang-card-header {
-            font-weight: bold;
-            color: #1e293b;
-            margin-bottom: 2px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .lang-card-body {
-            color: #334155;
-            font-size: 0.82rem;
-            word-break: break-word;
         }
 
         .audio-btn {
@@ -402,6 +402,12 @@
             <button class="action-btn" onclick="startGlobalAnalysis()">✨ Analizi Başlat</button>
         </div>
 
+        <!-- ÜSTTE YATAY TAM GENİŞLİK ÇEVİRİ PANENLİ -->
+        <div class="multi-lang-section">
+            <div class="multi-lang-title">🌐 Diğer Dillerdeki Karşılıkları</div>
+            <div id="multiLangContainer" class="multi-lang-container"></div>
+        </div>
+
         <div class="main-layout">
             <div id="cardsContainer" class="cards-grid"></div>
 
@@ -419,11 +425,6 @@
                 <div class="detail-meta-box" id="detailMetaBox">
                     Kelime ile ilgili detaylar burada görünecektir.
                 </div>
-
-                <div class="multi-lang-section">
-                    <div class="multi-lang-title">🌐 Diğer Dillerdeki Karşılıkları</div>
-                    <div id="multiLangContainer" class="multi-lang-container"></div>
-                </div>
             </div>
         </div>
     </div>
@@ -436,7 +437,6 @@
         let isAnalyzed = false;
         let currentSelectedWord = "";
 
-        // İNGİLİZCE VE TÜRKÇE KALDIRILDI
         const TARGET_LANGS = [
             { code: 'de', flag: '🇩🇪', name: 'Deutsch' },
             { code: 'nl', flag: '🇳🇱', name: 'Nederlands' },
@@ -695,12 +695,10 @@
                 container.appendChild(card);
             });
 
-            // GÜNLÜK KOTAYI 10.000 KELİMEYE ÇIKARAN E-POSTA PARAMETRESİ (&de=...) EKLENDİ
             const userEmail = "app_vocab_user@gmail.com";
 
             TARGET_LANGS.forEach(async (lang) => {
                 try {
-                    // Kelime Çevirisi
                     const resWord = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|${lang.code}&de=${userEmail}`);
                     const dataWord = await resWord.json();
                     
@@ -717,7 +715,6 @@
                         }
                     }
 
-                    // Örnek Cümle Çevirisi
                     if (sentence) {
                         const resSent = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(sentence)}&langpair=en|${lang.code}&de=${userEmail}`);
                         const dataSent = await resSent.json();
