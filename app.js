@@ -43,7 +43,8 @@ function generateDayOptions() {
         let startNum = 100;
         let maxFiles = 51;
         
-        if (level === 'a1') { letter = 'a1'; startNum = 100; maxFiles = 51; }
+        // HATA DÜZELTİLDİ: Harf ve başlangıç numaraları birbirinden ayrıldı
+        if (level === 'a1') { letter = 'a'; startNum = 100; maxFiles = 51; }
         else if (level === 'a2') { letter = 'a'; startNum = 200; maxFiles = 51; }
         else if (level === 'b1') { letter = 'b'; startNum = 100; maxFiles = 51; }
         else if (level === 'b2') { letter = 'b'; startNum = 200; maxFiles = 51; }
@@ -55,7 +56,7 @@ function generateDayOptions() {
     
     groupsToProcess.forEach(g => {
         for (let i = g.start; i <= g.end; i++) {
-            const fileName = `${g.letter}${i}`;
+            const fileName = `${g.letter}${i}`; // Örn: a + 100 = a100
             const opt = document.createElement('option');
             opt.value = fileName;
             opt.innerHTML = `${fileName.toUpperCase()}`;
