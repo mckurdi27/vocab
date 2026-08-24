@@ -166,7 +166,7 @@
 
         .detail-image-container {
             width: 100%;
-            height: 190px;
+            height: 200px;
             border-radius: 10px;
             overflow: hidden;
             background-color: #f1f5f9;
@@ -573,7 +573,7 @@
             const translationText = item.translation || item.meaning || item.turkish || '';
             const wordType = item.type || item.partOfSpeech || 'noun';
             
-            // 1. CEFR Seviyesi Çıkarımı (Dosya adından otomotik algılar: örn: a100.json -> A1)
+            // CEFR Seviyesi Çıkarımı
             let cefrLevel = item.level || item.cefr || '';
             if (!cefrLevel && currentFile) {
                 const fileName = currentFile.split('/').pop().replace('.json', '').toLowerCase();
@@ -582,19 +582,35 @@
                 }
             }
 
-            // 2. Kategori / Grup Bilgisi
             const category = item.category || item.group || item.topic || 'Genel Sözvarlığı';
-
-            // 3. İlişkili Fiiller Bilgisi
             const collocatedVerbs = item.verbs || item.collocations || item.usableVerbs || item.relatedVerbs || [];
 
             document.getElementById('detailTitle').textContent = wordText;
             document.getElementById('detailTranslation').textContent = `${translationText} (${wordType})`;
 
-            // 4. Doğru Resim Yükleme (AI tabanlı görsel servisi entegrasyonu)
+            // WIKIPEDIA REST API İLE BİREBİR GERÇEK/ISABETLİ RESİM ÇEKME
             const imageContainer = document.getElementById('detailImageContainer');
-            const imageUrl = `https://image.pollinations.ai/prompt/a%20clear%20studio%20photo%20of%20a%20${encodeURIComponent(wordKey)}?width=600&height=400&nologo=true`;
-            imageContainer.innerHTML = `<img src="${imageUrl}" alt="${wordText}" onerror="this.onerror=null; this.src='https://loremflickr.com/600/400/${encodeURIComponent(wordKey)}';">`;
+            imageContainer.innerHTML = `<div class="detail-placeholder-text">🖼️ Görsel yükleniyor...</div>`;
+
+            if (wordKey) {
+                fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wordKey)}`)
+                    .then(res => res.ok ? res.json() : null)
+                    .then(wikiData => {
+                        let finalImgUrl = '';
+                        if (wikiData && wikiData.thumbnail && wikiData.thumbnail.source) {
+                            finalImgUrl = wikiData.thumbnail.source;
+                        } else if (wikiData && wikiData.originalimage && wikiData.originalimage.source) {
+                            finalImgUrl = wikiData.originalimage.source;
+                        } else {
+                            finalImgUrl = `https://loremflickr.com/600/400/${encodeURIComponent(wordKey)}`;
+                        }
+
+                        imageContainer.innerHTML = `<img src="${finalImgUrl}" alt="${wordText}" onerror="this.onerror=null; this.src='https://loremflickr.com/600/400/${encodeURIComponent(wordKey)}';">`;
+                    })
+                    .catch(() => {
+                        imageContainer.innerHTML = `<img src="https://loremflickr.com/600/400/${encodeURIComponent(wordKey)}" alt="${wordText}">`;
+                    });
+            }
 
             const appearances = globalWordMap[wordKey] || [];
             const uniqueFiles = [...new Set(appearances.map(app => app.file))];
@@ -633,7 +649,7 @@
 
             document.getElementById('detailMetaBox').innerHTML = metaHtml;
 
-            // 5. İnternetten Canlı Sözlük Verileri (Okunuş, Ses, Eş/Zıt Anlam)
+            // CANLI SÖZLÜK VE SES VERİSİ
             if (wordKey) {
                 fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(wordKey)}`)
                     .then(res => res.ok ? res.json() : null)
