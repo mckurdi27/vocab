@@ -18,7 +18,7 @@ function initLevelSelect() {
     }
 }
 
-// 2. Dosya listesini tam istenen aralıklarda oluşturan fonksiyon
+// 2. Dosya listesini tam aralıklarda oluşturan fonksiyon
 function generateDayOptions() {
     const levelSelect = document.getElementById('levelSelect');
     const daySelect = document.getElementById('daySelect');
@@ -54,15 +54,14 @@ function generateDayOptions() {
     
     groupsToProcess.forEach(g => {
         for (let i = g.start; i <= g.end; i++) {
-            const fileName = `${g.letter}${i}`; // Örn: a100, a200, b100, c250
+            const fileName = `${g.letter}${i}`;
             const opt = document.createElement('option');
             opt.value = fileName;
-            opt.innerHTML = fileName.toUpperCase(); // Örn: A100, A200, C250
+            opt.innerHTML = fileName.toUpperCase();
             daySelect.appendChild(opt);
         }
     });
     
-    // Sayfa açıldığında veya filtre değiştiğinde ilk dosya otomatik seçilsin
     daySelect.selectedIndex = 0;
     loadData();
 }
@@ -125,8 +124,10 @@ async function loadData() {
     try {
         currentSceneWords = [];
         
-        // Doğrudan seçilen JSON dosyasını yükler (örn: data/a100.json, data/a200.json vb.)
-        const filePath = `data/${fileName}.json`;
+        // GitHub Pages alt dizin yolunu (/vocab/) otomatik çözen güvenli yapı
+        const repoPath = window.location.pathname.includes('/vocab') ? '/vocab' : '';
+        const filePath = `${repoPath}/data/${fileName}.json`;
+        
         const res = await fetch(filePath);
         
         if (!res.ok) {
@@ -136,7 +137,6 @@ async function loadData() {
         const data = await res.json();
         currentSceneWords = Array.isArray(data) ? data : (data.words || []);
         
-        // Dosya adına göre seviye tespiti
         let detectedLevel = '';
         if (fileName.startsWith('a1')) detectedLevel = 'A1';
         else if (fileName.startsWith('a2')) detectedLevel = 'A2';
