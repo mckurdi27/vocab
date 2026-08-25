@@ -1,1165 +1,895 @@
-headword,CEFR,Turkish
-a,A1,bir
-a.m./A.M./am/AM,A1,öğleden önce
-about,A1,hakkında / yaklaşık
-about,A1,hakkında / yaklaşık
-above,A1,yukarıda
-above,A1,yukarıda
-action,A1,eylem / hareket
-activity,A1,etkinlik / aktivite
-actor,A1,aktör / erkek oyuncu
-add,A1,eklemek
-address,A1,adres
-afraid,A1,korkmuş / çekinen
-after,A1,sonra
-afternoon,A1,öğleden sonra
-again,A1,tekrar
-age,A1,yaş
-ago,A1,önce (zaman)
-agree,A1,aynı fikirde olmak / katılmak
-airplane/aeroplane,A1,uçak
-airport,A1,havalimanı
-album,A1,albüm
-all,A1,tümü / hepsi
-all,A1,tümü / hepsi
-all right,A1,peki / tamam
-all right,A1,peki / tamam
-almost,A1,neredeyse
-alone,A1,yalnız
-along,A1,boyunca / yanı sıra
-already,A1,zaten / çoktan
-also,A1,de / da / ayrıca
-always,A1,her zaman
-am,A1,im / am (olmak fiili)
-an,A1,bir
-and,A1,ve
-angry,A1,kızgın / sinirli
-animal,A1,hayvan
-another,A1,başka bir / diğer
-answer,A1,cevap / yanıt
-answer,A1,cevaplamak
-any,A1,herhangi bir
-any,A1,herhangi bir
-anybody,A1,herhangi biri
-anyone,A1,herkes / herhangi biri
-anything,A1,herhangi bir şey
-apple,A1,elma
-April,A1,Nisan
-apron,A1,önlük
-are,A1,sın / siniz / iz (olmak fiili)
-arm,A1,kol
-around,A1,etrafında / civarında
-arrive,A1,varmak / ulaşmak
-art,A1,sanat
-article,A1,makale / eşya
-as,A1,olarak / gibi
-ask,A1,sormak / istemek
-at,A1,de / da / -de (bulunma eki)
-August,A1,Ağustos
-aunt,A1,teyze / hala
-autumn,A1,sonbahar
-awake,A1,uyanık
-away,A1,uzakta / uzağa
-baby,A1,bebek
-back,A1,arka / sırt
-back,A1,geri
-bad,A1,kötü
-bag,A1,çanta
-ball,A1,top
-banana,A1,muz
-band,A1,grup / bando / bant
-bank,A1,banka
-bar,A1,bar
-baseball,A1,beyzbol
-basketball,A1,basketbol
-bat,A1,yarasa / sopa
-bath,A1,banyo
-bathroom,A1,banyo / tuvalet
-be,A1,olmak
-beach,A1,plaj / kumsal
-bean,A1,fasulye
-bear,A1,ayı
-beautiful,A1,güzel
-because,A1,çünkü
-become,A1,haline gelmek / olmak
-bed,A1,yatak
-bedroom,A1,yatak odası
-bee,A1,arı
-beef,A1,sığır eti
-before,A1,önce
-before,A1,önce
-begin,A1,başlamak
-behind,A1,arkasında
-behind,A1,arkasında
-believe,A1,inanmak
-bell,A1,zil / çan
-below,A1,aşağıda
-below,A1,aşağıda
-beside,A1,yanında
-best,A1,en iyi
-best,A1,en iyi
-better,A1,daha iyi
-between,A1,arasında
-bicycle,A1,bisiklet
-big,A1,büyük
-bike,A1,bisiklet
-bird,A1,kuş
-birth,A1,doğum
-birthday,A1,doğum günü
-biscuit,A1,bisküvi
-black,A1,siyah / kara
-black,A1,siyah / kara
-blank,A1,boşluk / boş
-block,A1,blok / yapı adası
-blow,A1,üflemek / esmek
-blue,A1,mavi
-blue,A1,mavi
-board,A1,tahta / pano
-boat,A1,tekne / bot
-body,A1,vücut
-bone,A1,kemik
-book,A1,kitap
-bookstore,A1,kitabevi
-boring,A1,sıkıcı
-borrow,A1,ödünç almak
-both,A1,her ikisi
-both,A1,her ikisi
-both,A1,her ikisi
-bottle,A1,şişe
-bottom,A1,alt / dip
-bowl,A1,kase
-box,A1,kutu
-boy,A1,erkek çocuk
-boyfriend,A1,erkek arkadaş
-brain,A1,beyin
-bread,A1,ekmek
-break,A1,kırmak / ara vermek
-breakfast,A1,kahvaltı
-breathe,A1,nefes almak
-bridge,A1,köprü
-bright,A1,parlak
-bring,A1,getirmek
-broken,A1,kırık
-brother,A1,erkek kardeş / ağabey
-brown,A1,kahverengi
-brush,A1,fırça
-brush,A1,fırçalamak
-bucket,A1,kova
-build,A1,inşa etmek
-building,A1,bina
-burger,A1,hamburger
-bus,A1,otobüs
-business,A1,iş / ticaret
-busy,A1,meşgul / yoğun
-but,A1,fakat / ama
-butter,A1,tereyağı
-butterfly,A1,kelebek
-button,A1,düğme
-buy,A1,satın almak
-by,A1,tarafından / yanında
-bye,A1,hoşça kal
-cafe/café,A1,kafe
-cake,A1,kek / pasta
-call,A1,aramak / telefon etmek
-camera,A1,kamera / fotoğraf makinesi
-camp,A1,kamp / kamp yapmak
-can,A1,-ebilmek / teneke kutu
-candy,A1,şekerleme
-cap,A1,şapka / kep
-car,A1,araba
-card,A1,kart
-care,A1,dikkat / önemsemek
-careful,A1,dikkatli
-carefully,A1,dikkatlice
-carry,A1,taşımak
-cartoon,A1,çizgi film
-case,A1,durum / çanta
-cat,A1,kedi
-catch,A1,yakalamak
-catch,A1,yakalamak
-CD,A1,CD
-CD player,A1,CD çalar
-celebrate,A1,kutlamak
-celebration,A1,kutlama
-chair,A1,sandalye
-change,A1,değiştirmek / para üstü
-change,A1,değiştirmek / para üstü
-character,A1,karakter
-check,A1,kontrol etmek
-cheese,A1,peynir
-chicken,A1,tavuk
-child,A1,çocuk
-chocolate,A1,çikolata
-choose,A1,seçmek
-church,A1,kilise
-cinema,A1,sinema
-circle,A1,daire / çember
-city,A1,şehir
-class,A1,sınıf
-classmate,A1,sınıf arkadaşı
-classroom,A1,sınıf (derslik)
-clean,A1,temiz
-clean,A1,temizlemek
-clever,A1,akıllı / zeki
-climb,A1,tırmanmak
-clock,A1,duvar saati
-close,A1,yakın
-close,A1,kapatmak
-closed,A1,kapalı
-cloth,A1,bez / kumaş
-clothes,A1,kıyafetler
-cloud,A1,bulut
-cloudy,A1,bulutlu
-club,A1,kulüp
-coach,A1,antrenör / otobüs
-coat,A1,mont / palto
-code,A1,kod
-coffee,A1,kahve
-coke,A1,kola
-cold,A1,soğuk
-cold,A1,soğuk
-collect,A1,toplamak
-collection,A1,koleksiyon
-college,A1,yüksekokul / kolej
-color/colour,A1,renk
-color/colour,A1,renk
-come,A1,gelmek
-computer,A1,bilgisayar
-concert,A1,konser
-contest,A1,yarışma
-conversation,A1,konuşma / sohbet
-cook,A1,aşçı
-cook,A1,yemek pişirmek
-cookie,A1,kurabiye
-cool,A1,havalı / serin
-cop,A1,polis
-copy,A1,kopya / kopyalamak
-corn,A1,mısır
-corner,A1,köşe
-correct,A1,doğru
-couch,A1,kanepe / koltuk
-could,A1,bilirdi / -ebilirdi
-course,A1,kurs / ders
-cousin,A1,kuzen
-cover,A1,örtmek / kapak
-cow,A1,inek
-cream,A1,krema
-credit card,A1,kredi kartı
-cry,A1,ağlamak / bağırmak
-culture,A1,kültür
-cup,A1,fincan / kupa
-cut,A1,kesmek
-cute,A1,sevimli
-dad,A1,baba
-daddy,A1,babacım
-dance,A1,dans
-dance,A1,dans etmek
-dancing,A1,dans etme
-dark,A1,koyu / karanlık
-date,A1,tarih / randevu
-daughter,A1,kız evlat
-day,A1,gün
-dear,A1,sevgili
-December,A1,Aralık
-delicious,A1,lezzetli
-describe,A1,tarif etmek / betimlemek
-design,A1,tasarım / tasarlamak
-desk,A1,çalışma masası
-dictionary,A1,sözlük
-did,A1,yapmıştı (do fiilinin geçmiş zamanı)
-difference,A1,fark
-different,A1,farklı
-difficult,A1,zor
-dig,A1,kazmak
-dining room,A1,yemek odası
-dinner,A1,akşam yemeği
-dirty,A1,kirli
-discuss,A1,tartışmak / görüşmek
-dish,A1,tabak / yemek
-do,A1,yapmak
-doctor/Dr./Dr,A1,doktor
-does,A1,yapar
-dog,A1,köpek
-doing,A1,yapan / yapıyor
-doll,A1,oyuncak bebek
-dollar,A1,dolar
-door,A1,kapı
-down,A1,aşağı
-drama,A1,drama / tiyatro oyunu
-draw,A1,çizmek
-dream,A1,rüya / hayal
-dress,A1,elbise
-drink,A1,içecek
-drink,A1,içmek
-drive,A1,araba kullanmak
-driver,A1,sürücü / şoför
-drop,A1,düşürmek / damla
-drum,A1,davul
-dry,A1,kuru
-due,A1,vadesi gelen / son teslim
-DVD,A1,DVD
-each,A1,her biri
-each,A1,her biri
-each other,A1,birbiri
-ear,A1,kulak
-early,A1,erken
-easy,A1,kolay
-eat,A1,yemek yemek
-egg,A1,yumurta
-eight,A1,sekiz
-eighteen,A1,on sekiz
-eighty,A1,seksen
-either,A1,de (olumsuz) / ya o ya bu
-elementary,A1,temel / ilköğretim
-eleven,A1,on bir
-else,A1,başka
-email/e-mail/E-mail,A1,e-posta
-end,A1,son / bitirmek
-engineer,A1,mühendis
-enjoy,A1,keyif almak / hoşlanmak
-evening,A1,akşam
-event,A1,etkinlik / olay
-every,A1,her
-everybody,A1,herkes
-everyday,A1,her gün / günlük
-everyone,A1,herkes
-everything,A1,her şey
-everywhere,A1,her yer
-example,A1,örnek
-excellent,A1,mükemmel
-excited,A1,heyecanlı
-exciting,A1,heyecan verici
-excuse,A1,özür dilemek / bahane
-exercise,A1,egzersiz / alıştırma
-expensive,A1,pahalı
-eye,A1,göz
-face,A1,yüz
-factory,A1,fabrika
-fair,A1,adil / fuar
-fairy,A1,peri
-FALSE,A1,yanlış
-family,A1,aile
-famous,A1,ünlü
-fan,A1,hayran / vantilatör
-farm,A1,çiftlik
-farmer,A1,çiftçi
-fast,A1,hızlı
-fast,A1,hızlı
-fat,A1,şişman / yağlı
-father,A1,baba
-favorite/favourite,A1,favori / en sevilen
-favorite/favourite,A1,favori / en sevilen
-February,A1,Şubat
-feed,A1,beslemek
-feel,A1,hissetmek
-feeling,A1,duygu / his
-festival,A1,festival
-fever,A1,ateş (hastalık)
-field,A1,tarla / saha
-fifteen,A1,on beş
-fifty,A1,elli
-fight,A1,kavga etmek / dövüşmek
-file,A1,dosya
-fill,A1,doldurmak
-find,A1,bulmak
-fine,A1,iyi / güzel
-finish,A1,bitirmek
-finish,A1,bitirmek
-fire,A1,ateş / yangın
-first,A1,birinci / ilk
-first,A1,birinci / ilk
-fish,A1,balık
-fishing,A1,balık tutma
-five,A1,beş
-flag,A1,bayrak
-flat,A1,daire (ev)
-floor,A1,zemin / kat
-flower,A1,çiçek
-fly,A1,uçmak
-fly,A1,uçmak
-focus,A1,odaklanmak
-foggy,A1,sisli
-following,A1,aşağıdaki / takip eden
-food,A1,yiyecek / yemek
-football,A1,futbol
-for,A1,için
-foreign,A1,yabancı
-foreigner,A1,yabancı (kişi)
-forget,A1,unutmak
-form,A1,form / biçim
-forty,A1,kırk
-four,A1,dört
-fourteen,A1,on dört
-free,A1,özgür / ücretsiz / boş
-Friday,A1,Cuma
-friend,A1,arkadaş
-frog,A1,kurbağa
-from,A1,-den / -dan
-front,A1,ön taraf
-fruit,A1,meyve
-full,A1,dolu / tok
-fun,A1,eğlence
-fun,A1,eğlence
-funny,A1,komik / eğlenceli
-future,A1,gelecek
-game,A1,oyun
-garbage,A1,çöp
-garden,A1,bahçe
-get,A1,almak / edinmek
-ghost,A1,hayalet
-gift,A1,hediye
-girl,A1,kız çocuk
-girlfriend,A1,kız arkadaş
-give,A1,vermek
-glad,A1,memnun
-glass,A1,bardak / cam
-glasses,A1,gözlük
-go,A1,gitmek
-goal,A1,gol / amaç
-gold,A1,altın
-good,A1,iyi
-good afternoon,A1,tünaydın / iyi öğleden sonraları
-good morning,A1,günaydın
-good night,A1,iyi geceler
-grade,A1,not / sınıf (derece)
-grammar,A1,dilbilgisi
-grandfather,A1,büyükbaba / dede
-grandma,A1,büyükanne / büyüka
-grandmother,A1,büyükanne / nine
-grandpa,A1,dede
-grandparent,A1,büyükanne ve büyükbaba
-grape,A1,üzüm
-grass,A1,çimen
-gray/grey,A1,gri
-gray/grey,A1,gri
-great,A1,harika / büyük
-green,A1,yeşil
-greet,A1,selamlamak
-ground,A1,yer / zemin
-group,A1,grup
-grow,A1,büyümek / yetiştirmek
-guess,A1,tahmin etmek
-guest,A1,misafir / konuk
-guitar,A1,gitar
-guy,A1,adam / herif
-habit,A1,alışkanlık
-had,A1,sahipti (have fiilinin geçmiş zamanı)
-hair,A1,saç
-haircut,A1,saç kesimi
-half,A1,yarım
-hall,A1,koridor / hol
-hamburger,A1,hamburger
-hand,A1,el
-handsome,A1,yakışıklı
-happen,A1,olmak / meydana gelmek
-happy,A1,mutlu
-hard,A1,zor / sert
-hard,A1,zor / sert
-has,A1,sahiptir (have fiilinin üçüncü tekil şahıs hali)
-hat,A1,şapka
-have,A1,sahip olmak
-have to,A1,zorunda olmak
-he,A1,o (erkek)
-head,A1,kafa / baş
-headache,A1,baş ağrısı
-health,A1,sağlık
-healthy,A1,sağlıklı
-hear,A1,duymak
-heart,A1,kalp
-heavy,A1,ağır
-hello,A1,merhaba
-help,A1,yardım etmek
-her,A1,onun (kız)
-her,A1,onu (kız)
-here,A1,burada
-hers,A1,onunki (kız)
-hi,A1,selam
-hide,A1,saklamak / saklanmak
-high,A1,yüksek
-hill,A1,tepe
-him,A1,onu (erkek)
-his,A1,onun (erkek)
-his,A1,onun (erkek)
-history,A1,tarih
-hobby,A1,hobi
-hold,A1,tutmak
-hole,A1,delik
-holiday,A1,tatil
-home,A1,ev
-hometown,A1,memleket
-homework,A1,ev ödevi
-hope,A1,umut etmek
-horse,A1,at
-hospital,A1,hastane
-hot,A1,sıcak
-hotel,A1,otel
-hour,A1,saat
-house,A1,ev
-how,A1,nasıl
-hungry,A1,aç
-hurry,A1,acele etmek
-hurt,A1,acıtmak / yaralamak
-husband,A1,koca / eş
-I,A1,ben
-ice,A1,buz
-ice cream,A1,dondurma
-idea,A1,fikir
-ideal,A1,ideal
-if,A1,eğer
-imagine,A1,hayal etmek
-important,A1,önemli
-in,A1,içinde / -de
-information,A1,bilgi
-inside,A1,içeride
-interested,A1,ilgilenen / meraklı
-interesting,A1,ilginç
-Internet/internet,A1,internet
-interview,A1,röportaj / mülakat
-interviewer,A1,mülakat yapan / röportajcı
-into,A1,içeriye / içine
-introduce,A1,tanıtmak / tanıştırmak
-is,A1,dır / dir (olmak fiili)
-island,A1,ada
-it,A1,o (cansız / hayvan)
-item,A1,öğe / madde
-its,A1,onun (cansız)
-its,A1,onun (cansız)
-jacket,A1,ceket
-January,A1,Ocak
-jeans,A1,kot pantolon
-jet,A1,jet / uçak
-jewelry/jewellery,A1,mücevherat / takı
-job,A1,iş / meslek
-join,A1,katılmak
-judge,A1,hakim / yargıç
-juice,A1,meyve suyu
-July,A1,Temmuz
-jump,A1,zıplamak / atlamak
-June,A1,Haziran
-just,A1,sadece / henüz
-keep,A1,tutmak / saklamak
-key,A1,anahtar
-key,A1,anahtar
-kick,A1,temelemek / vurmak
-kick,A1,temelemek / vurmak
-kid,A1,çocuk / vefat
-kill,A1,öldürmek
-kind,A1,tür / nazik
-king,A1,kral
-kiss,A1,öpmek / öpücük
-kitchen,A1,mutfak
-kite,A1,uçurtma
-knee,A1,diz
-knife,A1,bıçak
-know,A1,bilmek / tanımak
-lady,A1,hanımefendi
-language,A1,dil (lisan)
-large,A1,büyük / geniş
-last name,A1,soyadı
-late,A1,geç
-late,A1,geç
-later,A1,daha sonra
-laugh,A1,gülmek
-lazy,A1,tembel
-leader,A1,lider / önder
-leaf,A1,yaprak
-learn,A1,öğrenmek
-leave,A1,ayrılmak / terk etmek
-left,A1,sol
-leg,A1,bacak
-lesson,A1,ders
-let,A1,izin vermek
-letter,A1,mektup / harf
-library,A1,kütüphane
-life,A1,hayat / yaşam
-light,A1,hafif / ışık
-light,A1,hafif / ışık
-like,A1,beğenmek / hoşlanmak
-like,A1,gibi
-lily,A1,zambak
-line,A1,çizgi / sıra
-lion,A1,aslan
-list,A1,liste
-listen,A1,dinlemek
-little,A1,küçük / az
-little,A1,küçük / az
-live,A1,yaşamak
-living,A1,yaşayan / geçim
-living room,A1,oturma odası
-lonely,A1,yalnız (hisseden)
-long,A1,uzun
-look,A1,bakmak
-look,A1,bakmak
-lot,A1,çok / parti
-lot,A1,çok / parti
-love,A1,sevgi / aşk
-love,A1,sevmek
-lovely,A1,sevimli / hoş
-luck,A1,şans
-lucky,A1,şanslı
-lunch,A1,öğle yemeği
-m,A1,metre / m (harf)
-machine,A1,makine
-magazine,A1,dergi
-mail,A1,posta
-make,A1,yapmak / üretmek
-man,A1,adam / erkek
-many,A1,çok (sayılabilen)
-many,A1,çok (sayılabilen)
-map,A1,harita
-March,A1,Mart
-match,A1,eşleşme / kibrit / maç
-math/maths,A1,matematik
-matter,A1,mesele / sorun
-may,A1,-ebilmek (ihtimal)
-May,A1,Mayıs
-maybe,A1,belki
-me,A1,beni / bana
-meal,A1,öğün / yemek
-mean,A1,anlamına gelmek / cimri
-meat,A1,et
-medicine,A1,ilaç / tıp
-meet,A1,buluşmak / tanışmak
-meeting,A1,toplantı
-memory,A1,hafıza / anı
-merry,A1,neşeli / şen
-message,A1,mesaj
-middle,A1,orta
-milk,A1,süt
-mind,A1,akıl / zihin / umursamak
-mine,A1,benimki
-minute,A1,dakika
-Miss,A1,Bayan (bekar)
-miss,A1,özlemek / kaçırmak
-mobile,A1,mobil / taşınabilir
-mobile phone,A1,cep telefonu
-mom,A1,anne
-moment,A1,an
-mommy/mommie,A1,annecik
-Monday,A1,Pazartesi
-money,A1,para
-monkey,A1,maymun
-month,A1,ay (takvim)
-moon,A1,ay (gök cismi)
-more,A1,daha fazla
-more,A1,daha fazla
-morning,A1,sabah
-most,A1,en çok / çoğunluk
-mother,A1,anne
-mountain,A1,dağ
-mouse,A1,fare
-mouth,A1,ağız
-move,A1,taşınmak / hareket etmek
-movie,A1,film
-Mr./Mr,A1,Bay
-Mrs./Mrs,A1,Bayan (evli)
-much,A1,çok (sayılamayan)
-much,A1,çok (sayılamayan)
-much,A1,çok (sayılamayan)
-mum,A1,anne
-music,A1,müzik
-musician,A1,müzisyen
-must,A1,malı / meli (zorunluluk)
-my,A1,benim
-name,A1,isim / ad
-nationality,A1,milliyet
-near,A1,yakınında
-neck,A1,boyun / ense
-need,A1,ihtiyacı olmak
-neighbor/neighbour,A1,komşu
-never,A1,asla
-new,A1,yeni
-news,A1,haber / haberler
-newspaper,A1,gazete
-nice,A1,güzel / hoş
-night,A1,gece
-nine,A1,dokuz
-nineteen,A1,on dokuz
-ninety,A1,doksan
-no,A1,hayır
-no,A1,hayır
-noise,A1,gürültü
-nose,A1,burun
-not,A1,değil (olumsuzluk eki)
-note,A1,not / not almak
-note,A1,not / not almak
-notebook,A1,defter
-nothing,A1,hiçbir şey
-November,A1,Kasım
-now,A1,şimdi
-number,A1,sayı / numara
-nurse,A1,hemşire
-o'clock,A1,saat (tam saatler için)
-October,A1,Ekim
-of,A1,-in / -ın (tamamlama eki)
-off,A1,kapalı / uzak
-office,A1,ofis / büro
-officer,A1,memur / subay
-often,A1,sıklıkla
-OK/okay,A1,tamam
-OK/okay,A1,tamam
-old,A1,yaşlı / eski
-Olympics,A1,Olimpiyatlar
-on,A1,üstünde
-once,A1,bir kez / bir zamanlar
-one,A1,bir
-one,A1,bir
-only,A1,sadece
-only,A1,sadece
-open,A1,açık
-open,A1,açmak
-opera,A1,opera
-or,A1,yeya / ya da
-orange,A1,portakal / turuncu
-orange,A1,portakal / turuncu
-order,A1,sipariş / düzen
-other,A1,diğer
-our,A1,bizim
-ours,A1,bizimki
-out,A1,dışarıda / dışarı
-outside,A1,dışarıda / dışarı
-over,A1,üzerinde / bitmiş
-own,A1,kendi
-owner,A1,sahip
-p.m./P.M./pm/PM,A1,öğleden sonra / akşamüstü
-page,A1,sayfa
-paint,A1,boya / boyamak
-paint,A1,boya / boyamak
-painting,A1,tablo / resim
-pair,A1,çift
-palace,A1,saray
-pants,A1,pantolon
-paper,A1,kağıt
-paragraph,A1,paragraf
-pardon,A1,afedersiniz / pardon
-parent,A1,ebeveyn (anne-baba)
-park,A1,park / park etmek
-partner,A1,ortak / eş
-party,A1,parti
-past,A1,geçmiş / öte
-past,A1,geçmiş / öte
-pay,A1,ödemek
-pay,A1,ödemek
-peace,A1,barış / huzur
-pen,A1,tükenmez kalem
-pencil,A1,kurşun kalem
-people,A1,insanlar
-period,A1,dönem / süre
-person,A1,kişi / insan
-personal,A1,kişisel
-pet,A1,evcil hayvan
-phone,A1,telefon
-phone,A1,telefon
-photo,A1,fotoğraf
-piano,A1,piyano
-pick,A1,seçmek / toplamak
-picnic,A1,piknik
-picture,A1,resim / fotoğraf
-piece,A1,parça
-pig,A1,domuz
-pink,A1,pembe
-pizza,A1,pizza
-place,A1,yer / mekan
-plan,A1,plan / planlamak
-plane,A1,uçak
-play,A1,oynamak / çalmak (enstrüman)
-play,A1,oynamak / çalmak (enstrüman)
-player,A1,oyuncu
-please,A1,lütfen
-pleasure,A1,memnuniyet
-pocket,A1,cep
-poem,A1,şiir
-point,A1,nokta / puan
-pollution,A1,kirlilik
-pool,A1,havuz
-poor,A1,fakir / yoksul
-pop,A1,pop müzik / patlamak
-post,A1,posta / göndermek
-poster,A1,afiş / poster
-potato,A1,patates
-practice,A1,pratik / alıştırma
-practice/practise,A1,pratik yapmak
-pray,A1,dua etmek
-present,A1,hediye / mevcut / sunmak
-pretty,A1,şirin / oldukça
-price,A1,fiyat
-prince,A1,prens
-princess,A1,prenses
-problem,A1,sorun / problem
-program/programme,A1,program
-purple,A1,mor
-push,A1,itmek
-put,A1,koymak
-quarter,A1,çeyrek
-question,A1,soru
-quickly,A1,hızlıca
-quiet,A1,sessiz
-rabbit,A1,tavşan
-radio,A1,radyo
-rain,A1,yağmur
-rain,A1,yağmur yağmak
-rainy,A1,yağmurlu
-rat,A1,sıçan / büyük fare
-re,A1,hakkında / -e dair
-read,A1,okumak
-reader,A1,okuyucu
-reading,A1,okuma
-ready,A1,hazır
-real,A1,gerçek
-real,A1,gerçek
-really,A1,gerçekten
-reason,A1,sebep / neden
-red,A1,kırmızı
-remember,A1,hatırlamak
-repeat,A1,tekrarlamak
-reporter,A1,muhabir / gazeteci
-restaurant,A1,restoran
-result,A1,sonuç
-review,A1,inceleme / gözden geçirme
-ribbon,A1,kurdele
-rice,A1,pirinç / pilav
-rich,A1,zengin
-ride,A1,binmek (bisiklet at vb.)
-ride,A1,binmek (bisiklet at vb.)
-right,A1,doğru / sağ (taraf)
-right,A1,doğru / sağ (taraf)
-ring,A1,yüzük / zil sesi
-river,A1,nehir / ırmak
-role,A1,rol
-room,A1,oda
-rose,A1,gül
-row,A1,sıra / kürek çekmek
-rude,A1,kaba
-rule,A1,kural
-ruler,A1,cetvel
-run,A1,koşmak
-run,A1,koşmak
-s,A1,s (harf)
-sad,A1,üzgün
-sailor,A1,denizci
-salad,A1,salata
-sale,A1,satış / indirim
-same,A1,aynı
-same,A1,aynı
-same,A1,aynı
-sandwich,A1,sandviç
-Saturday,A1,Cumartesi
-save,A1,kurtarmak / biriktirmek / kaydetmek
-saw,A1,testere / gördü (see fiilinin geçmiş zamanı)
-say,A1,söylemek
-school,A1,okul
-science,A1,bilim
-scientist,A1,bilim insanı
-sea,A1,deniz
-seat,A1,koltuk / oturacak yer
-second,A1,saniye / ikinci
-section,A1,bölüm / kısım
-see,A1,görmek
-self,A1,kendi / öz
-sell,A1,satmak
-sentence,A1,cümle
-September,A1,Eylül
-set,A1,set / ayarlamak / kurmak
-seven,A1,yedi
-seventeen,A1,on yedi
-seventy,A1,yetmiş
-shake,A1,sallamak / tokalaşmak
-share,A1,paylaşmak
-she,A1,o (kız)
-sheep,A1,koyun
-shelf,A1,raf
-ship,A1,gemi
-shirt,A1,gömlek
-shoe,A1,ayakkabı
-shop,A1,dükkan / mağaza
-shopping,A1,alışveriş
-short,A1,kısa
-short,A1,kısa
-should,A1,-meli / -malı (tavsiye)
-shoulder,A1,omuz
-show,A1,göstermek / gösteri
-shower,A1,duş
-shy,A1,utangaç
-sick,A1,hasta
-side,A1,taraf / kenar
-sight,A1,görüş / manzara
-sign,A1,tabela / işaret / imzalamak
-sing,A1,şarkı söylemek
-singer,A1,şarkıcı
-sir,A1,bay / efendim
-sister,A1,kız kardeş / abla
-sit,A1,oturmak
-site,A1,site / alan
-six,A1,altı
-sixteen,A1,on altı
-sixty,A1,altmış
-size,A1,boyut / beden
-skill,A1,yetenek / beceri
-skirt,A1,etek
-sky,A1,gökyüzü
-sleep,A1,uyumak
-slow,A1,yavaş
-small,A1,küçük
-smart,A1,akıllı / şık
-smell,A1,koklamak / kokmak
-smile,A1,gülümsemek
-smith,A1,demirci / soyadı
-smoke,A1,sigara içmek / duman
-smoking,A1,sigara içme
-snake,A1,yılan
-snow,A1,kar / kar yağmak
-snowy,A1,karlı
-so,A1,bu yüzden / çok
-soccer,A1,futbol
-social,A1,sosyal
-sofa,A1,kanepe / koltuk
-solve,A1,çözmek
-some,A1,birkaç / biraz
-some,A1,birkaç / biraz
-someone,A1,biri / birileri
-something,A1,bir şey
-son,A1,erkek evlat
-song,A1,şarkı
-soon,A1,yakında
-sorry,A1,üzgün
-soup,A1,çorba
-speak,A1,konuşmak
-special,A1,özel
-speech,A1,konuşma (nutuk)
-spell,A1,hecelemek
-spend,A1,harcamak / geçirmek (zaman)
-sport,A1,spor
-spot,A1,leke / nokta / yer
-spring,A1,ilkbahar / yay
-spy,A1,casus
-stage,A1,sahne
-stand,A1,ayakta durmak
-star,A1,yıldız
-start,A1,başlamak
-start,A1,başlamak
-station,A1,istasyon
-stay,A1,kalmak
-step,A1,adım / adım atmak
-still,A1,hala
-stone,A1,taş
-stop,A1,durmak / durdurmak
-stop,A1,durmak / durdurmak
-store,A1,mağaza / dükkan
-story,A1,hikaye / öykü
-straight,A1,düz
-strange,A1,garip / tuhaf
-street,A1,sokak / cadde
-strict,A1,katı / disiplinli
-strong,A1,güçlü
-student,A1,öğrenci
-study,A1,ders çalışmak / incelemek
-subject,A1,ders / konu / özne
-subway,A1,metro
-successful,A1,başarılı
-sugar,A1,şeker
-suggestion,A1,öneri / teklif
-sum,A1,toplam
-summer,A1,yaz mevsimi
-sun,A1,güneş
-Sunday,A1,Pazar
-sunny,A1,güneşli
-sunshine,A1,güneş ışığı
-super,A1,süper / harika
-supermarket,A1,süpermarket
-sure,A1,emin
-surf,A1,sörf yapmak / internette gezinmek
-surprise,A1,sürpriz
-survey,A1,anket
-sweet,A1,tatlı
-swim,A1,yüzmek
-swim,A1,yüzmek
-swimming,A1,yüzme
-swimming pool,A1,yüzme havuzu
-table,A1,masa / tablo
-take,A1,almak
-talk,A1,konuşmak
-tall,A1,uzun (boylu)
-taxi,A1,taksi
-tea,A1,çay
-teach,A1,öğretmek
-teacher,A1,öğretmen
-team,A1,takım / ekip
-technology,A1,teknoloji
-telephone,A1,telefon
-television,A1,televizyon
-tell,A1,anlatmak / söylemek
-temple,A1,tapınak
-ten,A1,on
-tennis,A1,tenis
-terrible,A1,korkunç / berbat
-test,A1,test / sınav
-than,A1,-den / -dan (karşılaştırma)
-than,A1,-den / -dan (karşılaştırma)
-thank,A1,teşekkür etmek
-thanks,A1,teşekkürler
-that,A1,şu / o
-that,A1,şu / o
-that,A1,şu / o
-the,A1,-e / -i (belirli tanım edatı)
-theater/theatre,A1,tiyatro
-their,A1,onların
-them,A1,onları / onlara
-then,A1,o zaman / sonra
-there,A1,orada
-these,A1,bunlar
-these,A1,bunlar
-they,A1,onlar
-thick,A1,kalın
-thin,A1,ince
-thing,A1,şey
-think,A1,düşünmek
-thirteen,A1,on üç
-thirty,A1,otuz
-this,A1,bu
-this,A1,bu
-those,A1,şunlar / o (çoğul)
-those,A1,şunlar / o (çoğul)
-three,A1,üç
-through,A1,içinden / baştan sona
-throw,A1,fırlatmak / atmak
-Thursday,A1,Perşembe
-ticket,A1,bilet
-tiger,A1,kaplan
-tight,A1,sıkı / dar
-time,A1,zaman / süre
-tired,A1,yorgun
-to,A1,-e / -a (yönelme eki)
-to,A1,-e / -a (yönelme eki)
-today,A1,bugün
-today,A1,bugün
-together,A1,birlikte
-toilet,A1,tuvalet
-tomato,A1,domates
-tomorrow,A1,yarın
-tomorrow,A1,yarın
-tonight,A1,bu gece
-too,A1,de / da / çok (aşırı)
-tool,A1,alet / araç
-tooth,A1,diş
-top,A1,zirve / üst
-topic,A1,konu / başlık
-touch,A1,dokunmak
-towel,A1,havlu
-tower,A1,kule
-town,A1,kasaba
-toy,A1,oyuncak
-train,A1,tren
-travel,A1,seyahat etmek
-tree,A1,ağaç
-trip,A1,gezi / seyahat
-trousers,A1,pantolon
-truck,A1,kamyon
-TRUE,A1,doğru / gerçek
-try,A1,denemek
-T-shirt/tee-shirt,A1,tişört
-tube,A1,tüp / tüp metro
-Tuesday,A1,Salı
-turkey,A1,hindi / Türkiye
-turn,A1,dönmek / çevirmek
-turn,A1,dönmek / çevirmek
-TV,A1,televizyon
-twelve,A1,on iki
-twenty,A1,yirmi
-two,A1,iki
-type,A1,tür / çeşit / yazmak
-ugly,A1,çirkin
-umbrella,A1,şemsiye
-uncle,A1,amca / dayı
-under,A1,altında
-underline,A1,altını çizmek
-until,A1,-e kadar
-up,A1,yukarı
-us,A1,bize / bizi
-use,A1,kullanmak
-usually,A1,genellikle
-vacation,A1,tatil
-vase,A1,vazo
-vegetable,A1,sebze
-very,A1,çok
-video,A1,video
-visit,A1,ziyaret etmek
-visit,A1,ziyaret etmek
-volleyball,A1,voleybol
-vote,A1,oy vermek
-wait,A1,beklemek
-waiter,A1,garson (erkek)
-waitress,A1,garson (kadın)
-wake,A1,uyanmak
-walk,A1,yürümek
-walk,A1,yürümek
-wall,A1,duvar
-want,A1,istemek
-war,A1,savaş
-warm,A1,ılık
-was,A1,idi (be fiilinin geçmiş zamanı)
-wash,A1,yıkamak
-wash,A1,yıkamak
-watch,A1,izlemek / kol saati
-watch,A1,izlemek / kol saati
-water,A1,su
-way,A1,yol / yöntem
-we,A1,biz
-wear,A1,giymek
-weather,A1,hava durumu
-Wednesday,A1,Çarşamba
-week,A1,hafta
-weekend,A1,hafta sonu
-welcome,A1,hoş geldiniz / karşılamak
-welcome,A1,hoş geldiniz / karşılamak
-well,A1,iyi / kuyu
-well,A1,iyi / kuyu
-were,A1,idiler (be fiilinin çoğul geçmiş zamanı)
-what,A1,ne
-what,A1,ne
-wheel,A1,tekerlek
-when,A1,ne zaman / -dığında
-when,A1,ne zaman / -dığında
-where,A1,nerede
-where,A1,nerede
-which,A1,hangi
-which,A1,hangi
-white,A1,beyaz
-white,A1,beyaz
-who,A1,kim
-whose,A1,kimin
-whose,A1,kimin
-why,A1,neden / niçin
-wife,A1,eş (kadın) / karı
-will,A1,-ecek / -acak (gelecek zaman eki)
-win,A1,kazanmak
-wind,A1,rüzgar
-window,A1,pencere
-winter,A1,kış
-wish,A1,dilemek / istek
-with,A1,ile
-woman,A1,kadın
-wonderful,A1,harika
-word,A1,kelime / sözcük
-work,A1,çalışmak / iş
-work,A1,çalışmak / iş
-worker,A1,işçi
-world,A1,dünya
-worry,A1,endişelenmek
-would,A1,-(y)di (kibarca istekler / geçmiş alışkanlıklar)
-write,A1,yazmak
-writer,A1,yazar
-wrong,A1,yanlış
-yard,A1,avlu / yard (ölçü birimi)
-year,A1,yıl
-yellow,A1,sarı
-yellow,A1,sarı
-yes,A1,evet
-yesterday,A1,dün
-yet,A1,henüz / hâlâ
-yogurt/yoghurt,A1,yoğurt
-you,A1,sen / siz
-young,A1,genç
-your,A1,sizin / senin
-yours,A1,seninki / sizinki
-yourself,A1,kendin / kendiniz
-zoo,A1,hayvanat bahçesi
+Word	POS	Level
+a an	indefinite article	A1
+about	prep. adv.	A1
+above	prep. adv.	A1
+across	prep. adv.	A1
+action	n.	A1
+activity	n.	A1
+actor	n.	A1
+actress	n.	A1
+add	v.	A1
+address	n.	A1
+adult	n.	A1
+advice	n.	A1
+afraid	adj.	A1
+after	prep.	A1
+afternoon	n.	A1
+again	adv.	A1
+age	n.	A1
+ago	adv.	A1
+agree	v.	A1
+air	n.	A1
+airport	n.	A1
+all	det. pron.	A1
+also	adv.	A1
+always	adv.	A1
+amazing	adj.	A1
+and	conj.	A1
+angry	adj.	A1
+animal	n.	A1
+another	det./pron.	A1
+answer	n. v.	A1
+any	det. pron.	A1
+anyone	pron.	A1
+anything	pron.	A1
+apartment	n.	A1
+apple	n.	A1
+April	n.	A1
+area	n.	A1
+arm	n.	A1
+around	prep. adv.	A1
+arrive	v.	A1
+art	n.	A1
+article	n.	A1
+artist	n.	A1
+as	prep.	A1
+ask	v.	A1
+at	prep.	A1
+August	n.	A1
+aunt	n.	A1
+autumn	n.	A1
+away	adv.	A1
+baby	n.	A1
+back	n. adv.	A1
+bad	adj.	A1
+bag	n.	A1
+ball	n.	A1
+banana	n.	A1
+band	n.	A1
+bank	(money) n.	A1
+bath	n.	A1
+bathroom	n.	A1
+be	v. auxiliary v.	A1
+beach	n.	A1
+beautiful	adj.	A1
+because	conj.	A1
+become	v.	A1
+bed	n.	A1
+bedroom	n.	A1
+beer	n.	A1
+before	prep.	A1
+begin	v.	A1
+beginning	n.	A1
+behind	prep. adv.	A1
+believe	v.	A1
+below	adv. prep.	A1
+best	adj.	A1
+better	adj.	A1
+between	prep.	A1
+bicycle	n.	A1
+big	adj.	A1
+bike	n.	A1
+bill	n.	A1
+bird	n.	A1
+birthday	n.	A1
+black	adj. n.	A1
+blog	n.	A1
+blonde	adj.	A1
+blue	adj. n.	A1
+boat	n.	A1
+body	n.	A1
+book	n.	A1
+boot	n.	A1
+bored	adj.	A1
+boring	adj.	A1
+born	v.	A1
+both	det./pron.	A1
+bottle	n.	A1
+box	n.	A1
+boy	n.	A1
+boyfriend	n.	A1
+bread	n.	A1
+break	v. n.	A1
+breakfast	n.	A1
+bring	v.	A1
+brother	n.	A1
+brown	adj. n.	A1
+build	v.	A1
+building	n.	A1
+bus	n.	A1
+business	n.	A1
+busy	adj.	A1
+but	conj.	A1
+butter	n.	A1
+buy	v.	A1
+by	prep.	A1
+bye	exclam.	A1
+cafe	n.	A1
+cake	n.	A1
+call	v. n.	A1
+camera	n.	A1
+can1	modal v.	A1
+cannot	modal v.	A1
+capital	n. adj.	A1
+car	n.	A1
+card	n.	A1
+career	n.	A1
+carrot	n.	A1
+carry	v.	A1
+cat	n.	A1
+CD	n.	A1
+cent	n.	A1
+centre	n.	A1
+century	n.	A1
+chair	n.	A1
+change	v. n.	A1
+chart	n.	A1
+cheap	adj.	A1
+check	v.	A1
+cheese	n.	A1
+chicken	n.	A1
+child	n.	A1
+chocolate	n.	A1
+choose	v.	A1
+cinema	n.	A1
+city	n.	A1
+class	n.	A1
+classroom	n.	A1
+clean	adj. v.	A1
+climb	v.	A1
+clock	n.	A1
+close1	v.	A1
+clothes	n.	A1
+club	n.	A1
+coat	n.	A1
+coffee	n.	A1
+cold	adj. n.	A1
+college	n.	A1
+colour	n.	A1
+come	v.	A1
+common	adj.	A1
+company	n.	A1
+compare	v.	A1
+complete	adj. v.	A1
+computer	n.	A1
+concert	n.	A1
+conversation	n.	A1
+cook	v.	A1
+cooking	n.	A1
+cool	adj.	A1
+correct	adj. v.	A1
+cost	n. v.	A1
+could	modal v.	A1
+country	n.	A1
+course	n.	A1
+cousin	n.	A1
+cow	n.	A1
+cream	n.	A1
+create	v.	A1
+culture	n.	A1
+cup	n.	A1
+customer	n.	A1
+cut	v.	A1
+dad	n.	A1
+dance	n. v.	A1
+dancer	n.	A1
+dancing	n.	A1
+dangerous	adj.	A1
+dark	adj.	A1
+date	n.	A1
+daughter	n.	A1
+day	n.	A1
+dear	adj.	A1
+December	n.	A1
+decide	v.	A1
+delicious	adj.	A1
+describe	v.	A1
+description	n.	A1
+design	n. v.	A1
+desk	n.	A1
+detail	n.	A1
+dialogue	n.	A1
+dictionary	n.	A1
+die	v.	A1
+diet	n.	A1
+difference	n.	A1
+different	adj.	A1
+difficult	adj.	A1
+dinner	n.	A1
+dirty	adj.	A1
+discuss	v.	A1
+dish	n.	A1
+do1	v. auxiliary v.	A1
+doctor	n.	A1
+dog	n.	A1
+dollar	n.	A1
+door	n.	A1
+down	adv. prep.	A1
+downstairs	adv.	A1
+draw	v.	A1
+dress	n. v.	A1
+drink	n. v.	A1
+drive	v.	A1
+driver	n.	A1
+during	prep.	A1
+DVD	n.	A1
+each	det./pron./adv.	A1
+ear	n.	A1
+early	adj. adv.	A1
+east	n. adj. adv.	A1
+easy	adj.	A1
+eat	v.	A1
+egg	n.	A1
+eight	number	A1
+eighteen	number	A1
+eighty	number	A1
+elephant	n.	A1
+eleven	number	A1
+else	adv.	A1
+email	n. v.	A1
+end	n. v.	A1
+enjoy	v.	A1
+enough	det. pron. adv.	A1
+euro	n.	A1
+even	adv.	A1
+evening	n.	A1
+event	n.	A1
+ever	adv.	A1
+every	det.	A1
+everybody	pron.	A1
+everyone	pron.	A1
+everything	pron.	A1
+exam	n.	A1
+example	n.	A1
+excited	adj.	A1
+exciting	adj.	A1
+exercise	n. v.	A1
+expensive	adj.	A1
+explain	v.	A1
+extra	adj.	A1
+eye	n.	A1
+face	n.	A1
+fact	n.	A1
+fall	v.	A1
+false.	adj.	A1
+family	n. adj.	A1
+famous	adj.	A1
+fantastic	adj.	A1
+far	adv.	A1
+farm	n.	A1
+farmer	n.	A1
+fast	adj. adv.	A1
+fat	adj.	A1
+father	n.	A1
+favourite	adj. n.	A1
+February	n.	A1
+feel	v.	A1
+feeling	n.	A1
+festival	n.	A1
+few	det./adj. pron.	A1
+fifteen	number	A1
+fifth	number	A1
+fifty	number	A1
+fill	v.	A1
+film	n.	A1
+final	adj.	A1
+find	v.	A1
+fine	adj.	A1
+finish	v.	A1
+fire	n.	A1
+first	det./number adv.	A1
+fish	n.	A1
+five	number	A1
+flat	n.	A1
+flight	n.	A1
+floor	n.	A1
+flower	n.	A1
+fly	v.	A1
+follow	v.	A1
+food	n.	A1
+foot	n.	A1
+football	n.	A1
+for	prep.	A1
+forget	v.	A1
+form	n. v.	A1
+forty	number	A1
+four	number	A1
+fourteen	number	A1
+fourth	number	A1
+free	adj.	A1
+Friday	n.	A1
+friend	n.	A1
+friendly	adj.	A1
+from	prep.	A1
+front	n. adj.	A1
+fruit	n.	A1
+full	adj.	A1
+fun	n.	A1
+funny	adj.	A1
+future	n.	A1
+game	n.	A1
+garden	n.	A1
+geography	n.	A1
+get	v.	A1
+girl	n.	A1
+girlfriend	n.	A1
+give	v.	A1
+glass	n.	A1
+go	v.	A1
+good	adj.	A1
+goodbye	exclam./n.	A1
+grandfather	n.	A1
+grandmother	n.	A1
+grandparent	n.	A1
+great	adj.	A1
+green	adj. n.	A1
+grey	adj. n.	A1
+group	n.	A1
+grow	v.	A1
+guess	v. n.	A1
+guitar	n.	A1
+gym	n.	A1
+hair	n.	A1
+half	n. det./pron.	A1
+hand	n.	A1
+happen	v.	A1
+happy	adj.	A1
+hard	adj. adv.	A1
+hat	n.	A1
+hate	v.	A1
+have	v.	A1
+he	pron.	A1
+head	n.	A1
+health	n.	A1
+healthy	adj.	A1
+hear	v.	A1
+hello	exclam./n.	A1
+help	v. n.	A1
+her	pron. det.	A1
+here	adv.	A1
+hey	exclam.	A1
+hi	exclam.	A1
+high	adj.	A1
+him	pron.	A1
+his	det.	A1
+history	n.	A1
+hobby	n.	A1
+holiday	n.	A1
+home	n. adv.	A1
+homework	n.	A1
+hope	v.	A1
+horse	n.	A1
+hospital	n.	A1
+hot	adj.	A1
+hotel	n.	A1
+hour	n.	A1
+house	n.	A1
+how	adv.	A1
+however	adv.	A1
+hundred	number	A1
+hungry	adj.	A1
+husband	n.	A1
+I	pron.	A1
+ice	n.	A1
+idea	n.	A1
+if	conj.	A1
+imagine	v.	A1
+important	adj.	A1
+improve	v.	A1
+in	prep. adv.	A1
+include	v.	A1
+information	n.	A1
+interest	n. v.	A1
+interested	adj.	A1
+interesting	adj.	A1
+internet	n.	A1
+interview	n. v.	A1
+into	prep.	A1
+introduce	v.	A1
+island	n.	A1
+it	pron.	A1
+its	det.	A1
+jacket	n.	A1
+January	n.	A1
+jeans	n.	A1
+job	n.	A1
+join	v.	A1
+journey	n.	A1
+juice	n.	A1
+July	n.	A1
+June	n.	A1
+just	adv.	A1
+keep	v.	A1
+key	n. adj.	A1
+kilometre	n.	A1
+kind	(type) n.	A1
+kitchen	n.	A1
+know	v.	A1
+land	n.	A1
+language	n.	A1
+large	adj.	A1
+last1	(final) det.	A1
+late	adj. adv.	A1
+later	adv.	A1
+laugh	v. n.	A1
+learn	v.	A1
+leave	v.	A1
+left	adj. adv. n.	A1
+leg	n.	A1
+lesson	n.	A1
+let	v.	A1
+letter	n.	A1
+library	n.	A1
+lie1	v.	A1
+life	n.	A1
+light	(from the sun/a lamp) n.	A1
+like	(similar) prep.	A1
+line	n.	A1
+lion	n.	A1
+list	n. v.	A1
+listen	v.	A1
+little	adj. det./pron.	A1
+live1	v.	A1
+local	adj.	A1
+long1	adj. adv.	A1
+look	v.	A1
+lose	v.	A1
+lot	pron. det. adv.	A1
+love	n. v.	A1
+lunch	n.	A1
+machine	n.	A1
+magazine	n.	A1
+main	adj.	A1
+make	v.	A1
+man	n.	A1
+many	det./pron.	A1
+map	n.	A1
+March	n.	A1
+market	n.	A1
+married	adj.	A1
+match	(contest/correspond) n. v.	A1
+May	n.	A1
+maybe	adv.	A1
+me	pron.	A1
+meal	n.	A1
+mean	v.	A1
+meaning	n.	A1
+meat	n.	A1
+meet	v.	A1
+meeting	n.	A1
+member	n.	A1
+menu	n.	A1
+message	n.	A1
+metre	n.	A1
+midnight	n.	A1
+mile	n.	A1
+milk	n.	A1
+million	number	A1
+minute1	n.	A1
+miss	v.	A1
+mistake	n.	A1
+model	n.	A1
+modern	adj.	A1
+moment	n.	A1
+Monday	n.	A1
+money	n.	A1
+month	n.	A1
+more	det./pron. adv.	A1
+morning	n.	A1
+most	det./pron. adv.	A1
+mother	n.	A1
+mountain	n.	A1
+mouse	n.	A1
+mouth	n.	A1
+move	v.	A1
+movie	n.	A1
+much	det./pron. adv.	A1
+mum	n.	A1
+museum	n.	A1
+music	n.	A1
+must	modal v.	A1
+my	det.	A1
+name	n. v.	A1
+natural	adj.	A1
+near	prep. adj. adv.	A1
+need	v.	A1
+negative	adj.	A1
+neighbour	n.	A1
+never	adv.	A1
+new	adj.	A1
+news	n.	A1
+newspaper	n.	A1
+next	adj. adv.	A1
+nice	adj.	A1
+night	n.	A1
+nine	number	A1
+nineteen	number	A1
+ninety	number	A1
+no	exclam. det.	A1
+nobody	pron.	A1
+north	n. adj. adv.	A1
+nose	n.	A1
+not	adv.	A1
+note	n.	A1
+nothing	pron.	A1
+November	n.	A1
+now	adv.	A1
+number	n.	A1
+nurse	n.	A1
+oâclock	adv.	A1
+object	n.	A1
+October	n.	A1
+of	prep.	A1
+off	adv. prep.	A1
+office	n.	A1
+often	adv.	A1
+oh	exclam.	A1
+OK	exclam. adj./adv.	A1
+old	adj.	A1
+on	prep. adv.	A1
+once	adv.	A1
+one	number/det. pron.	A1
+onion	n.	A1
+online	adj. adv.	A1
+only	adj. adv.	A1
+open	adj. v.	A1
+opinion	n.	A1
+opposite	adj. n. prep. adv.	A1
+or	conj.	A1
+orange	n. adj.	A1
+order	n. v.	A1
+other	adj./pron.	A1
+our	det.	A1
+out	adv./prep.	A1
+outside	adv.	A1
+over	prep. adv.	A1
+own	adj./pron.	A1
+page	n.	A1
+paint	v. n.	A1
+painting	n.	A1
+pair	n.	A1
+paper	n.	A1
+paragraph	n.	A1
+parent	n.	A1
+park	n. v.	A1
+part	n.	A1
+partner	n.	A1
+party	n.	A1
+passport	n.	A1
+past	adj. n. prep.	A1
+pay	v.	A1
+pen	n.	A1
+pencil	n.	A1
+people	n.	A1
+pepper	n.	A1
+perfect	adj.	A1
+period	n.	A1
+person	n.	A1
+personal	adj.	A1
+phone	n. v.	A1
+photo	n.	A1
+photograph	n.	A1
+phrase	n.	A1
+piano	n.	A1
+picture	n.	A1
+piece	n.	A1
+pig	n.	A1
+pink	adj. n.	A1
+place	n.	A1
+plan	n. v.	A1
+plane	n.	A1
+plant	n.	A1
+play	v. n.	A1
+player	n.	A1
+please	exclam.	A1
+point	n.	A1
+police	n.	A1
+policeman	n.	A1
+pool	n.	A1
+poor	adj.	A1
+popular	adj.	A1
+positive	adj.	A1
+possible	adj.	A1
+post	n. v.	A1
+potato	n.	A1
+pound	n.	A1
+practice	n.	A1
+practise	v.	A1
+prefer	v.	A1
+prepare	v.	A1
+present	adj. n.	A1
+pretty	adj. adv.	A1
+price	n.	A1
+probably	adv.	A1
+problem	n.	A1
+product	n.	A1
+programme	n.	A1
+project	n.	A1
+purple	adj. n.	A1
+put	v.	A1
+quarter	n.	A1
+question	n.	A1
+quick	adj.	A1
+quickly	adv.	A1
+quiet	adj.	A1
+quite	adv.	A1
+radio	n.	A1
+rain	n. v.	A1
+read	v.	A1
+reader	n.	A1
+reading	n.	A1
+ready	adj.	A1
+real	adj.	A1
+really	adv.	A1
+reason	n.	A1
+red	adj. n.	A1
+relax	v.	A1
+remember	v.	A1
+repeat	v.	A1
+report	n.	A1
+restaurant	n.	A1
+result	n.	A1
+return	v. n.	A1
+rice	n.	A1
+rich	adj.	A1
+ride	v.	A1
+right	adj. adv. n.	A1
+river	n.	A1
+road	n.	A1
+room	n.	A1
+routine	n.	A1
+rule	n.	A1
+run	v.	A1
+sad	adj.	A1
+salad	n.	A1
+salt	n.	A1
+same	adj. pron. adv.	A1
+sandwich	n.	A1
+Saturday	n.	A1
+say	v.	A1
+school	n.	A1
+science	n.	A1
+scientist	n.	A1
+sea	n.	A1
+second1	(next after the first) det./	A1
+section	n.	A1
+see	v.	A1
+sell	v.	A1
+send	v.	A1
+sentence	n.	A1
+September	n.	A1
+seven	number	A1
+seventeen	number	A1
+seventy	number	A1
+share	v.	A1
+she	pron.	A1
+sheep	n.	A1
+shirt	n.	A1
+shoe	n.	A1
+shop	n. v.	A1
+shopping	n.	A1
+short	adj.	A1
+should	modal v.	A1
+show	v. n.	A1
+shower	n.	A1
+sick	adj.	A1
+similar	adj.	A1
+sing	v.	A1
+singer	n.	A1
+sister	n.	A1
+sit	v.	A1
+situation	n.	A1
+six	number	A1
+sixteen	number	A1
+sixty	number	A1
+skill	n.	A1
+skirt	n.	A1
+sleep	v.	A1
+slow	adj.	A1
+small	adj.	A1
+snake	n.	A1
+snow	n. v.	A1
+so	adv. conj.	A1
+some	det. pron.	A1
+somebody	pron.	A1
+someone	pron.	A1
+something	pron.	A1
+sometimes	adv.	A1
+son	n.	A1
+song	n.	A1
+soon	adv.	A1
+sorry	adj. exclam.	A1
+sound	n. v.	A1
+soup	n.	A1
+south	n. adj. adv.	A1
+space	n.	A1
+speak	v.	A1
+special	adj.	A1
+spell	v.	A1
+spelling	n.	A1
+spend	v.	A1
+sport	n.	A1
+spring	n.	A1
+stand	v.	A1
+star	n.	A1
+start	v.	A1
+statement	n.	A1
+station	n.	A1
+stay	v.	A1
+still	adv.	A1
+stop	v. n.	A1
+story	n.	A1
+street	n.	A1
+strong	adj.	A1
+student	n.	A1
+study	n. v.	A1
+style	n.	A1
+subject	n.	A1
+success	n.	A1
+sugar	n.	A1
+summer	n.	A1
+sun	n.	A1
+Sunday	n.	A1
+supermarket	n.	A1
+sure	adj.	A1
+sweater	n.	A1
+swim	v.	A1
+swimming	n.	A1
+T-shirt	n.	A1
+table	n.	A1
+take	v.	A1
+talk	v.	A1
+tall	adj.	A1
+taxi	n.	A1
+tea	n.	A1
+teach	v.	A1
+teacher	n.	A1
+team	n.	A1
+teenager	n.	A1
+telephone	n. v.	A1
+television	n.	A1
+tell	v.	A1
+ten	number	A1
+tennis	n.	A1
+terrible	adj.	A1
+test	n. v.	A1
+text	n.	A1
+than	conj.	A1
+thank	v.	A1
+thanks	exclam. n.	A1
+that	det. pron. conj.	A1
+the	definite article	A1
+theatre	n.	A1
+their	det.	A1
+them	pron.	A1
+then	adv.	A1
+there	adv.	A1
+they	pron.	A1
+thing	n.	A1
+think	v.	A1
+third	number	A1
+thirsty	adj.	A1
+thirteen	number	A1
+thirty	number	A1
+this	det./pron.	A1
+thousand	number	A1
+three	number	A1
+through	prep. adv.	A1
+Thursday	n.	A1
+ticket	n.	A1
+time	n.	A1
+tired	adj.	A1
+title	n.	A1
+to	prep. infinitive marker	A1
+today	adv. n.	A1
+together	adv.	A1
+toilet	n.	A1
+tomato	n.	A1
+tomorrow	adv. n.	A1
+tonight	adv. n.	A1
+too	adv.	A1
+tooth	n.	A1
+topic	n.	A1
+tourist	n.	A1
+town	n.	A1
+traffic	n.	A1
+train	n.	A1
+travel	v. n.	A1
+tree	n.	A1
+trip	n.	A1
+trousers	n.	A1
+true.	adj.	A1
+try	v.	A1
+Tuesday	n.	A1
+turn	v. n.	A1
+TV	n.	A1
+twelve	number	A1
+twenty	number	A1
+twice	adv.	A1
+two	number	A1
+type	n.	A1
+umbrella	n.	A1
+uncle	n.	A1
+under	prep. adv.	A1
+understand	v.	A1
+university	n.	A1
+until	conj./prep.	A1
+up	adv. prep.	A1
+upstairs	adv.	A1
+us	pron.	A1
+use	v.	A1
+useful	adj.	A1
+usually	adv.	A1
+vacation	n.	A1
+vegetable	n.	A1
+very	adv.	A1
+video	n.	A1
+village	n.	A1
+visit	v. n.	A1
+visitor	n.	A1
+wait	v.	A1
+waiter	n.	A1
+wake	v.	A1
+walk	v. n.	A1
+wall	n.	A1
+want	v.	A1
+warm	adj.	A1
+wash	v.	A1
+watch	v. n.	A1
+water	n.	A1
+way	n.	A1
+we	pron.	A1
+wear	v.	A1
+weather	n.	A1
+website	n.	A1
+Wednesday	n.	A1
+week	n.	A1
+weekend	n.	A1
+welcome	exclam. v. adj.	A1
+well	adv. adj. exclam.	A1
+west	n. adj. adv.	A1
+what	pron./det.	A1
+when	adv. pron. conj.	A1
+where	adv. conj.	A1
+which	pron./det.	A1
+white	adj. n.	A1
+who	pron.	A1
+why	adv.	A1
+wife	n.	A1
+will	modal v.	A1
+win	v.	A1
+window	n.	A1
+wine	n.	A1
+winter	n.	A1
+with	prep.	A1
+without	prep.	A1
+woman	n.	A1
+wonderful	adj.	A1
+word	n.	A1
+work	v. n.	A1
+worker	n.	A1
+world	n.	A1
+would	modal v.	A1
+write	v.	A1
+writer	n.	A1
+writing	n.	A1
+wrong	adj.	A1
+yeah	exclam.	A1
+year	n.	A1
+yellow	adj. n.	A1
+yes	exclam.	A1
+yesterday	adv. n.	A1
+you	pron.	A1
+young	adj.	A1
+your	det.	A1
+yourself	pron.	A1
